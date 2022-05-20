@@ -1,0 +1,21 @@
+#!/usr/bin/bash
+
+aspect_name=${1}
+describe_file="aspects/${aspect_name}/describe.txt"
+script_file="aspects/${aspect_name}/script"
+
+mkdir aspects/${aspect_name}
+
+echo "#!/usr/bin/env bash
+
+source ~/Singularis/bin/common
+source ~/Singularis/bin/variables
+
+log_info \"Installing ${aspect_name}\"
+
+ln -sf \${ASPECTS}/${aspect_name} ~/.config" >> ${script_file}
+
+chmod +x aspects/${aspect_name}/script
+touch aspects/${aspect_name}/describe.txt
+read -p "Describe the aspect: " description
+echo ${description} >> ${describe_file}
