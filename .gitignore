@@ -1,11 +1,4 @@
 Personal/
+node_modules/
 tags
-aspects/dotfiles/files/zsh/.zsh_history
-aspects/dotfiles/files/zsh/zsh_history
-aspects/dotfiles/files/zsh/.zcompdump*
-aspects/dotfiles/files/zsh/.chpwd-recent-dirs
-aspects/dotfiles/files/zsh/plugins/
-aspects/dotfiles/files/zsh/completions/
-aspects/dotfiles/files/zsh/base16-shell
 backup-configuration/
-
