@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+
+source bin/common
+source bin/variables
+
+if [[ $# == 0 || $1 == '--commands' || $1 == '--help' ]]; then
+  commands
+elif [[ $1 == '--all' ]]; then
+  all
+elif [[ $1 == '--describe' ]]; then
+  describe ${@}
+# Source files
+elif [[ $1 == '--git' ]]; then
+  source_file "git.sh"
+elif [[ $1 == '--packages' ]]; then
+  source_file "arch-packages.sh"
+elif [[ $1 == '--python' ]]; then
+  source_file "python-libraries.sh"
+elif [[ $1 == '--fonts' ]]; then
+  source_file "fonts.sh"
+elif [[ $1 == '--npm' ]]; then
+  source_file "npm-packages.sh"
+elif [[ $1 == '--themes' ]]; then
+  source_file "themes.sh"
+# Aspects
+elif [[ $1 == '--aspects' ]]; then
+  install_all_aspects
+elif [[ $1 == '--all-aspects' ]]; then
+  source_file "install-all-aspects.sh"
+elif [[ $1 == '--not' ]]; then
+  not_aspect
+else
+  install_specific_aspects $@
+fi
+
