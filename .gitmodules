@@ -6,52 +6,25 @@
 	url = https://github.com/SingularisArt/Death.NeoVim
 [submodule "email"]
 	path = aspects/email
-	url = https://github.com/SingularisArt/Email
+	url = https://github.com/SingularisArt/email
 [submodule "dwm"]
 	path = aspects/dwm
 	url = https://github.com/SingularisArt/dwm
 [submodule "local"]
 	path = local
 	url = https://github.com/SingularisArt/local
-[submodule "p-table"]
-	path = third-party-tools/p-table
-	url = https://github.com/GideonWolfe/pTable
-[submodule "telegram-palette-gen"]
-	path = third-party-tools/telegram-palette-gen
-	url = https://github.com/agnipau/telegram-palette-gen
 [submodule "chameleon"]
 	path = third-party-tools/chameleon
 	url = https://github.com/SingularisArt/Chameleon
-[submodule "start-tree"]
-	path = third-party-tools/start-tree
-	url = https://github.com/SingularisArt/start-tree
 [submodule "wallpapers"]
 	path = media/wallpapers
 	url = https://github.com/SingularisArt/wallpapers
-[submodule "fzf"]
-	path = third-party-tools/fzf
-	url = https://github.com/junegunn/fzf
-[submodule "canvas"]
-	path = third-party-tools/canvas
-	url = https://github.com/GideonWolfe/canvas-tui
-[submodule "canvas-python"]
-	path = third-party-tools/canvas-python
-	url = https://github.com/GideonWolfe/canvas-cli
 [submodule "tdrop"]
 	path = third-party-tools/tdrop
 	url = https://github.com/noctuid/tdrop
 [submodule "inkscape-figures"]
 	path = third-party-tools/inkscape-figures
 	url = https://github.com/SingularisArt/inkscape-figures
-[submodule "clipboard"]
-	path = third-party-tools/clipboard
-	url = https://github.com/SingularisArt/clipboard
-[submodule "git-cipher"]
-	path = third-party-tools/git-cipher
-	url = https://github.com/wincent/git-cipher
-[submodule "toc"]
-	path = third-party-tools/github-markdown-toc
-	url = https://github.com/ekalinin/github-markdown-toc
 [submodule "inkscape-mappings"]
 	path = third-party-tools/inkscape-mappings
 	url = https://github.com/SingularisArt/inkscape-mappings
