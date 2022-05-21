@@ -1,0 +1,62 @@
+#!/bin/sh
+
+# Autostart
+
+## Autokill
+killall -9 ksuperkey xfce4-power-manager &
+killall sxhkd; sxhkd &
+killall dunst; dunst &
+
+## Autostart
+
+nm-applet &
+xrdb ~/.Xresources &
+picom -b --experimental-backends --backend glx --blur-method dual_kawase &
+hsetroot -cover ~/.config/wall.png &
+flameshot &
+fcitx -d &
+launchpolybar &
+killall bspswallow
+pidof bspswallow | bspswallow &
+feh --bg-scale ~/.config/wall.jpg &
+$HOME/.config/polybar/launch.sh &
+
+# Variable
+export TZ='America/Vancouver'
+
+# Workspaces
+bspc monitor -d 1 2 3 4 5
+
+# Config
+bspc config automatic_scheme alternate
+bspc config initial_polarity second_child
+bspc config pointer_modifier lock
+bspc config pointer_action1 move
+bspc config pointer_action2 resize_side
+bspc config pointer_action3 resize_corner
+bspc config click_to_focus none
+
+bspc config focus_follows_pointer true
+bspc config remove_disabled_monitors true
+bspc config remove_unplugged_monitors true
+bspc config merge_overlapping_monitors true
+
+# Monitor And Desktop Settings
+bspc config top_padding 32
+bspc config bottom_padding 0
+bspc config left_padding 0
+bspc config right_padding 0
+bspc config border_width 2
+bspc config window_gap 10
+
+# Rules
+workspaces_multimonitor &
+
+bspc rule -a matplotlib state=state
+bspc rule -a anki state=state
+bspc rule -a Xfce4-terminal state=state
+bspc rule -a Gcolor2 state=state
+bspc rule -a Lxappearance state=state
+bspc rule -a Gmrun state=state
+bspc rule -a Lxterminal state=state
+bspc rule -a Viewnior state=state

@@ -1,0 +1,61 @@
+oomoxicons:
+  # This changes depending on your iconset
+  command: "oomox-archdroid-icons-cli"
+  # Path to the desired theme you want to apply
+  themepath: "/opt/oomox/scripted_colors/xresources/xresources-reverse"
+
+oomoxgtk:
+  # Path to the desired theme you want to apply
+  themepath: "/opt/oomox/scripted_colors/xresources/xresources-reverse"
+
+# oomoxspotify:
+#   spotifypath: "/opt/spotify/Apps"
+#   enabled: "True"
+
+# slickpywal:
+  # path:
+
+# pywalneopixels:
+  # path:
+
+# waldiscord:
+  # path:
+
+# razer-cli:
+  # path:
+
+# telegrampalletegen:
+  # path:
+
+# spicetify:
+  # path:
+
+# pywalfox:
+  # path:
+
+zathura:
+  path: "/home/hashem/.config/zathura"
+
+xfce4-terminal:
+  path: "/home/hashem/.config/xfce4"
+
+rofi:
+  path: "/home/hashem/.config/rofi"
+
+dunst:
+  path: "/home/hashem/.config/dunst"
+
+dwm:
+  path: "/home/hashem/.config/dwm/dwm-config"
+
+matplotlib:
+  path: "/home/hashem/.config/matplotlib"
+
+xmenu:
+  path: "/home/hashem/Singularis/aspects/xmenu"
+
+starttree:
+  path: "/home/hashem/Singularis/third-party-tools/start-tree"
+
+gnuplot:
+  path: "/home/hashem/.config/gnuplot"
