@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+source ~/Singularis/bin/common
+source ~/Singularis/bin/variables
+
+log_info "Installing calcurse"
+
+ln -sf ${ASPECTS}/calcurse ~/.calcurse
+
+

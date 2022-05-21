@@ -1,0 +1,16 @@
+[general]
+  framerate = 80
+  bar_width = 1
+  bar_spacing = 1
+
+# [color]
+#   gradient = 1
+#   gradient_count = 4
+
+[output]
+  method = ncurses
+  channles = mono
+
+[smoothing]
+  integral = 85
+  gravity = 100

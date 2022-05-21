@@ -1,0 +1,5 @@
+<Configuration>
+  <AddinStatus>
+    <Addin id="Banshee.LastfmStreaming,1.0" enabled="False" />
+  </AddinStatus>
+</Configuration>
