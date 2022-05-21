@@ -1,0 +1,21 @@
+# Color for X and Y tick labels
+xtick.color: a9b9dc
+ytick.color: a9b9dc
+# Display Grid
+axes.grid: True
+# Grid color
+grid.color: a9b9dc
+# Transparency
+grid.alpha: 0.5
+# Colors for line numbers
+axes.prop_cycle: cycler('color', ['5C77B6', '5C78B6', '5D79B8', '5D79B8', '607DBF', '617EC0', 'a9b9dc', '76819a', '5B76B3', '5C77B6'])
+# Axes Edge Color
+axes.edgecolor: 617EC0
+# Background color around graph
+figure.facecolor: 151823
+# Axes title color
+axes.titlecolor: a9b9dc
+axes.labelcolor: a9b9dc
+text.color: a9b9dc
+# Background Color
+axes.facecolor: 151823
