@@ -1,0 +1,142 @@
+############################## LFM dump keys ##############################
+
+#################### Key -> Action ####################
+!          ->   tab_close
+#          ->   show_dirs_size
+*          ->   select_invert
++          ->   select_glob
+,          ->   panes_swap
+-          ->   deselect_glob
+.          ->   panes_cycle_view
+/          ->   find_grep
+:          ->   tab_new
+<          ->   tab_left
+=          ->   pane_other_tab_equal
+>          ->   tab_right
+@          ->   exec_on_file
+A-r        ->   redraw_screen
+A-s        ->   cursor_goto_file_1char
+B          ->   bookmark_set
+C-a        ->   cursor_home
+C-d        ->   bookmark_select_fromlist
+C-down     ->   cursor_down10
+C-e        ->   cursor_end
+C-f        ->   filters_edit
+C-h        ->   dotfiles_toggle
+C-n        ->   cursor_pagedown
+C-o        ->   open_shell
+C-p        ->   cursor_pageup
+C-q        ->   quit_nochdir
+C-r        ->   refresh
+C-s        ->   cursor_goto_file
+C-t        ->   show_tree
+C-u        ->   panes_swap
+C-up       ->   cursor_up10
+C-x        ->   toggle_powercli
+C-y        ->   history_select_fromlist
+L          ->   link_edit
+b          ->   bookmark_goto
+backspace  ->   cursor_pageup
+down       ->   cursor_down
+end        ->   cursor_end
+enter      ->   dir_enter
+f10        ->   quit_chdir
+f12        ->   file_menu
+f2         ->   rename_file
+f3         ->   view_file
+f4         ->   edit_file
+f5         ->   copy_file
+f6         ->   move_file2
+f7         ->   make_dir
+f8         ->   delete_file
+f9         ->   main_menu
+g          ->   goto
+h          ->   help_menu
+home       ->   cursor_home
+i          ->   show_file_info
+ins        ->   select
+j          ->   cursor_down
+k          ->   cursor_up
+l          ->   link_create
+left       ->   dir_up
+pagedown   ->   cursor_pagedown
+pageup     ->   cursor_pageup
+q          ->   quit_chdir
+right      ->   dir_enter
+s          ->   sort_files
+spc        ->   cursor_pagedown
+t          ->   touch_file
+tab        ->   pane_change_focus
+up         ->   cursor_up
+
+#################### Action -> Key ####################
+bookmark_goto            ->  b
+bookmark_select_fromlist ->  C-d
+bookmark_set             ->  B
+copy_file                ->  f5
+cursor_down              ->  down, j
+cursor_down10            ->  C-down
+cursor_end               ->  C-e, end
+cursor_goto_file         ->  C-s
+cursor_goto_file_1char   ->  A-s
+cursor_home              ->  C-a, home
+cursor_pagedown          ->  C-n, pagedown, spc
+cursor_pageup            ->  C-p, backspace, pageup
+cursor_up                ->  k, up
+cursor_up10              ->  C-up
+delete_file              ->  f8
+deselect_glob            ->  -
+dir_enter                ->  enter, right
+dir_up                   ->  left
+dotfiles_toggle          ->  C-h
+edit_file                ->  f4
+exec_on_file             ->  @
+file_menu                ->  f12
+filters_edit             ->  C-f
+find_grep                ->  /
+goto                     ->  g
+help_menu                ->  h
+history_select_fromlist  ->  C-y
+link_create              ->  l
+link_edit                ->  L
+main_menu                ->  f9
+make_dir                 ->  f7
+move_file2               ->  f6
+open_shell               ->  C-o
+pane_change_focus        ->  tab
+pane_other_tab_equal     ->  =
+panes_cycle_view         ->  .
+panes_swap               ->  ,, C-u
+quit_chdir               ->  f10, q
+quit_nochdir             ->  C-q
+redraw_screen            ->  A-r
+refresh                  ->  C-r
+rename_file              ->  f2
+select                   ->  ins
+select_glob              ->  +
+select_invert            ->  *
+show_dirs_size           ->  #
+show_file_info           ->  i
+show_tree                ->  C-t
+sort_files               ->  s
+tab_close                ->  !
+tab_left                 ->  <
+tab_new                  ->  :
+tab_right                ->  >
+toggle_powercli          ->  C-x
+touch_file               ->  t
+view_file                ->  f3
+
+Actions with no keys:
+. backup_file
+. change_owner
+. change_perms
+. compress_dir
+. compress_uncompress_file
+. diff_file_with_backup
+. move_file
+. show_filesystems_info
+. uncompress_dir
+. uncompress_dir_other_pane
+
+######################################################################

@@ -1,0 +1,57 @@
+########## lfm - Last File Manager - Theme ##########
+
+# Format is:   item:  foreground  background
+#        or:   item:  =previous_item
+# Valid colors: white, black, red, green, yellow, blue, magenta, cyan
+# Can use * to intensify a foreground color
+
+
+[Colors]
+header:                 yellow   blue
+tab_active:             yellow   black
+tab_inactive:           =header
+pane_active:            green    black
+pane_inactive:          white    black
+pane_header_path:       red*     black
+pane_header_titles:     white*   black
+statusbar:              =header
+powercli_prompt:        blue*    black
+powercli_text:          white    black
+
+selected_files:         yellow*  black
+cursor:                 blue     cyan
+cursor_selected:        yellow*  cyan
+
+files_dir:              green    black
+files_exe:              red      black
+files_reg:              white    black
+files_archive:          yellow   black
+files_audio:            blue     black
+files_data:             magenta* black
+files_devel:            cyan     black
+files_document:         blue     black
+files_ebook:            =files_document
+files_graphics:         magenta  black
+files_pdf:              =files_document
+files_temp:             white    black
+files_web:              =files_document
+files_video:            =files_audio
+
+dialog:                 yellow   blue
+dialog_title:           yellow*  blue
+button_active:          yellow*  red
+button_inactive:        =dialog_title
+dialog_error:           black    red
+dialog_error_title:     white    red
+dialog_error_text:      white*   red
+dialog_perms:           green*   black
+selectitem:             blue     cyan
+selectitem_title:       red      cyan
+selectitem_cursor:      yellow   blue
+entryline:              yellow*  cyan
+progressbar_fg:         black    white
+progressbar_bg:         white    cyan
+view_white_on_black:    white    black
+view_red_on_black:      red      black
+view_blue_on_black:     blue     black
+view_green_on_black:    green    black
