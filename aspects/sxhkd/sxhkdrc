@@ -1,0 +1,175 @@
+#--------#
+# School #
+#--------#
+
+alt + {a-z}
+  bash ~/Documents/school-notes/shortcut-manager.sh {a-z}
+alt + {A-Z}
+  bash ~/Documents/school-notes/shortcut-manager.sh {A-Z}
+
+#--------------#
+# Applications #
+#--------------#
+
+super + Return
+  xfce4-terminal
+super + w
+  $BROWSER
+super + n
+  xfce4-terminal -e 'nvim'
+super + m
+  xfce4-terminal -e 'neomutt'
+super + e
+  xfce4-terminal -e 'ncmpcpp'
+super + shift + p
+  xfce4-terminal -e 'pulsemixer'
+super + shift + d
+  bash $HOME/Singularis/local/scripts/xmenu-script
+super + shift + z
+  zathura
+super + shift + s
+  tdrop -am -n 0 xfce4-terminal
+super + semicolon
+  skippy-xd
+
+#------#
+# Rofi #
+#------#
+
+super + r
+  rofi -show drun -show-icons
+super + alt + shift + r
+  rofi -show window
+
+#-------#
+# Dunst #
+#-------#
+
+control + space
+  dunstctl close
+control + shift + space
+  dunstctl close-all
+control + grave
+  dunstctl history-pop
+
+#-------#
+# Music #
+#-------#
+
+super + alt + t
+  mpc toggle
+super + alt + r
+  mpc seek 0
+super + alt + shift + bracketleft
+  mpc seek +60
+super + alt + shift + bracketright
+  mpc seek -60
+super + alt  + bracketleft
+  mpc seek +10
+super + alt  + bracketright
+  mpc seek -10
+super + alt + comma
+  mpc prev
+super + alt + period
+  mpc next
+super + alt + u
+  pamixer -i 5 && bash $HOME/Singularis/local/scripts/volume-indicator show
+super + alt + d
+  pamixer -d 5 && bash $HOME/Singularis/local/scripts/volume-indicator show
+super + alt + v
+  bash $HOME/.config/rofi/applets/applets/mpd.sh
+
+
+#-------#
+# BSPWM #
+#-------#
+
+## Desktop/Workspace
+
+### Send to workspace
+super + shift + {1-5}
+  bspc node -d '^{1-5}'
+### Send to workspace
+super + {1-5}
+  bspc desktop -f ^{1-5}
+### Latest workspace
+super + Tab
+  bspc desktop last -f
+
+## Windows
+
+### Kill window
+super + {_,shift + }q
+  bspc node -{c,k}
+### Split h(o)rizontal, (v)ertical or (c)ancel
+super + {o,v,c}
+  bspc node -p {east,south,cancel}
+### Full screen or Monocle
+super + f
+  bspc node -t "~"fullscreen
+### Toggle between floating & tiled
+super + space
+  bspc node -t "~"{floating,tiled}
+### Pseudo Tiled & tiled mode
+super + ctrl + {p,t}
+  bspc node -t "~"{pseudo_tiled,tiled}
+### Set the node flags
+super + ctrl + {m,l,s,z}
+  bspc node -g {marked,locked,sticky,private}
+
+## Move/resize
+
+### expand a window by moving one of its side outward
+super + alt + {h,j,k,l}
+  bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
+### contract a window by moving one of its side inward
+super + alt + shift + {h,j,k,l}
+  bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
+### move a floating window
+super + {Left,Down,Up,Right}
+  bspc node -v {-20 0,0 20,0 -20,20 0}
+
+## Focus and Swap
+
+### Focus the node in the given direction
+super + {_,shift + }{h,j,k,l}
+	bspc node -{f,s} {west,south,north,east}
+
+## Selecting areas
+
+### Preselect the direction
+super + ctrl + alt + {h,l,k,j}
+  bspc node -p {west,east,north,south}
+### Preselect the ratio
+super + ctrl + {1-9}
+  bspc node -o 0.{1-9}
+### Cancel the preselection for the focused node
+super + ctrl + space
+  bspc node -p cancel
+### Cancel the preselection for the focused desktop
+super + ctrl + shift + space
+  bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
+### Move current window to a pre-selected space
+super + shift + m
+  bspc node -n last.!automatic
+
+## Gaps
+
+### Enable/Disable gaps
+super + a
+  ${HOME}/.config/sxhkd/scripts/enable-disable-gaps.sh
+super + shift + a
+  bspc config window_gap 10
+super + z
+  ${HOME}/.config/sxhkd/scripts/increase-decrease-gaps.sh plus
+super + x
+  ${HOME}/.config/sxhkd/scripts/increase-decrease-gaps.sh minus
+
+## Other
+
+### Reload Keybindings
+super + Escape
+  killall sxhkd; sxhkd &
+### Quit/Restart bspwm
+super + shift + ctrl + {q,r}
+  bspc {quit,wm -r}

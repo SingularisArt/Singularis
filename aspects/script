@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+source bin/common
+source bin/variables
+
+log_notice "Backing up all configurations to ${BACKUP_LOCATION}"
+mv ~/.config/* ${BACKUP_LOCATION}
+
+
+
+

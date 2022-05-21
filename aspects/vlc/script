@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+source ~/Singularis/bin/common
+source ~/Singularis/bin/variables
+
+log_info "Installing vlc"
+
+ln -sf ${ASPECTS}/vlc ~/.config
+

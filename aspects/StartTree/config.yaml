@@ -1,0 +1,70 @@
+font_size: 22
+theme: colors
+
+tree_1:
+  General:
+    GitHub: "https://www.github.com/"
+    Gmail: "https://mail.google.com/"
+    YouTube: "https://youtube.com"
+    Khan Academy: "khanacademy.org"
+    Memrise: "app.memrise.com"
+    Medium: "medium.com"
+  Reddit:
+    Front Page: "https://www.reddit.com"
+    UnixPorn: "https://www.reddit.com/r/unixporn"
+
+tree_2:
+  Best GitHub Repos:
+    My Dotfiles: "https://github.com/SingularisArt/Singularis"
+    Greg Hurrell Dotfiles: "https://github.com/wincent/wincent"
+    Luke Smith Dotfiles: "https://github.com/LukeSmithxyz/voidrice"
+    Nick Janetakis Dotfiles: "https://github.com/nickjj/dotfiles"
+    Gideon Wolfe Dotfiles: "https://github.com/GideonWolfe/dots"
+
+tree_3:
+  School:
+    Canvas: "https://bakercharters.instructure.com/"
+    Notes Online: "notion.so"
+    Notes Offline: "notion.so"
+    Trello: "https://trello.com"
+    Milanote: "https://milanote.com"
+  Cloud:
+    Account: ""
+    Drive: ""
+    Docs: ""
+    Slides: ""
+    Sheets: ""
+    Forums: ""
+    Next: ""
+
+tree_4:
+  Favorite Programming Channels:
+    Luke Smith: "https://www.youtube.com/channel/UC2eYFnH61tmytImy1mTYvhA"
+    Greg Hurrell: "https://www.youtube.com/channel/UCXPHFM88IlFn68OmLwtPmZA"
+    Nick Janetakis: "https://www.youtube.com/channel/UCorzANoC3fX9VVefJHM5wtA"
+    Tech With Tim: "https://www.youtube.com/channel/UC4JX40jDee_tINbkjycV4Sg"
+    Network Chuck: "https://www.youtube.com/channel/UC9x0AN7BWHpCDHSm9NiJFJQ"
+    Engineer Man: "https://www.youtube.com/channel/UCrUL8K81R4VBzm-KOYwrcxQ"
+    Traversy Media: "https://www.youtube.com/channel/UC29ju8bIPH5as8OGnQzwJyA"
+    Sentdex: "https://www.youtube.com/channel/UCfzlCWGWYyIQ0aLC5w48gBQ"
+    Corey Schafer: "https://www.youtube.com/channel/UCCezIgC97PvUuR4_gbFUs5g"
+    The Cherno: "https://www.youtube.com/channel/UCQ-W1KE9EYfdxhL6S4twUNw"
+    MAKC: "https://www.youtube.com/channel/UCWh6YtclgTAzReTASc4uSKw"
+    Kids Can Code: "https://www.youtube.com/channel/UCNaPQ5uLX5iIEHUCLmfAgKg"
+    Distro Tube: "https://www.youtube.com/channel/UCVls1GmFKf6WlTraIb_IaJg"
+    Brodie Robertson: "https://www.youtube.com/channel/UCld68syR8Wi-GY_n4CaoJGA"
+    Dani: "https://www.youtube.com/channel/UCIabPXjvT5BVTxRDPCBBOOQ"
+    Chris At Machine: "https://www.youtube.com/channel/UCS97tchJDq17Qms3cux8wcA"
+    Coding With Russ: "https://www.youtube.com/channel/UCPrRY0S-VzekrJK7I7F4-Mg"
+    Ponty Pants: "https://www.youtube.com/channel/UCORaUhZVpg7yhxJeaPSTGmQ"
+    Tech Hut: "https://www.youtube.com/channel/UCjSEJkpGbcZhvo0lr-44X_w"
+    Dev As Life: "https://www.youtube.com/channel/UC7yZ6keOGsvERMp2HaEbbXQ"
+    Dev Ed: "https://www.youtube.com/channel/UClb90NQQcskPUGDIXsQEz5Q"
+
+tree_5:
+  Favorite Slack Channels:
+    High Boi: "https://www.youtube.com/channel/UCkzaJDHBKbcaNatH_T00ieg"
+    Mr Beast: "https://www.youtube.com/channel/UCX6OQ3DkcsbYNE6H8uQQuVA"
+    PewDiePie: "https://www.youtube.com/channel/UC-lHJZR3Gqxm24_Vd_AJ5Yw"
+    Dani 2: "https://www.youtube.com/channel/UCzmtKpQQyZ-9ZNY_bbFtVHw"
+    Code Bullet: "https://www.youtube.com/channel/UC0e3QhIYukixgh5VVpKHH9Q"

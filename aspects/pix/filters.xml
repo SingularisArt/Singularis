@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<filters version="1.0">
+  <test id="file::type::is_file" display="none"/>
+  <test id="file::type::is_image" display="none"/>
+  <test id="file::type::is_video" display="none"/>
+  <test id="file::type::is_audio" display="none"/>
+  <test id="file::type::is_media" display="none"/>
+  <test id="file::type::is_text" display="none"/>
+  <test id="file::name" op="none" display="none"/>
+  <test id="file::size" op="none" display="none"/>
+  <test id="file::mtime" op="none" display="none"/>
+  <test id="Embedded::Photo::DateTimeOriginal" op="none" display="none"/>
+  <test id="general::title" op="none" display="none"/>
+  <test id="general::description" op="none" display="none"/>
+  <test id="general::tags" op="none" display="none"/>
+  <test id="comment::note" op="none" display="none"/>
+  <test id="comment::place" op="none" display="none"/>
+  <test id="comment::category" op="none" display="none"/>
+</filters>

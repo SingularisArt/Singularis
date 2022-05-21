@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xbel version="1.0"
+      xmlns:bookmark="http://www.freedesktop.org/standards/desktop-bookmarks"
+      xmlns:mime="http://www.freedesktop.org/standards/shared-mime-info"
+>
+  <bookmark href="file:///home/hashedupforyou101/Desktop/4.Python/Projects/Games/Platformer/img" added="2021-05-25T00:49:43Z" modified="2021-05-25T00:49:43Z" visited="2021-05-25T00:49:43.086278Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <bookmark:applications>
+          <bookmark:application name="Pix" exec="&apos;pix %u&apos;" modified="2021-05-25T00:49:43Z" count="1"/>
+        </bookmark:applications>
+        <bookmark:private/>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/hashedupforyou101/Desktop/4.Python/Projects/Games/Platformer" added="2021-05-25T00:49:43Z" modified="2021-05-25T00:49:43Z" visited="2021-05-25T00:49:43.086303Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <bookmark:applications>
+          <bookmark:application name="Pix" exec="&apos;pix %u&apos;" modified="2021-05-25T00:49:43Z" count="1"/>
+        </bookmark:applications>
+        <bookmark:private/>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/hashedupforyou101/Desktop/4.Python/Projects/Games" added="2021-05-25T00:49:43Z" modified="2021-05-25T00:49:43Z" visited="2021-05-25T00:49:43.086320Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <bookmark:applications>
+          <bookmark:application name="Pix" exec="&apos;pix %u&apos;" modified="2021-05-25T00:49:43Z" count="1"/>
+        </bookmark:applications>
+        <bookmark:private/>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/hashedupforyou101/Desktop/4.Python/Projects" added="2021-05-25T00:49:43Z" modified="2021-05-25T00:49:43Z" visited="2021-05-25T00:49:43.086336Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <bookmark:applications>
+          <bookmark:application name="Pix" exec="&apos;pix %u&apos;" modified="2021-05-25T00:49:43Z" count="1"/>
+        </bookmark:applications>
+        <bookmark:private/>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/hashedupforyou101/Desktop/4.Python" added="2021-05-25T00:49:43Z" modified="2021-05-25T00:49:43Z" visited="2021-05-25T00:49:43.086351Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <bookmark:applications>
+          <bookmark:application name="Pix" exec="&apos;pix %u&apos;" modified="2021-05-25T00:49:43Z" count="1"/>
+        </bookmark:applications>
+        <bookmark:private/>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/hashedupforyou101/Desktop/3.Bash" added="2021-05-25T00:49:43Z" modified="2021-05-25T00:49:43Z" visited="2021-05-25T00:49:43.086366Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <bookmark:applications>
+          <bookmark:application name="Pix" exec="&apos;pix %u&apos;" modified="2021-05-25T00:49:43Z" count="1"/>
+        </bookmark:applications>
+        <bookmark:private/>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/hashedupforyou101/Desktop" added="2021-05-25T00:49:43Z" modified="2021-05-25T00:49:43Z" visited="2021-05-25T00:49:43.086380Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <bookmark:applications>
+          <bookmark:application name="Pix" exec="&apos;pix %u&apos;" modified="2021-05-25T00:49:43Z" count="1"/>
+        </bookmark:applications>
+        <bookmark:private/>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/hashedupforyou101/Pictures" added="2021-05-25T00:49:43Z" modified="2021-05-25T00:49:43Z" visited="2021-05-25T00:49:43.086395Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <bookmark:applications>
+          <bookmark:application name="Pix" exec="&apos;pix %u&apos;" modified="2021-05-25T00:49:43Z" count="1"/>
+        </bookmark:applications>
+        <bookmark:private/>
+      </metadata>
+    </info>
+  </bookmark>
+</xbel>
