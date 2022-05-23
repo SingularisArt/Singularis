@@ -22,7 +22,7 @@ feh --bg-scale ~/.config/wall.jpg &
 $HOME/.config/polybar/launch.sh &
 
 # Variable
-export TZ='America/Vancouver'
+source ~/.config/zsh/exports.zsh
 
 # Workspaces
 bspc monitor -d 1 2 3 4 5

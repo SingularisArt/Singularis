@@ -216,14 +216,14 @@
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the "#" and following would be interpreted as a comment.
-    background = "#151823"
-    foreground = "#5B76B3"
+    background = "#030308"
+    foreground = "#2E1699"
     # Icon for notifications with low urgency, uncomment to enable
     icon = /home/hashem/.config/dunst/normal.png
 
 [urgency_normal]
-    background = "#151823"
-    foreground = "#a9b9dc"
+    background = "#030308"
+    foreground = "#cba7e7"
     # Icon for notifications with normal urgency, uncomment to enable
     icon = /home/hashem/.config/dunst/normal.png
 
