@@ -1,9 +1,6 @@
 [submodule "dotfiles"]
 	path = aspects/dotfiles
 	url = https://github.com/SingularisArt/dotfiles
-[submodule "nvim"]
-	path = aspects/nvim
-	url = https://github.com/SingularisArt/Death.NeoVim
 [submodule "email"]
 	path = aspects/email
 	url = https://github.com/SingularisArt/email
