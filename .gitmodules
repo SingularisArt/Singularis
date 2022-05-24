@@ -34,3 +34,6 @@
 [submodule "starttree"]
 	path = third-party-tools/start-tree
 	url = https://github.com/SingularisArt/start-tree
+[submodule "nvim"]
+	path = aspects/nvim
+	url = https://github.com/SingularisArt/Death.NeoVim
