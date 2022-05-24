@@ -5,5 +5,5 @@ source ~/Singularis/bin/variables
 
 log_info "Installing xmenu"
 
+ln -sf ${ASPECTS}/xmenu ~/.config
 cd ${ASPECTS}/xmenu/; sudo make install
-

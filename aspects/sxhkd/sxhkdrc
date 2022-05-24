@@ -41,6 +41,13 @@ super + r
 super + alt + shift + r
   rofi -show window
 
+###########
+# Polybar #
+###########
+
+super + b
+  bash $HOME/Singularis/local/scripts/statusbar
+
 #-------#
 # Dunst #
 #-------#
@@ -78,6 +85,13 @@ super + alt + d
   pamixer -d 5 && bash $HOME/Singularis/local/scripts/volume-indicator show
 super + alt + v
   bash $HOME/.config/rofi/applets/applets/mpd.sh
+
+#########
+# Other #
+#########
+
+Print
+  ~/Singularis/local/scripts/maimpick
 
 
 #-------#

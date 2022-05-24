@@ -3,6 +3,6 @@
 source ~/Singularis/bin/common
 source ~/Singularis/bin/variables
 
-log_info "Installing BetterDiscord"
+log_info "Installing weechat"
 
-ln -sf ${ASPECTS}/alacritty ~/.config
+ln -sf ${ASPECTS}/weechat ~/.config

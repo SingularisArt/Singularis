@@ -34,3 +34,6 @@
 [submodule "start-tree"]
 	path = third-party-tools/start-tree
 	url = https://github.com/SingularisArt/start-tree
+[submodule "starttree"]
+	path = third-party-tools/start-tree
+	url = https://github.com/SingularisArt/start-tree
