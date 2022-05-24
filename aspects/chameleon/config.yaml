@@ -1,3 +1,5 @@
+location_of_source_code: /home/hashem/System-Theme
+
 oomoxicons:
   # This changes depending on your iconset
   command: "oomox-archdroid-icons-cli"
@@ -18,14 +20,14 @@ oomoxgtk:
 # pywalneopixels:
   # path:
 
-# waldiscord:
-  # path:
+waldiscord:
+  path: "/home/hashem/Singularis/third-party-tools/wal-discord"
 
 # razer-cli:
   # path:
 
-# telegrampalletegen:
-  # path:
+telegrampalletegen:
+  path: "/home/hashem/Singularis/third-party-tools/telegram-palette-gen"
 
 # spicetify:
   # path:
@@ -33,29 +35,8 @@ oomoxgtk:
 # pywalfox:
   # path:
 
-zathura:
-  path: "/home/hashem/.config/zathura"
-
-xfce4-terminal:
-  path: "/home/hashem/.config/xfce4"
-
-rofi:
-  path: "/home/hashem/.config/rofi"
-
-dunst:
-  path: "/home/hashem/.config/dunst"
-
-dwm:
-  path: "/home/hashem/.config/dwm/dwm-config"
-
-matplotlib:
-  path: "/home/hashem/.config/matplotlib"
-
-xmenu:
-  path: "/home/hashem/Singularis/aspects/xmenu"
-
 starttree:
   path: "/home/hashem/Singularis/third-party-tools/start-tree"
 
 gnuplot:
-  path: "/home/hashem/.config/gnuplot"
+  path: "/home/hashem/Singularis/third-party-tools/gnuplot-pywal"

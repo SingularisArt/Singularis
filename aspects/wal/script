@@ -20,3 +20,4 @@ ln -sf ~/.cache/wal/glava_wave.glsl ~/.config/glava/glava_wave.glsl
 ln -sf ~/.cache/wal/matplotlibrc ~/.config/matplotlib/matplotlibrc
 ln -sf ~/.cache/wal/zathurarc ~/.config/zathura/zathurarc
 ln -sf ~/.cache/wal/xmenu-config.h ~/.config/xmenu/colors-xmenu.h
+ln -sf ~/.cache/wal/colors.scss ~/.config/wal-discord/colors.scss

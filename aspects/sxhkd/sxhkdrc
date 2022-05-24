@@ -29,8 +29,6 @@ super + shift + z
   zathura
 super + shift + s
   tdrop -am -n 0 xfce4-terminal
-super + semicolon
-  skippy-xd
 
 #------#
 # Rofi #
@@ -83,8 +81,6 @@ super + alt + u
   pamixer -i 5 && bash $HOME/Singularis/local/scripts/volume-indicator show
 super + alt + d
   pamixer -d 5 && bash $HOME/Singularis/local/scripts/volume-indicator show
-super + alt + v
-  bash $HOME/.config/rofi/applets/applets/mpd.sh
 
 #########
 # Other #
