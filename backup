@@ -13,7 +13,8 @@ if [[ ${1} == '' ]]; then
     exit 1
   fi
 elif [[ ${1} == '--help' ]]; then
-  log_info "This script moves all of your config files, which are located at ${RED}${CONFIG_LOCATION}${RESET} to ${RED}${BACKUP_LOCATION}${RESET}.\nIf to you want, you can specify what you want to backup, or run ${BLUE}--show${RESET} to see what is there to backup."
+  log_info "This script moves all of your config files, which are located at ${RED}${CONFIG_LOCATION}${RESET} to ${RED}${BACKUP_LOCATION}${RESET}."
+  log_info "If to you want, you can specify what you want to backup, or run ${BLUE}--show${RESET} to see what is there to backup."
   exit 1
 elif [[ ${1} == '--show' ]]; then
   for folder in `ls ${CONFIG_LOCATION}/`; do

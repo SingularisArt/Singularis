@@ -20,45 +20,56 @@ if [[ "${1:0:2}" = "--" && "${2}" = "--help" || "${2}" = "-h" ]]; then
 fi
 
 command_num=1
+command_for_specific_config=0
 
 # Iterate through the given arguments
 for command in "$@"; do
   command_num=$((command_num+1))
+  command_for_specific_config=$((command_for_specific_config+1))
 
-  if [[ "${command}" = "--all" || "${command}" = "-a" ]]; then
-    # Install my entire system
-    source_install_script "all.sh"
-  elif [[ "${command}" = "--describe" || "${command}" = "-d" ]]; then
-    # Describe a config
-    source_install_script "describe.sh" "${@:${command_num}}"
-  elif [[ "${command}" = "--git" || "${command}" = "-g" ]]; then
-    # Update the repo
-    source_install_script "git.sh"
-  elif [[ "${command}" = "--packages" || "${command}" = "-p" ]]; then
-    # Install all needed packages
-    source_install_script "arch-packages.sh"
-  elif [[ "${command}" = "--python" || "${command}" = "-y" ]]; then
-    # Install all needed python libraries
-    source_install_script "python-libraries.sh"
-  elif [[ "${command}" = "--npm" || "${command}" = "-n" ]]; then
-    # Install all needed npm libraries
-    source_install_script "npm-libraries.sh"
-  elif [[ "${command}" = "--list-configs" || "${command}" = "-l" ]]; then
-    # List all configs
-    for config in $(ls ${CONFIG}); do
-      if [[ "${config}" != "script" && "${config}" != "describe.txt" ]]; then
-        log_info "${config}"
-      fi
-    done
-  elif [[ "${command}" = "--install-all-config" || "${command}" = "-i" ]]; then
-    # Install all configuration
-    source_install_script "install-all-config.sh"
-  # elif [[ "${command}" =  || "${command}" = "-" ]]; then
-  fi
+  for _ in once; do
+    if [[ "${command}" = "--all" || "${command}" = "-a" ]]; then
+      # Install my entire system
+      source_install_script "all.sh"
+      break
+    elif [[ "${command}" = "--describe" || "${command}" = "-d" ]]; then
+      # Describe a config
+      source_install_script "describe.sh" "${@:${command_num}}"
+      break
+    elif [[ "${command}" = "--git" || "${command}" = "-g" ]]; then
+      # Update the repo
+      source_install_script "git.sh"
+      break
+    elif [[ "${command}" = "--packages" || "${command}" = "-p" ]]; then
+      # Install all needed packages
+      source_install_script "arch-packages.sh"
+      break
+    elif [[ "${command}" = "--python" || "${command}" = "-y" ]]; then
+      # Install all needed python libraries
+      source_install_script "python-libraries.sh"
+      break
+    elif [[ "${command}" = "--npm" || "${command}" = "-n" ]]; then
+      # Install all needed npm libraries
+      source_install_script "npm-libraries.sh"
+      break
+    elif [[ "${command}" = "--list-configs" || "${command}" = "-l" ]]; then
+      # List all configs
+      for config in $(ls ${CONFIG}); do
+        if [[ "${config}" != "script" && "${config}" != "describe.txt" ]]; then
+          log_info "${config}"
+        fi
+      done
+      break
+    elif [[ "${command}" = "--install-all-config" || "${command}" = "-c" ]]; then
+      # Install all configuration
+      source_install_script "install-all-config.sh"
+      break
+    elif [[ "${command}" = "--not-config" || "${command}" = "-t" ]]; then
+      source_install_script "not-config.sh" "${@:command_num}"
+      break
+    elif [[ "${command}" = "--install" || "${command}" = "-i" ]]; then
+      source_install_script "install-specific-config.sh" "${@:${command_for_specific_config}}"
+      break
+    fi
+  done
 done
-
-# elif [[ $1 == '--all-aspects' ]]; then
-# elif [[ $1 == '--not' ]]; then
-# else
-#   install_specific_aspects "$@"
-# fi

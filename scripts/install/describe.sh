@@ -32,7 +32,7 @@ for arg in "${@:1}"; do
     fi
   done
 
-  if [[ "${found}" = false ]]; then
-    log_error "Couldn't find any config with the name ${arg}"
-  fi
+  # if [[ "${found}" = false ]]; then
+  #   log_error "Couldn't find any config with the name ${arg}"
+  # fi
 done
