@@ -7,4 +7,4 @@ check_if_installed "npm"
 
 log_notice "Installing npm libraries"
 
-cat "${INSTALL_SCRIPTS}/npm-libraries.txt" | xargs npm i -g
+cat "${INSTALL_SCRIPTS}/npm-libraries.txt" | xargs sudo npm i -g

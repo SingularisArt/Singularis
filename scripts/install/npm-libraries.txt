@@ -5,7 +5,6 @@ acorn
 bash-language-server
 commitizen
 corepack
-eslint
 mdr
 node-gyp
 nopt

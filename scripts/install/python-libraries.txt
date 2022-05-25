@@ -575,4 +575,3 @@ zope.tales
 zope.testbrowser
 zope.testing
 zope.traversing
-zope.viewlet
