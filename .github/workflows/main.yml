@@ -27,4 +27,4 @@ jobs:
 
       # Runs a set of commands using the runners shell
       - name: Run the installation script
-        run: scripts/install/all.sh
+        run: ./install --all
