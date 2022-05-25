@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+source "${HOME}/Singularis/bin/common"
+source "${HOME}/Singularis/bin/variables"
+
+log_info "Installing polybar"
+
+ln -sf "${CONFIG}/polybar" "${CONFIG_LOCATION}"

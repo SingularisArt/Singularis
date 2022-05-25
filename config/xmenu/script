@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+source "${HOME}/Singularis/bin/common"
+source "${HOME}/Singularis/bin/variables"
+
+log_info "Installing xmenu"
+
+ln -sf "${CONFIG}/xmenu" "${CONFIG_LOCATION}"
+cd "${CONFIG}/xmenu/" || exit
+sudo make install

@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-
-source ~/Singularis/bin/common
-source ~/Singularis/bin/variables
-
-log_info "Installing weechat"
-
-ln -sf ${ASPECTS}/weechat ~/.config
