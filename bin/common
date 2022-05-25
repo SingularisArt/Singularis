@@ -48,30 +48,32 @@ log_warn() {
   fi
 }
 
+####################
+# Dependency check #
+####################
+
 install_yay() {
   check_if_installed "git"
 
-  cd /opt
-
+  cd /opt || exit
   sudo git clone https://aur.archlinux.org/yay-git.git
-  sudo chown -R $USER:$USER ./yay-git
-
-  cd yay-git
-
+  sudo chown -R "${USER}":"${USER}" ./yay-git
+  cd yay-git || exit
   makepkg -si || sudo pacman -Sy base-devel && makepkg -si
 }
 
-check_if_installed() {
-  if [[ ! -e "/usr/bin/${1}" ]]; then
+check_if_installed () {
+  if ! which "${1}" >/dev/null 2>&1 && ! pacman -Qq "${1}" >/dev/null 2>&1; then
     log_error "You don't have [${1}] installed!"
-    read -p 'Do you want to install it [y/n]: ' install
+    read -r -p "Do you want to install it [y/n]: " install
 
     case ${install} in
       "yes")
-        if [[ $1 -eq "yay" ]]; then
+        if [[ "${1}" = "yay" ]]; then
           install_yay
         else
-          sudo pacman -S ${1}
+          check_if_installed "yay"
+          yay -S "${1}"
         fi;;
       "no")
         exit;;
@@ -81,80 +83,23 @@ check_if_installed() {
   fi
 }
 
-all() {
-  source ${INSTALL_SCRIPTS}/all.sh
-}
+##################
+# Sourcing files #
+##################
 
-commands() {
-  source ${INSTALL_SCRIPTS}/commands.sh
-}
-
-describe() {
-  if [[ ${2} == "" ]]; then
-    log_error "--describe takes one argument. Use ./install --aspects to see what you can use."
-    exit 1
-  fi
-
-  for arg in ${@} ; do
-    source ${INSTALL_SCRIPTS}/describe.sh ${arg}
-  done
-}
-
-source_file() {
-  if [[ -e "${INSTALL_SCRIPTS}/${1}" ]]; then
-    source ${INSTALL_SCRIPTS}/${1}
+source_install_script () {
+  script_location="${INSTALL_SCRIPTS}/${1}"
+  if [[ ${2} = "" ]]; then
+    bash "${script_location}"
+  else
+    bash "${script_location}" "${@}"
   fi
 }
 
-bring_back_backup() {
-  source ${INSTALL_SCRIPTS}/backup.sh ${@}
-}
+check_if_arg_is_a_command () {
+  arg="${1}"
 
-####################
-# ASPECT FUNCTIONS #
-####################
-
-install_specific_aspects() {
-  if [[ ${1} == 'backup' ]]; then
-    ./aspects/script
+  if [[ "${arg:0:2}" = "--" ]]; then
     exit
   fi
-  for arg in $@ ; do
-    for aspect in `ls ${ASPECTS}` ; do
-      if [[ ${arg} == ${aspect} ]]; then
-        if [[ -f ${ASPECTS}/${aspect}/script ]]; then
-          if [[ -x ${ASPECTS}/${aspect}/script ]]; then
-            ${ASPECTS}/${aspect}/script
-          fi
-        fi
-      fi
-    done
-  done
 }
-
-view_all_aspects() {
-  for aspect in `ls ${ASPECTS}` ; do
-    if [[ -f ${ASPECTS}/${aspect}/script ]]; then
-      if [[ -x ${ASPECTS}/${aspect}/script ]]; then
-          ${ASPECTS}/${aspect}/script
-      fi
-    fi
-  done
-}
-
-install_all_aspects() {
-  source ${INSTALL_SCRIPTS}/aspects.sh
-}
-
-not_aspect() {
-  for arg in $@ ; do
-    for aspect in `ls ${ASPECTS}` ; do
-      if [[ -f ${ASPECTS}/${aspect}/script ]]; then
-        if [[ -x ${ASPECTS}/${aspect}/script ]]; then
-            ${ASPECTS}/${aspect}/script
-        fi
-      fi
-    done
-  done
-}
-

@@ -23,4 +23,3 @@ vscode-html-languageservice
 vscode-langservers-extracted
 yaml-language-server
 yarn
-

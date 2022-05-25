@@ -37,3 +37,12 @@
 [submodule "wal-discord"]
 	path = third-party-tools/wal-discord
 	url = https://github.com/guglicap/wal-discord
+[submodule "dotfiles"]
+	path = config/dotfiles
+	url = https://github.com/SingularisArt/dotfiles
+[submodule "dwm"]
+	path = config/dwm
+	url = https://github.com/SingularisArt/dwm
+[submodule "nvim"]
+	path = config/nvim
+	url = https://github.com/SingularisArt/Death.NeoVim

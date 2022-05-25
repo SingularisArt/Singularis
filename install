@@ -3,33 +3,62 @@
 source bin/common
 source bin/variables
 
-if [[ $# == 0 || $1 == '--commands' || $1 == '--help' ]]; then
-  commands
-elif [[ $1 == '--all' ]]; then
-  all
-elif [[ $1 == '--describe' ]]; then
-  describe ${@}
-# Source files
-elif [[ $1 == '--git' ]]; then
-  source_file "git.sh"
-elif [[ $1 == '--packages' ]]; then
-  source_file "arch-packages.sh"
-elif [[ $1 == '--python' ]]; then
-  source_file "python-libraries.sh"
-elif [[ $1 == '--fonts' ]]; then
-  source_file "fonts.sh"
-elif [[ $1 == '--npm' ]]; then
-  source_file "npm-packages.sh"
-elif [[ $1 == '--themes' ]]; then
-  source_file "themes.sh"
-# Aspects
-elif [[ $1 == '--aspects' ]]; then
-  install_all_aspects
-elif [[ $1 == '--all-aspects' ]]; then
-  source_file "install-all-aspects.sh"
-elif [[ $1 == '--not' ]]; then
-  not_aspect
-else
-  install_specific_aspects $@
+# Check if we passed anything.
+# If we didn't, or if we passed:
+# --commands
+# --help
+# -c
+# we show them the available commands
+if [[ "${#}" = 0 || ${1} = "--commands" || ${1} = "--help" || ${1} = "-h" ]]; then
+  source_install_script "commands.sh"
+  exit
 fi
 
+# Check if we are going to describe a command
+if [[ "${1:0:2}" = "--" && "${2}" = "--help" || "${2}" = "-h" ]]; then
+  echo "Help menu"
+fi
+
+command_num=1
+
+# Iterate through the given arguments
+for command in "$@"; do
+  command_num=$((command_num+1))
+
+  if [[ "${command}" = "--all" || "${command}" = "-a" ]]; then
+    # Install my entire system
+    source_install_script "all.sh"
+  elif [[ "${command}" = "--describe" || "${command}" = "-d" ]]; then
+    # Describe a config
+    source_install_script "describe.sh" "${@:${command_num}}"
+  elif [[ "${command}" = "--git" || "${command}" = "-g" ]]; then
+    # Update the repo
+    source_install_script "git.sh"
+  elif [[ "${command}" = "--packages" || "${command}" = "-p" ]]; then
+    # Install all needed packages
+    source_install_script "arch-packages.sh"
+  elif [[ "${command}" = "--python" || "${command}" = "-y" ]]; then
+    # Install all needed python libraries
+    source_install_script "python-libraries.sh"
+  elif [[ "${command}" = "--npm" || "${command}" = "-n" ]]; then
+    # Install all needed npm libraries
+    source_install_script "npm-libraries.sh"
+  elif [[ "${command}" = "--list-configs" || "${command}" = "-l" ]]; then
+    # List all configs
+    for config in $(ls ${CONFIG}); do
+      if [[ "${config}" != "script" && "${config}" != "describe.txt" ]]; then
+        log_info "${config}"
+      fi
+    done
+  elif [[ "${command}" = "--install-all-config" || "${command}" = "-i" ]]; then
+    # Install all configuration
+    source_install_script "install-all-config.sh"
+  # elif [[ "${command}" =  || "${command}" = "-" ]]; then
+  fi
+done
+
+# elif [[ $1 == '--all-aspects' ]]; then
+# elif [[ $1 == '--not' ]]; then
+# else
+#   install_specific_aspects "$@"
+# fi

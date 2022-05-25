@@ -3,10 +3,8 @@
 source bin/common
 source bin/variables
 
-source_file "arch-packages.sh"
-source_file "git.sh"
-source_file "fonts.sh"
-source_file "npm-packages.sh"
-source_file "themes.sh"
-source_file "install-all-aspects.sh"
-
+source_install_script "git.sh"
+source_install_script "arch-packages.sh"
+source_install_script "python-libraries.sh"
+source_install_script "npm-libraries.sh"
+source_install_script "install-all-aspects.sh"

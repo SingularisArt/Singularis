@@ -3,14 +3,10 @@
 source bin/common
 source bin/variables
 
-log_info "--all                       Do everything"
-log_info "--describe                  Describe an aspect"
-log_info "--git                       Update this repo"
-log_info "--packages                  Install needed pacman packages"
-log_info "--python                    Install needed python libraries"
-log_info "--fonts                     Install my system fonts"
-log_info "--npm                       Install needed npm packages"
-log_info "--themes                    Install my system themes"
-log_info "--aspects                   List all aspects"
-log_info "--all-aspects               Install only my aspects"
-log_info "--not                       Install everything but a specified aspect"
+log_info "--all             -a        Installs everything"
+log_info "--describe param  -d param  Describes the parameter"
+log_info "--packages        -p        Installs all the needed packages"
+log_info "--python          -y        Installs all the needed python libraries"
+log_info "--npm             -n        Installs all the needed npm libraries"
+log_info "--help            -h        Shows this page"
+log_info "cmd --help    cmd -h        Get more information on a command"
