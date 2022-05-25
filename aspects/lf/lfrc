@@ -1,4 +1,20 @@
-set ratios 1:2:3
+# Luke's lf settings
+
+
+# Note on Image Previews
+# For those wanting image previews, like this system, there are four steps to
+# set it up. These are done automatically for LARBS users, but I will state
+# them here for others doing it manually.
+#
+# 1. ueberzug must be installed.
+# 2. The scope file (~/.config/lf/scope for me), must have a command similar to
+#    mine to generate ueberzug images.
+# 3. A `set cleaner` line as below is a cleaner script.
+# 4. lf should be started through a wrapper script (~/.local/bin/lfub for me)
+#    that creates the environment for ueberzug. This command can be be aliased
+#    in your shellrc (`alias lf="lfub") or if set to a binding, should be
+#    called directly instead of normal lf.
+
 # Basic vars
 set shellopts '-eu'
 set ifs "\n"
@@ -7,7 +23,7 @@ set icons
 set period 1
 set hiddenfiles ".*:*.aux:*.log:*.bbl:*.bcf:*.blg:*.run.xml"
 set cleaner '~/.config/lf/cleaner'
-set previewer '~/.config/lf/preview'
+set previewer '~/.config/lf/scope'
 
 # cmds/functions
 cmd open ${{
@@ -98,8 +114,8 @@ map O $mimeopen --ask $f
 map A rename # at the very end
 map c push A<c-u> # new rename
 map I push A<c-a> # at the very beginning
-map i push A<a-b><a-b><a-f> # before extention
-map a push A<a-b> # after extention
+map i push A<a-b><a-b><a-f> # before extension
+map a push A<a-b> # after extension
 map B bulkrename
 map b $setbg $f
 
@@ -110,4 +126,3 @@ map V push :!nvim<space>
 map W $setsid -f $TERMINAL >/dev/null 2>&1
 
 map Y $printf "%s" "$fx" | xclip -selection clipboard
-

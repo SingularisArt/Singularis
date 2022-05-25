@@ -37,12 +37,15 @@
 [submodule "nvim"]
 	path = aspects/nvim
 	url = https://github.com/SingularisArt/Death.NeoVim
-[submodule "wal-discord"]
-	path = third-party-tools/wal-discord
-	url = https://github.com/guglicap/wal-discord
 [submodule "gnuplot-pywal"]
 	path = third-party-tools/gnuplot-pywal
 	url = https://github.com/GideonWolfe/Gnuplot-Pywal
 [submodule "telegram-palette-gen"]
 	path = third-party-tools/telegram-palette-gen
 	url = https://github.com/agnipau/telegram-palette-gen
+[submodule "pywal-fox"]
+	path = third-party-tools/pywal-fox
+	url = https://github.com/Frewacom/Pywalfox
+[submodule "wal-discord"]
+	path = third-party-tools/wal-discord
+	url = https://github.com/guglicap/wal-discord

@@ -5,32 +5,32 @@
 ; |_|   \___/|_|\__, |_.__/ \__,_|_|     \____\___/|_| |_|_| |_|\__, |
 ;               |___/                                           |___/ 
 
-[global/wm]
-include-file = ~/.config/polybar/modules.ini
-
-[bar/school]
-background = ${xrdb:color0:#222}
-background-alt = ${xrdb:color3:#222}
-foreground = ${xrdb:color7:#222}
-foreground-alt = ${xrdb:color2:#555}
-highlight = ${xrdb:color2:#f00}
-color0 = ${xrdb:color0:#222}
-color1 = ${xrdb:color1:#222}
-color3 = ${xrdb:color3:#222}
-color4 = ${xrdb:color4:#222}
-color5 = ${xrdb:color5:#222}
-color6 = ${xrdb:color6:#222}
-color7 = ${xrdb:color7:#222}
-color8 = ${xrdb:color8:#222}
-color9 = ${xrdb:color9:#222}
-color10 = ${xrdb:color10:#222}
-color11 = ${xrdb:color11:#222}
-color12 = ${xrdb:color12:#222}
+[colors]
+background = ${wal.color0}
+background-alt = ${wal.color8}
+foreground = ${wal.color7}
+foreground-alt = ${wal.color7}
+color0 = ${wal.color0}
+color1 = ${wal.color1}
+color3 = ${wal.color3}
+color4 = ${wal.color4}
+color5 = ${wal.color5}
+color6 = ${wal.color6}
+color7 = ${wal.color7}
+color8 = ${wal.color8}
+color9 = ${wal.color9}
+color10 = ${wal.color10}
+color11 = ${wal.color11}
+color12 = ${wal.color12}
 urgent = #f00
 primary = #526AA1
 alert = #5670AA
 secondary = #556EA7
 
+[global/wm]
+include-file = ~/.config/polybar/modules.ini
+
+[bar/school]
 width = 100%
 height = 35
 radius = 9.0

@@ -1,5 +1,5 @@
-font_size: 22
-theme: colors
+font_size: 18
+theme: pywal
 
 tree_1:
   General:
@@ -14,30 +14,17 @@ tree_1:
     UnixPorn: "https://www.reddit.com/r/unixporn"
 
 tree_2:
-  Best GitHub Repos:
+  Best Dotfiles Repos:
     My Dotfiles: "https://github.com/SingularisArt/Singularis"
     Greg Hurrell Dotfiles: "https://github.com/wincent/wincent"
     Luke Smith Dotfiles: "https://github.com/LukeSmithxyz/voidrice"
     Nick Janetakis Dotfiles: "https://github.com/nickjj/dotfiles"
     Gideon Wolfe Dotfiles: "https://github.com/GideonWolfe/dots"
+  Best NeoVim Configs:
+    My NeoVim Config: "https://github.com/SingularisArt/Death.NeoVim"
+    Gideon Wolfe Dotfiles: "https://github.com/GideonWolfe/vim.repear"
 
 tree_3:
-  School:
-    Canvas: "https://bakercharters.instructure.com/"
-    Notes Online: "notion.so"
-    Notes Offline: "notion.so"
-    Trello: "https://trello.com"
-    Milanote: "https://milanote.com"
-  Cloud:
-    Account: ""
-    Drive: ""
-    Docs: ""
-    Slides: ""
-    Sheets: ""
-    Forums: ""
-    Next: ""
-
-tree_4:
   Favorite Programming Channels:
     Luke Smith: "https://www.youtube.com/channel/UC2eYFnH61tmytImy1mTYvhA"
     Greg Hurrell: "https://www.youtube.com/channel/UCXPHFM88IlFn68OmLwtPmZA"
@@ -61,7 +48,7 @@ tree_4:
     Dev As Life: "https://www.youtube.com/channel/UC7yZ6keOGsvERMp2HaEbbXQ"
     Dev Ed: "https://www.youtube.com/channel/UClb90NQQcskPUGDIXsQEz5Q"
 
-tree_5:
+tree_4:
   Favorite Slack Channels:
     High Boi: "https://www.youtube.com/channel/UCkzaJDHBKbcaNatH_T00ieg"
     Mr Beast: "https://www.youtube.com/channel/UCX6OQ3DkcsbYNE6H8uQQuVA"
