@@ -42,6 +42,9 @@ starttree:
 gnuplot:
   path: "/home/hashem/Singularis/third-party-tools/gnuplot-pywal"
 
+xfce4-terminal:
+  path: "/home/hashem/.config/xfce4"
+
 hooks:
   notify: "notify-send 'Success!' 'success, theme applied'"
   startTree:
