@@ -3,6 +3,6 @@
 source "${HOME}/Singularis/bin/common"
 source "${HOME}/Singularis/bin/variables"
 
-log_info "Installing Better Discord"
+log_info "Installing neomutt"
 
-ln -sf "${CONFIG}/BetterDiscord" "${CONFIG_LOCATION}"
+ln -sf "${CONFIG}/neomutt" "${CONFIG_LOCATION}"

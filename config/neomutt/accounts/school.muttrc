@@ -1,0 +1,20 @@
+# vim: filetype=muttrc
+unmailboxes *
+
+set from = "hashem.damrah@pcc.edu"
+set realname = "Hashem A. Damrah"
+
+# Imap settings
+set imap_user = "hashem.damrah@pcc.edu"
+set imap_pass = `pass college`
+
+# Smtp settings
+set smtp_url = "smtps://hashem.damrah@smtp.gmail.com"
+set smtp_pass = `pass college`
+
+# Remote gmail folders
+set folder = "imaps://imap.gmail.com/"
+set spoolfile = "+INBOX"
+# set postponed = "+[Gmail]/Drafts"
+# set record = "+[Gmail]/Sent Mail"
+# set trash = "+[Gmail]/Trash"

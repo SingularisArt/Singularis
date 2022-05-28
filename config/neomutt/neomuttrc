@@ -1,0 +1,14 @@
+# vim: filetype=muttrc
+
+source ~/.config/neomutt/keys/unbind.muttrc
+source ~/.config/neomutt/keys/bind.muttrc
+source ~/.config/neomutt/settings.muttrc
+source ~/.config/neomutt/colors.muttrc
+
+# Accounts
+
+source ~/.config/neomutt/accounts/main.muttrc
+folder-hook $folder 'source ~/.config/neomutt/accounts/main.muttrc'
+
+# source ~/.config/neomutt/accounts/school.muttrc
+# folder-hook $folder 'source ~/.config/neomutt/accounts/school.muttrc'

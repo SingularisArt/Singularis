@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+## Perform a contact search via ldap
+
+account="${@: -1}"
+query=$(if [ $# -gt 2 ]
+  then
+    echo "(|(mail=$1.$2*)(mail=$1*$2*)(cn=$2,$1*))"
+  else
+    echo "(|(mail=$1*)(givenName=$1*))"
+  fi)
+
+
+# set credentials/email based on the account alias provided
+if [ $account == "SOME_ACCOUNT_ALIAS" ]
+then
+  email="myemail@email.com"
+  # get your password somehow (e.g. using 'pass')
+  pass=$(pass mutt-myaccount)
+else
+  email="myotheremail@email.com"
+  # get your password somehow (e.g. using 'pass')
+  pass=$(pass mutt-myotheraccount)
+fi
+
+ldapsearch -H ldap://localhost:1389 \
+           -x \
+           -D$email \
+           -w$pass \
+           -b 'ou=people' \
+           $query \
+           'mail' \
+           'title' \
+           'givenName' \
+           'sn' \
+  | awk -F': ' \
+        '/^uid/{uid=$2; getline; mail=$2; getline; first=$2; getline; last=$2; getline; title=$2; printf("%s\t%s %s\t%s\n",tolower(mail),first,last,title)}'

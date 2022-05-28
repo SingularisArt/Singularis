@@ -1,0 +1,43 @@
+# vim: filetype=muttrc
+unmailboxes *
+
+set from = "dermdorm2@gmail.com"
+set realname = "Hashem A. Damrah"
+
+# Imap settings
+set imap_user = "dermdorm2@gmail.com"
+set imap_pass = `pass main`
+
+# Smtp settings
+set smtp_url = "smtps://dermdorm2@smtp.gmail.com"
+set smtp_pass = `pass main`
+
+# Remote gmail folders
+set folder = "imaps://imap.gmail.com/"
+set spoolfile = "+INBOX"
+set postponed = "[Gmail]/Drafts"
+set record = "[Gmail]/Sent Mail"
+set trash = "[Gmail]/Trash"
+set envelope_from
+set use_from = "yes"
+set mail_check = 6
+
+mailboxes "=INBOX"
+mailboxes "=[Gmail]/Drafts"
+mailboxes "=[Gmail]/Sent Mail"
+mailboxes "=[Gmail]/Starred"
+mailboxes "=[Gmail]/Spam"
+mailboxes "=[Gmail]/Trash"
+
+named-mailboxes " Inbox"     "=INBOX"
+named-mailboxes " Drafts"    "=[Gmail]/Drafts"
+named-mailboxes " Sent Mail" "=[Gmail]/Sent Mail"
+named-mailboxes " Starred"   "=[Gmail]/Starred"
+named-mailboxes " Spam"      "=[Gmail]/Spam"
+named-mailboxes " Trash"     "=[Gmail]/Trash"
+
+# Allow Mutt to open a new IMAP connection automatically.
+unset imap_passive
+
+# Keep the IMAP connection alive by polling intermittently (time in seconds).
+set imap_keepalive = 60
