@@ -501,3 +501,28 @@ May 25 08:27 : player: played "AhmedKhedr/021-al-anbiya.mp3"
 May 25 08:27 : exception: Not playing
 May 25 08:27 : output: Failed to open mixer for 'my_alsa': no such mixer control: PCM
 May 25 08:58 : output: Failed to open mixer for 'my_alsa': no such mixer control: PCM
+May 25 13:09 : config: option 'path' on line 12 was not recognized
+May 25 13:09 : mixer: Failed to read mixer for 'my_alsa': no such mixer control: PCM
+May 25 13:09 : output: Failed to open mixer for 'my_alsa': no such mixer control: PCM
+May 25 13:35 : output: Failed to open mixer for 'my_alsa': no such mixer control: PCM
+May 25 13:57 : output: Failed to open mixer for 'my_alsa': no such mixer control: PCM
+May 25 14:20 : player: played "AhmedKhedr/012-yusuf.mp3"
+May 25 14:20 : output: Failed to open mixer for 'my_alsa': no such mixer control: PCM
+May 25 15:50 : config: option 'path' on line 12 was not recognized
+May 25 15:50 : mixer: Failed to read mixer for 'my_alsa': no such mixer control: PCM
+May 25 15:50 : output: Failed to open mixer for 'my_alsa': no such mixer control: PCM
+May 25 17:43 : output: Failed to open mixer for 'my_alsa': no such mixer control: PCM
+May 25 18:26 : player: played "AbdallahHumeid/029-al-ankabut.mp3"
+May 25 22:07 : output: Failed to open mixer for 'my_alsa': no such mixer control: PCM
+May 25 22:22 : output: Failed to open mixer for 'my_alsa': no such mixer control: PCM
+May 26 14:34 : output: Failed to open mixer for 'my_alsa': no such mixer control: PCM
+May 26 14:57 : output: Failed to open mixer for 'my_alsa': no such mixer control: PCM
+May 26 15:39 : output: Failed to open mixer for 'my_alsa': no such mixer control: PCM
+May 26 17:05 : output: Failed to open mixer for 'my_alsa': no such mixer control: PCM
+May 26 17:41 : output: Failed to open mixer for 'my_alsa': no such mixer control: PCM
+May 26 18:29 : output: Failed to open mixer for 'my_alsa': no such mixer control: PCM
+May 26 19:23 : output: Failed to open mixer for 'my_alsa': no such mixer control: PCM
+May 26 19:39 : output: Failed to open mixer for 'my_alsa': no such mixer control: PCM
+May 26 23:13 : output: Failed to open mixer for 'my_alsa': no such mixer control: PCM
+May 27 15:59 : output: Failed to open mixer for 'my_alsa': no such mixer control: PCM
+May 27 16:00 : output: Failed to open mixer for 'my_alsa': no such mixer control: PCM

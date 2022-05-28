@@ -97,11 +97,11 @@ Print
 ## Desktop/Workspace
 
 ### Send to workspace
-super + shift + {1-5}
-  bspc node -d '^{1-5}'
+super + shift + {1-9}
+  bspc node -d '^{1-9}'
 ### Send to workspace
-super + {1-5}
-  bspc desktop -f ^{1-5}
+super + {1-9}
+  bspc desktop -f ^{1-9}
 ### Latest workspace
 super + Tab
   bspc desktop last -f

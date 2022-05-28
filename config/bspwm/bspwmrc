@@ -19,13 +19,23 @@ launchpolybar &
 killall bspswallow
 pidof bspswallow | bspswallow &
 feh --bg-scale ~/.config/wall.jpg &
-$HOME/.config/polybar/launch.sh &
+"$HOME/.config/polybar/launch.sh" &
 
 # Variable
 source ~/.config/zsh/exports.zsh
 
 # Workspaces
-bspc monitor -d 1 2 3 4 5
+bspc monitor -d         
+
+# : HOME
+# : BROWSER
+# : SCHOOL
+# : FILE BROWSER
+# : CODING
+# : PROJECTS
+# : MUSIC
+# : MEDIA/RELAXING
+# : CHATTING
 
 # Config
 bspc config automatic_scheme alternate
