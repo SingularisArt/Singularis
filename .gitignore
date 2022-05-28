@@ -8,9 +8,10 @@ config/mpd/mpd.log
 config/mpd/mpd.pid
 config/mpd/mpdstate
 config/mpv/scripts/
-config/mpv/scripts/
-config/ncmpcpp/error.log
 config/neofetch/ascii/
+config/ncmpcpp/error.log
+config/neomutt/accounts/main.muttrc
+config/neomutt/accounts/school.muttrc
 node_modules/
 tags
 backup-configuration/
