@@ -98,7 +98,7 @@
   frame_width = 3
 
   # Defines the color of the frame.
-  frame_color = "#2CDBFE"
+  frame_color = "{color5}"
 
   # Define a color for the separator.
   # possible values are:

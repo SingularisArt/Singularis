@@ -1,0 +1,27 @@
+#!/bin/bash
+
+export XDG_CONFIG_HOME="$HOME"/.config
+export XDG_CACHE_HOME="$HOME"/.cache
+export XDG_DATA_HOME="$HOME"/.local/share
+export XDG_STATE_HOME="$HOME"/.local/state
+export XDG_CURRENT_DESKTOP=ubuntu:GNOME
+export GDMSESSION=ubuntu
+export XDG_DATA_DIRS=/usr/local/share:/usr/share
+export XDG_CONFIG_DIRS=/etc/xdg
+export ZDOTDIR="$XDG_CONFIG_HOME/zsh/"
+export HISTFILE="$XDG_STATE_HOME"/history
+export LESSKEY="$XDG_CONFIG_HOME"/less/lesskey
+export LESSHISTFILE="-"
+export KDEHOME="$XDG_CONFIG_HOME"/kde
+export TERMINFO="$XDG_DATA_HOME"/terminfo
+export RXVT_SOCKET="$XDG_RUNTIME_DIR"/urxvtd
+export USERXSESSION="$XDG_CACHE_HOME/X11/xsession"
+export USERXSESSIONRC="$XDG_CACHE_HOME/X11/xsessionrc"
+export ALTUSERXSESSION="$XDG_CACHE_HOME/X11/Xsession"
+export ERRFILE="$XDG_CACHE_HOME/X11/xsession-errors"
+export ICEAUTHORITY="$XDG_CACHE_HOME"/ICEauthority
+export MPLAYER_HOME="$XDG_CONFIG_HOME"/mplayer
+export CARGO_HOME="$XDG_DATA_HOME"/cargo
+export RUSTUP_HOME="$XDG_DATA_HOME"/rustup
+export GNUPGHOME="$XDG_DATA_HOME"/gnupg
+export GTK_THEME="oomox-xresources-reverse"

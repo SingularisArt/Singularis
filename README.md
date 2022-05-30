@@ -403,7 +403,7 @@ Dotfiles
 
 ## Features
 
-[A set of dotfiles](aspects) that I’ve been tweaking and twiddling since mid
+[A set of dotfiles](config) that I’ve been tweaking and twiddling since mid
 2018 ([under version
 control](https://github.com/SingularisArt/Singularis/commit/f0bce4d1) since
 2022). Characteristics include:
@@ -447,11 +447,11 @@ control](https://github.com/SingularisArt/Singularis/commit/f0bce4d1) since
 * `gpg`: Just a re-write function that if you don't give it any parameters, it
   will run `gpg --list-keys`.
 * `zsh_add_file`: This function sources any file you have in the zsh config
-  directory in ~/Singularis/aspects/dotfiles/files/.zsh
+  directory in ~/Singularis/config/dotfiles/files/.zsh
 * `zsh_add_plugin`: This function sources any plugin you have in the zsh config
-  directory in ~/Singularis/aspects/dotfiles/files/.zsh/plugins
+  directory in ~/Singularis/config/dotfiles/files/.zsh/plugins
 * `zsh_add_completion`: This function sources any completion you have in the
-  zsh config directory in ~/Singularis/aspects/dotfiles/files/.zsh/completion
+  zsh config directory in ~/Singularis/config/dotfiles/files/.zsh/completion
 
 ### Prompt
 
@@ -759,6 +759,9 @@ Window Managers
 
 ## Awesome
 
+My Scripts
+==========
+
 How my Theming Works
 ====================
 
@@ -776,7 +779,7 @@ All you need is `git` installed.
 
 | Platform             | Status                                                                                                                                                                      |
 | -------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Arch Linux           | :1st_place_medal: Most tested, Arch Linux is one of my main OS. You get the most aspects if you are on Linux.                                                               |
+| Arch Linux           | :1st_place_medal: Most tested, Arch Linux is one of my main OS. You get the most configuration if you are on Linux.                                                               |
 | MacOS                | :2nd_place_medal: Not as bad, but it can have some bugs here and there, but it's up to you to fix those because I don't use mac and won't really be fixing any bugs for it. |
 | Windows              | :3rd_place_medal: The worst rank. Not tested at all. I don't even have an install script for it. So, you shouldn't use windows when using my dotfiles.                      |
 | Other                | :skull: Just like Windows. Not tested at all, and probably will never be tested.                                                                                  |
@@ -789,7 +792,7 @@ git clone --recursive https://github.com/SingularisArt/Singularis.git
 
 ### Backup
 
-Before you install all of my [aspects](aspects), you may want to backup your
+Before you install all of my [configs](config), you may want to backup your
 configuration. Here's how you do it:
 
 #### Examples
@@ -797,7 +800,7 @@ configuration. Here's how you do it:
 ```bash
 ./backup                    # This will backup all of your configuration and move it to ~/Singularis/backup-configuration
 ./backup nvim               # This will backup only your neovim configuration to ~/Singularis/backup-configuration
-./backup nvim xfce3         # This will backup only your neovim and xfce4 configuration to ~/Singularis/backup-configuration
+./backup nvim xfce4         # This will backup only your neovim and xfce4 configuration to ~/Singularis/backup-configuration
 ./backup --help             # Shows the help menu
 ```
 
@@ -809,11 +812,11 @@ the perfect script. And, well, here it is.
 #### Examples
 
 ```sh
-./install --all             # Installs everything
-./install dotfiles          # Installs only my dotfiles configuration
-./install awesome           # Installs only my awesome configuration
-./install awesome dotfiles  # Installs only my awesome configuration and dotfiles in that order
-./install --commands        # That will show you all of the possible commands
+./install --all                       # Installs everything
+./install --install dotfiles          # Installs only my dotfiles configuration
+./install --install awesome           # Installs only my awesome configuration
+./install awesome --install dotfiles  # Installs only my awesome configuration and dotfiles in that order
+./install --commands                  # That will show you all of the possible commands
 ```
 
 ### Uninstall
@@ -826,6 +829,17 @@ To **UNINSTALL** my configuration, you first must backup your configuration. (Ta
 ./uninstall                 # Moves all of the items from ~/Singularis/backup-configuration to ~/.config/
 ./uninstall nvim            # Moves only the neovim configuration from ~/Singularis/backup-configuration to ~/.config/
 ```
+
+### Putting it all Together
+
+Now, run the following:
+
+```bash
+./backup
+./install --all
+```
+
+For more information, look [here](#backup) and [here](#install).
 
 ## License
 

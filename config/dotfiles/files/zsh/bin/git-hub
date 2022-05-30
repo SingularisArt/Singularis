@@ -1,0 +1,306 @@
+#!/usr/bin/env ruby
+
+require 'json'
+require 'shellwords'
+require 'tmpdir'
+
+# Grabs the next command line argument, aborting if there is none and a default
+# is not provided.
+def arg(description, default = nil)
+  if ARGV.length.zero?
+    if default.nil?
+      die "expected a <#{description}> argument; got none"
+    else
+      default
+    end
+  else
+    ARGV.shift
+  end
+end
+
+# Returns the name of the currently checked-out branch.
+def current_branch
+  capture('git rev-parse --abbrev-ref HEAD')
+end
+
+# Returns the number of the PR corresponding to the currently checked-out
+# branch, or `nil` if the current branch doesn't follow the "pull/N" format.
+def current_pr
+  current_branch[%r{\Apull/(\d+)\z}, 1]
+end
+
+# Prints `msg` and aborts the program.
+def die(msg)
+  puts "error: #{msg}"
+  exit 1
+end
+
+def username
+  name = `git config github.username`.chomp
+
+  if $?.exitstatus.zero?
+    name
+  else
+    ENV['USER']
+  end
+end
+
+# Returns the URL for the contents of the specified PR as a patch.
+def pr(number)
+  "https://github.com/#{project}/pull/#{number}.patch"
+end
+
+# Preferred remotes, in priority order.
+PREFERRED_REMOTES = %w[
+  upstream
+  upstream-rw
+  github
+  origin
+]
+MAX_INT = 1 << (1.size * 8 - 2) - 1
+
+def capture(command)
+  result = `#{command}`.chomp
+  check(command)
+  result
+end
+
+def remote_config
+  capture('git remote -v')
+    .split(/\n/)
+    .grep(/github\.com/)
+    .grep(/fetch/)
+    .sort { |a, b|
+      PREFERRED_REMOTES.find_index(a) || MAX_INT <=>
+      PREFERRED_REMOTES.find_index(b) || MAX_INT
+    }
+    .select { |line|
+      ENV['REMOTE'] ? line.split(/\s+/).first === ENV['REMOTE'] : true
+    }
+    .first or die 'failed to locate GitHub remote'
+end
+
+def remote
+  remote_config[%r{^(\S+)\s+\S*github\.com\S+\s+\(fetch\)}, 1]
+end
+
+# Infers the GitHub project name (ie. "user/project") from the repo remotes.
+def project
+  remote_config[%r{github\.com[:/]([^ ]+?)(\.git)? \(fetch\)}, 1]
+end
+
+def link(pull)
+  base = "https://github.com/#{project}/"
+  current = pull || current_pr
+  base + (current.nil? ? 'pulls' : "pull/#{Integer(current)}")
+end
+
+def open(target)
+  if RUBY_PLATFORM =~ /linux/i
+    run "xdg-open #{target}"
+  else
+    run "open #{target}"
+  end
+end
+
+# Run `command` using `system()`, aborting the script if it returns a non-zero
+# exit code.
+def run(command)
+  system(command)
+  check(command)
+end
+
+def check(command)
+  status = $?.exitstatus
+  if !status.zero?
+    die "command (#{command}) failed with non-zero exit status (#{status})"
+  end
+end
+
+# Prints usage information.
+def usage
+  puts <<-END.gsub(/^ {4}/, '')
+    Usage:
+      git hub fetch <pr>                [fetch a PR]
+      git hub get <pr>                  [fetch and checkout a PR]
+      git hub link [pr]                 [show web URL for PR]
+      git hub ls                        [list open PRs]
+      git hub merge [pr]                [merge a PR]
+      git hub open [pr|file]            [open web URL for PR or file]
+      git hub send <user> [branch]      [send a PR to a user + branch]
+      git hub show [pr]                 [show a PR on standard out]
+      git hub update                    [pull in new commits from current PR]
+
+    Environment variables:
+      REMOTE=...                        [override auto-detected remote name]
+  END
+end
+
+if ARGV.length.zero?
+  usage
+  exit
+end
+
+def fetch(number)
+  url = Shellwords.shellescape(pr(number))
+  branch = "pull/#{Shellwords.shellescape(number)}"
+  run "git fetch --update-head-ok #{remote} +pull/#{Shellwords.shellescape(number)}/head:#{branch}"
+  branch
+end
+
+case ARGV.shift
+
+when 'fetch'
+  if ARGV.length.zero?
+    number = current_pr
+    if number.nil?
+      die "can't infer PR number from current branch"
+    end
+    fetch(number)
+  else
+    while number = ARGV.shift
+      fetch(number)
+    end
+  end
+
+when 'get'
+  number = arg('pr')
+  branch = fetch(number)
+  upstream = current_branch
+  if upstream == 'HEAD'
+    # Avoid "fatal: Cannot setup tracking information; starting point 'HEAD' is not a branch."
+    capture("git branch --contains HEAD --format='%(refname)'").lines.find do |line|
+      if line.chomp =~ %r{\Arefs/heads/(.+)\z}
+        upstream = $~[1]
+        true
+      end
+    end
+  end
+  run "git branch --set-upstream-to=#{upstream} #{branch}" if upstream != 'HEAD'
+  run "git checkout #{branch}"
+
+when 'send'
+  target = arg('user')
+  branch = arg('branch', 'master')
+  repo = project.sub(%r{^[^/]+/}, '')
+  upstream = current_branch
+  if upstream == 'HEAD'
+    capture("git branch --points-at HEAD --format='%(refname)'").lines.find do |line|
+      if line.chomp =~ %r{\Arefs/heads/(.+)\z}
+        upstream = $~[1]
+        true
+      end
+    end
+  end
+  die 'cannot infer current branch name' if upstream == 'HEAD'
+  url = "https://github.com/#{target}/#{repo}/compare/#{branch}...#{username}:#{upstream}"
+  open Shellwords.shellescape(url)
+
+when 'update'
+  number = current_pr
+  if number.nil?
+    die "can't infer PR number from current branch"
+  end
+  url = Shellwords.shellescape(pr(number))
+  Dir.mktmpdir do |dir|
+    run "curl -L -f -o #{dir}/PULL -s #{url}"
+    system "git am #{dir}/PULL"
+    while !$?.exitstatus.zero?
+      print 'Attempt to apply failed; run `git am --skip`? [y/n] '
+      if gets.downcase.chomp === 'y'
+        system 'git am --skip'
+      else
+        run 'git am --abort'
+        break
+      end
+    end
+  end
+
+when 'link'
+  if ARGV.length.zero?
+    number = current_pr
+    if number.nil?
+      die "can't infer PR number from current branch"
+    end
+    numbers = [number]
+  else
+    numbers = ARGV
+  end
+  while number = numbers.shift
+    puts link(number)
+  end
+
+when 'open'
+  if ARGV.length.zero?
+    url = "https://github.com/#{project}/"
+    open Shellwords.shellescape(url)
+  else
+    target = ARGV.shift
+    if target.match(/^\d+$/)
+      open link(target)
+    else
+      prefix = capture('git rev-parse --show-prefix')
+      # TODO: teach this and other places in here to figure out if default branch is different (ie. not "master")
+      url = "https://github.com/#{project}/tree/master/#{prefix}"
+      url += target
+      open Shellwords.shellescape(url)
+    end
+  end
+
+
+when 'ls'
+  url = Shellwords.shellescape("https://api.github.com/repos/#{project}/pulls")
+  begin
+    JSON[%x{curl -L -s -f #{url}}].map do |pull|
+      puts "#{pull['number']}: #{pull['title']}"
+    end
+  rescue JSON::ParserError
+    die "Unable to get info for #{project}; is this a private repo?"
+  end
+
+when 'merge'
+  pull = ARGV.shift
+  current = current_pr
+  upstream = current_branch
+  # If no explicit PR specified, assume we want to merge current PR to master.
+  if pull.nil?
+    if current.nil?
+      die "no explicit PR number provided, and can't infer from current branch"
+    end
+    if upstream == 'HEAD'
+      die 'cannot infer current branch name'
+    end
+    pull = current
+    target = capture("git config branch.#{upstream}.merge")
+    target = capture("git rev-parse --abbrev-ref #{target}")
+    run "git checkout #{target}"
+  else
+    # Explicit PR provided
+    if upstream == "pull/#{pull}"
+      die "can't merge `#{upstream}` into `#{upstream}`"
+    end
+  end
+  message = Shellwords.shellescape(
+    <<-END.gsub(/^ {6}/, '')
+      Merge branch 'pull/#{pull}'
+
+      Closes: https://github.com/#{project}/pull/#{pull}
+    END
+  )
+  run "git merge --log -m #{message} --no-ff pull/#{pull}"
+
+when 'show'
+  number = ARGV.shift || current_pr
+  if number.nil?
+    die "no explicit PR number provided, and can't infer from current branch"
+  end
+  url = Shellwords.shellescape(pr(number))
+  system "curl -L -f #{url}"
+
+else
+  usage
+end
+
+if ARGV.length > 0
+  puts "warning: excess arguments (#{ARGV.inspect}) ignored"
+end

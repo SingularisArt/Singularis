@@ -1,0 +1,15 @@
+#!/bin/sh
+
+echo "Usage: gg <subcommand> [...arguments]"
+echo
+echo "Subcommands:"
+echo "  codespaces          💻 ssh to Codespaces"
+echo "  console             🚈 start Rails console"
+echo "  dbconsole           📀 start database console"
+echo "  go                  🚗 go to (or start a) tmux session"
+echo "  help                🤷 show this help"
+echo "  ports               🔌 forward ports from Codespace"
+echo "  server              📠 start server"
+echo "  serviceowners       🌀 update serviceowners"
+echo "  tail                🏇 tail Codespace post-start log"
+echo "  test                🧪 run test runner"

@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# Wrapper script to stop recent Node versions from complaining about:
+# TypeError [ERR_UNKNOWN_FILE_EXTENSION]: Unknown file extension "" for gg
+
+DIRECTORY=$(cd $(dirname "$BASH_SOURCE"); pwd)
+
+# Fancy hack: automatically run "test" subcommand if first arg starts with
+# test/:
+if [[ "$1" == test/* ]]; then
+  exec node "$DIRECTORY/.gg.js" test "$@"
+else
+  exec node "$DIRECTORY/.gg.js" "$@"
+fi

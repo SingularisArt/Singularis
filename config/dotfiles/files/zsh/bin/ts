@@ -1,0 +1,6 @@
+#!/bin/sh
+
+# Print a UNIX timestamp, optionally adjusted via a param (+1h, -55m etc).
+TS=$(($(date +%s) $(parseoffset "$@")))
+
+echo $TS $(date +%z)
