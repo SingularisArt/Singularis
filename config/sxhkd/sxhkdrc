@@ -3,9 +3,9 @@
 #--------#
 
 alt + {a-z}
-  bash ~/Documents/school-notes/shortcut-manager.sh {a-z}
+  bash ~/Documents/notes/shortcut-manager.sh {a-z}
 alt + {A-Z}
-  bash ~/Documents/school-notes/shortcut-manager.sh {A-Z}
+  bash ~/Documents/notes/shortcut-manager.sh {A-Z}
 
 #--------------#
 # Applications #

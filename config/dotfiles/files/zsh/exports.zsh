@@ -18,7 +18,7 @@ export TZ='America/Vancouver'
 
 export JDTLS_HOME=
 
-export NOTES_DIR="${HOME}/Documents/school-notes"
+export NOTES_DIR="${HOME}/Documents/notes/school-notes"
 export CURRENT_GRADE="${NOTES_DIR}/College"
 export ROOT="${NOTES_DIR}/College/Year-1/semester-2"
 export CURRENT_COURSE="${NOTES_DIR}/current-course"
