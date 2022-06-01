@@ -2,7 +2,7 @@
 
 source ~/.config/zsh/exports.zsh
 
-cd ~/Singularis/local/school/
+cd ~/Documents/notes/school-setup/
 
 if [[ $1 == "end" ]]; then
   ./main.py --calendar --end

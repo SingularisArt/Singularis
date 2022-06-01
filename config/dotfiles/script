@@ -22,6 +22,6 @@ log_info "Installing env"
 
 ln -sf "${CONFIG}/dotfiles/files/env" 			              "${CONFIG_LOCATION}"
 
-log_info "Installing mbsync"
+log_info "Installing github email handles"
 
-ln -sf "${CONFIG}/dotfiles/files/.mbsyncrc" 			        "${HOME}"
+ln -sf "${CONFIG}/dotfiles/files/.github-handles.json" 	  "${HOME}"

@@ -131,6 +131,7 @@ google-auth
 google-auth-httplib2
 google-auth-oauthlib
 googleapis-common-protos
+gpg
 greenlet
 grequests
 guessit
@@ -247,6 +248,7 @@ notmuch
 notmuch2
 numpy
 numpy-financial
+nyx
 oauth2client
 oauthlib
 odict
@@ -323,6 +325,7 @@ pycurl
 pydantic
 pydocstyle
 pydub
+pyenchant
 pyflakes
 pygame
 PyGetWindow
@@ -335,6 +338,7 @@ PyJWT
 PyLaTeX
 pylint
 PyMsgBox
+PyNaCl
 pynvim
 pyOpenSSL
 pyparsing
@@ -446,6 +450,7 @@ sphinxcontrib-serializinghtml
 sqlparse
 srt
 stack-data
+stem
 stevedore
 subliminal
 svgwrite
@@ -464,6 +469,7 @@ tk
 toml
 tomli
 toolz
+torbrowser-launcher
 tornado
 tqdm
 traitlets
@@ -575,3 +581,4 @@ zope.tales
 zope.testbrowser
 zope.testing
 zope.traversing
+zope.viewlet
