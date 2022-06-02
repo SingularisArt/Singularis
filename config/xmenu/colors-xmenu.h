@@ -1,1 +1,1 @@
-/home/hashem/.cache/wal/xmenu-config.h
+/home/singularis/.cache/wal/xmenu-config.h

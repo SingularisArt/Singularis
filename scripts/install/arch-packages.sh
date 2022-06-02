@@ -9,3 +9,4 @@ check_if_installed "yay"
 
 yay -Syu
 cat ${INSTALL_SCRIPTS}/arch-packages.txt | xargs yay -S
+yay -Syu

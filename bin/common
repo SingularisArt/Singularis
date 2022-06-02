@@ -68,14 +68,14 @@ check_if_installed () {
     read -r -p "Do you want to install it [y/n]: " install
 
     case ${install} in
-      "yes")
+      "y")
         if [[ "${1}" = "yay" ]]; then
           install_yay
         else
           check_if_installed "yay"
           yay -S "${1}"
         fi;;
-      "no")
+      "n")
         exit;;
     esac
   else

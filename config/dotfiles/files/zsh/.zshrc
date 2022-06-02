@@ -1,1 +1,0 @@
-/home/hashem/Singularis/config/dotfiles/files/.zshrc

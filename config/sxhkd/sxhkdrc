@@ -24,7 +24,7 @@ super + e
 super + shift + p
   xfce4-terminal -e 'pulsemixer'
 super + shift + d
-  bash $HOME/Singularis/local/scripts/xmenu-script
+  bash $HOME/Singularis/local/xmenu-script
 super + shift + z
   zathura
 super + shift + s
@@ -44,7 +44,7 @@ super + alt + shift + r
 ###########
 
 super + b
-  bash $HOME/Singularis/local/scripts/statusbar
+  bash $HOME/Singularis/local/statusbar
 
 #-------#
 # Dunst #
@@ -78,16 +78,16 @@ super + alt + comma
 super + alt + period
   mpc next
 super + alt + u
-  pamixer -i 5 && bash $HOME/Singularis/local/scripts/volume-indicator show
+  pamixer -i 5 && bash $HOME/Singularis/local/volume-indicator show
 super + alt + d
-  pamixer -d 5 && bash $HOME/Singularis/local/scripts/volume-indicator show
+  pamixer -d 5 && bash $HOME/Singularis/local/volume-indicator show
 
 #########
 # Other #
 #########
 
 Print
-  ~/Singularis/local/scripts/maimpick
+  ~/Singularis/local/maimpick
 
 
 #-------#
@@ -167,13 +167,13 @@ super + shift + m
 
 ### Enable/Disable gaps
 super + a
-  ${HOME}/.config/sxhkd/scripts/enable-disable-gaps.sh
+  ${HOME}/.config/sxhkd/enable-disable-gaps.sh
 super + shift + a
   bspc config window_gap 10
 super + z
-  ${HOME}/.config/sxhkd/scripts/increase-decrease-gaps.sh plus
+  ${HOME}/.config/sxhkd/increase-decrease-gaps.sh plus
 super + x
-  ${HOME}/.config/sxhkd/scripts/increase-decrease-gaps.sh minus
+  ${HOME}/.config/sxhkd/increase-decrease-gaps.sh minus
 
 ## Other
 

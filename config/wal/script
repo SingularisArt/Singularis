@@ -18,6 +18,7 @@ mkdir -p "${CONFIG_LOCATION}/matplotlib"
 mkdir -p "${CONFIG_LOCATION}/xmenu"
 mkdir -p "${CONFIG_LOCATION}/wal-discord"
 
+ln -sf "${wal_cache_loc}/colors.Xresources"   "${HOME}/.Xresources"
 ln -sf "${wal_cache_loc}/custom-rofi.rasi"    "${CONFIG_LOCATION}/rofi/config.rasi"
 ln -sf "${wal_cache_loc}/dunstrc"             "${CONFIG_LOCATION}/dunst/dunstrc"
 ln -sf "${wal_cache_loc}/glava_bars.glsl"     "${CONFIG_LOCATION}/glava/glava_bars.glsl"
