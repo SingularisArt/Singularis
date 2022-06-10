@@ -4,7 +4,7 @@
 set editor = "nvim"
 
 # set imap_check_subscribed = yes       # Show all folders on startup
-set mail_check_stats = yes
+# set mail_check_stats = yes
 
 # Set preffered view modes
 auto_view text/html text/calendar application/ics # view html automatically

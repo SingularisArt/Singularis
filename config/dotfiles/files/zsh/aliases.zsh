@@ -9,7 +9,7 @@ alias mbsync='mbsync -c "${HOME}/.config/isync/mbsyncrc" -a'
 alias b='bash'
 alias c='calcurse'
 
-alias minecraft='java -jar ~/Singularis/local/scripts/minecraft.jar'
+alias minecraft='java -jar ~/Singularis/local/minecraft.jar'
 
 alias reloud='clear && source ~/.config/zsh/.zshrc'
 alias ms='mysql -u root -p'

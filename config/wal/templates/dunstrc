@@ -136,19 +136,19 @@
   background = "{background}"
   foreground = "{color2}"
   timeout = 5
-  icon = /home/hashem/.icons/oomox-xresources-reverse-flat/actions/scalable/dialog-ok.svg
+  icon = /home/singularis/.icons/oomox-xresources-reverse-flat/actions/scalable/dialog-ok.svg
 
 [urgency_normal]
   background = "{background}"
   foreground = "{color4}"
   timeout = 5
-  icon = /home/hashem/.icons/oomox-xresources-reverse-flat/actions/scalable/dialog-ok.svg
+  icon = /home/singularis/.icons/oomox-xresources-reverse-flat/actions/scalable/dialog-ok.svg
 
 [urgency_critical]
   background = "{background}"
   foreground = "{color9}"
   timeout = 0
-  icon = /home/hashem/.icons/oomox-xresources-reverse-flat/status/scalable/error.svg
+  icon = /home/singularis/.icons/oomox-xresources-reverse-flat/status/scalable/error.svg
 
 # Every section that isn't one of the above is interpreted as a rules to
 # override settings for certain messages.

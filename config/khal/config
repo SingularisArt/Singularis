@@ -1,7 +1,7 @@
 [calendars]
 
 [[private]]
-path = /home/hashedupforyou101/.local/share/khal/calendars/private
+path = /home/singularis/.local/share/khal/calendars/private
 type = calendar
 
 [locale]

@@ -34,7 +34,5 @@ vscode-html-languageserver-bin
 vscode-html-languageservice
 vscode-json-languageserver
 vscode-langservers-extracted
-who-unfollowed-me
-wincent
 yaml-language-server
 yarn

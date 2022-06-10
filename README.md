@@ -8,6 +8,12 @@
   </p>
 </details>
 
+<details><summary>Firefox</summary>
+  <p>
+      <img src="media/firefox.png">
+  </p>
+</details>
+
 <details><summary>Dunst</summary>
   <p>
       <img src="media/dunst.png">
@@ -26,10 +32,15 @@
   </p>
 </details>
 
+<details><summary>Polybar</summary>
+  <p>
+      <img src="media/polybar.png">
+  </p>
+</details>
+
 <details><summary>Picom</summary>
   <p>
-      <img src="media/picom-1.png">
-      <img src="media/picom-2.png">
+      <img src="media/picom.png">
     </p>
 </details>
 
@@ -37,8 +48,7 @@
 
 <details><summary>Neomutt</summary>
   <p>
-      <img src="media/neomutt-1.png">
-      <img src="media/neomutt-2.png">
+      <img src="media/neomutt.png">
   </p>
 </details>
 
@@ -59,6 +69,12 @@
 <details><summary>Matplotlib</summary>
   <p>
       <img src="media/matplotlib.png">
+  </p>
+</details>
+
+<details><summary>Markdown</summary>
+  <p>
+      <img src="media/markdown.png">
   </p>
 </details>
 
@@ -97,6 +113,12 @@
 <details><summary>Calendar</summary>
   <p>
       <img src="media/calendar.png">
+  </p>
+</details>
+
+<details><summary>Habits</summary>
+  <p>
+      <img src="media/habits.png">
   </p>
 </details>
 
