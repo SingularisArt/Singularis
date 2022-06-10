@@ -2,45 +2,47 @@
 
 ## System
 
+<img src="media/theme-1/main.png">
+
 <details><summary>Zsh</summary>
   <p>
-      <img src="media/zsh.png">
+      <img src="media/theme-1/zsh.png">
   </p>
 </details>
 
 <details><summary>Firefox</summary>
   <p>
-      <img src="media/firefox.png">
+      <img src="media/theme-1/firefox.png">
   </p>
 </details>
 
 <details><summary>Dunst</summary>
   <p>
-      <img src="media/dunst.png">
+      <img src="media/theme-1/dunst.png">
   </p>
 </details>
 
 <details><summary>Rofi</summary>
   <p>
-      <img src="media/rofi.png">
+      <img src="media/theme-1/rofi.png">
   </p>
 </details>
 
 <details><summary>Xmenu</summary>
   <p>
-      <img src="media/xmenu.png">
+      <img src="media/theme-1/xmenu.png">
   </p>
 </details>
 
 <details><summary>Polybar</summary>
   <p>
-      <img src="media/polybar.png">
+      <img src="media/theme-1/polybar.png">
   </p>
 </details>
 
 <details><summary>Picom</summary>
   <p>
-      <img src="media/picom.png">
+      <img src="media/theme-1/picom.png">
     </p>
 </details>
 
@@ -48,7 +50,7 @@
 
 <details><summary>Neomutt</summary>
   <p>
-      <img src="media/neomutt.png">
+      <img src="media/theme-1/neomutt.png">
   </p>
 </details>
 
@@ -56,31 +58,31 @@
 
 <details><summary>Neovim</summary>
   <p>
-      <img src="media/nvim.png">
+      <img src="media/theme-1/nvim.png">
   </p>
 </details>
 
 <details><summary>GnuPlot</summary>
   <p>
-      <img src="media/gnuplot.png">
+      <img src="media/theme-1/gnuplot.png">
   </p>
 </details>
 
 <details><summary>Matplotlib</summary>
   <p>
-      <img src="media/matplotlib.png">
+      <img src="media/theme-1/matplotlib.png">
   </p>
 </details>
 
 <details><summary>Markdown</summary>
   <p>
-      <img src="media/markdown.png">
+      <img src="media/theme-1/markdown.png">
   </p>
 </details>
 
 <details><summary>Notes</summary>
   <p>
-      <img src="media/notes.png">
+      <img src="media/theme-1/notes.png">
   </p>
 </details>
 
@@ -88,37 +90,37 @@
 
 <details><summary>Monitors</summary>
   <p>
-      <img src="media/monitors.png">
+      <img src="media/theme-1/monitors.png">
   </p>
 </details>
 
 <details><summary>PDF's</summary>
   <p>
-      <img src="media/pdf.png">
+      <img src="media/theme-1/pdf.png">
   </p>
 </details>
 
 <details><summary>Files</summary>
   <p>
-      <img src="media/files.png">
+      <img src="media/theme-1/files.png">
   </p>
 </details>
 
 <details><summary>Volume</summary>
   <p>
-      <img src="media/volume.png">
+      <img src="media/theme-1/volume.png">
   </p>
 </details>
 
 <details><summary>Calendar</summary>
   <p>
-      <img src="media/calendar.png">
+      <img src="media/theme-1/calendar.png">
   </p>
 </details>
 
 <details><summary>Habits</summary>
   <p>
-      <img src="media/habits.png">
+      <img src="media/theme-1/habits.png">
   </p>
 </details>
 
@@ -126,25 +128,25 @@
 
 <details><summary>Audio</summary>
   <p>
-      <img src="media/audio.png">
+      <img src="media/theme-1/audio.png">
   </p>
 </details>
 
 <details><summary>News</summary>
   <p>
-      <img src="media/news.png">
+      <img src="media/theme-1/news.png">
   </p>
 </details>
 
 <details><summary>Misc</summary>
   <p>
-      <img src="media/misc.png">
+      <img src="media/theme-1/misc.png">
   </p>
 </details>
 
 <details><summary>Images</summary>
   <p>
-      <img src="media/images.png">
+      <img src="media/theme-1/images.png">
   </p>
 </details>
 
@@ -477,7 +479,7 @@ control](https://github.com/SingularisArt/Singularis/commit/f0bce4d1) since
 
 ### Prompt
 
-<img src="media/zsh-prompt.png">
+<img src="media/theme-1/zsh-prompt.png">
 
 ## Tmux
 
@@ -485,7 +487,7 @@ control](https://github.com/SingularisArt/Singularis/commit/f0bce4d1) since
 
 ### Prompt
 
-<img src="media/tmux-prompt.png">
+<img src="media/theme-1/tmux-prompt.png">
 
 Sxhkd
 =====
