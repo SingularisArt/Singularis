@@ -595,11 +595,45 @@ Sxhkd
 
 ### Move and Resize
 
+| Action                                             | Keybinding                 |
+|----------------------------------------------------|----------------------------|
+| Expand a window by moving one of its side outward  | Super+Alt+{h,j,k,l}        |
+| Contract a window by moving one of its side inward | Super+Alt+Shift+{h,j,k,l}  |
+| Move a floating window                             | Super+{Left,Down,Up,Right} |
+
 ### Focus and Swap
+
+| Action           | Keybinding            |
+|------------------|-----------------------|
+| Move around      | Super+{h,j,k,l}       |
+| Move application | Super+Shift+{h,j,k,l} |
+
+### Selecting areas
+
+| Action                                          | Keybinding               |
+|-------------------------------------------------|--------------------------|
+| Preselect the direction                         | Super+Ctrl+Alt+{h,j,k,l} |
+| Preselect the ratio                             | Super+Ctrl+{1-9}         |
+| Cancel the preselection for the focused node    | Super+Ctrl+Space         |
+| Cancel the preselection for the focused desktop | Super+Ctrl+Shift+Space   |
+| Move current window to a preselected space      | Super+Shift+m            |
 
 ### Gaps
 
+| Action                    | Keybinding    |
+|---------------------------|---------------|
+| Enable and Disable gaps   | Super+a       |
+| Reset gaps to normal size | Super+Shift+a |
+| Increase gap size by 10   | Super+z       |
+| Decrease gap size by 10   | Super+x       |
+
 ### Other
+
+| Action        | Keybinding         |
+|---------------|--------------------|
+| Restart sxhkd | Super+Escape       |
+| Restart bspwm | Super+Shift+Ctrl+r |
+| Quit bspwm    | Super+Shift+Ctrl+1 |
 
 Mutt
 ====
@@ -608,58 +642,52 @@ Mutt
 
 Here's the boiler template for creating an account:
 
-```mutt
-# vim: filetype=neomuttrc
-# change your@gmail.com to something sensible (this should match msmtp and isync)
-set realname = "NAME"
-set from = "your@gmail.com"
-set sendmail = "msmtp -a your@gmail.com"
-alias me Hashem A. Damrah <your@gmail.com>
-set folder = "~/.local/share/mail/your@gmail.com"
-set header_cache = ~/.cache/mutt/your@gmail.com/headers
-set message_cachedir = ~/.cache/mutt/your@gmail.com/bodies
-set mbox_type = Maildir
-set reverse_name=yes
-set reverse_realname=no
-
-set imap_check_subscribed=yes
-
-macro index o "<shell-escape>mailsync -V your@gmail.coyour@gmail.comnc to sync your@gmail.com"
-# Allows responding to calendar invites (replace mutt-ical with import_calendar_invite if you want to import the event into a local calendar too)
-macro attach,pager A '<shell-escape>rm -vf /tmp/.mutt.ics<enter><save-entry><kill-line>mutt-ical /tmp/.mutt.ics your@gmail.com<enter><shell-escape>
+```config
+# vim: filetype=muttrc
 unmailboxes *
 
-# Create virtual mailboxes for all mail and all accounts (replace main below)
-# virtual-mailboxes "All Accounts" "notmuch://?query=tag:inbox"
-# virtual-mailboxes "All Mail" "notmuch://?query=tag:inbox%20and%20path:your@gmail.com%2F**"
+set from = "example@gmail.com"
+set realname = "Foo B. Bazz"
 
-# Folders
-mailboxes "=INBOX"
-mailboxes "=Archive"
-mailboxes "=[Gmail].All Mail"
-mailboxes "=[Gmail].Drafts"
-mailboxes "=[Gmail].Important"
-mailboxes "=[Gmail].Sent"
-mailboxes "=[Gmail].Sent Mail"
-mailboxes "=[Gmail].Spam"
-mailboxes "=[Gmail].Starred"
-mailboxes "=[Gmail].Trash"
+# Imap settings
+set imap_user = "example@gmail.com"
+set imap_pass = `pass example` # Either pass a command like pass
+set imap_pass = "password"  # Or enter your password manually
 
+# Smtp settings
+set smtp_url = "smtps://example@smtp.gmail.com"
+set smtp_pass = `pass example` # Either pass a command like pass
+set smtp_pass = "password"  # Or enter your password manually
+
+# Remote gmail folders
+set folder = "imaps://imap.gmail.com/"
 set spoolfile = "+INBOX"
-set record = "+[Gmail].Sent Mail"
-set postponed = "+[Gmail].Drafts"
-set trash = "+[Gmail].Trash"
-# Query with goobook
-set query_command="goobook -c ~/.config/goobook/goobookrc query %s"
-# a add to address book
-macro index,pager a "<pipe-message>goobook -c ~/.config/goobook/goobookrc add<return>" "add the sender address to Google contacts"
+set postponed = "[Gmail]/Drafts"
+set record = "[Gmail]/Sent Mail"
+set trash = "[Gmail]/Trash"
+set envelope_from
+set use_from = "yes"
+set mail_check = 6
 
-set sidebar_new_mail_only
-set sidebar_new_mail_only
-sidebar_whitelist "~/.local/share/mail/your@gmail.com/"
+mailboxes "=INBOX"
+mailboxes "=[Gmail]/Drafts"
+mailboxes "=[Gmail]/Sent Mail"
+mailboxes "=[Gmail]/Starred"
+mailboxes "=[Gmail]/Spam"
+mailboxes "=[Gmail]/Trash"
 
-# C-f search with notmuch (replace your@gmail.com below)
-macro index \Cf "<enter-command>unset wait_key<enter><shell-escape>read -p 'Enter a search: ' x; echo \$x >~/.cache/mutt_terms<enter><change-folder>All Mail<enter><limit>~i \"\`notmuch --config ~/.config/notmuch/notmuchrc search --output=messages \"\$(/bin/cat ~/.cache/mutt_terms) path:your@gmail.com/**\" | head -n 1000 | perl -le '@a=<>;chomp@a;s/\^id:// for@a;$,=\"|\";print@a'\`\"<enter>" "Search all mail in this account"
+named-mailboxes " Inbox"     "=INBOX"
+named-mailboxes " Drafts"    "=[Gmail]/Drafts"
+named-mailboxes " Sent Mail" "=[Gmail]/Sent Mail"
+named-mailboxes " Starred"   "=[Gmail]/Starred"
+named-mailboxes " Spam"      "=[Gmail]/Spam"
+named-mailboxes " Trash"     "=[Gmail]/Trash"
+
+# Allow Mutt to open a new IMAP connection automatically.
+unset imap_passive
+
+# Keep the IMAP connection alive by polling intermittently (time in seconds).
+set imap_keepalive = 60
 ```
 
 ## Key bindings
@@ -793,18 +821,18 @@ Dependencies
 All you need is `git` installed.
 
 > **NOTE:** If you don't have the **PACMAN** package manager, then you need to
-> look at the [packages](scripts/install/packages.txt) and install the needed
-> packages. If you do have the **PACMAN** package manager, then the install
-> script will install all the needed packages for you.
+> look at the [packages](scripts/install/arch-packages.txt) and install the
+> needed packages. If you do have the **PACMAN** package manager, then the
+> install script will install all the needed packages for you.
 
 ## Platform status
 
 | Platform             | Status                                                                                                                                                                      |
 | -------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Arch Linux           | :1st_place_medal: Most tested, Arch Linux is one of my main OS. You get the most configuration if you are on Linux.                                                               |
+| Arch Linux           | :1st_place_medal: Most tested, Arch Linux is one of my main OS. You get the most configuration if you are on Linux.                                                         |
 | MacOS                | :2nd_place_medal: Not as bad, but it can have some bugs here and there, but it's up to you to fix those because I don't use mac and won't really be fixing any bugs for it. |
 | Windows              | :3rd_place_medal: The worst rank. Not tested at all. I don't even have an install script for it. So, you shouldn't use windows when using my dotfiles.                      |
-| Other                | :skull: Just like Windows. Not tested at all, and probably will never be tested.                                                                                  |
+| Other                | :skull: Just like Windows. Not tested at all, and probably will never be tested.                                                                                            |
 
 ## Installation
 
@@ -837,7 +865,7 @@ the perfect script. And, well, here it is.
 ./install --all                       # Installs everything
 ./install --install dotfiles          # Installs only my dotfiles configuration
 ./install --install awesome           # Installs only my awesome configuration
-./install awesome --install dotfiles  # Installs only my awesome configuration and dotfiles in that order
+./install --install awesome dotfiles  # Installs only my awesome configuration and dotfiles in that order
 ./install --commands                  # That will show you all of the possible commands
 ```
 
@@ -863,7 +891,8 @@ Now, run the following:
 
 For more information, look [here](#backup) and [here](#install).
 
-## License
+License
+=======
 
 Unless otherwise noted, the contents of this repo are in the public domain. See
 the [LICENSE](LICENSE.md) for details.
