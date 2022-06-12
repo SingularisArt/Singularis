@@ -62,11 +62,7 @@ bspc config window_gap 10
 # Rules
 workspaces_multimonitor &
 
-bspc rule -a matplotlib state=state
-bspc rule -a anki state=state
-bspc rule -a Xfce4-terminal state=state
-bspc rule -a Gcolor2 state=state
-bspc rule -a Lxappearance state=state
-bspc rule -a Gmrun state=state
-bspc rule -a Lxterminal state=state
-bspc rule -a Viewnior state=state
+bspc rule -a matplotlib state=floating
+bspc rule -a Inkscape state=floating
+bspc rule -a gnome-terminal-server state=floating
+bspc rule -a Gnome-terminal state=floating
