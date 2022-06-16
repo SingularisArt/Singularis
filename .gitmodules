@@ -10,9 +10,6 @@
 [submodule "tdrop"]
 	path = third-party-tools/tdrop
 	url = https://github.com/noctuid/tdrop
-[submodule "inkscape-figures"]
-	path = third-party-tools/inkscape-figures
-	url = https://github.com/SingularisArt/inkscape-figures
 [submodule "inkscape-mappings"]
 	path = third-party-tools/inkscape-mappings
 	url = https://github.com/SingularisArt/inkscape-mappings
@@ -43,6 +40,3 @@
 [submodule "nvim"]
 	path = config/nvim
 	url = https://github.com/SingularisArt/Death.NeoVim
-[submodule "inkscape-shortcut-manager"]
-	path = third-party-tools/inkscape-shortcut-manager
-	url = https://github.com/SingularisArt/inkscape-shortcut-manager

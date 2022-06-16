@@ -1,3 +1,22 @@
+# Status
+
+<p align="center">
+	My System Configuration
+</p>
+
+<p align="center">
+	<a href="https://github.com/SingularisArt/Singularis/stargazers">
+		<img alt="Stars" src="https://img.shields.io/github/stars/SingularisArt/Singularis?style=for-the-badge&logo=starship&color=C9CBFF&logoColor=D9E0EE&labelColor=302D41"></a>
+	<a href="https://github.com/SingularisArt/Singularis/issues">
+		<img alt="Issues" src="https://img.shields.io/github/issues/SingularisArt/Singularis?style=for-the-badge&logo=bilibili&color=F5E0DC&logoColor=D9E0EE&labelColor=302D41"></a>
+	<a href="https://github.com/SingularisArt/Singularis">
+		<img alt="Build Status" src="https://img.shields.io/appveyor/build/SingularisArt/Singularis?style=for-the-badge&logo=starship&color=C9CBFF&logoColor=D9E0EE&labelColor=302D41"/></a>
+	<a href="https://github.com/SingularisArt/Singularis">
+		<img alt="Repo Size" src="https://img.shields.io/github/repo-size/SingularisArt/Singularis?color=%23DDB6F2&label=SIZE&logo=codesandbox&style=for-the-badge&logoColor=D9E0EE&labelColor=302D41"/></a>
+	<a href="https://github.com/SingularisArt/Singularis">
+		<img alt="License" src="https://img.shields.io/github/license/SingularisArt/Singularis?style=for-the-badge&logo=starship&color=C9CBFF&logoColor=D9E0EE&labelColor=302D41"/></a>
+</p>
+
 # Gallery
 
 ## System
@@ -149,6 +168,99 @@
       <img src="media/theme-1/images.png">
   </p>
 </details>
+
+# Table of Content
+
+<!-- vim-markdown-toc -->
+
+* [Status](#status)
+* [Gallery](#gallery)
+  * [System](#system)
+  * [Communication](#communication)
+  * [Development](#development)
+  * [Utility](#utility)
+  * [Entertainment](#entertainment)
+* [Applications](#applications)
+  * [System](#system-1)
+  * [Tools](#tools)
+    * [Communication](#communication-1)
+    * [Development](#development-1)
+    * [Education](#education)
+    * [Productivity](#productivity)
+    * [Science](#science)
+    * [Personal](#personal)
+    * [Entertainment](#entertainment-1)
+      * [Media](#media)
+      * [Games](#games)
+      * [Misc](#misc)
+    * [Utility](#utility-1)
+      * [System](#system-2)
+      * [Monitors](#monitors)
+        * [System](#system-3)
+        * [Network](#network)
+        * [Finance](#finance)
+      * [Misc](#misc-1)
+    * [Security](#security)
+  * [Theming](#theming)
+* [Dotfiles](#dotfiles)
+  * [Features](#features)
+  * [Zsh](#zsh)
+    * [Functions](#functions)
+    * [Prompt](#prompt)
+  * [Tmux](#tmux)
+    * [Bindings](#bindings)
+    * [Prompt](#prompt-1)
+* [Sxhkd](#sxhkd)
+  * [School](#school)
+  * [Applications](#applications-1)
+  * [Rofi](#rofi)
+  * [Polybar](#polybar)
+  * [Dunst](#dunst)
+  * [Music](#music)
+  * [Other](#other)
+  * [Bspwm](#bspwm)
+    * [Desktop and Workspaces](#desktop-and-workspaces)
+    * [Windows](#windows)
+    * [Move and Resize](#move-and-resize)
+    * [Focus and Swap](#focus-and-swap)
+    * [Selecting areas](#selecting-areas)
+    * [Gaps](#gaps)
+    * [Other](#other-1)
+* [Mutt](#mutt)
+  * [Accounts](#accounts)
+  * [Key bindings](#key-bindings)
+    * [Index and Pager](#index-and-pager)
+    * [Index](#index)
+    * [Pager](#pager)
+    * [Attach](#attach)
+    * [Compose](#compose)
+    * [Browser](#browser)
+    * [Index and Attach and Browser and Query](#index-and-attach-and-browser-and-query)
+* [Music](#music-1)
+  * [MPD](#mpd)
+  * [Ncmpcpp](#ncmpcpp)
+  * [MPV](#mpv)
+* [Window Managers](#window-managers)
+  * [Bspwm](#bspwm-1)
+  * [Dwm](#dwm)
+  * [Awesome](#awesome)
+* [My Scripts](#my-scripts)
+* [How my Theming Works](#how-my-theming-works)
+* [Dependencies](#dependencies)
+  * [Platform status](#platform-status)
+  * [Installation](#installation)
+    * [Backup](#backup)
+      * [Examples](#examples)
+    * [Install](#install)
+      * [Examples](#examples-1)
+    * [Uninstall](#uninstall)
+      * [Examples](#examples-2)
+    * [Putting it all Together](#putting-it-all-together)
+* [License](#license)
+* [Credit](#credit)
+
+<!-- vim-markdown-toc -->
+
 
 Applications
 ============
