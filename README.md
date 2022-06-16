@@ -21,7 +21,7 @@
 
 ## System
 
-<img src="media/theme-1/main.png">
+<img src="media/main.png">
 
 <details><summary>Zsh</summary>
   <p>
