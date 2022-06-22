@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+source "${HOME}/Singularis/bin/common"
+source "${HOME}/Singularis/bin/variables"
+
+log_info "Installing DeathVim"
+
+bash <(curl -s https://raw.githubusercontent.com/SingularisArt/Death.NeoVim/master/utils/installer/installer.sh)

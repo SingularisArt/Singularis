@@ -173,97 +173,95 @@
 
 <!-- vim-markdown-toc -->
 
-* [Status](#status)
-* [Gallery](#gallery)
-  * [System](#system)
-  * [Communication](#communication)
-  * [Development](#development)
-  * [Utility](#utility)
-  * [Entertainment](#entertainment)
-* [Applications](#applications)
-  * [System](#system-1)
-  * [Tools](#tools)
-    * [Communication](#communication-1)
-    * [Development](#development-1)
-    * [Education](#education)
-    * [Productivity](#productivity)
-    * [Science](#science)
-    * [Personal](#personal)
-    * [Entertainment](#entertainment-1)
-      * [Media](#media)
-      * [Games](#games)
-      * [Misc](#misc)
-    * [Utility](#utility-1)
-      * [System](#system-2)
-      * [Monitors](#monitors)
-        * [System](#system-3)
-        * [Network](#network)
-        * [Finance](#finance)
-      * [Misc](#misc-1)
-    * [Security](#security)
-  * [Theming](#theming)
-* [Dotfiles](#dotfiles)
-  * [Features](#features)
-  * [Zsh](#zsh)
-    * [Functions](#functions)
-    * [Prompt](#prompt)
-  * [Tmux](#tmux)
-    * [Bindings](#bindings)
-    * [Prompt](#prompt-1)
-* [Sxhkd](#sxhkd)
-  * [School](#school)
-  * [Applications](#applications-1)
-  * [Rofi](#rofi)
-  * [Polybar](#polybar)
-  * [Dunst](#dunst)
-  * [Music](#music)
-  * [Other](#other)
-  * [Bspwm](#bspwm)
-    * [Desktop and Workspaces](#desktop-and-workspaces)
-    * [Windows](#windows)
-    * [Move and Resize](#move-and-resize)
-    * [Focus and Swap](#focus-and-swap)
-    * [Selecting areas](#selecting-areas)
-    * [Gaps](#gaps)
-    * [Other](#other-1)
-* [Mutt](#mutt)
-  * [Accounts](#accounts)
-  * [Key bindings](#key-bindings)
-    * [Index and Pager](#index-and-pager)
-    * [Index](#index)
-    * [Pager](#pager)
-    * [Attach](#attach)
-    * [Compose](#compose)
-    * [Browser](#browser)
-    * [Index and Attach and Browser and Query](#index-and-attach-and-browser-and-query)
-* [Music](#music-1)
-  * [MPD](#mpd)
-  * [Ncmpcpp](#ncmpcpp)
-  * [MPV](#mpv)
-* [Window Managers](#window-managers)
-  * [Bspwm](#bspwm-1)
-  * [Dwm](#dwm)
-  * [Awesome](#awesome)
-* [My Scripts](#my-scripts)
-* [How my Theming Works](#how-my-theming-works)
-* [Dependencies](#dependencies)
-  * [Platform status](#platform-status)
-  * [Installation](#installation)
-    * [Backup](#backup)
-      * [Examples](#examples)
-    * [Install](#install)
-      * [Examples](#examples-1)
-    * [Uninstall](#uninstall)
-      * [Examples](#examples-2)
-    * [Putting it all Together](#putting-it-all-together)
-* [License](#license)
-* [Credit](#credit)
+- [Status](#status)
+- [Gallery](#gallery)
+  - [System](#system)
+  - [Communication](#communication)
+  - [Development](#development)
+  - [Utility](#utility)
+  - [Entertainment](#entertainment)
+- [Applications](#applications)
+  - [System](#system-1)
+  - [Tools](#tools)
+    - [Communication](#communication-1)
+    - [Development](#development-1)
+    - [Education](#education)
+    - [Productivity](#productivity)
+    - [Science](#science)
+    - [Personal](#personal)
+    - [Entertainment](#entertainment-1)
+      - [Media](#media)
+      - [Games](#games)
+      - [Misc](#misc)
+    - [Utility](#utility-1)
+      - [System](#system-2)
+      - [Monitors](#monitors)
+        - [System](#system-3)
+        - [Network](#network)
+        - [Finance](#finance)
+      - [Misc](#misc-1)
+    - [Security](#security)
+  - [Theming](#theming)
+- [Dotfiles](#dotfiles)
+  - [Features](#features)
+  - [Zsh](#zsh)
+    - [Functions](#functions)
+    - [Prompt](#prompt)
+  - [Tmux](#tmux)
+    - [Bindings](#bindings)
+    - [Prompt](#prompt-1)
+- [Sxhkd](#sxhkd)
+  - [School](#school)
+  - [Applications](#applications-1)
+  - [Rofi](#rofi)
+  - [Polybar](#polybar)
+  - [Dunst](#dunst)
+  - [Music](#music)
+  - [Other](#other)
+  - [Bspwm](#bspwm)
+    - [Desktop and Workspaces](#desktop-and-workspaces)
+    - [Windows](#windows)
+    - [Move and Resize](#move-and-resize)
+    - [Focus and Swap](#focus-and-swap)
+    - [Selecting areas](#selecting-areas)
+    - [Gaps](#gaps)
+    - [Other](#other-1)
+- [Mutt](#mutt)
+  - [Accounts](#accounts)
+  - [Key bindings](#key-bindings)
+    - [Index and Pager](#index-and-pager)
+    - [Index](#index)
+    - [Pager](#pager)
+    - [Attach](#attach)
+    - [Compose](#compose)
+    - [Browser](#browser)
+    - [Index and Attach and Browser and Query](#index-and-attach-and-browser-and-query)
+- [Music](#music-1)
+  - [MPD](#mpd)
+  - [Ncmpcpp](#ncmpcpp)
+  - [MPV](#mpv)
+- [Window Managers](#window-managers)
+  - [Bspwm](#bspwm-1)
+  - [Dwm](#dwm)
+  - [Awesome](#awesome)
+- [My Scripts](#my-scripts)
+- [How my Theming Works](#how-my-theming-works)
+- [Dependencies](#dependencies)
+  - [Platform status](#platform-status)
+  - [Installation](#installation)
+    - [Backup](#backup)
+      - [Examples](#examples)
+    - [Install](#install)
+      - [Examples](#examples-1)
+    - [Uninstall](#uninstall)
+      - [Examples](#examples-2)
+    - [Putting it all Together](#putting-it-all-together)
+- [License](#license)
+- [Credit](#credit)
 
 <!-- vim-markdown-toc -->
 
-
-Applications
-============
+# Applications
 
 ## System
 
@@ -316,8 +314,7 @@ Applications
 
 ### Education
 
-- [Anki](https://apps.ankiweb.net/): Powerful, intelligent flash cards. 
-
+- [Anki](https://apps.ankiweb.net/): Powerful, intelligent flash cards.
 
 ### Productivity
 
@@ -362,8 +359,8 @@ Applications
 - [newsboat](https://www.archlinux.org/packages/community/x86_64/newsboat/):
   TUI RSS reader
 - [cava](https://github.com/karlstav/cava): Console music visualizer
-- [glava](https://github.com/jarcode-foss/glava):  OpenGL audio spectrum
-  visualizer 
+- [glava](https://github.com/jarcode-foss/glava): OpenGL audio spectrum
+  visualizer
 - [cmus](https://github.com/cmus/cmus): Lightweight console music player
 - [cmus-notify](https://github.com/dcx86r/cmus-notify): Notifications for
   `cmus`
@@ -432,7 +429,7 @@ Applications
 - [gpick](https://www.archlinux.org/packages/community/x86_64/gpick/): Advanced
   color picker
 - [termdown](https://github.com/trehn/termdown): Countdown timer and stopwatch
-  in your terminal 
+  in your terminal
 - [peaclock](https://aur.archlinux.org/packages/peaclock/): Terminal timer and
   clock
 - [yad](https://github.com/v1cont/yad): Create GTK interfaces from the command
@@ -534,8 +531,7 @@ Applications
 - [plymouth-themes](https://github.com/adi1090x/plymouth-themes): Collection of
   themes
 
-Dotfiles
-========
+# Dotfiles
 
 ## Features
 
@@ -544,17 +540,17 @@ Dotfiles
 control](https://github.com/SingularisArt/Singularis/commit/f0bce4d1) since
 2022). Characteristics include:
 
-* Sane Vim pasting via bracketed paste mode.
-* Full mouse support (pane/split resizing, scrolling, text selection) in Vim
+- Sane Vim pasting via bracketed paste mode.
+- Full mouse support (pane/split resizing, scrolling, text selection) in Vim
   and tmux.
-* Focus/lost events for Vim inside tmux.
-* Cursor shape toggles on entering Vim.
-* Italics in the terminal.
-* Bundles a (not-excessive) number of useful Vim plug-ins.
-* Conservative Vim configuration (very few overrides of core functionality;
+- Focus/lost events for Vim inside tmux.
+- Cursor shape toggles on entering Vim.
+- Italics in the terminal.
+- Bundles a (not-excessive) number of useful Vim plug-ins.
+- Conservative Vim configuration (very few overrides of core functionality;
   most changes are unobtrusive enhancements; some additional functionality
   exposed via <Leader> and <LocalLeader> mappings.
-* Relatively restrained Zsh config, Bash-like but with a few Zsh perks, such as
+- Relatively restrained Zsh config, Bash-like but with a few Zsh perks, such as
   right-side prompt, auto-cd hooks, command elapsed time printing, own
   custom-made plugin manager, and such.
 
@@ -562,31 +558,31 @@ control](https://github.com/SingularisArt/Singularis/commit/f0bce4d1) since
 
 ### Functions
 
-* `ag`: Transparently wraps the `ag` executable so as to provide a centralized
+- `ag`: Transparently wraps the `ag` executable so as to provide a centralized
   place to set defaults for that command (seeing as it has no "rc" file).
-* `color`: Change terminal and Neovim color scheme.
-* `fd`: Using fast `bfs` and `sk`; automatically `cd`s into the selected
+- `color`: Change terminal and Neovim color scheme.
+- `fd`: Using fast `bfs` and `sk`; automatically `cd`s into the selected
   directory.
-* `fh`: Selecting a history item inserts it into the command line but does not
+- `fh`: Selecting a history item inserts it into the command line but does not
   execute it.
-* `history`: Overrides the (tiny) default history count.
-* `jump`: To jump to hashed directories.
-* `regmv`: Bulk-rename files (eg. `regmv '/\.tif$/.tiff/' *`).
-* `scratch`: Create a random temporary scratch directory and `cd` into it.
-* `tick`: Moves an existing time warp (eg. `tick +1h`); see `tw` below for a
+- `history`: Overrides the (tiny) default history count.
+- `jump`: To jump to hashed directories.
+- `regmv`: Bulk-rename files (eg. `regmv '/\.tif$/.tiff/' *`).
+- `scratch`: Create a random temporary scratch directory and `cd` into it.
+- `tick`: Moves an existing time warp (eg. `tick +1h`); see `tw` below for a
   description of time warp.
-* `tmux`: Wrapper that reattaches to pre-existing sessions, or creates new ones
+- `tmux`: Wrapper that reattaches to pre-existing sessions, or creates new ones
   based on the current directory name; additionally, looks for a `.tmux` file
   to set up windows and panes (note that the first time a given `.tmux` file is
   encountered the wrapper asks the user whether to trust or skip it).
-* `tw`: Overrides `GIT_AUTHOR_DATE` and `GIT_COMMITTER_DATE` (eg. `tw -1d`).
-* `gpg`: Just a re-write function that if you don't give it any parameters, it
+- `tw`: Overrides `GIT_AUTHOR_DATE` and `GIT_COMMITTER_DATE` (eg. `tw -1d`).
+- `gpg`: Just a re-write function that if you don't give it any parameters, it
   will run `gpg --list-keys`.
-* `zsh_add_file`: This function sources any file you have in the zsh config
+- `zsh_add_file`: This function sources any file you have in the zsh config
   directory in ~/Singularis/config/dotfiles/files/.zsh
-* `zsh_add_plugin`: This function sources any plugin you have in the zsh config
+- `zsh_add_plugin`: This function sources any plugin you have in the zsh config
   directory in ~/Singularis/config/dotfiles/files/.zsh/plugins
-* `zsh_add_completion`: This function sources any completion you have in the
+- `zsh_add_completion`: This function sources any completion you have in the
   zsh config directory in ~/Singularis/config/dotfiles/files/.zsh/completion
 
 ### Prompt
@@ -601,13 +597,12 @@ control](https://github.com/SingularisArt/Singularis/commit/f0bce4d1) since
 
 <img src="media/theme-1/tmux-prompt.png">
 
-Sxhkd
-=====
+# Sxhkd
 
 ## School
 
 | Action                                    | Keybinding |
-|-------------------------------------------|------------|
+| ----------------------------------------- | ---------- |
 | Open current master assignment pdf        | Alt+b      |
 | Open notes for your current course        | Alt+o      |
 | Compile your current notes                | Alt+O      |
@@ -634,7 +629,7 @@ Sxhkd
 ## Applications
 
 | Action                              | Keybinding    |
-|-------------------------------------|---------------|
+| ----------------------------------- | ------------- |
 | Open terminal (xfce4-terminal)      | Super+Enter   |
 | Open nvim (in xfce4-terminal)       | Super+n       |
 | Open neomutt (in xfce4-terminal)    | Super+m       |
@@ -647,20 +642,20 @@ Sxhkd
 ## Rofi
 
 | Action                         | Keybinding        |
-|--------------------------------|-------------------|
+| ------------------------------ | ----------------- |
 | Open Rofi                      | Super+r           |
 | List all applications via Rofi | Super+Alt+Shift+r |
 
 ## Polybar
 
 | Action                 | Keybinding |
-|------------------------|------------|
+| ---------------------- | ---------- |
 | Enable/Disable polybar | Super+b    |
 
 ## Dunst
 
 | Action                           | Keybinding       |
-|----------------------------------|------------------|
+| -------------------------------- | ---------------- |
 | Close one notification           | Ctrl+Space       |
 | Close all notifiactions          | Ctrl+Shift+Space |
 | Bring back the last notification | Ctrl+\`          |
@@ -668,7 +663,7 @@ Sxhkd
 ## Music
 
 | Action                   | Keybinding        |
-|--------------------------|-------------------|
+| ------------------------ | ----------------- |
 | Toggle MPD               | Super+Alt+t       |
 | Restart song             | Super+Alt+r       |
 | Seek forward 60 seconds  | Super+Alt+Shift+[ |
@@ -683,7 +678,7 @@ Sxhkd
 ## Other
 
 | Action            | Keybinding |
-|-------------------|------------|
+| ----------------- | ---------- |
 | Take a screenshot | Print      |
 
 ## Bspwm
@@ -691,7 +686,7 @@ Sxhkd
 ### Desktop and Workspaces
 
 | Action                               | Keybinding        |
-|--------------------------------------|-------------------|
+| ------------------------------------ | ----------------- |
 | Send item to workspace               | Super+Shift+{1-5} |
 | Go to workspace                      | Super+{1-5}       |
 | Go back to the most recent workspace | Super+Tab         |
@@ -699,7 +694,7 @@ Sxhkd
 ### Windows
 
 | Action                                            | Keybinding           |
-|---------------------------------------------------|----------------------|
+| ------------------------------------------------- | -------------------- |
 | Destroy current application                       | Super+q              |
 | Split h(o)rizontal, (v)ertical, or (c)ancel       | Super+{0,v,c}        |
 | Full screen/Monocle                               | Super+f              |
@@ -710,7 +705,7 @@ Sxhkd
 ### Move and Resize
 
 | Action                                             | Keybinding                 |
-|----------------------------------------------------|----------------------------|
+| -------------------------------------------------- | -------------------------- |
 | Expand a window by moving one of its side outward  | Super+Alt+{h,j,k,l}        |
 | Contract a window by moving one of its side inward | Super+Alt+Shift+{h,j,k,l}  |
 | Move a floating window                             | Super+{Left,Down,Up,Right} |
@@ -718,14 +713,14 @@ Sxhkd
 ### Focus and Swap
 
 | Action           | Keybinding            |
-|------------------|-----------------------|
+| ---------------- | --------------------- |
 | Move around      | Super+{h,j,k,l}       |
 | Move application | Super+Shift+{h,j,k,l} |
 
 ### Selecting areas
 
 | Action                                          | Keybinding               |
-|-------------------------------------------------|--------------------------|
+| ----------------------------------------------- | ------------------------ |
 | Preselect the direction                         | Super+Ctrl+Alt+{h,j,k,l} |
 | Preselect the ratio                             | Super+Ctrl+{1-9}         |
 | Cancel the preselection for the focused node    | Super+Ctrl+Space         |
@@ -735,7 +730,7 @@ Sxhkd
 ### Gaps
 
 | Action                    | Keybinding    |
-|---------------------------|---------------|
+| ------------------------- | ------------- |
 | Enable and Disable gaps   | Super+a       |
 | Reset gaps to normal size | Super+Shift+a |
 | Increase gap size by 10   | Super+z       |
@@ -744,13 +739,12 @@ Sxhkd
 ### Other
 
 | Action        | Keybinding         |
-|---------------|--------------------|
+| ------------- | ------------------ |
 | Restart sxhkd | Super+Escape       |
 | Restart bspwm | Super+Shift+Ctrl+r |
 | Quit bspwm    | Super+Shift+Ctrl+1 |
 
-Mutt
-====
+# Mutt
 
 ## Accounts
 
@@ -809,7 +803,7 @@ set imap_keepalive = 60
 ### Index and Pager
 
 | Action                        | Keybinding |
-|-------------------------------|------------|
+| ----------------------------- | ---------- |
 | Delete message                | d          |
 | Edit label                    | L          |
 | Compose message               | c          |
@@ -817,7 +811,7 @@ set imap_keepalive = 60
 | Reply to message              | r          |
 | Reply to all                  | R          |
 | Forward message               | F          |
-| Sync mailbox                  | $          |
+| Sync mailbox                  | \$         |
 | Search next                   | n          |
 | Search opposite               | N          |
 | Refresh                       | F5         |
@@ -836,7 +830,7 @@ set imap_keepalive = 60
 ### Index
 
 | Action               | Keybinding |
-|----------------------|------------|
+| -------------------- | ---------- |
 | Tag entry            | t          |
 | Tag thread           | T          |
 | Flag message         | Space      |
@@ -852,7 +846,7 @@ set imap_keepalive = 60
 ### Pager
 
 | Action                  | Keybinding |
-|-------------------------|------------|
+| ----------------------- | ---------- |
 | Go to the next line     | j          |
 | Go to the previous line | k          |
 | Go to the next line     | Down       |
@@ -863,14 +857,14 @@ set imap_keepalive = 60
 ### Attach
 
 | Action       | Keybinding |
-|--------------|------------|
+| ------------ | ---------- |
 | View mailcap | Enter      |
 | Pipe entry   | \|         |
 
 ### Compose
 
 | Action           | Keybinding |
-|------------------|------------|
+| ---------------- | ---------- |
 | Send message     | y          |
 | Attach file      | a          |
 | Postpone message | p          |
@@ -889,7 +883,7 @@ set imap_keepalive = 60
 ### Browser
 
 | Action                | Keybinding |
-|-----------------------|------------|
+| --------------------- | ---------- |
 | Go to the top page    | gg         |
 | Go to the bottom page | G          |
 | Select entry          | Enter      |
@@ -897,7 +891,7 @@ set imap_keepalive = 60
 ### Index and Attach and Browser and Query
 
 | Action                   | Keybinding |
-|--------------------------|------------|
+| ------------------------ | ---------- |
 | Go to the last entry     | G          |
 | Go to the first entry    | gg         |
 | Go to the next entry     | j          |
@@ -905,8 +899,7 @@ set imap_keepalive = 60
 | Go to the next entry     | Down       |
 | Go to the previous entry | Up         |
 
-Music
-=====
+# Music
 
 ## MPD
 
@@ -914,8 +907,7 @@ Music
 
 ## MPV
 
-Window Managers
-===============
+# Window Managers
 
 ## Bspwm
 
@@ -923,14 +915,11 @@ Window Managers
 
 ## Awesome
 
-My Scripts
-==========
+# My Scripts
 
-How my Theming Works
-====================
+# How my Theming Works
 
-Dependencies
-============
+# Dependencies
 
 All you need is `git` installed.
 
@@ -941,12 +930,12 @@ All you need is `git` installed.
 
 ## Platform status
 
-| Platform             | Status                                                                                                                                                                      |
-| -------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Arch Linux           | :1st_place_medal: Most tested, Arch Linux is one of my main OS. You get the most configuration if you are on Linux.                                                         |
-| MacOS                | :2nd_place_medal: Not as bad, but it can have some bugs here and there, but it's up to you to fix those because I don't use mac and won't really be fixing any bugs for it. |
-| Windows              | :3rd_place_medal: The worst rank. Not tested at all. I don't even have an install script for it. So, you shouldn't use windows when using my dotfiles.                      |
-| Other                | :skull: Just like Windows. Not tested at all, and probably will never be tested.                                                                                            |
+| Platform   | Status                                                                                                                                                                      |
+| ---------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Arch Linux | :1st_place_medal: Most tested, Arch Linux is one of my main OS. You get the most configuration if you are on Linux.                                                         |
+| MacOS      | :2nd_place_medal: Not as bad, but it can have some bugs here and there, but it's up to you to fix those because I don't use mac and won't really be fixing any bugs for it. |
+| Windows    | :3rd_place_medal: The worst rank. Not tested at all. I don't even have an install script for it. So, you shouldn't use windows when using my dotfiles.                      |
+| Other      | :skull: Just like Windows. Not tested at all, and probably will never be tested.                                                                                            |
 
 ## Installation
 
@@ -1005,17 +994,15 @@ Now, run the following:
 
 For more information, look [here](#backup) and [here](#install).
 
-License
-=======
+# License
 
 Unless otherwise noted, the contents of this repo are in the public domain. See
 the [LICENSE](LICENSE.md) for details.
 
-Credit
-======
+# Credit
 
-* [Greg Hurrell](https://github.com/wincent)
-* [Luke Smith](https://github.com/LukeSmithxyz)
-* [Chris at Machine](https://github.com/ChristianChiarulli)
-* [Lcpz](https://github.com/lcpz/awesome-copycats)
-* [Gideon Wolfe](https://github.com/GideonWolfe)
+- [Greg Hurrell](https://github.com/wincent)
+- [Luke Smith](https://github.com/LukeSmithxyz)
+- [Chris at Machine](https://github.com/ChristianChiarulli)
+- [Lcpz](https://github.com/lcpz/awesome-copycats)
+- [Gideon Wolfe](https://github.com/GideonWolfe)

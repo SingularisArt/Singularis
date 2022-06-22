@@ -42,19 +42,9 @@ alias grep='grep --color'
 # Checking for packages if they are installed
 if command -v nvim &> /dev/null; then
   alias nv='nvim'
-  alias nvv='nvim ~/.config/nvim/init.vim'
-  alias nz='nvim ~/Singularis/aspects/dotfiles/files/.zshrc'
-  alias nt='nvim ~/Singularis/aspects/dotfiles/files/.tmux.conf'
-  alias nb='nvim ~/Singularis/aspects/dotfiles/files/.bashrc'
-  alias nm='nvim ~/Singularis/aspects/dotfiles/files/.muttrc'
-fi
-if command -v vim &> /dev/null; then
-  alias v='vim'
-  alias vv='vim ~/.vimrc'
-  alias vz='vim ~/Singularis/aspects/dotfiles/files/.zshrc'
-  alias vt='vim ~/Singularis/aspects/dotfiles/files/.tmux.conf'
-  alias vb='vim ~/Singularis/aspects/dotfiles/files/.bashrc'
-  alias vm='vim ~/Singularis/aspects/dotfiles/files/.muttrc'
+  alias dv='dvim'
+  alias lv='lvim'
+  alias vv='vim'
 fi
 
 if command -v neomutt &> /dev/null; then

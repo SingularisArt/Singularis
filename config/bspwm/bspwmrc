@@ -25,7 +25,8 @@ feh --bg-scale ~/.config/wall.jpg &
 source ~/.config/zsh/exports.zsh
 
 # Workspaces
-bspc monitor -d         
+bspc eDP-1 -d         
+bspc HDMI-1 -d         
 
 # : HOME
 # : BROWSER
