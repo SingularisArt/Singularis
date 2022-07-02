@@ -47,3 +47,5 @@ zsh_add_file "exports.zsh"
 zsh_add_file "bindings.zsh"
 zsh_add_file "hooks.zsh"
 zsh_add_file "icons.zsh"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

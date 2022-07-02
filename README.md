@@ -19,6 +19,8 @@
 
 # Gallery
 
+<img src="/home/singularis/logo.jpeg">
+
 ## System
 
 <img src="media/main.png">
