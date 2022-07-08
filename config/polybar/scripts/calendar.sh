@@ -2,7 +2,7 @@
 
 source ~/.config/zsh/exports.zsh
 
-cd ~/Documents/notes/school-setup/
+cd ~/Documents/school-setup/
 
 if [[ $1 == "end" ]]; then
   ./main.py --calendar --end

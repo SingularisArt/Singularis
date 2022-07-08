@@ -77,7 +77,7 @@ cmd setbg "$1"
 cmd bulkrename $vidir
 
 # Bindings
-map <c-f> $lf -remote "send $id select '$(fzf)'"
+map <c-f> $lf -remote "send $id select \"$(fzf)\""
 map J $lf -remote "send $id cd $(sed -e 's/\s*#.*//' -e '/^$/d' -e 's/^\S*\s*//' ${XDG_CONFIG_HOME:-$HOME/.config}/shell/bm-dirs | fzf)"
 map gh
 map g top
@@ -104,7 +104,7 @@ map b $setbg $f
 
 map <c-e> down
 map <c-y> up
-map V push :!nvim<space>
+map V push :!dvim<space>
 
 map W $setsid -f $TERMINAL >/dev/null 2>&1
 
