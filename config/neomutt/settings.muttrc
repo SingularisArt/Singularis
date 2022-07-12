@@ -3,8 +3,11 @@
 # set editor to neovim
 set editor = "nvim"
 
-# set imap_check_subscribed = yes       # Show all folders on startup
-# set mail_check_stats = yes
+# use very high $read_inc to speed up reading hcache'd maildirs
+folder-hook . 'set read_inc=1000'
+
+set imap_check_subscribed = yes       # Show all folders on startup
+set mail_check_stats = yes
 
 # Set preffered view modes
 auto_view text/html text/calendar application/ics # view html automatically
