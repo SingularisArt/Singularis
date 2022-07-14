@@ -74,7 +74,7 @@ bind index,pager N search-opposite                                            # 
 bind index,pager,attach,editor,compose <F5> refresh                           # Refresh                           (<F5>)
 bind index,pager \Cu half-up                                                  # Go half-up                        (<C-u>)
 bind index,pager \Cd half-down                                                # Go half-down                      (<C-d>)
-bind index,pager \Cb sidebar-toggle-visible                                   # Toggle sidebar                    (<C-b>)
+bind index,pager B sidebar-toggle-visible                                     # Toggle sidebar                    (B)
 bind index,pager \Cj sidebar-next                                             # Go to next sidebar item           (<C-j>)
 bind index,pager \Ck sidebar-prev                                             # Go to previous sidebar item       (<C-k>)
 bind index,pager \Co sidebar-open                                             # Open sidebar                      (<C-o>)

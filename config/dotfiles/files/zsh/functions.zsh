@@ -310,42 +310,44 @@ function tmux() {
     return
   fi
 
-  # Check for .tmux file (poor man's Tmuxinator).
-  if [ -x .tmux ]; then
-    # Prompt the first time we see a given .tmux file before running it.
-    local DIGEST="$(openssl sha512 .tmux)"
-    if ! grep -q "$DIGEST" ~/..tmux.digests 2> /dev/null; then
-      cat .tmux
+  # Check if a .tmux file exists
+  if [[ -f .tmux ]]; then
+    # Check if the file is an executable
+    if [[ -x .tmux ]]; then
+      # Prompt the first time we see a given .tmux file before running it.
+      local DIGEST="$(openssl sha512 .tmux)"
+      if ! grep -q "$DIGEST" ~/..tmux.digests 2> /dev/null; then
+        cat .tmux
+        read -k 1 -r \
+          'REPLY?Trust (and run) this .tmux file? (t = trust, otherwise = skip) '
+        if [[ $REPLY =~ ^[Tt]$ ]]; then
+          echo "$DIGEST" >> ~/..tmux.digests
+          ./.tmux
+          return
+        fi
+      else
+        ./.tmux
+        return
+        echo ""
+      fi
+    # If the file isn't an executable, ask the user if they would still like to
+    # run it
+    else
       read -k 1 -r \
-        'REPLY?Trust (and run) this .tmux file? (t = trust, otherwise = skip) '
-      echo
-      if [[ $REPLY =~ ^[Tt]$ ]]; then
+        'REPLY?.tmux file found, but not executable. (m = make executable, otherwise = skip) '
+      if [[ $REPLY =~ ^[Mm]$ ]]; then
+        chmod +x .tmux
+        local DIGEST="$(openssl sha512 .tmux)"
         echo "$DIGEST" >> ~/..tmux.digests
         ./.tmux
-        command tmux set -a window-active-style "bg=#FFFFFF"
-        command tmux set -a window-style "bg=#FFFFFF"
-        command tmux set -g pane-active-border-style "bg=#000000"
-        command tmux set -g pane-border-style "bg=#000000"
         return
       fi
-    else
-      ./.tmux
-      command tmux set -a window-active-style "bg=#FFFFFF"
-      command tmux set -a window-style "bg=#FFFFFF"
-      command tmux set -g pane-active-border-style "bg=#000000"
-      command tmux set -g pane-border-style "bg=#000000"
-      return
     fi
   fi
 
   # Attach to existing session, or create one, based on current directory.
-  local SESSION_NAME=$(basename "${$(pwd)//[.:]/_}")
+  local SESSION_NAME=$(basename "${$(pwd)}")
   env SSH_AUTH_SOCK=$SOCK_SYMLINK tmux new -A -s "$SESSION_NAME"
-
-  tmux set -a window-active-style "bg=#FFFFFF"
-  tmux set -a window-style "bg=#FFFFFF"
-  tmux set -g pane-active-border-style "bg=#000000"
-  tmux set -g pane-border-style "bg=#000000"
 }
 
 # Bounce the Dock icon, if iTerm does not have focus.

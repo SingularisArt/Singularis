@@ -11,7 +11,7 @@ if [ "$SESSIONEXISTS" = "" ]; then
 
     # Name first Pane and start zsh
     tmux rename-window -t 1 'nvim'
-    tmux send-keys -t 'nvim' 'nv' C-m # Switch to bind script?
+    tmux send-keys -t 'nvim' 'dvim' C-m # Switch to bind script?
 
     # Setup an additional shell
     tmux new-window -t $SESSION:2 -n 'zsh'

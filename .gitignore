@@ -2,6 +2,7 @@ config/dotfiles/files/zsh/.chpwd-recent-dirs
 config/dotfiles/files/zsh/.zsh_history
 config/dotfiles/files/zsh/.zcompdump
 config/dotfiles/files/zsh/plugins/
+config/dotfiles/files/tmux/plugins/
 config/spicetify/Backup/
 config/spicetify/config-xpui.ini
 config/spicetify/CustomApps/

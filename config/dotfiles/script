@@ -3,6 +3,10 @@
 source "${HOME}/Singularis/bin/common"
 source "${HOME}/Singularis/bin/variables"
 
+log_info "Installing env"
+
+ln -sf "${CONFIG}/dotfiles/files/env" 			              "${HOME}/.zshenv"
+
 log_info "Installing X"
 
 ln -sf "${CONFIG}/dotfiles/files/.xprofile" 		          "${HOME}"
@@ -14,13 +18,9 @@ ln -sf "${CONFIG}/dotfiles/files/.zshrc" 		              "${CONFIG_LOCATION}"
 
 log_info "Installing tmux"
 
-mkdir -p ~/.config/tmux
-ln -sf "${CONFIG}/dotfiles/files/.tmux.conf" 		          "${HOME}"
-ln -sf "${CONFIG}/dotfiles/files/..tmux.digests"          "${CONFIG_LOCATION}/tmux"
-
-log_info "Installing env"
-
-ln -sf "${CONFIG}/dotfiles/files/env" 			              "${HOME}/.zshenv"
+mkdir -p "${CONFIG_LOCATION}/tmux"
+ln -sf "${CONFIG}/dotfiles/files/.tmux.conf" 		          "${CONFIG_LOCATION}/tmux/tmux.conf"
+ln -sf "${CONFIG}/dotfiles/files/..tmux.digests" 		      "${CONFIG_LOCATION}/tmux/"
 
 log_info "Installing github email handles"
 

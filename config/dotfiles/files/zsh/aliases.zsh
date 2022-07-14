@@ -33,11 +33,23 @@ alias ks='killall sxhkd & sxhkd &'
 alias python3='python3.7'
 alias py='python3'
 
-alias rm='rm -i'
-
 alias n='ncmpcpp'
 
 alias grep='grep --color'
+
+alias yarn='yarn --use-yarnrc "$XDG_CONFIG_HOME/yarn/config"'
+
+alias cp="cp -iv"
+alias mv="mv -iv"
+alias rm="rm -vI"
+alias bc="bc -ql"
+alias mkd="mkdir -pv"
+alias yt="yt-dlp --embed-metadata -i"
+alias yta="yt -x -f bestaudio/best"
+alias ffmpeg="ffmpeg -hide_banner"
+
+alias hss='hugo server --noHTTPCache'
+alias hssd='hugo server --noHTTPCache --buildDrafts'
 
 # Checking for packages if they are installed
 if command -v nvim &> /dev/null; then
