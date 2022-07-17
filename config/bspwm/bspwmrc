@@ -6,6 +6,9 @@
 killall -9 ksuperkey xfce4-power-manager &
 killall sxhkd; sxhkd &
 killall dunst; dunst &
+killall mpd; mpd &
+xrdb -load ~/.config/X11/xresources
+bluetooth power on
 
 ## Autostart
 
