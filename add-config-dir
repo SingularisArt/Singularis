@@ -1,21 +1,26 @@
 #!/usr/bin/bash
 
-aspect_name=${1}
-describe_file="aspects/${aspect_name}/describe.txt"
-script_file="aspects/${aspect_name}/script"
+source "${HOME}/Singularis/bin/common"
+source "${HOME}/Singularis/bin/variables"
 
-mkdir aspects/${aspect_name}
+config_name=${1}
+config_location="${CONFIG}/${config_name}"
+describe_file="${config_location}/describe.txt"
+script_file="${config_location}/script"
+
+mkdir ${config_location}
+touch ${script_file} ${describe_file}
+chmod +x ${script_file}
 
 echo "#!/usr/bin/env bash
 
-source ~/Singularis/bin/common
-source ~/Singularis/bin/variables
+source \"\${HOME}/Singularis/bin/common\"
+source \"\${HOME}/Singularis/bin/variables\"
 
-log_info \"Installing ${aspect_name}\"
+log_info \"Installing ${config_name}\"
 
-ln -sf \${ASPECTS}/${aspect_name} ~/.config" >> ${script_file}
+ln -sf \"\${CONFIG}/${config_name}\" \"\${CONFIG_LOCATION}\"
+" >> ${script_file}
 
-chmod +x aspects/${aspect_name}/script
-touch aspects/${aspect_name}/describe.txt
-read -p "Describe the aspect: " description
+read -p "Describe the config: " description
 echo ${description} >> ${describe_file}
