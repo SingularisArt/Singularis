@@ -19,7 +19,7 @@ ln -sf "${CONFIG}/dotfiles/files/.zshrc" 		              "${CONFIG_LOCATION}"
 log_info "Installing tmux"
 
 mkdir -p "${CONFIG_LOCATION}/tmux"
-ln -sf "${CONFIG}/dotfiles/files/.tmux.conf" 		          "${CONFIG_LOCATION}/tmux/tmux.conf"
+ln -sf "${CONFIG}/dotfiles/files/tmux.conf" 		          "${CONFIG_LOCATION}/tmux/tmux.conf"
 ln -sf "${CONFIG}/dotfiles/files/..tmux.digests" 		      "${CONFIG_LOCATION}/tmux/"
 
 log_info "Installing github email handles"
