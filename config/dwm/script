@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+source "$HOME/Singularis/bin/common"
+source "$HOME/Singularis/bin/variables"
+
+log_info "Installing dwm"
+
+log_info "Compiling dwm"
+cd "$CONFIG/dwm/dwm-config" && sudo make clean install || exit
+
+log_info "Compiling dwm statusbar"
+cd "$CONFIG/dwm/dwm-statusbar" && sudo make clean install || exit

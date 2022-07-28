@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-source "${HOME}/Singularis/bin/common"
-source "${HOME}/Singularis/bin/variables"
+source "$HOME/Singularis/bin/common"
+source "$HOME/Singularis/bin/variables"
 
 log_info "Installing awesome"
 
-ln -sf "${CONFIG}/awesome" "${HOME}/.config"
+install_config "Awesome" "$CONFIG/awesome" "$CONFIG_LOCATION"

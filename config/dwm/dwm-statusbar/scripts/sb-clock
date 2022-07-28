@@ -1,0 +1,36 @@
+#!/bin/sh
+
+source ~/.config/zsh/exports.zsh
+
+clock=$(date '+%I')
+
+case "$clock" in
+	"00") clock_icon="🕛" ;;
+	"01") clock_icon="🕐" ;;
+	"02") clock_icon="🕑" ;;
+	"03") clock_icon="🕒" ;;
+	"04") clock_icon="🕓" ;;
+	"05") clock_icon="🕔" ;;
+	"06") clock_icon="🕕" ;;
+	"07") clock_icon="🕖" ;;
+	"08") clock_icon="🕗" ;;
+	"09") clock_icon="🕘" ;;
+	"10") clock_icon="🕙" ;;
+	"11") clock_icon="🕚" ;;
+	"12") clock_icon="🕛" ;;
+esac
+
+date_icon="📅"
+
+case $BLOCK_BUTTON in
+  1) notify-send "This Month" "$(cal)" && notify-send "Appointments" "$(calcurse -a)" && notify-send "Todo's" "$(calcurse -t | grep -E '[0-9].')" ;;
+	2) setsid -f "$TERMINAL" -e calcurse ;;
+	3) notify-send "📅 Time/date module" "\- Left click to show upcoming appointments via \`calcurse -a\`, todo's via \`calcurse -t\` and show the month via \`cal\`
+- Middle click opens calcurse if installed" ;;
+	6) "$TERMINAL" -e "$EDITOR $0" ;;
+esac
+
+current_date=$(date "+%b %d %Y (%a)")
+time=$(date "+%I:%M%p")
+
+echo "${date_icon} ${current_date} ${clock_icon} ${time}"

@@ -1,0 +1,11 @@
+#!/bin/sh
+
+source ~/.config/zsh/exports.zsh
+
+case $BLOCK_BUTTON in
+	1) $HOME/Singularis/local/scripts/change-wallpaper ;;
+	3) notify-send "Theme" "Change theme" ;;
+	5) "$TERMINAL" -e "$EDITOR $0" ;;
+esac
+
+echo ""

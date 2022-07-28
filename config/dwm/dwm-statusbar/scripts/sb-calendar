@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+case $BLOCK_BUTTON in
+  # Open google calendar
+  # What is the google calendar url?
+  1) google-chrome-stable "https://calendar.google.com/calendar/r/day/" ;; # Left Click
+	3) cd ~/Singularis/local/school/; ./main.py -vc ;; # Right Click
+	6) "$TERMINAL" -e "$EDITOR $0" ;;
+esac
+
+TZ='America/New_York'
+cd ~/Singularis/local/school/
+python3 -u main.py -co

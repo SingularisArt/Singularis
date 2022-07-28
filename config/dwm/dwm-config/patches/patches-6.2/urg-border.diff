@@ -1,0 +1,57 @@
+From f20e5593e154e7e46c3f7100bd1378c7844b5ec8 Mon Sep 17 00:00:00 2001
+From: Dirk Leichsenring <dlei@reddott.de>
+Date: Sun, 21 Jun 2020 14:00:40 +0200
+Subject: [PATCH] Make the borders of urgent windows a different color - for dwm 6.2
+
+---
+ config.h | 2 ++
+ dwm.c        | 7 +++++--
+ 2 files changed, 7 insertions(+), 2 deletions(-)
+
+diff --git a/config.h b/config.h
+index 1c0b587..1cb4492 100644
+--- a/config.h
++++ b/config.h
+@@ -12,10 +12,12 @@ static const char col_gray2[]       = "#444444";
+ static const char col_gray3[]       = "#bbbbbb";
+ static const char col_gray4[]       = "#eeeeee";
+ static const char col_cyan[]        = "#005577";
++static const char col_urgborder[]   = "#ff0000";
+ static const char *colors[][3]      = {
+ 	/*               fg         bg         border   */
+ 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
+ 	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
++	[SchemeUrg]  = { col_gray4, col_cyan,  col_urgborder  },
+ };
+
+ /* tagging */
+diff --git a/dwm.c b/dwm.c
+index 4465af1..fda4013 100644
+--- a/dwm.c
++++ b/dwm.c
+@@ -59,7 +59,7 @@
+
+ /* enums */
+ enum { CurNormal, CurResize, CurMove, CurLast }; /* cursor */
+-enum { SchemeNorm, SchemeSel }; /* color schemes */
++enum { SchemeNorm, SchemeSel, SchemeUrg }; /* color schemes */
+ enum { NetSupported, NetWMName, NetWMState, NetWMCheck,
+        NetWMFullscreen, NetActiveWindow, NetWMWindowType,
+        NetWMWindowTypeDialog, NetClientList, NetLast }; /* EWMH atoms */
+@@ -2022,8 +2022,11 @@ updatewmhints(Client *c)
+ 		if (c == selmon->sel && wmh->flags & XUrgencyHint) {
+ 			wmh->flags &= ~XUrgencyHint;
+ 			XSetWMHints(dpy, c->win, wmh);
+-		} else
++		} else {
+ 			c->isurgent = (wmh->flags & XUrgencyHint) ? 1 : 0;
++			if (c->isurgent)
++				XSetWindowBorder(dpy, c->win, scheme[SchemeUrg][ColBorder].pixel);
++		}
+ 		if (wmh->flags & InputHint)
+ 			c->neverfocus = !wmh->input;
+ 		else
+--
+2.27.0
+
+

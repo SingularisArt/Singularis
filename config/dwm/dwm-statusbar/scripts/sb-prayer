@@ -1,0 +1,12 @@
+#!/bin/sh
+
+source ~/.config/zsh/exports.zsh
+
+case $BLOCK_BUTTON in
+  1) ~/Singularis/local/statusbar/sb-get-prayer-times.py --rofi ;;
+	2) setsid -f "$TERMINAL" -e calcurse ;;
+	3) notify-send "📅 Time for Prayer" ;;
+	6) "$TERMINAL" -e "$EDITOR $0" ;;
+esac
+
+~/Singularis/local/statusbar/sb-get-prayer-times.py

@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-source "${HOME}/Singularis/bin/common"
-source "${HOME}/Singularis/bin/variables"
+source "$HOME/Singularis/bin/common"
+source "$HOME/Singularis/bin/variables"
 
-log_info "Installing mbsync"
+log_info "Installing dunst"
 
-ln -sf "${CONFIG}/dunst" "${HOME}/.config"
+install_config "Dunst" "$CONFIG/dunst" "$CONFIG_LOCATION"

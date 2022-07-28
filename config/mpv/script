@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-source "${HOME}/Singularis/bin/common"
-source "${HOME}/Singularis/bin/variables"
+source "$HOME/Singularis/bin/common"
+source "$HOME/Singularis/bin/variables"
 
 log_info "Installing mpv"
 
-ln -sf "${CONFIG}/mpv" "${CONFIG_LOCATION}"
+install_config "MPV" "$CONFIG/mpv" "$CONFIG_LOCATION"

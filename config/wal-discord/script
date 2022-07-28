@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-source "${HOME}/Singularis/bin/common"
-source "${HOME}/Singularis/bin/variables"
+source "$HOME/Singularis/bin/common"
+source "$HOME/Singularis/bin/variables"
 
 log_info "Installing wal-discord"
 
-ln -sf "${CONFIG}/wal-discord" "${CONFIG_LOCATION}"
+install_config "Wal Discord" "$CONFIG/wal-discord" "$CONFIG_LOCATION"

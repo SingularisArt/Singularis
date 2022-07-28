@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+
+source "$HOME/Singularis/bin/common"
+source "$HOME/Singularis/bin/variables"
+
+log_info "Installing DeathVim"
+
+if [[ -d $XDG_DATA_HOME/deathvim/dvim ]]; then
+  while true; do
+    read -p 'DeathVim already installed. Re-Install (y/n): ' confirmation
+    case $confirmation in
+      "y")
+        log_info "Re-Installing DeathVim"
+        rm -rf "$XDG_DATA_HOME/deatvim"
+        bash <(curl -s https://raw.githubusercontent.com/SingularisArt/Death.NeoVim/master/utils/installer/installer.sh)
+        break
+        ;;
+      "n")
+        break
+        ;;
+      *)
+        log_error "Invalid Input"
+        ;;
+    esac
+  done
+else
+  bash <(curl -s https://raw.githubusercontent.com/SingularisArt/Death.NeoVim/master/utils/installer/installer.sh)
+fi
+
+install_config "DeathVim" "$CONFIG/dvim" "$HOME/.config"

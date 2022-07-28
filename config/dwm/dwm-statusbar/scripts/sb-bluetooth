@@ -1,0 +1,11 @@
+#!/usr/bin/bash
+
+case $BLOCK_BUTTON in
+  1) "${TERMINAL} -e $($HOME/Singularis/local/scripts/bluetooth)" ;;
+	3) notify-send " Bluetooth Module" "This module is used to maintain your bluetooth" ;;
+	6) "$TERMINAL" -e "$EDITOR $0" ;;
+esac
+
+#echo ""
+echo "🎧"
+

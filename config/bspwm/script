@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-source "${HOME}/Singularis/bin/common"
-source "${HOME}/Singularis/bin/variables"
+source "$HOME/Singularis/bin/common"
+source "$HOME/Singularis/bin/variables"
 
 log_info "Installing BSPWM"
 
-ln -sf "${CONFIG}/bspwm" "${HOME}/.config"
+install_config "BSPWM" "$CONFIG/bspwm" "$CONFIG_LOCATION"

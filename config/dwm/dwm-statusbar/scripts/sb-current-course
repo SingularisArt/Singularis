@@ -1,0 +1,12 @@
+#!/bin/sh
+
+source ~/.config/zsh/exports.zsh
+name=$(cat ${CURRENT_COURSE}/info.yaml | shyaml get-value title)
+
+case $BLOCK_BUTTON in
+	1) $HOME/Singularis/local/school/main.py --change-course ;;
+	3) $HOME/Singularis/local/school/main.py --lessons ;;
+	6) "$TERMINAL" -e "$EDITOR $0" ;;
+esac
+
+echo "Current Course: [%{F#3A3B3C}${name}%{F-}]"

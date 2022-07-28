@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-source "${HOME}/Singularis/bin/common"
-source "${HOME}/Singularis/bin/variables"
+source "$HOME/Singularis/bin/common"
+source "$HOME/Singularis/bin/variables"
 
 log_info "Installing newsboat"
 
-ln -sf "${CONFIG}/newsboat" "${CONFIG_LOCATION}"
+install_config "NewsBoat" "$CONFIG/newsboat" "$CONFIG_LOCATION"

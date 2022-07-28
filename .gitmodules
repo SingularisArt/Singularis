@@ -34,6 +34,3 @@
 [submodule "wal-discord"]
 	path = third-party-tools/wal-discord
 	url = https://github.com/guglicap/wal-discord
-[submodule "dwm"]
-	path = config/dwm
-	url = https://github.com/SingularisArt/dwm

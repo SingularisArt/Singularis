@@ -20,31 +20,31 @@ LOG_LEVEL=$LOG_LEVEL_INFO
 
 log_debug() {
   if [[ $LOG_LEVEL -ge $LOG_LEVEL_DEBUG ]]; then
-    echo -e "${PURPLE}[debug]  ${RESET} $*" > /dev/stderr
+    echo -e "$PURPLE[debug]  $RESET $*" > /dev/stderr
   fi
 }
 
 log_error() {
   if [[ $LOG_LEVEL -ge $LOG_LEVEL_ERROR ]]; then
-    echo -e "${RED}[error]  ${RESET} $*" > /dev/stderr
+    echo -e "$RED[error]  $RESET $*" > /dev/stderr
   fi
 }
 
 log_info() {
   if [[ $LOG_LEVEL -ge $LOG_LEVEL_INFO ]]; then
-    echo -e "${BOLD}[info]   ${RESET} $*" > /dev/stderr
+    echo -e "$BOLD[info]   $RESET $*" > /dev/stderr
   fi
 }
 
 log_notice() {
   if [[ $LOG_LEVEL -ge $LOG_LEVEL_NOTICE ]]; then
-    echo -e "${GREEN}[notice] ${RESET} $*" > /dev/stderr
+    echo -e "$GREEN[notice] $RESET $*" > /dev/stderr
   fi
 }
 
 log_warn() {
   if [[ $LOG_LEVEL -ge $LOG_LEVEL_WARNING ]]; then
-    echo -e "${YELLOW}[warning]${RESET} $*" > /dev/stderr
+    echo -e "$YELLOW[warning]$RESET $*" > /dev/stderr
   fi
 }
 
@@ -57,7 +57,7 @@ install_yay() {
 
   cd /opt || exit
   sudo git clone https://aur.archlinux.org/yay-git.git
-  sudo chown -R "${USER}":"${USER}" ./yay-git
+  sudo chown -R "$USER":"$USER" ./yay-git
   cd yay-git || exit
   makepkg -si || sudo pacman -Sy base-devel && makepkg -si
 }
@@ -67,7 +67,7 @@ check_if_installed () {
     log_error "You don't have [${1}] installed!"
     read -r -p "Do you want to install it [y/n]: " install
 
-    case ${install} in
+    case $install in
       "y")
         if [[ "${1}" = "yay" ]]; then
           install_yay
@@ -88,11 +88,11 @@ check_if_installed () {
 ##################
 
 source_install_script () {
-  script_location="${INSTALL_SCRIPTS}/${1}"
+  script_location="$INSTALL_SCRIPTS/${1}"
   if [[ ${2} = "" ]]; then
-    bash "${script_location}"
+    bash "$script_location"
   else
-    bash "${script_location}" "${@}"
+    bash "$script_location" "${@}"
   fi
 }
 
@@ -101,5 +101,34 @@ check_if_arg_is_a_command () {
 
   if [[ "${arg:0:2}" = "--" ]]; then
     exit
+  fi
+}
+
+#########################
+# Install Configuration #
+#########################
+
+install_config() {
+  config_name=$1
+  config_path=$2
+  config_install_path=$3
+
+  if [[ -d $2 ]]; then
+    while true; do
+      read -p "$config_name's config already exists in $config_install_path. Do you want to overwrite it: " confirmation
+      case $confirmation in
+        "y")
+          rm -rf "$config_install_path"
+          ln -sf "$config_path" "$config_install_path"
+          break
+          ;;
+        "n")
+          break
+          ;;
+        *)
+          log_error "Invalid Input"
+          ;;
+      esac
+    done
   fi
 }

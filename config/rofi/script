@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-source "${HOME}/Singularis/bin/common"
-source "${HOME}/Singularis/bin/variables"
+source "$HOME/Singularis/bin/common"
+source "$HOME/Singularis/bin/variables"
 
 log_info "Installing rofi"
 
-ln -sf "${CONFIG}/rofi" "${CONFIG_LOCATION}"
+install_config "Rofi" "$CONFIG/rofi" "$CONFIG_LOCATION"

@@ -1,0 +1,73 @@
+diff -r 53d98940cb04 config.h
+--- a/config.h	Fri Jun 04 11:41:16 2010 +0100
++++ b/config.h	Sun Jun 06 22:48:32 2010 +0200
+@@ -12,14 +12,16 @@
+ static const unsigned int snap      = 32;       /* snap pixel */
+ static const Bool showbar           = True;     /* False means no bar */
+ static const Bool topbar            = True;     /* False means bottom bar */
++static const double defaultopacity  = 0.75;
+@@ -52,6 +54,9 @@
+ 	/* modifier                     key        function        argument */
+ 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
+ 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
++	{ MODKEY|ShiftMask,		XK_s,	   spawn,	   SHCMD("transset-df -a --dec .1") },
++	{ MODKEY|ShiftMask,		XK_d,	   spawn,	   SHCMD("transset-df -a --inc .1") },
++	{ MODKEY|ShiftMask,		XK_f,	   spawn,	   SHCMD("transset-df -a .75") },
+ 	{ MODKEY,                       XK_b,      togglebar,      {0} },
+ 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
+ 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
+diff -r 53d98940cb04 dwm.c
+--- a/dwm.c	Fri Jun 04 11:41:16 2010 +0100
++++ b/dwm.c	Sun Jun 06 22:48:32 2010 +0200
+@@ -58,7 +58,7 @@
+ enum { CurNormal, CurResize, CurMove, CurLast };        /* cursor */
+ enum { ColBorder, ColFG, ColBG, ColLast };              /* color */
+ enum { NetSupported, NetWMName, NetWMState,
+-       NetWMFullscreen, NetLast };                      /* EWMH atoms */
++       NetWMFullscreen, NetLast, NetWMWindowsOpacity }; /* EWMH atoms */
+ enum { WMProtocols, WMDelete, WMState, WMLast };        /* default atoms */
+ enum { ClkTagBar, ClkLtSymbol, ClkStatusText, ClkWinTitle,
+        ClkClientWin, ClkRootWin, ClkLast };             /* clicks */
+@@ -179,6 +179,7 @@
+ static void drawtext(const char *text, unsigned long col[ColLast], Bool invert);
+ static void enternotify(XEvent *e);
+ static void expose(XEvent *e);
++static void opacity(Client *c, double opacity);
+ static void focus(Client *c);
+ static void focusin(XEvent *e);
+ static void focusmon(const Arg *arg);
+@@ -816,6 +817,18 @@
+ }
+ 
+ void
++opacity(Client *c, double opacity)
++{
++	if(opacity >= 0 && opacity <= 1) {
++		unsigned long real_opacity[] = { opacity * 0xffffffff };
++		XChangeProperty(dpy, c->win, netatom[NetWMWindowsOpacity], XA_CARDINAL,
++				32, PropModeReplace, (unsigned char *)real_opacity,
++				1);
++	} else
++		XDeleteProperty(dpy, c->win, netatom[NetWMWindowsOpacity]);
++}
++
++void
+ focus(Client *c) {
+ 	if(!c || !ISVISIBLE(c))
+ 		for(c = selmon->stack; c && !ISVISIBLE(c); c = c->snext);
+@@ -1104,6 +1117,7 @@
+ 	*c = cz;
+ 	c->win = w;
+ 	updatetitle(c);
++	opacity(c, defaultopacity);
+ 	if(XGetTransientForHint(dpy, w, &trans))
+ 		t = wintoclient(trans);
+ 	if(t) {
+@@ -1539,6 +1553,7 @@
+ 	netatom[NetWMName] = XInternAtom(dpy, "_NET_WM_NAME", False);
+ 	netatom[NetWMState] = XInternAtom(dpy, "_NET_WM_STATE", False);
+ 	netatom[NetWMFullscreen] = XInternAtom(dpy, "_NET_WM_STATE_FULLSCREEN", False);
++	netatom[NetWMWindowsOpacity] = XInternAtom(dpy, "_NET_WM_WINDOW_OPACITY", False);
+ 	/* init cursors */
+ 	cursor[CurNormal] = XCreateFontCursor(dpy, XC_left_ptr);
+ 	cursor[CurResize] = XCreateFontCursor(dpy, XC_sizing);

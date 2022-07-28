@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-source "${HOME}/Singularis/bin/common"
-source "${HOME}/Singularis/bin/variables"
+source "$HOME/Singularis/bin/common"
+source "$HOME/Singularis/bin/variables"
 
 log_info "Installing chameleon"
 
-ln -sf "${CONFIG}/chameleon" "${HOME}/.config"
+install_config "Chameleon" "$CONFIG/chameleon" "$CONFIG_LOCATION"

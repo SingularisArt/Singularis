@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-source "${HOME}/Singularis/bin/common"
-source "${HOME}/Singularis/bin/variables"
+source "$HOME/Singularis/bin/common"
+source "$HOME/Singularis/bin/variables"
 
 log_info "Installing picom"
 
-ln -sf "${CONFIG}/picom" "${CONFIG_LOCATION}"
+install_config "Picom" "$CONFIG/picom" "$CONFIG_LOCATION"
