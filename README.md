@@ -19,51 +19,57 @@
 
 # Gallery
 
-<img src="/home/singularis/logo.jpeg">
-
 ## System
 
-<img src="media/main.png">
+<img src="media/theme-1/main.png">
+<img src="media/theme-2/main.png">
 
 <details><summary>Zsh</summary>
   <p>
       <img src="media/theme-1/zsh.png">
+      <img src="media/theme-2/zsh.png">
   </p>
 </details>
 
 <details><summary>Firefox</summary>
   <p>
       <img src="media/theme-1/firefox.png">
+      <img src="media/theme-2/firefox.png">
   </p>
 </details>
 
 <details><summary>Dunst</summary>
   <p>
       <img src="media/theme-1/dunst.png">
+      <img src="media/theme-2/dunst.png">
   </p>
 </details>
 
 <details><summary>Rofi</summary>
   <p>
       <img src="media/theme-1/rofi.png">
+      <img src="media/theme-2/rofi.png">
   </p>
 </details>
 
 <details><summary>Xmenu</summary>
   <p>
       <img src="media/theme-1/xmenu.png">
+      <img src="media/theme-2/xmenu.png">
   </p>
 </details>
 
 <details><summary>Polybar</summary>
   <p>
       <img src="media/theme-1/polybar.png">
+      <img src="media/theme-2/polybar.png">
   </p>
 </details>
 
 <details><summary>Picom</summary>
   <p>
       <img src="media/theme-1/picom.png">
+      <img src="media/theme-2/picom.png">
     </p>
 </details>
 
@@ -72,6 +78,7 @@
 <details><summary>Neomutt</summary>
   <p>
       <img src="media/theme-1/neomutt.png">
+      <img src="media/theme-2/neomutt.png">
   </p>
 </details>
 
@@ -79,31 +86,36 @@
 
 <details><summary>Neovim</summary>
   <p>
-      <img src="media/theme-1/nvim.png">
+      My NeoVim config is in a seperate repo. You can view it
+      [here](https://github.com/SingularisArt/DeathVim)
   </p>
 </details>
 
 <details><summary>GnuPlot</summary>
   <p>
       <img src="media/theme-1/gnuplot.png">
+      <img src="media/theme-2/gnuplot.png">
   </p>
 </details>
 
 <details><summary>Matplotlib</summary>
   <p>
       <img src="media/theme-1/matplotlib.png">
+      <img src="media/theme-2/matplotlib.png">
   </p>
 </details>
 
 <details><summary>Markdown</summary>
   <p>
       <img src="media/theme-1/markdown.png">
+      <img src="media/theme-2/markdown.png">
   </p>
 </details>
 
 <details><summary>Notes</summary>
   <p>
       <img src="media/theme-1/notes.png">
+      <img src="media/theme-2/notes.png">
   </p>
 </details>
 
@@ -112,36 +124,35 @@
 <details><summary>Monitors</summary>
   <p>
       <img src="media/theme-1/monitors.png">
+      <img src="media/theme-2/monitors.png">
   </p>
 </details>
 
 <details><summary>PDF's</summary>
   <p>
       <img src="media/theme-1/pdf.png">
+      <img src="media/theme-2/pdf.png">
   </p>
 </details>
 
 <details><summary>Files</summary>
   <p>
       <img src="media/theme-1/files.png">
-  </p>
-</details>
-
-<details><summary>Volume</summary>
-  <p>
-      <img src="media/theme-1/volume.png">
+      <img src="media/theme-2/files.png">
   </p>
 </details>
 
 <details><summary>Calendar</summary>
   <p>
       <img src="media/theme-1/calendar.png">
+      <img src="media/theme-2/calendar.png">
   </p>
 </details>
 
 <details><summary>Habits</summary>
   <p>
       <img src="media/theme-1/habits.png">
+      <img src="media/theme-2/habits.png">
   </p>
 </details>
 
@@ -150,116 +161,113 @@
 <details><summary>Audio</summary>
   <p>
       <img src="media/theme-1/audio.png">
+      <img src="media/theme-2/audio.png">
   </p>
 </details>
 
 <details><summary>News</summary>
   <p>
       <img src="media/theme-1/news.png">
+      <img src="media/theme-2/news.png">
   </p>
 </details>
 
 <details><summary>Misc</summary>
   <p>
       <img src="media/theme-1/misc.png">
+      <img src="media/theme-2/misc.png">
   </p>
 </details>
 
 <details><summary>Images</summary>
   <p>
       <img src="media/theme-1/images.png">
+      <img src="media/theme-2/images.png">
   </p>
 </details>
 
 # Table of Content
 
-<!-- vim-markdown-toc -->
+<!-- vim-markdown-toc GFM -->
 
-- [Status](#status)
-- [Gallery](#gallery)
-  - [System](#system)
-  - [Communication](#communication)
-  - [Development](#development)
-  - [Utility](#utility)
-  - [Entertainment](#entertainment)
-- [Applications](#applications)
-  - [System](#system-1)
-  - [Tools](#tools)
-    - [Communication](#communication-1)
-    - [Development](#development-1)
-    - [Education](#education)
-    - [Productivity](#productivity)
-    - [Science](#science)
-    - [Personal](#personal)
-    - [Entertainment](#entertainment-1)
-      - [Media](#media)
-      - [Games](#games)
-      - [Misc](#misc)
-    - [Utility](#utility-1)
-      - [System](#system-2)
-      - [Monitors](#monitors)
-        - [System](#system-3)
-        - [Network](#network)
-        - [Finance](#finance)
-      - [Misc](#misc-1)
-    - [Security](#security)
-  - [Theming](#theming)
-- [Dotfiles](#dotfiles)
-  - [Features](#features)
-  - [Zsh](#zsh)
-    - [Functions](#functions)
-    - [Prompt](#prompt)
-  - [Tmux](#tmux)
-    - [Bindings](#bindings)
-    - [Prompt](#prompt-1)
-- [Sxhkd](#sxhkd)
-  - [School](#school)
-  - [Applications](#applications-1)
-  - [Rofi](#rofi)
-  - [Polybar](#polybar)
-  - [Dunst](#dunst)
-  - [Music](#music)
-  - [Other](#other)
-  - [Bspwm](#bspwm)
-    - [Desktop and Workspaces](#desktop-and-workspaces)
-    - [Windows](#windows)
-    - [Move and Resize](#move-and-resize)
-    - [Focus and Swap](#focus-and-swap)
-    - [Selecting areas](#selecting-areas)
-    - [Gaps](#gaps)
-    - [Other](#other-1)
-- [Mutt](#mutt)
-  - [Accounts](#accounts)
-  - [Key bindings](#key-bindings)
-    - [Index and Pager](#index-and-pager)
-    - [Index](#index)
-    - [Pager](#pager)
-    - [Attach](#attach)
-    - [Compose](#compose)
-    - [Browser](#browser)
-    - [Index and Attach and Browser and Query](#index-and-attach-and-browser-and-query)
-- [Music](#music-1)
-  - [MPD](#mpd)
-  - [Ncmpcpp](#ncmpcpp)
-  - [MPV](#mpv)
-- [Window Managers](#window-managers)
-  - [Bspwm](#bspwm-1)
-  - [Dwm](#dwm)
-  - [Awesome](#awesome)
-- [My Scripts](#my-scripts)
-- [How my Theming Works](#how-my-theming-works)
-- [Dependencies](#dependencies)
-  - [Platform status](#platform-status)
-  - [Installation](#installation)
-    - [Backup](#backup)
-      - [Examples](#examples)
-    - [Install](#install)
-      - [Examples](#examples-1)
-    - [Uninstall](#uninstall)
-      - [Examples](#examples-2)
-    - [Putting it all Together](#putting-it-all-together)
-- [License](#license)
-- [Credit](#credit)
+* [Applications](#applications)
+  * [System](#system)
+  * [Tools](#tools)
+    * [Communication](#communication)
+    * [Development](#development)
+    * [Education](#education)
+    * [Productivity](#productivity)
+    * [Science](#science)
+    * [Personal](#personal)
+    * [Entertainment](#entertainment)
+      * [Media](#media)
+      * [Games](#games)
+      * [Misc](#misc)
+    * [Utility](#utility)
+      * [System](#system-1)
+      * [Monitors](#monitors)
+        * [System](#system-2)
+        * [Network](#network)
+        * [Finance](#finance)
+      * [Misc](#misc-1)
+    * [Security](#security)
+  * [Theming](#theming)
+* [Dotfiles](#dotfiles)
+  * [Features](#features)
+  * [Zsh](#zsh)
+    * [Functions](#functions)
+    * [Prompt](#prompt)
+  * [Tmux](#tmux)
+    * [Bindings](#bindings)
+    * [Prompt](#prompt-1)
+* [Sxhkd](#sxhkd)
+  * [School](#school)
+  * [Applications](#applications-1)
+  * [Rofi](#rofi)
+  * [Polybar](#polybar)
+  * [Dunst](#dunst)
+  * [Music](#music)
+  * [Other](#other)
+  * [Bspwm](#bspwm)
+    * [Desktop and Workspaces](#desktop-and-workspaces)
+    * [Windows](#windows)
+    * [Move and Resize](#move-and-resize)
+    * [Focus and Swap](#focus-and-swap)
+    * [Selecting areas](#selecting-areas)
+    * [Gaps](#gaps)
+    * [Other](#other-1)
+* [Mutt](#mutt)
+  * [Accounts](#accounts)
+  * [Key bindings](#key-bindings)
+    * [Index and Pager](#index-and-pager)
+    * [Index](#index)
+    * [Pager](#pager)
+    * [Attach](#attach)
+    * [Compose](#compose)
+    * [Browser](#browser)
+    * [Index and Attach and Browser and Query](#index-and-attach-and-browser-and-query)
+* [Music](#music-1)
+  * [MPD](#mpd)
+  * [Ncmpcpp](#ncmpcpp)
+  * [MPV](#mpv)
+* [Window Managers](#window-managers)
+  * [Bspwm](#bspwm-1)
+  * [Dwm](#dwm)
+  * [Awesome](#awesome)
+* [My Scripts](#my-scripts)
+* [How my Theming Works](#how-my-theming-works)
+* [Dependencies](#dependencies)
+  * [Platform status](#platform-status)
+  * [Installation](#installation)
+    * [Backup](#backup)
+      * [Examples](#examples)
+    * [Install](#install)
+      * [Examples](#examples-1)
+    * [Uninstall](#uninstall)
+      * [Examples](#examples-2)
+    * [Putting it all Together](#putting-it-all-together)
+* [License](#license)
+* [Credit](#credit)
 
 <!-- vim-markdown-toc -->
 
@@ -549,10 +557,10 @@ control](https://github.com/SingularisArt/Singularis/commit/f0bce4d1) since
 - Cursor shape toggles on entering Vim.
 - Italics in the terminal.
 - Bundles a (not-excessive) number of useful Vim plug-ins.
-- Conservative Vim configuration (very few overrides of core functionality;
-  most changes are unobtrusive enhancements; some additional functionality
-  exposed via <Leader> and <LocalLeader> mappings.
-- Relatively restrained Zsh config, Bash-like but with a few Zsh perks, such as
+- Conservative Vim configuration (overrides of core functionality;
+  most changes are unobtrusive enhancements; some functionality exposed via
+  <Leader> and <LocalLeader> mappings.
+- Restrained Zsh config, Bash-like but with some Zsh perks, such as
   right-side prompt, auto-cd hooks, command elapsed time printing, own
   custom-made plugin manager, and such.
 
@@ -560,25 +568,24 @@ control](https://github.com/SingularisArt/Singularis/commit/f0bce4d1) since
 
 ### Functions
 
-- `ag`: Transparently wraps the `ag` executable so as to provide a centralized
+- `ag`: Transparently wraps the `ag` executable so to provide a centralized
   place to set defaults for that command (seeing as it has no "rc" file).
 - `color`: Change terminal and Neovim color scheme.
 - `fd`: Using fast `bfs` and `sk`; automatically `cd`s into the selected
   directory.
 - `fh`: Selecting a history item inserts it into the command line but does not
   execute it.
-- `history`: Overrides the (tiny) default history count.
+- `history`: Overrides the default history count.
 - `jump`: To jump to hashed directories.
 - `regmv`: Bulk-rename files (eg. `regmv '/\.tif$/.tiff/' *`).
 - `scratch`: Create a random temporary scratch directory and `cd` into it.
 - `tick`: Moves an existing time warp (eg. `tick +1h`); see `tw` below for a
   description of time warp.
 - `tmux`: Wrapper that reattaches to pre-existing sessions, or creates new ones
-  based on the current directory name; additionally, looks for a `.tmux` file
-  to set up windows and panes (note that the first time a given `.tmux` file is
-  encountered the wrapper asks the user whether to trust or skip it).
+  based on the current directory name; it also looks for a `.tmux` file
+  to set up windows and panes.
 - `tw`: Overrides `GIT_AUTHOR_DATE` and `GIT_COMMITTER_DATE` (eg. `tw -1d`).
-- `gpg`: Just a re-write function that if you don't give it any parameters, it
+- `gpg`: A re-write function that if you don't give it any parameters, it
   will run `gpg --list-keys`.
 - `zsh_add_file`: This function sources any file you have in the zsh config
   directory in ~/Singularis/config/dotfiles/files/.zsh
@@ -608,7 +615,7 @@ control](https://github.com/SingularisArt/Singularis/commit/f0bce4d1) since
 | Open current master assignment pdf        | Alt+b      |
 | Open notes for your current course        | Alt+o      |
 | Compile your current notes                | Alt+O      |
-| List all of your inkscape figures         | Alt+i      |
+| List all your inkscape figures            | Alt+i      |
 | Get an instant reference from a pdf       | Alt+f      |
 | Open chrome with your current course      | Alt+w      |
 | Open your info.yaml file in nvim          | Alt+y      |
@@ -619,14 +626,14 @@ control](https://github.com/SingularisArt/Singularis/commit/f0bce4d1) since
 | Open the master.tex file for your journal | Alt+N      |
 | Open your journal pdf                     | Alt+j      |
 | Compile your journal pdf                  | Alt+J      |
-| List all of my current lectures           | Alt+l      |
-| List all of my assignments                | Alt+a      |
-| List all of my courses                    | Alt+c      |
+| List all my current lectures              | Alt+l      |
+| List all my assignments                   | Alt+a      |
+| List all my courses                       | Alt+c      |
 | Source a range of lectures                | Alt+s      |
 | Create a lecture                          | Alt+L      |
 | Create an assignment                      | Alt+A      |
 | Create a course                           | Alt+C      |
-| Go through all of my research papers      | Alt+p      |
+| Go through all my research papers         | Alt+p      |
 
 ## Applications
 
@@ -935,9 +942,9 @@ All you need is `git` installed.
 | Platform   | Status                                                                                                                                                                      |
 | ---------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Arch Linux | :1st_place_medal: Most tested, Arch Linux is one of my main OS. You get the most configuration if you are on Linux.                                                         |
-| MacOS      | :2nd_place_medal: Not as bad, but it can have some bugs here and there, but it's up to you to fix those because I don't use mac and won't really be fixing any bugs for it. |
-| Windows    | :3rd_place_medal: The worst rank. Not tested at all. I don't even have an install script for it. So, you shouldn't use windows when using my dotfiles.                      |
-| Other      | :skull: Just like Windows. Not tested at all, and probably will never be tested.                                                                                            |
+| MacOS      | :2nd_place_medal: Not as bad, but it can have some bugs here and there, but it's up to you to fix those because I don't use mac and won't be fixing any bugs for it.        |
+| Windows    | :3rd_place_medal: The worst rank. Not tested at all. I don't even have an install script for it. You shouldn't use windows when using my dotfiles.                          |
+| Other      | :skull: Not tested at all, and probably will never be.                                                                                                                      |
 
 ## Installation
 
@@ -947,31 +954,31 @@ git clone --recursive https://github.com/SingularisArt/Singularis.git
 
 ### Backup
 
-Before you install all of my [configs](config), you may want to backup your
+Before you install all my [configs](config), you may want to backup your
 configuration. Here's how you do it:
 
 #### Examples
 
 ```bash
-./backup                    # This will backup all of your configuration and move it to ~/Singularis/backup-configuration
-./backup nvim               # This will backup only your neovim configuration to ~/Singularis/backup-configuration
-./backup nvim xfce4         # This will backup only your neovim and xfce4 configuration to ~/Singularis/backup-configuration
+./backup                    # This will backup all your configuration and move it to ~/Singularis/backup-configuration
+./backup nvim               # This will backup your neovim configuration to ~/Singularis/backup-configuration
+./backup nvim xfce4         # This will backup your neovim and xfce4 configuration to ~/Singularis/backup-configuration
 ./backup --help             # Shows the help menu
 ```
 
 ### Install
 
 It's quit easy to install my configuration. I spent countless hours working on
-the perfect script. And, well, here it is.
+the perfect script.
 
 #### Examples
 
 ```sh
 ./install --all                       # Installs everything
-./install --install dotfiles          # Installs only my dotfiles configuration
-./install --install awesome           # Installs only my awesome configuration
-./install --install awesome dotfiles  # Installs only my awesome configuration and dotfiles in that order
-./install --commands                  # That will show you all of the possible commands
+./install --install dotfiles          # Installs my dotfiles configuration
+./install --install awesome           # Installs my awesome configuration
+./install --install awesome dotfiles  # Installs my awesome configuration and dotfiles in that order
+./install --commands                  # That will show you all the possible commands
 ```
 
 ### Uninstall
@@ -981,8 +988,8 @@ To **UNINSTALL** my configuration, you first must backup your configuration. (Ta
 #### Examples
 
 ```bash
-./uninstall                 # Moves all of the items from ~/Singularis/backup-configuration to ~/.config/
-./uninstall nvim            # Moves only the neovim configuration from ~/Singularis/backup-configuration to ~/.config/
+./uninstall                 # Moves all the items from ~/Singularis/backup-configuration to ~/.config/
+./uninstall nvim            # Moves the neovim configuration from ~/Singularis/backup-configuration to ~/.config/
 ```
 
 ### Putting it all Together
