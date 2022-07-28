@@ -1,12 +1,31 @@
 #!/usr/bin/bash
 
-source bin/common
-source bin/variables
+source "$HOME/Singularis/bin/common"
+source "$HOME/Singularis/bin/variables"
 
 log_notice "Installing all of the needed packages"
 
-check_if_installed "yay"
+OS="$(uname -s)"
 
-yay -Syu
-cat ${INSTALL_SCRIPTS}/arch-packages.txt | xargs yay -S --noconfirm
-yay -Syu
+case "$OS" in
+  Linux)
+    if [ -f "/etc/arch-release" ] || [ -f "/etc/artix-release" ]; then
+      check_if_installed "yay"
+
+      yay -Syu
+      cat "$INSTALL_SCRIPTS"/arch-packages.txt | xargs yay -S --noconfirm
+      yay -Syu
+    else
+      log_error "Sorry. You aren't on an Arch Distro, so you're going to have to manually install the packages.
+      Here's the package list.
+      NOTE: The packages may be named something different since you're on a different distro."
+      cat "$INSTALL_SCRIPTS"/arch-packages.txt | less
+    fi
+    ;;
+  *)
+    log_error "Sorry. You aren't on Linux, so you're going to have to manually install the packages.
+    Here's the package list.
+    NOTE: The packages may be named something different since you're on a different distro."
+    cat "$INSTALL_SCRIPTS"/arch-packages.txt | less
+    ;;
+esac
