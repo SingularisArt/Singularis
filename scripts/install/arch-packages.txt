@@ -129,6 +129,7 @@ clutter
 clutter-gst
 clutter-gtk
 cmake
+cmatrix
 cmus
 code
 code-icons
@@ -409,6 +410,7 @@ gst-python
 gstreamer
 gtest
 gthumb
+gtk-engine-murrine
 gtk-engines
 gtk-update-icon-cache
 gtk-vnc
@@ -848,6 +850,7 @@ librsvg
 librsync
 libsamplerate
 libsasl
+libsass
 libseccomp
 libsecret
 libshout
@@ -1031,6 +1034,7 @@ menu-cache
 mesa
 mesa-utils
 mesa-vdpau
+meson
 metis
 mhwd
 mhwd-amdgpu
@@ -1096,6 +1100,7 @@ newsboat
 nextcloud
 nfs-utils
 nfsidmap
+ninja
 nload
 node-gyp
 nodejs
@@ -1140,6 +1145,7 @@ openresolv
 openssh
 openssl
 openvpn
+optipng
 opus
 orc
 os-prober
@@ -1173,6 +1179,7 @@ pango-perl
 pangomm
 papirus-icon-theme
 papirus-maia-icon-theme
+parallel
 parted
 pass
 pastebinit
@@ -1545,6 +1552,7 @@ python2-packaging
 python2-pyparsing
 python2-setuptools
 python2-six
+pywal-discord-git
 qalculate-gtk
 qca-qt5
 qemu-audio-alsa
@@ -1675,6 +1683,7 @@ rygel
 s-nail
 s-tui
 sane
+sassc
 sbc
 scrot
 sdl12-compat
@@ -1788,6 +1797,19 @@ texlive-pictures
 texlive-pstricks
 texlive-publishers
 texlive-science
+themix-export-spotify-git
+themix-full-git
+themix-gui-git
+themix-icons-archdroid-git
+themix-icons-gnome-colors-git
+themix-icons-numix-git
+themix-icons-papirus-git
+themix-icons-suru-plus-aspromauros-git
+themix-icons-suru-plus-git
+themix-import-images-git
+themix-plugin-base16-git
+themix-theme-materia-git
+themix-theme-oomox-git
 thin-provisioning-tools
 thunar
 timeshift
