@@ -1,0 +1,7 @@
+#!/bin/sh
+
+WALLPAPERDIR=$HOME/Singularis/media/wallpapers
+
+cd "$WALLPAPERDIR" || exit
+FILENAME=$(yad --title="Select Wallpaper" --file --add-preview --large-preview)
+alacritty -e chameleon.py -i "$FILENAME"

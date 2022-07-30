@@ -1,0 +1,4 @@
+#!/bin/sh
+
+pkill -1 dunst
+notify-send "Restarted Dunst!"

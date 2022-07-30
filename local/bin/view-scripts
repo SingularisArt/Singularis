@@ -1,0 +1,28 @@
+#!/usr/bin/bash
+
+scripts_path=$(rofi -dmenu -window-title """Location to scripts
+DEFAULT is $HOME/Singularis/local/scripts""")
+
+if [[ ${scripts_path} -eq "" ]]; then
+  scripts_path="$HOME/Singularis/local/scripts"
+elif [[ ! -d ${scripts_path} ]]; then
+  rofi -e "<b><i><span color='blue'>${scripts_path}</span><span color='red'>doesn't exist</span></i></b>" -markup
+  exit
+fi
+
+files=""
+me=`basename "$0"`
+
+for file in `ls -p ${scripts_path} | grep -v /` ; do
+  files+="${file}\n"
+done
+
+file_to_run=$(echo -e ${files} | rofi -dmenu -window-title "Select script to run")
+file_to_run_path="${scripts_path}/${file_to_run}"
+
+if [[ ! -x ${file_to_run_path} ]]; then
+  chmod +x ${file_to_run_path}
+fi
+
+${file_to_run_path}
+

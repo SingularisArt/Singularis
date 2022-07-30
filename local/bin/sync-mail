@@ -1,0 +1,4 @@
+#!/usr/bin/bash
+
+mbsync -V -a
+

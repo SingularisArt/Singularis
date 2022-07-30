@@ -1,0 +1,310 @@
+#!/usr/bin/env bash
+
+# TODO: Fix the neovim config section
+
+TERMINAL="xfce4-terminal"
+CONFIGDIR="$HOME/.config"
+SCHOOLNOTESDIR="$HOME/Documents/school-notes"
+JOURNAL_DIR="$HOME/Documents/journal"
+NVIMCONFIGDIR="$CONFIGDIR/dvim"
+today_journal_dir="${JOURNAL_DIR}/$(date +%Y/%m/%d)"
+
+BOOKNOTES="$HOME/Documents/book-notes"
+THE_COMPLETE_IDIOTS_GUIDE_TO_TRIGONOMETRY="$BOOKNOTES/mathematics/the-complete-idiots-guide-to-trigonometry"
+ALGEBRA_AND_TRIGONOMETRY="$BOOKNOTES/mathematics/algebra-and-trigonometry"
+
+  
+cat <<EOF | xmenu -i | bash &
+ Applications
+	 Firefox												firefox
+	 Chrome												google-chrome-stable
+	 Terminal											$TERMINAL
+	 Files													pcmanfm
+	
+	 Book Notes
+		 Mathematics
+			The Complete Idiots Guide to Trigonometry
+				 PDF											zathura $THE_COMPLETE_IDIOTS_GUIDE_TO_TRIGONOMETRY/master.pdf
+				 Source Code 						$TERMINAL -e "dvim $THE_COMPLETE_IDIOTS_GUIDE_TO_TRIGONOMETRY/master.tex"
+				
+				Chapters
+					Chapter 1								$TERMINAL -e "dvim $THE_COMPLETE_IDIOTS_GUIDE_TO_TRIGONOMETRY/chapters/chap-1.tex"
+					Chapter 2								$TERMINAL -e "dvim $THE_COMPLETE_IDIOTS_GUIDE_TO_TRIGONOMETRY/chapters/chap-2.tex"
+					Chapter 3								$TERMINAL -e "dvim $THE_COMPLETE_IDIOTS_GUIDE_TO_TRIGONOMETRY/chapters/chap-3.tex"
+			
+			Algebra and Trigonometry
+				 PDF											zathura $ALGEBRA_AND_TRIGONOMETRY/master.pdf
+				 Source Code 						$TERMINAL -e "dvim $ALGEBRA_AND_TRIGONOMETRY/master.tex"
+				
+				Chapters
+					Chapter 1								$TERMINAL -e "dvim $ALGEBRA_AND_TRIGONOMETRY/chapters/chap-1.tex"
+	 Journal
+		 Journal 										zathura $JOURNAL_DIR/master.pdf
+		 Today's Notes								$TERMINAL -e "dvim $today_journal_dir/note.tex"
+		 Open Xournal 								cd ${today_journal_dir}; xournalpp note.xopp
+		 Launch lf    								cd ${today_journal_dir}; xfce4-terminal -e "${HOME}/Singularis/local/lfub"
+	 School
+		 Zotero											zotero
+		
+		 Notes
+			 Current Course Notes 			zathura $SCHOOLNOTESDIR/current-course/master.pdf
+			﮶ Current Course Lectures 	$TERMINAL -e "dvim $SCHOOLNOTESDIR/current-course/lectures"
+			
+			MTH 112 
+				Notes Source Code					$TERMINAL -e "dvim $SCHOOLNOTESDIR/College/Year-1/semester-2/hs-pre-calculus-2/master.tex"
+				Final Notes (TEX)  				zathura $SCHOOLNOTESDIR/College/Year-1/semester-2/hs-pre-calculus-2/master.pdf
+				
+				Lecture Notes (TEX)
+					Lecture 1								$TERMINAL -e "dvim $SCHOOLNOTESDIR/College/Year-1/semester-2/hs-pre-calculus-2/lectures/lec-01.tex"
+					Lecture 2								$TERMINAL -e "dvim $SCHOOLNOTESDIR/College/Year-1/semester-2/hs-pre-calculus-2/lectures/lec-02.tex"
+					Lecture 3								$TERMINAL -e "dvim $SCHOOLNOTESDIR/College/Year-1/semester-2/hs-pre-calculus-2/lectures/lec-03.tex"
+					Lecture 4								$TERMINAL -e "dvim $SCHOOLNOTESDIR/College/Year-1/semester-2/hs-pre-calculus-2/lectures/lec-04.tex"
+					Lecture 5								$TERMINAL -e "dvim $SCHOOLNOTESDIR/College/Year-1/semester-2/hs-pre-calculus-2/lectures/lec-05.tex"
+					Lecture 6								$TERMINAL -e "dvim $SCHOOLNOTESDIR/College/Year-1/semester-2/hs-pre-calculus-2/lectures/lec-06.tex"
+					Lecture 7								$TERMINAL -e "dvim $SCHOOLNOTESDIR/College/Year-1/semester-2/hs-pre-calculus-2/lectures/lec-07.tex"
+					Lecture 8								$TERMINAL -e "dvim $SCHOOLNOTESDIR/College/Year-1/semester-2/hs-pre-calculus-2/lectures/lec-08.tex"
+					Lecture 9								$TERMINAL -e "dvim $SCHOOLNOTESDIR/College/Year-1/semester-2/hs-pre-calculus-2/lectures/lec-09.tex"
+					Lecture 10							$TERMINAL -e "dvim $SCHOOLNOTESDIR/College/Year-1/semester-2/hs-pre-calculus-2/lectures/lec-10.tex"
+					Lecture 11							$TERMINAL -e "dvim $SCHOOLNOTESDIR/College/Year-1/semester-2/hs-pre-calculus-2/lectures/lec-11.tex"
+					Lecture 12							$TERMINAL -e "dvim $SCHOOLNOTESDIR/College/Year-1/semester-2/hs-pre-calculus-2/lectures/lec-12.tex"
+					Lecture 13							$TERMINAL -e "dvim $SCHOOLNOTESDIR/College/Year-1/semester-2/hs-pre-calculus-2/lectures/lec-13.tex"
+					Lecture 14							$TERMINAL -e "dvim $SCHOOLNOTESDIR/College/Year-1/semester-2/hs-pre-calculus-2/lectures/lec-14.tex"
+					Lecture 15							$TERMINAL -e "dvim $SCHOOLNOTESDIR/College/Year-1/semester-2/hs-pre-calculus-2/lectures/lec-15.tex"
+					Lecture 16							$TERMINAL -e "dvim $SCHOOLNOTESDIR/College/Year-1/semester-2/hs-pre-calculus-2/lectures/lec-16.tex"
+					Lecture 17							$TERMINAL -e "dvim $SCHOOLNOTESDIR/College/Year-1/semester-2/hs-pre-calculus-2/lectures/lec-17.tex"
+					Lecture 18							$TERMINAL -e "dvim $SCHOOLNOTESDIR/College/Year-1/semester-2/hs-pre-calculus-2/lectures/lec-18.tex"
+					Lecture 19							$TERMINAL -e "dvim $SCHOOLNOTESDIR/College/Year-1/semester-2/hs-pre-calculus-2/lectures/lec-19.tex"
+					Lecture 20							$TERMINAL -e "dvim $SCHOOLNOTESDIR/College/Year-1/semester-2/hs-pre-calculus-2/lectures/lec-20.tex"
+				
+				Lecture Notes (PDF)
+					Lecture 1							  zathura $SCHOOLNOTESDIR/College/Year-1/semester-2/hs-pre-calculus-2/pdf-lectures/lec-01.pdf
+					Lecture 2							  zathura $SCHOOLNOTESDIR/College/Year-1/semester-2/hs-pre-calculus-2/pdf-lectures/lec-02.pdf
+					Lecture 3							  zathura $SCHOOLNOTESDIR/College/Year-1/semester-2/hs-pre-calculus-2/pdf-lectures/lec-03.pdf
+					Lecture 4							  zathura $SCHOOLNOTESDIR/College/Year-1/semester-2/hs-pre-calculus-2/pdf-lectures/lec-04.pdf
+					Lecture 5							  zathura $SCHOOLNOTESDIR/College/Year-1/semester-2/hs-pre-calculus-2/pdf-lectures/lec-05.pdf
+					Lecture 6							  zathura $SCHOOLNOTESDIR/College/Year-1/semester-2/hs-pre-calculus-2/pdf-lectures/lec-06.pdf
+					Lecture 7							  zathura $SCHOOLNOTESDIR/College/Year-1/semester-2/hs-pre-calculus-2/pdf-lectures/lec-07.pdf
+					Lecture 8							  zathura $SCHOOLNOTESDIR/College/Year-1/semester-2/hs-pre-calculus-2/pdf-lectures/lec-08.pdf
+					Lecture 9							  zathura $SCHOOLNOTESDIR/College/Year-1/semester-2/hs-pre-calculus-2/pdf-lectures/lec-09.pdf
+					Lecture 10							zathura $SCHOOLNOTESDIR/College/Year-1/semester-2/hs-pre-calculus-2/pdf-lectures/lec-10.pdf
+					Lecture 11							zathura $SCHOOLNOTESDIR/College/Year-1/semester-2/hs-pre-calculus-2/pdf-lectures/lec-11.pdf
+					Lecture 12							zathura $SCHOOLNOTESDIR/College/Year-1/semester-2/hs-pre-calculus-2/pdf-lectures/lec-12.pdf
+					Lecture 13							zathura $SCHOOLNOTESDIR/College/Year-1/semester-2/hs-pre-calculus-2/pdf-lectures/lec-13.pdf
+					Lecture 14							zathura $SCHOOLNOTESDIR/College/Year-1/semester-2/hs-pre-calculus-2/pdf-lectures/lec-14.pdf
+					Lecture 15							zathura $SCHOOLNOTESDIR/College/Year-1/semester-2/hs-pre-calculus-2/pdf-lectures/lec-15.pdf
+					Lecture 16							zathura $SCHOOLNOTESDIR/College/Year-1/semester-2/hs-pre-calculus-2/pdf-lectures/lec-16.pdf
+					Lecture 17							zathura $SCHOOLNOTESDIR/College/Year-1/semester-2/hs-pre-calculus-2/pdf-lectures/lec-17.pdf
+					Lecture 18							zathura $SCHOOLNOTESDIR/College/Year-1/semester-2/hs-pre-calculus-2/pdf-lectures/lec-18.pdf
+					Lecture 19							zathura $SCHOOLNOTESDIR/College/Year-1/semester-2/hs-pre-calculus-2/pdf-lectures/lec-19.pdf
+					Lecture 20							zathura $SCHOOLNOTESDIR/College/Year-1/semester-2/hs-pre-calculus-2/pdf-lectures/lec-20.pdf
+				
+				Professor Notes
+					Lecture 1 							$TERMINAL -e "dvim $SCHOOLNOTESDIR/College/Year-1/semester-2/hs-pre-calculus-2/online-lecture-notes/lec-01.tex"
+					Lecture 2 							$TERMINAL -e "dvim $SCHOOLNOTESDIR/College/Year-1/semester-2/hs-pre-calculus-2/online-lecture-notes/lec-02.tex"
+					Lecture 3 							$TERMINAL -e "dvim $SCHOOLNOTESDIR/College/Year-1/semester-2/hs-pre-calculus-2/online-lecture-notes/lec-03.tex"
+					Lecture 4 							$TERMINAL -e "dvim $SCHOOLNOTESDIR/College/Year-1/semester-2/hs-pre-calculus-2/online-lecture-notes/lec-04.tex"
+					Lecture 5 							$TERMINAL -e "dvim $SCHOOLNOTESDIR/College/Year-1/semester-2/hs-pre-calculus-2/online-lecture-notes/lec-05.tex"
+					Lecture 6 							$TERMINAL -e "dvim $SCHOOLNOTESDIR/College/Year-1/semester-2/hs-pre-calculus-2/online-lecture-notes/lec-06.tex"
+					Lecture 7 							$TERMINAL -e "dvim $SCHOOLNOTESDIR/College/Year-1/semester-2/hs-pre-calculus-2/online-lecture-notes/lec-07.tex"
+					Lecture 8 							$TERMINAL -e "dvim $SCHOOLNOTESDIR/College/Year-1/semester-2/hs-pre-calculus-2/online-lecture-notes/lec-08.tex"
+					Lecture 9 							$TERMINAL -e "dvim $SCHOOLNOTESDIR/College/Year-1/semester-2/hs-pre-calculus-2/online-lecture-notes/lec-09.tex"
+					Lecture 10 							$TERMINAL -e "dvim $SCHOOLNOTESDIR/College/Year-1/semester-2/hs-pre-calculus-2/online-lecture-notes/lec-10.tex"
+					Lecture 11 							$TERMINAL -e "dvim $SCHOOLNOTESDIR/College/Year-1/semester-2/hs-pre-calculus-2/online-lecture-notes/lec-11.tex"
+					Lecture 12 							$TERMINAL -e "dvim $SCHOOLNOTESDIR/College/Year-1/semester-2/hs-pre-calculus-2/online-lecture-notes/lec-12.tex"
+					Lecture 13 							$TERMINAL -e "dvim $SCHOOLNOTESDIR/College/Year-1/semester-2/hs-pre-calculus-2/online-lecture-notes/lec-13.tex"
+					Lecture 14 							$TERMINAL -e "dvim $SCHOOLNOTESDIR/College/Year-1/semester-2/hs-pre-calculus-2/online-lecture-notes/lec-14.tex"
+					Lecture 15 							$TERMINAL -e "dvim $SCHOOLNOTESDIR/College/Year-1/semester-2/hs-pre-calculus-2/online-lecture-notes/lec-15.tex"
+					Lecture 16 							$TERMINAL -e "dvim $SCHOOLNOTESDIR/College/Year-1/semester-2/hs-pre-calculus-2/online-lecture-notes/lec-16.tex"
+					Lecture 17 							$TERMINAL -e "dvim $SCHOOLNOTESDIR/College/Year-1/semester-2/hs-pre-calculus-2/online-lecture-notes/lec-17.tex"
+					Lecture 18 							$TERMINAL -e "dvim $SCHOOLNOTESDIR/College/Year-1/semester-2/hs-pre-calculus-2/online-lecture-notes/lec-18.tex"
+					Lecture 19 							$TERMINAL -e "dvim $SCHOOLNOTESDIR/College/Year-1/semester-2/hs-pre-calculus-2/online-lecture-notes/lec-19.tex"
+					Lecture 20 							$TERMINAL -e "dvim $SCHOOLNOTESDIR/College/Year-1/semester-2/hs-pre-calculus-2/online-lecture-notes/lec-20.tex"
+					Lecture 21 							$TERMINAL -e "dvim $SCHOOLNOTESDIR/College/Year-1/semester-2/hs-pre-calculus-2/online-lecture-notes/lec-21.tex"
+					Lecture 22 							$TERMINAL -e "dvim $SCHOOLNOTESDIR/College/Year-1/semester-2/hs-pre-calculus-2/online-lecture-notes/lec-22.tex"
+				
+				Assignments
+					Latex Files
+						Assignment 1					$TERMINAL -e "dvim $SCHOOLNOTESDIR/College/Year-1/semester-2/hs-pre-calculus-2/assignments/latex-files/week-01.tex"
+						Assignment 2					$TERMINAL -e "dvim $SCHOOLNOTESDIR/College/Year-1/semester-2/hs-pre-calculus-2/assignments/latex-files/week-02.tex"
+						Assignment 3					$TERMINAL -e "dvim $SCHOOLNOTESDIR/College/Year-1/semester-2/hs-pre-calculus-2/assignments/latex-files/week-03.tex"
+						Assignment 4					$TERMINAL -e "dvim $SCHOOLNOTESDIR/College/Year-1/semester-2/hs-pre-calculus-2/assignments/latex-files/week-04.tex"
+						Assignment 5					$TERMINAL -e "dvim $SCHOOLNOTESDIR/College/Year-1/semester-2/hs-pre-calculus-2/assignments/latex-files/week-05.tex"
+						Assignment 6					$TERMINAL -e "dvim $SCHOOLNOTESDIR/College/Year-1/semester-2/hs-pre-calculus-2/assignments/latex-files/week-06.tex"
+						Assignment 7					$TERMINAL -e "dvim $SCHOOLNOTESDIR/College/Year-1/semester-2/hs-pre-calculus-2/assignments/latex-files/week-07.tex"
+						Assignment 8					$TERMINAL -e "dvim $SCHOOLNOTESDIR/College/Year-1/semester-2/hs-pre-calculus-2/assignments/latex-files/week-08.tex"
+						Assignment 9					$TERMINAL -e "dvim $SCHOOLNOTESDIR/College/Year-1/semester-2/hs-pre-calculus-2/assignments/latex-files/week-09.tex"
+						Assignment 10					$TERMINAL -e "dvim $SCHOOLNOTESDIR/College/Year-1/semester-2/hs-pre-calculus-2/assignments/latex-files/week-10.tex"
+					Yaml Files
+						Assignment 1					$TERMINAL -e "dvim $SCHOOLNOTESDIR/College/Year-1/semester-2/hs-pre-calculus-2/assignments/yaml-files/week-01.yaml"
+						Assignment 2					$TERMINAL -e "dvim $SCHOOLNOTESDIR/College/Year-1/semester-2/hs-pre-calculus-2/assignments/yaml-files/week-02.yaml"
+						Assignment 3					$TERMINAL -e "dvim $SCHOOLNOTESDIR/College/Year-1/semester-2/hs-pre-calculus-2/assignments/yaml-files/week-03.yaml"
+						Assignment 4					$TERMINAL -e "dvim $SCHOOLNOTESDIR/College/Year-1/semester-2/hs-pre-calculus-2/assignments/yaml-files/week-04.yaml"
+						Assignment 5					$TERMINAL -e "dvim $SCHOOLNOTESDIR/College/Year-1/semester-2/hs-pre-calculus-2/assignments/yaml-files/week-05.yaml"
+						Assignment 6					$TERMINAL -e "dvim $SCHOOLNOTESDIR/College/Year-1/semester-2/hs-pre-calculus-2/assignments/yaml-files/week-06.yaml"
+						Assignment 7					$TERMINAL -e "dvim $SCHOOLNOTESDIR/College/Year-1/semester-2/hs-pre-calculus-2/assignments/yaml-files/week-07.yaml"
+						Assignment 8					$TERMINAL -e "dvim $SCHOOLNOTESDIR/College/Year-1/semester-2/hs-pre-calculus-2/assignments/yaml-files/week-08.yaml"
+						Assignment 9					$TERMINAL -e "dvim $SCHOOLNOTESDIR/College/Year-1/semester-2/hs-pre-calculus-2/assignments/yaml-files/week-09.yaml"
+						Assignment 10					$TERMINAL -e "dvim $SCHOOLNOTESDIR/College/Year-1/semester-2/hs-pre-calculus-2/assignments/yaml-files/week-10.yaml"
+					PDF Files
+						Assignment 1					zathura $SCHOOLNOTESDIR/College/Year-1/semester-2/hs-pre-calculus-2/assignments/pdf-files/week-01.pdf
+						Assignment 2					zathura $SCHOOLNOTESDIR/College/Year-1/semester-2/hs-pre-calculus-2/assignments/pdf-files/week-02.pdf
+						Assignment 3					zathura $SCHOOLNOTESDIR/College/Year-1/semester-2/hs-pre-calculus-2/assignments/pdf-files/week-03.pdf
+						Assignment 4					zathura $SCHOOLNOTESDIR/College/Year-1/semester-2/hs-pre-calculus-2/assignments/pdf-files/week-04.pdf
+						Assignment 5					zathura $SCHOOLNOTESDIR/College/Year-1/semester-2/hs-pre-calculus-2/assignments/pdf-files/week-05.pdf
+						Assignment 6					zathura $SCHOOLNOTESDIR/College/Year-1/semester-2/hs-pre-calculus-2/assignments/pdf-files/week-06.pdf
+						Assignment 7					zathura $SCHOOLNOTESDIR/College/Year-1/semester-2/hs-pre-calculus-2/assignments/pdf-files/week-07.pdf
+						Assignment 8					zathura $SCHOOLNOTESDIR/College/Year-1/semester-2/hs-pre-calculus-2/assignments/pdf-files/week-08.pdf
+						Assignment 9					zathura $SCHOOLNOTESDIR/College/Year-1/semester-2/hs-pre-calculus-2/assignments/pdf-files/week-09.pdf
+						Assignment 10					zathura $SCHOOLNOTESDIR/College/Year-1/semester-2/hs-pre-calculus-2/assignments/pdf-files/week-10.pdf
+				
+				Books
+					Algebra and Trig				zathura $SCHOOLNOTESDIR/College/Year-1/semester-2/hs-pre-calculus-2/books/algebra_trigonometry.pdf
+	 Comms
+		Discord (GUI)									discord
+		Discord (TUI)									$TERMINAL -e "cordless"
+		 Email (TUI)           			$TERMINAL -e "neomutt"
+		 IRC           							$TERMINAL -e "weechat"
+		 SMS              						kdeconnect-sms --style gtk2
+		 Slack												slack
+		 Signal (GUI)								signal-desktop
+		 Telegram (GUI)							telegram-desktop
+		 Telegram (TUI)							nctelegram
+	 Finance
+		 Crypto (TUI)								$TERMINAL -e "cointop"
+		 Stocks (TUI)								$TERMINAL -e "mop"
+	 Utilities
+		 Calculator (TUI)						$TERMINAL -e "qalq"
+		 Calculator (GUI)						qalculate-gtk
+		 Calendar (TUI)							$TERMINAL -e "khal interactive"
+		 Calendar (GUI)							gnome-calendar
+		 Color Picker								gpick
+		 Map      										$TERMINAL -e "mapscii"
+		 Writing Books 							manuskript
+		
+		 System
+			 Kill Window								xkill
+			 Keyboard             			ckb-next
+			 Fonts                   	gucharmap
+			 Smartphone             		kdeconnect-app --style gtk2
+			 Screen Recording      		obs
+			 Screenshot
+				All Displays							flameshot screen -d 5000 -n 3 -p $HOME/Photos/screenshots
+				Middle Display						flameshot screen -d 5000 -n 0 -p $HOME/Photos/screenshots
+				Right Display							flameshot screen -d 5000 -n 1 -p $HOME/Photos/screenshots
+				Left Display							flameshot screen -d 5000 -n 2 -p $HOME/Photos/screenshots
+		 Personal
+			 Nextcloud									nextcloud --style gtk2
+			 Passwords             		keepassxc --style gtk2
+			 Keys             					seahorse
+		 Theming
+			lxappearance								lxappearance
+			GTK        									oomox-gui
+			Qt        									qt5ct --style gtk2
+			WPGTK												wpg
+		 Monitors
+			System (ytop)								$TERMINAL -e "ytop"
+			System (bashtop)						$TERMINAL -e "bashtop"
+			System (glances)						$TERMINAL -e "glances"
+			
+			Disk Usage (GUI)						baobab
+			Disk Usage (TUI)						$TERMINAL -e "ncdu"
+			IO (iotop)									$TERMINAL -e "iotop"
+			
+			Kernel (kmon)								$TERMINAL -e "kmon"
+			Nvidia GPU (nvtop)					$TERMINAL -e "nvtop"
+			Power (powertop)						$TERMINAL -e "powertop"
+			
+			Network Usage (jnettop)			$TERMINAL -e "jnettop"
+			Network Load (nload)				$TERMINAL -e "nload"
+			Bandwidth (bmon)						$TERMINAL -e "bmon"
+		 Media
+			 EasyTag										easytag
+	 Entertainment
+		 Media
+			 Podcasts (castero)				$TERMINAL -e "castero"
+			 RSS (newsboat)						$TERMINAL -e "newsboat"
+			 Reddit (tuir)							$TERMINAL -e "tuir"
+			 Music (cmus)							$TERMINAL -e "cmus"
+			 Spotify (GUI)							spotify
+			 Spotify (spotifytui)			spt
+			Soulseek (Nicotine+)				nicotine
+		 Games
+			 Steam											steam
+			Itch												itch
+			Lutris											$TERMINAL -e "lutris"
+			Tetris											$TERMINAL -e "tetris"
+			Solitaire										$TERMINAL -e "ttysolitaire"
+			 Battleship								$TERMINAL -e "bs"
+			 Minecraft									minecraft-launcher
+			Dopewars										$TERMINAL -e "dopewars"
+	 Science
+		Anki													anki
+		
+		 Astronomy
+			Celestia										celestia
+		 Biology
+			Pymol												pymol
+		 Chemistry
+			chemtool										chemtool
+		 Math
+			Geogebra										geogebra
+	 Development
+		 IDEs
+			Neovim											$TERMINAL -e "nvim"
+	 LibreOffice
+		LibreOffice										libreoffice
+		Writer												libreoffice --writer
+		Calc													libreoffice --calc
+		Draw													libreoffice --draw
+		Web 													libreoffice --web
+		Base 													libreoffice --base
+		Presentation 									libreoffice --impress
+		Math         									libreoffice --math
+
+ Configs
+	 System
+		 Bspwm												$TERMINAL -e "dvim $CONFIGDIR/bspwm/bspwmrc"
+		 Start Menu									$TERMINAL -e "dvim $HOME/Singularis/local/xmenu-script"
+		 Notifications								$TERMINAL -e "dvim $CONFIGDIR/dunst/dunstrc"
+		 Smartphone									kdeconnect-settings --style gtk2
+		 Sound												pavucontrol
+		 .Xresources									$TERMINAL -e "dvim $HOME/.Xresources"
+		
+		 Shell
+			bash												$TERMINAL -e "dvim $HOME/.bashrc"
+			zsh													$TERMINAL -e "dvim $HOME/.zshrc"
+		 polybar
+			config											$TERMINAL -e "dvim $CONFIGDIR/polybar/config.init"
+			modules											$TERMINAL -e "dvim $CONFIGDIR/polybar/modules.init"
+			launch script								$TERMINAL -e "dvim $CONFIGDIR/polybar/scripts/launch.sh"
+		 rofi
+			config											$TERMINAL -e "dvim $CONFIGDIR/rofi/config.rasi"
+		 Utilities
+			 khard											$TERMINAL -e "dvim $CONFIGDIR/khard/khard.conf"
+			 khal											$TERMINAL -e "dvim $CONFIGDIR/khal/config"
+			 vdirsyncer								$TERMINAL -e "dvim $CONFIGDIR/vdirsyncer/config"
+	
+	 User
+		lf    												$TERMINAL -e "dvim $CONFIGDIR/lf/lfrc"
+		newsboat											$TERMINAL -e "dvim $CONFIGDIR/newsboat/config"
+		neofetch											$TERMINAL -e "dvim $CONFIGDIR/neofetch/config.conf"
+		htop													$TERMINAL -e "dvim $CONFIGDIR/htop/htoprc"
+		s-tui													$TERMINAL -e "dvim $CONFIGDIR/s-tui/s-tui.conf"
+		spicetify											$TERMINAL -e "dvim $CONFIGDIR/spicetify/config.ini"
+		stonks												$TERMINAL -e "dvim $CONFIGDIR/stonks.yml"
+		
+		neomutt
+			neomuttrc										$TERMINAL -e "dvim $CONFIGDIR/neomutt/neomuttrc"
+			colors											$TERMINAL -e "dvim $CONFIGDIR/neomutt/colors.muttrc"
+			settings										$TERMINAL -e "dvim $CONFIGDIR/neomutt/settings.muttrc"
+			mailcap											$TERMINAL -e "dvim $CONFIGDIR/neomutt/mailcap"
+			
+			mappings
+				Bindings									$TERMINAL -e "dvim $CONFIGDIR/neomutt/keys/bind.muttrc"
+				Unbindings								$TERMINAL -e "dvim $CONFIGDIR/neomutt/keys/unbind.muttrc"
+
+ System
+	 Logout			logout
+	 Shutdown		poweroff
+	 Reboot			reboot
+EOF

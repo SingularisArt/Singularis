@@ -1,0 +1,8 @@
+#!/usr/bin/bash
+
+wp_path=${HOME}/Singularis/media/wallpapers
+image=$(\ls $wp_path | grep -E '(jpeg|jpg|png)$' | sort -R | tail -1)
+
+cp "${wp_path}/${image}" ${HOME}/.config/wall.jpg
+xfce4-terminal --command="python3.10 ${HOME}/Singularis/third-party-tools/chameleon/chameleon.py -i "${wp_path}/${image}""
+

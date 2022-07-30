@@ -1,0 +1,94 @@
+#!/bin/bash
+
+browsers="Google Chrome\nFirefox\nBrave\nFalkon"
+sites="Google\nYoutube\nGitHub\nCoinbase\nWikipedia"
+
+google_website="https://www.google.com/"
+youtube_website="https://www.youtube.com/"
+github_website="https://www.github.com/"
+coinbase_website="https://www.coinbase.com/price/"
+wikipedia_website="https://www.wikipedia.org/"
+
+google_search="https://www.google.com/search?q="
+youtube_search="https://www.youtube.com/results?search_query="
+github_search="https://github.com/search?q="
+coinbase_search="https://www.coinbase.com/price?query="
+wikipedia_search="https://en.wikipedia.org/w/index.php?search="
+
+
+browser=$(echo -e ${browsers} | rofi -dmenu -window-title "Which browser do you want to use")
+site=$(echo -e ${sites} | rofi -dmenu -window-title "Which site do you want to use")
+
+case ${site} in
+  "Google")
+    search=$(rofi -dmenu -window-title "What do you want to search on Google (Leave blank to open the website)")
+
+    #clean_search ${search} ${site}
+    if [[ ${search} -eq '' ]]; then
+      google_search=${google_website}
+    else
+      search=$(echo ${search} | tr " " "+")
+    fi
+
+    search="${google_search}${search}"
+    ;;
+  "Youtube")
+    search=$(rofi -dmenu -window-title "What do you want to search on Youtube (Leave blank to open the website)" | tr " " "+")
+
+    if [[ ${search} -eq '' ]]; then
+      youtube_search=${youtube_website}
+    else
+      search=$(echo ${search} | tr " " "+")
+    fi
+
+    search="${youtube_search}${search}"
+    ;;
+  "GitHub")
+    search=$(rofi -dmenu -window-title "What do you want to search on GitHub (Leave blank to open the website)" | tr " " "+")
+
+    if [[ ${search} -eq '' ]]; then
+      github_search=${github_website}
+    else
+      search=$(echo ${search} | tr " " "+")
+    fi
+
+    search="${github_search}${search}"
+    ;;
+  "Coinbase")
+    search=$(rofi -dmenu -window-title "What do you want to search on Coinbase (Leave blank to open the website)" | tr " " "+")
+
+    if [[ ${search} -eq '' ]]; then
+      coinbase_search=${coinbase_website}
+    else
+      search=$(echo ${search} | tr " " "+")
+    fi
+
+    search="${coinbase_search}${search}"
+    ;;
+  "Wikipedia")
+    search=$(rofi -dmenu -window-title "What do you want to search on Wikipedia (Leave blank to open the website)" | tr " " "+")
+
+    if [[ ${search} -eq '' ]]; then
+      wikipedia_search=${wikipedia_website}
+    else
+      search=$(echo ${search} | tr " " "+")
+    fi
+
+    search="${wikipedia_search}${search}"
+    ;;
+esac
+
+case ${browser} in
+  "Google Chrome")
+    google-chrome-stable --app=${search} &
+    ;;
+  "Firefox")
+    firefox -new-window="${search}" &
+    ;;
+  "Brave")
+    ;;
+  "Falkon")
+    falkon --open-window ${search} &
+    ;;
+esac
+

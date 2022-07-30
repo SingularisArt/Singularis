@@ -24,7 +24,7 @@ super + e
 super + shift + p
   xfce4-terminal -e 'pulsemixer'
 super + shift + d
-  bash $HOME/Singularis/local/xmenu-script
+  bash $HOME/Singularis/local/bin/xmenu-script
 super + shift + z
   zathura
 super + shift + s
@@ -44,7 +44,7 @@ super + alt + shift + r
 ###########
 
 super + b
-  bash $HOME/Singularis/local/statusbar
+  bash $HOME/Singularis/local/bin/statusbar
 
 #-------#
 # Dunst #
@@ -78,18 +78,18 @@ super + alt + comma
 super + alt + period
   mpc next
 super + alt + u
-  pamixer -i 5 && bash $HOME/Singularis/local/volume-indicator show
+  pamixer -i 5 && bash $HOME/Singularis/local/bin/volume-indicator show
 super + alt + d
-  pamixer -d 5 && bash $HOME/Singularis/local/volume-indicator show
+  pamixer -d 5 && bash $HOME/Singularis/local/bin/volume-indicator show
 super + c
-  $HOME/Singularis/local/change-theme
+  $HOME/Singularis/local/bin/change-theme
 
 #########
 # Other #
 #########
 
 Print
-  ~/Singularis/local/maimpick
+  ~/Singularis/local/bin/maimpick
 
 
 #-------#
