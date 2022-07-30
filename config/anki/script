@@ -5,4 +5,4 @@ source "$HOME/Singularis/bin/variables"
 
 log_info "Installing anki"
 
-install_config "Anki" "$CONFIG/anki" "$CONFIG_LOCATION"
+install_config "Anki" "$CONFIG/anki" "$CONFIG_LOCATION/anki"

@@ -5,4 +5,4 @@ source "$HOME/Singularis/bin/variables"
 
 log_info "Installing chameleon"
 
-install_config "Chameleon" "$CONFIG/chameleon" "$CONFIG_LOCATION"
+install_config "Chameleon" "$CONFIG/chameleon" "$CONFIG_LOCATION/chameleon"

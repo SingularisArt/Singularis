@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 
-source bin/common
-source bin/variables
+source "$HOME/Singularis/bin/common"
+source "$HOME/Singularis/bin/variables"
 
 log_info "--all                 -a        Installs everything"
 log_info "--describe param      -d param  Describes the parameter"

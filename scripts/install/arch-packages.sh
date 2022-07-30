@@ -13,7 +13,9 @@ case "$OS" in
       check_if_installed "yay"
 
       yay -Syu
-      cat "$INSTALL_SCRIPTS"/arch-packages.txt | xargs yay -S --noconfirm
+      while read p; do
+        yay -S $p --noconfirm
+      done <./arch-packages.txt
       yay -Syu
     else
       log_error "Sorry. You aren't on an Arch Distro, so you're going to have to manually install the packages.

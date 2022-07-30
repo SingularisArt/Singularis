@@ -5,4 +5,4 @@ source "$HOME/Singularis/bin/variables"
 
 log_info "Installing lynx"
 
-install_config "Lynx" "$CONFIG/lynx" "$CONFIG_LOCATION"
+install_config "Lynx" "$CONFIG/lynx" "$CONFIG_LOCATION/lynx"

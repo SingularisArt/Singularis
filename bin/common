@@ -113,13 +113,12 @@ install_config() {
   config_path=$2
   config_install_path=$3
 
-  if [[ -d $2 ]]; then
+  if [[ -d $3 ]]; then
     while true; do
       read -p "$config_name's config already exists in $config_install_path. Do you want to overwrite it: " confirmation
       case $confirmation in
         "y")
           rm -rf "$config_install_path"
-          ln -sf "$config_path" "$config_install_path"
           break
           ;;
         "n")
@@ -131,4 +130,5 @@ install_config() {
       esac
     done
   fi
+  ln -sf "$config_path" "$config_install_path"
 }

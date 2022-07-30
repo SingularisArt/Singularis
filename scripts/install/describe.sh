@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 
-source bin/common
-source bin/variables
+source "$HOME/Singularis/bin/common"
+source "$HOME/Singularis/bin/variables"
 
 # Checking if the user passed any config to describe.
 # If not, we will tell them that we need a config name.

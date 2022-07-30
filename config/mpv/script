@@ -5,4 +5,4 @@ source "$HOME/Singularis/bin/variables"
 
 log_info "Installing mpv"
 
-install_config "MPV" "$CONFIG/mpv" "$CONFIG_LOCATION"
+install_config "MPV" "$CONFIG/mpv" "$CONFIG_LOCATION/mpv"

@@ -5,4 +5,4 @@ source "$HOME/Singularis/bin/variables"
 
 log_info "Installing neomutt"
 
-install_config "NeoMutt" "$CONFIG/neomutt" "$CONFIG_LOCATION"
+install_config "NeoMutt" "$CONFIG/neomutt" "$CONFIG_LOCATION/neomutt"

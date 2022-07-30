@@ -5,4 +5,4 @@ source "$HOME/Singularis/bin/variables"
 
 log_info "Installing wal-discord"
 
-install_config "Wal Discord" "$CONFIG/wal-discord" "$CONFIG_LOCATION"
+install_config "Wal Discord" "$CONFIG/wal-discord" "$CONFIG_LOCATION/wal-discord"

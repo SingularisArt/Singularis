@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 
-source bin/common
-source bin/variables
+source "$HOME/Singularis/bin/common"
+source "$HOME/Singularis/bin/variables"
 
 log_notice "Installing all of my configurations"
 
