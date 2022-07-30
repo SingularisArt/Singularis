@@ -50,3 +50,107 @@ hooks:
   startTree:
     command: "docker-compose -f docker-compose.yaml restart StartTree"
     directory: "/home/hashem/Singularis/third-party-tools/start-tree/docker/"
+oomoxicons:
+  # This changes depending on your iconset
+  command: "oomox-archdroid-icons-cli"
+  # Path to the desired theme you want to apply
+  themepath: "/opt/oomox/scripted_colors/xresources/xresources-reverse"
+
+oomoxgtk:
+  # Path to the desired theme you want to apply
+  themepath: "/opt/oomox/scripted_colors/xresources/xresources-reverse"
+
+oomoxspotify:
+  spotifypath: "/opt/spotify/Apps"
+  enabled: True
+
+# slickpywal:
+#   path:
+
+# pywalneopixels:
+#   path:
+
+# razercli:
+#   path:
+
+# telegrampalletegen:
+#   path: ""
+
+# spicetify:
+#   path:
+
+pywalfox:
+  enable: True
+
+waldiscord:
+  path: "/home/singularis/Singularis/third-party-tools/wal-discord"
+
+xmenu:
+  path: "/home/singularis/.config/xmenu"
+
+starttree:
+  path: "/home/singularis/Singularis/third-party-tools/start-tree"
+
+gnuplot:
+  path: "/home/singularis/Singularis/third-party-tools/gnuplot-pywal"
+
+xfce4-terminal:
+  path: "/home/singularis/.config/xfce4"
+
+hooks:
+  notify: "notify-send 'Success!' 'success, theme applied'"
+  startTree:
+    command: "docker-compose -f docker-compose.yaml restart StartTree"
+    directory: "/home/singularis/Singularis/third-party-tools/start-tree/docker/"
+oomoxicons:
+  # This changes depending on your iconset
+  command: "oomox-archdroid-icons-cli"
+  # Path to the desired theme you want to apply
+  themepath: "/opt/oomox/scripted_colors/xresources/xresources-reverse"
+
+oomoxgtk:
+  # Path to the desired theme you want to apply
+  themepath: "/opt/oomox/scripted_colors/xresources/xresources-reverse"
+
+oomoxspotify:
+  spotifypath: "/opt/spotify/Apps"
+  enabled: True
+
+# slickpywal:
+#   path:
+
+# pywalneopixels:
+#   path:
+
+# razercli:
+#   path:
+
+# telegrampalletegen:
+#   path: ""
+
+# spicetify:
+#   path:
+
+pywalfox:
+  enable: True
+
+waldiscord:
+  path: "/home/singularis/Singularis/third-party-tools/wal-discord"
+
+xmenu:
+  path: "/home/singularis/.config/xmenu"
+
+starttree:
+  path: "/home/singularis/Singularis/third-party-tools/start-tree"
+
+gnuplot:
+  path: "/home/singularis/Singularis/third-party-tools/gnuplot-pywal"
+
+xfce4-terminal:
+  path: "/home/singularis/.config/xfce4"
+
+hooks:
+  notify: "notify-send 'Success!' 'success, theme applied'"
+  startTree:
+    command: "docker-compose -f docker-compose.yaml restart StartTree"
+    directory: "/home/singularis/Singularis/third-party-tools/start-tree/docker/"
