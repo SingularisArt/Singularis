@@ -52,7 +52,7 @@ for command in "$@"; do
       # Install all needed npm libraries
       source_install_script "npm-libraries.sh"
       break
-    elif [[ "${command}" = "--list-configs" || "${command}" = "-l" ]]; then
+    elif [[ "${command}" = "--list-configs" || "${command}" = "-L" ]]; then
       # List all configs
       for config in $(ls ${CONFIG}); do
         if [[ "${config}" != "script" && "${config}" != "describe.txt" ]]; then
@@ -75,6 +75,9 @@ for command in "$@"; do
       break
     elif [[ "${command}" = "--settings" || "${command}" = "-s" ]]; then
       source_install_script "settings.sh" "${@:${command_for_specific_config}}"
+      break
+    elif [[ "${command}" = "--local" || "${command}" = "-l" ]]; then
+      source_install_script "local.sh" "${@:${command_for_specific_config}}"
       break
     fi
   done
