@@ -73,6 +73,9 @@ for command in "$@"; do
     elif [[ "${command}" = "--colorscheme" || "${command}" = "-C" ]]; then
       source_install_script "colorscheme.sh" "${@:${command_for_specific_config}}"
       break
+    elif [[ "${command}" = "--settings" || "${command}" = "-s" ]]; then
+      source_install_script "settings.sh" "${@:${command_for_specific_config}}"
+      break
     fi
   done
 done
