@@ -16,4 +16,5 @@ git clone https://github.com/SingularisArt/school-setup ~/Documents/school-setup
 git clone https://github.com/SingularisArt/Website ~/Documents/Website
 
 git clone https://github.com/SingularisArt/Desktop ~/Desktop
+git clone https://github.com/SingularisArt/Music ~/Music
 git clone https://github.com/SingularisArt/screenshots ~/Screenshots
