@@ -174,9 +174,14 @@ dvim.builtin.plugins.lualine.mode = "evil"
 --  Telescope  --
 -----------------
 
+-- Extensions
 dvim.builtin.plugins.telescope.extensions.active = true
-dvim.builtin.plugins.telescope.extensions.file_browser = true
-dvim.builtin.plugins.telescope.extensions.notify = true
+dvim.builtin.plugins.telescope.extensions.file_browser.active = true
+dvim.builtin.plugins.telescope.extensions.project.active = true
+dvim.builtin.plugins.telescope.extensions.notify.active = true
+dvim.builtin.plugins.telescope.extensions.media_files.active = true
+dvim.builtin.plugins.telescope.extensions.vim_bookmarks.active = true
+dvim.builtin.plugins.telescope.extensions.symbols.active = true
 
 -------------------
 --  Tree Sitter  --
@@ -427,13 +432,11 @@ dvim.lsp.completions = {
 
 -- Here is where you put each speific settings for each filetype.
 
-dvim.builtin.filetypes.latex.filetype = "tex"
 dvim.builtin.filetypes.latex.settings = {
   wrap = true,
   spell = true,
 }
 
-dvim.builtin.filetypes.markdown.filetype = "md"
 dvim.builtin.filetypes.markdown.settings = {
   wrap = true,
   spell = true,
@@ -468,3 +471,16 @@ vim.api.nvim_create_autocmd("FileType", {
 dvim.vim_commands = {
   { command = "set rtp+=~/Documents/school-notes/current-course" },
 }
+
+------------------------------------------------------------------------
+--                             Languages                              --
+------------------------------------------------------------------------
+
+-- English (US), Spanish, Dutch, Latin, Arabic
+-- You can view all languages here: http://ftp.vim.org/vim/runtime/spell/
+-- Or you can read the help page: `:h spell`
+dvim.languages = "en_us,es,nl,la,ar"
+
+-- You can even change each filetype's languages
+dvim.builtin.filetypes.latex.languages = "en_us,es,nl,la,ar"
+dvim.builtin.filetypes.markdown.languages = "en_us,es,nl,la,ar"
