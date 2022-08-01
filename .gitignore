@@ -17,6 +17,7 @@ config/neofetch/ascii/
 config/ncmpcpp/error.log
 config/neomutt/accounts/main.muttrc
 config/neomutt/accounts/school.muttrc
+config/dvim/plugin/
 node_modules/
 tags
 backup-configuration/
