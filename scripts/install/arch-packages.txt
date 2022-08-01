@@ -72,6 +72,7 @@ dpkg
 dtc
 dunst
 electron
+exa
 feh
 ffmpeg
 ffmpegthumbnailer
@@ -565,7 +566,7 @@ ndctl
 neofetch
 neomutt
 neon
-neovim
+neovim-git
 nerd-fonts-hack
 nerd-fonts-noto-sans-mono
 net-snmp

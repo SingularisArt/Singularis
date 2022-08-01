@@ -9,4 +9,4 @@ check_if_installed "python-pip"
 
 while read p; do
   pip3 install $p
-done <./python-libraries.txt
+done <$INSTALL_SCRIPTS/python-libraries.txt

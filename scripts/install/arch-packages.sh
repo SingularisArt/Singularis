@@ -15,7 +15,7 @@ case "$OS" in
       yay -Syu
       while read p; do
         yay -S $p --noconfirm
-      done <./arch-packages.txt
+      done <$INSTALL_SCRIPTS/arch-packages.txt
       yay -Syu
     else
       log_error "Sorry. You aren't on an Arch Distro, so you're going to have to manually install the packages.

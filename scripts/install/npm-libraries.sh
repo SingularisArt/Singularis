@@ -9,4 +9,4 @@ log_notice "Installing npm libraries"
 
 while read p; do
   sudo npm -i -g $p
-done <./npm-libraries.txt
+done <$INSTALL_SCRIPTS/npm-libraries.txt
