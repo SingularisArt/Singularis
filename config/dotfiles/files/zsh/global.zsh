@@ -4,4 +4,3 @@ typeset -A __SingularisArt
 
 __SingularisArt[ITALIC_ON]=$'\e[3m'
 __SingularisArt[ITALIC_OFF]=$'\e[23m'
-
