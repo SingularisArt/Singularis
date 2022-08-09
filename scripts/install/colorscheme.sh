@@ -19,4 +19,8 @@ sudo bash install.sh
 log_info "Setting up everything else"
 
 cd ${THIRD_PARTY_TOOLS}/chameleon
+
+log_info "Setting up discord theme"
+
 ./chameleon.py -i /home/singularis/Singularis/media/wallpapers/0942.jpg
+wal-discord; beautifuldiscord --css ~/.cache/wal-discord/style.css
