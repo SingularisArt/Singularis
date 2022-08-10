@@ -83,7 +83,7 @@ function git() {
   elif [ "$1" = st ]; then
     command git status
   elif [ "$1" = co ]; then
-    command git checkout "$2"
+    command git checkout ${@:2}
   elif [ "$1" = l ]; then
     command git log
   elif [ "$1" = b ]; then
@@ -92,7 +92,7 @@ function git() {
     if [ -z "$2" ]; then
       command git add .
     else
-      command git add $2
+      command git add ${@:2}
     fi
   elif [ "$1" = c ]; then
     if [ -z "$2" ]; then
@@ -104,7 +104,7 @@ function git() {
     if [ -z "$2" ]; then
       command git push
     else
-      command git push $2
+      command git push ${@:2}
     fi
   else
     command git "$@"
