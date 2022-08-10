@@ -1,3 +1,4 @@
+autojump
 alacritty
 all-repository-fonts
 anki-official-binary-bundle
