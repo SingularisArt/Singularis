@@ -1,22 +1,16 @@
 #!/usr/bin/env bash
 
-source bin/common
-source bin/variables
+source $HOME/Singularis/bin/common
+source $HOME/Singularis/bin/variables
 
-# Check if we passed anything.
-# If we didn't, or if we passed:
-# --commands
-# --help
-# -c
-# we show them the available commands
-if [[ "${#}" = 0 || ${1} = "--commands" || ${1} = "--help" || ${1} = "-h" ]]; then
+if [[ "${#}" = 0 || ${1} = "--commands" || ${1} = "-c" ]]; then
   source_install_script "commands.sh"
   exit
 fi
 
-# Check if we are going to describe a command
-if [[ "${1:0:2}" = "--" && "${2}" = "--help" || "${2}" = "-h" ]]; then
-  echo "Help menu"
+# TODO: Work on expanding the help command
+if [[ ${1} = "--help" || ${1} = "-h" ]]; then
+  source_install_script "help.sh"
 fi
 
 command_num=1

@@ -1,6 +1,6 @@
 10.0	/home/singularis/.config/zsh
 20.0	/home/singularis/.local/share/deathvim/dvim
-24.49489742783178	/home/singularis/Singularis
+26.457513110645905	/home/singularis/Singularis
 24.49489742783178	/home/singularis/Downloads
 20.0	/home/singularis/Documents/journal
 17.320508075688775	/home/singularis/Desktop/PDFs
@@ -15,3 +15,4 @@
 10.0	/home/singularis/Documents
 10.0	/home/singularis/Documents/discipline-notes/mathematics/trigonometry
 10.0	/home/singularis/Desktop/PDFs/mathematics/daniel_j_velleman
+10.0	/home/singularis/Singularis/bin
