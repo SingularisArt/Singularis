@@ -1,0 +1,10 @@
+10.0	/home/singularis/.config/zsh
+17.320508075688775	/home/singularis/.local/share/deathvim/dvim
+20.0	/home/singularis/Singularis
+10.0	/home/singularis/Downloads
+10.0	/home/singularis/Documents/journal
+10.0	/home/singularis/Desktop/PDFs
+10.0	/home/singularis/Desktop
+10.0	/home/singularis/.config/newsboat
+10.0	/home/singularis/Singularis/local/share
+10.0	/home/singularis/Singularis/local/share/cargo
