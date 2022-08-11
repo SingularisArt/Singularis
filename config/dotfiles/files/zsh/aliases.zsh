@@ -90,6 +90,8 @@ else
   alias lsw='ls | wc -l'
 fi
 
+alias lawc='clear && la && echo "" && echo "Current Number of Files: $(ls -a | wc -l)"'
+
 alias .='cd .'
 alias ..='cd ..'
 alias ...='cd ../..'
