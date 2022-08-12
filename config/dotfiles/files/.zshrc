@@ -7,14 +7,7 @@
 
 cat $HOME/.cache/wal/sequences
 
-source $HOME/.config/zsh/path # Must come first! (Others depend on it.)
-
 source $HOME/.config/zsh/functions.zsh
-source $HOME/Singularis/bin/common
-source $HOME/Singularis/bin/variables
-
-test -d $HOME/n && export N_PREFIX="$HOME/n"
-typeset -A __SingularisArt
 
 # Plugins
 # For more plugins: https://github.com/unixorn/awesome-zsh-plugins
@@ -41,7 +34,7 @@ zsh_add_file "options.zsh"
 zsh_add_file "vim-mode.zsh"
 zsh_add_file "icons.zsh"
 zsh_add_file "autojump.zsh"
-# zsh_add_file "bindings.zsh"
+zsh_add_file "bindings.zsh"
 # zsh_add_file "tmux.zsh"
 
 neofetch
