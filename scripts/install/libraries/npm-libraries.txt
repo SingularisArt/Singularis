@@ -1,3 +1,4 @@
+corepack
 @emacs-grammarly/unofficial-grammarly-language-server
 @tailwindcss/language-server
 @vscode/codicons
@@ -21,8 +22,10 @@ nopt
 npm
 package.json
 peerflix
+pnpm
 rapydscript
 remark-language-server
+root
 semver
 solc
 solidity-language-server
@@ -34,5 +37,6 @@ vscode-html-languageserver-bin
 vscode-html-languageservice
 vscode-json-languageserver
 vscode-langservers-extracted
+write-good
 yaml-language-server
 yarn

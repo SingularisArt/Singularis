@@ -16,7 +16,6 @@ oauth2client
 oauthlib
 ordered-set
 packaging
-pacman-mirrors
 paramiko
 pep517
 Pillow
@@ -70,6 +69,5 @@ tldextract
 toml
 urllib3
 validate
-vim
 webencodings
 whichcraft
