@@ -1,78 +1,156 @@
-#!/usr/bin/env bash
+#!/usr/bin/python3.10
 
-source $HOME/Singularis/bin/common
-source $HOME/Singularis/bin/variables
+import argparse
 
-if [[ "${#}" = 0 || ${1} = "--commands" || ${1} = "-c" ]]; then
-  source_install_script "commands.sh"
-  exit
-fi
 
-# TODO: Work on expanding the help command
-if [[ ${1} = "--help" || ${1} = "-h" ]]; then
-  source_install_script "help.sh"
-fi
+def parse_arguments(args):
+    if args.local:
+        print('Installing `Local`')
+    if args.list_local:
+        print('Local Installation')
 
-command_num=1
-command_for_specific_config=0
 
-# Iterate through the given arguments
-for command in "$@"; do
-  command_num=$((command_num+1))
-  command_for_specific_config=$((command_for_specific_config+1))
+def main():
+    argparse.ArgumentParser()
+    parser = argparse.ArgumentParser(
+        formatter_class=argparse.RawTextHelpFormatter
+    )
 
-  for _ in once; do
-    if [[ "${command}" = "--all" || "${command}" = "-a" ]]; then
-      # Install my entire system
-      source_install_script "all.sh"
-      break
-    elif [[ "${command}" = "--describe" || "${command}" = "-d" ]]; then
-      # Describe a config
-      source_install_script "describe.sh" "${@:${command_num}}"
-      break
-    elif [[ "${command}" = "--git" || "${command}" = "-g" ]]; then
-      # Update the repo
-      source_install_script "git.sh"
-      break
-    elif [[ "${command}" = "--packages" || "${command}" = "-p" ]]; then
-      # Install all needed packages
-      source_install_script "arch-packages.sh"
-      break
-    elif [[ "${command}" = "--python" || "${command}" = "-y" ]]; then
-      # Install all needed python libraries
-      source_install_script "python-libraries.sh"
-      break
-    elif [[ "${command}" = "--npm" || "${command}" = "-n" ]]; then
-      # Install all needed npm libraries
-      source_install_script "npm-libraries.sh"
-      break
-    elif [[ "${command}" = "--list-configs" || "${command}" = "-L" ]]; then
-      # List all configs
-      for config in $(ls ${CONFIG}); do
-        if [[ "${config}" != "script" && "${config}" != "describe.txt" ]]; then
-          log_info "${config}"
-        fi
-      done
-      break
-    elif [[ "${command}" = "--install-all-config" || "${command}" = "-c" ]]; then
-      # Install all configuration
-      source_install_script "install-all-config.sh"
-      break
-    elif [[ "${command}" = "--not-config" || "${command}" = "-t" ]]; then
-      source_install_script "not-config.sh" "${@:command_num}"
-      break
-    elif [[ "${command}" = "--install" || "${command}" = "-i" ]]; then
-      source_install_script "install-specific-config.sh" "${@:${command_for_specific_config}}"
-      break
-    elif [[ "${command}" = "--colorscheme" || "${command}" = "-C" ]]; then
-      source_install_script "colorscheme.sh" "${@:${command_for_specific_config}}"
-      break
-    elif [[ "${command}" = "--settings" || "${command}" = "-s" ]]; then
-      source_install_script "settings.sh" "${@:${command_for_specific_config}}"
-      break
-    elif [[ "${command}" = "--local" || "${command}" = "-l" ]]; then
-      source_install_script "local.sh" "${@:${command_for_specific_config}}"
-      break
-    fi
-  done
-done
+    parser.add_argument(
+        '-a', '--all',
+        help='''Installs everything. It will setup
+
+1. All the required packages.
+2. All the configurations.
+3. All the required settings.
+4. All the required npm libraries.
+5. All the required python libraries.
+
+Please, when running this command, be careful because you can wipe out all of
+your hard work with my crappy work. To be safe, please check read this section
+of the README: https://github.com/SingularisArt/Singularis#warning.
+
+''',
+        default=False,
+        action='store_true',
+    )
+    parser.add_argument(
+        '-s', '--set-distro',
+        help='''Change the default distro (Arch).
+
+If you run `./install --set-distro ubuntu`, you'll change the default distro to
+    Ubuntu.
+It's important to note that if you use this command, you have to make it the
+    first command like so: `./install --set-distro kali --all`.
+
+Run `./install --list-distros` to see the full list of supported distros.
+
+''',
+        default=False,
+        action='store_true',
+    )
+    parser.add_argument(
+        '-c', '--config',
+        help='''Installs individual configurations.
+
+If you run `./install --config`, it'll install all the configurations.
+If you run `./install --config dotfiles`, it'll install only my dotfiles.
+If you run `./install --config ^dotfiles`, it'll install everything except the
+    dotfiles.
+
+Run `./install --list-configs` to see the full list of arguments.
+
+''',
+        default=False,
+        action='store_true',
+    )
+    parser.add_argument(
+        '-l', '--local',
+        help='''Install all the required scripts and application data.
+
+If you run `./install --local bin`, it'll install all the required scripts.
+If you run `./install --local share`, it'll install all application data.
+If you run `./install --local`, it'll install both.
+
+''',
+        default=False,
+        action='store_true',
+    )
+    parser.add_argument(
+        '-p', '--packages',
+        help='''Install all the required packages.
+
+''',
+        default=False,
+        action='store_true',
+    )
+    parser.add_argument(
+        '-S', '--settings',
+        help='''Execute the required settings.
+
+''',
+        default=False,
+        action='store_true',
+    )
+    parser.add_argument(
+        '-n', '--npm',
+        help='''Install the required npm libraries.
+
+''',
+        default=False,
+        action='store_true',
+    )
+    parser.add_argument(
+        '-P', '--python',
+        help='''Install the required python libraries.
+
+''',
+        default=False,
+        action='store_true',
+    )
+
+    parser.add_argument(
+        '-d', '--describe',
+        help='''Describe the given configurations.
+
+If you run `./install --describe dotfiles`, describe the dotfiles.
+
+Run `./install --list-configs` to see the full list of arguments.
+
+''',
+        default=False,
+        action='store_true',
+    )
+    parser.add_argument(
+        '-C', '--list-configs',
+        help='''List all available configurations.
+
+''',
+        default=False,
+        action='store_true',
+    )
+    parser.add_argument(
+        '-L', '--list-local',
+        help='''List all scripts and application data that will be installed.
+
+''' +
+        '--local.',
+        default=False,
+        action='store_true',
+    )
+    parser.add_argument(
+        '-D', '--list-distros',
+        help='''List all supported distros.
+
+''',
+        default=False,
+        action='store_true',
+    )
+
+    args = parser.parse_args()
+
+    parse_arguments(args)
+
+
+if __name__ == '__main__':
+    main()

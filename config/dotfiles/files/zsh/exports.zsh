@@ -10,6 +10,7 @@ export BROWSER=/usr/bin/google-chrome-stable
 export FILE_BROWSER="pcmanfm"
 export BG="~/.config/wall.jpg"
 export PASSWORD="password" # NOTE: This isn't my real password. I use this in my testing programs. So, don't worry: 😃
+export NVIM_LISTEN_ADDRESS=/tmp/nvimsocket
 
 export SHLVL=0
 export GPG_TTY=$(tty)

@@ -139,11 +139,7 @@ check_if_installed () {
 
 source_install_script () {
   script_location="$INSTALL_SCRIPTS/${1}"
-  if [[ -d $script_location ]]; then
-    bash "$script_location" "${@}"
-  else
-    log_debug "Couldn't find the install script called $1 in $INSTALL_SCRIPTS ($script_location)"
-  fi
+  bash "$script_location" "${@}"
 }
 
 check_if_arg_is_a_command () {

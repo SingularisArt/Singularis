@@ -4,7 +4,7 @@
 
 alias b='bash'
 alias z='zsh'
-alias minecraft='java -jar minecraft.jar'
+alias minecraft='java -jar ~/.local/bin/minecraft.jar'
 alias reloud='clear && source ~/.config/zsh/.zshrc'
 alias l='lfub'
 alias grep='grep --color'
@@ -13,11 +13,13 @@ alias cp='nocorrect cp -iv'
 alias mv='nocorrect mv -iv'
 alias rm='nocorrect rm -vI'
 alias myip='curl http://ipecho.net/plain; echo'
-alias distro='cat /etc/*-release'
+alias distro='source /etc/lsb-release && source /etc/os-release && echo "Main Distro: $ID_LIKE. Sub Distro: $DISTRIB_ID"'
 
 if [ -f "/etc/arch-release" ] || [ -f "/etc/artix-release" ]; then
-  alias updates='sudo pacman -Syu'
-  alias updatey='yay -Syu'
+  alias update='sudo pacman -Syu'
+  if command -v yay &> /dev/null; then
+    alias updatey='yay -Syu'
+  fi
 fi
 
 ####################################
@@ -82,12 +84,12 @@ if command -v exa &> /dev/null; then
   alias law='exa --icons -a | wc -l'
   alias lsw='exa --icons | wc -l'
 else
-  alias la='ls -a'
-  alias l1='ls -1'
-  alias ll='ls -l'
-  alias lhi='ls -l -i'
-  alias law='ls -a | wc -l'
-  alias lsw='ls | wc -l'
+  alias la='ls --color -a'
+  alias l1='ls --color -1'
+  alias ll='ls --color -l'
+  alias lhi='ls --color -l -i'
+  alias law='ls --color -a | wc -l'
+  alias lsw='ls --color | wc -l'
 fi
 
 alias lawc='clear && la && echo "" && echo "Current Number of Files: $(ls -a | wc -l)"'
