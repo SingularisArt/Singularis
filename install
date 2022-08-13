@@ -2,12 +2,53 @@
 
 import argparse
 
+import scripts.install.core.all as core_all
+import scripts.install.core.config as core_config
+import scripts.install.core.local as core_local
+import scripts.install.core.packages as core_packages
+
+import scripts.install.settings.settings as settings_settings
+import scripts.install.settings.set_distro as settings_distro
+
+import scripts.install.libraries.npm as libraries_npm
+import scripts.install.libraries.python as libraries_python
+
+import scripts.install.log.log as log_log
+
+import scripts.install.extra.describe as extra_describe
+
+import scripts.install.list.list_configs as list_configs
+import scripts.install.list.list_local as list_local
+import scripts.install.list.list_distros as list_distros
+
 
 def parse_arguments(args):
+    if args.all:
+        core_all.main()
+    if args.set_distro:
+        settings_distro.main()
+    if args.config:
+        core_config.main()
     if args.local:
-        print('Installing `Local`')
+        core_local.main()
+    if args.packages:
+        core_packages.main()
+    if args.settings:
+        settings_settings.main()
+    if args.npm:
+        libraries_npm.main()
+    if args.python:
+        libraries_python.main()
+    if args.log:
+        log_log.main()
+    if args.describe:
+        extra_describe.main()
+    if args.list_configs:
+        list_configs.main()
     if args.list_local:
-        print('Local Installation')
+        list_local.main()
+    if args.list_distros:
+        list_distros.main()
 
 
 def main():
@@ -69,7 +110,15 @@ Run `./install --list-configs` to see the full list of arguments.
         help='''Install all the required scripts and application data.
 
 If you run `./install --local bin`, it'll install all the required scripts.
+If you run `./install --local bin ani-cli`, it'll install only the ani-cli
+    script.
+If you run `./install --local bin ^ani-cli`, it'll install everything except
+    the ani-cli script.
 If you run `./install --local share`, it'll install all application data.
+If you run `./install --local share castero`, it'll install only the
+    application data for castero.
+If you run `./install --local share ^castero`, it'll install everything except
+    the application data for castero.
 If you run `./install --local`, it'll install both.
 
 ''',
@@ -108,6 +157,14 @@ If you run `./install --local`, it'll install both.
         default=False,
         action='store_true',
     )
+    parser.add_argument(
+        '-o', '--log',
+        help='''Change the log level.
+
+''',
+        default=False,
+        action='store_true',
+    )
 
     parser.add_argument(
         '-d', '--describe',
@@ -133,8 +190,7 @@ Run `./install --list-configs` to see the full list of arguments.
         '-L', '--list-local',
         help='''List all scripts and application data that will be installed.
 
-''' +
-        '--local.',
+''',
         default=False,
         action='store_true',
     )

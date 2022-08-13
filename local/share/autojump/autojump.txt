@@ -1,6 +1,6 @@
 36.0555127546399	/home/singularis/.config/zsh
 36.0555127546399	/home/singularis/.local/share/deathvim/dvim
-67.82329983125271	/home/singularis/Singularis
+72.8010988928052	/home/singularis/Singularis
 26.457513110645905	/home/singularis/Downloads
 24.49489742783178	/home/singularis/Documents/journal
 17.320508075688775	/home/singularis/Desktop/PDFs
@@ -18,7 +18,7 @@
 10.0	/home/singularis/Singularis/bin
 10.0	/home/singularis/Documents/poetry
 20.0	/home/singularis/.config/spicetify
-10.0	/home/singularis/Singularis/scripts/install
+28.284271247461902	/home/singularis/Singularis/scripts/install
 10.0	/home/singularis/snapd
 10.0	/tmp/tmp.m3jOP9GBx6
 10.0	/home/singularis/wincent
@@ -30,3 +30,6 @@
 14.142135623730951	/home/singularis/Documents/school-notes
 14.142135623730951	/home/singularis/.config
 14.142135623730951	/home/singularis/.config/sioyek
+10.0	/home/singularis/Singularis/scripts
+14.142135623730951	/home/singularis/Singularis/scripts/install/list
+10.0	/home/singularis/Singularis/scripts/install/log
