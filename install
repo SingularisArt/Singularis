@@ -7,8 +7,9 @@ import scripts.install.core.config as core_config
 import scripts.install.core.local as core_local
 import scripts.install.core.packages as core_packages
 
-import scripts.install.settings.settings as settings_settings
+import scripts.install.settings.colorscheme as settings_colorscheme
 import scripts.install.settings.set_distro as settings_distro
+import scripts.install.settings.settings as settings_settings
 
 import scripts.install.libraries.npm as libraries_npm
 import scripts.install.libraries.python as libraries_python
@@ -22,33 +23,59 @@ import scripts.install.list.list_local as list_local
 import scripts.install.list.list_distros as list_distros
 
 
-def parse_arguments(args):
+def core(args):
     if args.all:
         core_all.main()
-    if args.set_distro:
-        settings_distro.main()
     if args.config:
         core_config.main()
     if args.local:
         core_local.main()
     if args.packages:
         core_packages.main()
+
+
+def settings(args):
+    if args.colorscheme:
+        settings_colorscheme.main()
+    if args.set_distro:
+        settings_distro.main()
     if args.settings:
         settings_settings.main()
+
+
+def libraries(args):
     if args.npm:
         libraries_npm.main()
     if args.python:
         libraries_python.main()
+
+
+def log(args):
     if args.log:
         log_log.main()
+
+
+def extra(args):
     if args.describe:
         extra_describe.main()
+
+
+def list(args):
     if args.list_configs:
         list_configs.main()
     if args.list_local:
         list_local.main()
     if args.list_distros:
         list_distros.main()
+
+
+def parse_arguments(args):
+    core(args)
+    settings(args)
+    libraries(args)
+    log(args)
+    extra(args)
+    list(args)
 
 
 def main():
@@ -76,6 +103,66 @@ of the README: https://github.com/SingularisArt/Singularis#warning.
         action='store_true',
     )
     parser.add_argument(
+        '-c', '--config',
+        help='''Installs individual configurations.
+
+If you run `./install --config`, it'll install all the configurations.
+If you run `./install --config dotfiles`, it'll install only my dotfiles.
+If you run `./install --config ^dotfiles`, it'll install everything except the
+    dotfiles.
+
+Run `./install --list-configs` to see the full list of configurations.
+
+''',
+        default=False,
+        action='store_true',
+    )
+    parser.add_argument(
+        '-l', '--local',
+        help='''Install all the required scripts and application data.
+
+If you run `./install --local bin`, it'll install all the required scripts.
+If you run `./install --local bin ani-cli`, it'll install only the ani-cli
+    script.
+If you run `./install --local bin ^ani-cli`, it'll install everything except
+    the ani-cli script.
+
+If you run `./install --local share`, it'll install all application data.
+If you run `./install --local share castero`, it'll install only the
+    application data for castero.
+If you run `./install --local share ^castero`, it'll install everything except
+    the application data for castero.
+
+If you run `./install --local`, it'll install both.
+
+''',
+        default=False,
+        action='store_true',
+    )
+    parser.add_argument(
+        '-p', '--packages',
+        help='''Install all the required packages.
+
+If you aren't on an Arch based distro, then you should run
+    `./install --set-distro ubuntu` to change the distro. This will change all
+    the installed packages to work with your distro.
+
+Run `./install --list-distros` to see the full list of supported distros.
+
+''',
+        default=False,
+        action='store_true',
+    )
+
+    parser.add_argument(
+        '-r', '--colorscheme',
+        help='''Generate the colorscheme required for most configurations.
+
+''',
+        default=False,
+        action='store_true',
+    )
+    parser.add_argument(
         '-s', '--set-distro',
         help='''Change the default distro (Arch).
 
@@ -91,49 +178,6 @@ Run `./install --list-distros` to see the full list of supported distros.
         action='store_true',
     )
     parser.add_argument(
-        '-c', '--config',
-        help='''Installs individual configurations.
-
-If you run `./install --config`, it'll install all the configurations.
-If you run `./install --config dotfiles`, it'll install only my dotfiles.
-If you run `./install --config ^dotfiles`, it'll install everything except the
-    dotfiles.
-
-Run `./install --list-configs` to see the full list of arguments.
-
-''',
-        default=False,
-        action='store_true',
-    )
-    parser.add_argument(
-        '-l', '--local',
-        help='''Install all the required scripts and application data.
-
-If you run `./install --local bin`, it'll install all the required scripts.
-If you run `./install --local bin ani-cli`, it'll install only the ani-cli
-    script.
-If you run `./install --local bin ^ani-cli`, it'll install everything except
-    the ani-cli script.
-If you run `./install --local share`, it'll install all application data.
-If you run `./install --local share castero`, it'll install only the
-    application data for castero.
-If you run `./install --local share ^castero`, it'll install everything except
-    the application data for castero.
-If you run `./install --local`, it'll install both.
-
-''',
-        default=False,
-        action='store_true',
-    )
-    parser.add_argument(
-        '-p', '--packages',
-        help='''Install all the required packages.
-
-''',
-        default=False,
-        action='store_true',
-    )
-    parser.add_argument(
         '-S', '--settings',
         help='''Execute the required settings.
 
@@ -141,6 +185,7 @@ If you run `./install --local`, it'll install both.
         default=False,
         action='store_true',
     )
+
     parser.add_argument(
         '-n', '--npm',
         help='''Install the required npm libraries.
@@ -157,6 +202,7 @@ If you run `./install --local`, it'll install both.
         default=False,
         action='store_true',
     )
+
     parser.add_argument(
         '-o', '--log',
         help='''Change the log level.
@@ -172,12 +218,13 @@ If you run `./install --local`, it'll install both.
 
 If you run `./install --describe dotfiles`, describe the dotfiles.
 
-Run `./install --list-configs` to see the full list of arguments.
+Run `./install --list-configs` to see the full list of configurations.
 
 ''',
         default=False,
         action='store_true',
     )
+
     parser.add_argument(
         '-C', '--list-configs',
         help='''List all available configurations.
