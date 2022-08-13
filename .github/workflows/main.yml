@@ -27,4 +27,4 @@ jobs:
 
       # Runs a set of commands using the runners shell
       - name: Run the installation script
-        run: yay -S python3; ./install --all
+        run: sudo pacman -S python3; ./install --all
