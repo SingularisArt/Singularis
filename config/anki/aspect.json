@@ -1,0 +1,9 @@
+{
+    "description": "An amazing app that makes it easy to memorize stuff.",
+    "github-url": "https://github.com/ankitects/anki",
+    "website-url": "https://apps.ankiweb.net/",
+    "variables": {
+        "files": [],
+        "packages": []
+    }
+}
