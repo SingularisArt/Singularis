@@ -259,13 +259,6 @@
 * [Dependencies](#dependencies)
   * [Platform status](#platform-status)
   * [Installation](#installation)
-    * [Backup](#backup)
-      * [Examples](#examples)
-    * [Install](#install)
-      * [Examples](#examples-1)
-    * [Uninstall](#uninstall)
-      * [Examples](#examples-2)
-    * [Putting it all Together](#putting-it-all-together)
 * [License](#license)
 * [Credit](#credit)
 
@@ -930,21 +923,20 @@ set imap_keepalive = 60
 
 # Dependencies
 
-All you need is `git` installed.
+All you need is `git` and `` installed.
+You need:
 
-> **NOTE:** If you don't have the **PACMAN** package manager, then you need to
-> look at the [packages](scripts/install/arch-packages.txt) and install the
-> needed packages. If you do have the **PACMAN** package manager, then the
-> install script will install all the needed packages for you.
+* `git`: In order to clone the repo.
+* `python >= 3.10`: To run the installation script.
 
 ## Platform status
 
-| Platform   | Status                                                                                                                                                                      |
-| ---------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Arch Linux | :1st_place_medal: Most tested, Arch Linux is one of my main OS. You get the most configuration if you are on Linux.                                                         |
-| MacOS      | :2nd_place_medal: Not as bad, but it can have some bugs here and there, but it's up to you to fix those because I don't use mac and won't be fixing any bugs for it.        |
-| Windows    | :3rd_place_medal: The worst rank. Not tested at all. I don't even have an install script for it. You shouldn't use windows when using my dotfiles.                          |
-| Other      | :skull: Not tested at all, and probably will never be.                                                                                                                      |
+| Platform   | Status                                                                                                                                                               |
+| ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Arch Linux | :1st_place_medal: Tested the most. Arch Linux is my main OS. You get the most configuration if you are on Linux.                                                     |
+| MacOS      | :2nd_place_medal: Not as bad, but it can have some bugs here and there, I'm starting to use Macs again.                                                              |
+| Windows    | :3rd_place_medal: The worst rank. Not tested at all. I don't even have an install script for it. You shouldn't use windows when using my dotfiles.                   |
+| Other      | :skull: Not tested at all, and probably will never be.                                                                                                               |
 
 ## Installation
 
@@ -952,56 +944,8 @@ All you need is `git` installed.
 git clone --recursive https://github.com/SingularisArt/Singularis.git
 ```
 
-### Backup
-
-Before you install all my [configs](config), you may want to backup your
-configuration. Here's how you do it:
-
-#### Examples
-
-```bash
-./backup                    # This will backup all your configuration and move it to ~/Singularis/backup-configuration
-./backup nvim               # This will backup your neovim configuration to ~/Singularis/backup-configuration
-./backup nvim xfce4         # This will backup your neovim and xfce4 configuration to ~/Singularis/backup-configuration
-./backup --help             # Shows the help menu
-```
-
-### Install
-
-It's quit easy to install my configuration. I spent countless hours working on
-the perfect script.
-
-#### Examples
-
-```sh
-./install --all                       # Installs everything
-./install --install dotfiles          # Installs my dotfiles configuration
-./install --install awesome           # Installs my awesome configuration
-./install --install awesome dotfiles  # Installs my awesome configuration and dotfiles in that order
-./install --commands                  # That will show you all the possible commands
-```
-
-### Uninstall
-
-To **UNINSTALL** my configuration, you first must backup your configuration. (Take a look [here](#backup) to see how you do that.)
-
-#### Examples
-
-```bash
-./uninstall                 # Moves all the items from ~/Singularis/backup-configuration to ~/.config/
-./uninstall nvim            # Moves the neovim configuration from ~/Singularis/backup-configuration to ~/.config/
-```
-
-### Putting it all Together
-
-Now, run the following:
-
-```bash
-./backup
-./install --all
-```
-
-For more information, look [here](#backup) and [here](#install).
+I'm currently working on the installation script and instead of using bash this
+time, I'm going to use python.
 
 # License
 

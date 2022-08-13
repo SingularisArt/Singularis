@@ -27,4 +27,4 @@ jobs:
 
       # Runs a set of commands using the runners shell
       - name: Run the installation script
-        run: ./install --all
+        run: yay -S python3; ./install --all
