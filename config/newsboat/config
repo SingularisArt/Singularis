@@ -1,9 +1,7 @@
 auto-reload yes
-macro y set browser "mpv %u"; open-in-browser ; set browser "firefox %u"
 cleanup-on-quit yes
-download-path "~/Videos/Podcasts"
+download-path "~/Videos/YouTube"
 feed-sort-order title-dec
-max-downloads 4
 notify-always yes
 notify-format "newsbeuter: %n unread articles within %f unread feeds"
 notify-program notify-send
@@ -15,21 +13,44 @@ reload-time 20
 reload-threads 2
 show-read-articles yes
 show-read-feeds no
+external-url-viewer "urlscan -dc -r 'linkhandler {}'"
 
 
 # binds ----------------------------------------------------------------
 
-bind-key \ reload-all
-bind-key "RIGHT" select-tag
-bind-key "SPACE" open
-bind-key j next
-bind-key k prev
-bind-key J next-feed
-bind-key K prev-feed
-bind-key j down article
-bind-key k up article
-bind-key J next article
-bind-key K prev article
+bind-key j down
+bind-key k up
+bind-key j next articlelist
+bind-key k prev articlelist
+bind-key J next-feed articlelist
+bind-key K prev-feed articlelist
+bind-key G end
+bind-key g home
+bind-key d pagedown
+bind-key u pageup
+bind-key l open
+bind-key h quit
+bind-key a toggle-article-read
+bind-key n next-unread
+bind-key N prev-unread
+bind-key D pb-download
+bind-key U show-urls
+bind-key x pb-delete
+
+# macros --------------------------------------------------------------
+
+browser linkhandler
+macro , open-in-browser
+macro t set browser "qndl" ; open-in-browser ; set browser linkhandler
+macro a set browser "tsp yt-dlp --embed-metadata -xic -f bestaudio/best" ; open-in-browser ; set browser linkhandler
+macro v set browser "setsid -f mpv" ; open-in-browser ; set browser linkhandler
+macro w set browser "lynx" ; open-in-browser ; set browser linkhandler
+macro d set browser "dmenuhandler" ; open-in-browser ; set browser linkhandler
+macro c set browser "echo %u | xclip -r -sel c" ; open-in-browser ; set browser linkhandler
+macro C set browser "youtube-viewer --comments=%u" ; open-in-browser ; set browser linkhandler
+macro p set browser "peertubetorrent %u 480" ; open-in-browser ; set browser linkhandler
+macro P set browser "peertubetorrent %u 1080" ; open-in-browser ; set browser linkhandler
+
 
 # hide articles matching: ---------------------------------------------
 
