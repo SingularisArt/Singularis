@@ -1,6 +1,6 @@
-37.41657386773942	/home/singularis/.config/zsh
-36.0555127546399	/home/singularis/.local/share/deathvim/dvim
-81.85352771872452	/home/singularis/Singularis
+38.729833462074176	/home/singularis/.config/zsh
+45.82575694955841	/home/singularis/.local/share/deathvim/dvim
+82.46211251235323	/home/singularis/Singularis
 26.457513110645905	/home/singularis/Downloads
 24.49489742783178	/home/singularis/Documents/journal
 17.320508075688775	/home/singularis/Desktop/PDFs
@@ -22,12 +22,12 @@
 10.0	/home/singularis/snapd
 10.0	/tmp/tmp.m3jOP9GBx6
 10.0	/home/singularis/wincent
-10.0	/home/singularis/.local/share/deathvim/dvim/lua/dvim
+14.142135623730951	/home/singularis/.local/share/deathvim/dvim/lua/dvim
 17.320508075688775	/home/singularis/Singularis/config/dotfiles/files/zsh
 26.457513110645905	/home/singularis/Singularis/config
 20.0	/home/singularis/Singularis/config/dotfiles
-22.360679774997898	/home/singularis/Documents/school-notes/current-course
-14.142135623730951	/home/singularis/Documents/school-notes
+24.49489742783178	/home/singularis/Documents/school-notes/current-course
+17.320508075688775	/home/singularis/Documents/school-notes
 14.142135623730951	/home/singularis/.config
 14.142135623730951	/home/singularis/.config/sioyek
 14.142135623730951	/home/singularis/Singularis/scripts
@@ -38,3 +38,6 @@
 14.142135623730951	/home/singularis/Singularis/scripts/install/libraries
 10.0	/home/singularis/Documents/school-setup
 10.0	/home/singularis/Singularis/config/anki
+10.0	/home/singularis/.local/share/deathvim/dvim/lua/dvim/lsp
+10.0	/home/singularis/.local/share/deathvim/dvim/lua/dvim/core/plugins/cmp
+10.0	/home/singularis/.config/neomutt

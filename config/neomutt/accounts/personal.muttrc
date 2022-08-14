@@ -6,11 +6,11 @@ set realname = "Hashem A. Damrah"
 
 # Imap settings
 set imap_user = "dermdorm2@gmail.com"
-set imap_pass = `pass dermdorm2@gmail.com` # Either pass a command like pass
+set imap_pass = `pass emails/personal` # Either pass a command like pass
 
 # Smtp settings
 set smtp_url = "smtps://dermdorm2@smtp.gmail.com"
-set smtp_pass = `pass dermdorm2@gmail.com` # Either pass a command like pass
+set smtp_pass = `pass emails/personal` # Either pass a command like pass
 
 # Remote gmail folders
 set folder = "imaps://imap.gmail.com/"
