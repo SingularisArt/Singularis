@@ -1,7 +1,7 @@
 42.42640687119286	/home/singularis/.config/zsh
-51.96152422706633	/home/singularis/.local/share/deathvim/dvim
-86.60254037844388	/home/singularis/Singularis
-30.000000000000004	/home/singularis/Downloads
+53.851648071345046	/home/singularis/.local/share/deathvim/dvim
+87.17797887081348	/home/singularis/Singularis
+31.622776601683796	/home/singularis/Downloads
 34.64101615137755	/home/singularis/Documents/journal
 24.49489742783178	/home/singularis/Desktop/PDFs
 24.49489742783178	/home/singularis/Desktop
@@ -52,7 +52,7 @@
 10.0	/home/singularis/Music
 10.0	/home/singularis/Screenshots
 17.320508075688775	/home/singularis/tes
-10.0	/home/singularis/Projects
+14.142135623730951	/home/singularis/Projects
 34.64101615137755	/home/singularis/Projects/nvcodark
 14.142135623730951	/home/singularis/Projects/nvcodark/lua
 10.0	/home/singularis/Projects/nvcodark/lua/examples
@@ -64,3 +64,4 @@
 14.142135623730951	/home/singularis/Desktop/PDFs/mathematics/schaums_outline
 10.0	/home/singularis/Desktop/PDFs/mathematics/schaums_outline/calculus
 10.0	/home/singularis/Desktop/PDFs/mathematics/michael_spivak
+10.0	/home/singularis/.local/share/deathvim/dvim/UltiSnips
