@@ -1,7 +1,7 @@
-42.42640687119286	/home/singularis/.config/zsh
-51.96152422706633	/home/singularis/.local/share/deathvim/dvim
-86.60254037844388	/home/singularis/Singularis
-30.000000000000004	/home/singularis/Downloads
+45.82575694955841	/home/singularis/.config/zsh
+53.851648071345046	/home/singularis/.local/share/deathvim/dvim
+88.31760866327848	/home/singularis/Singularis
+33.166247903554	/home/singularis/Downloads
 34.64101615137755	/home/singularis/Documents/journal
 24.49489742783178	/home/singularis/Desktop/PDFs
 24.49489742783178	/home/singularis/Desktop
@@ -12,7 +12,7 @@
 10.0	/home/singularis/Documents/journal/2022/08/10
 14.142135623730951	/home/singularis/Downloads/lab_code
 10.0	/home/singularis/Singularis/local/share/newsboat
-34.64101615137755	/home/singularis/Documents
+40.00000000000001	/home/singularis/Documents
 10.0	/home/singularis/Documents/discipline-notes/mathematics/trigonometry
 10.0	/home/singularis/Desktop/PDFs/mathematics/daniel_j_velleman
 17.320508075688775	/home/singularis/Singularis/bin
@@ -44,7 +44,7 @@
 10.0	/home/singularis/Documents/cover-letter
 10.0	/home/singularis/Documents/discipline-notes
 14.142135623730951	/home/singularis/Documents/resume
-10.0	/home/singularis/Documents/Website
+45.82575694955841	/home/singularis/Documents/Website
 10.0	/home/singularis/.minecraft
 10.0	/home/singularis/.tlauncher
 10.0	/home/singularis/.ssh
@@ -52,7 +52,7 @@
 10.0	/home/singularis/Music
 10.0	/home/singularis/Screenshots
 17.320508075688775	/home/singularis/tes
-10.0	/home/singularis/Projects
+14.142135623730951	/home/singularis/Projects
 34.64101615137755	/home/singularis/Projects/nvcodark
 14.142135623730951	/home/singularis/Projects/nvcodark/lua
 10.0	/home/singularis/Projects/nvcodark/lua/examples
@@ -64,3 +64,10 @@
 14.142135623730951	/home/singularis/Desktop/PDFs/mathematics/schaums_outline
 10.0	/home/singularis/Desktop/PDFs/mathematics/schaums_outline/calculus
 10.0	/home/singularis/Desktop/PDFs/mathematics/michael_spivak
+10.0	/home/singularis/.local/share/deathvim/dvim/UltiSnips
+10.0	/home/singularis/Desktop/PDFs/memory
+10.0	/home/singularis/Documents/singularisart.github.io
+10.0	/home/singularis/Documents/Website/themes
+24.49489742783178	/home/singularis/Documents/Website/public
+14.142135623730951	/home/singularis/Documents/Website/static
+10.0	/home/singularis/Documents/Website/content/posts
