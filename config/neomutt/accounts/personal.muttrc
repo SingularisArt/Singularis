@@ -1,15 +1,15 @@
 # vim: filetype=muttrc
 unmailboxes *
 
-set from = "dermdorm2@gmail.com"
+set from = "singularisartt@gmail.com"
 set realname = "Hashem A. Damrah"
 
 # Imap settings
-set imap_user = "dermdorm2@gmail.com"
+set imap_user = "singularisartt@gmail.com"
 set imap_pass = `pass emails/personal` # Either pass a command like pass
 
 # Smtp settings
-set smtp_url = "smtps://dermdorm2@smtp.gmail.com"
+set smtp_url = "smtps://singularisartt@smtp.gmail.com"
 set smtp_pass = `pass emails/personal` # Either pass a command like pass
 
 # Remote gmail folders
