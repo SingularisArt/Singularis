@@ -1,7 +1,7 @@
 45.82575694955841	/home/singularis/.config/zsh
-53.851648071345046	/home/singularis/.local/share/deathvim/dvim
-88.31760866327848	/home/singularis/Singularis
-33.166247903554	/home/singularis/Downloads
+58.30951894845301	/home/singularis/.local/share/deathvim/dvim
+90.55385138137417	/home/singularis/Singularis
+37.41657386773942	/home/singularis/Downloads
 34.64101615137755	/home/singularis/Documents/journal
 24.49489742783178	/home/singularis/Desktop/PDFs
 24.49489742783178	/home/singularis/Desktop
@@ -22,7 +22,7 @@
 10.0	/home/singularis/snapd
 10.0	/tmp/tmp.m3jOP9GBx6
 10.0	/home/singularis/wincent
-14.142135623730951	/home/singularis/.local/share/deathvim/dvim/lua/dvim
+17.320508075688775	/home/singularis/.local/share/deathvim/dvim/lua/dvim
 17.320508075688775	/home/singularis/Singularis/config/dotfiles/files/zsh
 26.457513110645905	/home/singularis/Singularis/config
 20.0	/home/singularis/Singularis/config/dotfiles
@@ -44,7 +44,7 @@
 10.0	/home/singularis/Documents/cover-letter
 10.0	/home/singularis/Documents/discipline-notes
 14.142135623730951	/home/singularis/Documents/resume
-45.82575694955841	/home/singularis/Documents/Website
+65.57438524302002	/home/singularis/Documents/Website
 10.0	/home/singularis/.minecraft
 10.0	/home/singularis/.tlauncher
 10.0	/home/singularis/.ssh
@@ -68,6 +68,28 @@
 10.0	/home/singularis/Desktop/PDFs/memory
 10.0	/home/singularis/Documents/singularisart.github.io
 10.0	/home/singularis/Documents/Website/themes
-24.49489742783178	/home/singularis/Documents/Website/public
+34.64101615137755	/home/singularis/Documents/Website/public
 14.142135623730951	/home/singularis/Documents/Website/static
-10.0	/home/singularis/Documents/Website/content/posts
+20.0	/home/singularis/Documents/Website/content/posts
+10.0	/home/singularis/Documents/Website/content/posts/note-taking-with-latex-part-1
+10.0	/home/singularis/Documents/Website/content/posts/note-taking-with-latex-part-2
+10.0	/home/singularis/Documents/Website/content/posts/note-taking-with-latex-intro
+17.320508075688775	/home/singularis/Documents/Website/themes/LoveIt
+10.0	/home/singularis/.local/share/deathvim/dvim/ftplugin
+10.0	/home/singularis/Documents/Website/themes/LoveIt/layouts/partials
+10.0	/home/singularis/Documents/Website/themes/LoveIt/layouts
+14.142135623730951	/home/singularis/.local/share/deathvim/dvim/lua/dvim/core/filetypes
+17.320508075688775	/home/singularis/test
+22.360679774997898	/home/singularis/test/netlify-website
+10.0	/home/singularis/test/netlify-website/themes/LoveIt
+10.0	/home/singularis/test/netlify-website/themes/LoveIt/layouts/partials
+10.0	/home/singularis/test/netlify-website/layouts
+14.142135623730951	/home/singularis/test/netlify-website/layouts/partials
+14.142135623730951	/home/singularis/Downloads/Takeout
+10.0	/home/singularis/Downloads/Takeout/Chrome
+24.49489742783178	/home/singularis/.config/google-chrome
+17.320508075688775	/home/singularis/.config/google-chrome/Profile 3
+14.142135623730951	/home/singularis/.config/google-chrome/Profile 1
+10.0	/home/singularis/.local/share
+10.0	/home/singularis/.local
+10.0	/home/singularis/.local/bin

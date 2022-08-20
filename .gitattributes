@@ -1,2 +1,0 @@
-config/dotfiles/files/.github-handles.json filter=git-crypt diff=git-crypt
-config/dotfiles/files/..tmux.digests filter=git-crypt diff=git-crypt

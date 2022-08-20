@@ -12,16 +12,11 @@ typeset -A __SingularisArt
 __SingularisArt[ITALIC_ON]=$'\e[3m'
 __SingularisArt[ITALIC_OFF]=$'\e[23m'
 
-cat $HOME/.cache/wal/sequences
-
 source $HOME/.config/zsh/functions.zsh
 
 # Plugins
 # For more plugins: https://github.com/unixorn/awesome-zsh-plugins
-zsh_add_plugin "wting/autojump"
-zsh_add_plugin "hlissner/zsh-autopair"
 zsh_add_plugin "zsh-users/zsh-autosuggestions"
-zsh_add_plugin "zsh-users/zsh-history-substring-search"
 zsh_add_plugin "zsh-users/zsh-syntax-highlighting"
 
 # Completions
@@ -42,5 +37,3 @@ zsh_add_file "icons.zsh"
 zsh_add_file "autojump.zsh"
 zsh_add_file "bindings.zsh"
 # zsh_add_file "tmux.zsh"
-
-neofetch

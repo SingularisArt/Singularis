@@ -31,3 +31,6 @@
 [submodule "wal-discord"]
 	path = third-party-tools/wal-discord
 	url = https://github.com/guglicap/wal-discord
+[submodule "git-cipher"]
+	path = support/git-cipher
+	url = https://github.com/wincent/git-cipher

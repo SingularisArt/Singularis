@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-import helpers
+import man.helpers as helpers
 
 import os.path as path
 

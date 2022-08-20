@@ -2,28 +2,28 @@
 
 import argparse
 
-import scripts.install.core.all as core_all
-import scripts.install.core.config as core_config
-import scripts.install.core.local as core_local
-import scripts.install.core.packages as core_packages
+import man.install.core.all as core_all
+import man.install.core.config as core_config
+import man.install.core.local as core_local
+import man.install.core.packages as core_packages
 
-import scripts.install.settings.colorscheme as settings_colorscheme
-import scripts.install.settings.set_distro as settings_distro
-import scripts.install.settings.settings as settings_settings
+import man.install.settings.colorscheme as settings_colorscheme
+import man.install.settings.set_distro as settings_distro
+import man.install.settings.settings as settings_settings
 
-import scripts.install.libraries.npm as libraries_npm
-import scripts.install.libraries.python as libraries_python
+import man.install.libraries.npm as libraries_npm
+import man.install.libraries.python as libraries_python
 
-import scripts.install.log.log as log_log
+import man.install.log.log as log_log
 
-import scripts.install.extra.describe as extra_describe
+import man.install.extra.describe as extra_describe
 
-import scripts.install.list.list_configs as list_configs
-import scripts.install.list.list_local as list_local
-import scripts.install.list.list_distros as list_distros
+import man.install.list.list_configs as list_configs
+import man.install.list.list_local as list_local
+import man.install.list.list_distros as list_distros
 
-import helpers
-import bin.variables
+import man.helpers as helpers
+import man.variables as variables
 
 
 def core(args):
@@ -122,9 +122,9 @@ Run `./install --list-configs` to see the full list of configurations.
     )
     parser.add_argument(
         '-l', '--local',
-        help='''Install all the required scripts and application data.
+        help='''Install all the required man and application data.
 
-If you run `./install --local bin`, it'll install all the required scripts.
+If you run `./install --local bin`, it'll install all the required man.
 If you run `./install --local bin ani-cli`, it'll install only the ani-cli
     script.
 If you run `./install --local bin ^ani-cli`, it'll install everything except
@@ -238,7 +238,7 @@ Run `./install --list-configs` to see the full list of configurations.
     )
     parser.add_argument(
         '-L', '--list-local',
-        help='''List all scripts and application data that will be installed.
+        help='''List all man and application data that will be installed.
 
 ''',
         default=False,
@@ -247,6 +247,15 @@ Run `./install --list-configs` to see the full list of configurations.
     parser.add_argument(
         '-D', '--list-distros',
         help='''List all supported distros.
+
+''',
+        default=False,
+        action='store_true',
+    )
+
+    parser.add_argument(
+        '-u', '--singularis',
+        help='''Don't run this command unless you're `singularis`.
 
 ''',
         default=False,
