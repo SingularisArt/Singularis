@@ -2,74 +2,54 @@
 
 import argparse
 
-import man.install.core.all as core_all
-import man.install.core.config as core_config
-import man.install.core.local as core_local
-import man.install.core.packages as core_packages
-
-import man.install.settings.colorscheme as settings_colorscheme
-import man.install.settings.set_distro as settings_distro
-import man.install.settings.settings as settings_settings
-
-import man.install.libraries.npm as libraries_npm
-import man.install.libraries.python as libraries_python
-
-import man.install.log.log as log_log
-
-import man.install.extra.describe as extra_describe
-
-import man.install.list.list_configs as list_configs
-import man.install.list.list_local as list_local
-import man.install.list.list_distros as list_distros
-
 import man.helpers as helpers
 import man.variables as variables
 
 
 def core(args):
     if args.all:
-        core_all.main(args)
+        print('All')
     if args.config:
-        core_config.main(args)
+        print('Config')
     if args.local:
-        core_local.main(args)
+        print('Local')
     if args.packages:
-        core_packages.main(args)
+        print('Packages')
 
 
 def settings(args):
     if args.colorscheme:
-        settings_colorscheme.main(args)
+        print('Colorscheme')
     if args.set_distro:
-        settings_distro.main(args)
+        print('Distro')
     if args.settings:
-        settings_settings.main(args)
+        print('Settings')
 
 
 def libraries(args):
     if args.npm:
-        libraries_npm.main(args)
+        print('NPM')
     if args.python:
-        libraries_python.main(args)
+        print('Python')
 
 
 def log(args):
     if args.log:
-        log_log.main(args)
+        print('Log')
 
 
 def extra(args):
     if args.describe:
-        extra_describe.main(args)
+        print('Describe')
 
 
 def list(args):
     if args.list_configs:
-        list_configs.main(args)
+        print('List Configs')
     if args.list_local:
-        list_local.main(args)
+        print('List Local')
     if args.list_distros:
-        list_distros.main(args)
+        print('List Distros')
 
 
 def parse_arguments(args):
