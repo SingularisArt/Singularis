@@ -1,6 +1,6 @@
 45.82575694955841	/home/singularis/.config/zsh
 60.00000000000001	/home/singularis/.local/share/deathvim/dvim
-97.97958971132708	/home/singularis/Singularis
+98.99494936611661	/home/singularis/Singularis
 37.41657386773942	/home/singularis/Downloads
 34.64101615137755	/home/singularis/Documents/journal
 24.49489742783178	/home/singularis/Desktop/PDFs
@@ -21,7 +21,7 @@
 31.622776601683796	/home/singularis/Singularis/scripts/install
 10.0	/home/singularis/snapd
 10.0	/tmp/tmp.m3jOP9GBx6
-10.0	/home/singularis/wincent
+17.320508075688775	/home/singularis/wincent
 17.320508075688775	/home/singularis/.local/share/deathvim/dvim/lua/dvim
 17.320508075688775	/home/singularis/Singularis/config/dotfiles/files/zsh
 28.284271247461902	/home/singularis/Singularis/config
@@ -152,6 +152,8 @@
 22.360679774997898	/home/singularis/Singularis/fig
 10.0	/home/singularis/Singularis/fig/console
 10.0	/home/singularis/Singularis/fig/dsl
-22.360679774997898	/home/singularis/Singularis/man
-14.142135623730951	/home/singularis/Singularis/man/operations
+30.000000000000004	/home/singularis/Singularis/man
+17.320508075688775	/home/singularis/Singularis/man/operations
 10.0	/home/singularis/Singularis/man/log
+10.0	/home/singularis/wincent/bin
+10.0	/home/singularis/Singularis/man/sha256

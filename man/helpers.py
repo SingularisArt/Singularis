@@ -1,14 +1,12 @@
 import json
 
 
-def load_data(file, recursive=False, values=[]):
+def load_data(file):
     # Load the json file
     opened_file = open(file, "r")
-    # Get the json contentents
-    data = json.load(opened_file)
 
-    # Return the data parsed from the json data
-    return [data[var] for var in values]
+    # Get the json contentents
+    return json.load(opened_file)
 
 
 def join(*args, seperator=" "):
