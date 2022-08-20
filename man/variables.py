@@ -15,3 +15,22 @@ MEDIA = helpers.join(SINGULARIS, "media", seperator="/")
 LOCAL = helpers.join(SINGULARIS, "local", seperator="/")
 BACKUP = helpers.join(HOME, ".backup", seperator="/")
 CONFIG = helpers.join(HOME, ".config", seperator="/")
+
+###############
+#  Templates  #
+###############
+
+COMMIT = """[commit]
+    gpgSign = true
+    template = ~/.config/git/gitmessage.txt
+"""
+USER = """[user]
+    email = singularisartt@gmail.com
+    name = Hashem A. Damrah
+"""
+CREDENTIAL = """[credential]
+    helper = store
+"""
+GITHUB = """[github]
+    username = SingularisArt
+"""
