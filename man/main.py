@@ -12,7 +12,10 @@ def core(args):
     # if args.all:
     #     print('All')
     if args.config:
-        Aspects(args)
+        aspects = Aspects(args)
+        if not aspects.all:
+            [aspect.install_aspect() for aspect in aspects.install_aspects]
+
     # if args.local:
     #     print('Local')
     # if args.packages:

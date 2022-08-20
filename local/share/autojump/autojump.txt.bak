@@ -1,12 +1,12 @@
 45.82575694955841	/home/singularis/.config/zsh
-58.30951894845301	/home/singularis/.local/share/deathvim/dvim
-90.55385138137417	/home/singularis/Singularis
+60.00000000000001	/home/singularis/.local/share/deathvim/dvim
+99.49874371066196	/home/singularis/Singularis
 37.41657386773942	/home/singularis/Downloads
 34.64101615137755	/home/singularis/Documents/journal
 24.49489742783178	/home/singularis/Desktop/PDFs
 24.49489742783178	/home/singularis/Desktop
 10.0	/home/singularis/.config/newsboat
-10.0	/home/singularis/Singularis/local/share
+14.142135623730951	/home/singularis/Singularis/local/share
 10.0	/home/singularis/Singularis/local/share/cargo
 10.0	/home/singularis/Documents/journal/2022/08
 10.0	/home/singularis/Documents/journal/2022/08/10
@@ -21,11 +21,11 @@
 31.622776601683796	/home/singularis/Singularis/scripts/install
 10.0	/home/singularis/snapd
 10.0	/tmp/tmp.m3jOP9GBx6
-10.0	/home/singularis/wincent
+17.320508075688775	/home/singularis/wincent
 17.320508075688775	/home/singularis/.local/share/deathvim/dvim/lua/dvim
 17.320508075688775	/home/singularis/Singularis/config/dotfiles/files/zsh
-26.457513110645905	/home/singularis/Singularis/config
-20.0	/home/singularis/Singularis/config/dotfiles
+28.284271247461902	/home/singularis/Singularis/config
+22.360679774997898	/home/singularis/Singularis/config/dotfiles
 26.457513110645905	/home/singularis/Documents/school-notes/current-course
 24.49489742783178	/home/singularis/Documents/school-notes
 14.142135623730951	/home/singularis/.config
@@ -72,7 +72,7 @@
 14.142135623730951	/home/singularis/Documents/Website/static
 20.0	/home/singularis/Documents/Website/content/posts
 10.0	/home/singularis/Documents/Website/content/posts/note-taking-with-latex-part-1
-10.0	/home/singularis/Documents/Website/content/posts/note-taking-with-latex-part-2
+14.142135623730951	/home/singularis/Documents/Website/content/posts/note-taking-with-latex-part-2
 10.0	/home/singularis/Documents/Website/content/posts/note-taking-with-latex-intro
 17.320508075688775	/home/singularis/Documents/Website/themes/LoveIt
 10.0	/home/singularis/.local/share/deathvim/dvim/ftplugin
@@ -88,8 +88,72 @@
 14.142135623730951	/home/singularis/Downloads/Takeout
 10.0	/home/singularis/Downloads/Takeout/Chrome
 24.49489742783178	/home/singularis/.config/google-chrome
-17.320508075688775	/home/singularis/.config/google-chrome/Profile 3
-14.142135623730951	/home/singularis/.config/google-chrome/Profile 1
+24.49489742783178	/home/singularis/.config/google-chrome/Profile 3
+17.320508075688775	/home/singularis/.config/google-chrome/Profile 1
 10.0	/home/singularis/.local/share
 10.0	/home/singularis/.local
 10.0	/home/singularis/.local/bin
+10.0	/home/singularis/.local/share/nvcodark
+10.0	/home/singularis/gmail-generator
+10.0	/home/singularis/gmail-generator/source
+31.622776601683796	/home/singularis/LaTeX-examples
+17.320508075688775	/home/singularis/LaTeX-examples/asymptote
+10.0	/home/singularis/LaTeX-examples/asymptote/topology-r-spiral-covering-s
+10.0	/home/singularis/LaTeX-examples/asymptote/torus-three-paths
+17.320508075688775	/home/singularis/LaTeX-examples/cheat-sheets
+10.0	/home/singularis/LaTeX-examples/cheat-sheets/analysis
+10.0	/home/singularis/LaTeX-examples/cheat-sheets/Tikz
+10.0	/home/singularis/LaTeX-examples/cheat-sheets/vim
+17.320508075688775	/home/singularis/LaTeX-examples/circuits
+10.0	/home/singularis/LaTeX-examples/circuits/d-latch-with-nand
+10.0	/home/singularis/LaTeX-examples/circuits/simple-example
+10.0	/home/singularis/LaTeX-examples/circuits/simple-example-tikz-circuit-library
+30.000000000000004	/home/singularis/LaTeX-examples/documents
+10.0	/home/singularis/LaTeX-examples/documents/acronyms-example
+10.0	/home/singularis/LaTeX-examples/documents/Analysis I
+10.0	/home/singularis/LaTeX-examples/documents/Analysis II
+10.0	/home/singularis/LaTeX-examples/documents/Analysis III
+10.0	/home/singularis/LaTeX-examples/documents/attachfile-example
+10.0	/home/singularis/LaTeX-examples/documents/bachelor-proposal
+10.0	/home/singularis/LaTeX-examples/documents/pdfa-paper
+26.457513110645905	/home/singularis/LaTeX-examples/math
+14.142135623730951	/home/singularis/LaTeX-examples/math/asymptote
+10.0	/home/singularis/LaTeX-examples/math/asymptote/sphere-sphere
+10.0	/home/singularis/LaTeX-examples/math/commutative-diagramm
+10.0	/home/singularis/LaTeX-examples/math/fractions
+17.320508075688775	/home/singularis/LaTeX-examples/math/gnuplot
+10.0	/home/singularis/LaTeX-examples/math/gnuplot/draw-csv
+10.0	/home/singularis/LaTeX-examples/math/gnuplot/high-order-knot
+10.0	/home/singularis/LaTeX-examples/math/sizes
+10.0	/home/singularis/LaTeX-examples/math/strange-signs
+10.0	/home/singularis/LaTeX-examples/misc/sound
+34.64101615137755	/home/singularis/LaTeX-examples/presentations
+10.0	/home/singularis/LaTeX-examples/presentations/Advanced
+22.360679774997898	/home/singularis/LaTeX-examples/presentations/Bachelor-Final-Presentation
+10.0	/home/singularis/LaTeX-examples/presentations/Bachelor-Final-Presentation/LaTeX
+10.0	/home/singularis/LaTeX-examples/presentations/Bachelor-Final-Presentation/images
+10.0	/home/singularis/LaTeX-examples/presentations/Bachelor-Final-Presentation/logos
+10.0	/home/singularis/LaTeX-examples/presentations/Bachelor-Final-Presentation/templates
+10.0	/home/singularis/LaTeX-examples/presentations/Bachelor-Short
+10.0	/home/singularis/LaTeX-examples/presentations/causality-presentation
+10.0	/home/singularis/LaTeX-examples/presentations/Data-Scientist-Role
+10.0	/home/singularis/LaTeX-examples/presentations/Tutorenschlung
+10.0	/home/singularis/LaTeX-examples/presentations/sommerakademie-2016
+10.0	/home/singularis/LaTeX-examples/presentations/software-engineering-basics
+10.0	/home/singularis/LaTeX-examples/presentations/Sommerakademie-2015-Forschung
+10.0	/home/singularis/LaTeX-examples/presentations/English
+10.0	/home/singularis/LaTeX-examples/presentations/Diskrete-Mathematik
+10.0	/home/singularis/LaTeX-examples/notes
+22.360679774997898	/home/singularis/LaTeX-examples/notes/journal
+17.320508075688775	/home/singularis/LaTeX-examples/notes/journal/2022/08
+10.0	/home/singularis/LaTeX-examples/notes/journal/2022/08/01
+10.0	/home/singularis/LaTeX-examples/notes/journal/2022
+10.0	/home/singularis/Singularis/local/share/autojump
+22.360679774997898	/home/singularis/Singularis/fig
+10.0	/home/singularis/Singularis/fig/console
+10.0	/home/singularis/Singularis/fig/dsl
+30.000000000000004	/home/singularis/Singularis/man
+17.320508075688775	/home/singularis/Singularis/man/operations
+10.0	/home/singularis/Singularis/man/log
+10.0	/home/singularis/wincent/bin
+10.0	/home/singularis/Singularis/man/sha256

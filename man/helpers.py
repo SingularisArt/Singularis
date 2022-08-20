@@ -9,5 +9,5 @@ def load_data(file):
     return json.load(opened_file)
 
 
-def join(*args, seperator=" "):
+def join(*args, seperator="/"):
     return seperator.join(str(e) for e in args if e)

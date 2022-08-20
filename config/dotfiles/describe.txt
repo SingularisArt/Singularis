@@ -1,7 +1,0 @@
-My dotfiles contains many things. It contains:
-  Zsh
-  Vim
-  Tmux
-  Ssh
-  Mutt
-  More to come

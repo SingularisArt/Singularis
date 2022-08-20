@@ -1,5 +1,6 @@
 #!/usr/bin/python3.10
 
+from pathlib import Path
 import os
 
 from man import InitClass as InitClass
@@ -28,14 +29,16 @@ class Aspect(InitClass):
 
         if os.path.exists(json_file):
             data = helpers.load_data(json_file)
-            data["install-dir"] = os.path.expanduser(data["install-dir"])
             return data
         else:
             print(json_file, "doesn't exist")
 
     def install_aspect(self):
-        if os.path.exists(self.data["install-dir"]):
-            pass
+        exec(Path(helpers.join(
+            self.aspects_dir,
+            self.aspect_name,
+            "index.py",
+            seperator="/")).read_text())
 
 
 class Aspects(InitClass, list):
