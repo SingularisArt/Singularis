@@ -1,1 +1,0 @@
-/home/singularis/Singularis/aspects/dotfiles/files/.zshrc

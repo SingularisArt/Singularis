@@ -4,20 +4,19 @@ aspects/dotfiles/files/zsh/.zcompdump*
 aspects/dotfiles/files/zsh/.zshrc
 aspects/dotfiles/files/zsh/plugins/
 aspects/dotfiles/files/tmux/plugins/
-aspects/spicetify/Backup/
-aspects/spicetify/config-xpui.ini
-aspects/spicetify/CustomApps/
-aspects/spicetify/Extensions/
-aspects/spicetify/Extracted/
-aspects/mpd/mpd.db
-aspects/mpd/mpd.log
-aspects/mpd/mpd.pid
-aspects/mpd/mpdstate
-aspects/mpv/scripts/
-aspects/neofetch/ascii/
-aspects/ncmpcpp/error.log
-aspects/neomutt/accounts/main.muttrc
-aspects/neomutt/accounts/school.muttrc
+aspects/dotfiles/files/.config/spicetify/Backup/
+aspects/dotfiles/files/.config/spicetify/config-xpui.ini
+aspects/dotfiles/files/.config/spicetify/CustomApps/
+aspects/dotfiles/files/.config/spicetify/Extensions/
+aspects/dotfiles/files/.config/spicetify/Extracted/
+aspects/dotfiles/files/.config/mpd/mpd.db
+aspects/dotfiles/files/.config/mpd/mpd.log
+aspects/dotfiles/files/.config/mpd/mpd.pid
+aspects/dotfiles/files/.config/mpd/mpdstate
+aspects/dotfiles/files/.config/mpv/scripts/
+aspects/dotfiles/files/.config/neofetch/ascii/
+aspects/dotfiles/files/.config/ncmpcpp/error.log
+aspects/dotfiles/files/.config/neomutt/accounts/personal.muttrc
 aspects/dvim/plugin/
 
 # Byte-compiled / optimized / DLL files
