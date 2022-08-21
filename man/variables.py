@@ -7,7 +7,7 @@ import os.path as path
 HOME = path.expanduser("~")
 SINGULARIS = helpers.join(HOME, "Singularis", seperator="/")
 
-ASPECTS = helpers.join(SINGULARIS, "config", seperator="/")
+ASPECTS = helpers.join(SINGULARIS, "aspects", seperator="/")
 THIRD_PARTY_TOOLS = helpers.join(
     SINGULARIS, "third-party-tools", seperator="/")
 VENDOR = helpers.join(SINGULARIS, "vendor", seperator="/")

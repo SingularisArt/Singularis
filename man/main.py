@@ -72,24 +72,24 @@ def main():
         formatter_class=argparse.RawTextHelpFormatter
     )
 
-#     parser.add_argument(
-#         '-a', '--all',
-#         help='''Installs everything. It will setup
+    parser.add_argument(
+        '-a', '--all',
+        help='''Installs everything. It will setup
 
-# 1. All the required packages.
-# 2. All the configurations.
-# 3. All the required settings.
-# 4. All the required npm libraries.
-# 5. All the required python libraries.
+1. All the required packages.
+2. All the configurations.
+3. All the required settings.
+4. All the required npm libraries.
+5. All the required python libraries.
 
-# Please, when running this command, be careful because you can wipe out all of
-# your hard work with my crappy work. To be safe, please check read this section
-# of the README: https://github.com/SingularisArt/Singularis#warning.
+Please, when running this command, be careful because you can wipe out all of
+your hard work with my crappy work. To be safe, please check read this section
+of the README: https://github.com/SingularisArt/Singularis#warning.
 
-# ''',
-#         default=False,
-#         action='store_true',
-#     )
+''',
+        default=False,
+        action='store_true',
+    )
     parser.add_argument(
         '-c', '--config',
         help='''Installs individual configurations.

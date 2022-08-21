@@ -1,29 +1,27 @@
-config/dotfiles/files/zsh/.chpwd-recent-dirs
-config/dotfiles/files/zsh/.zsh_history
-config/dotfiles/files/zsh/.zcompdump*
-config/dotfiles/files/zsh/plugins/
-config/dotfiles/files/tmux/plugins/
-config/spicetify/Backup/
-config/spicetify/config-xpui.ini
-config/spicetify/CustomApps/
-config/spicetify/Extensions/
-config/spicetify/Extracted/
-config/mpd/mpd.db
-config/mpd/mpd.log
-config/mpd/mpd.pid
-config/mpd/mpdstate
-config/mpv/scripts/
-config/neofetch/ascii/
-config/ncmpcpp/error.log
-config/neomutt/accounts/main.muttrc
-config/neomutt/accounts/school.muttrc
-config/dvim/plugin/
-node_modules/
-tags
-backup-configuration/
+aspects/dotfiles/files/zsh/.chpwd-recent-dirs
+aspects/dotfiles/files/zsh/.zsh_history
+aspects/dotfiles/files/zsh/.zcompdump*
+aspects/dotfiles/files/zsh/.zshrc
+aspects/dotfiles/files/zsh/plugins/
+aspects/dotfiles/files/tmux/plugins/
+aspects/spicetify/Backup/
+aspects/spicetify/config-xpui.ini
+aspects/spicetify/CustomApps/
+aspects/spicetify/Extensions/
+aspects/spicetify/Extracted/
+aspects/mpd/mpd.db
+aspects/mpd/mpd.log
+aspects/mpd/mpd.pid
+aspects/mpd/mpdstate
+aspects/mpv/scripts/
+aspects/neofetch/ascii/
+aspects/ncmpcpp/error.log
+aspects/neomutt/accounts/main.muttrc
+aspects/neomutt/accounts/school.muttrc
+aspects/dvim/plugin/
 
 # Byte-compiled / optimized / DLL files
-__pycache__/
+*__pycache__*
 *.py[cod]
 *$py.class
 
@@ -134,7 +132,7 @@ ipython_config.py
 .pdm.toml
 
 # PEP 582; used by e.g. github.com/David-OConnor/pyflow and github.com/pdm-project/pdm
-__pypackages__/
+*__pypackages__*
 
 # Celery stuff
 celerybeat-schedule

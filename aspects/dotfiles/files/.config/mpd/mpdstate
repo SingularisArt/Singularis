@@ -1,0 +1,54 @@
+sw_volume: 100
+audio_device_state:1:my_alsa
+state: pause
+current: 24
+time: 133.779000
+random: 1
+repeat: 0
+single: 0
+consume: 0
+crossfade: 0
+mixrampdb: 0.000000
+mixrampdelay: -1.000000
+playlist_begin
+0:AbdulRahmanMossad/073-surah-al-muzzammil.mp3
+1:AhmedKhedr/020-surah-taha.mp3
+2:AbdallahHumeid/007-surah-al-araf.mp3
+3:AbdallahHumeid/075-surah-al-qiyamah.mp3
+4:AbdallahHumeid/044-surah-ad-dukhan.mp3
+5:SherifMostafa/020-surah-taha.mp3
+6:SherifMostafa/036-surah-yaseen.mp3
+7:SherifMostafa/055-surah-al-rahman.mp3
+8:SherifMostafa/031-surah-luqman.mp3
+9:SherifMostafa/032-surah-al-sajdah.mp3
+10:SherifMostafa/061-surah-al-saff.mp3
+11:SherifMostafa/060-surah-al-mumtahanah.mp3
+12:SherifMostafa/015-surah-al-hijr.mp3
+13:OmarHisham/067-surah-al-mulk.mp3
+14:OmarHisham/012-surah-yusuf.mp3
+15:OmarHisham/018-surah-al-kahf.mp3
+16:OmarHisham/019-surah-maryam.mp3
+17:OmarHisham/020-surah-taha.mp3
+18:OmarHisham/036-surah-yaseen.mp3
+19:OmarHisham/049-surah-al-hujurat.mp3
+20:OmarHisham/051-surah-adh-dhariyat.mp3
+21:OmarHisham/053-surah-an-najm.mp3
+22:OmarHisham/055-surah-al-rahman.mp3
+23:OmarHisham/056-surah-al-waqiah.mp3
+24:OmarHisham/067-surah-al-mulk.mp3
+25:OmarHisham/077-surah-al-mursalat.mp3
+26:OmarHisham/078-surah-al-naba.mp3
+27:OmarHisham/079-surah-al-naziat.mp3
+28:OmarHisham/080-surah-abasa.mp3
+29:OmarHisham/081-surah-at-takwir.mp3
+30:OmarHisham/082-surah-al-infitar.mp3
+31:OmarHisham/083-surah-al-mutaffifin.mp3
+32:OmarHisham/084-surah-al-inshiqaq.mp3
+33:OmarHisham/086-surah-at-tariq.mp3
+34:AbdallahHumeid/055-surah-al-rahman.mp3
+35:SherifMostafa/077-surah-al-mursalat.mp3
+36:AhmedKhedr/049-surah-al-hujurat.mp3
+37:AbdallahHumeid/023-surah-al-muminun.mp3
+38:AbdallahHumeid/035-surah-fatir.mp3
+39:AbdallahHumeid/039-surah-az-zumar.mp3
+playlist_end

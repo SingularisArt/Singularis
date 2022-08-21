@@ -1,4 +1,6 @@
+import errno
 import json
+import os
 
 
 def load_data(file):
@@ -11,3 +13,12 @@ def load_data(file):
 
 def join(*args, seperator="/"):
     return seperator.join(str(e) for e in args if e)
+
+
+def force_symlink(file1, file2):
+    try:
+        os.symlink(file1, file2)
+    except OSError as e:
+        if e.errno == errno.EEXIST:
+            os.remove(file2)
+            os.symlink(file1, file2)
