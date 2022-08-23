@@ -1,11 +1,11 @@
 {
-  "description": "All my dotfiles. It contains my zsh, tmux, and env variable configurations.",
-  "github-url": "",
-  "website-url": "",
-  "install-dir": "~/.config/anki",
-  "variables": {
-    "files": {},
-    "packages": [],
-    "templates": []
+  "description": "All my dotfiles",
+  "templates": {
+    ".home/.gitconfig": [
+      "user",
+      "credential",
+      "github",
+      "commit"
+    ]
   }
 }

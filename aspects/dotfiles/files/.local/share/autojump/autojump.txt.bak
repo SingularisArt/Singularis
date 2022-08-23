@@ -1,7 +1,7 @@
 45.82575694955841	/home/singularis/.config/zsh
 60.00000000000001	/home/singularis/.local/share/deathvim/dvim
-99.49874371066196	/home/singularis/Singularis
-37.41657386773942	/home/singularis/Downloads
+113.57816691600543	/home/singularis/Singularis
+38.729833462074176	/home/singularis/Downloads
 34.64101615137755	/home/singularis/Documents/journal
 24.49489742783178	/home/singularis/Desktop/PDFs
 24.49489742783178	/home/singularis/Desktop
@@ -24,8 +24,8 @@
 17.320508075688775	/home/singularis/wincent
 17.320508075688775	/home/singularis/.local/share/deathvim/dvim/lua/dvim
 17.320508075688775	/home/singularis/Singularis/config/dotfiles/files/zsh
-28.284271247461902	/home/singularis/Singularis/config
-22.360679774997898	/home/singularis/Singularis/config/dotfiles
+36.0555127546399	/home/singularis/Singularis/config
+34.64101615137755	/home/singularis/Singularis/config/dotfiles
 26.457513110645905	/home/singularis/Documents/school-notes/current-course
 24.49489742783178	/home/singularis/Documents/school-notes
 14.142135623730951	/home/singularis/.config
@@ -36,7 +36,7 @@
 10.0	/home/singularis/Singularis/scripts/install/core
 10.0	/home/singularis/Singularis/scripts/install/settings
 14.142135623730951	/home/singularis/Singularis/scripts/install/libraries
-14.142135623730951	/home/singularis/Documents/school-setup
+24.49489742783178	/home/singularis/Documents/school-setup
 10.0	/home/singularis/Singularis/config/anki
 10.0	/home/singularis/.local/share/deathvim/dvim/lua/dvim/lsp
 10.0	/home/singularis/.local/share/deathvim/dvim/lua/dvim/core/plugins/cmp
@@ -79,7 +79,7 @@
 10.0	/home/singularis/Documents/Website/themes/LoveIt/layouts/partials
 10.0	/home/singularis/Documents/Website/themes/LoveIt/layouts
 14.142135623730951	/home/singularis/.local/share/deathvim/dvim/lua/dvim/core/filetypes
-17.320508075688775	/home/singularis/test
+22.360679774997898	/home/singularis/test
 22.360679774997898	/home/singularis/test/netlify-website
 10.0	/home/singularis/test/netlify-website/themes/LoveIt
 10.0	/home/singularis/test/netlify-website/themes/LoveIt/layouts/partials
@@ -152,8 +152,17 @@
 22.360679774997898	/home/singularis/Singularis/fig
 10.0	/home/singularis/Singularis/fig/console
 10.0	/home/singularis/Singularis/fig/dsl
-30.000000000000004	/home/singularis/Singularis/man
+34.64101615137755	/home/singularis/Singularis/man
 17.320508075688775	/home/singularis/Singularis/man/operations
 10.0	/home/singularis/Singularis/man/log
 10.0	/home/singularis/wincent/bin
 10.0	/home/singularis/Singularis/man/sha256
+10.0	/home/singularis/.config/lf
+20.0	/home/singularis/Singularis/aspects
+10.0	/home/singularis/Singularis/aspects/apt
+17.320508075688775	/home/singularis/Singularis/aspects/dotfiles
+14.142135623730951	/home/singularis/Singularis/aspects/dotfiles/files
+10.0	/home/singularis/Singularis/aspects/dotfiles/templates
+20.0	/home/singularis/Singularis/aspects/dotfiles/templates/.config
+10.0	/home/singularis/Singularis/aspects/dotfiles/templates/.config/neomutt
+14.142135623730951	/home/singularis/Singularis/aspects/dotfiles/templates/.config/neomutt/accounts

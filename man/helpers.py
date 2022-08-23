@@ -1,4 +1,3 @@
-import errno
 import json
 import os
 
@@ -15,10 +14,7 @@ def join(*args, seperator="/"):
     return seperator.join(str(e) for e in args if e)
 
 
-def force_symlink(file1, file2):
-    try:
-        os.symlink(file1, file2)
-    except OSError as e:
-        if e.errno == errno.EEXIST:
-            os.remove(file2)
-            os.symlink(file1, file2)
+def symlink(location, destination):
+    os.system('rm -rf {}'.format(destination))
+    os.makedirs(os.path.dirname(destination), exist_ok=True)
+    os.symlink(location, destination)

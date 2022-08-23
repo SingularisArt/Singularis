@@ -12,6 +12,5 @@ class InitClass:
         self.vendor_dir = variables.VENDOR
         self.media_dir = variables.MEDIA
         self.local_dir = variables.LOCAL
-        self.local_dir = variables.LOCAL
         self.backup_dir = variables.BACKUP
         self.config_dir = variables.CONFIG

@@ -1,0 +1,3 @@
+[commit]
+    gpgSign = true
+    template = ~/.config/git/gitmessage.txt

@@ -1,9 +1,8 @@
-aspects/dotfiles/files/zsh/.chpwd-recent-dirs
-aspects/dotfiles/files/zsh/.zsh_history
-aspects/dotfiles/files/zsh/.zcompdump*
-aspects/dotfiles/files/zsh/.zshrc
-aspects/dotfiles/files/zsh/plugins/
-aspects/dotfiles/files/tmux/plugins/
+aspects/dotfiles/files/.config/zsh/.chpwd-recent-dirs
+aspects/dotfiles/files/.config/zsh/.zsh_history
+aspects/dotfiles/files/.config/zsh/.zcompdump*
+aspects/dotfiles/files/.config/zsh/plugins/
+aspects/dotfiles/files/.config/tmux/plugins/
 aspects/dotfiles/files/.config/spicetify/Backup/
 aspects/dotfiles/files/.config/spicetify/config-xpui.ini
 aspects/dotfiles/files/.config/spicetify/CustomApps/
