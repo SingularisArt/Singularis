@@ -50,12 +50,12 @@ class File(InitClass):
 
 
 class Files(InitClass, dict):
-    def __init__(self, root_folder):
+    def __init__(self, aspect):
         InitClass.__init__(self)
 
         self.root_folder = helpers.join(
             self.aspects_dir,
-            root_folder,
+            aspect,
             'files'
         )
 
