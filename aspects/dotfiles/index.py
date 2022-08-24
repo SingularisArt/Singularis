@@ -6,8 +6,8 @@ from man.operations.template import Templates as Templates
 
 
 # Template(
-#     'dotfiles/templates/.gitconfig',
-#     '~/.gitconfig',
+#     "dotfiles/templates/.gitconfig",
+#     "~/.gitconfig",
 #     values={
 #         "user":         variables.USER,
 #         "credential":   variables.CREDENTIAL,
@@ -16,6 +16,6 @@ from man.operations.template import Templates as Templates
 #     }
 # ).copy_to_destination()
 
-Files('dotfiles')
-Templates('dotfiles')
-Packages('dotfiles')
+Files("dotfiles")
+Templates("dotfiles")
+Packages("dotfiles")

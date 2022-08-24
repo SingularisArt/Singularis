@@ -1,6 +1,6 @@
 45.82575694955841	/home/singularis/.config/zsh
 60.00000000000001	/home/singularis/.local/share/deathvim/dvim
-114.45523142259593	/home/singularis/Singularis
+118.74342087037911	/home/singularis/Singularis
 38.729833462074176	/home/singularis/Downloads
 34.64101615137755	/home/singularis/Documents/journal
 24.49489742783178	/home/singularis/Desktop/PDFs
@@ -92,7 +92,7 @@
 17.320508075688775	/home/singularis/.config/google-chrome/Profile 1
 10.0	/home/singularis/.local/share
 10.0	/home/singularis/.local
-10.0	/home/singularis/.local/bin
+20.0	/home/singularis/.local/bin
 10.0	/home/singularis/.local/share/nvcodark
 10.0	/home/singularis/gmail-generator
 10.0	/home/singularis/gmail-generator/source
@@ -152,7 +152,7 @@
 22.360679774997898	/home/singularis/Singularis/fig
 10.0	/home/singularis/Singularis/fig/console
 10.0	/home/singularis/Singularis/fig/dsl
-36.0555127546399	/home/singularis/Singularis/man
+40.00000000000001	/home/singularis/Singularis/man
 17.320508075688775	/home/singularis/Singularis/man/operations
 10.0	/home/singularis/Singularis/man/log
 10.0	/home/singularis/wincent/bin
@@ -160,9 +160,18 @@
 10.0	/home/singularis/.config/lf
 20.0	/home/singularis/Singularis/aspects
 10.0	/home/singularis/Singularis/aspects/apt
-22.360679774997898	/home/singularis/Singularis/aspects/dotfiles
-14.142135623730951	/home/singularis/Singularis/aspects/dotfiles/files
-10.0	/home/singularis/Singularis/aspects/dotfiles/templates
-20.0	/home/singularis/Singularis/aspects/dotfiles/templates/.config
+24.49489742783178	/home/singularis/Singularis/aspects/dotfiles
+20.0	/home/singularis/Singularis/aspects/dotfiles/files
+20.0	/home/singularis/Singularis/aspects/dotfiles/templates
+22.360679774997898	/home/singularis/Singularis/aspects/dotfiles/templates/.config
 10.0	/home/singularis/Singularis/aspects/dotfiles/templates/.config/neomutt
-14.142135623730951	/home/singularis/Singularis/aspects/dotfiles/templates/.config/neomutt/accounts
+20.0	/home/singularis/Singularis/aspects/dotfiles/templates/.config/neomutt/accounts
+10.0	/home/singularis/Singularis/aspects/dotfiles/templates/.home
+14.142135623730951	/home/singularis/Singularis/man/templates
+14.142135623730951	/home/singularis/Singularis/man/templates/.config
+14.142135623730951	/home/singularis/Singularis/man/templates/.config/neomutt/accounts
+10.0	/home/singularis/Singularis/man/templates/.config/neomutt/accounts/personal
+10.0	/home/singularis/Singularis/man/templates/.config/neomutt/accounts/1/2/3/4/5/6/7/8/9/10/personal.neomutt
+10.0	/home/singularis/Singularis/man/templates/.home
+10.0	/home/singularis/Singularis/man/templates/.home/.gitconfig
+10.0	/home/singularis/.local/share/zathura

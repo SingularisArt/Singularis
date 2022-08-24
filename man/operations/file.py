@@ -15,7 +15,7 @@ class File(InitClass):
         self.type = type
         self.file_location = helpers.join(
             self.root_folder,
-            '.' + self.type,
+            self.type,
             self.name
         )
         self.file_destination = self.get_location()
@@ -25,22 +25,26 @@ class File(InitClass):
             self.install()
 
     def get_location(self):
-        if self.type == 'config':
+        if self.type == ".config":
             return helpers.join(self.config_dir, self.name)
-        elif self.type == 'home':
+        elif self.type == ".home":
             return helpers.join(self.home_dir, self.name)
-        elif self.type == 'local':
+        elif self.type == ".local":
             return helpers.join(self.local_dir, self.name)
 
     def install(self):
-        if self.type != 'local':
+        try:
+            os.makedirs(os.path.dirname(self.file_destination), exist_ok=True)
+        except Exception:
+            pass
+
+        if self.type != ".local":
             helpers.symlink(self.file_location, self.file_destination)
         else:
             for file in os.listdir(self.file_location):
                 file_location = helpers.join(self.file_location, file)
                 file_destination = helpers.join(self.file_destination, file)
                 helpers.symlink(file_location, file_destination)
-        return
 
     def check_sum(self):
         return True
@@ -56,12 +60,12 @@ class Files(InitClass, dict):
         self.root_folder = helpers.join(
             self.aspects_dir,
             aspect,
-            'files'
+            "files"
         )
 
-        config = helpers.join(self.root_folder, '.config')
-        home = helpers.join(self.root_folder, '.home')
-        local = helpers.join(self.root_folder, '.local')
+        config = helpers.join(self.root_folder, ".config")
+        home = helpers.join(self.root_folder, ".home")
+        local = helpers.join(self.root_folder, ".local")
 
         self.config = config if os.path.exists(config) else None
         self.home = home if os.path.exists(home) else None
@@ -69,26 +73,27 @@ class Files(InitClass, dict):
 
         self.files = self.root_folder
 
+        self.files = self.root_folder
+        self.aspect_json_file_location = helpers.join(
+            self.aspects_dir, aspect, "aspect.json"
+        )
+        self.data = helpers.load_data(self.aspect_json_file_location)
+
         dict.__init__(self, self.get_files())
 
     def get_files(self):
         files = {
-            "home": [],
-            "config": [],
-            "local": [],
+            "home": {},
+            "config": {},
+            "local": {},
         }
 
-        # Getting .config files
-        for file in os.listdir(self.config):
-            file = File(file, self.root_folder, type='config')
-            files["config"].append(file)
-        # Getting .home files
-        for file in os.listdir(self.home):
-            file = File(file, self.root_folder, type='home')
-            files["home"].append(file)
-        # Getting .local files
-        for file in os.listdir(self.local):
-            file = File(file, self.root_folder, type='local')
-            files["local"].append(file)
+        for type in self.types:
+            for file in self.data["files"][type]:
+                File(
+                    file,
+                    self.root_folder,
+                    type,
+                )
 
         return files

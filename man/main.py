@@ -4,9 +4,6 @@ import argparse
 
 from man.operations.config import Aspects as Aspects
 
-# import man.helpers as helpers
-# import man.variables as variables
-
 
 def core(args):
     if args.all:

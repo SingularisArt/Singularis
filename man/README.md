@@ -172,3 +172,9 @@ This is still in its beta stage.
 ## Hash security feature (beta)
 
 This is still in its beta stage.
+
+## Arguments
+
+### -h/--help
+
+Display the help page.

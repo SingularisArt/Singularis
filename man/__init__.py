@@ -14,3 +14,5 @@ class InitClass:
         self.local_dir = variables.LOCAL
         self.backup_dir = variables.BACKUP
         self.config_dir = variables.CONFIG
+        self.man_dir = variables.MAN
+        self.types = [".home", ".config", ".local"]

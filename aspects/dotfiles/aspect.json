@@ -1,11 +1,55 @@
 {
   "description": "All my dotfiles",
-  "templates": {
-    ".home/.gitconfig": [
-      "user",
-      "credential",
-      "github",
-      "commit"
+  "files": {
+    ".home": [
+      ".xprofile",
+      ".zshenv"
+    ],
+    ".config": [
+      "anki",
+      "awesome",
+      "bspwm",
+      "castero",
+      "chameleon",
+      "dunst",
+      "gnuplot",
+      "khal",
+      "khard",
+      "lf",
+      "lynx",
+      "mpd",
+      "mpv",
+      "ncmpcpp",
+      "neofetch",
+      "neomutt",
+      "newsboat",
+      "picom",
+      "polybar",
+      "ranger",
+      "rofi",
+      "sioyek",
+      "spicetify",
+      "sxhkd",
+      "tmux",
+      "wal",
+      "wal-discord",
+      "zsh"
+    ],
+    ".local": [
+      "bin",
+      "share"
     ]
+  },
+  "templates": {
+    ".home": {
+      ".gitconfig": [
+        "user",
+        "credential",
+        "github",
+        "commit"
+      ]
+    },
+    ".config": {},
+    ".local": {}
   }
 }
