@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-
-source "$HOME/Singularis/bin/common"
-source "$HOME/Singularis/bin/variables"
-
-log_info "Installing polybar"
-
-install_config "Polybar" "$CONFIG/polybar" "$CONFIG_LOCATION/polybar"
