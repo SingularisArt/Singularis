@@ -4,7 +4,12 @@ import os
 import string
 
 from man import InitClass as InitClass
+
+from man.log import Log as Log
 import man.helpers as helpers
+
+
+log = Log()
 
 
 class CustomTemplate(string.Template):
@@ -15,20 +20,21 @@ class Template(InitClass):
     def __init__(self, file_name, root_folder, type, delimiter, data):
         InitClass.__init__(self)
         CustomTemplate.delimiter = delimiter
+        log.log("Chaning delimiter from # to {}".format(delimiter), log.trace)
 
         self.root_folder = root_folder
         self.name = file_name
         self.type = type
         self.file_location = helpers.join(
-            self.root_folder,
-            self.type,
-            self.name
-        )
+            self.root_folder, self.type, self.name)
         self.file_destination = self.get_location()
         self.delimiter = delimiter
         self.data = data
 
         # TODO: Implement this function
+        log.log("Checking the hash for {}".format(
+            self.file_location), log.trace)
+
         if self.check_sum():
             self.install()
 
@@ -43,8 +49,12 @@ class Template(InitClass):
     def install(self):
         try:
             open(self.file_destination, "x")
+            log.log("Creating file {}".format(
+                self.file_destination), log.trace)
         except FileNotFoundError:
-            os.makedirs(os.path.dirname(self.file_destination), exist_ok=True)
+            os.makedirs(os.path.dirname(self.file_destination))
+            log.log("Creating folder {}".format(
+                self.file_destination), log.trace)
         except FileExistsError:
             pass
 
@@ -55,24 +65,26 @@ class Template(InitClass):
 
         for snippet in self.data:
             file_template_location = helpers.join(
-                self.man_dir,
-                "templates",
-                self.type,
-                self.name,
-                snippet + ".template"
+                self.man_dir, "templates", self.type, self.name, snippet + ".template"
             )
             opened_file_template_location = open(
-                file_template_location,
-                "r"
-            ).read()
+                file_template_location, "r").read()
 
             variable_repacment[snippet] = opened_file_template_location
 
         completed_template = opened_template.safe_substitute(
             variable_repacment)
 
+        log.log("Expanding template {}".format(self.name), log.trace)
+
         with open(self.file_destination, "w") as writing_template:
             writing_template.write(completed_template)
+
+        log.log(
+            "Writing snippet {} to {}".format(
+                self.name, self.file_destination),
+            log.trace,
+        )
 
     def check_sum(self):
         return True
@@ -85,11 +97,7 @@ class Templates(InitClass, dict):
     def __init__(self, aspect):
         InitClass.__init__(self)
 
-        self.root_folder = helpers.join(
-            self.aspects_dir,
-            aspect,
-            "templates"
-        )
+        self.root_folder = helpers.join(self.aspects_dir, aspect, "templates")
 
         config = helpers.join(self.root_folder, ".config")
         home = helpers.join(self.root_folder, ".home")
@@ -105,7 +113,13 @@ class Templates(InitClass, dict):
         )
         self.data = helpers.load_data(self.aspect_json_file_location)
 
+        log.log("Installing all templates for {}".format(
+            aspect.title()), log.trace)
+
         dict.__init__(self, self.get_templates())
+
+        log.log("Installed all templates for {}".format(
+            aspect.title()), log.trace)
 
     def get_templates(self):
         templates = {
@@ -123,7 +137,7 @@ class Templates(InitClass, dict):
                     self.root_folder,
                     type,
                     "^",
-                    self.data["templates"][type][template]
+                    self.data["templates"][type][template],
                 )
 
         return templates

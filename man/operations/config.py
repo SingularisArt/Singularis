@@ -53,7 +53,6 @@ class Aspects(InitClass, list):
             aspects = [*set(aspects)]
 
             for aspect in aspects:
-                print(aspect)
                 self.aspects.append(Aspect(aspect))
 
             self.install_aspects = [

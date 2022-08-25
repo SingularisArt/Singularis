@@ -2,12 +2,16 @@
 
 import argparse
 
+from man import InitClass as InitClass
+from man import helpers as helpers
 from man.operations.config import Aspects as Aspects
+
+init = InitClass()
 
 
 def core(args):
     if args.all:
-        print('All')
+        print("All")
     if args.config:
         aspects = Aspects(args)
         if not aspects.all:
@@ -16,34 +20,41 @@ def core(args):
 
 def settings(args):
     if args.colorscheme:
-        print('Colorscheme')
+        print("Colorscheme")
     if args.distro:
-        print('Distro')
+        print("Distro")
     if args.settings:
-        print('Settings')
+        print("Settings")
 
 
 def log(args):
-    if args.log_level:
-        print('Log')
+    try:
+        open(helpers.join(init.man_dir, "log_level.txt"), "x")
+    except FileExistsError:
+        pass
+    with open(helpers.join(init.man_dir, "log_level.txt"), "w") as f:
+        if args.log_level:
+            f.write(args.log_level)
+        else:
+            f.write("3")
 
 
 def extra(args):
     if args.describe_config:
-        print('Describe')
+        print("Describe")
 
 
 def list(args):
     if args.list_configs:
-        print('List Configs')
+        print("List Configs")
     if args.list_distros:
-        print('List Distros')
+        print("List Distros")
 
 
 def parse_arguments(args):
-    core(args)
-    settings(args)
     log(args)
+    settings(args)
+    core(args)
     extra(args)
     list(args)
 
@@ -51,12 +62,12 @@ def parse_arguments(args):
 def main():
     argparse.ArgumentParser()
     parser = argparse.ArgumentParser(
-        formatter_class=argparse.RawTextHelpFormatter
-    )
+        formatter_class=argparse.RawTextHelpFormatter)
 
     parser.add_argument(
-        '-a', '--all',
-        help='''Installs everything. Here's what it'll do.
+        "-a",
+        "--all",
+        help="""Installs everything. Here's what it'll do.
 
 1. Setup all of my configurations (You've been warned).
 2. Setup all of my settings.
@@ -66,22 +77,23 @@ Please, when running this command, be careful because you can wipe out all of
 your hard work with my crappy work. To be safe, please check read this section
 of the README: https://github.com/SingularisArt/Singularis#warning.
 
-''',
+""",
         default=False,
-        action='store_true',
+        action="store_true",
     )
     parser.add_argument(
-        '-c', '--config',
-        help='''Installs individual configurations.
+        "-c",
+        "--config",
+        help="""Installs individual configurations.
 
 If you run `./install --config`, it'll install all the configurations.
 If you run `./install --config "dotfiles"`, it'll install only my dotfiles.
-If you run `./install --config "^dotfiles"`, it'll install everything except the
-    dotfiles.
+If you run `./install --config "^dotfiles"`, it'll install everything except
+    the dotfiles.
 
 Run `./install --list-configs` to see the full list of configurations.
 
-''',
+""",
         nargs="?",
         type=str,
         dest="config",
@@ -89,51 +101,60 @@ Run `./install --list-configs` to see the full list of configurations.
     )
 
     parser.add_argument(
-        '-r', '--colorscheme',
-        help='''Generate the colorscheme required for most configurations.
+        "-r",
+        "--colorscheme",
+        help="""Generate the colorscheme required for most configurations.
 
-''',
+""",
         default=False,
-        action='store_true',
+        action="store_true",
     )
     parser.add_argument(
-        '-s', '--set-distro',
-        help='''Change the default distro (Arch).
+        "-s",
+        "--set-distro",
+        help="""Change the default distro (Arch).
 
-If you run `./install --set-distro "ubuntu"`, you'll change the default distro to
-    Ubuntu.
+If you run `./install --set-distro "ubuntu"`, you'll change the default distro
+    to Ubuntu.
 It's important to note that if you use this command, you have to make it the
     first command like so: `./install --set-distro "kali" --all`.
 
 Run `./install --list-distros` to see the full list of supported distros.
 
-''',
+""",
         nargs="?",
         type=str,
         dest="distro",
         const=" ",
     )
     parser.add_argument(
-        '-S', '--settings',
-        help='''Execute the required settings.
+        "-S",
+        "--settings",
+        help="""Execute the required settings.
 
-''',
+""",
         default=False,
-        action='store_true',
+        action="store_true",
     )
 
     parser.add_argument(
-        '-l', '--log',
-        help='''Change the log level.
+        "-l",
+        "--log",
+        help="""Change the log level.
 
 Log Levels include:
-    1. Trace
-    2. Debug
-    3. Info (Default)
-    4. Warn
-    5. Error
+    Off:        10
+    All:         0
+    Trace:       1
+    Debug:       2
+    Info:        3 (Default)
+    Warn:        4
+    Error:       5
+    Fatal:       6
+    Update:      7
+    Success:     8
 
-''',
+""",
         nargs="?",
         type=str,
         dest="log_level",
@@ -141,14 +162,15 @@ Log Levels include:
     )
 
     parser.add_argument(
-        '-d', '--describe',
-        help='''Describe the given configurations.
+        "-d",
+        "--describe",
+        help="""Describe the given configurations.
 
 If you run `./install --describe dotfiles`, describe the dotfiles.
 
 Run `./install --list-configs` to see the full list of configurations.
 
-''',
+""",
         nargs="?",
         type=str,
         dest="describe_config",
@@ -156,29 +178,32 @@ Run `./install --list-configs` to see the full list of configurations.
     )
 
     parser.add_argument(
-        '-C', '--list-configs',
-        help='''List all available configurations.
+        "-C",
+        "--list-configs",
+        help="""List all available configurations.
 
-''',
+""",
         default=False,
-        action='store_true',
+        action="store_true",
     )
     parser.add_argument(
-        '-D', '--list-distros',
-        help='''List all the supported distros.
+        "-D",
+        "--list-distros",
+        help="""List all the supported distros.
 
-''',
+""",
         default=False,
-        action='store_true',
+        action="store_true",
     )
 
     parser.add_argument(
-        '-i', '--singularis',
-        help='''Don't run this command unless you're `singularis`.
+        "-i",
+        "--singularis",
+        help="""Don't run this command unless you're `singularis`.
 
-''',
+""",
         default=False,
-        action='store_true',
+        action="store_true",
     )
 
     args = parser.parse_args()
@@ -186,5 +211,5 @@ Run `./install --list-configs` to see the full list of configurations.
     parse_arguments(args)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

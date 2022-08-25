@@ -3,7 +3,12 @@
 import os
 
 from man import InitClass as InitClass
+
+from man.log import Log as Log
 import man.helpers as helpers
+
+
+log = Log()
 
 
 class File(InitClass):
@@ -14,13 +19,12 @@ class File(InitClass):
         self.name = file_name
         self.type = type
         self.file_location = helpers.join(
-            self.root_folder,
-            self.type,
-            self.name
-        )
+            self.root_folder, self.type, self.name)
         self.file_destination = self.get_location()
 
         # TODO: Implement this function
+        log.log("Checking the hash for {}".format(self.file_location), log.trace)
+
         if self.check_sum():
             self.install()
 
@@ -34,17 +38,37 @@ class File(InitClass):
 
     def install(self):
         try:
-            os.makedirs(os.path.dirname(self.file_destination), exist_ok=True)
-        except Exception:
+            open(self.file_destination, "x")
+            log.log("Creating file {}".format(
+                self.file_destination), log.trace)
+        except FileNotFoundError:
+            os.makedirs(os.path.dirname(self.file_destination))
+            log.log("Creating folder {}".format(
+                self.file_destination), log.trace)
+        except FileExistsError:
             pass
 
         if self.type != ".local":
+            log.log(
+                "Symlinking: {} -> {}".format(
+                    self.file_location,
+                    self.file_destination,
+                ),
+                log.trace,
+            )
             helpers.symlink(self.file_location, self.file_destination)
         else:
             for file in os.listdir(self.file_location):
                 file_location = helpers.join(self.file_location, file)
                 file_destination = helpers.join(self.file_destination, file)
                 helpers.symlink(file_location, file_destination)
+                log.log(
+                    "Symlinking: {} -> {}".format(
+                        file_location,
+                        file_destination,
+                    ),
+                    log.trace,
+                )
 
     def check_sum(self):
         return True
@@ -57,11 +81,7 @@ class Files(InitClass, dict):
     def __init__(self, aspect):
         InitClass.__init__(self)
 
-        self.root_folder = helpers.join(
-            self.aspects_dir,
-            aspect,
-            "files"
-        )
+        self.root_folder = helpers.join(self.aspects_dir, aspect, "files")
 
         config = helpers.join(self.root_folder, ".config")
         home = helpers.join(self.root_folder, ".home")
@@ -79,7 +99,12 @@ class Files(InitClass, dict):
         )
         self.data = helpers.load_data(self.aspect_json_file_location)
 
+        log.log("Installing all files for {}".format(
+            aspect.title()), log.trace)
+
         dict.__init__(self, self.get_files())
+
+        log.log("Installed all files for {}".format(aspect.title()), log.trace)
 
     def get_files(self):
         files = {

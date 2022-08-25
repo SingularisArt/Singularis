@@ -1,7 +1,7 @@
 45.82575694955841	/home/singularis/.config/zsh
-60.00000000000001	/home/singularis/.local/share/deathvim/dvim
-119.16375287812978	/home/singularis/Singularis
-38.729833462074176	/home/singularis/Downloads
+60.827625302982206	/home/singularis/.local/share/deathvim/dvim
+121.24355652982136	/home/singularis/Singularis
+41.231056256176615	/home/singularis/Downloads
 34.64101615137755	/home/singularis/Documents/journal
 24.49489742783178	/home/singularis/Desktop/PDFs
 24.49489742783178	/home/singularis/Desktop
@@ -36,7 +36,7 @@
 10.0	/home/singularis/Singularis/scripts/install/core
 10.0	/home/singularis/Singularis/scripts/install/settings
 14.142135623730951	/home/singularis/Singularis/scripts/install/libraries
-26.457513110645905	/home/singularis/Documents/school-setup
+30.000000000000004	/home/singularis/Documents/school-setup
 10.0	/home/singularis/Singularis/config/anki
 10.0	/home/singularis/.local/share/deathvim/dvim/lua/dvim/lsp
 10.0	/home/singularis/.local/share/deathvim/dvim/lua/dvim/core/plugins/cmp
@@ -152,9 +152,9 @@
 22.360679774997898	/home/singularis/Singularis/fig
 10.0	/home/singularis/Singularis/fig/console
 10.0	/home/singularis/Singularis/fig/dsl
-40.00000000000001	/home/singularis/Singularis/man
+44.7213595499958	/home/singularis/Singularis/man
 17.320508075688775	/home/singularis/Singularis/man/operations
-10.0	/home/singularis/Singularis/man/log
+14.142135623730951	/home/singularis/Singularis/man/log
 10.0	/home/singularis/wincent/bin
 10.0	/home/singularis/Singularis/man/sha256
 10.0	/home/singularis/.config/lf
@@ -176,3 +176,9 @@
 10.0	/home/singularis/Singularis/man/templates/.home/.gitconfig
 10.0	/home/singularis/.local/share/zathura
 10.0	/home/singularis/.config/polybar
+17.320508075688775	/home/singularis/scripts
+10.0	/home/singularis/Desktop/01.Python/Projects/PersonalProjects/Other
+10.0	/home/singularis/Desktop/01.Python/Projects/PersonalProjects
+10.0	/home/singularis/Desktop/01.Python/Projects
+10.0	/home/singularis/Desktop/01.Python
+10.0	/home/singularis/Singularis/third-party-tools/chameleon
