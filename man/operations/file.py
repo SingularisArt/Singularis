@@ -23,7 +23,7 @@ class File(InitClass):
         self.file_destination = self.get_location()
 
         # TODO: Implement this function
-        log.log("Checking the hash for {}".format(self.file_location), log.trace)
+        log.log_trace("Checking the hash for {}".format(self.file_location))
 
         if self.check_sum():
             self.install()
@@ -39,22 +39,19 @@ class File(InitClass):
     def install(self):
         try:
             open(self.file_destination, "x")
-            log.log("Creating file {}".format(
-                self.file_destination), log.trace)
+            log.log_trace("Creating file {}".format(self.file_destination))
         except FileNotFoundError:
             os.makedirs(os.path.dirname(self.file_destination))
-            log.log("Creating folder {}".format(
-                self.file_destination), log.trace)
+            log.log_trace("Creating folder {}".format(self.file_destination))
         except FileExistsError:
             pass
 
         if self.type != ".local":
-            log.log(
+            log.log_trace(
                 "Symlinking: {} -> {}".format(
                     self.file_location,
                     self.file_destination,
-                ),
-                log.trace,
+                )
             )
             helpers.symlink(self.file_location, self.file_destination)
         else:
@@ -62,12 +59,11 @@ class File(InitClass):
                 file_location = helpers.join(self.file_location, file)
                 file_destination = helpers.join(self.file_destination, file)
                 helpers.symlink(file_location, file_destination)
-                log.log(
+                log.log_trace(
                     "Symlinking: {} -> {}".format(
                         file_location,
                         file_destination,
-                    ),
-                    log.trace,
+                    )
                 )
 
     def check_sum(self):
@@ -99,12 +95,11 @@ class Files(InitClass, dict):
         )
         self.data = helpers.load_data(self.aspect_json_file_location)
 
-        log.log("Installing all files for {}".format(
-            aspect.title()), log.trace)
+        log.log_trace("Installing all files for {}".format(aspect.title()))
 
         dict.__init__(self, self.get_files())
 
-        log.log("Installed all files for {}".format(aspect.title()), log.trace)
+        log.log_trace("Installed all files for {}".format(aspect.title()))
 
     def get_files(self):
         files = {

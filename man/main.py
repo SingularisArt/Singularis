@@ -29,10 +29,10 @@ def settings(args):
 
 def log(args):
     try:
-        open(helpers.join(init.man_dir, "log_level.txt"), "x")
+        open(init.log_level_txt, "x")
     except FileExistsError:
         pass
-    with open(helpers.join(init.man_dir, "log_level.txt"), "w") as f:
+    with open(init.log_level_txt, "w") as f:
         if args.log_level:
             f.write(args.log_level)
         else:

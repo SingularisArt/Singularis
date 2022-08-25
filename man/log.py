@@ -1,5 +1,6 @@
+import os
+
 from man import InitClass as InitClass
-from man import helpers as helpers
 from man.colors import Colors as Colors
 
 
@@ -78,57 +79,46 @@ class Log(Colors, InitClass):
             "fg": self.fg["black"],
         }
 
-        self.LOG_LEVEL = int(
-            open(helpers.join(self.man_dir, "log_level.txt")).read())
+        if os.path.exists(self.log_level_txt):
+            self.LOG_LEVEL = int(open(self.log_level_txt).read())
+        else:
+            self.LOG_LEVEL = 3
 
-    def log(self, text, type):
-        name = type["name"]
-        level = type["level"]
-        bg = type["bg"]
-        fg = type["fg"]
-
-        if int(level) >= self.LOG_LEVEL:
-            space = " "
-            left_space = space
-            right_space = space
-
-            if name == self.trace["name"]:
-                space = "  "
-                left_space = space
-                right_space = space
-            elif name == self.debug["name"]:
-                space = "  "
-                left_space = space
-                right_space = space
-            elif name == self.info["name"]:
-                space = "   "
-                left_space = space
-                right_space = "  "
-            elif name == self.warn["name"]:
-                space = "   "
-                left_space = space
-                right_space = "  "
-            elif name == self.error["name"]:
-                space = "  "
-                left_space = space
-                right_space = space
-            elif name == self.fatal["name"]:
-                space = "  "
-                left_space = space
-                right_space = space
-            elif name == self.update["name"]:
-                space = "  "
-                left_space = space
-                right_space = " "
+    def log_format(self, type, text, spacing_number):
+        if int(type["level"]) >= self.LOG_LEVEL:
+            spacing = " " * spacing_number
 
             print(
-                "{}{}{}{}{}{} {}".format(
-                    bg,
-                    fg,
-                    left_space,
+                "{}{} {}{}{} {}".format(
+                    type["bg"],
+                    type["fg"],
                     type["name"],
-                    right_space,
+                    spacing,
                     self.style["reset"],
                     text,
                 )
             )
+
+    def log_trace(self, text):
+        self.log_format(self.trace, text, 3)
+
+    def log_debug(self, text):
+        self.log_format(self.debug, text, 3)
+
+    def log_info(self, text):
+        self.log_format(self.info, text, 4)
+
+    def log_warn(self, text):
+        self.log_format(self.warn, text, 4)
+
+    def log_error(self, text):
+        self.log_format(self.error, text, 3)
+
+    def log_fatal(self, text):
+        self.log_format(self.fatal, text, 3)
+
+    def log_update(self, text):
+        self.log_format(self.update, text, 2)
+
+    def log_success(self, text):
+        self.log_format(self.success, text, 1)

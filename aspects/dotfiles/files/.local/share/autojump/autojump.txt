@@ -152,7 +152,7 @@
 22.360679774997898	/home/singularis/Singularis/fig
 10.0	/home/singularis/Singularis/fig/console
 10.0	/home/singularis/Singularis/fig/dsl
-44.7213595499958	/home/singularis/Singularis/man
+45.82575694955841	/home/singularis/Singularis/man
 17.320508075688775	/home/singularis/Singularis/man/operations
 14.142135623730951	/home/singularis/Singularis/man/log
 10.0	/home/singularis/wincent/bin

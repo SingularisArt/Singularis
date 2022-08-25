@@ -20,7 +20,7 @@ class Template(InitClass):
     def __init__(self, file_name, root_folder, type, delimiter, data):
         InitClass.__init__(self)
         CustomTemplate.delimiter = delimiter
-        log.log("Chaning delimiter from # to {}".format(delimiter), log.trace)
+        log.log_trace("Chaning delimiter from # to {}".format(delimiter))
 
         self.root_folder = root_folder
         self.name = file_name
@@ -32,8 +32,7 @@ class Template(InitClass):
         self.data = data
 
         # TODO: Implement this function
-        log.log("Checking the hash for {}".format(
-            self.file_location), log.trace)
+        log.log_trace("Checking the hash for {}".format(self.file_location))
 
         if self.check_sum():
             self.install()
@@ -49,12 +48,12 @@ class Template(InitClass):
     def install(self):
         try:
             open(self.file_destination, "x")
-            log.log("Creating file {}".format(
-                self.file_destination), log.trace)
+            log.log_trace("Creating file {}".format(
+                self.file_destination))
         except FileNotFoundError:
             os.makedirs(os.path.dirname(self.file_destination))
-            log.log("Creating folder {}".format(
-                self.file_destination), log.trace)
+            log.log_trace("Creating folder {}".format(
+                self.file_destination))
         except FileExistsError:
             pass
 
@@ -75,16 +74,14 @@ class Template(InitClass):
         completed_template = opened_template.safe_substitute(
             variable_repacment)
 
-        log.log("Expanding template {}".format(self.name), log.trace)
+        log.log_trace("Expanding template {}".format(self.name))
 
         with open(self.file_destination, "w") as writing_template:
             writing_template.write(completed_template)
 
-        log.log(
+        log.log_trace(
             "Writing snippet {} to {}".format(
-                self.name, self.file_destination),
-            log.trace,
-        )
+                self.name, self.file_destination))
 
     def check_sum(self):
         return True
@@ -113,13 +110,13 @@ class Templates(InitClass, dict):
         )
         self.data = helpers.load_data(self.aspect_json_file_location)
 
-        log.log("Installing all templates for {}".format(
-            aspect.title()), log.trace)
+        log.log_trace("Installing all templates for {}".format(
+            aspect.title()))
 
         dict.__init__(self, self.get_templates())
 
-        log.log("Installed all templates for {}".format(
-            aspect.title()), log.trace)
+        log.log_trace("Installed all templates for {}".format(
+            aspect.title()))
 
     def get_templates(self):
         templates = {

@@ -9,10 +9,10 @@ from man.operations.template import Templates as Templates
 
 log = Log()
 
-log.log("Installing my Dotfiles", log.info)
+log.log_info("Installing my Dotfiles")
 
 Files("dotfiles")
 Templates("dotfiles")
 Packages("dotfiles")
 
-log.log("Installed my Dotfiles", log.success)
+log.log_success("Installed my Dotfiles")
