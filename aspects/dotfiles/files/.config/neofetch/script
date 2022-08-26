@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-
-source "$HOME/Singularis/bin/common"
-source "$HOME/Singularis/bin/variables"
-
-log_info "Installing neofetch"
-
-install_config "NeoFetch" "$CONFIG/neofetch" "$CONFIG_LOCATION/neofetch"

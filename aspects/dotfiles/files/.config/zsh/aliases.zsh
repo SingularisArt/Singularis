@@ -81,18 +81,17 @@ if command -v exa &> /dev/null; then
   alias l1='exa --icons -1'
   alias ll='exa --icons -l'
   alias lhi='exa --icons -l -i'
-  alias law='exa --icons -a | wc -l'
-  alias lsw='exa --icons | wc -l'
 else
   alias la='ls --color -a'
   alias l1='ls --color -1'
   alias ll='ls --color -l'
   alias lhi='ls --color -l -i'
-  alias law='ls --color -a | wc -l'
-  alias lsw='ls --color | wc -l'
 fi
 
-alias lawc='clear && la && echo "" && echo "Current Number of Files: $(ls -a | wc -l)"'
+alias lan='ls -a | wc -l'
+alias lsn='ls | wc -l'
+alias lanc='clear && la && echo "" && echo "Current Number of Files: $(ls -a | wc -l)"'
+alias lsnc='clear && ls && echo "" && echo "Current Number of Files: $(ls | wc -l)"'
 
 alias .='cd .'
 alias ..='cd ..'

@@ -41,15 +41,15 @@
     ]
   },
   "templates": {
-    ".home": {
-      ".gitconfig": [
+    ".home": {},
+    ".config": {
+      "git/config": [
         "user",
         "credential",
         "github",
         "commit"
       ]
     },
-    ".config": {},
     ".local": {}
   }
 }

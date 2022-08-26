@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-
-source "$HOME/Singularis/bin/common"
-source "$HOME/Singularis/bin/variables"
-
-log_info "Installing Sioyek"
-
-install_config "Sioyek" "$CONFIG/sioyek" "$CONFIG_LOCATION/sioyek"

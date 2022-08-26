@@ -18,6 +18,8 @@ aspects/dotfiles/files/.config/ncmpcpp/error.log
 aspects/dotfiles/files/.config/neomutt/accounts/personal.muttrc
 aspects/dvim/plugin/
 
+man/log_level.txt
+
 # Byte-compiled / optimized / DLL files
 *__pycache__*
 *.py[cod]

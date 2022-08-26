@@ -2,24 +2,24 @@
 
 # Autostart
 
-## Autokill
+############
+# Autokill #
+############
+
 killall -9 ksuperkey xfce4-power-manager &
 killall sxhkd; sxhkd &
 killall dunst; dunst &
 killall mpd; mpd &
-xrdb -load ~/.config/X11/xresources
-bluetooth power on
+xrdb -load ~/.config/X11/Xresources
+bluetoothctl power on
 
-## Autostart
+#############
+# Autostart #
+#############
 
-nm-applet &
-xrdb ~/.Xresources &
 picom -b --experimental-backends --backend glx --blur-method dual_kawase &
-hsetroot -cover ~/.config/wall.png &
 flameshot &
 fcitx -d &
-launchpolybar &
-killall bspswallow
 pidof bspswallow | bspswallow &
 feh --bg-scale ~/.config/wall.jpg &
 "$HOME/.config/polybar/launch.sh" &

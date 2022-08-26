@@ -1,4 +1,0 @@
-A simple terminal file browser.
-It was inspired by the terminal file browser, ranger.
-It was written in python, but lf is now written in go,
-which makes it 10x faster.

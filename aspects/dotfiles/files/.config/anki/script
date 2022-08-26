@@ -1,8 +1,0 @@
-#!/usr/bin/env bash
-
-source "$HOME/Singularis/bin/common"
-source "$HOME/Singularis/bin/variables"
-
-log_info "Installing anki"
-
-install_config "Anki" "$CONFIG/anki" "$CONFIG_LOCATION/anki"
