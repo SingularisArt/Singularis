@@ -14,6 +14,7 @@ alias mv='nocorrect mv -iv'
 alias rm='nocorrect rm -vI'
 alias myip='curl http://ipecho.net/plain; echo'
 alias distro='source /etc/lsb-release && source /etc/os-release && echo "Main Distro: $ID_LIKE. Sub Distro: $DISTRIB_ID"'
+alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
 
 if [ -f "/etc/arch-release" ] || [ -f "/etc/artix-release" ]; then
   alias update='sudo pacman -Syu'

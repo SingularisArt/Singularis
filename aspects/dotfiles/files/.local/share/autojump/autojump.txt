@@ -1,10 +1,10 @@
 45.82575694955841	/home/singularis/.config/zsh
 60.827625302982206	/home/singularis/.local/share/deathvim/dvim
-122.882057274445	/home/singularis/Singularis
+124.49899597988725	/home/singularis/Singularis
 42.42640687119286	/home/singularis/Downloads
 34.64101615137755	/home/singularis/Documents/journal
 24.49489742783178	/home/singularis/Desktop/PDFs
-24.49489742783178	/home/singularis/Desktop
+30.000000000000004	/home/singularis/Desktop
 10.0	/home/singularis/.config/newsboat
 14.142135623730951	/home/singularis/Singularis/local/share
 10.0	/home/singularis/Singularis/local/share/cargo
@@ -12,7 +12,7 @@
 10.0	/home/singularis/Documents/journal/2022/08/10
 14.142135623730951	/home/singularis/Downloads/lab_code
 10.0	/home/singularis/Singularis/local/share/newsboat
-42.42640687119286	/home/singularis/Documents
+46.904157598234306	/home/singularis/Documents
 10.0	/home/singularis/Documents/discipline-notes/mathematics/trigonometry
 10.0	/home/singularis/Desktop/PDFs/mathematics/daniel_j_velleman
 17.320508075688775	/home/singularis/Singularis/bin
@@ -28,7 +28,7 @@
 34.64101615137755	/home/singularis/Singularis/config/dotfiles
 28.284271247461902	/home/singularis/Documents/school-notes/current-course
 30.000000000000004	/home/singularis/Documents/school-notes
-14.142135623730951	/home/singularis/.config
+22.360679774997898	/home/singularis/.config
 14.142135623730951	/home/singularis/.config/sioyek
 14.142135623730951	/home/singularis/Singularis/scripts
 14.142135623730951	/home/singularis/Singularis/scripts/install/list
@@ -36,7 +36,7 @@
 10.0	/home/singularis/Singularis/scripts/install/core
 10.0	/home/singularis/Singularis/scripts/install/settings
 14.142135623730951	/home/singularis/Singularis/scripts/install/libraries
-31.622776601683796	/home/singularis/Documents/school-setup
+33.166247903554	/home/singularis/Documents/school-setup
 10.0	/home/singularis/Singularis/config/anki
 10.0	/home/singularis/.local/share/deathvim/dvim/lua/dvim/lsp
 10.0	/home/singularis/.local/share/deathvim/dvim/lua/dvim/core/plugins/cmp
@@ -47,9 +47,9 @@
 65.57438524302002	/home/singularis/Documents/Website
 10.0	/home/singularis/.minecraft
 10.0	/home/singularis/.tlauncher
-10.0	/home/singularis/.ssh
+14.142135623730951	/home/singularis/.ssh
 14.142135623730951	/home/singularis/Singularis/config/sioyek
-10.0	/home/singularis/Music
+33.166247903554	/home/singularis/Music
 10.0	/home/singularis/Screenshots
 17.320508075688775	/home/singularis/tes
 14.142135623730951	/home/singularis/Projects
@@ -152,7 +152,7 @@
 22.360679774997898	/home/singularis/Singularis/fig
 10.0	/home/singularis/Singularis/fig/console
 10.0	/home/singularis/Singularis/fig/dsl
-45.82575694955841	/home/singularis/Singularis/man
+47.9583152331272	/home/singularis/Singularis/man
 17.320508075688775	/home/singularis/Singularis/man/operations
 14.142135623730951	/home/singularis/Singularis/man/log
 10.0	/home/singularis/wincent/bin
@@ -185,3 +185,11 @@
 10.0	/home/singularis/Documents/school-notes/College/Year-1
 10.0	/home/singularis/Documents/school-notes/College/Year-1/semester-2
 10.0	/home/singularis/Documents/school-notes/College/Year-1/semester-2/hs-pre-calculus-2
+10.0	/home/singularis/Music/AnoorAlAlqy
+22.360679774997898	/home/singularis/Music/RaadAlKurdi
+14.142135623730951	/home/singularis/Music-back
+10.0	/home/singularis/Desktop/Music
+10.0	/home/singularis/.yarn
+10.0	/home/singularis/.config/npm
+10.0	/home/singularis/.npm
+10.0	/home/singularis/Singularis/third-party-tools
