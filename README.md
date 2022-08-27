@@ -291,6 +291,7 @@
   * [Platform status](#platform-status)
   * [Installation](#installation)
     * [Examples](#examples)
+    * [Install](#install)
 * [License](#license)
 * [Credit](#credit)
 
@@ -1064,6 +1065,17 @@ git clone --recursive https://github.com/SingularisArt/Singularis.git
 ./install --list-aspects "dotfiles"           # List all available aspects to install within my "dotfiles" aspect.
 ./install --help                              # Lists all possible commands/options.
 ./install                                     # Lists all possible commands/options.
+```
+
+### Install
+
+Here's how I install my dotfiles, in case you're wondering how to install them
+yourself (which isn't a clever idea because dotfiles are ment to be ~~stolen~~
+taken from and used as an inspiration). Anyway, here's how I install them.
+
+```bash
+./install --backup                          # I create a backup of everything just in case something goes the wrong way.
+./install --distro "arch" --log "0" --all   # I set the distro to Arch. I set the log level to 0 so I can see everything that's happening.
 ```
 
 # License
