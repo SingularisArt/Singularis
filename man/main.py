@@ -42,13 +42,13 @@ def log(args):
 
 
 def extra(args):
-    if args.describe_config:
+    if args.describe_aspect:
         print("Describe")
 
 
 def list(args):
-    if args.list_configs:
-        print("List Configs")
+    if args.list_aspects:
+        print("List Aspects")
     if args.list_distros:
         print("List Distros")
 
@@ -71,7 +71,7 @@ def main():
         "--all",
         help="""Installs everything. Here's what it'll do.
 
-1. Setup all of my configurations (You've been warned).
+1. Setup all of my aspects (You've been warned).
 2. Setup all of my settings.
 3. Install required aur and pacman packages.
 
@@ -86,14 +86,14 @@ of the README: https://github.com/SingularisArt/Singularis#warning.
     parser.add_argument(
         "-c",
         "--aspect",
-        help="""Installs individual configurations.
+        help="""Installs individual aspects.
 
-If you run `./install --aspect`, it'll install all the configurations.
+If you run `./install --aspect`, it'll install all the available aspects.
 If you run `./install --aspect "dotfiles"`, it'll install only my dotfiles.
 If you run `./install --aspect "^dotfiles"`, it'll install everything except
     the dotfiles.
 
-Run `./install --list-configs` to see the full list of configurations.
+Run `./install --list-aspects` to see the full list of aspects.
 
 """,
         nargs="?",
@@ -105,7 +105,7 @@ Run `./install --list-configs` to see the full list of configurations.
     parser.add_argument(
         "-r",
         "--colorscheme",
-        help="""Generate the colorscheme required for most configurations.
+        help="""Generate the colorscheme required for most aspects.
 
 """,
         default=False,
@@ -166,23 +166,23 @@ Log Levels include:
     parser.add_argument(
         "-d",
         "--describe",
-        help="""Describe the given configurations.
+        help="""Describe the given aspects.
 
 If you run `./install --describe dotfiles`, describe the dotfiles.
 
-Run `./install --list-configs` to see the full list of configurations.
+Run `./install --list-aspects` to see the full list of aspects.
 
 """,
         nargs="?",
         type=str,
-        dest="describe_config",
+        dest="describe_aspects",
         const=" ",
     )
 
     parser.add_argument(
         "-C",
-        "--list-configs",
-        help="""List all available configurations.
+        "--list-aspects",
+        help="""List all available aspects.
 
 """,
         default=False,
