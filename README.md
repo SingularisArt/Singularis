@@ -958,18 +958,19 @@ git clone --recursive https://github.com/SingularisArt/Singularis.git
 ### Examples
 
 ```bash
-./install --aspect "dotfiles xmenu"           # Just install "dotfiles" and "xmenu".
+./install --all                               # Install everything.
 ./install --aspect "dotfiles"                 # Just install "dotfiles".
+./install --aspect "dotfiles xmenu"           # Just install "dotfiles" and "xmenu".
 ./install --aspect "^dotfiles"                # Install everything except the "dotfiles" aspect.
-./install --aspect "dotfiles(neomutt)"        # Just install "neomutt" from my "dotfiles" aspect (Experimental).
-./install --aspect "dotfiles(neomutt zsh)"    # Just install "neomutt" and "zsh" from my "dotfiles" aspect (Experimental).
-./install --aspect "dotfiles(^neomutt)"       # Install everything except "neomutt" from my "dotfiles" aspect (Experimental).
+./install --aspect "dotfiles(neomutt)"        # Just install "neomutt" from my "dotfiles" aspect.
+./install --aspect "dotfiles(neomutt,zsh)"    # Just install "neomutt" and "zsh" from my "dotfiles" aspect.
+./install --aspect "dotfiles(^neomutt)"       # Install everything except "neomutt" from my "dotfiles" aspect.
 ./install --step --aspect "dotfiles"          # Prompt for confirmation at each step.
 ./install --check --aspect "dotfiles"         # Do a dry-run, showing what would be changed.
-./install --no-templates                      # Don't install any templates.
-./install --no-files                          # Don't install any files.
-./install --all                               # Install everything.
+./install --list-aspects                      # List all available aspects to install.
+./install --list-aspects "dotfiles"           # List all available aspects to install within my "dotfiles" aspect.
 ./install --help                              # Lists all possible commands/options.
+./install                                     # Lists all possible commands/options.
 ```
 
 # License

@@ -1,10 +1,13 @@
 #!/usr/bin/python3.10
 
 import argparse
+import sys
 
 from man import InitClass as InitClass
+
 # from man import helpers as helpers
 from man.operations.aspects import Aspects as Aspects
+from man.log import Log as Log
 
 init = InitClass()
 
@@ -42,7 +45,7 @@ def log(args):
 
 
 def extra(args):
-    if args.describe_aspect:
+    if args.describe_aspects:
         print("Describe")
 
 
@@ -211,6 +214,13 @@ Run `./install --list-aspects` to see the full list of aspects.
     args = parser.parse_args()
 
     parse_arguments(args)
+
+    if not len(sys.argv) > 1:
+        LOG = Log()
+        LOG.log_fatal(
+            "You didn't pass any commands. Run `./install --help`"
+            + "to see the full list."
+        )
 
 
 if __name__ == "__main__":
