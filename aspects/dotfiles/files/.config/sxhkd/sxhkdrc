@@ -23,6 +23,8 @@ super + m
   xfce4-terminal -e 'neomutt'
 super + e
   xfce4-terminal -e 'ncmpcpp'
+super + shift + c
+  xfce4-terminal -e 'castero'
 super + shift + p
   xfce4-terminal -e 'pulsemixer'
 super + shift + d

@@ -1,12 +1,6 @@
 # `git` wrapper:
 #
 #     - `git` with no arguments = `git status`; run `git help` to show what
-#     - `git st` = `git status`;
-#     - `git l` = `git log`;
-#     - `git a` = `git add`;
-#     - `git c` = `git commit`;
-#     - `git p` = `git push`;
-#     - `git chk` = `git checkout`;
 #       vanilla `git` without arguments would normally show.
 #     - `git root` = `cd` to repo root.
 #     - `git root ARG...` = evals `ARG...` from the root (eg. `git root ls`).
@@ -43,34 +37,6 @@ function git() {
     else
       (cd "$ROOT" && eval "$@")
     fi
-  elif [ "$1" = st ]; then
-    command git status
-  elif [ "$1" = co ]; then
-    command git checkout ${@:2}
-  elif [ "$1" = l ]; then
-    command git log
-  elif [ "$1" = b ]; then
-    command git branch
-  elif [ "$1" = a ]; then
-    if [ -z "$2" ]; then
-      command git add .
-    else
-      command git add ${@:2}
-    fi
-  elif [ "$1" = c ]; then
-    if [ -z "$2" ]; then
-      command git commit -S
-    else
-      command git commit -S -m $2
-    fi
-  elif [ "$1" = p ]; then
-    if [ -z "$2" ]; then
-      command git push
-    else
-      command git push ${@:2}
-    fi
-  else
-    command git "$@"
   fi
 }
 

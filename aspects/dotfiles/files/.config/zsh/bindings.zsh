@@ -39,5 +39,8 @@ lfcd () {
 }
 bindkey -s '^o' '^ulfcd\n'
 
+# Edit the command in a file
+bindkey '^x^x' edit-command-line
+
 # Resource zsh config when pressing ctrl-r:
 bindkey -s '^r' '^usource ~/.config/zsh/.zshrc\n'
