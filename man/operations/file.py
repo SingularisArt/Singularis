@@ -94,6 +94,8 @@ class Files(InitClass, dict):
             self.aspects_dir, aspect, "aspect.json"
         )
         self.data = helpers.load_data(self.aspect_json_file_location)
+        if not self.data:
+            log.log_warn("Couldn't find [aspect.json] for " + self.aspect_name)
 
         log.log_trace("Installing all files for {}".format(aspect.title()))
 

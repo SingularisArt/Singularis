@@ -3,8 +3,8 @@
 import argparse
 
 from man import InitClass as InitClass
-from man import helpers as helpers
-from man.operations.config import Aspects as Aspects
+# from man import helpers as helpers
+from man.operations.aspects import Aspects as Aspects
 
 init = InitClass()
 
@@ -12,10 +12,9 @@ init = InitClass()
 def core(args):
     if args.all:
         print("All")
-    if args.config:
+    if args.aspect:
         aspects = Aspects(args)
-        if not aspects.all:
-            [aspect.install_aspect() for aspect in aspects.install_aspects]
+        [aspect.install_aspect() for aspect in aspects["aspects_to_install"]]
 
 
 def settings(args):
@@ -86,12 +85,12 @@ of the README: https://github.com/SingularisArt/Singularis#warning.
     )
     parser.add_argument(
         "-c",
-        "--config",
+        "--aspect",
         help="""Installs individual configurations.
 
-If you run `./install --config`, it'll install all the configurations.
-If you run `./install --config "dotfiles"`, it'll install only my dotfiles.
-If you run `./install --config "^dotfiles"`, it'll install everything except
+If you run `./install --aspect`, it'll install all the configurations.
+If you run `./install --aspect "dotfiles"`, it'll install only my dotfiles.
+If you run `./install --aspect "^dotfiles"`, it'll install everything except
     the dotfiles.
 
 Run `./install --list-configs` to see the full list of configurations.
@@ -99,7 +98,7 @@ Run `./install --list-configs` to see the full list of configurations.
 """,
         nargs="?",
         type=str,
-        dest="config",
+        dest="aspect",
         const=" ",
     )
 

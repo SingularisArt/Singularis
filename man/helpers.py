@@ -3,11 +3,14 @@ import os
 
 
 def load_data(file):
-    # Load the json file
-    opened_file = open(file, "r")
+    if os.path.exists(file):
+        # Load the json file
+        opened_file = open(file, "r")
 
-    # Get the json contentents
-    return json.load(opened_file)
+        # Get the json contentents
+        return json.load(opened_file)
+    else:
+        return False
 
 
 def join(*args, seperator="/"):
