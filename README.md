@@ -220,41 +220,54 @@
   * [Tmux](#tmux)
     * [Bindings](#bindings)
     * [Prompt](#prompt-1)
-* [Sxhkd](#sxhkd)
-  * [School](#school)
-  * [Applications](#applications-1)
-  * [Rofi](#rofi)
-  * [Polybar](#polybar)
-  * [Dunst](#dunst)
-  * [Music](#music)
-  * [Other](#other)
-  * [Bspwm](#bspwm)
-    * [Desktop and Workspaces](#desktop-and-workspaces)
-    * [Windows](#windows)
-    * [Move and Resize](#move-and-resize)
-    * [Focus and Swap](#focus-and-swap)
-    * [Selecting areas](#selecting-areas)
-    * [Gaps](#gaps)
-    * [Other](#other-1)
-* [Mutt](#mutt)
-  * [Accounts](#accounts)
-  * [Key bindings](#key-bindings)
-    * [Index and Pager](#index-and-pager)
-    * [Index](#index)
-    * [Pager](#pager)
-    * [Attach](#attach)
-    * [Compose](#compose)
-    * [Browser](#browser)
-    * [Index and Attach and Browser and Query](#index-and-attach-and-browser-and-query)
-* [Music](#music-1)
-  * [MPD](#mpd)
-  * [Ncmpcpp](#ncmpcpp)
-  * [MPV](#mpv)
-* [Window Managers](#window-managers)
-  * [Bspwm](#bspwm-1)
-  * [Dwm](#dwm)
-  * [Awesome](#awesome)
-* [My Scripts](#my-scripts)
+  * [Sxhkd](#sxhkd)
+    * [School](#school)
+    * [Applications](#applications-1)
+    * [Rofi](#rofi)
+    * [Polybar](#polybar)
+    * [Dunst](#dunst)
+    * [Music](#music)
+    * [Other](#other)
+    * [Bspwm](#bspwm)
+      * [Desktop and Workspaces](#desktop-and-workspaces)
+      * [Windows](#windows)
+      * [Move and Resize](#move-and-resize)
+      * [Focus and Swap](#focus-and-swap)
+      * [Selecting areas](#selecting-areas)
+      * [Gaps](#gaps)
+      * [Other](#other-1)
+  * [Mutt](#mutt)
+    * [Accounts](#accounts)
+    * [Key bindings](#key-bindings)
+      * [Index and Pager](#index-and-pager)
+      * [Index](#index)
+      * [Pager](#pager)
+      * [Attach](#attach)
+      * [Compose](#compose)
+      * [Browser](#browser)
+      * [Index and Attach and Browser and Query](#index-and-attach-and-browser-and-query)
+  * [Music](#music-1)
+    * [MPD](#mpd)
+    * [Ncmpcpp](#ncmpcpp)
+    * [MPV](#mpv)
+  * [Window Managers](#window-managers)
+    * [Bspwm](#bspwm-1)
+    * [DWM](#dwm)
+    * [Awesome](#awesome)
+  * [My Scripts](#my-scripts)
+* [Backup](#backup)
+* [Cron Jobs](#cron-jobs)
+* [Defaults](#defaults)
+* [Python](#python)
+* [Node](#node)
+* [Packages](#packages)
+  * [Pacman](#pacman)
+  * [Aur](#aur)
+  * [Apt](#apt)
+* [SSH](#ssh)
+* [Systemd](#systemd)
+* [Tampermonkey](#tampermonkey)
+* [Xmenu](#xmenu)
 * [How my Theming Works](#how-my-theming-works)
 * [Dependencies](#dependencies)
   * [Platform status](#platform-status)
@@ -600,9 +613,9 @@ control](https://github.com/SingularisArt/Singularis/commit/f0bce4d1) since
 
 <img src="media/theme-1/tmux-prompt.png">
 
-# Sxhkd
+## Sxhkd
 
-## School
+### School
 
 | Action                                    | Keybinding |
 | ----------------------------------------- | ---------- |
@@ -629,7 +642,7 @@ control](https://github.com/SingularisArt/Singularis/commit/f0bce4d1) since
 | Create a course                           | Alt+C      |
 | Go through all my research papers         | Alt+p      |
 
-## Applications
+### Applications
 
 | Action                              | Keybinding    |
 | ----------------------------------- | ------------- |
@@ -642,20 +655,20 @@ control](https://github.com/SingularisArt/Singularis/commit/f0bce4d1) since
 | Open zathura                        | Super+Shift+z |
 | Open a scratchpad                   | Super+Shift+s |
 
-## Rofi
+### Rofi
 
 | Action                         | Keybinding        |
 | ------------------------------ | ----------------- |
 | Open Rofi                      | Super+r           |
 | List all applications via Rofi | Super+Alt+Shift+r |
 
-## Polybar
+### Polybar
 
 | Action                 | Keybinding |
 | ---------------------- | ---------- |
 | Enable/Disable polybar | Super+b    |
 
-## Dunst
+### Dunst
 
 | Action                           | Keybinding       |
 | -------------------------------- | ---------------- |
@@ -663,7 +676,7 @@ control](https://github.com/SingularisArt/Singularis/commit/f0bce4d1) since
 | Close all notifiactions          | Ctrl+Shift+Space |
 | Bring back the last notification | Ctrl+\`          |
 
-## Music
+### Music
 
 | Action                   | Keybinding        |
 | ------------------------ | ----------------- |
@@ -678,15 +691,15 @@ control](https://github.com/SingularisArt/Singularis/commit/f0bce4d1) since
 | Turn up the volume       | Super+Alt+u       |
 | Turn down the volume     | Super+Alt+d       |
 
-## Other
+### Other
 
 | Action            | Keybinding |
 | ----------------- | ---------- |
 | Take a screenshot | Print      |
 
-## Bspwm
+### Bspwm
 
-### Desktop and Workspaces
+#### Desktop and Workspaces
 
 | Action                               | Keybinding        |
 | ------------------------------------ | ----------------- |
@@ -694,7 +707,7 @@ control](https://github.com/SingularisArt/Singularis/commit/f0bce4d1) since
 | Go to workspace                      | Super+{1-5}       |
 | Go back to the most recent workspace | Super+Tab         |
 
-### Windows
+#### Windows
 
 | Action                                            | Keybinding           |
 | ------------------------------------------------- | -------------------- |
@@ -705,7 +718,7 @@ control](https://github.com/SingularisArt/Singularis/commit/f0bce4d1) since
 | (p)suedo tiled and (t)iled mode                   | Super+Ctrl+{p,t}     |
 | Set the node flags (marked,locked,sticky,private) | Super+Ctrl+{m,l,s,z} |
 
-### Move and Resize
+#### Move and Resize
 
 | Action                                             | Keybinding                 |
 | -------------------------------------------------- | -------------------------- |
@@ -713,14 +726,14 @@ control](https://github.com/SingularisArt/Singularis/commit/f0bce4d1) since
 | Contract a window by moving one of its side inward | Super+Alt+Shift+{h,j,k,l}  |
 | Move a floating window                             | Super+{Left,Down,Up,Right} |
 
-### Focus and Swap
+#### Focus and Swap
 
 | Action           | Keybinding            |
 | ---------------- | --------------------- |
 | Move around      | Super+{h,j,k,l}       |
 | Move application | Super+Shift+{h,j,k,l} |
 
-### Selecting areas
+#### Selecting areas
 
 | Action                                          | Keybinding               |
 | ----------------------------------------------- | ------------------------ |
@@ -730,7 +743,7 @@ control](https://github.com/SingularisArt/Singularis/commit/f0bce4d1) since
 | Cancel the preselection for the focused desktop | Super+Ctrl+Shift+Space   |
 | Move current window to a preselected space      | Super+Shift+m            |
 
-### Gaps
+#### Gaps
 
 | Action                    | Keybinding    |
 | ------------------------- | ------------- |
@@ -739,7 +752,7 @@ control](https://github.com/SingularisArt/Singularis/commit/f0bce4d1) since
 | Increase gap size by 10   | Super+z       |
 | Decrease gap size by 10   | Super+x       |
 
-### Other
+#### Other
 
 | Action        | Keybinding         |
 | ------------- | ------------------ |
@@ -747,9 +760,9 @@ control](https://github.com/SingularisArt/Singularis/commit/f0bce4d1) since
 | Restart bspwm | Super+Shift+Ctrl+r |
 | Quit bspwm    | Super+Shift+Ctrl+1 |
 
-# Mutt
+## Mutt
 
-## Accounts
+### Accounts
 
 Here's the boiler template for creating an account:
 
@@ -801,9 +814,9 @@ unset imap_passive
 set imap_keepalive = 60
 ```
 
-## Key bindings
+### Key bindings
 
-### Index and Pager
+#### Index and Pager
 
 | Action                        | Keybinding |
 | ----------------------------- | ---------- |
@@ -830,7 +843,7 @@ set imap_keepalive = 60
 | View attachments              | v          |
 | Pipe message                  | \|         |
 
-### Index
+#### Index
 
 | Action               | Keybinding |
 | -------------------- | ---------- |
@@ -846,7 +859,7 @@ set imap_keepalive = 60
 | Go to current bottom | zb         |
 | Limit by flagged     | \\         |
 
-### Pager
+#### Pager
 
 | Action                  | Keybinding |
 | ----------------------- | ---------- |
@@ -857,14 +870,14 @@ set imap_keepalive = 60
 | Go to the bottom        | G          |
 | Go to the top           | gg         |
 
-### Attach
+#### Attach
 
 | Action       | Keybinding |
 | ------------ | ---------- |
 | View mailcap | Enter      |
 | Pipe entry   | \|         |
 
-### Compose
+#### Compose
 
 | Action           | Keybinding |
 | ---------------- | ---------- |
@@ -883,7 +896,7 @@ set imap_keepalive = 60
 | Move up          | Ctrl+k     |
 | Move down        | Ctrl+j     |
 
-### Browser
+#### Browser
 
 | Action                | Keybinding |
 | --------------------- | ---------- |
@@ -891,7 +904,7 @@ set imap_keepalive = 60
 | Go to the bottom page | G          |
 | Select entry          | Enter      |
 
-### Index and Attach and Browser and Query
+#### Index and Attach and Browser and Query
 
 | Action                   | Keybinding |
 | ------------------------ | ---------- |
@@ -902,23 +915,49 @@ set imap_keepalive = 60
 | Go to the next entry     | Down       |
 | Go to the previous entry | Up         |
 
-# Music
+## Music
 
-## MPD
+### MPD
 
-## Ncmpcpp
+### Ncmpcpp
 
-## MPV
+### MPV
 
-# Window Managers
+## Window Managers
 
-## Bspwm
+### Bspwm
 
-## Dwm
+### DWM
 
-## Awesome
+### Awesome
 
-# My Scripts
+## My Scripts
+
+# Backup
+
+# Cron Jobs
+
+# Defaults
+
+# Python
+
+# Node
+
+# Packages
+
+## Pacman
+
+## Aur
+
+## Apt
+
+# SSH
+
+# Systemd
+
+# Tampermonkey
+
+# Xmenu
 
 # How my Theming Works
 
