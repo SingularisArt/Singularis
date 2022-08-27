@@ -254,7 +254,23 @@
     * [Bspwm](#bspwm-1)
     * [DWM](#dwm)
     * [Awesome](#awesome)
-  * [My Scripts](#my-scripts)
+  * [Other](#other-2)
+    * [Castero](#castero)
+    * [Dunst](#dunst-1)
+    * [Khal](#khal)
+    * [Khard](#khard)
+    * [Lf](#lf)
+    * [Lynx](#lynx)
+    * [Neofetch](#neofetch)
+    * [Newsboat](#newsboat)
+    * [Picom](#picom)
+    * [Polybar](#polybar-1)
+    * [Ranger](#ranger)
+    * [Rofi](#rofi-1)
+    * [Sioyek](#sioyek)
+    * [Wal](#wal)
+    * [Wal-Discord](#wal-discord)
+    * [My Scripts](#my-scripts)
 * [Backup](#backup)
 * [Cron Jobs](#cron-jobs)
 * [Defaults](#defaults)
@@ -268,6 +284,7 @@
 * [Systemd](#systemd)
 * [Tampermonkey](#tampermonkey)
 * [Xmenu](#xmenu)
+* [Spring Cleaning, Keeping your Home Directory Clean](#spring-cleaning-keeping-your-home-directory-clean)
 * [How my Theming Works](#how-my-theming-works)
 * [Dependencies](#dependencies)
   * [Platform status](#platform-status)
@@ -931,7 +948,39 @@ set imap_keepalive = 60
 
 ### Awesome
 
-## My Scripts
+## Other
+
+### Castero
+
+### Dunst
+
+### Khal
+
+### Khard
+
+### Lf
+
+### Lynx
+
+### Neofetch
+
+### Newsboat
+
+### Picom
+
+### Polybar
+
+### Ranger
+
+### Rofi
+
+### Sioyek
+
+### Wal
+
+### Wal-Discord
+
+### My Scripts
 
 # Backup
 
@@ -958,6 +1007,8 @@ set imap_keepalive = 60
 # Tampermonkey
 
 # Xmenu
+
+# Spring Cleaning, Keeping your Home Directory Clean
 
 # How my Theming Works
 
