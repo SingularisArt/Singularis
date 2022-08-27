@@ -12,7 +12,7 @@ log = Log()
 
 
 class File(InitClass):
-    def __init__(self, file_name, root_folder, type):
+    def __init__(self, file_name, root_folder, type, specific_items_to_install):
         InitClass.__init__(self)
 
         self.root_folder = root_folder
@@ -21,12 +21,9 @@ class File(InitClass):
         self.file_location = helpers.join(
             self.root_folder, self.type, self.name)
         self.file_destination = self.get_location()
+        self.specific_items_to_install = specific_items_to_install
 
-        # TODO: Implement this function
-        log.log_trace("Checking the hash for {}".format(self.file_location))
-
-        if self.check_sum():
-            self.install()
+        self.setup_for_installation()
 
     def get_location(self):
         if self.type == ".config":
@@ -36,24 +33,43 @@ class File(InitClass):
         elif self.type == ".local":
             return helpers.join(self.local_dir, self.name)
 
-    def install(self):
+    def setup_for_installation(self):
         try:
             open(self.file_destination, "x")
-            log.log_trace("Creating file {}".format(self.file_destination))
+            log.log_info("Creating file {}".format(self.file_destination))
         except FileNotFoundError:
             os.makedirs(os.path.dirname(self.file_destination))
-            log.log_trace("Creating folder {}".format(self.file_destination))
+            log.log_info("Creating folder {}".format(self.file_destination))
         except FileExistsError:
             pass
 
+        if len(self.specific_items_to_install) > 0:
+            if os.path.basename(self.file_location) in self.specific_items_to_install:
+                self.install()
+            else:
+                log.log_warn(
+                    "Skipping the installation of {}".format(
+                        os.path.basename(self.file_location),
+                    )
+                )
+        else:
+            self.install()
+
+    def install(self):
+        log.log_trace("Checking the hash for {}".format(self.file_location))
+        if not self.check_sum():
+            log.log_fatal("Returning")
+            return
         if self.type != ".local":
+            helpers.symlink(self.file_location, self.file_destination)
             log.log_trace(
                 "Symlinking: {} -> {}".format(
                     self.file_location,
                     self.file_destination,
                 )
             )
-            helpers.symlink(self.file_location, self.file_destination)
+            log.log_info("Installed {}".format(
+                os.path.basename(self.file_location)))
         else:
             for file in os.listdir(self.file_location):
                 file_location = helpers.join(self.file_location, file)
@@ -65,6 +81,8 @@ class File(InitClass):
                         file_destination,
                     )
                 )
+            log.log_info("Installed {}".format(
+                os.path.basename(self.file_location)))
 
     def check_sum(self):
         return True
@@ -74,10 +92,11 @@ class File(InitClass):
 
 
 class Files(InitClass, dict):
-    def __init__(self, aspect):
+    def __init__(self, aspect, specific_items_to_install):
         InitClass.__init__(self)
 
         self.root_folder = helpers.join(self.aspects_dir, aspect, "files")
+        self.specific_items_to_install = specific_items_to_install
 
         config = helpers.join(self.root_folder, ".config")
         home = helpers.join(self.root_folder, ".home")
@@ -116,6 +135,7 @@ class Files(InitClass, dict):
                     file,
                     self.root_folder,
                     type,
+                    self.specific_items_to_install,
                 )
 
         return files

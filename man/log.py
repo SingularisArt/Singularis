@@ -19,64 +19,65 @@ class Log(Colors, InitClass):
         self.all = {
             "name": "All",
             "level": 0,
-            "bg": self.bg["cyan"],
-            "fg": self.fg["black"],
+            "bg": "",
+            "fg": self.fg["cyan"],
+            "style": self.style["bold"],
         }
 
         self.trace = {
             "name": "Trace",
             "level": 2,
-            "bg": self.bg["cyan"],
-            "fg": self.fg["black"],
+            "bg": "",
+            "fg": self.fg["white"],
+            "style": self.style["bold"],
         }
 
         self.debug = {
             "name": "Debug",
             "level": 3,
-            "bg": self.bg["purple"],
-            "fg": self.fg["black"],
+            "bg": "",
+            "fg": self.fg["purple"],
+            "style": self.style["bold"],
         }
 
         self.info = {
-            "name": "Info",
+            "name": "[Info]",
             "level": 4,
-            "bg": self.bg["white"],
-            "fg": self.fg["black"],
+            "bg": "",
+            "fg": self.fg["white"],
+            "style": self.style["bold"],
         }
 
         self.warn = {
-            "name": "Warn",
+            "name": "[Warn]",
             "level": 5,
-            "bg": self.bg["orange"],
-            "fg": self.fg["black"],
+            "bg": "",
+            "fg": self.fg["orange"],
+            "style": self.style["bold"],
         }
 
         self.error = {
-            "name": "Error",
+            "name": "[Error]",
             "level": 6,
-            "bg": self.bg["red"],
-            "fg": self.fg["black"],
+            "bg": "",
+            "fg": self.fg["red"],
+            "style": self.style["bold"],
         }
 
         self.fatal = {
-            "name": "Fatal",
+            "name": "[Fatal]",
             "level": 7,
-            "bg": self.bg["red"],
-            "fg": self.fg["black"],
-        }
-
-        self.update = {
-            "name": "Update",
-            "level": 8,
-            "bg": self.bg["yellow"],
-            "fg": self.fg["black"],
+            "bg": "",
+            "fg": self.fg["red"],
+            "style": self.style["bold"],
         }
 
         self.success = {
-            "name": "Success",
+            "name": "[Success]",
             "level": 9,
-            "bg": self.bg["green"],
-            "fg": self.fg["black"],
+            "bg": "",
+            "fg": self.fg["green"],
+            "style": self.style["bold"],
         }
 
         if os.path.exists(self.log_level_txt):
@@ -89,9 +90,10 @@ class Log(Colors, InitClass):
             spacing = " " * spacing_number
 
             print(
-                "{}{} {}{}{} {}".format(
+                "{}{}{}{}{}{} {}".format(
                     type["bg"],
                     type["fg"],
+                    type["style"],
                     type["name"],
                     spacing,
                     self.style["reset"],
@@ -116,9 +118,6 @@ class Log(Colors, InitClass):
 
     def log_fatal(self, text):
         self.log_format(self.fatal, text, 3)
-
-    def log_update(self, text):
-        self.log_format(self.update, text, 2)
 
     def log_success(self, text):
         self.log_format(self.success, text, 1)

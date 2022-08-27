@@ -11,8 +11,8 @@ log = Log()
 
 log.log_info("Installing my Dotfiles")
 
-Files("dotfiles")
-Templates("dotfiles")
-Packages("dotfiles")
+Files("dotfiles", specific_items_to_install)
+# Templates("dotfiles", specific_items_to_install)
+# Packages("dotfiles", specific_items_to_install)
 
 log.log_success("Installed my Dotfiles")
