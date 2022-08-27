@@ -145,15 +145,15 @@ Run `./install --list-distros` to see the full list of supported distros.
         help="""Change the log level.
 
 Log Levels include:
-    Off:        10
+    Off:        -1
     All:         0
     Trace:       1
     Debug:       2
     Info:        3 (Default)
-    Warn:        4
-    Error:       5
-    Fatal:       6
-    Update:      7
+    Notice:      4
+    Warn:        5
+    Error:       6
+    Fatal:       7
     Success:     8
 
 """,

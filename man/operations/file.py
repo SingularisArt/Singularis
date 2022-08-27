@@ -61,6 +61,8 @@ class File(InitClass):
             log.log_fatal("Returning")
             return
         if self.type != ".local":
+            log.log_trace("Installing {}.".format(
+                os.path.basename(self.file_location)))
             helpers.symlink(self.file_location, self.file_destination)
             log.log_trace(
                 "Symlinking: {} -> {}".format(
@@ -68,7 +70,7 @@ class File(InitClass):
                     self.file_destination,
                 )
             )
-            log.log_info("Installed {}".format(
+            log.log_info("Installed {}.".format(
                 os.path.basename(self.file_location)))
         else:
             for file in os.listdir(self.file_location):
@@ -81,7 +83,7 @@ class File(InitClass):
                         file_destination,
                     )
                 )
-            log.log_info("Installed {}".format(
+            log.log_info("Installed {}.".format(
                 os.path.basename(self.file_location)))
 
     def check_sum(self):
@@ -113,14 +115,15 @@ class Files(InitClass, dict):
             self.aspects_dir, aspect, "aspect.json"
         )
         self.data = helpers.load_data(self.aspect_json_file_location)
+
         if not self.data:
             log.log_warn("Couldn't find [aspect.json] for " + self.aspect_name)
 
-        log.log_trace("Installing all files for {}".format(aspect.title()))
+        log.log_trace("Installing all files for {}.".format(aspect.title()))
 
         dict.__init__(self, self.get_files())
 
-        log.log_trace("Installed all files for {}".format(aspect.title()))
+        log.log_trace("Installed all files for {}.".format(aspect.title()))
 
     def get_files(self):
         files = {

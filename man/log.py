@@ -11,7 +11,7 @@ class Log(Colors, InitClass):
 
         self.off = {
             "name": "Off",
-            "level": 10,
+            "level": -1,
             "bg": self.bg["cyan"],
             "fg": self.fg["black"],
         }
@@ -25,16 +25,16 @@ class Log(Colors, InitClass):
         }
 
         self.trace = {
-            "name": "Trace",
-            "level": 2,
+            "name": "[Trace]",
+            "level": 1,
             "bg": "",
-            "fg": self.fg["white"],
+            "fg": self.fg["cyan"],
             "style": self.style["bold"],
         }
 
         self.debug = {
-            "name": "Debug",
-            "level": 3,
+            "name": "[Debug]",
+            "level": 2,
             "bg": "",
             "fg": self.fg["purple"],
             "style": self.style["bold"],
@@ -42,9 +42,17 @@ class Log(Colors, InitClass):
 
         self.info = {
             "name": "[Info]",
-            "level": 4,
+            "level": 3,
             "bg": "",
             "fg": self.fg["white"],
+            "style": self.style["bold"],
+        }
+
+        self.notice = {
+            "name": "[Notice]",
+            "level": 4,
+            "bg": "",
+            "fg": self.fg["yellow"],
             "style": self.style["bold"],
         }
 
@@ -74,7 +82,7 @@ class Log(Colors, InitClass):
 
         self.success = {
             "name": "[Success]",
-            "level": 9,
+            "level": 8,
             "bg": "",
             "fg": self.fg["green"],
             "style": self.style["bold"],
@@ -83,10 +91,10 @@ class Log(Colors, InitClass):
         if os.path.exists(self.log_level_txt):
             self.LOG_LEVEL = int(open(self.log_level_txt).read())
         else:
-            self.LOG_LEVEL = 3
+            self.LOG_LEVEL = int(self.info["level"])
 
     def log_format(self, type, text, spacing_number):
-        if int(type["level"]) >= self.LOG_LEVEL:
+        if int(type["level"]) >= self.LOG_LEVEL and int(self.LOG_LEVEL) >= 0:
             spacing = " " * spacing_number
 
             print(
@@ -109,6 +117,9 @@ class Log(Colors, InitClass):
 
     def log_info(self, text):
         self.log_format(self.info, text, 4)
+
+    def log_notice(self, text):
+        self.log_format(self.notice, text, 2)
 
     def log_warn(self, text):
         self.log_format(self.warn, text, 4)
