@@ -259,6 +259,7 @@
 * [Dependencies](#dependencies)
   * [Platform status](#platform-status)
   * [Installation](#installation)
+    * [Examples](#examples)
 * [License](#license)
 * [Credit](#credit)
 
@@ -944,8 +945,32 @@ You need:
 git clone --recursive https://github.com/SingularisArt/Singularis.git
 ```
 
-I'm currently working on the installation script and instead of using bash this
-time, I'm going to use python.
+> :warning: WARNING: There are lots of different things that can be installed
+> or configured (see the [aspects](aspects/) directory). Unless you want your
+> machine to be exactly like mine -- which is unlikely -- you probably don't
+> want to install everything. Maybe you don't even want everything in the
+> ["dotfiles"](aspects/dotfiles) and ["xmenu"](aspects/xmenu) aspects. Please
+> inspect the contents of each aspect before proceeding to install it; you may
+> even be better off just looking at the configuration files and stealing the
+> bits that you find interesting or useful (everything is in the public domain,
+> unless otherwise indicated).
+
+### Examples
+
+```bash
+./install --aspect "dotfiles xmenu"           # Just install "dotfiles" and "xmenu".
+./install --aspect "dotfiles"                 # Just install "dotfiles".
+./install --aspect "^dotfiles"                # Install everything except the "dotfiles" aspect.
+./install --aspect "dotfiles(neomutt)"        # Just install "neomutt" from my "dotfiles" aspect (Experimental).
+./install --aspect "dotfiles(neomutt zsh)"    # Just install "neomutt" and "zsh" from my "dotfiles" aspect (Experimental).
+./install --aspect "dotfiles(^neomutt)"       # Install everything except "neomutt" from my "dotfiles" aspect (Experimental).
+./install --step --aspect "dotfiles"          # Prompt for confirmation at each step.
+./install --check --aspect "dotfiles"         # Do a dry-run, showing what would be changed.
+./install --no-templates                      # Don't install any templates.
+./install --no-files                          # Don't install any files.
+./install --all                               # Install everything.
+./install --help                              # Lists all possible commands/options.
+```
 
 # License
 
