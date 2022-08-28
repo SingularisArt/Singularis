@@ -217,9 +217,10 @@
   * [Features](#features)
   * [Zsh](#zsh)
     * [Functions](#functions)
+    * [Bindings](#bindings)
     * [Prompt](#prompt)
   * [Tmux](#tmux)
-    * [Bindings](#bindings)
+    * [Bindings](#bindings-1)
     * [Prompt](#prompt-1)
   * [Sxhkd](#sxhkd)
     * [School](#school)
@@ -579,15 +580,16 @@ control](https://github.com/SingularisArt/Singularis/commit/f0bce4d1) since
 2022). Characteristics include:
 
 - Sane Vim pasting via bracketed paste mode.
+- Navigate between Vim and Tmux with ease.
 - Full mouse support (pane/split resizing, scrolling, text selection) in Vim
   and tmux.
 - Focus/lost events for Vim inside tmux.
 - Cursor shape toggles on entering Vim.
-- Italics in the terminal.
+- Italics, Bolds, and Underlines in the terminal.
 - Bundles a (not-excessive) number of useful Vim plug-ins.
 - Conservative Vim configuration (overrides of core functionality;
   most changes are unobtrusive enhancements; some functionality exposed via
-  <Leader> and <LocalLeader> mappings.
+  `<Leader>` and `<LocalLeader`> mappings.
 - Restrained Zsh config, Bash-like but with some Zsh perks, such as
   right-side prompt, auto-cd hooks, command elapsed time printing, own
   custom-made plugin manager, and such.
@@ -596,23 +598,15 @@ control](https://github.com/SingularisArt/Singularis/commit/f0bce4d1) since
 
 ### Functions
 
-- `ag`: Transparently wraps the `ag` executable so to provide a centralized
-  place to set defaults for that command (seeing as it has no "rc" file).
-- `color`: Change terminal and Neovim color scheme.
-- `fd`: Using fast `bfs` and `sk`; automatically `cd`s into the selected
-  directory.
-- `fh`: Selecting a history item inserts it into the command line but does not
-  execute it.
-- `history`: Overrides the default history count.
-- `jump`: To jump to hashed directories.
-- `regmv`: Bulk-rename files (eg. `regmv '/\.tif$/.tiff/' *`).
-- `scratch`: Create a random temporary scratch directory and `cd` into it.
-- `tick`: Moves an existing time warp (eg. `tick +1h`); see `tw` below for a
-  description of time warp.
+- `git`: A git wrapper function. If you just run `git`, `git status` will be
+  run. If you run `git root`, you'll go to the root directory in the current
+  git folder. If you run `git root ls`, the `ls` command will be run in the
+  root directory in the git folder.
+- `scratch`: Create a temporary directory, cd into it and create a sub shell
+  inside it.
 - `tmux`: Wrapper that reattaches to pre-existing sessions, or creates new ones
   based on the current directory name; it also looks for a `.tmux` file
   to set up windows and panes.
-- `tw`: Overrides `GIT_AUTHOR_DATE` and `GIT_COMMITTER_DATE` (eg. `tw -1d`).
 - `gpg`: A re-write function that if you don't give it any parameters, it
   will run `gpg --list-keys`.
 - `zsh_add_file`: This function sources any file you have in the zsh config
@@ -621,6 +615,18 @@ control](https://github.com/SingularisArt/Singularis/commit/f0bce4d1) since
   directory in ~/Singularis/config/dotfiles/files/.zsh/plugins
 - `zsh_add_completion`: This function sources any completion you have in the
   zsh config directory in ~/Singularis/config/dotfiles/files/.zsh/completion
+
+### Bindings
+
+- `Up Arrow`: Previous command.
+- `Down Arrow`: Next command.
+- `Ctrl+p`: Previous command.
+- `Ctrl+n`: Next command.
+- `k`: Previous command.
+- `j`: Next command.
+- `Ctrl+o`: Open lf and cd into that directory.
+- `Ctrl+x`: Edit the current command in a NeoVim temp file.
+- `Ctrl+r`: Reloud .zshrc.
 
 ### Prompt
 
@@ -668,6 +674,7 @@ control](https://github.com/SingularisArt/Singularis/commit/f0bce4d1) since
 | Action                              | Keybinding    |
 | ----------------------------------- | ------------- |
 | Open terminal (xfce4-terminal)      | Super+Enter   |
+| Open the browser of your choice     | Super+w       |
 | Open nvim (in xfce4-terminal)       | Super+n       |
 | Open neomutt (in xfce4-terminal)    | Super+m       |
 | Open ncmpcpp (in xfce4-terminal)    | Super+e       |
@@ -675,6 +682,25 @@ control](https://github.com/SingularisArt/Singularis/commit/f0bce4d1) since
 | Open xmenu                          | Super+Shift+d |
 | Open zathura                        | Super+Shift+z |
 | Open a scratchpad                   | Super+Shift+s |
+
+super + w
+  $BROWSER
+super + n
+  xfce4-terminal -e 'nvim'
+super + m
+  xfce4-terminal -e 'neomutt'
+super + e
+  xfce4-terminal -e 'ncmpcpp'
+super + shift + c
+  xfce4-terminal -e 'castero'
+super + shift + p
+  xfce4-terminal -e 'pulsemixer'
+super + shift + d
+  bash $HOME/Singularis/aspects/dotfiles/files/.local/bin/xmenu-script
+super + shift + z
+  zathura
+super + shift + s
+  tdrop -am -n 0 xfce4-terminal
 
 ### Rofi
 
