@@ -1,6 +1,6 @@
 45.82575694955841	/home/singularis/.config/zsh
-64.80740698407861	/home/singularis/.local/share/deathvim/dvim
-131.90905958272916	/home/singularis/Singularis
+65.57438524302002	/home/singularis/.local/share/deathvim/dvim
+133.04134695650066	/home/singularis/Singularis
 42.42640687119286	/home/singularis/Downloads
 34.64101615137755	/home/singularis/Documents/journal
 24.49489742783178	/home/singularis/Desktop/PDFs
@@ -152,7 +152,7 @@
 22.360679774997898	/home/singularis/Singularis/fig
 10.0	/home/singularis/Singularis/fig/console
 10.0	/home/singularis/Singularis/fig/dsl
-54.772255750516614	/home/singularis/Singularis/man
+58.30951894845301	/home/singularis/Singularis/man
 22.360679774997898	/home/singularis/Singularis/man/operations
 14.142135623730951	/home/singularis/Singularis/man/log
 10.0	/home/singularis/wincent/bin
@@ -195,3 +195,4 @@
 10.0	/home/singularis/Singularis/third-party-tools
 14.142135623730951	/home/singularis/Singularis/aspects/xmenu
 10.0	/home/singularis/Singularis/aspects/dotfiles/files/.config/newsboat
+10.0	/home/singularis/command-t

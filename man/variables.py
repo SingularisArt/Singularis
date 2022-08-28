@@ -6,8 +6,10 @@ import os.path as path
 
 
 HOME = path.expanduser("~")
-SINGULARIS = helpers.join(HOME, "Singularis")
-
+LOCAL = helpers.join(HOME, ".local")
+SHARE = helpers.join(LOCAL, "share")
+BIN = helpers.join(LOCAL, "bin")
+SINGULARIS = helpers.join(SHARE, "Singularis")
 ASPECTS = helpers.join(SINGULARIS, "aspects")
 THIRD_PARTY_TOOLS = helpers.join(
     SINGULARIS, "third-party-tools")
