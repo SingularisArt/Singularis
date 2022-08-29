@@ -1,10 +1,10 @@
 56.568542494923804	/home/singularis/.config/zsh
-67.08203932499372	/home/singularis/.local/share/deathvim/dvim
+70.00000000000001	/home/singularis/.local/share/deathvim/dvim
 133.04134695650066	/home/singularis/Singularis
-43.588989435406745	/home/singularis/Downloads
+46.904157598234306	/home/singularis/Downloads
 34.64101615137755	/home/singularis/Documents/journal
 24.49489742783178	/home/singularis/Desktop/PDFs
-31.622776601683796	/home/singularis/Desktop
+33.166247903554	/home/singularis/Desktop
 10.0	/home/singularis/.config/newsboat
 14.142135623730951	/home/singularis/Singularis/local/share
 10.0	/home/singularis/Singularis/local/share/cargo
@@ -12,7 +12,7 @@
 10.0	/home/singularis/Documents/journal/2022/08/10
 14.142135623730951	/home/singularis/Downloads/lab_code
 10.0	/home/singularis/Singularis/local/share/newsboat
-46.904157598234306	/home/singularis/Documents
+48.98979485566357	/home/singularis/Documents
 10.0	/home/singularis/Documents/discipline-notes/mathematics/trigonometry
 10.0	/home/singularis/Desktop/PDFs/mathematics/daniel_j_velleman
 17.320508075688775	/home/singularis/Singularis/bin
@@ -22,7 +22,7 @@
 10.0	/home/singularis/snapd
 10.0	/tmp/tmp.m3jOP9GBx6
 17.320508075688775	/home/singularis/wincent
-22.360679774997898	/home/singularis/.local/share/deathvim/dvim/lua/dvim
+30.000000000000004	/home/singularis/.local/share/deathvim/dvim/lua/dvim
 17.320508075688775	/home/singularis/Singularis/config/dotfiles/files/zsh
 36.0555127546399	/home/singularis/Singularis/config
 34.64101615137755	/home/singularis/Singularis/config/dotfiles
@@ -47,9 +47,9 @@
 66.33249580710802	/home/singularis/Documents/Website
 10.0	/home/singularis/.minecraft
 10.0	/home/singularis/.tlauncher
-14.142135623730951	/home/singularis/.ssh
+28.284271247461902	/home/singularis/.ssh
 14.142135623730951	/home/singularis/Singularis/config/sioyek
-33.166247903554	/home/singularis/Music
+34.64101615137755	/home/singularis/Music
 10.0	/home/singularis/Screenshots
 17.320508075688775	/home/singularis/tes
 14.142135623730951	/home/singularis/Projects
@@ -196,7 +196,7 @@
 14.142135623730951	/home/singularis/Singularis/aspects/xmenu
 10.0	/home/singularis/Singularis/aspects/dotfiles/files/.config/newsboat
 10.0	/home/singularis/command-t
-46.904157598234306	/home/singularis/.local/share/Singularis
+47.9583152331272	/home/singularis/.local/share/Singularis
 17.320508075688775	/home/singularis/.config/git
 20.0	/home/singularis/.local/share/Singularis/aspects/dotfiles/files
 26.457513110645905	/home/singularis/.local/share/Singularis/aspects/dotfiles/files/.config
@@ -207,3 +207,8 @@
 10.0	/home/singularis/Downloads/Singularis-master/aspects/dotfiles/files/.config
 10.0	/home/singularis/zsh
 10.0	/home/singularis/.local/share/Singularis/aspects/dotfiles/files/.config/anki
+10.0	/home/singularis/.local/share/deathvim/dvim/lua/dvim/core/plugins
+10.0	/home/singularis/Music/FatihSeferagic
+10.0	/home/singularis/.ssh/keys
+14.142135623730951	/home/singularis/.ssh/keys/personal
+14.142135623730951	/home/singularis/.ssh/keys/personal/main-linux-laptop
