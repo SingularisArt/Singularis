@@ -14,7 +14,6 @@ alias mv='nocorrect mv -iv'
 alias rm='nocorrect rm -vI'
 alias myip='curl http://ipecho.net/plain; echo'
 alias distro='source /etc/lsb-release && source /etc/os-release && echo "Main Distro: $ID_LIKE. Sub Distro: $DISTRIB_ID"'
-alias wget='wget --hsts-file="$XDG_CACHE_HOME/wget-hsts"'
 
 if [ -f "/etc/arch-release" ] || [ -f "/etc/artix-release" ]; then
   alias update='sudo pacman -Syu'
@@ -82,17 +81,18 @@ if command -v exa &> /dev/null; then
   alias l1='exa --icons -1'
   alias ll='exa --icons -l'
   alias lhi='exa --icons -l -i'
+  alias law='exa --icons -a | wc -l'
+  alias lsw='exa --icons | wc -l'
 else
   alias la='ls --color -a'
   alias l1='ls --color -1'
   alias ll='ls --color -l'
   alias lhi='ls --color -l -i'
+  alias law='ls --color -a | wc -l'
+  alias lsw='ls --color | wc -l'
 fi
 
-alias lan='ls -a | wc -l'
-alias lsn='ls | wc -l'
-alias lanc='clear && la && echo "" && echo "Current Number of Files: $(ls -a | wc -l)"'
-alias lsnc='clear && ls && echo "" && echo "Current Number of Files: $(ls | wc -l)"'
+alias lawc='clear && la && echo "" && echo "Current Number of Files: $(ls -a | wc -l)"'
 
 alias .='cd .'
 alias ..='cd ..'

@@ -1,7 +1,7 @@
-52.91502622129182	/home/singularis/.config/zsh
+56.568542494923804	/home/singularis/.config/zsh
 67.08203932499372	/home/singularis/.local/share/deathvim/dvim
 133.04134695650066	/home/singularis/Singularis
-42.42640687119286	/home/singularis/Downloads
+43.588989435406745	/home/singularis/Downloads
 34.64101615137755	/home/singularis/Documents/journal
 24.49489742783178	/home/singularis/Desktop/PDFs
 31.622776601683796	/home/singularis/Desktop
@@ -28,7 +28,7 @@
 34.64101615137755	/home/singularis/Singularis/config/dotfiles
 28.284271247461902	/home/singularis/Documents/school-notes/current-course
 30.000000000000004	/home/singularis/Documents/school-notes
-22.360679774997898	/home/singularis/.config
+28.284271247461902	/home/singularis/.config
 14.142135623730951	/home/singularis/.config/sioyek
 14.142135623730951	/home/singularis/Singularis/scripts
 14.142135623730951	/home/singularis/Singularis/scripts/install/list
@@ -92,7 +92,7 @@
 17.320508075688775	/home/singularis/.config/google-chrome/Profile 1
 10.0	/home/singularis/.local/share
 10.0	/home/singularis/.local
-20.0	/home/singularis/.local/bin
+22.360679774997898	/home/singularis/.local/bin
 10.0	/home/singularis/.local/share/nvcodark
 10.0	/home/singularis/gmail-generator
 10.0	/home/singularis/gmail-generator/source
@@ -196,9 +196,14 @@
 14.142135623730951	/home/singularis/Singularis/aspects/xmenu
 10.0	/home/singularis/Singularis/aspects/dotfiles/files/.config/newsboat
 10.0	/home/singularis/command-t
-31.622776601683796	/home/singularis/.local/share/Singularis
-14.142135623730951	/home/singularis/.config/git
-10.0	/home/singularis/.local/share/Singularis/aspects/dotfiles/files
-10.0	/home/singularis/.local/share/Singularis/aspects/dotfiles/files/.config
+46.904157598234306	/home/singularis/.local/share/Singularis
+17.320508075688775	/home/singularis/.config/git
+20.0	/home/singularis/.local/share/Singularis/aspects/dotfiles/files
+26.457513110645905	/home/singularis/.local/share/Singularis/aspects/dotfiles/files/.config
 10.0	/home/singularis/.local/share/Singularis/aspects/dotfiles/files/.config/git
 10.0	/home/singularis/.local/share/Singularis/aspects/dotfiles
+10.0	/home/singularis/Downloads/Singularis-master
+10.0	/home/singularis/Downloads/Singularis-master/aspects/dotfiles/files/.config/zsh
+10.0	/home/singularis/Downloads/Singularis-master/aspects/dotfiles/files/.config
+10.0	/home/singularis/zsh
+10.0	/home/singularis/.local/share/Singularis/aspects/dotfiles/files/.config/anki
