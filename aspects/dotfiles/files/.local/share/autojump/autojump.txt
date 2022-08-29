@@ -12,7 +12,7 @@
 10.0	/home/singularis/Documents/journal/2022/08/10
 14.142135623730951	/home/singularis/Downloads/lab_code
 10.0	/home/singularis/Singularis/local/share/newsboat
-48.98979485566357	/home/singularis/Documents
+50.00000000000001	/home/singularis/Documents
 10.0	/home/singularis/Documents/discipline-notes/mathematics/trigonometry
 10.0	/home/singularis/Desktop/PDFs/mathematics/daniel_j_velleman
 17.320508075688775	/home/singularis/Singularis/bin
@@ -28,7 +28,7 @@
 34.64101615137755	/home/singularis/Singularis/config/dotfiles
 28.284271247461902	/home/singularis/Documents/school-notes/current-course
 30.000000000000004	/home/singularis/Documents/school-notes
-28.284271247461902	/home/singularis/.config
+33.166247903554	/home/singularis/.config
 14.142135623730951	/home/singularis/.config/sioyek
 14.142135623730951	/home/singularis/Singularis/scripts
 14.142135623730951	/home/singularis/Singularis/scripts/install/list
@@ -196,12 +196,12 @@
 14.142135623730951	/home/singularis/Singularis/aspects/xmenu
 10.0	/home/singularis/Singularis/aspects/dotfiles/files/.config/newsboat
 10.0	/home/singularis/command-t
-47.9583152331272	/home/singularis/.local/share/Singularis
+50.00000000000001	/home/singularis/.local/share/Singularis
 17.320508075688775	/home/singularis/.config/git
-20.0	/home/singularis/.local/share/Singularis/aspects/dotfiles/files
-26.457513110645905	/home/singularis/.local/share/Singularis/aspects/dotfiles/files/.config
+22.360679774997898	/home/singularis/.local/share/Singularis/aspects/dotfiles/files
+28.284271247461902	/home/singularis/.local/share/Singularis/aspects/dotfiles/files/.config
 10.0	/home/singularis/.local/share/Singularis/aspects/dotfiles/files/.config/git
-10.0	/home/singularis/.local/share/Singularis/aspects/dotfiles
+14.142135623730951	/home/singularis/.local/share/Singularis/aspects/dotfiles
 10.0	/home/singularis/Downloads/Singularis-master
 10.0	/home/singularis/Downloads/Singularis-master/aspects/dotfiles/files/.config/zsh
 10.0	/home/singularis/Downloads/Singularis-master/aspects/dotfiles/files/.config
@@ -212,3 +212,6 @@
 10.0	/home/singularis/.ssh/keys
 14.142135623730951	/home/singularis/.ssh/keys/personal
 14.142135623730951	/home/singularis/.ssh/keys/personal/main-linux-laptop
+10.0	/home/singularis/.config/gtk-2.0
+10.0	/home/singularis/.config/gtk-3.0
+10.0	/home/singularis/.config/gtk-4.0
