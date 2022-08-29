@@ -28,7 +28,7 @@ super + shift + c
 super + shift + p
   xfce4-terminal -e 'pulsemixer'
 super + shift + d
-  bash $HOME/Singularis/aspects/dotfiles/files/.local/bin/xmenu-script
+  bash $HOME/.local/share/Singularis/aspects/dotfiles/files/.local/bin/xmenu-script
 super + shift + z
   zathura
 super + shift + s
@@ -48,7 +48,7 @@ super + alt + shift + r
 ###########
 
 super + b
-  bash $HOME/Singularis/aspects/dotfiles/files/.local/bin/statusbar
+  bash $HOME/.local/share/Singularis/aspects/dotfiles/files/.local/bin/statusbar
 
 #-------#
 # Dunst #
@@ -82,18 +82,18 @@ super + alt + comma
 super + alt + period
   mpc next
 super + alt + u
-  pamixer -i 5 && $HOME/Singularis/aspects/dotfiles/files/.local/bin/volume-indicator show
+  pamixer -i 5 && $HOME/.local/share/Singularis/aspects/dotfiles/files/.local/bin/volume-indicator show
 super + alt + d
-  pamixer -d 5 && $HOME/Singularis/aspects/dotfiles/files/.local/bin/volume-indicator show
+  pamixer -d 5 && $HOME/.local/share/Singularis/aspects/dotfiles/files/.local/bin/volume-indicator show
 super + c
-  $HOME/Singularis/aspects/dotfiles/files/.local/bin/change-theme
+  $HOME/.local/share/Singularis/aspects/dotfiles/files/.local/bin/change-theme
 
 #########
 # Other #
 #########
 
 Print
-  $HOME/Singularis/aspects/dotfiles/files/.local/bin/maimpick
+  $HOME/.local/share/Singularis/aspects/dotfiles/files/.local/bin/maimpick
 
 
 #-------#

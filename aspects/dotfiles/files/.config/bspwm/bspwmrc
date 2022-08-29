@@ -11,7 +11,6 @@ killall sxhkd; sxhkd &
 killall dunst; dunst &
 killall mpd; mpd &
 xrdb -load ~/.config/X11/Xresources
-bluetoothctl power on
 
 #############
 # Autostart #

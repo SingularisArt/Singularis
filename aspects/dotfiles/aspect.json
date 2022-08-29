@@ -37,6 +37,7 @@
       "tmux",
       "wal",
       "wal-discord",
+      "xmenu",
       "zsh"
     ],
     ".local": [

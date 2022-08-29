@@ -4,7 +4,7 @@
 46.904157598234306	/home/singularis/Downloads
 34.64101615137755	/home/singularis/Documents/journal
 24.49489742783178	/home/singularis/Desktop/PDFs
-36.0555127546399	/home/singularis/Desktop
+37.41657386773942	/home/singularis/Desktop
 10.0	/home/singularis/.config/newsboat
 14.142135623730951	/home/singularis/Singularis/local/share
 10.0	/home/singularis/Singularis/local/share/cargo
@@ -26,8 +26,8 @@
 17.320508075688775	/home/singularis/Singularis/config/dotfiles/files/zsh
 36.0555127546399	/home/singularis/Singularis/config
 34.64101615137755	/home/singularis/Singularis/config/dotfiles
-28.284271247461902	/home/singularis/Documents/school-notes/current-course
-30.000000000000004	/home/singularis/Documents/school-notes
+30.000000000000004	/home/singularis/Documents/school-notes/current-course
+31.622776601683796	/home/singularis/Documents/school-notes
 33.166247903554	/home/singularis/.config
 14.142135623730951	/home/singularis/.config/sioyek
 14.142135623730951	/home/singularis/Singularis/scripts
@@ -36,7 +36,7 @@
 10.0	/home/singularis/Singularis/scripts/install/core
 10.0	/home/singularis/Singularis/scripts/install/settings
 14.142135623730951	/home/singularis/Singularis/scripts/install/libraries
-33.166247903554	/home/singularis/Documents/school-setup
+36.0555127546399	/home/singularis/Documents/school-setup
 10.0	/home/singularis/Singularis/config/anki
 10.0	/home/singularis/.local/share/deathvim/dvim/lua/dvim/lsp
 10.0	/home/singularis/.local/share/deathvim/dvim/lua/dvim/core/plugins/cmp
@@ -47,7 +47,7 @@
 66.33249580710802	/home/singularis/Documents/Website
 10.0	/home/singularis/.minecraft
 10.0	/home/singularis/.tlauncher
-33.166247903554	/home/singularis/.ssh
+37.41657386773942	/home/singularis/.ssh
 14.142135623730951	/home/singularis/Singularis/config/sioyek
 34.64101615137755	/home/singularis/Music
 10.0	/home/singularis/Screenshots
@@ -87,7 +87,7 @@
 14.142135623730951	/home/singularis/test/netlify-website/layouts/partials
 14.142135623730951	/home/singularis/Downloads/Takeout
 10.0	/home/singularis/Downloads/Takeout/Chrome
-24.49489742783178	/home/singularis/.config/google-chrome
+26.457513110645905	/home/singularis/.config/google-chrome
 24.49489742783178	/home/singularis/.config/google-chrome/Profile 3
 17.320508075688775	/home/singularis/.config/google-chrome/Profile 1
 10.0	/home/singularis/.local/share
@@ -175,7 +175,7 @@
 10.0	/home/singularis/Singularis/man/templates/.home
 10.0	/home/singularis/Singularis/man/templates/.home/.gitconfig
 10.0	/home/singularis/.local/share/zathura
-10.0	/home/singularis/.config/polybar
+22.360679774997898	/home/singularis/.config/polybar
 17.320508075688775	/home/singularis/scripts
 10.0	/home/singularis/Desktop/01.Python/Projects/PersonalProjects/Other
 10.0	/home/singularis/Desktop/01.Python/Projects/PersonalProjects
@@ -196,12 +196,12 @@
 14.142135623730951	/home/singularis/Singularis/aspects/xmenu
 10.0	/home/singularis/Singularis/aspects/dotfiles/files/.config/newsboat
 10.0	/home/singularis/command-t
-50.990195135927856	/home/singularis/.local/share/Singularis
+59.16079783099617	/home/singularis/.local/share/Singularis
 17.320508075688775	/home/singularis/.config/git
 22.360679774997898	/home/singularis/.local/share/Singularis/aspects/dotfiles/files
 28.284271247461902	/home/singularis/.local/share/Singularis/aspects/dotfiles/files/.config
 10.0	/home/singularis/.local/share/Singularis/aspects/dotfiles/files/.config/git
-14.142135623730951	/home/singularis/.local/share/Singularis/aspects/dotfiles
+17.320508075688775	/home/singularis/.local/share/Singularis/aspects/dotfiles
 10.0	/home/singularis/Downloads/Singularis-master
 10.0	/home/singularis/Downloads/Singularis-master/aspects/dotfiles/files/.config/zsh
 10.0	/home/singularis/Downloads/Singularis-master/aspects/dotfiles/files/.config
@@ -209,9 +209,16 @@
 10.0	/home/singularis/.local/share/Singularis/aspects/dotfiles/files/.config/anki
 10.0	/home/singularis/.local/share/deathvim/dvim/lua/dvim/core/plugins
 10.0	/home/singularis/Music/FatihSeferagic
-10.0	/home/singularis/.ssh/keys
-17.320508075688775	/home/singularis/.ssh/keys/personal
-17.320508075688775	/home/singularis/.ssh/keys/personal/main-linux-laptop
+14.142135623730951	/home/singularis/.ssh/keys
+20.0	/home/singularis/.ssh/keys/personal
+20.0	/home/singularis/.ssh/keys/personal/main-linux-laptop
 10.0	/home/singularis/.config/gtk-2.0
 10.0	/home/singularis/.config/gtk-3.0
 10.0	/home/singularis/.config/gtk-4.0
+17.320508075688775	/home/singularis/.local/share/Singularis/media/wallpapers
+24.49489742783178	/home/singularis/.local/share/Singularis/third-party-tools/chameleon
+10.0	/home/singularis/.config/xfce4/terminal
+10.0	/home/singularis/.local/share/Singularis/third-party-tools/chameleon/scripts
+10.0	/home/singularis/.local/share/Singularis/aspects
+10.0	/home/singularis/.config/xmenu
+10.0	/home/singularis/.local/share/Singularis/third-party-tools
