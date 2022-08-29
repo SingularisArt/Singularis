@@ -37,6 +37,8 @@ function git() {
     else
       (cd "$ROOT" && eval "$@")
     fi
+  else
+    command git "$@"
   fi
 }
 

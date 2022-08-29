@@ -1,4 +1,4 @@
-51.96152422706633	/home/singularis/.config/zsh
+52.91502622129182	/home/singularis/.config/zsh
 67.08203932499372	/home/singularis/.local/share/deathvim/dvim
 133.04134695650066	/home/singularis/Singularis
 42.42640687119286	/home/singularis/Downloads
@@ -44,7 +44,7 @@
 10.0	/home/singularis/Documents/cover-letter
 10.0	/home/singularis/Documents/discipline-notes
 14.142135623730951	/home/singularis/Documents/resume
-65.57438524302002	/home/singularis/Documents/Website
+66.33249580710802	/home/singularis/Documents/Website
 10.0	/home/singularis/.minecraft
 10.0	/home/singularis/.tlauncher
 14.142135623730951	/home/singularis/.ssh
@@ -196,7 +196,7 @@
 14.142135623730951	/home/singularis/Singularis/aspects/xmenu
 10.0	/home/singularis/Singularis/aspects/dotfiles/files/.config/newsboat
 10.0	/home/singularis/command-t
-28.284271247461902	/home/singularis/.local/share/Singularis
+31.622776601683796	/home/singularis/.local/share/Singularis
 14.142135623730951	/home/singularis/.config/git
 10.0	/home/singularis/.local/share/Singularis/aspects/dotfiles/files
 10.0	/home/singularis/.local/share/Singularis/aspects/dotfiles/files/.config
