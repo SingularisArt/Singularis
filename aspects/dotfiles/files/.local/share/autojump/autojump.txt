@@ -5,7 +5,7 @@
 34.64101615137755	/home/singularis/Documents/journal
 24.49489742783178	/home/singularis/Desktop/PDFs
 40.00000000000001	/home/singularis/Desktop
-10.0	/home/singularis/.config/newsboat
+14.142135623730951	/home/singularis/.config/newsboat
 14.142135623730951	/home/singularis/Singularis/local/share
 10.0	/home/singularis/Singularis/local/share/cargo
 10.0	/home/singularis/Documents/journal/2022/08
@@ -196,7 +196,7 @@
 14.142135623730951	/home/singularis/Singularis/aspects/xmenu
 10.0	/home/singularis/Singularis/aspects/dotfiles/files/.config/newsboat
 10.0	/home/singularis/command-t
-63.24555320336759	/home/singularis/.local/share/Singularis
+64.80740698407861	/home/singularis/.local/share/Singularis
 17.320508075688775	/home/singularis/.config/git
 22.360679774997898	/home/singularis/.local/share/Singularis/aspects/dotfiles/files
 28.284271247461902	/home/singularis/.local/share/Singularis/aspects/dotfiles/files/.config
@@ -221,9 +221,10 @@
 14.142135623730951	/home/singularis/.local/share/Singularis/third-party-tools/chameleon/scripts
 10.0	/home/singularis/.local/share/Singularis/aspects
 10.0	/home/singularis/.config/xmenu
-10.0	/home/singularis/.local/share/Singularis/third-party-tools
+14.142135623730951	/home/singularis/.local/share/Singularis/third-party-tools
 10.0	/home/singularis/.local/share/deathvim/dvim/utils/installer
 17.320508075688775	/home/singularis/.config/dvim
 10.0	/home/singularis/.subversion
 31.622776601683796	/home/singularis/feh
 14.142135623730951	/home/singularis/.config/bspwm
+14.142135623730951	/home/singularis/.local/share/Singularis/third-party-tools/start-tree
