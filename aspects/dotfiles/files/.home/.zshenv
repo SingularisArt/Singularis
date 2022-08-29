@@ -39,5 +39,4 @@ export SSB_HOME="$XDG_DATA_HOME/zoom"
 export GTK_THEME="oomox-xresources-reverse"
 export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
 export WGETRC="$XDG_CONFIG_HOME/wgetrc"
-export SSH_ASKPASS=/usr/lib/ssh/gnome-ssh-askpass3
-export SSH_ASKPASS_REQUIRE=prefer
+export XAUTHORITY="$XDG_CONFIG_HOME/Xauthority"

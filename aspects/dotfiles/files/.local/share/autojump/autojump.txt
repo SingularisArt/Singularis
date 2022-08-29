@@ -1,10 +1,10 @@
 56.568542494923804	/home/singularis/.config/zsh
-72.1110255092798	/home/singularis/.local/share/deathvim/dvim
+74.83314773547885	/home/singularis/.local/share/deathvim/dvim
 133.04134695650066	/home/singularis/Singularis
 46.904157598234306	/home/singularis/Downloads
 34.64101615137755	/home/singularis/Documents/journal
 24.49489742783178	/home/singularis/Desktop/PDFs
-37.41657386773942	/home/singularis/Desktop
+40.00000000000001	/home/singularis/Desktop
 10.0	/home/singularis/.config/newsboat
 14.142135623730951	/home/singularis/Singularis/local/share
 10.0	/home/singularis/Singularis/local/share/cargo
@@ -28,7 +28,7 @@
 34.64101615137755	/home/singularis/Singularis/config/dotfiles
 30.000000000000004	/home/singularis/Documents/school-notes/current-course
 31.622776601683796	/home/singularis/Documents/school-notes
-33.166247903554	/home/singularis/.config
+34.64101615137755	/home/singularis/.config
 14.142135623730951	/home/singularis/.config/sioyek
 14.142135623730951	/home/singularis/Singularis/scripts
 14.142135623730951	/home/singularis/Singularis/scripts/install/list
@@ -38,7 +38,7 @@
 14.142135623730951	/home/singularis/Singularis/scripts/install/libraries
 37.41657386773942	/home/singularis/Documents/school-setup
 10.0	/home/singularis/Singularis/config/anki
-10.0	/home/singularis/.local/share/deathvim/dvim/lua/dvim/lsp
+14.142135623730951	/home/singularis/.local/share/deathvim/dvim/lua/dvim/lsp
 10.0	/home/singularis/.local/share/deathvim/dvim/lua/dvim/core/plugins/cmp
 10.0	/home/singularis/.config/neomutt
 10.0	/home/singularis/Documents/cover-letter
@@ -175,7 +175,7 @@
 10.0	/home/singularis/Singularis/man/templates/.home
 10.0	/home/singularis/Singularis/man/templates/.home/.gitconfig
 10.0	/home/singularis/.local/share/zathura
-26.457513110645905	/home/singularis/.config/polybar
+28.284271247461902	/home/singularis/.config/polybar
 17.320508075688775	/home/singularis/scripts
 10.0	/home/singularis/Desktop/01.Python/Projects/PersonalProjects/Other
 10.0	/home/singularis/Desktop/01.Python/Projects/PersonalProjects
@@ -196,7 +196,7 @@
 14.142135623730951	/home/singularis/Singularis/aspects/xmenu
 10.0	/home/singularis/Singularis/aspects/dotfiles/files/.config/newsboat
 10.0	/home/singularis/command-t
-61.64414002968977	/home/singularis/.local/share/Singularis
+63.24555320336759	/home/singularis/.local/share/Singularis
 17.320508075688775	/home/singularis/.config/git
 22.360679774997898	/home/singularis/.local/share/Singularis/aspects/dotfiles/files
 28.284271247461902	/home/singularis/.local/share/Singularis/aspects/dotfiles/files/.config
@@ -217,7 +217,7 @@
 10.0	/home/singularis/.config/gtk-4.0
 17.320508075688775	/home/singularis/.local/share/Singularis/media/wallpapers
 28.284271247461902	/home/singularis/.local/share/Singularis/third-party-tools/chameleon
-10.0	/home/singularis/.config/xfce4/terminal
+14.142135623730951	/home/singularis/.config/xfce4/terminal
 14.142135623730951	/home/singularis/.local/share/Singularis/third-party-tools/chameleon/scripts
 10.0	/home/singularis/.local/share/Singularis/aspects
 10.0	/home/singularis/.config/xmenu
@@ -225,3 +225,5 @@
 10.0	/home/singularis/.local/share/deathvim/dvim/utils/installer
 17.320508075688775	/home/singularis/.config/dvim
 10.0	/home/singularis/.subversion
+31.622776601683796	/home/singularis/feh
+14.142135623730951	/home/singularis/.config/bspwm
