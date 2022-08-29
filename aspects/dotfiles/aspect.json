@@ -12,6 +12,7 @@
       "castero",
       "chameleon",
       "dunst",
+      "git",
       "gnuplot",
       "khal",
       "khard",
@@ -42,14 +43,7 @@
   },
   "templates": {
     ".home": {},
-    ".config": {
-      "git/config": [
-        "user",
-        "credential",
-        "github",
-        "commit"
-      ]
-    },
+    ".config": {},
     ".local": {}
   }
 }

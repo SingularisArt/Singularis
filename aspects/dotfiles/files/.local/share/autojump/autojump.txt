@@ -1,10 +1,10 @@
-45.82575694955841	/home/singularis/.config/zsh
-65.57438524302002	/home/singularis/.local/share/deathvim/dvim
+51.96152422706633	/home/singularis/.config/zsh
+67.08203932499372	/home/singularis/.local/share/deathvim/dvim
 133.04134695650066	/home/singularis/Singularis
 42.42640687119286	/home/singularis/Downloads
 34.64101615137755	/home/singularis/Documents/journal
 24.49489742783178	/home/singularis/Desktop/PDFs
-30.000000000000004	/home/singularis/Desktop
+31.622776601683796	/home/singularis/Desktop
 10.0	/home/singularis/.config/newsboat
 14.142135623730951	/home/singularis/Singularis/local/share
 10.0	/home/singularis/Singularis/local/share/cargo
@@ -64,7 +64,7 @@
 14.142135623730951	/home/singularis/Desktop/PDFs/mathematics/schaums_outline
 10.0	/home/singularis/Desktop/PDFs/mathematics/schaums_outline/calculus
 10.0	/home/singularis/Desktop/PDFs/mathematics/michael_spivak
-10.0	/home/singularis/.local/share/deathvim/dvim/UltiSnips
+14.142135623730951	/home/singularis/.local/share/deathvim/dvim/UltiSnips
 10.0	/home/singularis/Desktop/PDFs/memory
 10.0	/home/singularis/Documents/singularisart.github.io
 10.0	/home/singularis/Documents/Website/themes
@@ -196,3 +196,9 @@
 14.142135623730951	/home/singularis/Singularis/aspects/xmenu
 10.0	/home/singularis/Singularis/aspects/dotfiles/files/.config/newsboat
 10.0	/home/singularis/command-t
+28.284271247461902	/home/singularis/.local/share/Singularis
+14.142135623730951	/home/singularis/.config/git
+10.0	/home/singularis/.local/share/Singularis/aspects/dotfiles/files
+10.0	/home/singularis/.local/share/Singularis/aspects/dotfiles/files/.config
+10.0	/home/singularis/.local/share/Singularis/aspects/dotfiles/files/.config/git
+10.0	/home/singularis/.local/share/Singularis/aspects/dotfiles
