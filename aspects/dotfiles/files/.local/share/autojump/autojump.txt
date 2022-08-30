@@ -1,5 +1,5 @@
-57.44562646538029	/home/singularis/.config/zsh
-78.10249675906655	/home/singularis/.local/share/deathvim/dvim
+58.30951894845301	/home/singularis/.config/zsh
+95.39392014169452	/home/singularis/.local/share/deathvim/dvim
 134.16407864998732	/home/singularis/Singularis
 46.904157598234306	/home/singularis/Downloads
 34.64101615137755	/home/singularis/Documents/journal
@@ -21,14 +21,14 @@
 31.622776601683796	/home/singularis/Singularis/scripts/install
 10.0	/home/singularis/snapd
 10.0	/tmp/tmp.m3jOP9GBx6
-17.320508075688775	/home/singularis/wincent
-34.64101615137755	/home/singularis/.local/share/deathvim/dvim/lua/dvim
+26.457513110645905	/home/singularis/wincent
+66.33249580710802	/home/singularis/.local/share/deathvim/dvim/lua/dvim
 17.320508075688775	/home/singularis/Singularis/config/dotfiles/files/zsh
 36.0555127546399	/home/singularis/Singularis/config
 34.64101615137755	/home/singularis/Singularis/config/dotfiles
 30.000000000000004	/home/singularis/Documents/school-notes/current-course
 31.622776601683796	/home/singularis/Documents/school-notes
-40.00000000000001	/home/singularis/.config
+41.231056256176615	/home/singularis/.config
 14.142135623730951	/home/singularis/.config/sioyek
 14.142135623730951	/home/singularis/Singularis/scripts
 14.142135623730951	/home/singularis/Singularis/scripts/install/list
@@ -58,7 +58,7 @@
 10.0	/home/singularis/Projects/nvcodark/lua/examples
 14.142135623730951	/home/singularis/Projects/nvcodark/lua/nvcodark
 14.142135623730951	/home/singularis/Projects/nvcodark/lua/nvcodark/utils
-14.142135623730951	/home/singularis/.config/nvim
+41.231056256176615	/home/singularis/.config/nvim
 20.0	/home/singularis/Desktop/PDFs/mathematics
 14.142135623730951	/home/singularis/Desktop/PDFs/mathematics/thomas_a_garrity
 14.142135623730951	/home/singularis/Desktop/PDFs/mathematics/schaums_outline
@@ -90,7 +90,7 @@
 26.457513110645905	/home/singularis/.config/google-chrome
 24.49489742783178	/home/singularis/.config/google-chrome/Profile 3
 17.320508075688775	/home/singularis/.config/google-chrome/Profile 1
-14.142135623730951	/home/singularis/.local/share
+20.0	/home/singularis/.local/share
 10.0	/home/singularis/.local
 22.360679774997898	/home/singularis/.local/bin
 10.0	/home/singularis/.local/share/nvcodark
@@ -186,7 +186,7 @@
 10.0	/home/singularis/Documents/school-notes/College/Year-1/semester-2
 10.0	/home/singularis/Documents/school-notes/College/Year-1/semester-2/hs-pre-calculus-2
 10.0	/home/singularis/Music/AnoorAlAlqy
-22.360679774997898	/home/singularis/Music/RaadAlKurdi
+24.49489742783178	/home/singularis/Music/RaadAlKurdi
 14.142135623730951	/home/singularis/Music-back
 10.0	/home/singularis/Desktop/Music
 10.0	/home/singularis/.yarn
@@ -196,7 +196,7 @@
 14.142135623730951	/home/singularis/Singularis/aspects/xmenu
 10.0	/home/singularis/Singularis/aspects/dotfiles/files/.config/newsboat
 10.0	/home/singularis/command-t
-69.28203230275511	/home/singularis/.local/share/Singularis
+72.1110255092798	/home/singularis/.local/share/Singularis
 17.320508075688775	/home/singularis/.config/git
 22.360679774997898	/home/singularis/.local/share/Singularis/aspects/dotfiles/files
 28.284271247461902	/home/singularis/.local/share/Singularis/aspects/dotfiles/files/.config
@@ -231,7 +231,22 @@
 10.0	/home/singularis/.config/gh
 10.0	/home/singularis/.local/share/deathvim
 10.0	/home/singularis/.local/share/deathvim/dvim/lua/dvim/statusline
-10.0	/home/singularis/.local/share/deathvim/dvim/lua
+17.320508075688775	/home/singularis/.local/share/deathvim/dvim/lua
 10.0	/home/singularis/basic-info
 14.142135623730951	/home/singularis/Singularis/aspects/dotfiles/files/.config/git
 14.142135623730951	/sys/class/power_supply/AC
+14.142135623730951	/home/singularis/wincent/aspects/nvim/files/.config/nvim
+10.0	/home/singularis/wincent/aspects/nvim/files/.config
+14.142135623730951	/home/singularis/nvim
+36.0555127546399	/home/singularis/.local/share/deathvim/dvim/lua/dvim/autocmds
+10.0	/home/singularis/.local/share/deathvim/dvim/vim
+24.49489742783178	/home/singularis/.local/share/deathvim/dvim/lua/dvim/vim
+10.0	/home
+17.320508075688775	/home/singularis/.local/share/wincent
+34.64101615137755	/home/singularis/.config/nvim/lua/wincent
+17.320508075688775	/home/singularis/.config/nvim/lua/wincent/plugin
+17.320508075688775	/home/singularis/.config/nvim/lua/wincent/plugins
+22.360679774997898	/home/singularis/.config/nvim/lua
+20.0	/home/singularis/.config/nvim/plugin
+14.142135623730951	/home/singularis/.config/nvim/lua/wincent/vim
+14.142135623730951	/home/singularis/.local/share/deathvim/dvim/lua/dvim/augroup
