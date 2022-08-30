@@ -1,5 +1,5 @@
-56.568542494923804	/home/singularis/.config/zsh
-75.49834435270752	/home/singularis/.local/share/deathvim/dvim
+57.44562646538029	/home/singularis/.config/zsh
+78.10249675906655	/home/singularis/.local/share/deathvim/dvim
 133.04134695650066	/home/singularis/Singularis
 46.904157598234306	/home/singularis/Downloads
 34.64101615137755	/home/singularis/Documents/journal
@@ -22,13 +22,13 @@
 10.0	/home/singularis/snapd
 10.0	/tmp/tmp.m3jOP9GBx6
 17.320508075688775	/home/singularis/wincent
-30.000000000000004	/home/singularis/.local/share/deathvim/dvim/lua/dvim
+34.64101615137755	/home/singularis/.local/share/deathvim/dvim/lua/dvim
 17.320508075688775	/home/singularis/Singularis/config/dotfiles/files/zsh
 36.0555127546399	/home/singularis/Singularis/config
 34.64101615137755	/home/singularis/Singularis/config/dotfiles
 30.000000000000004	/home/singularis/Documents/school-notes/current-course
 31.622776601683796	/home/singularis/Documents/school-notes
-34.64101615137755	/home/singularis/.config
+36.0555127546399	/home/singularis/.config
 14.142135623730951	/home/singularis/.config/sioyek
 14.142135623730951	/home/singularis/Singularis/scripts
 14.142135623730951	/home/singularis/Singularis/scripts/install/list
@@ -196,7 +196,7 @@
 14.142135623730951	/home/singularis/Singularis/aspects/xmenu
 10.0	/home/singularis/Singularis/aspects/dotfiles/files/.config/newsboat
 10.0	/home/singularis/command-t
-65.57438524302002	/home/singularis/.local/share/Singularis
+66.33249580710802	/home/singularis/.local/share/Singularis
 17.320508075688775	/home/singularis/.config/git
 22.360679774997898	/home/singularis/.local/share/Singularis/aspects/dotfiles/files
 28.284271247461902	/home/singularis/.local/share/Singularis/aspects/dotfiles/files/.config
@@ -229,3 +229,6 @@
 14.142135623730951	/home/singularis/.config/bspwm
 14.142135623730951	/home/singularis/.local/share/Singularis/third-party-tools/start-tree
 10.0	/home/singularis/.config/gh
+10.0	/home/singularis/.local/share/deathvim
+10.0	/home/singularis/.local/share/deathvim/dvim/lua/dvim/statusline
+10.0	/home/singularis/.local/share/deathvim/dvim/lua
