@@ -38,7 +38,8 @@
       "wal",
       "wal-discord",
       "xmenu",
-      "zsh"
+      "zsh",
+      "fehbg"
     ],
     ".local": [
       "bin",
