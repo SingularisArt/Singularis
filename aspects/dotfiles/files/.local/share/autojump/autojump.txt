@@ -28,7 +28,7 @@
 34.64101615137755	/home/singularis/Singularis/config/dotfiles
 30.000000000000004	/home/singularis/Documents/school-notes/current-course
 31.622776601683796	/home/singularis/Documents/school-notes
-38.729833462074176	/home/singularis/.config
+40.00000000000001	/home/singularis/.config
 14.142135623730951	/home/singularis/.config/sioyek
 14.142135623730951	/home/singularis/Singularis/scripts
 14.142135623730951	/home/singularis/Singularis/scripts/install/list
@@ -175,7 +175,7 @@
 10.0	/home/singularis/Singularis/man/templates/.home
 10.0	/home/singularis/Singularis/man/templates/.home/.gitconfig
 10.0	/home/singularis/.local/share/zathura
-28.284271247461902	/home/singularis/.config/polybar
+30.000000000000004	/home/singularis/.config/polybar
 17.320508075688775	/home/singularis/scripts
 10.0	/home/singularis/Desktop/01.Python/Projects/PersonalProjects/Other
 10.0	/home/singularis/Desktop/01.Python/Projects/PersonalProjects
@@ -196,7 +196,7 @@
 14.142135623730951	/home/singularis/Singularis/aspects/xmenu
 10.0	/home/singularis/Singularis/aspects/dotfiles/files/.config/newsboat
 10.0	/home/singularis/command-t
-68.55654600401047	/home/singularis/.local/share/Singularis
+69.28203230275511	/home/singularis/.local/share/Singularis
 17.320508075688775	/home/singularis/.config/git
 22.360679774997898	/home/singularis/.local/share/Singularis/aspects/dotfiles/files
 28.284271247461902	/home/singularis/.local/share/Singularis/aspects/dotfiles/files/.config
@@ -234,3 +234,4 @@
 10.0	/home/singularis/.local/share/deathvim/dvim/lua
 10.0	/home/singularis/basic-info
 14.142135623730951	/home/singularis/Singularis/aspects/dotfiles/files/.config/git
+14.142135623730951	/sys/class/power_supply/AC
