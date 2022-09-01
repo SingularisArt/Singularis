@@ -1,27 +1,28 @@
-HISTFILE=~/.config/zsh/.zsh_history
-HISTSIZE=1000000
-SAVEHIST=1000000
+export HISTFILE=~/.config/zsh/.zsh_history
+export HISTSIZE=1000000000000000000
+export SAVEHIST=$HISTSIZE
+export HISTCONTROL=ignoredups
 
 export TERMINAL="xfce4-terminal"
-export PDF_VIEWER="zathura"
+export PDF_VIEWER="sioyek"
 export EDITOR="dvim"
 export VISUAL="dvim"
 export BROWSER=/usr/bin/google-chrome-stable
 export FILE_BROWSER="pcmanfm"
 export BG="~/.config/wall.jpg"
-export PASSWORD="password" # NOTE: This isn't my real password. I use this in my testing programs. So, don't worry: 😃
+export PASSWORD="password" # NOTE: This isn't my real password. I use this to test my programs. So, don't worry: 😃
 export NVIM_LISTEN_ADDRESS=/tmp/nvimsocket
 
 export SHLVL=0
 export GPG_TTY=$(tty)
 export OPENSSL_DIR="/usr/lib/ssl"
-export TZ='America/Vancouver'
+export TZ="America/Vancouver"
 
 export JDTLS_HOME=
 
 export NOTES_DIR="${HOME}/Documents/school-notes"
 export CURRENT_GRADE="${NOTES_DIR}/College"
-export ROOT="${NOTES_DIR}/College/Year-1/semester-2"
+export ROOT="${NOTES_DIR}/College/Year-2/semester-1"
 export CURRENT_COURSE="${NOTES_DIR}/current-course"
 
 export NVM_DIR="${HOME}/.config/nvm"
