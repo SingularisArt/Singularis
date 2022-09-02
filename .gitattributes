@@ -4,4 +4,4 @@ aspects/dotfiles/files/.local/share/lf/* filter=git-crypt diff=git-crypt
 aspects/dotfiles/files/.local/share/sioyek/* filter=git-crypt diff=git-crypt
 aspects/dotfiles/files/.local/share/castero/* filter=git-crypt diff=git-crypt
 aspects/dotfiles/files/.local/share/newsboat/* filter=git-crypt diff=git-crypt
-man/templates/personal/.config/* filter=git-crypt diff=git-crypt
+man/templates/personal/.config/gh/hosts.yml/oauth_token.template filter=git-crypt diff=git-crypt
