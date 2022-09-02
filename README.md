@@ -667,7 +667,7 @@ control](https://github.com/SingularisArt/Singularis/commit/f0bce4d1) since
 | Create a lecture                          | Alt+L      |
 | Create an assignment                      | Alt+A      |
 | Create a course                           | Alt+C      |
-| Go through all my research papers         | Alt+p      |
+| Go through all your research papers       | Alt+p      |
 
 ### Applications
 
@@ -675,32 +675,13 @@ control](https://github.com/SingularisArt/Singularis/commit/f0bce4d1) since
 | ----------------------------------- | ------------- |
 | Open terminal (xfce4-terminal)      | Super+Enter   |
 | Open the browser of your choice     | Super+w       |
-| Open nvim (in xfce4-terminal)       | Super+n       |
 | Open neomutt (in xfce4-terminal)    | Super+m       |
 | Open ncmpcpp (in xfce4-terminal)    | Super+e       |
+| Open castero (in xfce4-terminal)    | Super+C       |
 | Open pulsemixer (in xfce4-terminal) | Super+Shift+p |
 | Open xmenu                          | Super+Shift+d |
-| Open zathura                        | Super+Shift+z |
+| Open sioyek                         | Super+Shift+z |
 | Open a scratchpad                   | Super+Shift+s |
-
-super + w
-  $BROWSER
-super + n
-  xfce4-terminal -e 'nvim'
-super + m
-  xfce4-terminal -e 'neomutt'
-super + e
-  xfce4-terminal -e 'ncmpcpp'
-super + shift + c
-  xfce4-terminal -e 'castero'
-super + shift + p
-  xfce4-terminal -e 'pulsemixer'
-super + shift + d
-  bash $HOME/Singularis/aspects/dotfiles/files/.local/bin/xmenu-script
-super + shift + z
-  zathura
-super + shift + s
-  tdrop -am -n 0 xfce4-terminal
 
 ### Rofi
 
@@ -708,6 +689,7 @@ super + shift + s
 | ------------------------------ | ----------------- |
 | Open Rofi                      | Super+r           |
 | List all applications via Rofi | Super+Alt+Shift+r |
+| List all emojis via Rofi       | Super+Alt+Shift+e |
 
 ### Polybar
 
@@ -750,8 +732,8 @@ super + shift + s
 
 | Action                               | Keybinding        |
 | ------------------------------------ | ----------------- |
-| Send item to workspace               | Super+Shift+{1-5} |
-| Go to workspace                      | Super+{1-5}       |
+| Send item to workspace               | Super+Shift+{1-9} |
+| Go to workspace                      | Super+{1-9}       |
 | Go back to the most recent workspace | Super+Tab         |
 
 #### Windows

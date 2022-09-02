@@ -1,5 +1,5 @@
 58.30951894845301	/home/singularis/.config/zsh
-97.97958971132708	/home/singularis/.local/share/deathvim/dvim
+100.49875621120886	/home/singularis/.local/share/deathvim/dvim
 134.16407864998732	/home/singularis/Singularis
 47.9583152331272	/home/singularis/Downloads
 34.64101615137755	/home/singularis/Documents/journal
@@ -196,7 +196,7 @@
 14.142135623730951	/home/singularis/Singularis/aspects/xmenu
 10.0	/home/singularis/Singularis/aspects/dotfiles/files/.config/newsboat
 10.0	/home/singularis/command-t
-74.83314773547885	/home/singularis/.local/share/Singularis
+76.8114574786861	/home/singularis/.local/share/Singularis
 17.320508075688775	/home/singularis/.config/git
 28.284271247461902	/home/singularis/.local/share/Singularis/aspects/dotfiles/files
 30.000000000000004	/home/singularis/.local/share/Singularis/aspects/dotfiles/files/.config
@@ -258,7 +258,7 @@
 10.0	/home/singularis/Desktop/02.Cpp/Projects/Games/Game1
 40.00000000000001	/home/singularis/Documents/school-notes/College
 33.166247903554	/home/singularis/Documents/school-notes/College/Year-2
-44.7213595499958	/home/singularis/Documents/school-notes/College/Year-2/semester-1
+45.82575694955841	/home/singularis/Documents/school-notes/College/Year-2/semester-1
 20.0	/home/singularis/Documents/school-notes/College/Year-1/semester-2/introduction-to-college-composition
 30.000000000000004	/home/singularis/Documents/school-notes/College/Year-1/semester-2/pre-calculus-2
 10.0	/home/singularis/Documents/school-notes/College/Year-1/semester-2/introduction-to-college-composition/assignments
@@ -273,7 +273,7 @@
 10.0	/home/singularis/Documents/school-notes/College/Year-1/semester-2/pre-calculus-2/assignments
 10.0	/home/singularis/Documents/school-notes/College/Year-2/semester-1/course
 10.0	/home/singularis/Documents/school-notes/College/Year-2/semester-1/hello-world
-26.457513110645905	/home/singularis/Documents/school-notes/College/Year-2/semester-1/calculus-1
+28.284271247461902	/home/singularis/Documents/school-notes/College/Year-2/semester-1/calculus-1
 20.0	/home/singularis/Documents/school-notes/College/Year-2/semester-1/calculus-1/lectures
 10.0	/home/singularis/Documents/school-notes/College/Year-2/semester-1/hello
 17.320508075688775	/home/singularis/Documents/school-setup/RofiLessonManager
@@ -300,3 +300,8 @@
 10.0	/home/singularis/Documents/school-notes/current-course/assignments/my-assignments/pdf-files
 10.0	/home/singularis/Documents/school-notes/current-course/assignments/my-assignments/yaml-files
 10.0	/home/singularis/personal-cover-letter
+24.49489742783178	/home/singularis/.cache/dvim
+22.360679774997898	/home/singularis/.cache
+14.142135623730951	/home/singularis/.cache/dvim/undo
+10.0	/home/singularis/.cache/vimtex
+10.0	/home/singularis/.vnim

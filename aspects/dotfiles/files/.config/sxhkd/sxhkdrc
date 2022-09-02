@@ -17,8 +17,6 @@ super + Return
   xfce4-terminal
 super + w
   $BROWSER
-super + n
-  xfce4-terminal -e 'nvim'
 super + m
   xfce4-terminal -e 'neomutt'
 super + e
@@ -30,7 +28,7 @@ super + shift + p
 super + shift + d
   bash $HOME/.local/share/Singularis/aspects/dotfiles/files/.local/bin/xmenu-script
 super + shift + z
-  zathura
+  sioyek
 super + shift + s
   tdrop -am -n 0 xfce4-terminal
 
@@ -42,6 +40,8 @@ super + r
   rofi -show drun -show-icons
 super + alt + shift + r
   rofi -show window
+super + alt + shift + e
+  rofi -mode emoji -show emoji
 
 ###########
 # Polybar #
