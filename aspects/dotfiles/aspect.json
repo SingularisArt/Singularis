@@ -52,6 +52,10 @@
       "git/config": [
         "user",
         "github"
+      ],
+      "gh/hosts.yml": [
+        "user",
+        "oauth_token"
       ]
     },
     ".local": {}
