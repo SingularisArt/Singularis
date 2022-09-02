@@ -1,1 +1,6 @@
 aspects/dotfiles/files/.config/git/credentials filter=git-crypt diff=git-crypt
+aspects/dotfiles/files/.local/share/autojump/* filter=git-crypt diff=git-crypt
+aspects/dotfiles/files/.local/share/lf/* filter=git-crypt diff=git-crypt
+aspects/dotfiles/files/.local/share/sioyek/* filter=git-crypt diff=git-crypt
+aspects/dotfiles/files/.local/share/castero/* filter=git-crypt diff=git-crypt
+aspects/dotfiles/files/.local/share/newsboat/* filter=git-crypt diff=git-crypt
