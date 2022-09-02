@@ -703,9 +703,6 @@ If there are background processes, a yellow asterisk is shown:
 
 <img src="media/theme-3/zsh-prompt-9.png">
 
-[current-theme]
-
-
 ## Tmux
 
 ### Bindings
@@ -1137,11 +1134,8 @@ set imap_keepalive = 60
 
 # Dependencies
 
-All you need is `git` and `` installed.
-You need:
-
-- `git`: In order to clone the repo.
-- `python >= 3.10`: To run the installation script.
+* `git`: In order to clone the repo.
+* `python >= 3.10`: To run the installation script.
 
 ## Platform status
 
@@ -1209,5 +1203,3 @@ the [LICENSE](LICENSE.md) for details.
 - [Chris at Machine](https://github.com/ChristianChiarulli)
 - [Lcpz](https://github.com/lcpz/awesome-copycats)
 - [Gideon Wolfe](https://github.com/GideonWolfe)
-
-[current-theme]: "media/theme-3"
