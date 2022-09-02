@@ -221,6 +221,9 @@
     * [Prompt](#prompt)
   * [Tmux](#tmux)
     * [Bindings](#bindings-1)
+      * [Basics](#basics)
+      * [Navigation](#navigation)
+    * [Plugins](#plugins)
     * [Prompt](#prompt-1)
   * [Sxhkd](#sxhkd)
     * [School](#school)
@@ -630,15 +633,123 @@ control](https://github.com/SingularisArt/Singularis/commit/f0bce4d1) since
 
 ### Prompt
 
-<img src="media/theme-1/zsh-prompt.png">
+Zsh is configured with the following prompt:
+
+<img src="media/theme-3/zsh-prompt-1.png">
+
+Visible here are:
+
+- Concise left-hand prompt consisting of:
+  - Last component of current directory (abbreviates $HOME to ~ if possible).
+  - Prompt marker, ❯, the
+    ["HEAVY RIGHT-POINTING ANGLE QUOTATION MARK ORNAMENT"](https://codepoints.net/U+276F)
+    (that's `\u276f`, or `e2 9d af` in UTF-8).
+- Extended right-hand size prompt which auto-hides when necessary to make room
+  for long commands and contains:
+  - Duration of previous command in adaptive units (seconds, minutes, hours,
+    days, depending on duration).
+  - Current version control branch name.
+  - Current version control worktree status using colors that match those used
+    in `git status`:
+    - Green dot indicates staged changes.
+    - Red dot indicates unstaged changes.
+    - Blue dot indicates untracked files.
+  - Full version of current working directory (again, abbreviating `$HOME` to `~`).
+
+Nested shells are indicated with additional prompt characters. For example, one
+nested shell:
+
+<img src="media/theme-3/zsh-prompt-2.png">
+
+Two nested shells:
+
+<img src="media/theme-3/zsh-prompt-3.png">
+
+Root shells are indicated with a different color prompt character and the word
+"root":
+
+<img src="media/theme-3/zsh-prompt-4.png">
+
+Nesting within a root shell is indicated like this:
+
+<img src="media/theme-3/zsh-prompt-5.png">
+
+Two nested shells:
+
+<img src="media/theme-3/zsh-prompt-6.png">
+
+
+
+
+Tmux shells are indicated with a different color prompt character and the word
+"tmux":
+
+<img src="media/theme-3/zsh-prompt-5.png">
+
+Nesting within a tmux shell is indicated like this:
+
+<img src="media/theme-3/zsh-prompt-6.png">
+
+Two nested shells:
+
+<img src="media/theme-3/zsh-prompt-7.png">
+
+If the last command exited with a non-zero status (usually indicative of an
+error), a yellow exclamation is shown:
+
+<img src="media/theme-3/zsh-prompt-8.png">
+
+If there are background processes, a yellow asterisk is shown:
+
+<img src="media/theme-3/zsh-prompt-9.png">
+
+[current-theme]
+
 
 ## Tmux
 
 ### Bindings
 
+I keep the default prefix: `<C-b>` (P = Prefix = `<C-b>`).
+
+#### Basics
+
+- `<C+b>|`: Create a vertical split.
+- `<C+b>\`: Create a vertical split.
+- `<C+b>-`: Create a horizontal split.
+- `<C+b>r`: Resource tmux.conf file.
+- `<C+b><C+b>`: Break current pane into it's own window.
+- `<C+b>b`: Create a new session.
+- `<C+b>B`: Create a new named session.
+- `<C+b>K`: Kill current session.
+- `<C+b>j`: Join 2 windows together.
+- `<C+b>S`: Swap a pane.
+
+#### Navigation
+
+- `<C+h>`: Jump to the left pane.
+- `<C+l>`: Jump to the right pane.
+- `<C+k>`: Jump to the above pane.
+- `<C+j>`: Jump to the below pane.
+
+### Plugins
+
+I use the following tmux plugins:
+
+- [copycat](https://github.com/tmux-plugins/tmux-copycat)
+- [yank](https://github.com/tmux-plugins/tmux-yank)
+- [open](https://github.com/tmux-plugins/tmux-open)
+- [prefix-highlight](https://github.com/tmux-plugins/tmux-prefix-highlight)
+- [sessionist](https://github.com/tmux-plugins/tmux-sessionist)
+- [fpp](https://github.com/tmux-plugins/tmux-fpp)
+- [urlview](https://github.com/tmux-plugins/tmux-urlview)
+
+To install them, after you enter tmux, run `<C-b>I`.
+
 ### Prompt
 
-<img src="media/theme-1/tmux-prompt.png">
+<img src="media/theme-3/tmux-prompt-1.png">
+<img src="media/theme-3/tmux-prompt-2.png">
 
 ## Sxhkd
 
@@ -1029,17 +1140,17 @@ set imap_keepalive = 60
 All you need is `git` and `` installed.
 You need:
 
-* `git`: In order to clone the repo.
-* `python >= 3.10`: To run the installation script.
+- `git`: In order to clone the repo.
+- `python >= 3.10`: To run the installation script.
 
 ## Platform status
 
-| Platform   | Status                                                                                                                                                               |
-| ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Arch Linux | :1st_place_medal: Tested the most. Arch Linux is my main OS. You get the most configuration if you are on Linux.                                                     |
-| MacOS      | :2nd_place_medal: Not as bad, but it can have some bugs here and there, I'm starting to use Macs again.                                                              |
-| Windows    | :3rd_place_medal: The worst rank. Not tested at all. I don't even have an install script for it. You shouldn't use windows when using my dotfiles.                   |
-| Other      | :skull: Not tested at all, and probably will never be.                                                                                                               |
+| Platform   | Status                                                                                                                                             |
+| ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Arch Linux | :1st_place_medal: Tested the most. Arch Linux is my main OS. You get the most configuration if you are on Linux.                                   |
+| MacOS      | :2nd_place_medal: Not as bad, but it can have some bugs here and there, I'm starting to use Macs again.                                            |
+| Windows    | :3rd_place_medal: The worst rank. Not tested at all. I don't even have an install script for it. You shouldn't use windows when using my dotfiles. |
+| Other      | :skull: Not tested at all, and probably will never be.                                                                                             |
 
 ## Installation
 
@@ -1098,3 +1209,5 @@ the [LICENSE](LICENSE.md) for details.
 - [Chris at Machine](https://github.com/ChristianChiarulli)
 - [Lcpz](https://github.com/lcpz/awesome-copycats)
 - [Gideon Wolfe](https://github.com/GideonWolfe)
+
+[current-theme]: "media/theme-3"
