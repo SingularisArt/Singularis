@@ -13,7 +13,7 @@ log = Log()
 
 
 class Aspect(InitClass):
-    def __init__(self, aspect_name):
+    def __init__(self, aspect_name, args):
         InitClass.__init__(self)
 
         self.specific_items_to_install = []
@@ -27,17 +27,21 @@ class Aspect(InitClass):
 
         self.aspect_name = aspect_name if aspect_name[0] != "^" else aspect_name[1:]
         self.install = True if aspect_name[0] != "^" else False
+        self.args = args
 
     def install_aspect(self):
-        code = (
-            Path(
-                helpers.join(
-                    self.aspects_dir, self.aspect_name, "index.py", seperator="/"
-                )
-            ).read_text()
-        )
+        code = Path(
+            helpers.join(self.aspects_dir, self.aspect_name,
+                         "index.py", seperator="/")
+        ).read_text()
 
-        exec(code, {"specific_items_to_install": self.specific_items_to_install})
+        exec(
+            code,
+            {
+                "specific_items_to_install": self.specific_items_to_install,
+                "args": self.args,
+            },
+        )
 
     def __repr__(self):
         return self.aspect_name
@@ -52,14 +56,14 @@ class Aspects(InitClass, dict):
         self.aspects_to_install = []
         self.aspects_to_not_install = []
         self.all_aspects = [
-            Aspect(aspect)
-            for aspect in os.listdir(self.aspects_dir)
-            if os.path.exists("{}/{}/index.py".format(self.aspects_dir, aspect))
+            Aspect(a, self.args)
+            for a in os.listdir(self.aspects_dir)
+            if os.path.exists("{}/{}/index.py".format(self.aspects_dir, a))
         ]
 
         if self.args.aspect != " ":
             aspects = self.args.aspect.split(" ")
-            aspects = [Aspect(aspect) for aspect in aspects]
+            aspects = [Aspect(aspect, self.args) for aspect in aspects]
 
             self.aspects_to_not_install = [
                 aspect for aspect in aspects if not aspect.install

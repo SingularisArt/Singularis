@@ -1,7 +1,12 @@
 ^user
-^credential
 ^github
-^commit
+[credential]
+  helper = store
+
+[commit]
+  gpgSign = true
+  template = ~/.config/git/gitmessage.txt
+
 [alias]
   abbrev = !bash -c 'git rev-parse --short ${1-`echo HEAD`}' -
   ack = grep --break --heading

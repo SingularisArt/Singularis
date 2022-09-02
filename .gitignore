@@ -16,6 +16,7 @@ aspects/dotfiles/files/.config/mpv/scripts/
 aspects/dotfiles/files/.config/neofetch/ascii/
 aspects/dotfiles/files/.config/ncmpcpp/error.log
 aspects/dotfiles/files/.config/neomutt/accounts/personal.muttrc
+aspects/dotfiles/files/.config/git/config
 aspects/dvim/plugin/
 
 man/log_level.txt

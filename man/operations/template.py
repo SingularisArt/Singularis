@@ -17,25 +17,37 @@ class CustomTemplate(string.Template):
 
 
 class Template(InitClass):
-    def __init__(self, file_name, root_folder, type, delimiter, data):
+    def __init__(
+        self,
+        template_name,
+        root_folder,
+        type,
+        delimiter,
+        data,
+        specific_items_to_install,
+        personal=False,
+    ):
         InitClass.__init__(self)
         CustomTemplate.delimiter = delimiter
         log.log_trace("Chaning delimiter from # to {}".format(delimiter))
 
         self.root_folder = root_folder
-        self.name = file_name
+        self.name = template_name
         self.type = type
-        self.file_location = helpers.join(
+        self.template_location = helpers.join(
             self.root_folder, self.type, self.name)
-        self.file_destination = self.get_location()
+        self.template_destination = self.get_location()
         self.delimiter = delimiter
         self.data = data
+        self.personal = personal
+        self.specific_items_to_install = specific_items_to_install
 
         # TODO: Implement this function
-        log.log_trace("Checking the hash for {}".format(self.file_location))
+        log.log_trace("Checking the hash for {}".format(
+            self.template_location))
 
         if self.check_sum():
-            self.install()
+            self.setup_for_installation()
 
     def get_location(self):
         if self.type == ".config":
@@ -45,43 +57,73 @@ class Template(InitClass):
         elif self.type == ".local":
             return helpers.join(self.local_dir, self.name)
 
-    def install(self):
+    def setup_for_installation(self):
         try:
-            open(self.file_destination, "x")
-            log.log_trace("Creating file {}".format(
-                self.file_destination))
+            open(self.template_destination, "x")
+            log.log_trace("Creating file {}".format(self.template_destination))
         except FileNotFoundError:
-            os.makedirs(os.path.dirname(self.file_destination))
+            os.makedirs(os.path.dirname(self.template_destination))
             log.log_trace("Creating folder {}".format(
-                self.file_destination))
+                self.template_destination))
         except FileExistsError:
-            pass
+            log.log_trace("File {} already exists".format(
+                self.template_destination))
 
-        opened_template = open(self.file_location, "r").read()
+        if len(self.specific_items_to_install) > 0:
+            if (
+                os.path.basename(self.template_location)
+                in self.specific_items_to_install
+            ):
+                self.install()
+            else:
+                log.log_warn(
+                    "Skipping the installation of {}".format(
+                        os.path.basename(self.template_location),
+                    )
+                )
+        else:
+            self.install()
+
+    def get_path_to_template_expanding_snippets(self, snippet):
+        public_or_personal = "personal" if self.personal else "public"
+        file_ending = helpers.join(self.type, self.name, snippet + ".template")
+
+        path = helpers.join(self.man_dir, "templates",
+                            public_or_personal, file_ending)
+
+        if not os.path.exists(path) and public_or_personal == "personal":
+            public_or_personal = "personal" if not self.personal else "public"
+            path = helpers.join(
+                self.man_dir, "templates", public_or_personal, file_ending
+            )
+
+        return path
+
+    def install(self):
+        opened_template = open(self.template_location, "r").read()
         opened_template = CustomTemplate(opened_template)
 
         variable_repacment = {}
 
         for snippet in self.data:
-            file_template_location = helpers.join(
-                self.man_dir, "templates", self.type, self.name, snippet + ".template"
-            )
-            opened_file_template_location = open(
-                file_template_location, "r").read()
+            template_location = self.get_path_to_template_expanding_snippets(
+                snippet)
+            opened_template_location = open(template_location, "r").read()
 
-            variable_repacment[snippet] = opened_file_template_location
+            variable_repacment[snippet] = opened_template_location
 
         completed_template = opened_template.safe_substitute(
             variable_repacment)
 
         log.log_trace("Expanding template {}".format(self.name))
 
-        with open(self.file_destination, "w") as writing_template:
+        with open(self.template_destination, "w") as writing_template:
             writing_template.write(completed_template)
 
         log.log_trace(
             "Writing snippet {} to {}".format(
-                self.name, self.file_destination))
+                self.name, self.template_destination)
+        )
 
     def check_sum(self):
         return True
@@ -91,10 +133,12 @@ class Template(InitClass):
 
 
 class Templates(InitClass, dict):
-    def __init__(self, aspect):
+    def __init__(self, aspect, specific_items_to_install, args):
         InitClass.__init__(self)
 
         self.root_folder = helpers.join(self.aspects_dir, aspect, "templates")
+        self.specific_items_to_install = specific_items_to_install
+        self.args = args
 
         config = helpers.join(self.root_folder, ".config")
         home = helpers.join(self.root_folder, ".home")
@@ -105,20 +149,18 @@ class Templates(InitClass, dict):
         self.local = local if os.path.exists(local) else None
 
         self.templates = self.root_folder
-        self.aspect_json_file_location = helpers.join(
+        self.aspect_json_template_location = helpers.join(
             self.aspects_dir, aspect, "aspect.json"
         )
-        self.data = helpers.load_data(self.aspect_json_file_location)
+        self.data = helpers.load_data(self.aspect_json_template_location)
         if not self.data:
             log.log_warn("Couldn't find [aspect.json] for " + self.aspect_name)
 
-        log.log_trace("Installing all templates for {}".format(
-            aspect.title()))
+        log.log_trace("Installing all templates for {}".format(aspect.title()))
 
         dict.__init__(self, self.get_templates())
 
-        log.log_trace("Installed all templates for {}".format(
-            aspect.title()))
+        log.log_trace("Installed all templates for {}".format(aspect.title()))
 
     def get_templates(self):
         templates = {
@@ -128,6 +170,7 @@ class Templates(InitClass, dict):
         }
 
         types = [".home", ".config", ".local"]
+        personal = True if self.args.singularis else False
 
         for type in types:
             for template in self.data["templates"][type]:
@@ -137,6 +180,8 @@ class Templates(InitClass, dict):
                     type,
                     "^",
                     self.data["templates"][type][template],
+                    self.specific_items_to_install,
+                    personal,
                 )
 
         return templates

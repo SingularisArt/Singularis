@@ -48,7 +48,12 @@
   },
   "templates": {
     ".home": {},
-    ".config": {},
+    ".config": {
+      "git/config": [
+        "user",
+        "github"
+      ]
+    },
     ".local": {}
   }
 }
