@@ -162,6 +162,8 @@ class Templates(InitClass, dict):
 
         log.log_trace("Installed all templates for {}".format(aspect.title()))
 
+        return "hello"
+
     def get_templates(self):
         templates = {
             "home": {},

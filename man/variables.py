@@ -1,22 +1,23 @@
 #!/usr/bin/env bash
 
+
+from pathlib import Path
+import os
+
 import man.helpers as helpers
 
-import os.path as path
 
-
-HOME = path.expanduser("~")
-LOCAL = helpers.join(HOME, ".local")
-SHARE = helpers.join(LOCAL, "share")
-BIN = helpers.join(LOCAL, "bin")
-SINGULARIS = helpers.join(SHARE, "Singularis")
-ASPECTS = helpers.join(SINGULARIS, "aspects")
-THIRD_PARTY_TOOLS = helpers.join(
-    SINGULARIS, "third-party-tools")
-VENDOR = helpers.join(SINGULARIS, "vendor")
-MEDIA = helpers.join(SINGULARIS, "media")
-MAN = helpers.join(SINGULARIS, "man")
-LOG_LEVEL_TXT = helpers.join(MAN, "log_level.txt")
-LOCAL = helpers.join(HOME, ".local")
-BACKUP = helpers.join(HOME, ".backup")
-CONFIG = helpers.join(HOME, ".config")
+HOME = Path(os.path.expanduser("~")).expanduser()
+LOCAL = Path(helpers.join(HOME, ".local")).expanduser()
+SHARE = Path(helpers.join(LOCAL, "share")).expanduser()
+BIN = Path(helpers.join(LOCAL, "bin")).expanduser()
+SINGULARIS = Path(os.getcwd()).expanduser()
+ASPECTS = Path(helpers.join(SINGULARIS, "aspects")).expanduser()
+THIRD_PARTY_TOOLS = Path(helpers.join(
+    SINGULARIS, "third-party-tools")).expanduser()
+VENDOR = Path(helpers.join(SINGULARIS, "vendor")).expanduser()
+MEDIA = Path(helpers.join(SINGULARIS, "media")).expanduser()
+MAN = Path(helpers.join(SINGULARIS, "man")).expanduser()
+LOG_LEVEL_TXT = Path(helpers.join(MAN, "log_level.txt")).expanduser()
+BACKUP = Path(helpers.join(HOME, ".backup")).expanduser()
+CONFIG = Path(helpers.join(HOME, ".config")).expanduser()
