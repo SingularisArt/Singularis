@@ -41,3 +41,5 @@ export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
 export WGETRC="$XDG_CONFIG_HOME/wgetrc"
 export XAUTHORITY="$XDG_CONFIG_HOME/Xauthority"
 export PASSWORD_STORE_DIR="$XDG_CONFIG_HOME/password-store"
+export MYSQL_HISTFILE="$XDG_DATA_HOME/mysql_history"
+export PYTHONSTARTUP=~/.config/python/pythonrc
