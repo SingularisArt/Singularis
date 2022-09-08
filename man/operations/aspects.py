@@ -31,8 +31,7 @@ class Aspect(InitClass):
 
     def install_aspect(self):
         code = Path(
-            helpers.join(self.aspects_dir, self.aspect_name,
-                         "index.py", seperator="/")
+            helpers.join(self.aspects_dir, self.aspect_name, "index.py", seperator="/")
         ).read_text()
 
         exec(
@@ -68,8 +67,7 @@ class Aspects(InitClass, dict):
             self.aspects_to_not_install = [
                 aspect for aspect in aspects if not aspect.install
             ]
-            self.aspects_to_install = [
-                aspect for aspect in aspects if aspect.install]
+            self.aspects_to_install = [aspect for aspect in aspects if aspect.install]
 
             if (
                 len(self.aspects_to_not_install) == 0
@@ -79,8 +77,7 @@ class Aspects(InitClass, dict):
             elif len(self.aspects_to_install) > 0:
                 pass
             else:
-                all_aspects = [
-                    aspect.aspect_name for aspect in self.all_aspects]
+                all_aspects = [aspect.aspect_name for aspect in self.all_aspects]
                 dont_install = [
                     dont_install.aspect_name
                     for dont_install in self.aspects_to_not_install
@@ -89,8 +86,7 @@ class Aspects(InitClass, dict):
                 aspects_to_install = list(set(all_aspects) - set(dont_install))
 
                 for dont_install_aspect in dont_install:
-                    log.log_warn("Skipping installation of " +
-                                 dont_install_aspect)
+                    log.log_warn("Skipping installation of " + dont_install_aspect)
 
                 self.aspects_to_install = [
                     Aspect(aspect) for aspect in aspects_to_install

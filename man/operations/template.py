@@ -153,6 +153,7 @@ class Templates(InitClass, dict):
             self.aspects_dir, aspect, "aspect.json"
         )
         self.data = helpers.load_data(self.aspect_json_template_location)
+
         if not self.data:
             log.log_warn("Couldn't find [aspect.json] for " + self.aspect_name)
 
@@ -161,8 +162,6 @@ class Templates(InitClass, dict):
         dict.__init__(self, self.get_templates())
 
         log.log_trace("Installed all templates for {}".format(aspect.title()))
-
-        return "hello"
 
     def get_templates(self):
         templates = {

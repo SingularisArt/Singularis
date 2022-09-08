@@ -14,7 +14,11 @@
   both = diff --ignore-submodules=dirty HEAD
   br = branch
   ci = commit -v
+  c = commit
+  cm = commit -m
   co = checkout
+  a = add
+  aa = add .
   count = !git --no-pager log --oneline | wc -l
   cp = cherry-pick
   delta = "!f() { git diff \"$@\" | delta; }; f"
