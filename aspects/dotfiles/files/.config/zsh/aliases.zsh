@@ -4,6 +4,7 @@
 
 alias b='bash'
 alias z='zsh'
+alias c='clear'
 alias minecraft='java -jar ~/.local/bin/minecraft.jar'
 alias reloud='clear && source ~/.config/zsh/.zshrc'
 alias l='lfub'

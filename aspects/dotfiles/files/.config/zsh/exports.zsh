@@ -5,8 +5,8 @@ export HISTCONTROL=ignoredups
 
 export TERMINAL="xfce4-terminal"
 export PDF_VIEWER="sioyek"
-export EDITOR="dvim"
-export VISUAL="dvim"
+export EDITOR="nvim"
+export VISUAL="nvim"
 export BROWSER=/usr/bin/google-chrome-stable
 export FILE_BROWSER="pcmanfm"
 export BG="~/.config/wall.jpg"
