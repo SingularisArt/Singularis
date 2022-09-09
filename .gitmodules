@@ -4,33 +4,12 @@
 [submodule "wallpapers"]
 	path = media/wallpapers
 	url = https://github.com/SingularisArt/wallpapers
-[submodule "tdrop"]
-	path = third-party-tools/tdrop
-	url = https://github.com/noctuid/tdrop
-[submodule "inkscape-mappings"]
-	path = third-party-tools/inkscape-mappings
-	url = https://github.com/SingularisArt/inkscape-mappings
 [submodule "instant-reference"]
 	path = third-party-tools/instant-reference
 	url = https://github.com/SingularisArt/instant-reference
 [submodule "start-tree"]
 	path = third-party-tools/start-tree
 	url = https://github.com/SingularisArt/start-tree
-[submodule "starttree"]
-	path = third-party-tools/start-tree
-	url = https://github.com/SingularisArt/start-tree
 [submodule "gnuplot-pywal"]
 	path = third-party-tools/gnuplot-pywal
 	url = https://github.com/GideonWolfe/Gnuplot-Pywal
-[submodule "telegram-palette-gen"]
-	path = third-party-tools/telegram-palette-gen
-	url = https://github.com/agnipau/telegram-palette-gen
-[submodule "pywal-fox"]
-	path = third-party-tools/pywal-fox
-	url = https://github.com/Frewacom/Pywalfox
-[submodule "wal-discord"]
-	path = third-party-tools/wal-discord
-	url = https://github.com/guglicap/wal-discord
-[submodule "git-cipher"]
-	path = support/git-cipher
-	url = https://github.com/wincent/git-cipher
