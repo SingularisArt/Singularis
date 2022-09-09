@@ -21,55 +21,55 @@
 
 ## System
 
-<img src="media/theme-1/main.png">
-<img src="media/theme-2/main.png">
+<img src=https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-1/main.png">
+<img src=https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-2/main.png">
 
 <details><summary>Zsh</summary>
   <p>
-      <img src="media/theme-1/zsh.png">
-      <img src="media/theme-2/zsh.png">
+      <img src=https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-1/zsh.png">
+      <img src=https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-2/zsh.png">
   </p>
 </details>
 
 <details><summary>Firefox</summary>
   <p>
-      <img src="media/theme-1/firefox.png">
-      <img src="media/theme-2/firefox.png">
+      <img src=https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-1/firefox.png">
+      <img src=https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-2/firefox.png">
   </p>
 </details>
 
 <details><summary>Dunst</summary>
   <p>
-      <img src="media/theme-1/dunst.png">
-      <img src="media/theme-2/dunst.png">
+      <img src=https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-1/dunst.png">
+      <img src=https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-2/dunst.png">
   </p>
 </details>
 
 <details><summary>Rofi</summary>
   <p>
-      <img src="media/theme-1/rofi.png">
-      <img src="media/theme-2/rofi.png">
+      <img src=https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-1/rofi.png">
+      <img src=https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-2/rofi.png">
   </p>
 </details>
 
 <details><summary>Xmenu</summary>
   <p>
-      <img src="media/theme-1/xmenu.png">
-      <img src="media/theme-2/xmenu.png">
+      <img src=https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-1/xmenu.png">
+      <img src=https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-2/xmenu.png">
   </p>
 </details>
 
 <details><summary>Polybar</summary>
   <p>
-      <img src="media/theme-1/polybar.png">
-      <img src="media/theme-2/polybar.png">
+      <img src=https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-1/polybar.png">
+      <img src=https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-2/polybar.png">
   </p>
 </details>
 
 <details><summary>Picom</summary>
   <p>
-      <img src="media/theme-1/picom.png">
-      <img src="media/theme-2/picom.png">
+      <img src=https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-1/picom.png">
+      <img src=https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-2/picom.png">
     </p>
 </details>
 
@@ -77,8 +77,8 @@
 
 <details><summary>Neomutt</summary>
   <p>
-      <img src="media/theme-1/neomutt.png">
-      <img src="media/theme-2/neomutt.png">
+      <img src=https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-1/neomutt.png">
+      <img src=https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-2/neomutt.png">
   </p>
 </details>
 
@@ -93,29 +93,29 @@
 
 <details><summary>GnuPlot</summary>
   <p>
-      <img src="media/theme-1/gnuplot.png">
-      <img src="media/theme-2/gnuplot.png">
+      <img src=https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-1/gnuplot.png">
+      <img src=https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-2/gnuplot.png">
   </p>
 </details>
 
 <details><summary>Matplotlib</summary>
   <p>
-      <img src="media/theme-1/matplotlib.png">
-      <img src="media/theme-2/matplotlib.png">
+      <img src=https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-1/matplotlib.png">
+      <img src=https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-2/matplotlib.png">
   </p>
 </details>
 
 <details><summary>Markdown</summary>
   <p>
-      <img src="media/theme-1/markdown.png">
-      <img src="media/theme-2/markdown.png">
+      <img src=https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-1/markdown.png">
+      <img src=https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-2/markdown.png">
   </p>
 </details>
 
 <details><summary>Notes</summary>
   <p>
-      <img src="media/theme-1/notes.png">
-      <img src="media/theme-2/notes.png">
+      <img src=https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-1/notes.png">
+      <img src=https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-2/notes.png">
   </p>
 </details>
 
@@ -123,36 +123,36 @@
 
 <details><summary>Monitors</summary>
   <p>
-      <img src="media/theme-1/monitors.png">
-      <img src="media/theme-2/monitors.png">
+      <img src=https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-1/monitors.png">
+      <img src=https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-2/monitors.png">
   </p>
 </details>
 
 <details><summary>PDF's</summary>
   <p>
-      <img src="media/theme-1/pdf.png">
-      <img src="media/theme-2/pdf.png">
+      <img src=https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-1/pdf.png">
+      <img src=https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-2/pdf.png">
   </p>
 </details>
 
 <details><summary>Files</summary>
   <p>
-      <img src="media/theme-1/files.png">
-      <img src="media/theme-2/files.png">
+      <img src=https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-1/files.png">
+      <img src=https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-2/files.png">
   </p>
 </details>
 
 <details><summary>Calendar</summary>
   <p>
-      <img src="media/theme-1/calendar.png">
-      <img src="media/theme-2/calendar.png">
+      <img src=https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-1/calendar.png">
+      <img src=https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-2/calendar.png">
   </p>
 </details>
 
 <details><summary>Habits</summary>
   <p>
-      <img src="media/theme-1/habits.png">
-      <img src="media/theme-2/habits.png">
+      <img src=https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-1/habits.png">
+      <img src=https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-2/habits.png">
   </p>
 </details>
 
@@ -160,29 +160,29 @@
 
 <details><summary>Audio</summary>
   <p>
-      <img src="media/theme-1/audio.png">
-      <img src="media/theme-2/audio.png">
+      <img src=https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-1/audio.png">
+      <img src=https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-2/audio.png">
   </p>
 </details>
 
 <details><summary>News</summary>
   <p>
-      <img src="media/theme-1/news.png">
-      <img src="media/theme-2/news.png">
+      <img src=https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-1/news.png">
+      <img src=https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-2/news.png">
   </p>
 </details>
 
 <details><summary>Misc</summary>
   <p>
-      <img src="media/theme-1/misc.png">
-      <img src="media/theme-2/misc.png">
+      <img src=https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-1/misc.png">
+      <img src=https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-2/misc.png">
   </p>
 </details>
 
 <details><summary>Images</summary>
   <p>
-      <img src="media/theme-1/images.png">
-      <img src="media/theme-2/images.png">
+      <img src=https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-1/images.png">
+      <img src=https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-2/images.png">
   </p>
 </details>
 
@@ -310,7 +310,6 @@
 - [bspwm](https://github.com/baskerville/bspwm): Tiling window manager
 - [polybar](https://github.com/polybar/polybar): Customizable taskbar
 - [xmenu](https://github.com/phillbush/xmenu): Modular start menu
-- [zsh](https://github.com/ohmyzsh/ohmyzsh): Extended Bourne shell
 - [rofi](https://github.com/davatorium/rofi): Application launcher
 - [kdeconnect](https://community.kde.org/KDEConnect): Control system from phone
 - [flameshot](https://github.com/lupoDharkael/flameshot): Robust screenshotting
@@ -635,7 +634,7 @@ control](https://github.com/SingularisArt/Singularis/commit/f0bce4d1) since
 
 Zsh is configured with the following prompt:
 
-<img src="media/theme-3/zsh-prompt-1.png">
+<img src=https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-3/zsh-prompt-1.png">
 
 Visible here are:
 
@@ -659,46 +658,46 @@ Visible here are:
 Nested shells are indicated with additional prompt characters. For example, one
 nested shell:
 
-<img src="media/theme-3/zsh-prompt-2.png">
+<img src=https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-3/zsh-prompt-2.png">
 
 Two nested shells:
 
-<img src="media/theme-3/zsh-prompt-3.png">
+<img src=https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-3/zsh-prompt-3.png">
 
 Root shells are indicated with a different color prompt character and the word
 "root":
 
-<img src="media/theme-3/zsh-prompt-4.png">
+<img src=https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-3/zsh-prompt-4.png">
 
 Nesting within a root shell is indicated like this:
 
-<img src="media/theme-3/zsh-prompt-5.png">
+<img src=https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-3/zsh-prompt-5.png">
 
 Two nested shells:
 
-<img src="media/theme-3/zsh-prompt-6.png">
+<img src=https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-3/zsh-prompt-6.png">
 
 Tmux shells are indicated with a different color prompt character and the word
 "tmux":
 
-<img src="media/theme-3/zsh-prompt-5.png">
+<img src=https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-3/zsh-prompt-5.png">
 
 Nesting within a tmux shell is indicated like this:
 
-<img src="media/theme-3/zsh-prompt-6.png">
+<img src=https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-3/zsh-prompt-6.png">
 
 Two nested shells:
 
-<img src="media/theme-3/zsh-prompt-7.png">
+<img src=https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-3/zsh-prompt-7.png">
 
 If the last command exited with a non-zero status (usually indicative of an
 error), a yellow exclamation is shown:
 
-<img src="media/theme-3/zsh-prompt-8.png">
+<img src=https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-3/zsh-prompt-8.png">
 
 If there are background processes, a yellow asterisk is shown:
 
-<img src="media/theme-3/zsh-prompt-9.png">
+<img src=https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-3/zsh-prompt-9.png">
 
 ## Tmux
 
@@ -742,8 +741,8 @@ To install them, after you enter tmux, run `<C-b>I`.
 
 ### Prompt
 
-<img src="media/theme-3/tmux-prompt-1.png">
-<img src="media/theme-3/tmux-prompt-2.png">
+<img src=https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-3/tmux-prompt-1.png">
+<img src=https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-3/tmux-prompt-2.png">
 
 ## Sxhkd
 
@@ -1184,9 +1183,19 @@ yourself (which isn't a clever idea because dotfiles are ment to be ~~stolen~~
 taken from and used as an inspiration). Anyway, here's how I install them.
 
 ```bash
-./install --backup                          # I create a backup of everything just in case something goes the wrong way.
-./install --distro "arch" --log "0" --all   # I set the distro to Arch. I set the log level to 0 so I can see everything that's happening.
+./install --backup                      # I create a backup of everything just in case something goes the wrong way.
+./install --log "0" --all --singularis  # I set the log level to 0 so I can see everything that's happening.
 ```
+
+> :warning: Don't use the `--singularis` option. This install all my personal
+> config, like my newsboat history, which are encrypted and only I have the key
+> to decrypt them. If you use the `--singularis` option, you're bound to run into
+> issues. Mainly because I use `autojump`, which stores sensative files. So, I
+> encrypt them, and when cloning them down, I decrypt them. But if you use the
+> `--singularis` option without decrypting them, you'll get the following error
+> everytime you change your directory.
+
+<img src=https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-3/zsh-autojump-error.png">
 
 # License
 

@@ -284,7 +284,9 @@ M.load = function()
           let g:vim_markdown_strikethrough = 1
           ]])
 			end,
+			run = "call mkdp#util#install()",
 		})
+		use({ "mzlogin/vim-markdown-toc" })
 
 		-- UndoTree
 		use({ "mbbill/undotree" })
