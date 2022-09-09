@@ -19,7 +19,6 @@ Attributes:
 
 import json
 import os
-import re
 
 
 def load_data(file: str) -> dict:

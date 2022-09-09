@@ -168,7 +168,15 @@ class Templates(dict):
             "local": {},
         }
 
-        personal = True if self.args.singularis else False
+        # This variable will store all the information that's required for
+        # keeping track about if the aspect is a public or personal one.
+        # It also keeps track if the user uses the --singularis option, which
+        # makes the progarm install all aspects that are personal, which means
+        # if you aren't SingularisArt, then don't use the frecking option.
+        personal = {
+            "install_personal_aspect": False,
+            "running_personal_command": False,
+        }
 
         for type in types:
             for template in self.data["templates"][type]:
