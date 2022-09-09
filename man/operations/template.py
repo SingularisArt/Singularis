@@ -3,8 +3,14 @@
 import os
 import string
 
-from man import InitClass as InitClass
-
+from man.variables import (
+    aspects_dir,
+    types,
+    home_dir,
+    config_dir,
+    local_dir,
+    man_dir,
+)
 from man.log import Log as Log
 import man.helpers as helpers
 
@@ -16,46 +22,43 @@ class CustomTemplate(string.Template):
     delimiter = "^"
 
 
-class Template(InitClass):
+class Template:
     def __init__(
         self,
-        template_name,
-        root_folder,
-        type,
-        delimiter,
-        data,
-        specific_items_to_install,
-        personal=False,
+        template_name: str,
+        root_folder: str,
+        type: str,
+        delimiter: str,
+        data: dict,
+        specific_items_to_install: list,
+        personal: dict,
     ):
-        InitClass.__init__(self)
         CustomTemplate.delimiter = delimiter
         log.log_trace("Chaning delimiter from # to {}".format(delimiter))
 
         self.root_folder = root_folder
         self.name = template_name
         self.type = type
-        self.template_location = helpers.join(
-            self.root_folder, self.type, self.name)
+        self.template_location = helpers.join(self.root_folder, self.type, self.name)
         self.template_destination = self.get_location()
         self.delimiter = delimiter
         self.data = data
-        self.personal = personal
         self.specific_items_to_install = specific_items_to_install
+        self.personal = personal
 
         # TODO: Implement this function
-        log.log_trace("Checking the hash for {}".format(
-            self.template_location))
+        log.log_trace("Checking the hash for {}".format(self.template_location))
 
         if self.check_sum():
             self.setup_for_installation()
 
     def get_location(self):
         if self.type == ".config":
-            return helpers.join(self.config_dir, self.name)
+            return helpers.join(config_dir, self.name)
         elif self.type == ".home":
-            return helpers.join(self.home_dir, self.name)
+            return helpers.join(home_dir, self.name)
         elif self.type == ".local":
-            return helpers.join(self.local_dir, self.name)
+            return helpers.join(local_dir, self.name)
 
     def setup_for_installation(self):
         try:
@@ -63,11 +66,9 @@ class Template(InitClass):
             log.log_trace("Creating file {}".format(self.template_destination))
         except FileNotFoundError:
             os.makedirs(os.path.dirname(self.template_destination))
-            log.log_trace("Creating folder {}".format(
-                self.template_destination))
+            log.log_trace("Creating folder {}".format(self.template_destination))
         except FileExistsError:
-            log.log_trace("File {} already exists".format(
-                self.template_destination))
+            log.log_trace("File {} already exists".format(self.template_destination))
 
         if len(self.specific_items_to_install) > 0:
             if (
@@ -88,14 +89,11 @@ class Template(InitClass):
         public_or_personal = "personal" if self.personal else "public"
         file_ending = helpers.join(self.type, self.name, snippet + ".template")
 
-        path = helpers.join(self.man_dir, "templates",
-                            public_or_personal, file_ending)
+        path = helpers.join(man_dir, "templates", public_or_personal, file_ending)
 
         if not os.path.exists(path) and public_or_personal == "personal":
             public_or_personal = "personal" if not self.personal else "public"
-            path = helpers.join(
-                self.man_dir, "templates", public_or_personal, file_ending
-            )
+            path = helpers.join(man_dir, "templates", public_or_personal, file_ending)
 
         return path
 
@@ -103,27 +101,29 @@ class Template(InitClass):
         opened_template = open(self.template_location, "r").read()
         opened_template = CustomTemplate(opened_template)
 
-        variable_repacment = {}
+        # variable_repacment = {}
 
-        for snippet in self.data:
-            template_location = self.get_path_to_template_expanding_snippets(
-                snippet)
-            opened_template_location = open(template_location, "r").read()
+        is_aspect_personal = self.personal["install_personal_aspect"]
+        is_personal_command_running = self.personal["running_personal_command"]
+        print(is_aspect_personal)
+        print(is_personal_command_running)
 
-            variable_repacment[snippet] = opened_template_location
+        # for snippet in self.data:
+        #     template_location = self.get_path_to_template_expanding_snippets(snippet)
+        #     opened_template_location = open(template_location, "r").read()
 
-        completed_template = opened_template.safe_substitute(
-            variable_repacment)
+        #     variable_repacment[snippet] = opened_template_location
 
-        log.log_trace("Expanding template {}".format(self.name))
+        # completed_template = opened_template.safe_substitute(variable_repacment)
 
-        with open(self.template_destination, "w") as writing_template:
-            writing_template.write(completed_template)
+        # log.log_trace("Expanding template {}".format(self.name))
 
-        log.log_trace(
-            "Writing snippet {} to {}".format(
-                self.name, self.template_destination)
-        )
+        # with open(self.template_destination, "w") as writing_template:
+        #     writing_template.write(completed_template)
+
+        # log.log_trace(
+        #     "Writing snippet {} to {}".format(self.name, self.template_destination)
+        # )
 
     def check_sum(self):
         return True
@@ -132,11 +132,9 @@ class Template(InitClass):
         return self.name
 
 
-class Templates(InitClass, dict):
+class Templates(dict):
     def __init__(self, aspect, specific_items_to_install, args):
-        InitClass.__init__(self)
-
-        self.root_folder = helpers.join(self.aspects_dir, aspect, "templates")
+        self.root_folder = helpers.join(aspects_dir, aspect, "templates")
         self.specific_items_to_install = specific_items_to_install
         self.args = args
 
@@ -150,7 +148,7 @@ class Templates(InitClass, dict):
 
         self.templates = self.root_folder
         self.aspect_json_template_location = helpers.join(
-            self.aspects_dir, aspect, "aspect.json"
+            aspects_dir, aspect, "aspect.json"
         )
         self.data = helpers.load_data(self.aspect_json_template_location)
 
@@ -170,7 +168,6 @@ class Templates(InitClass, dict):
             "local": {},
         }
 
-        types = [".home", ".config", ".local"]
         personal = True if self.args.singularis else False
 
         for type in types:

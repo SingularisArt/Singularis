@@ -19,6 +19,7 @@ Attributes:
 
 import json
 import os
+import re
 
 
 def load_data(file: str) -> dict:
@@ -58,3 +59,13 @@ def symlink(location, destination):
     os.system("rm -rf {}".format(destination))
     os.makedirs(os.path.dirname(destination), exist_ok=True)
     os.symlink(location, destination)
+
+
+def pretty_log(log, log_level, string):
+    return (
+        log_level["bg"]
+        + log_level["fg"]
+        + log_level["style"]
+        + string
+        + log.style["reset"]
+    )

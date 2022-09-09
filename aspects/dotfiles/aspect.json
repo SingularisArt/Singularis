@@ -1,62 +1,56 @@
 {
   "description": "All my dotfiles",
   "files": {
-    ".home": [
-      ".xprofile",
-      ".zshenv"
-    ],
-    ".config": [
-      "anki",
-      "awesome",
-      "bspwm",
-      "castero",
-      "chameleon",
-      "dunst",
-      "git",
-      "gnuplot",
-      "gtk-2.0",
-      "gtk-3.0",
-      "gtk-4.0",
-      "khal",
-      "khard",
-      "lf",
-      "lynx",
-      "mpd",
-      "mpv",
-      "ncmpcpp",
-      "neofetch",
-      "neomutt",
-      "newsboat",
-      "picom",
-      "polybar",
-      "ranger",
-      "rofi",
-      "sioyek",
-      "spicetify",
-      "sxhkd",
-      "tmux",
-      "wal",
-      "wal-discord",
-      "xmenu",
-      "zsh",
-      "fehbg"
-    ],
-    ".local": [
-      "bin",
-      "share"
-    ]
+    ".home": {
+      ".xprofile": "public",
+      ".zshenv": "public"
+    },
+    ".config": {
+      "anki": "public",
+      "awesome": "public",
+      "bspwm": "public",
+      "castero": "public",
+      "chameleon": "public",
+      "dunst": "public",
+      "git": "public",
+      "gnuplot": "public",
+      "gtk-2.0": "public",
+      "gtk-3.0": "public",
+      "gtk-4.0": "public",
+      "khal": "public",
+      "khard": "public",
+      "lf": "public",
+      "lynx": "public",
+      "mpd": "public",
+      "mpv": "public",
+      "ncmpcpp": "public",
+      "neofetch": "public",
+      "neomutt": "public",
+      "newsboat": "public",
+      "picom": "public",
+      "polybar": "public",
+      "ranger": "public",
+      "rofi": "public",
+      "sioyek": "public",
+      "spicetify": "public",
+      "sxhkd": "public",
+      "tmux": "public",
+      "wal": "public",
+      "wal-discord": "public",
+      "xmenu": "public",
+      "zsh": "public",
+      "fehbg": "public"
+    },
+    ".local": {
+      "bin": "public",
+      "share": "personal"
+    }
   },
   "templates": {
     ".home": {},
     ".config": {
-      "git/config": [
-        "user",
-        "github"
-      ],
-      "gh/hosts.yml": [
-        "user",
-        "oauth_token"
-      ]
+      "git/config": ["user", "github"],
+      "gh/hosts.yml": ["user", "oauth_token"]
     },
     ".local": {}
   }
