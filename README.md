@@ -21,55 +21,55 @@
 
 ## System
 
-<img src=https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-1/main.png">
-<img src=https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-2/main.png">
+<img src="https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-1/main.png">
+<img src="https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-2/main.png">
 
 <details><summary>Zsh</summary>
   <p>
-      <img src=https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-1/zsh.png">
-      <img src=https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-2/zsh.png">
+      <img src="https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-1/zsh.png">
+      <img src="https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-2/zsh.png">
   </p>
 </details>
 
 <details><summary>Firefox</summary>
   <p>
-      <img src=https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-1/firefox.png">
-      <img src=https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-2/firefox.png">
+      <img src="https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-1/firefox.png">
+      <img src="https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-2/firefox.png">
   </p>
 </details>
 
 <details><summary>Dunst</summary>
   <p>
-      <img src=https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-1/dunst.png">
-      <img src=https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-2/dunst.png">
+      <img src="https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-1/dunst.png">
+      <img src="https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-2/dunst.png">
   </p>
 </details>
 
 <details><summary>Rofi</summary>
   <p>
-      <img src=https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-1/rofi.png">
-      <img src=https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-2/rofi.png">
+      <img src="https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-1/rofi.png">
+      <img src="https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-2/rofi.png">
   </p>
 </details>
 
 <details><summary>Xmenu</summary>
   <p>
-      <img src=https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-1/xmenu.png">
-      <img src=https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-2/xmenu.png">
+      <img src="https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-1/xmenu.png">
+      <img src="https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-2/xmenu.png">
   </p>
 </details>
 
 <details><summary>Polybar</summary>
   <p>
-      <img src=https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-1/polybar.png">
-      <img src=https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-2/polybar.png">
+      <img src="https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-1/polybar.png">
+      <img src="https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-2/polybar.png">
   </p>
 </details>
 
 <details><summary>Picom</summary>
   <p>
-      <img src=https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-1/picom.png">
-      <img src=https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-2/picom.png">
+      <img src="https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-1/picom.png">
+      <img src="https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-2/picom.png">
     </p>
 </details>
 
@@ -77,8 +77,8 @@
 
 <details><summary>Neomutt</summary>
   <p>
-      <img src=https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-1/neomutt.png">
-      <img src=https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-2/neomutt.png">
+      <img src="https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-1/neomutt.png">
+      <img src="https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-2/neomutt.png">
   </p>
 </details>
 
@@ -93,29 +93,29 @@
 
 <details><summary>GnuPlot</summary>
   <p>
-      <img src=https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-1/gnuplot.png">
-      <img src=https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-2/gnuplot.png">
+      <img src="https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-1/gnuplot.png">
+      <img src="https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-2/gnuplot.png">
   </p>
 </details>
 
 <details><summary>Matplotlib</summary>
   <p>
-      <img src=https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-1/matplotlib.png">
-      <img src=https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-2/matplotlib.png">
+      <img src="https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-1/matplotlib.png">
+      <img src="https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-2/matplotlib.png">
   </p>
 </details>
 
 <details><summary>Markdown</summary>
   <p>
-      <img src=https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-1/markdown.png">
-      <img src=https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-2/markdown.png">
+      <img src="https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-1/markdown.png">
+      <img src="https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-2/markdown.png">
   </p>
 </details>
 
 <details><summary>Notes</summary>
   <p>
-      <img src=https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-1/notes.png">
-      <img src=https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-2/notes.png">
+      <img src="https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-1/notes.png">
+      <img src="https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-2/notes.png">
   </p>
 </details>
 
@@ -123,36 +123,36 @@
 
 <details><summary>Monitors</summary>
   <p>
-      <img src=https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-1/monitors.png">
-      <img src=https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-2/monitors.png">
+      <img src="https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-1/monitors.png">
+      <img src="https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-2/monitors.png">
   </p>
 </details>
 
 <details><summary>PDF's</summary>
   <p>
-      <img src=https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-1/pdf.png">
-      <img src=https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-2/pdf.png">
+      <img src="https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-1/pdf.png">
+      <img src="https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-2/pdf.png">
   </p>
 </details>
 
 <details><summary>Files</summary>
   <p>
-      <img src=https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-1/files.png">
-      <img src=https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-2/files.png">
+      <img src="https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-1/files.png">
+      <img src="https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-2/files.png">
   </p>
 </details>
 
 <details><summary>Calendar</summary>
   <p>
-      <img src=https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-1/calendar.png">
-      <img src=https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-2/calendar.png">
+      <img src="https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-1/calendar.png">
+      <img src="https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-2/calendar.png">
   </p>
 </details>
 
 <details><summary>Habits</summary>
   <p>
-      <img src=https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-1/habits.png">
-      <img src=https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-2/habits.png">
+      <img src="https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-1/habits.png">
+      <img src="https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-2/habits.png">
   </p>
 </details>
 
@@ -160,29 +160,29 @@
 
 <details><summary>Audio</summary>
   <p>
-      <img src=https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-1/audio.png">
-      <img src=https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-2/audio.png">
+      <img src="https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-1/audio.png">
+      <img src="https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-2/audio.png">
   </p>
 </details>
 
 <details><summary>News</summary>
   <p>
-      <img src=https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-1/news.png">
-      <img src=https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-2/news.png">
+      <img src="https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-1/news.png">
+      <img src="https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-2/news.png">
   </p>
 </details>
 
 <details><summary>Misc</summary>
   <p>
-      <img src=https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-1/misc.png">
-      <img src=https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-2/misc.png">
+      <img src="https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-1/misc.png">
+      <img src="https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-2/misc.png">
   </p>
 </details>
 
 <details><summary>Images</summary>
   <p>
-      <img src=https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-1/images.png">
-      <img src=https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-2/images.png">
+      <img src="https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-1/images.png">
+      <img src="https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-2/images.png">
   </p>
 </details>
 
@@ -634,7 +634,7 @@ control](https://github.com/SingularisArt/Singularis/commit/f0bce4d1) since
 
 Zsh is configured with the following prompt:
 
-<img src=https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-3/zsh-prompt-1.png">
+<img src="https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-3/zsh-prompt-1.png">
 
 Visible here are:
 
@@ -658,46 +658,46 @@ Visible here are:
 Nested shells are indicated with additional prompt characters. For example, one
 nested shell:
 
-<img src=https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-3/zsh-prompt-2.png">
+<img src="https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-3/zsh-prompt-2.png">
 
 Two nested shells:
 
-<img src=https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-3/zsh-prompt-3.png">
+<img src="https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-3/zsh-prompt-3.png">
 
 Root shells are indicated with a different color prompt character and the word
 "root":
 
-<img src=https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-3/zsh-prompt-4.png">
+<img src="https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-3/zsh-prompt-4.png">
 
 Nesting within a root shell is indicated like this:
 
-<img src=https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-3/zsh-prompt-5.png">
+<img src="https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-3/zsh-prompt-5.png">
 
 Two nested shells:
 
-<img src=https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-3/zsh-prompt-6.png">
+<img src="https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-3/zsh-prompt-6.png">
 
 Tmux shells are indicated with a different color prompt character and the word
 "tmux":
 
-<img src=https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-3/zsh-prompt-5.png">
+<img src="https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-3/zsh-prompt-5.png">
 
 Nesting within a tmux shell is indicated like this:
 
-<img src=https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-3/zsh-prompt-6.png">
+<img src="https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-3/zsh-prompt-6.png">
 
 Two nested shells:
 
-<img src=https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-3/zsh-prompt-7.png">
+<img src="https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-3/zsh-prompt-7.png">
 
 If the last command exited with a non-zero status (usually indicative of an
 error), a yellow exclamation is shown:
 
-<img src=https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-3/zsh-prompt-8.png">
+<img src="https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-3/zsh-prompt-8.png">
 
 If there are background processes, a yellow asterisk is shown:
 
-<img src=https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-3/zsh-prompt-9.png">
+<img src="https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-3/zsh-prompt-9.png">
 
 ## Tmux
 
@@ -741,8 +741,8 @@ To install them, after you enter tmux, run `<C-b>I`.
 
 ### Prompt
 
-<img src=https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-3/tmux-prompt-1.png">
-<img src=https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-3/tmux-prompt-2.png">
+<img src="https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-3/tmux-prompt-1.png">
+<img src="https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-3/tmux-prompt-2.png">
 
 ## Sxhkd
 
@@ -1195,7 +1195,7 @@ taken from and used as an inspiration). Anyway, here's how I install them.
 > `--singularis` option without decrypting them, you'll get the following error
 > everytime you change your directory.
 
-<img src=https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-3/zsh-autojump-error.png">
+<img src="https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-3/zsh-autojump-error.png">
 
 # License
 
