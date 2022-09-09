@@ -33,8 +33,17 @@ class Template:
         specific_items_to_install: list,
         personal: dict,
     ):
-        CustomTemplate.delimiter = delimiter
-        log.log_trace("Chaning delimiter from # to {}".format(delimiter))
+        if delimiter != CustomTemplate.delimiter:
+            og_delimiter = helpers.pretty_log(
+                log,
+                log.trace,
+                CustomTemplate.delimiter,
+            )
+
+            delimiter = helpers.pretty_log(log, log.trace, delimiter)
+
+            log.log_trace(f"Changing delimiter from {og_delimiter} to {delimiter}")
+            CustomTemplate.delimiter = delimiter
 
         self.root_folder = root_folder
         self.name = template_name
@@ -47,7 +56,14 @@ class Template:
         self.personal = personal
 
         # TODO: Implement this function
-        log.log_trace("Checking the hash for {}".format(self.template_location))
+
+        destination = helpers.pretty_log(
+            log,
+            log.trace,
+            self.template_destination,
+        )
+
+        log.log_trace(f"Checking the hash for {destination}.")
 
         if self.check_sum():
             self.setup_for_installation()
@@ -85,7 +101,7 @@ class Template:
         else:
             self.install()
 
-    def get_path_to_template_expanding_snippets(self, snippet):
+    def get_path_to_template_snippets(self, snippet):
         public_or_personal = "personal" if self.personal else "public"
         file_ending = helpers.join(self.type, self.name, snippet + ".template")
 
@@ -101,29 +117,31 @@ class Template:
         opened_template = open(self.template_location, "r").read()
         opened_template = CustomTemplate(opened_template)
 
-        # variable_repacment = {}
+        variable_repacment = {}
 
-        is_aspect_personal = self.personal["install_personal_aspect"]
-        is_personal_command_running = self.personal["running_personal_command"]
-        print(is_aspect_personal)
-        print(is_personal_command_running)
+        for snippet in self.data:
+            template_location = self.get_path_to_template_snippets(snippet)
+            opened_template_location = open(template_location, "r").read()
 
-        # for snippet in self.data:
-        #     template_location = self.get_path_to_template_expanding_snippets(snippet)
-        #     opened_template_location = open(template_location, "r").read()
+            variable_repacment[snippet] = opened_template_location
 
-        #     variable_repacment[snippet] = opened_template_location
+        completed_template = opened_template.safe_substitute(
+            variable_repacment,
+        )
 
-        # completed_template = opened_template.safe_substitute(variable_repacment)
+        name = helpers.pretty_log(log, log.trace, self.name)
+        destination = helpers.pretty_log(
+            log,
+            log.trace,
+            self.template_destination,
+        )
 
-        # log.log_trace("Expanding template {}".format(self.name))
+        log.log_trace(f"Expanding template {name}.")
 
-        # with open(self.template_destination, "w") as writing_template:
-        #     writing_template.write(completed_template)
+        with open(self.template_destination, "w") as writing_template:
+            writing_template.write(completed_template)
 
-        # log.log_trace(
-        #     "Writing snippet {} to {}".format(self.name, self.template_destination)
-        # )
+        log.log_trace(f"Writing snippet {name} to {destination}.")
 
     def check_sum(self):
         return True
@@ -173,10 +191,7 @@ class Templates(dict):
         # It also keeps track if the user uses the --singularis option, which
         # makes the progarm install all aspects that are personal, which means
         # if you aren't SingularisArt, then don't use the frecking option.
-        personal = {
-            "install_personal_aspect": False,
-            "running_personal_command": False,
-        }
+        personal = True if self.args.singularis else False
 
         for type in types:
             for template in self.data["templates"][type]:
