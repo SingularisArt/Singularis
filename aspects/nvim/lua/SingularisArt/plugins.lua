@@ -158,12 +158,6 @@ M.load = function()
 				require("SingularisArt.config.autopairs").setup()
 			end,
 		})
-		use({
-			"karb94/neoscroll.nvim",
-			config = function()
-				require("SingularisArt.config.neoscroll").setup()
-			end,
-		})
 		use({ "Valloric/MatchTagAlways" })
 		use({ "wakatime/vim-wakatime" })
 		use({ "dhruvasagar/vim-table-mode" })

@@ -678,9 +678,6 @@ Two nested shells:
 
 <img src="media/theme-3/zsh-prompt-6.png">
 
-
-
-
 Tmux shells are indicated with a different color prompt character and the word
 "tmux":
 
