@@ -8,7 +8,7 @@ local on_attach = function(client, bufnr)
 end
 
 local sql_on_attach = function(client, bufnr)
-  on_attach(client, bufnr)
+	on_attach(client, bufnr)
 	require("sqls").on_attach(client, bufnr)
 end
 
@@ -96,6 +96,11 @@ lsp.load = function()
 
 		lspconfig[server].setup(server_settings)
 	end
+
+	require("mason-null-ls").setup({
+		automatic_installation = true,
+	})
+  require("mason-null-ls").check_install(true)
 end
 
 return lsp

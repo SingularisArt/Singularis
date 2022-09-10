@@ -70,13 +70,14 @@ M.load = function()
 		use({ "neovim/nvim-lspconfig" })
 		use({ "folke/lua-dev.nvim" })
 		use({ "tamago324/nlsp-settings.nvim" })
-		use({ "williamboman/mason-lspconfig.nvim" })
-		use({ "WhoIsSethDaniel/mason-tool-installer.nvim" })
 		use({ "jose-elias-alvarez/null-ls.nvim" })
 		use({ "RRethy/vim-illuminate" })
 		use({ "simrat39/symbols-outline.nvim" })
 		use({ "ray-x/lsp_signature.nvim" })
+		use({ "williamboman/mason-lspconfig.nvim" })
+		use({ "WhoIsSethDaniel/mason-tool-installer.nvim" })
 		use({ "williamboman/mason.nvim" })
+    use({ "jayp0521/mason-null-ls.nvim" })
 		use({ "b0o/SchemaStore.nvim" })
 		use({ "nanotee/sqls.nvim" })
 		use({
@@ -94,6 +95,9 @@ M.load = function()
 			"christianchiarulli/rust-tools.nvim",
 			branch = "modularize_and_inlay_rewrite",
 		})
+
+    -- Hugo
+    use({ "phelipetls/vim-hugo" })
 
 		-- Utilities
 		use({
@@ -162,6 +166,21 @@ M.load = function()
 		use({ "wakatime/vim-wakatime" })
 		use({ "dhruvasagar/vim-table-mode" })
 		use({ "machakann/vim-highlightedyank" })
+		use({
+			"wincent/corpus",
+			config = function()
+				CorpusDirectories = {
+					["~/Documents/Website/content/posts"] = {
+						autocommit = true,
+						autoreference = 0,
+						autotitle = 0,
+						base = "~/Documents/Website/",
+						repo = "~/Documents/Website",
+						transform = "web",
+					},
+				}
+			end,
+		})
 
 		-- Icons
 		use({ "kyazdani42/nvim-web-devicons" })

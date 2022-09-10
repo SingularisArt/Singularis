@@ -73,12 +73,12 @@ function tmux() {
     if [[ -x .tmux ]]; then
       # Prompt the first time we see a given .tmux file before running it.
       local DIGEST="$(openssl sha512 .tmux)"
-      if ! grep -q "$DIGEST" ~/..tmux.digests 2> /dev/null; then
+      if ! grep -q "$DIGEST" ~/.config/tmux/tmux.digests 2> /dev/null; then
         cat .tmux
         read -k 1 -r \
           'REPLY?Trust (and run) this .tmux file? (t = trust, otherwise = skip) '
         if [[ $REPLY =~ ^[Tt]$ ]]; then
-          echo "$DIGEST" >> ~/..tmux.digests
+          echo "$DIGEST" >> ~/.config/tmux/tmux.digests
           ./.tmux
           return
         fi
@@ -95,7 +95,7 @@ function tmux() {
       if [[ $REPLY =~ ^[Mm]$ ]]; then
         chmod +x .tmux
         local DIGEST="$(openssl sha512 .tmux)"
-        echo "$DIGEST" >> ~/..tmux.digests
+        echo "$DIGEST" >> ~/.config/tmux/tmux.digests
         ./.tmux
         return
       fi

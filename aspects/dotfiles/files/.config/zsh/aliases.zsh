@@ -40,11 +40,12 @@ fi
 if command -v abook &> /dev/null; then
   alias abook='abook --config '$XDG_CONFIG_HOME'/abook/abookrc --datafile '$XDG_DATA_HOME'/abook/addressbook'
 fi
-if command -calcurse mariadb &> /dev/null; then
+if command -v &> /dev/null; then
   alias c='calcurse'
 fi
 if command -v mariadb &> /dev/null; then
-  alias ms='mariadb -u root -p'
+  alias msr='mariadb -u root -p'
+  alias mss='mariadb -u singularis -p'
 fi
 if command -v ncmpcpp &> /dev/null; then
   alias n='ncmpcpp'
@@ -57,12 +58,11 @@ if command -v tmux &> /dev/null; then
   alias t='tmux'
   alias tn='tmux new-session'
   alias tl='tmux ls'
+  alias ta='tmux a'
+  alias tat='tmux a -t'
 fi
 if command -v nvim &> /dev/null; then
   alias nv='nvim'
-fi
-if command -v dvim &> /dev/null; then
-  alias dv='dvim'
 fi
 if command -v lvim &> /dev/null; then
   alias lv='lvim'
