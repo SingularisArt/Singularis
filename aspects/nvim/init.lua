@@ -1,6 +1,11 @@
 require("SingularisArt")
 
 SingularisArt.plugins.load()
+
+if #vim.api.nvim_list_uis() == 0 then
+  return
+end
+
 SingularisArt.lsp.load()
 
 SingularisArt.statusline.load()
