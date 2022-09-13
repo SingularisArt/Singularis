@@ -4985,17 +4985,17 @@ position-y=0.062408986894112756
 time=1661972482
 
 [/home/singularis/Documents/school-notes/College/Year-1/semester-2/pre-calculus-2/master.pdf]
-page=0
+page=1
 offset=0
 zoom=0.62388302193338752
 rotate=0
-pages-per-row=2
+pages-per-row=1
 first-page-column=1:2
 page-right-to-left=false
-position-x=0.75
-position-y=0.016129032258064516
-time=1662609927
-jumplist=2 1.1498316498316499 0.40799551990750776 2 0.50858670002053741 0.38209361152904642 47 0.5 0.77569464142981182 59 0.25 0.9838709677419355 
+position-x=0.57154882154882158
+position-y=0.23397924853844726
+time=1663079873
+jumplist=2 1.1498316498316499 0.40799551990750776 2 0.50858670002053741 0.38209361152904642 47 0.5 0.77569464142981182 59 0.25 0.9838709677419355 0 0.75 0.016129032258064516 0 0.24939575237598488 0.043120647115394602 0 0.5 0.08280945154996748 1 0.49879048750007748 0.22530810177928837 
 
 [sQYCRn1JIHfZdcItKNQVhDPVpGIwrdhFB3IqkJikcsE=]
 page=3
@@ -5617,16 +5617,16 @@ position-y=0.95065223793043108
 time=1662534702
 
 [77ChYyKGlJpS22FdoMKaG814Fhxw8oMfZ7HlaC+cKuA=]
-page=0
+page=1
 offset=0
 zoom=0.62388302193338752
 rotate=0
-pages-per-row=2
+pages-per-row=1
 first-page-column=1:2
 page-right-to-left=false
-position-x=0.75
-position-y=0.016129032258064516
-time=1662609927
+position-x=0.5
+position-y=0.02495659722222222
+time=1663040641
 
 [PGtgtiN5KhV891Dn5H0eps5OmYoNxqoxkrptfjfIR08=]
 page=0
@@ -5675,3 +5675,39 @@ page-right-to-left=false
 position-x=0.5
 position-y=0.14478764478764478
 time=1662852052
+
+[rkgmpnYnOiZ1IPDtqtVArbVpp+cu+Mq8K6rfqMvvak0=]
+page=0
+offset=0
+zoom=0.62388302193338752
+rotate=0
+pages-per-row=1
+first-page-column=1:2
+page-right-to-left=false
+position-x=0.5
+position-y=0.08280945154996748
+time=1663040643
+
+[uivbpVzJiJx08wWRwAy81+pexeiI7jrJhkjv4n29hgQ=]
+page=0
+offset=0
+zoom=0.62388302193338752
+rotate=0
+pages-per-row=1
+first-page-column=1:2
+page-right-to-left=false
+position-x=0.5
+position-y=0.08280945154996748
+time=1663040645
+
+[8Gzy+N/9VkAJ8rR0/l5jTs5xFbIItgODeJp/7ww6RcI=]
+page=1
+offset=0
+zoom=0.62388302193338752
+rotate=0
+pages-per-row=1
+first-page-column=1:2
+page-right-to-left=false
+position-x=0.57154882154882158
+position-y=0.23397924853844726
+time=1663079873

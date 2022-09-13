@@ -8,6 +8,8 @@
   template = ~/.config/git/gitmessage.txt
 
 [alias]
+  a = add
+  aa = add .
   abbrev = !bash -c 'git rev-parse --short ${1-`echo HEAD`}' -
   ack = grep --break --heading
   amend = commit --amend -v
@@ -17,11 +19,11 @@
   c = commit
   cm = commit -m
   co = checkout
-  a = add
-  aa = add .
   count = !git --no-pager log --oneline | wc -l
   cp = cherry-pick
   delta = "!f() { git diff \"$@\" | delta; }; f"
+  p = push
+  patch = add -p
 
   # http://stackoverflow.com/questions/224687/git-find-duplicate-blobs-files-in-this-tree/8408640#8408640
   dupes = !"git ls-tree -r HEAD | cut -c 13- | sort | uniq -D -w 40"
@@ -51,10 +53,6 @@
   # %C(auto) requires Git 1.8.3 or later
   one = !git --paginate log --pretty=format:'%C(auto)%h%Creset %s%C(auto)%d%Creset %C(magenta bold)(%cr)%Creset %C(cyan)%Creset'
   oneline = !git --paginate log --pretty=format:'%C(auto)%h%Creset %s%C(auto)%d%Creset %C(magenta bold)(%cr)%Creset %C(cyan)%Creset'
-
-  # requires Git 1.5.4 or later
-  p = add -p
-  patch = add -p
 
   # Recover previous COMMIT_EDITMSG, if there is one.
   recover = !cat "$(git rev-parse --git-dir 2> /dev/null)/COMMIT_EDITMSG"

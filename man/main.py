@@ -21,11 +21,11 @@ def core(args):
 
 
 def settings(args):
-    if args.colorscheme:
+    if args.colorscheme or args.all:
         print("Colorscheme")
     if args.distro:
         print("Distro")
-    if args.settings:
+    if args.settings or args.all:
         print("Settings")
 
 

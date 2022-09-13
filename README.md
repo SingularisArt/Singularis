@@ -191,6 +191,7 @@
 <!-- vim-markdown-toc GFM -->
 
 * [Overview](#overview)
+  * [Repo Layout](#repo-layout)
 * [Applications](#applications)
   * [System](#system)
   * [Tools](#tools)
@@ -213,6 +214,13 @@
       * [Misc](#misc-1)
     * [Security](#security)
   * [Theming](#theming)
+* [Apt](#apt)
+  * [Packages](#packages)
+* [Aur](#aur)
+  * [Packages](#packages-1)
+* [Backup](#backup)
+* [Cron Jobs](#cron-jobs)
+* [Defaults](#defaults)
 * [Dotfiles](#dotfiles)
   * [Features](#features)
   * [Zsh](#zsh)
@@ -241,33 +249,36 @@
       * [Selecting areas](#selecting-areas)
       * [Gaps](#gaps)
       * [Other](#other-1)
-  * [Mutt](#mutt)
-    * [Accounts](#accounts)
-    * [Key bindings](#key-bindings)
-      * [Index and Pager](#index-and-pager)
-      * [Index](#index)
-      * [Pager](#pager)
-      * [Attach](#attach)
-      * [Compose](#compose)
-      * [Browser](#browser)
-      * [Index and Attach and Browser and Query](#index-and-attach-and-browser-and-query)
-  * [Music](#music-1)
+  * [Audio](#audio)
     * [MPD](#mpd)
     * [Ncmpcpp](#ncmpcpp)
     * [MPV](#mpv)
+    * [Castero](#castero)
+    * [Newsboat](#newsboat)
   * [Window Managers](#window-managers)
     * [Bspwm](#bspwm-1)
     * [DWM](#dwm)
     * [Awesome](#awesome)
-  * [Other](#other-2)
-    * [Castero](#castero)
-    * [Dunst](#dunst-1)
+  * [Email](#email)
+    * [NeoMutt](#neomutt)
+      * [Accounts](#accounts)
+      * [Key bindings](#key-bindings)
+        * [Index and Pager](#index-and-pager)
+        * [Index](#index)
+        * [Pager](#pager)
+        * [Attach](#attach)
+        * [Compose](#compose)
+        * [Browser](#browser)
+        * [Index and Attach and Browser and Query](#index-and-attach-and-browser-and-query)
+    * [Lynx](#lynx)
     * [Khal](#khal)
     * [Khard](#khard)
+  * [File Navigation](#file-navigation)
     * [Lf](#lf)
-    * [Lynx](#lynx)
+    * [Ranger (Depricated)](#ranger-depricated)
+  * [Utilities](#utilities)
+    * [Dunst](#dunst-1)
     * [Neofetch](#neofetch)
-    * [Newsboat](#newsboat)
     * [Picom](#picom)
     * [Polybar](#polybar-1)
     * [Ranger](#ranger)
@@ -276,19 +287,13 @@
     * [Wal](#wal)
     * [Wal-Discord](#wal-discord)
     * [My Scripts](#my-scripts)
-* [Backup](#backup)
-* [Cron Jobs](#cron-jobs)
-* [Defaults](#defaults)
-* [Python](#python)
 * [Node](#node)
-* [Packages](#packages)
-  * [Pacman](#pacman)
-  * [Aur](#aur)
-  * [Apt](#apt)
-* [SSH](#ssh)
+* [Nvim](#nvim)
+* [Pacman](#pacman)
+* [Python](#python)
 * [Systemd](#systemd)
+* [SSH](#ssh)
 * [Tampermonkey](#tampermonkey)
-* [Xmenu](#xmenu)
 * [Spring Cleaning, Keeping your Home Directory Clean](#spring-cleaning-keeping-your-home-directory-clean)
 * [How my Theming Works](#how-my-theming-works)
 * [Dependencies](#dependencies)
@@ -302,6 +307,61 @@
 <!-- vim-markdown-toc -->
 
 # Overview
+
+This repo contains all my system-wide configuration. Let me clear something up.
+This ISN'T my dotfiles. My [dotfiles](aspects/dotfiles) are a subset of this
+repo.
+
+Here's the basic structure of this repo:
+
+## Repo Layout
+
+```bash
+.
+├── aspects
+│   ├── dotfiles
+│   └── ...
+├── CHANGELOG.md
+├── CONTRIBUTING.md
+├── install
+├── LICENSE.md
+├── man
+│   ├── colors.py
+│   ├── helpers.py
+│   ├── __init__.py
+│   ├── log_level.txt
+│   ├── log.py
+│   ├── main.py
+│   ├── operations
+│   ├── templates
+│   │   ├── personal
+│   │   │   └── .config
+│   │   │       ├── gh
+│   │   │       │   └── hosts.yml
+│   │   │       │       ├── oauth_token.template
+│   │   │       │       └── user.template
+│   │   │       └── git
+│   │   │           └── config
+│   │   │               ├── github.template
+│   │   │               └── user.template
+│   │   └── public
+│   │       └── .config
+│   │           ├── gh
+│   │           │   └── hosts.yml
+│   │           │       ├── oauth_token.template
+│   │           │       └── user.template
+│   │           └── git
+│   │               └── config
+│   │                   ├── github.template
+│   │                   └── user.template
+│   └── variables.py
+├── README.md
+└── third-party-tools
+    ├── chameleon
+    ├── gnuplot-pywal
+    ├── instant-reference
+    └── start-tree
+```
 
 # Applications
 
@@ -571,6 +631,43 @@
   animation
 - [plymouth-themes](https://github.com/adi1090x/plymouth-themes): Collection of
   themes
+
+# Apt
+
+If you're on a debian based distro, then this aspect will be run to install all
+the required packages. Of course, you can always opt out of this feature by
+using the `--no-packages` option when running the installation script.
+
+## Packages
+
+1. Coming Soon ...
+
+# Aur
+
+If you're on an arch based distro, then this aspect will be run to install all
+the required packages. Of course, you can always opt out of this feature by
+using the `--no-packages` option when running the installation script.
+
+## Packages
+
+1. Coming Soon ...
+
+# Backup
+
+Before installing anything, this aspect will backup all of your configurations
+that'll be overwritten by mine to `~/.backup/`. For example, if you're
+installing my dotfiles, then all your zsh configuration, nvim configuration,
+neomutt configuration, will be moved to `~/.backup/.config/` just in case
+you'd like to revert back. Of course, you can always opt out of this feature
+by using the `--no-backup` option when running the installation script.
+
+# Cron Jobs
+
+This aspect will install all my cron jobs. It'll only be installed if you
+use the `--singularis` option, which I discuss more in depth
+[here](./man/README.md#options).
+
+# Defaults
 
 # Dotfiles
 
@@ -893,9 +990,31 @@ To install them, after you enter tmux, run `<C-b>I`.
 | Restart bspwm | Super+Shift+Ctrl+r |
 | Quit bspwm    | Super+Shift+Ctrl+1 |
 
-## Mutt
+## Audio
 
-### Accounts
+### MPD
+
+### Ncmpcpp
+
+### MPV
+
+### Castero
+
+### Newsboat
+
+## Window Managers
+
+### Bspwm
+
+### DWM
+
+### Awesome
+
+## Email
+
+### NeoMutt
+
+#### Accounts
 
 Here's the boiler template for creating an account:
 
@@ -947,9 +1066,9 @@ unset imap_passive
 set imap_keepalive = 60
 ```
 
-### Key bindings
+#### Key bindings
 
-#### Index and Pager
+##### Index and Pager
 
 | Action                        | Keybinding |
 | ----------------------------- | ---------- |
@@ -976,7 +1095,7 @@ set imap_keepalive = 60
 | View attachments              | v          |
 | Pipe message                  | \|         |
 
-#### Index
+##### Index
 
 | Action               | Keybinding |
 | -------------------- | ---------- |
@@ -992,7 +1111,7 @@ set imap_keepalive = 60
 | Go to current bottom | zb         |
 | Limit by flagged     | \\         |
 
-#### Pager
+##### Pager
 
 | Action                  | Keybinding |
 | ----------------------- | ---------- |
@@ -1003,14 +1122,14 @@ set imap_keepalive = 60
 | Go to the bottom        | G          |
 | Go to the top           | gg         |
 
-#### Attach
+##### Attach
 
 | Action       | Keybinding |
 | ------------ | ---------- |
 | View mailcap | Enter      |
 | Pipe entry   | \|         |
 
-#### Compose
+##### Compose
 
 | Action           | Keybinding |
 | ---------------- | ---------- |
@@ -1029,7 +1148,7 @@ set imap_keepalive = 60
 | Move up          | Ctrl+k     |
 | Move down        | Ctrl+j     |
 
-#### Browser
+##### Browser
 
 | Action                | Keybinding |
 | --------------------- | ---------- |
@@ -1037,7 +1156,7 @@ set imap_keepalive = 60
 | Go to the bottom page | G          |
 | Select entry          | Enter      |
 
-#### Index and Attach and Browser and Query
+##### Index and Attach and Browser and Query
 
 | Action                   | Keybinding |
 | ------------------------ | ---------- |
@@ -1048,39 +1167,22 @@ set imap_keepalive = 60
 | Go to the next entry     | Down       |
 | Go to the previous entry | Up         |
 
-## Music
-
-### MPD
-
-### Ncmpcpp
-
-### MPV
-
-## Window Managers
-
-### Bspwm
-
-### DWM
-
-### Awesome
-
-## Other
-
-### Castero
-
-### Dunst
+### Lynx
 
 ### Khal
 
 ### Khard
 
+## File Navigation
 ### Lf
 
-### Lynx
+### Ranger (Depricated)
+
+## Utilities
+
+### Dunst
 
 ### Neofetch
-
-### Newsboat
 
 ### Picom
 
@@ -1098,40 +1200,39 @@ set imap_keepalive = 60
 
 ### My Scripts
 
-# Backup
+# Node
 
-# Cron Jobs
+# Nvim
 
-# Defaults
+# Pacman
 
 # Python
 
-# Node
-
-# Packages
-
-## Pacman
-
-## Aur
-
-## Apt
+# Systemd
 
 # SSH
 
-# Systemd
-
 # Tampermonkey
 
-# Xmenu
-
 # Spring Cleaning, Keeping your Home Directory Clean
+
+For those, who, like me, hate it when your home directory is cluttered. Well,
+you're in luck because my dotfiles don't clutter your home directory. Here's
+proof.
+
+<img src="https://raw.githubusercontent.com/SingularisArt/Singularis/media/theme-3/home-dir.png">
+
+As you can see, I, at most, have only 14 directories in my home directory.
+That's not because I don't use many programs. I use a **TON**.
+
+I just thought I should share this.
 
 # How my Theming Works
 
 # Dependencies
 
-* `git`: In order to clone the repo.
-* `python >= 3.10`: To run the installation script.
+- `git`: In order to clone the repo.
+- `python >= 3.10`: To run the installation script.
 
 ## Platform status
 
