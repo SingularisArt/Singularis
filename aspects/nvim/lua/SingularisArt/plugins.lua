@@ -53,9 +53,7 @@ M.load = function()
     })
 
     -- Colorschemes
-    use({ "folke/tokyonight.nvim" })
     use({ "chriskempson/base16-vim" })
-    use({ "flazz/vim-colorschemes" })
     use({ "wincent/pinnacle" })
 
     -- Indent Blankline
@@ -87,18 +85,6 @@ M.load = function()
       end,
     })
 
-    -- Java
-    use("mfussenegger/nvim-jdtls")
-
-    -- Rust
-    use({
-      "christianchiarulli/rust-tools.nvim",
-      branch = "modularize_and_inlay_rewrite",
-    })
-
-    -- Hugo
-    use({ "phelipetls/vim-hugo" })
-
     -- Utilities
     use({
       "lewis6991/impatient.nvim",
@@ -112,7 +98,6 @@ M.load = function()
         require("SingularisArt.config.neogen").setup()
       end,
     })
-    use({ "Djancyp/regex.nvim" })
 
     -- Git
     use({
@@ -123,14 +108,6 @@ M.load = function()
     })
     use({ "tpope/vim-rhubarb" })
     use({ "tpope/vim-fugitive" })
-
-    -- Terminal
-    use({
-      "akinsho/toggleterm.nvim",
-      config = function()
-        require("SingularisArt.config.toggleterm").setup()
-      end,
-    })
 
     -- Keybindings
     use({
@@ -224,7 +201,7 @@ M.load = function()
           let g:UltiSnipsJumpForwardTrigger = "<C-j>"
           let g:UltiSnipsJumpBackwardTrigger = "<C-k>"
 
-          let g:g:UltiSnipsExpandTrigger = "<tab>"
+          let g:UltiSnipsExpandTrigger = "<tab>"
 
           " open the file in a new tab
           let g:UltiSnipsEditSplit='tabdo'
@@ -248,13 +225,6 @@ M.load = function()
         require("SingularisArt.config.project").setup()
       end,
     })
-    use({
-      "tom-anders/telescope-vim-bookmarks.nvim",
-      config = function()
-        require("SingularisArt.config.bookmark").setup()
-      end,
-    })
-    use({ "nvim-telescope/telescope-media-files.nvim" })
 
     -- Completion
     use({
@@ -270,7 +240,10 @@ M.load = function()
     use({ "hrsh7th/cmp-calc" })
     use({ "quangnguyen30192/cmp-nvim-ultisnips" })
     use({ "hrsh7th/cmp-emoji" })
-    use({ "kdheepak/cmp-latex-symbols" })
+    use({
+      "kdheepak/cmp-latex-symbols",
+      ft = { "tex" },
+    })
 
     -- File Browsers
     use({
