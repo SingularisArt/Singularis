@@ -1,0 +1,125 @@
+global !p
+
+from builtin import choose_next
+from latex_.scopes import math
+
+special_letters = ['epsilon', 'phi']
+letter_prefix = ['', 'var']
+
+endglobal
+
+#######################################################################
+#                                                                     #
+#                 Letters and Unicode - Greek Letter                  #
+#                                                                     #
+#######################################################################
+
+
+# alp -> \alpha
+# bet -> \beta
+# gam -> \gamma
+# del -> \delta
+# eps -> \epsilon
+# zet -> \zeta
+# eta -> \eta
+# the -> \theta
+# iot -> \iota
+# kap -> \kappa
+# lam -> \lambda
+# mu 	-> \mu
+# nu 	-> \nu
+# omi -> \omicron
+# xi 	-> \xi
+# pi 	-> \pi
+# rho -> \rho
+# sig -> \sigma
+# tau -> \tau
+# ups -> \upsilon
+# phi -> \phi
+# chi -> \chi
+# psi -> \psi
+# ome -> \omega
+context "math()"
+snippet "(?<!\\)\b(alpha|beta|gamma|delta|epsilon|zeta|eta|theta|iota|kappa|lambda|mu|nu|omicron|pi|rho|sigma|tau|upsilon|phi|chi|omega|varepsilon|varkappa|vartheta|varpi|varrho|varsigma|varphi)" "Greek Letter" Ar
+\\`!p snip.rv = ('var' if match.group(1) in special_letters else '') + match.group(1)`
+endsnippet
+
+# Alp -> \Alpha
+# Bet -> \Beta
+# Gam -> \Gamma
+# Del -> \Delta
+# Eps -> \Epsilon
+# Zet -> \Zeta
+# Eta -> \Eta
+# The -> \Theta
+# Iot -> \Iota
+# Kap -> \Kappa
+# Lam -> \Lambda
+# Mu 	-> \Mu
+# Nu 	-> \Nu
+# Xi 	-> \Xi
+# Omi -> \Omicron
+# Pi 	-> \Pi
+# Rho -> \Rho
+# Sig -> \Sigma
+# Tau -> \Tau
+# Ups -> \Upsilon
+# Phi -> \Phi
+# Chi -> \Chi
+# Psi -> \Psi
+# Ome -> \Omega
+context "math()"
+snippet "(?<!\\)\b(Alpha|Beta|Gamma|Delta|Epsilon|Zeta|Eta|Theta|Iota|Kappa|Lambda|Mu|Nu|Xi|Omicron|Pi|Rho|Sigma|Tau|Upsilon|Phi|Chi|Psi|Omega)" "Uppercase Greek Letter" Ar
+\\`!p snip.rv = match.group(1)`
+endsnippet
+
+context "math()"
+snippet "\\(a|b|g|d|z|e|k|i|t|l|m|n|x|u|pi|ps|ph|r|s|o|ve|vp)" "Common Greek Letter" r
+`!p
+match match.group(1):
+	case "a":
+		snip.rv = "alpha"
+	case "b":
+		snip.rv = "beta"
+	case "g":
+		snip.rv = "gamma"
+	case "d":
+		snip.rv = "delta"
+	case "z":
+		snip.rv = "zeta"
+	case "e":
+		snip.rv = "eta"
+	case "k":
+		snip.rv = "kappa"
+	case "i":
+		snip.rv = "iota"
+	case "t":
+		snip.rv = "theta"
+	case "l":
+		snip.rv = "lambda"
+	case "m":
+		snip.rv = "mu"
+	case "n":
+		snip.rv = "nu"
+	case "x":
+		snip.rv = "xi"
+	case "u":
+		snip.rv = "upsilon"
+	case "pi":
+		snip.rv = "pi"
+	case "ps":
+		snip.rv = "psi"
+	case "ph":
+		snip.rv = "phi"
+	case "r":
+		snip.rv = "rho"
+	case "s":
+		snip.rv = "sigma"
+	case "o":
+		snip.rv = "omega"
+	case "ve":
+		snip.rv = "varepsilon"
+	case "vp":
+		snip.rv = "varphi"
+`
+endsnippet

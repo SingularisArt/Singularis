@@ -1,0 +1,15 @@
+global !p
+from vim_.snippets import LOREM
+endglobal
+
+#######################################################################
+#                       Lorem Ipsum Generators                        #
+#######################################################################
+
+snippet lorem "Lorem Ipsum"
+`!p snip.rv = LOREM`
+endsnippet
+
+snippet "lorem(([\d]+)?[0-9])?" "Lorem Ipsum" r
+`!p snip.rv = str(LOREM) * int(match.group(1))`
+endsnippet

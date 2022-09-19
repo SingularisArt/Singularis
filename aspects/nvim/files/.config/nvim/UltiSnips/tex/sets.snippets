@@ -1,0 +1,69 @@
+global !p
+
+from latex_.scopes import math
+
+endglobal
+
+#######################################################################
+#                                                                     #
+#                                 Sets                                #
+#                                                                     #
+#######################################################################
+
+
+# in  -> \in
+# not -> \not
+context "math()"
+snippet "(in|not)" "In and Not" r
+\\`!p
+snip.rv = match.group(1)
+`
+endsnippet
+
+# OO -> \emptyset
+context "math()"
+snippet OO "Empty" A
+\emptyset
+endsnippet
+
+# cc -> \subset
+context "math()"
+snippet cc "subset" Ai
+\subset
+endsnippet
+
+# Cc -> \subseteq
+context "math()"
+snippet Cc "Sub Set Equal" wA
+\\subseteq
+endsnippet
+
+# set -> \{  \}
+context "math()"
+snippet set "set" wA
+\\{ $1 \\}$0
+endsnippet
+
+# ap -> \cap
+context "math()"
+snippet	Nn "cap" iA
+\cap
+endsnippet
+
+# up -> \cup
+context "math()"
+snippet UU "cup" iA
+\cup
+endsnippet
+
+# uuu -> \bigcup_{i \in I}
+context "math()"
+snippet uuu "bigcup" iA
+\bigcup_{${1:i \in ${2: I}}} $0
+endsnippet
+
+# nnn -> \bigcap_{i \in I}
+context "math()"
+snippet nnn "bigcap" iA
+\bigcap_{${1:i \in ${2: I}}} $0
+endsnippet

@@ -1,0 +1,135 @@
+global !p
+
+from latex_.scopes import text
+
+endglobal
+
+#######################################################################
+#                                                                     #
+#                              Sections                               #
+#                                                                     #
+#######################################################################
+
+context "text()"
+snippet part "Part" wi
+\part{${VISUAL}$1}
+\label{part:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/ga}}}
+
+${3:Some text here}
+
+% part $2 (end)
+
+\newpage
+endsnippet
+
+context "text()"
+snippet chap "Chapter" wi
+\chapter{${VISUAL}$1}
+\label{chap:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/ga}}}
+
+${3:Some text here}
+
+% chapter $2 (end)
+
+\newpage
+endsnippet
+
+context "text()"
+snippet sec "Subsection" wi
+\section{${VISUAL}$1}
+\label{sec:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/ga}}}
+
+${3:Some text here}
+
+% section $2 (end)
+endsnippet
+
+context "text()"
+snippet sec* "Subsection" wi
+\section*{${VISUAL}$1}
+\label{sec:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/ga}}}
+
+${3:Some text here}
+
+% section $2 (end)
+endsnippet
+
+context "text()"
+snippet sub "Subsection" wi
+\subsection{${VISUAL}$1}
+\label{sub_sec:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/ga}}}
+
+${3:Some text here}
+
+% subsection $2 (end)
+endsnippet
+
+context "text()"
+snippet sub* "Subsection" wi
+\subsection*{${VISUAL}$1}
+\label{sub_sec:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/ga}}}
+
+${3:Some text here}
+
+% subsection $2 (end)
+endsnippet
+
+context "text()"
+snippet subsub "Subsubsection" wi
+\subsubsection{${VISUAL}$1}
+\label{sub_sub_sec:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/ga}}}
+
+${3:Some text here}
+
+% subsubsection $2 (end)
+endsnippet
+
+context "text()"
+snippet subsub* "Subsubsection" wi
+\subsubsection*{${VISUAL}$1}
+\label{sub_sub_sec:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/ga}}}
+
+${3:Some text here}
+
+% subsubsection $2 (end)
+endsnippet
+
+context "text()"
+snippet par "Paragraph" wi
+\paragraph{${VISUAL}$1}
+\label{par:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/ga}}}
+
+${3:Some text here}
+
+% paragraph $2 (end)
+endsnippet
+
+context "text()"
+snippet par* "Paragraph" wi
+\paragraph*{${VISUAL}$1}
+\label{par:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/ga}}}
+
+${3:Some text here}
+
+% paragraph $2 (end)
+endsnippet
+
+context "text()"
+snippet subpar "Paragraph" wi
+\subparagraph{${VISUAL}$1}
+\label{sub_par:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/ga}}}
+
+${3:Some text here}
+
+% subparagraph $2 (end)
+endsnippet
+
+context "text()"
+snippet subpar* "Paragraph" wi
+\subparagraph*{${VISUAL}$1}
+\label{sub_par:${2:${1/\\\w+\{(.*?)\}|\\(.)|(\w+)|([^\w\\]+)/(?4:_:\L$1$2$3\E)/ga}}}
+
+${3:Some text here}
+
+% subparagraph $2 (end)
+endsnippet

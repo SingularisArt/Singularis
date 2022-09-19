@@ -1,0 +1,32 @@
+snippet imp ""
+import ${1:moduleName} from '${2:module}'
+endsnippet
+
+snippet imn ""
+import '${1:module}'
+endsnippet
+
+snippet imd ""
+import { ${1:destructuredModule} } from '${2:module}'
+endsnippet
+
+snippet ime ""
+import * as ${1:alias} from '${2:module}'
+endsnippet
+
+snippet ima ""
+import { ${1:originalName} as ${2:aliasName}} from '${3:module}'
+endsnippet
+
+snippet rafce ""
+const ${1:`!p snip.rv = snip.basename`} = () => {
+  return <div>$1</div>;
+};
+
+export default $1;
+endsnippet
+
+# Console Logging
+snippet cl "Console Log"
+console.log($1)
+endsnippet

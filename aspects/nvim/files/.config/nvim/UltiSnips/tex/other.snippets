@@ -1,0 +1,84 @@
+global !p
+from latex_.scopes import env
+endglobal
+
+#######################################################################
+#                                                                     #
+#                                Other                                #
+#                                                                     #
+#######################################################################
+
+snippet bit "Bibliography Item" wi
+\bibitem{${1:label}}
+	${2:Author},
+	\emph{${3:Title}}, 
+	${4:Date}.
+endsnippet
+
+snippet sign "Signature"
+Yours sincerely,
+
+Hashem A. Damrah
+endsnippet
+
+# ref -> \ref{}
+snippet ref "Reference" wi
+\ref{$1}
+endsnippet
+
+# link -> \hyperlink{https://}{text}
+snippet link "Hyperlink" wi
+\hyperlink{https://${VISUAL}$1}{${2:text}}
+endsnippet
+
+# itm -> \item
+context "env('enumerate')
+snippet itm "New Item" bA
+\item ${VISUAL}$1
+endsnippet
+
+# itm -> \item
+context "env('itemize')
+snippet itm "New Item" bA
+\item ${VISUAL}$1
+endsnippet
+
+# box -> \boxed{}
+snippet box "Create box"
+\boxed{${VISUAL}$1}
+endsnippet
+
+# ac -> \ac{acronym}
+snippet ac "Acroynm normal" b
+\ac{${1:acronym}}
+endsnippet
+
+# acl -> \acl{acronym}
+snippet acl "Acroynm expanded" b
+\acl{${1:acronym}}
+endsnippet
+
+# ni -> \noindent
+snippet ni "Non-indented paragraph" b
+\noindent
+endsnippet
+
+# newp -> \newpage
+snippet newp "New Page" A
+\newpage
+endsnippet
+
+# clr -> {\color{}}
+snippet clr "Color"
+{\color{$1}$2}$3
+endsnippet
+
+# acr -> \gls{}
+snippet acr "Acronym" A
+\gls{$1}
+endsnippet
+
+# letw -> Let $\Omega \subset \mathbb{C}$ be open.
+snippet letw "let omega" iA
+Let $\Omega \subset \mathbb{C}$ be open.
+endsnippet

@@ -191,18 +191,13 @@ M.load = function()
     use({
       "SirVer/UltiSnips",
       config = function()
+        vim.g.UltiSnipsExpandTrigger = "<Plug>(ultisnips_expand)"
+        vim.g.UltiSnipsJumpForwardTrigger = "<Plug>(ultisnips_jump_forward)"
+        vim.g.UltiSnipsJumpBackwardTrigger = "<Plug>(ultisnips_jump_backward)"
+        vim.g.UltiSnipsListSnippets = "<c-x><c-s>"
+        vim.g.UltiSnipsRemoveSelectModeMappings = 0
+
         vim.cmd([[
-          " make YCM compatible with UltiSnips (using supertab)
-          let g:ycm_key_list_select_completion = ['<C-j>', '<Down>']
-          let g:ycm_key_list_previous_completion = ['<C-k>', '<Up>']
-          let g:SuperTabDefaultCompletionType = '<C-n>'
-
-          " better key bindings for UltiSnipsExpandTrigger
-          let g:UltiSnipsJumpForwardTrigger = "<C-j>"
-          let g:UltiSnipsJumpBackwardTrigger = "<C-k>"
-
-          let g:UltiSnipsExpandTrigger = "<tab>"
-
           " open the file in a new tab
           let g:UltiSnipsEditSplit='tabdo'
 

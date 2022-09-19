@@ -1,0 +1,91 @@
+﻿global !p
+
+from builtin import choose_next
+from latex_.scopes import math
+
+left_arrows = ['\\leftarrow', '\\gets', '\\longleftarrow', '\\Leftarrow', '\\Longleftarrow', '\\impliedby']
+right_arrows = ['\\rightarrow', '\\to', '\\longrightarrow', '\\Rightarrow', '\\Longrightarrow', '\\implies']
+leftright_arrows = ['\\leftrightarrow', '\\longleftrightarrow', '\\Leftrightarrow', '\\Longleftrightarrow', '\\iff']
+
+endglobal
+
+#######################################################################
+#                                                                     #
+#                               Arrows                                #
+#                                                                     #
+#######################################################################
+
+
+# => -> \Rightarrow
+context "math()"
+snippet => "Imply" Ai
+\Rightarrow 
+endsnippet
+
+# <>- -> \leftarrow
+context "math()"
+snippet "<>?-" "Left Arrow" Ar
+\leftarrow 
+endsnippet
+
+# -> -> \rightarrow
+context "math()"
+snippet -> "Right Arrow" Ai
+\rightarrow 
+endsnippet
+
+# _<> -> \xleftarrow{}
+context "math()"
+snippet "_<>" "Left Arrow" Ar
+\xleftarrow{${1:${VISUAL}}}
+endsnippet
+
+# _> -> \xrightarrow
+context "math()"
+snippet _> "Right Arrow" Ai
+\xrightarrow[${1:${VISUAL}}]{$2}
+endsnippet
+
+# == -> \Leftrightarrow
+context "math()"
+snippet == "Iff" Ai
+\Leftrightarrow 
+endsnippet
+
+# \leftarrow      -> \gets
+# \gets           -> \longleftarrow
+# \longleftarrow  -> \Leftarrow
+# \Leftarrow      -> \Longleftarrow
+# \Longleftarrow  -> \impliedby
+# \impliedby      -> \leftarrow
+context "math()"
+snippet "(\\leftarrow|\\gets|\\longleftarrow|\\Leftarrow|\\Longleftarrow|\\impliedby)" "LeftArrow Transformation" r
+`!p
+snip.rv = choose_next(match.group(1), left_arrows, 6)
+`
+endsnippet
+
+# \rightarrow     -> \to
+# \to             -> \longrightarrow
+# \longrightarrow -> \Rightarrow
+# \Rightarrow     -> \Longrightarrow
+# \Longrightarrow -> \implies
+# \implies        -> \rightarrow
+context "math()"
+snippet "(\\rightarrow|\\to|\\longrightarrow|\\Rightarrow|\\Longrightarrow|\\implies)" "RightArrow Transformation" r
+`!p
+snip.rv = choose_next(match.group(1), right_arrows, 6)
+`
+endsnippet
+
+# \leftrightarrow      -> \longleftrightarrow
+# \longleftrightarrow  -> \Leftrightarrow
+# \Leftrightarrow      -> \Longleftrightarrow
+# \Longleftrightarrow  -> \iff
+# \iff                 -> \leftrightarrow
+context "math()"
+snippet "(\\leftrightarrow|\\longleftrightarrow|\\Leftrightarrow|\\Longleftrightarrow|\\iff)" "LeftRightArrow Transformation" r
+`!p
+snip.rv = choose_next(match.group(1), leftright_arrows, 5)
+`
+endsnippet

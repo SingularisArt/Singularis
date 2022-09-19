@@ -1,0 +1,81 @@
+global !p
+
+from builtin import choose_next
+from latex_.scopes import math
+
+logical_terms = {'yw': 'because', 'sy': 'therefore', 'and': 'land', 'or': 'lor', 'neg': 'neg'}
+logical_terms_cycle = ['because', 'therefore', 'land', 'lor', 'neg']
+
+ands = ['land', 'bigwedge']
+ors = ['lor', 'bigvee']
+
+endglobal
+
+#######################################################################
+#                                                                     #
+#                                Logic                                #
+#                                                                     #
+#######################################################################
+
+
+# yw  -> \because
+# sy  -> \therefore
+# and -> \land
+# or  -> \lor
+# neg -> \neg
+context "math()"
+snippet "(?<!\\)\b(yw|sy|and|or|neg)" "Logical Terms" Ar
+\\`!p
+snip.rv = logical_terms[match.group(1)]
+` 
+endsnippet
+
+# \because     -> \therefore
+# \therefore   -> \land
+# \land        -> \lor
+# \lor         -> \neg
+# \neg         -> \because
+context "math()"
+snippet "\\(because|therefore|land|lor|neg)(\s?)" "Logical Terms Transformation" r
+\\`!p
+snip.rv = choose_next(match.group(1), logical_terms_cycle, 5) + match.group(2)
+`
+endsnippet
+
+# \land /     -> \bigwedge
+# \bigwedge / -> \land
+context "math()"
+snippet "\\(land|bigwedge)(\s?)/" "And" r
+\\`!p
+snip.rv = choose_next(match.group(1), ands, 2) + match.group(2)
+`
+endsnippet
+
+# \lor /    -> \bigvee
+# \bigvee / -> \lor
+context "math()"
+snippet "\\(lor|bigvee)(\s?)/" "Or" r
+\\`!p
+snip.rv = choose_next(match.group(1), ors, 2) + match.group(2)
+`
+endsnippet
+
+# |-> -> \mapsto
+context "math()"
+snippet |-> "Map" Ai
+\mapsto 
+endsnippet
+
+# exist -> \exists
+# EE    -> \exists
+context "math()"
+snippet "(?<!\\)\b(exist|EE)" "Exist" Ar
+\exist_{${1:${VISUAL}}},$0
+endsnippet
+
+# forall  -> \forall,
+# AA      -> \forall,
+context "math()"
+snippet "(?<!\\)\b(forall|AA)" "Forall" Ar
+\forall_{${1:${VISUAL}}},$0
+endsnippet

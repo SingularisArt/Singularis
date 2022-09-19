@@ -1,0 +1,78 @@
+global !p
+
+from builtin import choose_next
+from latex_.scopes import math
+
+dots = ['', 'c', 'v', 'd']
+infties = ['', '-', '+']
+
+endglobal
+
+#######################################################################
+#                                                                     #
+#                               Symbols                               #
+#                                                                     #
+#######################################################################
+
+# ... -> \dots
+context "math()"
+snippet ... "Ellipsis" Ai
+\dots
+endsnippet
+
+# \dots   -> \cdots
+# \cdots  -> \vdots
+# \vdots  -> \ddots
+# \ddots  -> \dots
+context "math()"
+snippet "\\((?:c|v|d)?)dots(\s?)" "Ellipsis Transformation" r
+\\`!p
+snip.rv = choose_next(match.group(1), dots, 4) + 'dots' + match.group(2)
+`
+endsnippet
+
+# ooo -> \infty
+context "math()"
+snippet ooo "Infinity" i
+\infty 
+endsnippet
+
+# nabla -> \nabla
+context "math()"
+snippet nabla "Nabla" i
+\nabla 
+endsnippet
+
+# \infty  -> -\infty
+# -\infty -> +\infty
+# +\infty -> \infty
+context "math()"
+snippet "((?:\+|-)?)\\infty(\s?)" "Infinity Transformation" r
+`!p
+snip.rv = choose_next(match.group(1), infties, 3) + '\\infty' + match.group(2)
+`
+endsnippet
+
+# ang -> \angle
+context "math()"
+snippet angle "Angle" i
+\angle 
+endsnippet
+
+# tria -> \triangle
+context "math()"
+snippet tria "Triangle" i
+\triangle 
+endsnippet
+
+# deg -> ^{\circ}
+context "math()"
+snippet deg "Degree" i
+^{\circ}
+endsnippet
+
+# perp -> \perp
+context "math()"
+snippet perp "Perpendicular" i
+\perp
+endsnippet

@@ -1,0 +1,131 @@
+global !p
+
+from latex_.scopes import math, inline_math, display_math, pure_math
+
+endglobal
+
+#######################################################################
+#                                                                     #
+#                        Sub and Super Scripts                        #
+#                                                                     #
+#######################################################################
+
+
+# , -> _{}
+context "math()"
+snippet , "Subscript" i
+_{${1:${VISUAL}}}$0
+endsnippet
+
+# x3 -> x_3
+context "pure_math()"
+snippet "([a-zA-Z])(\d)" "Auto Number Subscript" Ar
+`!p snip.rv = match.group(1)`_`!p snip.rv = match.group(2)`
+endsnippet
+
+# x_3 -> x_{33}
+context "math()"
+snippet "([a-zA-Z])_(\d\d)" "Auto Number Subscript" Ar
+`!p snip.rv = match.group(1)`_`!p snip.rv = "{" + match.group(2) + "}"`
+endsnippet
+
+# x_{33}3 -> x_{333}
+context "math()"
+snippet "([a-zA-Z])_\{(\d+)\}(\d)" "Auto Number Subscript" Ar
+`!p snip.rv = match.group(1)`_{`!p snip.rv = match.group(2) + match.group(3)`}
+endsnippet
+
+# x,i -> x_i
+# x,k -> x_k
+# x,p -> x_p
+# x,q -> x_q
+# x,m -> x_m
+# x,n -> x_n
+context "math()"
+snippet "([a-zA-Z]),(i|k|p|q|m|n)" "Auto Variable Subscript" Ar
+`!p snip.rv = match.group(1)`_`!p snip.rv = match.group(2)`
+endsnippet
+
+# ' -> ^{}
+context "math()"
+snippet ' "Superscript" i
+^{${1:${VISUAL}}}$0
+endsnippet
+
+# 10x'x -> 10x^x
+context "math()"
+snippet "([a-zA-Z\d])'([a-zA-Z\d-])" "Superscript" Ar
+`!p snip.rv = match.group(1)`^`!p snip.rv = match.group(2)`
+endsnippet
+
+# 10x^xx -> 10x^{xx}
+context "math()"
+snippet "([a-zA-Z\d])\^([a-zA-Z\d-]+)" "Superscript" Ar
+`!p snip.rv = match.group(1)`^{`!p snip.rv = match.group(2)`}
+endsnippet
+
+# 10x^{xx}x -> 10x^{xxx}
+context "math()"
+snippet "([a-zA-Z\d])\^{([a-zA-Z\d-]+)}([a-zA-Z\d-]+)" "Superscript" Ar
+`!p snip.rv = match.group(1)`^{`!p snip.rv = match.group(2) + match.group(3)`}
+endsnippet
+
+# sq -> ^{2}
+context "math()"
+snippet sq "Square" iA
+^{2}
+endsnippet
+
+# cb -> ^{3}
+context "math()"
+snippet cb "Cube" iA
+^{3}
+endsnippet
+
+# fr -> ^{4}
+context "math()"
+snippet cb "Forth" iA
+^{4}
+endsnippet
+
+# comp -> ^{c}
+context "math()"
+snippet compl "Complement" iA
+^{c}
+endsnippet
+
+# inv -> ^{-}
+context "math()"
+snippet inv "Inverse" iA
+^{-$1}$0
+endsnippet
+
+# ss -> ^{}
+context "math()"
+snippet ss "Superscript" iA
+^{$1}$0
+endsnippet
+
+# sr -> \sqrt{}
+context "math()"
+snippet sr "Root" Aw
+\sqrt{${1:${VISUAL}}}$0
+endsnippet
+
+# sn -> \sqrt{}
+context "math()"
+snippet sn "Root" Aw
+\sqrt[${1:3}]{${2:${VISUAL}}}$0
+endsnippet
+
+# subst -> _{\substack{}}
+context "math()"
+snippet subst "Substack" w
+_{\substack{${1:${VISUAL}}}}$0
+endsnippet
+
+# smash -> \smash[1|t,b, |]{}
+context "math()"
+snippet smash "Smash" w
+\smash[${1|t,b, |}]{${2:${VISUAL}}}$0
+endsnippet
