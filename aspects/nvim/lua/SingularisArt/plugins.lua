@@ -224,6 +224,8 @@ M.load = function()
           let g:UltiSnipsJumpForwardTrigger = "<C-j>"
           let g:UltiSnipsJumpBackwardTrigger = "<C-k>"
 
+          let g:g:UltiSnipsExpandTrigger = "<tab>"
+
           " open the file in a new tab
           let g:UltiSnipsEditSplit='tabdo'
 
