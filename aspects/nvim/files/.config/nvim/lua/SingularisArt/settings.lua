@@ -112,6 +112,8 @@ M.load = function()
   vim.opt.shortmess = vim.opt.shortmess + "o" -- overwrite file-written messages
   vim.opt.shortmess = vim.opt.shortmess + "t" -- truncate file messages at start
 
+  vim.cmd("set rtp+=~/Documents/school-notes/current-course")
+
   SingularisArt.vim.setlocal("colorcolumn", "+" .. SingularisArt.util.join(SingularisArt.util.range(80, 255), ","))
 
   for k, v in pairs(default_options) do

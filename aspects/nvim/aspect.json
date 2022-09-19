@@ -1,0 +1,15 @@
+{
+  "description": "My NeoVim configuration.",
+  "files": {
+    ".home": {},
+    ".config": {
+      "nvim": "public"
+    },
+    ".local": {}
+  },
+  "templates": {
+    ".home": {},
+    ".config": {},
+    ".local": {}
+  }
+}

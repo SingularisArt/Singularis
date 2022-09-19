@@ -2,8 +2,6 @@ local lsp = {}
 
 local null_ls = require("null-ls")
 
--- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/formatting
-local formatting = null_ls.builtins.formatting
 -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/diagnostics
 local diagnostics = null_ls.builtins.diagnostics
 
@@ -12,28 +10,7 @@ lsp.load = function()
 	-- npm install --save-dev prettier prettier-plugin-solidity
 	null_ls.setup({
 		debug = true,
-		sources = {
-			formatting.prettier.with({
-				extra_filetypes = { "toml", "solidity" },
-				extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" },
-			}),
-			formatting.standardrb.with({
-				extra_filetypes = { "--fix", "--format", "quiet", "--stderr", "--stdin", "$FILENAME" },
-			}),
-			formatting.black.with({
-				extra_args = { "--fast" },
-			}),
-			formatting.clang_format,
-			formatting.rustfmt,
-			formatting.sql_formatter,
-			formatting.stylua,
-			formatting.google_java_format,
-			formatting.shellharden,
-
-			diagnostics.flake8,
-			diagnostics.shellcheck,
-			diagnostics.cppcheck,
-		},
+		sources = SingularisArt.lsp.config.null_ls_sources,
 	})
 
 	local unwrap = {

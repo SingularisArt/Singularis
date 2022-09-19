@@ -13,29 +13,6 @@ local sql_on_attach = function(client, bufnr)
 end
 
 lsp.load = function()
-	local servers = {
-		"bashls",
-		"clangd",
-		"cssls",
-		"cssmodules_ls",
-		"emmet_ls",
-		"golangci_lint_ls",
-		"html",
-		"jdtls",
-		"jsonls",
-		"pylsp",
-		"rust_analyzer",
-		"solang",
-		"solc",
-		"solidity_ls",
-		"sumneko_lua",
-		"sqls",
-		"tailwindcss",
-		"texlab",
-		"tsserver",
-		"yamlls",
-	}
-
 	local capabilities = vim.lsp.protocol.make_client_capabilities()
 
 	-- UI tweaks from https://github.com/neovim/nvim-lspconfig/wiki/UI-customization
@@ -53,6 +30,8 @@ lsp.load = function()
 		["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = border }),
 		["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = border }),
 	}
+
+	local servers = SingularisArt.lsp.config.servers
 
 	local cmp_nvim_lsp = require("cmp_nvim_lsp")
 	capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
@@ -96,11 +75,6 @@ lsp.load = function()
 
 		lspconfig[server].setup(server_settings)
 	end
-
-	require("mason-null-ls").setup({
-		automatic_installation = true,
-	})
-  require("mason-null-ls").check_install(true)
 end
 
 return lsp
