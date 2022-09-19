@@ -54,11 +54,11 @@ super + b
 # Dunst #
 #-------#
 
-control + space
+alt + space
   dunstctl close
-control + shift + space
+alt + shift + space
   dunstctl close-all
-control + grave
+alt + grave
   dunstctl history-pop
 
 #-------#
