@@ -9,7 +9,9 @@
   },
   "templates": {
     ".home": {},
-    ".config": {},
+    ".config": {
+      "nvim/static/markdown-preview/customStyle.css": ["import"]
+    },
     ".local": {}
   }
 }

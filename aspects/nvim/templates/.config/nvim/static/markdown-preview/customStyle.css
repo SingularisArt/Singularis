@@ -1,5 +1,4 @@
-@import url("file:///home/singularis/.cache/wal/colors.css");
-
+^import
 body {
   background-color: var(--background);
 }
