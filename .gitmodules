@@ -1,12 +1,18 @@
 [submodule "chameleon"]
-	path = third-party-tools/chameleon
-	url = https://github.com/SingularisArt/Chameleon
+  path = third-party-tools/chameleon
+  url = https://github.com/SingularisArt/Chameleon
 [submodule "instant-reference"]
-	path = third-party-tools/instant-reference
-	url = https://github.com/SingularisArt/instant-reference
+  path = third-party-tools/instant-reference
+  url = https://github.com/SingularisArt/instant-reference
 [submodule "start-tree"]
-	path = third-party-tools/start-tree
-	url = https://github.com/SingularisArt/start-tree
+  path = third-party-tools/start-tree
+  url = https://github.com/SingularisArt/start-tree
 [submodule "gnuplot-pywal"]
-	path = third-party-tools/gnuplot-pywal
-	url = https://github.com/GideonWolfe/Gnuplot-Pywal
+  path = third-party-tools/gnuplot-pywal
+  url = https://github.com/GideonWolfe/Gnuplot-Pywal
+[submodule "UltiSnips"]
+  path = aspects/nvim/files/.config/UltiSnips
+  url = https://github.com/SingularisArt/snippets
+[submodule "pythonx"]
+  path = aspects/nvim/files/.config/pythonx
+  url = https://github.com/SingularisArt/snippet-dependencies

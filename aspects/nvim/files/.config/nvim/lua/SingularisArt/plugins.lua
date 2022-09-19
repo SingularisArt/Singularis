@@ -53,7 +53,7 @@ M.load = function()
 		})
 
 		-- Colorschemes
-		use({ "chriskempson/base16-vim" })
+		use({ "wincent/base16-nvim" })
 		use({ "wincent/pinnacle" })
 
 		-- Indent Blankline
