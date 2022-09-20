@@ -10,10 +10,11 @@ handles.setup = function()
 
 	local cmp = require("cmp")
 
-	local config = vim.fn.expand("~/.config/nvim/personal/github-handles.json")
+	local config = vim.fn.expand("~/.config/nvim/personal/emails.json")
 	if vim.fn.filereadable(config) == 0 then
 		return
 	end
+
 	local addresses = vim.fn.json_decode(vim.fn.readfile(config))
 
 	local source = {}
