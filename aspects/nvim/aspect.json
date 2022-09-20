@@ -10,7 +10,8 @@
   "templates": {
     ".home": {},
     ".config": {
-      "nvim/static/markdown-preview/customStyle.css": ["import"]
+      "nvim/static/markdown-preview/customStyle.css": ["import"],
+      "nvim/personal/emails.json": ["emails"]
     },
     ".local": {}
   }

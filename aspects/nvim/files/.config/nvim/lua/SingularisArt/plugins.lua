@@ -221,6 +221,7 @@ M.load = function()
 		use({ "hrsh7th/cmp-path" })
 		use({ "hrsh7th/cmp-nvim-lsp" })
 		use({ "hrsh7th/cmp-calc" })
+		use({ "hrsh7th/cmp-cmdline" })
 		use({ "quangnguyen30192/cmp-nvim-ultisnips" })
 		use({ "hrsh7th/cmp-emoji" })
 		use({
@@ -252,6 +253,12 @@ M.load = function()
 		use({
 			"KeitaNakamura/tex-conceal.vim",
 			ft = { "tex" },
+		})
+		use({
+			"petertriho/cmp-git",
+			config = function()
+				require("cmp_git").setup()
+			end,
 		})
 
 		-- Markdown

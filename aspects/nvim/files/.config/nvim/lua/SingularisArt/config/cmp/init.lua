@@ -9,7 +9,7 @@ M.setup = function()
 		return vim.api.nvim_replace_termcodes(str, true, true, true)
 	end
 
-  local setup = {
+	cmp.setup({
 		snippet = {
 			expand = function(args)
 				vim.fn["UltiSnips#Anon"](args.body)
@@ -123,7 +123,6 @@ M.setup = function()
 			select = false,
 		},
 		window = {
-			-- documentation = false,
 			documentation = {
 				border = "rounded",
 				winhighlight = "NormalFloat:Pmenu,NormalFloat:Pmenu,CursorLine:PmenuSel,Search:None",
@@ -136,11 +135,23 @@ M.setup = function()
 		experimental = {
 			ghost_text = true,
 		},
-  }
+	})
 
-	require("cmp").setup(setup)
+	cmp.setup.filetype("gitcommit", {
+		sources = cmp.config.sources({
+			{ name = "git" },
+		}, {
+			{ name = "buffer" },
+		}),
+	})
 
-	require("SingularisArt.config.cmp.cmp_github_issues")
+	cmp.setup.cmdline(":", {
+		mapping = cmp.mapping.preset.cmdline(),
+		sources = {
+			{ name = "cmdline", keyword_length = 2 },
+		},
+	})
+
 	require("SingularisArt.config.cmp.cmp_emails").setup()
 end
 
