@@ -10,29 +10,29 @@ SingularisArt.g.command_callbacks = {}
 -- literally every call-site.
 --
 local command = function(name, repl, opts)
-	opts = opts or {}
-	local repl_type = type(repl)
-	if repl_type == "function" then
-		local key = SingularisArt.util.get_key_for_fn(repl, SingularisArt.g.command_callbacks)
-		SingularisArt.g.command_callbacks[key] = repl
-		repl = "lua SingularisArt.g.command_callbacks." .. key .. "()"
-	elseif repl_type ~= "string" then
-		error("command(): unsupported repl type: " .. repl_type)
-	end
-	local prefix = opts.force == false and "command" or "command!"
-	if opts.bang then
-		prefix = prefix .. " -bang"
-	end
-	if opts.complete then
-		prefix = prefix .. " -complete=" .. opts.complete
-	end
-	if opts.nargs then
-		prefix = prefix .. " -nargs=" .. opts.nargs
-	end
-	if opts.range then
-		prefix = prefix .. " -range"
-	end
-	vim.cmd(prefix .. " " .. name .. " " .. repl)
+  opts = opts or {}
+  local repl_type = type(repl)
+  if repl_type == "function" then
+    local key = SingularisArt.util.get_key_for_fn(repl, SingularisArt.g.command_callbacks)
+    SingularisArt.g.command_callbacks[key] = repl
+    repl = "lua SingularisArt.g.command_callbacks." .. key .. "()"
+  elseif repl_type ~= "string" then
+    error("command(): unsupported repl type: " .. repl_type)
+  end
+  local prefix = opts.force == false and "command" or "command!"
+  if opts.bang then
+    prefix = prefix .. " -bang"
+  end
+  if opts.complete then
+    prefix = prefix .. " -complete=" .. opts.complete
+  end
+  if opts.nargs then
+    prefix = prefix .. " -nargs=" .. opts.nargs
+  end
+  if opts.range then
+    prefix = prefix .. " -range"
+  end
+  vim.cmd(prefix .. " " .. name .. " " .. repl)
 end
 
 return command

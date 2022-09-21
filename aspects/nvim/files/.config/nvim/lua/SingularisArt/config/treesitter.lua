@@ -34,20 +34,7 @@ M.setup = function()
       disable = { "xml", "markdown" },
     },
     rainbow = {
-      enable = true,
-      extended_mode = false,
-      colors = {
-        -- "#68a0b0",
-        -- "#946EaD",
-        -- "#c7aA6D",
-        "Gold",
-        "Orchid",
-        "DodgerBlue",
-        -- "Cornsilk",
-        -- "Salmon",
-        -- "LawnGreen",
-      },
-      disable = { "html" },
+      enable = false,
     },
     playground = {
       enable = true,

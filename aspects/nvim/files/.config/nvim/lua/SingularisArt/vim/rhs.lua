@@ -6,7 +6,7 @@
 -- Converts a string representation of a mapping's RHS (eg. "<Tab>") into an
 -- internal representation (eg. "\t").
 local rhs = function(rhs_str)
-	return vim.api.nvim_replace_termcodes(rhs_str, true, true, true)
+  return vim.api.nvim_replace_termcodes(rhs_str, true, true, true)
 end
 
 return rhs
