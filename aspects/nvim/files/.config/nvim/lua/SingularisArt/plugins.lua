@@ -168,6 +168,15 @@ M.load = function()
 		use({ "nvim-treesitter/playground" })
 		use({ "p00f/nvim-ts-rainbow" })
 
+		-- Run Code
+		use({
+			"michaelb/sniprun",
+			run = "bash install.sh",
+			config = function()
+				require("SingularisArt.config.snip-run").setup()
+			end,
+		})
+
 		-- Debugging
 		use({
 			"mfussenegger/nvim-dap",
@@ -279,6 +288,18 @@ M.load = function()
 			"mzlogin/vim-markdown-toc",
 			ft = { "markdown" },
 		})
+
+		-- Neorg
+		use({
+			"nvim-neorg/neorg",
+			ft = { "norg" },
+			tag = "latest",
+			config = function()
+				require("SingularisArt.config.norg").setup()
+			end,
+		})
+		use({ "folke/zen-mode.nvim" })
+		use({ "nvim-neorg/neorg-telescope" })
 
 		-- UndoTree
 		use({ "mbbill/undotree" })

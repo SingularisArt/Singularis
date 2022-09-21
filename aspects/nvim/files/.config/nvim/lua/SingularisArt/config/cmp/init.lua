@@ -117,6 +117,7 @@ M.setup = function()
 			{ name = "gh_issues" },
 			{ name = "emails" },
 			{ name = "emoji" },
+			{ name = "neorg" },
 		},
 		confirm_opts = {
 			behavior = cmp.ConfirmBehavior.Replace,
