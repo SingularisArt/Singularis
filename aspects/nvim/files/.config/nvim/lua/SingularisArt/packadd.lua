@@ -8,9 +8,6 @@ M.load = function()
   packadd("plenary.nvim")
   packadd("popup.nvim")
 
-  -- Filetype configuration.
-  packadd("filetype.nvim", "filetype")
-
   -- LSP.
   packadd("nvim-lspconfig")
   packadd("mason.nvim")
