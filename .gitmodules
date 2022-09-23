@@ -199,3 +199,6 @@
 [submodule "ultisnips"]
 	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/ultisnips
 	url = https://github.com/SirVer/ultisnips
+[submodule "nvim-tree.lua"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/nvim-tree.lua
+	url = https://github.com/kyazdani42/nvim-tree.lua

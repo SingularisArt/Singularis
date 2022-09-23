@@ -93,6 +93,7 @@ local mappings = {
   ["h"] = { "<cmd>split<CR>", "Horizontal Split" },
   ["u"] = { "<cmd>SymbolsOutline<CR>", "Toggle Symbols Outline" },
   [" "] = { "<cmd>normal <C-^><CR>", "Jump to previous buffer" },
+  ["e"] = { "<cmd>NvimTreeToggle<CR>", "Toggle NvimTree" },
   ["c"] = { "<Plug>(Corpus)", "Corpus" },
 
   ["g"] = {

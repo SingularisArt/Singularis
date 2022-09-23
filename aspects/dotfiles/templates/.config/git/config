@@ -24,6 +24,7 @@
   delta = "!f() { git diff \"$@\" | delta; }; f"
   p = push
   patch = add -p
+  update-submodules = submodule update --remote
 
   # http://stackoverflow.com/questions/224687/git-find-duplicate-blobs-files-in-this-tree/8408640#8408640
   dupes = !"git ls-tree -r HEAD | cut -c 13- | sort | uniq -D -w 40"

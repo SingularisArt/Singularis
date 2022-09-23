@@ -86,7 +86,9 @@ class Aspects(InitClass, dict):
                 aspects_to_install = list(set(all_aspects) - set(dont_install))
 
                 for dont_install_aspect in dont_install:
-                    log.log_warn("Skipping installation of " + dont_install_aspect)
+                    log.log_warn(
+                        "Skipping installation of " + dont_install_aspect,
+                    )
 
                 self.aspects_to_install = [
                     Aspect(aspect) for aspect in aspects_to_install

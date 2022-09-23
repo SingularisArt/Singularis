@@ -62,7 +62,8 @@ M.load = function()
   packadd_defer("nvim-colorizer.lua", "colorizer")
 
   -- File Browser.
-  packadd_defer("vim-dirvish", "dirvish")
+  -- packadd_defer("vim-dirvish", "dirvish")
+  packadd_defer("nvim-tree.lua", "nvim-tree")
 
   -- Show indentation.
   packadd_defer("indent-blankline.nvim", "indent-blankline")
