@@ -4,7 +4,6 @@ M.load = function()
   local home = vim.env.HOME
   local config = home .. "/.config/nvim"
   local root = vim.env.USER == "root"
-  local vi = vim.v.progname == "vi"
 
   local setlocal = SingularisArt.vim.setlocal
   local join = SingularisArt.util.join
@@ -16,8 +15,8 @@ M.load = function()
 
   vim.opt.hidden = true -- Allow switching from unsaved buffer.
   vim.opt.emoji = false -- Don't assume all emoji are double width.
-  vim.opt.formatoptions = vim.opt.formatoptions + "j" -- Remove comment leader when joining comment lines.
-  vim.opt.formatoptions = vim.opt.formatoptions + "n" -- Smart auto-indenting inside numbered lists.
+  vim.opt.formatoptions:append("j") -- Remove comment leader when joining comment lines.
+  vim.opt.formatoptions:append("n") -- Smart auto-indenting inside numbered lists.
   vim.opt.belloff = "all" -- Never ring the bell for any reason.
   vim.opt.wrap = false -- Display long lines as just one line.
   vim.opt.encoding = "utf-8" -- Display this encoding.
@@ -38,12 +37,12 @@ M.load = function()
   vim.opt.visualbell = true -- Stop annoying beeping for non-error errors.
   vim.opt.whichwrap = "b,h,l,s,<,>,[,],~" -- Allow <BS>/h/l/<Left>/<Right>/<Space>, ~ to cross line boundaries.
   vim.opt.wildcharm = 26 -- ('<C-z>') substitute for 'wildchar' (<Tab>) in macros.
-  vim.opt.wildignore = vim.opt.wildignore + "*.o,*.rej,*.so" -- Patterns to ignore during file-navigation.
+  vim.opt.wildignore:append("*.o,*.rej,*.so") -- Patterns to ignore during file-navigation.
   vim.opt.wildmenu = true -- Show options as list when switching buffers etc.
   vim.opt.wildmode = "longest:full,full" -- Shell-like autocomplete to unambiguous portion.
   vim.opt.backspace = "indent,start,eol" -- Allow unrestricted backspacing in insert mode.
   vim.opt.backupskip = vim.opt.backupskip + "*.re,*.rei" -- Prevent bsb's watch mode from getting confused (if 'backup' is ever set).
-  vim.opt.diffopt = vim.opt.diffopt + "foldcolumn:0" -- Don't show fold column in diff view.
+  vim.opt.diffopt:append("foldcolumn:0") -- Don't show fold column in diff view.
   vim.opt.ignorecase = true -- Ignore case in searches.
   vim.opt.joinspaces = false -- Don't autoinsert two spaces after '.', '?', '!' for join command.
   vim.opt.undofile = true -- Enable persistent undo.
@@ -63,26 +62,20 @@ M.load = function()
   vim.opt.cursorline = true -- Enable highlighting of the current line.
   vim.opt.number = true -- Show line numbers.
   vim.opt.relativenumber = true -- Show relative numbers.
-  vim.opt.signcolumn = "yes" -- Always show signcolumn or it would frequently shift.
-  vim.opt.pumheight = 10 -- Make popup menu smaller.
-  vim.opt.ruler = true -- Always show cursor position.
   vim.opt.splitbelow = true -- Horizontal splits will be below.
   vim.opt.splitright = true -- Vertical splits will be to the right.
-  vim.opt.conceallevel = 0 -- Don't hide (conceal) special symbols (like `` in markdown).
+  vim.opt.conceallevel = 2 -- Hide (conceal) special symbols (like `` in markdown).
   vim.opt.incsearch = true -- Show search results while typing.
-  vim.opt.colorcolumn = "+1" -- Draw colored column one step to the right of desired maximum width.
-  vim.opt.linebreak = true -- Wrap long lines at 'breakat' (if 'wrap' is set).
-  vim.opt.shortmess = vim.opt.shortmess + "A" -- Ignore annoying swapfile messages.
-  vim.opt.shortmess = vim.opt.shortmess + "I" -- No splash screen.
-  vim.opt.shortmess = vim.opt.shortmess + "O" -- File-read message overwrites previous.
-  vim.opt.shortmess = vim.opt.shortmess + "T" -- Truncate non-file messages in middle.
-  vim.opt.shortmess = vim.opt.shortmess + "W" -- Don't echo "[w]"/"[written]" when writing.
-  vim.opt.shortmess = vim.opt.shortmess + "a" -- Use abbreviations in messages eg. `[RO]` instead of `[readonly]`.
-  vim.opt.shortmess = vim.opt.shortmess + "c" -- Completion messages.
-  vim.opt.shortmess = vim.opt.shortmess + "o" -- Overwrite file-written messages.
-  vim.opt.shortmess = vim.opt.shortmess + "t" -- Truncate file messages at start.
+  vim.opt.shortmess:append("A") -- Ignore annoying swapfile messages.
+  vim.opt.shortmess:append("I") -- No splash screen.
+  vim.opt.shortmess:append("O") -- File-read message overwrites previous.
+  vim.opt.shortmess:append("T") -- Truncate non-file messages in middle.
+  vim.opt.shortmess:append("W") -- Don't echo "[w]"/"[written]" when writing.
+  vim.opt.shortmess:append("a") -- Use abbreviations in messages eg. `[RO]` instead of `[readonly]`.
+  vim.opt.shortmess:append("c") -- Completion messages.
+  vim.opt.shortmess:append("o") -- Overwrite file-written messages.
+  vim.opt.shortmess:append("t") -- Truncate file messages at start.
   vim.opt.inccommand = "split" -- Live preview of :s results.
-  vim.opt.guifont = "Source Code Pro Light:h13" -- Font for gui nvim.
   vim.opt.showmode = true -- Show mode in command line.
   vim.opt.fillchars = {
     diff = "∙", -- BULLET OPERATOR (U+2219, UTF-8: E2 88 99).
@@ -101,16 +94,6 @@ M.load = function()
   setlocal("colorcolumn", "+" .. join(range(80, 255), ",")) -- Add a colorcolumn.
 
   ------------------------------------------------------------------------
-  --                               Colors                               --
-  ------------------------------------------------------------------------
-
-  -- Enable syntax highlighing if it wasn't already (as it is time consuming).
-  -- Don't use defer it because it affects start screen appearance.
-  if vim.fn.exists("syntax_on") ~= 1 then
-    vim.cmd([[syntax enable]])
-  end
-
-  ------------------------------------------------------------------------
   --                              Editing                               --
   ------------------------------------------------------------------------
 
@@ -127,11 +110,7 @@ M.load = function()
   vim.opt.smartcase = true -- Don't ignore case in searches if uppercase characters present.
   vim.opt.clipboard = "unnamedplus" -- Use system clipboard.
 
-  if not vi then
-    vim.opt.softtabstop = -1 -- Use 'shiftwidth' for tab/bs at end of line.
-  end
-
-  vim.opt.suffixes = vim.opt.suffixes - ".h" -- Don't sort header files at lower priority.
+  vim.opt.suffixes:remove(".h") -- Don't sort header files at lower priority.
   vim.opt.swapfile = false -- Don't create swap files.
   vim.opt.synmaxcol = 200 -- Don't bother syntax highlighting long lines.
   vim.opt.textwidth = 80 -- Automatically hard wrap at 80 columns.
@@ -168,10 +147,6 @@ M.load = function()
     vim.opt.shada = "'0,<0,f0,n~/.config/nvim/misc/shada"
   end
 
-  if vi then
-    vim.opt.loadplugins = false
-  end
-
   vim.opt.modelines = 5 -- Scan this many lines looking for modeline.
   vim.opt.pumblend = 10 -- Pseudo-transparency for popup-menu.
 
@@ -179,7 +154,7 @@ M.load = function()
   --                              Spelling                              --
   ------------------------------------------------------------------------
 
-  vim.opt.spelllang = "en,ru" -- Define spelling dictionaries.
+  vim.opt.spelllang = "en,ar" -- Define spelling dictionaries.
   vim.opt.complete:append("kspell") -- Add spellcheck options for autocomplete.
   vim.opt.complete:remove("t") -- Don't use tags for completion.
   vim.opt.spelloptions = "camel" -- Treat parts of camelCase words as seprate words.
@@ -196,7 +171,8 @@ M.load = function()
   ------------------------------------------------------------------------
 
   vim.opt.foldlevelstart = 99 -- Start unfolded.
-  vim.opt.foldmethod = "indent" -- Not as cool as syntax, but faster.
+  vim.opt.foldmethod = "expr" -- Not as cool as syntax, but faster.
+  vim.opt.foldexpr = "nvim_treesitter#foldexpr()" -- Use TreeSitter for folding.
   vim.opt.foldtext = "v:lua.SingularisArt.foldtext()" -- Folding style (lua/SingularisArt/foldtext.lua).
 
   ------------------------------------------------------------------------

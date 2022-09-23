@@ -1,7 +1,7 @@
 local lsp = {}
 
 lsp.load = function()
-  require("symbols-outline").setup()
+  require("symbols-outline").setup({})
 end
 
 return lsp
