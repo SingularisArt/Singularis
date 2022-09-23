@@ -16,3 +16,183 @@
 [submodule "pythonx"]
   path = aspects/nvim/files/.config/nvim/pythonx
   url = https://github.com/SingularisArt/snippet-dependencies
+[submodule "popup.nvim"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/popup.nvim
+	url = https://github.com/nvim-lua/popup.nvim
+[submodule "plenary.nvim"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/plenary.nvim
+	url = https://github.com/nvim-lua/plenary.nvim
+[submodule "nvim-lspconfig"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/nvim-lspconfig
+	url = https://github.com/neovim/nvim-lspconfig
+[submodule "vim-illuminate"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/vim-illuminate
+	url = https://github.com/RRethy/vim-illuminate
+[submodule "symbols-outline.nvim"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/symbols-outline.nvim
+	url = https://github.com/simrat39/symbols-outline.nvim
+[submodule "lsp_signature.nvim"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/lsp_signature.nvim
+	url = https://github.com/ray-x/lsp_signature.nvim
+[submodule "mason.nvim"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/mason.nvim
+	url = https://github.com/williamboman/mason.nvim
+[submodule "null-ls.nvim"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/null-ls.nvim
+	url = https://github.com/jose-elias-alvarez/null-ls.nvim
+[submodule "mason-lspconfig.nvim"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/mason-lspconfig.nvim
+	url = https://github.com/williamboman/mason-lspconfig.nvim
+[submodule "mason-tool-installer.nvim"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/mason-tool-installer.nvim
+	url = https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim
+[submodule "SchemaStore.nvim"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/SchemaStore.nvim
+	url = https://github.com/b0o/SchemaStore.nvim
+[submodule "sqls.nvim"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/sqls.nvim
+	url = https://github.com/nanotee/sqls.nvim
+[submodule "lsp-inlayhints.nvim"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/lsp-inlayhints.nvim
+	url = https://github.com/lvimuser/lsp-inlayhints.nvim
+[submodule "nvim-colorizer.lua"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/nvim-colorizer.lua
+	url = https://github.com/NvChad/nvim-colorizer.lua
+[submodule "base16-nvim"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/base16-nvim
+	url = https://github.com/wincent/base16-nvim
+[submodule "pinnacle"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/pinnacle
+	url = https://github.com/wincent/pinnacle
+[submodule "indent-blankline.nvim"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/indent-blankline.nvim
+	url = https://github.com/lukas-reineke/indent-blankline.nvim
+[submodule "neogen"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/neogen
+	url = https://github.com/danymat/neogen
+[submodule "gitsigns.nvim"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/gitsigns.nvim
+	url = https://github.com/lewis6991/gitsigns.nvim
+[submodule "vim-rhubarb"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/vim-rhubarb
+	url = https://github.com/tpope/vim-rhubarb
+[submodule "vim-fugitive"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive
+[submodule "which-key.nvim"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/which-key.nvim
+	url = https://github.com/max397574/which-key.nvim
+[submodule "Comment.nvim"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/Comment.nvim
+	url = https://github.com/numToStr/Comment.nvim
+[submodule "todo-comments.nvim"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/todo-comments.nvim
+	url = https://github.com/folke/todo-comments.nvim
+[submodule "nvim-autopairs"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/nvim-autopairs
+	url = https://github.com/windwp/nvim-autopairs
+[submodule "MatchTagAlways"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/MatchTagAlways
+	url = https://github.com/Valloric/MatchTagAlways
+[submodule "vim-wakatime"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/vim-wakatime
+	url = https://github.com/wakatime/vim-wakatime
+[submodule "vim-table-mode"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/vim-table-mode
+	url = https://github.com/dhruvasagar/vim-table-mode
+[submodule "vim-highlightedyank"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/vim-highlightedyank
+	url = https://github.com/machakann/vim-highlightedyank
+[submodule "corpus"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/corpus
+	url = https://github.com/wincent/corpus
+[submodule "nvim-treesitter"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/nvim-treesitter
+	url = https://github.com/nvim-treesitter/nvim-treesitter
+[submodule "nvim-ts-context-commentstring"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/nvim-ts-context-commentstring
+	url = https://github.com/JoosepAlviste/nvim-ts-context-commentstring
+[submodule "playground"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/playground
+	url = https://github.com/nvim-treesitter/playground
+[submodule "sniprun"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/sniprun
+	url = https://github.com/michaelb/sniprun
+[submodule "nvim-dap"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/nvim-dap
+	url = https://github.com/mfussenegger/nvim-dap
+[submodule "nvim-dap-ui"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/nvim-dap-ui
+	url = https://github.com/rcarriga/nvim-dap-ui
+[submodule "nvim-dap-virtual-text"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/nvim-dap-virtual-text
+	url = https://github.com/theHamsta/nvim-dap-virtual-text
+[submodule "DAPInstall.nvim"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/DAPInstall.nvim
+	url = https://github.com/ravenxrz/DAPInstall.nvim
+[submodule "telescope.nvim"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/telescope.nvim
+	url = https://github.com/nvim-telescope/telescope.nvim
+[submodule "project.nvim"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/project.nvim
+	url = https://github.com/ahmedkhalf/project.nvim
+[submodule "nvim-cmp"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/nvim-cmp
+	url = https://github.com/hrsh7th/nvim-cmp
+[submodule "cmp-buffer"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/cmp-buffer
+	url = https://github.com/hrsh7th/cmp-buffer
+[submodule "cmp-path"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/cmp-path
+	url = https://github.com/hrsh7th/cmp-path
+[submodule "cmp-nvim-lsp"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/cmp-nvim-lsp
+	url = https://github.com/hrsh7th/cmp-nvim-lsp
+[submodule "cmp-calc"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/cmp-calc
+	url = https://github.com/hrsh7th/cmp-calc
+[submodule "cmp-cmdline"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/cmp-cmdline
+	url = https://github.com/hrsh7th/cmp-cmdline
+[submodule "cmp-nvim-ultisnips"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/cmp-nvim-ultisnips
+	url = https://github.com/quangnguyen30192/cmp-nvim-ultisnips
+[submodule "cmp-emoji"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/cmp-emoji
+	url = https://github.com/hrsh7th/cmp-emoji
+[submodule "cmp-git"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/cmp-git
+	url = https://github.com/petertriho/cmp-git
+[submodule "cmp-nvim-lua"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/cmp-nvim-lua
+	url = https://github.com/hrsh7th/cmp-nvim-lua
+[submodule "cmp-latex-symbols"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/cmp-latex-symbols
+	url = https://github.com/kdheepak/cmp-latex-symbols
+[submodule "vim-dirvish"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/vim-dirvish
+	url = https://github.com/justinmk/vim-dirvish
+[submodule "vimtex"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/vimtex
+	url = https://github.com/lervag/vimtex
+[submodule "tex-conceal.vim"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/tex-conceal.vim
+	url = https://github.com/KeitaNakamura/tex-conceal.vim
+[submodule "markdown-preview.nvim"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/markdown-preview.nvim
+	url = https://github.com/iamcco/markdown-preview.nvim
+[submodule "vim-markdown-toc"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/vim-markdown-toc
+	url = https://github.com/mzlogin/vim-markdown-toc
+[submodule "neorg"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/neorg
+	url = https://github.com/nvim-neorg/neorg
+[submodule "zen-mode.nvim"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/zen-mode.nvim
+	url = https://github.com/folke/zen-mode.nvim
+[submodule "neorg-telescope"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/neorg-telescope
+	url = https://github.com/nvim-neorg/neorg-telescope
+[submodule "undotree"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/undotree
+	url = https://github.com/mbbill/undotree
