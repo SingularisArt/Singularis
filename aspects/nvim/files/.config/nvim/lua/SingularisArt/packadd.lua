@@ -4,69 +4,104 @@ M.load = function()
   local packadd = SingularisArt.util.packadd
   local packadd_defer = SingularisArt.util.packadd_defer
 
-  packadd("base16-nvim")
-  packadd("lsp-inlayhints.nvim")
-  packadd("lsp_signature.nvim")
-  packadd("mason-lspconfig.nvim")
-  packadd("mason.nvim")
-  packadd("mason-tool-installer.nvim")
-  packadd("null-ls.nvim")
-  packadd("nvim-lspconfig")
-  packadd("pinnacle")
+  -- Required stuff.
   packadd("plenary.nvim")
   packadd("popup.nvim")
+
+  -- Filetype configuration.
+  packadd("filetype.nvim", "filetype")
+
+  -- LSP.
+  packadd("nvim-lspconfig")
+  packadd("mason.nvim")
+  packadd("mason-lspconfig.nvim")
+  packadd("mason-tool-installer.nvim")
+  packadd("null-ls.nvim")
   packadd("SchemaStore.nvim")
   packadd("sqls.nvim")
-  packadd("symbols-outline.nvim")
   packadd("vim-illuminate")
+  packadd("lsp-inlayhints.nvim")
+  packadd("lsp_signature.nvim")
+  packadd("symbols-outline.nvim")
+
+  -- Completion.
+  packadd("nvim-cmp", "cmp")
+  packadd("cmp-buffer")
+  packadd("cmp-calc")
+  packadd("cmp-cmdline")
+  packadd("cmp-emoji")
+  packadd("cmp-nvim-ultisnips")
+  packadd("cmp-path")
   packadd("cmp-nvim-lsp")
 
-  packadd_defer("nvim-cmp")
-  packadd_defer("cmp-buffer")
-  packadd_defer("cmp-calc")
-  packadd_defer("cmp-cmdline")
-  packadd_defer("cmp-emoji")
-  packadd_defer("cmp-git")
-  packadd_defer("cmp-latex-symbols")
-  packadd_defer("cmp-nvim-lua")
-  packadd_defer("cmp-nvim-ultisnips")
-  packadd_defer("cmp-path")
-
-  packadd_defer("Comment.nvim")
-  packadd_defer("corpus")
+  -- Debugger.
+  packadd_defer("nvim-dap", "dap")
   packadd_defer("DAPInstall.nvim")
-  packadd_defer("gitsigns.nvim")
-  packadd_defer("indent-blankline.nvim")
-  packadd_defer("markdown-preview.nvim")
-  packadd_defer("MatchTagAlways")
-  packadd_defer("neogen")
-  packadd_defer("neorg")
-  packadd_defer("neorg-telescope")
-  packadd_defer("nvim-autopairs")
-  packadd_defer("nvim-colorizer.lua")
-  packadd_defer("nvim-dap")
   packadd_defer("nvim-dap-ui")
   packadd_defer("nvim-dap-virtual-text")
-  packadd_defer("nvim-treesitter")
+
+  -- Tree sitter.
+  packadd("nvim-treesitter", "treesitter")
   packadd_defer("nvim-ts-context-commentstring")
   packadd_defer("playground")
-  packadd_defer("project.nvim")
-  packadd_defer("sniprun")
 
-  packadd_defer("telescope.nvim")
-  packadd_defer("tex-conceal.vim")
-  packadd_defer("todo-comments.nvim")
-  packadd_defer("undotree")
-  packadd_defer("vim-dirvish")
+  -- Git.
+  packadd_defer("gitsigns.nvim", "gitsigns")
   packadd_defer("vim-fugitive")
-  packadd_defer("vim-highlightedyank")
-  packadd_defer("vim-markdown-toc")
   packadd_defer("vim-rhubarb")
-  packadd_defer("vim-table-mode")
-  packadd_defer("vimtex")
-  packadd_defer("vim-wakatime")
-  packadd_defer("which-key.nvim")
+
+  -- Color schemes.
+  packadd("base16-nvim")
+  packadd("pinnacle")
+
+  -- Telescope.
+  packadd("telescope.nvim", "telescope")
+  packadd_defer("project.nvim", "project")
+
+  -- Snippets
+  packadd_defer("ultisnips")
+
+  -- Color viewer.
+  packadd_defer("nvim-colorizer.lua", "colorizer")
+
+  -- File Browser.
+  packadd_defer("vim-dirvish", "dirvish")
+
+  -- Show indentation.
+  packadd_defer("indent-blankline.nvim", "indent-blankline")
+
+  -- Auto documentation.
+  packadd_defer("neogen")
+
+  -- Run code.
+  packadd_defer("sniprun", "snip-run")
+
+  -- Display mappings.
+  packadd_defer("which-key.nvim", "which-key")
+
+  -- Manage my wiki stuff.
+  packadd_defer("corpus")
+
+  -- Comment stuff out.
+  packadd_defer("Comment.nvim", "comment")
+
+  -- Auto pairs.
+  packadd_defer("nvim-autopairs", "autopairs")
+
+  -- Comment highlighter.
+  packadd_defer("todo-comments.nvim", "todo-comments")
+
+  -- View all changes within file.
+  packadd_defer("undotree")
+
+  -- Distraction free coding.
   packadd_defer("zen-mode.nvim")
+
+  -- Highlight yanked text.
+  packadd_defer("vim-highlightedyank")
+
+  -- Monitor what and how much I code.
+  packadd_defer("vim-wakatime")
 end
 
 return M

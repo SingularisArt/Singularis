@@ -4,10 +4,12 @@
 -- for plugins that are not directly related to startup process.
 --
 -- @param plugin String with name of plugin as subdirectory in 'pack'
-local packadd_defer = function(plugin)
+local packadd_defer = function(plugin, --[[optional]]plugin_name)
   local packadd = SingularisArt.util.packadd
 
-  vim.defer_fn(function() packadd(plugin) end, 0)
+  plugin_name = plugin_name or plugin
+
+  vim.defer_fn(function() packadd(plugin, plugin_name) end, 0)
 end
 
 return packadd_defer

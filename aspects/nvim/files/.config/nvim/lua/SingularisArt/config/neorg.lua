@@ -4,7 +4,6 @@ local neorg = require("neorg")
 neorg.setup({
   load = {
     ["core.defaults"] = {}, -- Load all the default modules
-    ["core.integrations.telescope"] = {},
     ["core.export"] = {},
     ["core.norg.completion"] = {
       config = {

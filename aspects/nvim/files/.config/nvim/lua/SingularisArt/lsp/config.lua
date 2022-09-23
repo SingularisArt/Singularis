@@ -16,7 +16,7 @@ return {
     "html",
     "jdtls",
     "jsonls",
-    "pyright",
+    "pylsp",
     "rust_analyzer",
     "solang",
     "solc",

@@ -196,3 +196,9 @@
 [submodule "undotree"]
 	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/undotree
 	url = https://github.com/mbbill/undotree
+[submodule "ultisnips"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/ultisnips
+	url = https://github.com/SirVer/ultisnips
+[submodule "filetype.nvim"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/filetype.nvim
+	url = https://github.com/nathom/filetype.nvim

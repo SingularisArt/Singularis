@@ -71,14 +71,12 @@ handles.setup = function()
   local filetypes = { "gitcommit", "mail" }
   cmp.setup.filetype(filetypes, {
     sources = cmp.config.sources({
-      { name = "nvim_lsp" },
-      { name = "nvim_lua" },
-      { name = "latex_symbols" },
       { name = "ultisnips" },
       { name = "calc" },
       { name = "path" },
       { name = "buffer" },
-      { name = "gh_issues" },
+      { name = "emails" },
+      { name = "emoji" },
 
       -- My custom sources.
       { name = "handles" }, -- GitHub handles; eg. @hashem → Hashem A. Damrah <singularis@github.com>

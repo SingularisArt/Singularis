@@ -1,3 +1,7 @@
+local packadd = SingularisArt.util.packadd
+
+packadd("cmp-nvim-lua")
+
 local fmt = string.format
 
 -- Iterator that splits a string o a given delimiter

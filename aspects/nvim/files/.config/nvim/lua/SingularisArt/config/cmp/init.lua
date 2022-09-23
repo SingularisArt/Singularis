@@ -81,6 +81,7 @@ cmp.setup({
       end,
     }),
   }),
+
   formatting = {
     fields = { "kind", "abbr", "menu" },
     format = function(entry, vim_item)
@@ -111,7 +112,6 @@ cmp.setup({
     { name = "calc" },
     { name = "path" },
     { name = "buffer" },
-    { name = "gh_issues" },
     { name = "emails" },
     { name = "emoji" },
     { name = "neorg" },
@@ -133,14 +133,6 @@ cmp.setup({
   experimental = {
     ghost_text = true,
   },
-})
-
-cmp.setup.filetype("gitcommit", {
-  sources = cmp.config.sources({
-    { name = "git" },
-  }, {
-    { name = "buffer" },
-  }),
 })
 
 cmp.setup.cmdline(":", {

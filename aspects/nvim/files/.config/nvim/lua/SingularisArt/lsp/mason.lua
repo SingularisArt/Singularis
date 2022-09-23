@@ -2,13 +2,13 @@ local lsp = {}
 
 local on_attach = function(client, bufnr)
   vim.keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", { buffer = true, silent = true })
-  vim.wo.signcolumn = "yes"
 
   require("lsp-inlayhints").on_attach(client, bufnr)
 end
 
 local sql_on_attach = function(client, bufnr)
   on_attach(client, bufnr)
+
   require("sqls").on_attach(client, bufnr)
 end
 
@@ -26,10 +26,6 @@ lsp.load = function()
     { "╰", "FloatBorder" },
     { "│", "FloatBorder" },
   }
-  local handlers = {
-    ["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, { border = border }),
-    ["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = border }),
-  }
 
   local servers = SingularisArt.lsp.config.servers
 
@@ -38,7 +34,6 @@ lsp.load = function()
 
   local mason = require("mason")
   local mason_lspconfig = require("mason-lspconfig")
-
   local settings = {
     ui = {
       border = "rounded",
@@ -58,22 +53,30 @@ lsp.load = function()
   })
 
   local lspconfig = require("lspconfig")
-  local server_settings = {}
+  local opts = {}
 
   for _, server in ipairs(servers) do
-    server_settings = {
+    opts = {
       capabilities = capabilities,
-      handlers = handlers,
+      -- handlers = handlers,
       on_attach = on_attach,
     }
 
+    server = vim.split(server, "@")[1]
+
     if server == "sqls" then
-      server_settings.on_attach = sql_on_attach
+      local sqls_opts = require("SingularisArt.lsp.settings.sqls")
+      opts = vim.tbl_deep_extend("force", sqls_opts, opts)
+
+      opts.on_attach = sql_on_attach
     end
 
-    server_settings = vim.tbl_deep_extend("force", SingularisArt.lsp.settings[server], server_settings)
+    if server == "sumneko_lua" then
+      local sumneko_lua_opts = require("SingularisArt.lsp.settings.sumneko_lua")
+      opts = vim.tbl_deep_extend("force", sumneko_lua_opts, opts)
+    end
 
-    lspconfig[server].setup(server_settings)
+    lspconfig[server].setup(opts)
   end
 end
 
