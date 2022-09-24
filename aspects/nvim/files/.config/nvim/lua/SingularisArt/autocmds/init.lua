@@ -17,11 +17,6 @@ SingularisArt.autocmds.load = function()
     autocmd("WinLeave", "*", SingularisArt.autocmds.functions.win_leave)
     autocmd("VimEnter", "*", SingularisArt.autocmds.functions.vim_enter)
 
-    -- autocmd("BufEnter", "*", "TSBufEnable highlight")
-    -- autocmd("BufEnter", "*", "IndentBlanklineToggle")
-    -- autocmd("BufLeave", "*", "TSBufDisable highlight")
-    -- autocmd("BufLeave", "*", "IndentBlanklineDisable")
-
     autocmd("BufWritePost", "*/spell/*.add", "silent! :mkspell! %")
     autocmd("InsertLeave", "*", "set nopaste")
     autocmd("VimResized", "*", 'execute "normal! \\<c-w>="')

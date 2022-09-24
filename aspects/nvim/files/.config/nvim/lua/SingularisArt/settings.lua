@@ -180,6 +180,7 @@ M.load = function()
   ------------------------------------------------------------------------
 
   vim.opt.rtp:append("~/Documents/school-notes/current-course")
+  vim.cmd("filetype plugin indent on")
 end
 
 return M

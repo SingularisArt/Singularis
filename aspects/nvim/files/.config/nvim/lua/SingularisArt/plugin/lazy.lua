@@ -1,16 +1,38 @@
----Defer plugin source right after Vim is loaded
----
----This reduces time before a fully functional start screen is shown. Use this
----for plugins that are not directly related to startup process.
----
----@param plugin string with name of plugin as subdirectory in 'pack'
----@param plugin_name string name of the config file of plugin
-local lazy = function(plugin, --[[optional]] plugin_name)
+local lazy = function(plugin_info)
   local load = SingularisArt.plugin.load
+  local autocmd = SingularisArt.vim.autocmd
 
-  plugin_name = plugin_name or plugin
+  local plugin = ""
+  local event = nil
+  local pattern = ""
+  local group = nil
 
-  vim.defer_fn(function() load(plugin, plugin_name) end, 0)
+  if type(plugin_info) == "table" then
+    plugin = plugin_info["plugin"] or plugin_info[1]
+    event = plugin_info["event"] or nil
+    pattern = plugin_info["pattern"] or "*"
+    group = plugin_info["group"] or nil
+  elseif type(plugin_info) == "string" then
+    plugin = plugin_info
+  end
+
+  if event ~= nil then
+    vim.api.nvim_create_autocmd(event, {
+      pattern = pattern,
+      group = group,
+      callback = function()
+        -- vim.defer_fn(function()
+        load(plugin_info)
+        -- end, 0)
+      end,
+    })
+
+    return
+  end
+
+  -- vim.defer_fn(function()
+  load(plugin_info)
+  -- end, 0)
 end
 
 return lazy
