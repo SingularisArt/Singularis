@@ -1,5 +1,5 @@
-local packadd = SingularisArt.util.packadd
+local load = SingularisArt.plugin.load
 
 -- Take notes.
-packadd("neorg")
-packadd("neorg-telescope")
+load("neorg")
+load("neorg-telescope")

@@ -1,3 +1,3 @@
-local packadd = SingularisArt.util.packadd
+local load = SingularisArt.util.load
 
-packadd("MatchTagAlways")
+load("MatchTagAlways")

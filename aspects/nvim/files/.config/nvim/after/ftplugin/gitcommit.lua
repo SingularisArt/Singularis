@@ -1,6 +1,6 @@
-local packadd = SingularisArt.util.packadd
+local load = SingularisArt.plugin.load
 
-packadd("cmp-git")
+load("cmp-git")
 
 vim.cmd([[setlocal spell]])
 vim.cmd([[setlocal wrap]])

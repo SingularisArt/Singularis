@@ -1,5 +1,5 @@
-local packadd = SingularisArt.util.packadd
+local load = SingularisArt.plugin.load
 
-packadd("vimtex")
-packadd("tex-conceal.vim")
-packadd("cmp-latex-symbols")
+load("vimtex")
+load("tex-conceal.vim")
+load("cmp-latex-symbols")

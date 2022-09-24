@@ -1,6 +1,6 @@
-local packadd = SingularisArt.util.packadd
+local load = SingularisArt.plugin.load
 
-packadd("cmp-nvim-lua")
+load("cmp-nvim-lua")
 
 local fmt = string.format
 

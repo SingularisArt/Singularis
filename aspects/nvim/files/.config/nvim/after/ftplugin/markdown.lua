@@ -1,5 +1,5 @@
-local packadd = SingularisArt.util.packadd
+local load = SingularisArt.plugin.load
 
-packadd("markdown-preview.nvim", "markdown-preview")
-packadd("vim-markdown-toc")
-packadd("vim-table-mode")
+load("markdown-preview.nvim", "markdown-preview")
+load("vim-markdown-toc")
+load("vim-table-mode")
