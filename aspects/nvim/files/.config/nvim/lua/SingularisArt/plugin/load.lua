@@ -12,9 +12,13 @@ local load = function(plugin, --[[optional]] plugin_name)
     vim.cmd('packadd! ' .. plugin)
   end
 
-  -- Try execute its configuration
-  -- NOTE: configuration file should have the same name as plugin directory
-  pcall(require, "SingularisArt.config." .. plugin_name)
+  if type(plugin_name) == "string" then
+    -- Try execute its configuration
+    -- NOTE: configuration file should have the same name as plugin directory
+    pcall(require, "SingularisArt.config." .. plugin_name)
+  elseif type(plugin_name) == "function" then
+    plugin_name()
+  end
 end
 
 return load

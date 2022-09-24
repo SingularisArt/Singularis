@@ -4,6 +4,24 @@ M.load = function()
   local load = SingularisArt.plugin.load
   local lazy = SingularisArt.plugin.lazy
 
+  -- Speed up loading.
+  load("impatient.nvim", function()
+    _G.__luacache_config = {
+      chunks = {
+        enable = true,
+        path = vim.fn.stdpath("cache") .. "/luacache_chunks",
+      },
+      modpaths = {
+        enable = true,
+        path = vim.fn.stdpath("cache") .. "/luacache_modpaths",
+      },
+    }
+    require("impatient")
+  end)
+  load("filetype.nvim", function()
+    vim.g.did_load_filetypes = 1
+  end)
+
   -- Required stuff.
   load("plenary.nvim")
   load("popup.nvim")

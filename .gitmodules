@@ -202,3 +202,12 @@
 [submodule "nvim-tree.lua"]
 	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/nvim-tree.lua
 	url = https://github.com/kyazdani42/nvim-tree.lua
+[submodule "impatient.nvim"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/impatient.nvim
+	url = https://github.com/lewis6991/impatient.nvim
+[submodule "filetype.nvim"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/filetype.nvim
+	url = https://github.com/nathom/filetype.nvim
+[submodule "startuptime.vim"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/startuptime.vim
+	url = https://github.com/tweekmonster/startuptime.vim
