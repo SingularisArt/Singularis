@@ -1305,363 +1305,378 @@ zathura.
 
 # Nvim
 
-My NeoVim configuration is blazingly fast. It loads up in about 100
+My NeoVim configuration is blazingly fast. It loads up in about 160
 milliseconds. Also note, I have about 80 plugins and dozens of configuration
 files.
 
-<details><summary>Output of `vim-startuptime`</summary>
+<details><summary>Output of `StartupTime --tries 100`.</summary>
 
 ```
-       startup: 118.4
+       startup: 165.1
 event                  time percent plot
-init.lua              63.02   53.24 ██████████████████████████
-black.vim             29.37   24.81 ████████████▏
-python3.vim           28.09   23.73 ███████████▋
-impatient              9.24    7.81 ███▉
-SingularisArt.config   4.90    4.14 ██
-SingularisArt.config   4.36    3.69 █▊
-loading rtp plugins    4.28    3.61 █▊
-telescope.actions      4.04    3.42 █▋
-SingularisArt.lsp.co   3.63    3.07 █▌
-telescope.config       2.92    2.46 █▎
-SingularisArt.lsp.ha   2.79    2.36 █▏
-vim.lsp                2.52    2.13 █
-cmp                    2.42    2.04 █
-cmp.core               2.10    1.78 ▉
-emmet.vim              1.80    1.52 ▊
-vim.lsp.handlers       1.70    1.44 ▊
-base16-bright.lua      1.66    1.40 ▋
-reading ShaDa          1.63    1.37 ▋
-sourcing vimrc file(   1.37    1.15 ▋
-loading after plugin   1.23    1.04 ▌
-null-ls                1.22    1.03 ▌
-opening buffers        1.20    1.02 ▌
-SingularisArt          1.09    0.92 ▌
-matchit.vim            1.07    0.90 ▌
-nvim-treesitter.lua    1.03    0.87 ▍
-mason                  1.01    0.85 ▍
-VimEnter autocommand   0.97    0.82 ▍
-nvim-treesitter.conf   0.89    0.75 ▍
-done waiting for UI    0.86    0.72 ▍
-nvim-treesitter.quer   0.81    0.69 ▍
-cmp.source             0.78    0.66 ▍
-vim.lsp.protocol       0.78    0.66 ▍
-filetype.lua           0.71    0.60 ▎
-first screen update    0.70    0.59 ▎
-cmp_nvim_ultisnips.l   0.69    0.58 ▎
-mason-core.platform    0.67    0.57 ▎
-nvim-treesitter.tsra   0.61    0.51 ▎
-nvim-treesitter.ts_u   0.57    0.48 ▎
-fzf.vim                0.56    0.47 ▎
-cmp.config             0.54    0.46 ▎
-null-ls.helpers        0.53    0.45 ▎
-vim.lsp.util           0.52    0.44 ▎
-mason-tool-installer   0.48    0.40 ▎
-nvim-treesitter.pars   0.46    0.39 ▎
-init lua interpreter   0.45    0.38 ▏
-telescope.lua          0.43    0.37 ▏
-cmp.config.default     0.43    0.36 ▏
-mason-tool-installer   0.43    0.36 ▏
-syntax.vim             0.42    0.36 ▏
-illuminate.vim         0.41    0.35 ▏
-cmp.view               0.40    0.34 ▏
-telescope.sorters      0.40    0.33 ▏
-cmp.lua                0.40    0.33 ▏
-netrwPlugin.vim        0.38    0.32 ▏
-mason-registry         0.38    0.32 ▏
-init highlight         0.38    0.32 ▏
-null-ls.config         0.35    0.29 ▏
-vim.inspect            0.34    0.29 ▏
-plenary.popup          0.34    0.29 ▏
-inits 1                0.33    0.28 ▏
-null-ls.builtins.dia   0.33    0.27 ▏
-nvim-treesitter.high   0.33    0.27 ▏
-vim._init_packages     0.31    0.26 ▏
-plenary.strings        0.28    0.24 ▏
-SingularisArt.config   0.28    0.23 ▏
-loading packages       0.27    0.22 ▏
-clipboard.vim          0.25    0.21 ▏
-init default mapping   0.25    0.21 ▏
-indent_blankline.vim   0.25    0.21 ▏
-before starting main   0.25    0.21 ▏
-plenary.path           0.24    0.21 ▏
-vim.lsp._snippet       0.24    0.21 ▏
-lspconfig              0.24    0.20 ▏
-cmp.utils.feedkeys     0.24    0.20 ▏
-vim.lsp.log            0.24    0.20 ▏
-mason-core.functiona   0.24    0.20 ▏
-cmp.context            0.24    0.20 ▏
-null-ls.helpers.gene   0.23    0.19 ▏
-SingularisArt.autocm   0.22    0.19 ▏
-zipPlugin.vim          0.21    0.18 ▏
-host.vim               0.21    0.18 ▏
-null-ls.builtins.dia   0.21    0.18 ▏
-mason.settings         0.20    0.17 ▏
-lspconfig.configs      0.20    0.17 ▏
-cmp.utils.keymap       0.20    0.17 ▏
-vim.diagnostic         0.20    0.17 ▏
-nvim-treesitter.inst   0.19    0.16 ▏
-telescope.log          0.18    0.15 ▏
-event init             0.18    0.15 ▏
-vim._editor            0.18    0.15 ▏
-lsp-inlayhints         0.17    0.15 ▏
-rplugin.vim            0.17    0.15 ▏
-cmp.entry              0.17    0.14 ▏
-matchit.vim            0.17    0.14 ▏
-null-ls.builtins.dia   0.17    0.14 ▏
-cmp_buffer.lua         0.17    0.14 ▏
-lspconfig.util         0.16    0.14 ▏
-mason-core.functiona   0.16    0.14 ▏
-telescope.utils        0.16    0.13 ▏
-null-ls.builtins.for   0.16    0.13 ▏
-cmp.types              0.16    0.13 ▏
-null-ls.sources        0.15    0.13 ▏
-gzip.vim               0.15    0.13 ▏
-null-ls.utils          0.15    0.13 ▏
-SingularisArt.lsp      0.15    0.13 ▏
-SingularisArt.settin   0.15    0.13
-vim.lsp.rpc            0.15    0.12
-SingularisArt.packad   0.15    0.12
-matchparen.vim         0.14    0.12
-vim.treesitter         0.14    0.12
-cmp_cmdline.lua        0.14    0.11
-lsp_signature          0.13    0.11
-cmp_buffer             0.13    0.11
-cmp.utils.str          0.13    0.11
-cmp_path.lua           0.13    0.11
-telescope              0.13    0.11
-cmp_nvim_ultisnips     0.13    0.11
-null-ls.builtins.for   0.13    0.11
-null-ls.builtins.for   0.12    0.10
-indent_blankline       0.12    0.10
-lsp-inlayhints.core    0.12    0.10
-null-ls.builtins.for   0.12    0.10
-plenary.log            0.12    0.10
-plenary.window         0.11    0.10
-mason-core.fs          0.11    0.10
-telescope.actions.se   0.11    0.09
-cmp.config.compare     0.11    0.09
-illuminate.engine      0.11    0.09
-vim.treesitter.query   0.10    0.09
-cmp_buffer.source      0.10    0.09
-mason.api.command      0.10    0.09
-early init             0.10    0.09
-tarPlugin.vim          0.10    0.09
-SingularisArt.status   0.10    0.09
-null-ls.builtins.for   0.10    0.08
-null-ls.builtins.for   0.10    0.08
-mason-core.path        0.10    0.08
-vim.shared             0.10    0.08
-SingularisArt.vim.se   0.10    0.08
-vim.lsp.buf            0.10    0.08
-cmp.view.custom_entr   0.10    0.08
-cmp_nvim_lua.lua       0.09    0.08
-cmp_emoji.lua          0.09    0.08
-cmp_nvim_lsp           0.09    0.08
-cmp_calc.lua           0.09    0.08
-cmp_cmdline            0.09    0.08
-cmp.utils.char         0.09    0.08
-telescope._extension   0.09    0.08
-null-ls.builtins.for   0.09    0.08
-nvim-treesitter        0.09    0.08
-mason-registry.index   0.09    0.08
-null-ls.helpers.make   0.09    0.08
-null-ls.diagnostics    0.09    0.08
-vim._meta              0.09    0.07
-vim.lsp.sync           0.09    0.07
-null-ls.methods        0.09    0.07
-telescope.pickers.en   0.09    0.07
-null-ls.builtins.for   0.09    0.07
-null-ls.state          0.09    0.07
-shada.vim              0.09    0.07
-synload.vim            0.08    0.07
-cmp_nvim_ultisnips.v   0.08    0.07
-cmp.view.docs_view     0.08    0.07
-null-ls.logger         0.08    0.07
-null-ls.builtins.for   0.08    0.07
-BufEnter autocommand   0.08    0.07
-tohtml.vim             0.08    0.07
-inits 2                0.08    0.06
-cmp.matcher            0.08    0.06
-ftplugin.vim           0.07    0.06
-nvim-treesitter.loca   0.07    0.06
-illuminate.highlight   0.07    0.06
-cmp.utils.pattern      0.07    0.06
-cmp_buffer.buffer      0.07    0.06
-SingularisArt.icons    0.07    0.06
-cmp_nvim_ultisnips.s   0.07    0.06
-cmp.utils.async        0.07    0.06
-cmp.types.lsp          0.07    0.06
-SingularisArt.autocm   0.07    0.06
-locale set             0.06    0.05
-SingularisArt.util.g   0.06    0.05
-redact_pass.vim        0.06    0.05
-lspconfig.lua          0.06    0.05
-nvim-treesitter.inde   0.06    0.05
-pythonx.vim            0.06    0.05
-telescope.deprecated   0.06    0.05
-devhelp.vim            0.06    0.05
-cmp_path               0.06    0.05
-mason-core.log         0.06    0.05
-inits 3                0.06    0.05
-vim.lsp.codelens       0.06    0.05
-cmp_emoji              0.06    0.05
-sysinit.vim            0.06    0.05
-plenary.job            0.06    0.05
-lsp_signature.helper   0.06    0.05
-vim.treesitter.highl   0.06    0.05
-cmp.view.native_entr   0.06    0.05
-null-ls.helpers.diag   0.06    0.05
-vim.treesitter.langu   0.06    0.05
-vim.highlight          0.06    0.05
-vim.lsp.diagnostic     0.06    0.05
-lspconfig.server_con   0.05    0.05
-init first window      0.05    0.04
-mason-core.functiona   0.05    0.04
-SingularisArt.lsp.se   0.05    0.04
-SingularisArt.plugin   0.05    0.04
-indent.vim             0.05    0.04
-nvim-treesitter.shel   0.05    0.04
-plenary.functional     0.05    0.04
-wincent.pinnacle       0.05    0.04
-cmp.config.mapping     0.05    0.04
-SingularisArt.vim.au   0.05    0.04
-nvim-treesitter.util   0.05    0.04
-cmp.view.wildmenu_en   0.05    0.04
-plenary.window.borde   0.05    0.04
-lspconfig.server_con   0.05    0.04
-lspconfig.server_con   0.05    0.04
-lsp-inlayhints.adapt   0.05    0.04
-plenary.vim            0.05    0.04
-SingularisArt.autolo   0.05    0.04
-SingularisArt.plugin   0.05    0.04
-cmp_calc               0.05    0.04
-SingularisArt.config   0.04    0.04
-null-ls.client         0.04    0.04
-cmp_nvim_lsp.lua       0.04    0.04
-cmp.config.sources     0.04    0.04
-telescope.config.res   0.04    0.04
-SingularisArt.colors   0.04    0.04
-lspconfig.server_con   0.04    0.04
-illuminate.providers   0.04    0.04
-cmp.utils.window       0.04    0.04
-lspconfig.server_con   0.04    0.04
-mason-core.async       0.04    0.04
-expanding arguments    0.04    0.04
-cmp.utils.buffer       0.04    0.04
-telescope.actions.ut   0.04    0.04
-telescope.actions.mt   0.04    0.04
-indent_blankline/uti   0.04    0.04
-cmp_nvim_lsp.source    0.04    0.04
-null-ls.builtins       0.04    0.04
-man.lua                0.04    0.04
-cmp.utils.api          0.04    0.03
-lspconfig.server_con   0.04    0.03
-SingularisArt.util.j   0.04    0.03
-nvim-treesitter.info   0.04    0.03
-telescope.pickers.sc   0.04    0.03
-SingularisArt.mappin   0.04    0.03
-mason-core.functiona   0.04    0.03
-lspconfig.server_con   0.04    0.03
-cmp.utils.misc         0.04    0.03
-telescope.state        0.04    0.03
-null-ls.helpers.comm   0.04    0.03
-lspconfig.server_con   0.04    0.03
+init.lua              91.51   55.44 ██████████████████████████
+MatchTagAlways.vim    35.14   21.29 ██████████
+python3.vim           33.63   20.37 █████████▌
+filetype.lua          22.50   13.63 ██████▍
+gitcommit.lua         16.26    9.85 ████▋
+impatient             12.38    7.50 ███▌
+cmp_latex.lua          6.54    3.96 █▉
+cmp_latex_symbols      6.47    3.92 █▉
+cmp_latex_symbols/it   6.42    3.89 █▉
+loading rtp plugins    5.49    3.33 █▌
+SingularisArt.config   5.26    3.19 █▌
+SingularisArt.config   4.51    2.73 █▎
+SingularisArt.lsp.co   4.26    2.58 █▎
+telescope.actions      4.24    2.57 █▎
+telescope.config       3.33    2.02 █
+SingularisArt.lsp.ha   3.00    1.81 ▉
+loading after plugin   2.77    1.68 ▊
+vim.lsp                2.69    1.63 ▊
+cmp                    2.59    1.57 ▊
+cmp.core               2.22    1.34 ▋
+null-ls                2.07    1.25 ▋
+emmet.vim              2.06    1.25 ▋
+markdown.lua           2.02    1.23 ▋
+tex.lua                1.96    1.19 ▌
+vim.lsp.handlers       1.77    1.07 ▌
+opening buffers        1.67    1.01 ▌
+reading ShaDa          1.53    0.93 ▍
+nvim-treesitter.lua    1.43    0.87 ▍
+matchit.vim            1.29    0.78 ▍
+sourcing vimrc file(   1.24    0.75 ▍
+nvim-treesitter.conf   1.16    0.70 ▍
+VimEnter autocommand   1.11    0.67 ▍
+nvim-treesitter.quer   1.07    0.65 ▎
+null-ls.helpers        1.06    0.64 ▎
+SingularisArt          1.01    0.61 ▎
+base16-bright.lua      1.00    0.61 ▎
+cmp_nvim_ultisnips.l   0.88    0.53 ▎
+done waiting for UI    0.85    0.52 ▎
+SingularisArt.config   0.82    0.50 ▎
+SingularisArt.config   0.81    0.49 ▎
+vim.lsp.protocol       0.79    0.48 ▎
+telescope.sorters      0.74    0.45 ▎
+nvim-treesitter.tsra   0.71    0.43 ▎
+nvim-treesitter.ts_u   0.66    0.40 ▏
+mason                  0.61    0.37 ▏
+fzf.vim                0.61    0.37 ▏
+table-mode.vim         0.59    0.36 ▏
+mason-tool-installer   0.59    0.36 ▏
+first screen update    0.58    0.35 ▏
+vim.lsp.util           0.57    0.35 ▏
+cmp.source             0.54    0.33 ▏
+mason-tool-installer   0.54    0.33 ▏
+lua.lua                0.54    0.33 ▏
+nvim-treesitter.pars   0.54    0.33 ▏
+syntax.vim             0.51    0.31 ▏
+illuminate.vim         0.50    0.30 ▏
+html.lua               0.49    0.30 ▏
+cmp.lua                0.48    0.29 ▏
+mason-registry         0.47    0.29 ▏
+telescope.lua          0.46    0.28 ▏
+cmp.view               0.46    0.28 ▏
+init lua interpreter   0.45    0.27 ▏
+null-ls.config         0.44    0.26 ▏
+mason-core.platform    0.43    0.26 ▏
+netrwPlugin.vim        0.42    0.25 ▏
+cmp.context            0.41    0.25 ▏
+null-ls.helpers.gene   0.41    0.25 ▏
+nvim-treesitter.high   0.38    0.23 ▏
+init highlight         0.36    0.22 ▏
+null-ls.sources        0.36    0.22 ▏
+SingularisArt.config   0.36    0.22 ▏
+telescope.log          0.34    0.21 ▏
+cmp.config             0.33    0.20 ▏
+inits 1                0.32    0.20 ▏
+loading packages       0.32    0.19 ▏
+before starting main   0.31    0.19 ▏
+vim._init_packages     0.31    0.19 ▏
+cmp.types              0.30    0.18 ▏
+indent_blankline.vim   0.29    0.17 ▏
+cmp.utils.feedkeys     0.28    0.17 ▏
+vim.lsp._snippet       0.28    0.17 ▏
+vim.diagnostic         0.27    0.16 ▏
+plenary.strings        0.26    0.16 ▏
+vim.treesitter.query   0.26    0.16 ▏
+host.vim               0.26    0.15 ▏
+null-ls.helpers.make   0.26    0.15 ▏
+clipboard.vim          0.25    0.15 ▏
+SingularisArt.autocm   0.25    0.15 ▏
+lspconfig              0.24    0.15 ▏
+null-ls.builtins.for   0.24    0.14 ▏
+matchit.vim            0.24    0.14 ▏
+cmp.utils.keymap       0.23    0.14 ▏
+nvim-treesitter.inst   0.22    0.13 ▏
+null-ls.utils          0.22    0.13
+SingularisArt.packad   0.22    0.13
+vim.lsp.log            0.22    0.13
+cmp_buffer.lua         0.22    0.13
+null-ls.builtins.dia   0.22    0.13
+plenary.path           0.22    0.13
+gzip.vim               0.21    0.13
+lspconfig.configs      0.21    0.13
+init default mapping   0.21    0.12
+null-ls.diagnostics    0.20    0.12
+lsp-inlayhints         0.20    0.12
+cmp.config.default     0.20    0.12
+rplugin.vim            0.19    0.12
+SingularisArt.settin   0.19    0.12
+plenary.popup          0.19    0.11
+vim.treesitter         0.18    0.11
+matchparen.vim         0.18    0.11
+vim._editor            0.18    0.11
+vim.lsp.rpc            0.18    0.11
+zipPlugin.vim          0.18    0.11
+null-ls.builtins.for   0.18    0.11
+plenary.log            0.18    0.11
+null-ls.builtins.for   0.17    0.11
+event init             0.17    0.10
+cmp_buffer             0.17    0.10
+lspconfig.util         0.16    0.10
+telescope.utils        0.16    0.09
+cmp_nvim_ultisnips     0.16    0.09
+cmp_path.lua           0.15    0.09
+null-ls.logger         0.15    0.09
+vim.lsp.buf            0.15    0.09
+cmp.entry              0.15    0.09
+lsp_signature          0.15    0.09
+cmp.utils.str          0.15    0.09
+cmp_nvim_lsp           0.15    0.09
+cmp.config.compare     0.15    0.09
+cmp_nvim_lua.lua       0.14    0.09
+mason-core.fs          0.14    0.09
+mkdp.vim               0.14    0.09
+null-ls.builtins.for   0.14    0.09
+cmp_cmdline.lua        0.14    0.09
+lsp-inlayhints.core    0.14    0.08
+null-ls.builtins.for   0.14    0.08
+mason.api.command      0.14    0.08
+indent_blankline       0.13    0.08
+null-ls.methods        0.13    0.08
+illuminate.engine      0.13    0.08
+null-ls.builtins.dia   0.13    0.08
+cmp_buffer.source      0.13    0.08
+null-ls.builtins.for   0.13    0.08
+null-ls.state          0.13    0.08
+early init             0.13    0.08
+nvim-treesitter        0.12    0.08
+mason.settings         0.12    0.08
+null-ls.builtins.for   0.12    0.07
+tarPlugin.vim          0.12    0.07
+SingularisArt.autocm   0.12    0.07
+null-ls.builtins       0.12    0.07
+cmp_calc.lua           0.12    0.07
+cmp.view.custom_entr   0.12    0.07
+SingularisArt.vim.se   0.11    0.07
+mason-registry.index   0.11    0.07
+null-ls.helpers.comm   0.11    0.07
+SingularisArt.status   0.11    0.07
+null-ls.helpers.diag   0.11    0.07
+mason-core.functiona   0.11    0.06
+null-ls.helpers.rang   0.10    0.06
+BufEnter autocommand   0.10    0.06
+cmp_emoji.lua          0.10    0.06
+cmp_nvim_ultisnips.v   0.10    0.06
+null-ls.builtins.dia   0.10    0.06
+null-ls.builtins.for   0.10    0.06
+telescope.actions.se   0.10    0.06
+black.vim              0.10    0.06
+synload.vim            0.10    0.06
+null-ls.builtins.for   0.10    0.06
+telescope              0.10    0.06
+tohtml.vim             0.09    0.06
+vim.highlight          0.09    0.06
+cmp.view.docs_view     0.09    0.06
+vim.shared             0.09    0.06
+cmp.types.lsp          0.09    0.06
+vim.treesitter.langu   0.09    0.05
+cmp.utils.char         0.09    0.05
+vim._meta              0.09    0.05
+illuminate.highlight   0.09    0.05
+vim.lsp.sync           0.09    0.05
+cmp_cmdline            0.09    0.05
+cmp_buffer.buffer      0.09    0.05
+mason-core.functiona   0.09    0.05
+vim.lsp.codelens       0.09    0.05
+lspconfig.lua          0.08    0.05
+cmp_nvim_ultisnips.s   0.08    0.05
+vim.treesitter.highl   0.08    0.05
+SingularisArt.icons    0.08    0.05
+telescope.pickers.en   0.08    0.05
+shada.vim              0.08    0.05
+vim.lsp.diagnostic     0.08    0.05
+redact_pass.vim        0.08    0.05
+cmp_path               0.08    0.05
+pythonx.vim            0.08    0.05
+nvim-treesitter.inde   0.07    0.05
+ftplugin.vim           0.07    0.04
+cmp.utils.async        0.07    0.04
+devhelp.vim            0.07    0.04
+SingularisArt.lsp      0.07    0.04
+locale set             0.07    0.04
+vim.treesitter.langu   0.07    0.04
+mason-core.log         0.07    0.04
+cmp_nvim_ultisnips.t   0.06    0.04
+null-ls.helpers.form   0.06    0.04
+cmp_nvim_lsp.lua       0.06    0.04
+inits 2                0.06    0.04
+lspconfig.server_con   0.06    0.04
+cmp.utils.misc         0.06    0.04
+man.lua                0.06    0.04
+lsp_signature.helper   0.06    0.04
+cmp_calc               0.06    0.04
+nvim-treesitter.loca   0.06    0.04
+SingularisArt.plugin   0.06    0.04
+sysinit.vim            0.06    0.04
+vim.inspect            0.06    0.04
+lspconfig.server_con   0.06    0.04
+SingularisArt.lsp.se   0.06    0.04
+nvim-treesitter.shel   0.06    0.04
+plenary.job            0.06    0.03
+cmp_nvim_lsp.source    0.06    0.03
+nvim-treesitter.util   0.06    0.03
+cmp.types.cmp          0.06    0.03
+init first window      0.06    0.03
+cmp.view.wildmenu_en   0.06    0.03
+SingularisArt.plugin   0.06    0.03
+wincent.pinnacle       0.06    0.03
+null-ls.helpers.cach   0.06    0.03
+norg.lua               0.06    0.03
+cmp_nvim_lua           0.06    0.03
+SingularisArt.autolo   0.05    0.03
+lsp-inlayhints.adapt   0.05    0.03
+cmp.config.mapping     0.05    0.03
+mason-core.async       0.05    0.03
+null-ls.client         0.05    0.03
+SingularisArt.config   0.05    0.03
+illuminate.providers   0.05    0.03
+cmp.utils.debug        0.05    0.03
+cmp.matcher            0.05    0.03
+cmp.utils.api          0.05    0.03
+SingularisArt.plugin   0.05    0.03
+cmp.utils.pattern      0.05    0.03
+cmp.types.vim          0.05    0.03
+lspconfig.server_con   0.05    0.03
+indent.vim             0.05    0.03
+cmp.utils.window       0.05    0.03
+lspconfig.server_con   0.05    0.03
+indent_blankline/uti   0.05    0.03
+lspconfig.server_con   0.05    0.03
+SingularisArt.util.g   0.05    0.03
+mason-core.path        0.05    0.03
+nvim-treesitter.info   0.05    0.03
+mason-core.functiona   0.05    0.03
+SingularisArt.mappin   0.05    0.03
+lspconfig.server_con   0.05    0.03
+cmp.utils.autocmd      0.05    0.03
+cmp.view.native_entr   0.05    0.03
+plenary.window.borde   0.05    0.03
+illuminate.providers   0.05    0.03
 illuminate             0.04    0.03
-cmp_nvim_lua           0.04    0.03
-null-ls.helpers.rang   0.04    0.03
 indent_blankline.com   0.04    0.03
+SingularisArt.lsp.ma   0.04    0.03
+SingularisArt.util.j   0.04    0.03
+cmp.utils.cache        0.04    0.03
 plenary.bit            0.04    0.03
 lspconfig.server_con   0.04    0.03
+SingularisArt.colors   0.04    0.03
+cmp.utils.buffer       0.04    0.03
 lspconfig.server_con   0.04    0.03
+telescope._extension   0.04    0.03
 lspconfig.server_con   0.04    0.03
-nvim-treesitter.cach   0.04    0.03
-telescope.actions.st   0.04    0.03
-SingularisArt.lsp.ma   0.04    0.03
-lspconfig.server_con   0.04    0.03
-nvim_treesitter.vim    0.04    0.03
-illuminate.providers   0.04    0.03
-SingularisArt.plugin   0.04    0.03
-cmp.utils.autocmd      0.04    0.03
-lspconfig.server_con   0.04    0.03
-cmp.utils.cache        0.03    0.03
-cmp.view.ghost_text_   0.03    0.03
-vim.treesitter.langu   0.03    0.03
-telescope.from_entry   0.03    0.03
-lspconfig.server_con   0.03    0.03
-lspconfig.server_con   0.03    0.03
-SingularisArt.vim      0.03    0.03
-SingularisArt.util.r   0.03    0.03
-SingularisArt.augrou   0.03    0.03
-null-ls.helpers.cach   0.03    0.03
-null-ls.helpers.form   0.03    0.03
-lspconfig.server_con   0.03    0.03
-nvim-treesitter.fold   0.03    0.03
-cmp_nvim_ultisnips.t   0.03    0.03
-illuminate.providers   0.03    0.03
-SingularisArt.util     0.03    0.03
-cmp.utils.debug        0.03    0.03
-cmp.types.cmp          0.03    0.03
-vimtex.vim             0.03    0.03
-cmp.utils.highlight    0.03    0.03
-mason-core.optional    0.03    0.03
-cmp_nvim_ultisnips.s   0.03    0.03
-espeakfiletype.vim     0.03    0.03
-nginx.vim              0.03    0.03
-plenary.popup.utils    0.03    0.03
-lspconfig.server_con   0.03    0.03
-lspconfig.server_con   0.03    0.03
-lspconfig.server_con   0.03    0.03
-lspconfig.server_con   0.03    0.03
-nvim-treesitter.quer   0.03    0.03
-SingularisArt.lsp.in   0.03    0.02
-cmp_buffer.timer       0.03    0.02
-cmp.types.vim          0.03    0.02
+lspconfig.server_con   0.04    0.02
+nvim_treesitter.vim    0.04    0.02
+vimtex.vim             0.04    0.02
+expanding arguments    0.04    0.02
+telescope.config.res   0.04    0.02
+cmp.view.ghost_text_   0.04    0.02
+mason-core.functiona   0.04    0.02
+lspconfig.server_con   0.04    0.02
+SingularisArt.util     0.04    0.02
+lspconfig.server_con   0.04    0.02
+lspconfig.server_con   0.04    0.02
+nvim-treesitter.quer   0.04    0.02
+SingularisArt.vim      0.04    0.02
+SingularisArt.augrou   0.04    0.02
+illuminate.providers   0.04    0.02
+cmp.utils.highlight    0.04    0.02
+nvim-treesitter.fold   0.04    0.02
+cmp_emoji              0.04    0.02
+plenary.functional     0.04    0.02
+espeakfiletype.vim     0.04    0.02
+plenary.vim            0.04    0.02
+lspconfig.server_con   0.04    0.02
+mason-core.optional    0.04    0.02
+cmp.config.sources     0.04    0.02
+lspconfig.server_con   0.04    0.02
+mason-core.functiona   0.04    0.02
+telescope.actions.mt   0.04    0.02
+lspconfig.server_con   0.04    0.02
+telescope.pickers.sc   0.04    0.02
+nginx.vim              0.04    0.02
+lspconfig.server_con   0.04    0.02
+plenary.window         0.04    0.02
+cmp_buffer.timer       0.04    0.02
+cmp_nvim_ultisnips.s   0.04    0.02
+telescope.actions.st   0.04    0.02
+telescope.actions.ut   0.03    0.02
 cmp.utils.event        0.03    0.02
-SingularisArt.lsp.nu   0.03    0.02
-illuminate.config      0.03    0.02
+mason-core.functiona   0.03    0.02
+SingularisArt.lsp.in   0.03    0.02
 mason-core.EventEmit   0.03    0.02
+SingularisArt.util.r   0.03    0.02
+lspconfig.server_con   0.03    0.02
+lspconfig.server_con   0.03    0.02
+lspconfig.server_con   0.03    0.02
+nvim-treesitter.cach   0.03    0.02
+SingularisArt.lsp.nu   0.03    0.02
 cmp_nvim_ultisnips.c   0.03    0.02
+illuminate.config      0.03    0.02
+telescope.state        0.03    0.02
+telescope.deprecated   0.03    0.02
 cls.vim                0.03    0.02
 cmp.config.window      0.03    0.02
-mason-core.functiona   0.03    0.02
-SingularisArt.lsp.il   0.03    0.02
-init screen for UI     0.03    0.02
-lsp-inlayhints.confi   0.03    0.02
 mason-core.async.uv    0.03    0.02
-filetype.vim           0.03    0.02
-mason-core.functiona   0.03    0.02
+SingularisArt.lsp.il   0.03    0.02
 nvim-treesitter.stat   0.03    0.02
-meson.vim              0.02    0.02
-SingularisArt.vim.au   0.02    0.02
-SingularisArt.lsp.si   0.02    0.02
-spellfile.vim          0.02    0.02
-tex.vim                0.02    0.02
-illuminate.reference   0.02    0.02
-lsp-inlayhints.utils   0.02    0.02
-illuminate.util        0.02    0.02
-lsp-inlayhints.store   0.02    0.02
-init default autocom   0.02    0.02
-PKGBUILD.vim           0.02    0.02
-tikz.vim               0.02    0.02
-tutor.vim              0.02    0.02
+SingularisArt.vim.au   0.03    0.02
+meson.vim              0.03    0.02
+telescope.from_entry   0.03    0.02
+lsp-inlayhints.confi   0.03    0.02
+SingularisArt.lsp.si   0.03    0.02
+plenary.popup.utils    0.03    0.02
+SingularisArt.vim.au   0.03    0.02
+spellfile.vim          0.03    0.02
+illuminate.reference   0.03    0.02
+illuminate.util        0.03    0.02
+tex.vim                0.03    0.02
+lsp-inlayhints.utils   0.03    0.02
+filetype.vim           0.02    0.02
+inits 3                0.02    0.01
 ffi                    0.02    0.01
-archlinux.vim          0.02    0.01
+lsp-inlayhints.store   0.02    0.01
+tikz.vim               0.02    0.01
+tutor.vim              0.02    0.01
+PKGBUILD.vim           0.02    0.01
+vimtex.vim             0.02    0.01
 symbols-outline.vim    0.02    0.01
-window checked         0.01    0.01
-executing command ar   0.01    0.01
---- NVIM STARTING --   0.01    0.01
+executing command ar   0.02    0.01
+ftplugin.vim           0.02    0.01
+init default autocom   0.02    0.01
+archlinux.vim          0.02    0.01
+window checked         0.02    0.01
 augeas.vim             0.01    0.01
+--- NVIM STARTING --   0.01    0.01
 health.vim             0.01    0.01
+init screen for UI     0.01    0.01
 rplugin.vim            0.01    0.01
-ftplugin.vim           0.01    0.01
 indent.vim             0.01    0.01
-vim.F                  0.01    0.00
+vim.F                  0.01    0.01
 vim.keymap             0.01    0.00
-UIEnter autocommands   0.01    0.00
 --- NVIM STARTED ---   0.00    0.00
-parsing arguments      0.00    0.00
 editing files in win   0.00    0.00
+parsing arguments      0.00    0.00
+UIEnter autocommands   0.00    0.00
 waiting for UI         0.00    0.00
 ```
 

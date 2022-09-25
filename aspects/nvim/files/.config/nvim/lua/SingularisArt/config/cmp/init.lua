@@ -96,14 +96,13 @@ cmp.setup({
       vim_item.menu = ({
         nvim_lsp = "",
         nvim_lua = "",
-        latex_symbols = "",
         ultisnips = "",
         calc = "",
         path = "",
         buffer = "",
-        gh_issues = "",
-        emails = "",
         emoji = "",
+        latex_symbols = "",
+        neorg = "",
       })[entry.source.name]
       return vim_item
     end,
@@ -115,7 +114,6 @@ cmp.setup({
     { name = "calc" },
     { name = "path" },
     { name = "buffer" },
-    { name = "emails" },
     { name = "emoji" },
     { name = "latex_symbols" },
     { name = "neorg" },

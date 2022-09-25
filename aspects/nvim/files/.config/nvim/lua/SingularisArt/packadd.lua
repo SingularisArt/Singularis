@@ -32,9 +32,9 @@ M.load = function()
 
   -- Required stuff.
   load("plenary.nvim")
-  load({
-    plugin = "popup.nvim",
-  })
+  -- load({
+  --   plugin = "popup.nvim",
+  -- })
 
   -- LSP.
   load({
@@ -70,11 +70,6 @@ M.load = function()
   load({
     plugin = "symbols-outline.nvim",
   })
-  lazy({
-    plugin = "cmp-latex-symbols",
-    pattern = "tex",
-    group = plugin_group,
-  })
 
   -- Completion.
   load({
@@ -101,14 +96,6 @@ M.load = function()
   })
   load({
     plugin = "cmp-nvim-lsp",
-  })
-  load({
-    plugin = "cmp-git",
-    pattern = "gitcommit",
-    event = "",
-  })
-  load({
-    plugin = "cmp-nvim-lua",
   })
 
   -- Debugger.
@@ -191,13 +178,14 @@ M.load = function()
   })
 
   -- File Browser.
-  -- lazy("vim-dirvish", "dirvish")
   lazy({
-    plugin = "nvim-tree.lua",
-    config = "nvim-tree",
-    -- event = "BufWinOpen",
-    -- group = plugin_group,
+    plugin = "vim-dirvish",
+    config = "dirvish",
   })
+  -- lazy({
+  --   plugin = "nvim-tree.lua",
+  --   config = "nvim-tree",
+  -- })
 
   -- Show indentation.
   load({
@@ -215,8 +203,7 @@ M.load = function()
   lazy({
     plugin = "sniprun",
     config = "snip-run",
-    event = "FileType",
-    pattern = "ruby",
+    event = "BufWinEnter",
     group = plugin_group,
   })
 
@@ -230,6 +217,7 @@ M.load = function()
   -- Manage my wiki stuff.
   lazy({
     plugin = "corpus",
+    config = function() end,
   })
 
   -- Comment stuff out.
@@ -273,17 +261,6 @@ M.load = function()
   lazy({
     plugin = "vim-wakatime",
   })
-
-  lazy({
-    plugin = "vimtex",
-    pattern = "tex",
-    group = plugin_group,
-  })
-  -- lazy({
-  --   plugin = "tex-conceal.vim",
-  --   pattern = "tex",
-  --   group = plugin_group,
-  -- })
 end
 
 return M

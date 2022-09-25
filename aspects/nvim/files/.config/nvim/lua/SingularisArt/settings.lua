@@ -154,7 +154,7 @@ M.load = function()
   --                              Spelling                              --
   ------------------------------------------------------------------------
 
-  vim.opt.spelllang = "en,ar" -- Define spelling dictionaries.
+  -- vim.opt.spelllang = "en,ar" -- Define spelling dictionaries.
   vim.opt.complete:append("kspell") -- Add spellcheck options for autocomplete.
   vim.opt.complete:remove("t") -- Don't use tags for completion.
   vim.opt.spelloptions = "camel" -- Treat parts of camelCase words as seprate words.

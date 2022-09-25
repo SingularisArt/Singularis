@@ -99,18 +99,18 @@ neorg.setup({
       },
     },
 
-    ["core.norg.dirman"] = { -- Manage your directories with Neorg
-      config = {
-        workspaces = {
-          home = "~/Documents/school-notes/notes",
-          personal = "~/Documents/school-notes/personal",
-          college = "~/Documents/school-notes/college",
-        },
-        index = "index.norg",
-        --[[ autodetect = true,
-                  autochdir = false, ]]
-      },
-    },
+    -- ["core.norg.dirman"] = { -- Manage your directories with Neorg
+    --   config = {
+    --     workspaces = {
+    --       home = "~/Documents/school-notes/notes",
+    --       personal = "~/Documents/school-notes/personal",
+    --       college = "~/Documents/school-notes/college",
+    --     },
+    --     index = "index.norg",
+    --     --[[ autodetect = true,
+    --               autochdir = false, ]]
+    --   },
+    -- },
 
     ["core.norg.qol.toc"] = {
       config = {

@@ -78,11 +78,15 @@ handles.setup = function()
 
   cmp.setup({
     sources = cmp.config.sources({
-      { name = "luasnip" },
-      { name = "buffer" },
+      { name = "nvim_lsp" },
+      { name = "nvim_lua" },
+      { name = "ultisnips" },
       { name = "calc" },
-      { name = "emoji" },
       { name = "path" },
+      { name = "buffer" },
+      { name = "emoji" },
+      { name = "latex_symbols" },
+      { name = "neorg" },
 
       -- My custom sources.
       { name = "handles" },

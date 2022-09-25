@@ -1,3 +1,5 @@
 local load = SingularisArt.plugin.load
 
-load("MatchTagAlways")
+load({
+  plugin = "MatchTagAlways",
+})
