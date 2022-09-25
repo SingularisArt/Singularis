@@ -9,13 +9,20 @@ handles.setup = function()
   registered = true
 
   local cmp = require("cmp")
-
-  local config = vim.fn.expand("~/.config/nvim/personal/emails.json")
-  if vim.fn.filereadable(config) == 0 then
+  if cmp == nil then
     return
   end
 
-  local addresses = vim.fn.json_decode(vim.fn.readfile(config))
+  local success, handles_with_names_and_emails = pcall(function()
+    local json_path = vim.fn.expand("~/.config/nvim/misc/personal/emails.json")
+    if vim.fn.filereadable(json_path) == 0 then
+      error(json_path .. " not readable")
+    end
+    return vim.fn.json_decode(vim.fn.readfile(json_path))
+  end)
+  if not success then
+    return
+  end
 
   local source = {}
 
@@ -32,18 +39,19 @@ handles.setup = function()
     return [[\%(\k\|\.\)\+]]
   end
 
-  source.complete = function(self, request, callback)
+  source.complete = function(_, request, callback)
     local input = string.sub(request.context.cursor_before_line, request.offset - 1)
     local prefix = string.sub(request.context.cursor_before_line, 1, request.offset - 1)
 
     if vim.startswith(input, "@") and (prefix == "@" or vim.endswith(prefix, " @")) then
       local items = {}
-      for handle, address in pairs(addresses) do
+
+      for handle, name_and_email in pairs(handles_with_names_and_emails) do
         table.insert(items, {
-          filterText = handle .. " " .. address,
-          label = address,
+          filterText = handle .. " " .. name_and_email,
+          label = name_and_email,
           textEdit = {
-            newText = address,
+            newText = name_and_email,
             range = {
               start = {
                 line = request.context.cursor.row - 1,
@@ -68,18 +76,16 @@ handles.setup = function()
 
   cmp.register_source("handles", source.new())
 
-  local filetypes = { "gitcommit", "mail" }
-  cmp.setup.filetype(filetypes, {
+  cmp.setup({
     sources = cmp.config.sources({
-      { name = "ultisnips" },
-      { name = "calc" },
-      { name = "path" },
+      { name = "luasnip" },
       { name = "buffer" },
-      { name = "emails" },
+      { name = "calc" },
       { name = "emoji" },
+      { name = "path" },
 
       -- My custom sources.
-      { name = "handles" }, -- GitHub handles; eg. @hashem → Hashem A. Damrah <singularis@github.com>
+      { name = "handles" },
     }),
   })
 end

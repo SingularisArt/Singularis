@@ -141,8 +141,6 @@ M.load = function()
   })
   lazy({
     plugin = "nvim-ts-context-commentstring",
-    event = "BufReadPost",
-    group = plugin_group,
   })
   lazy({
     plugin = "playground",
@@ -183,6 +181,7 @@ M.load = function()
   -- Snippets
   lazy({
     plugin = "ultisnips",
+    config = "ultisnips",
   })
 
   -- Color viewer.
@@ -209,6 +208,7 @@ M.load = function()
   -- Auto documentation.
   lazy({
     plugin = "neogen",
+    config = "neogen",
   })
 
   -- Run code.
@@ -236,7 +236,8 @@ M.load = function()
   lazy({
     plugin = "Comment.nvim",
     config = "comment",
-    event = "BufRead",
+    event = "BufWinEnter",
+    group = plugin_group,
   })
 
   -- Auto pairs.
@@ -278,11 +279,11 @@ M.load = function()
     pattern = "tex",
     group = plugin_group,
   })
-  lazy({
-    plugin = "tex-conceal.vim",
-    pattern = "tex",
-    group = plugin_group,
-  })
+  -- lazy({
+  --   plugin = "tex-conceal.vim",
+  --   pattern = "tex",
+  --   group = plugin_group,
+  -- })
 end
 
 return M

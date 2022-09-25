@@ -1,10 +1,9 @@
--- vim.g.UltiSnipsExpandTrigger = "<Plug>(ultisnips_expand)"
--- vim.g.UltiSnipsJumpForwardTrigger = "<Plug>(ultisnips_jump_forward)"
--- vim.g.UltiSnipsJumpBackwardTrigger = "<Plug>(ultisnips_jump_backward)"
--- vim.g.UltiSnipsListSnippets = "<c-x><c-s>"
--- vim.g.UltiSnipsRemoveSelectModeMappings = 0
--- vim.g.UltiSnipsEditSplit = "tabdo"
--- vim.g.UltiSnipsSnippetDirectories = {
---   os.getenv("HOME") .. "/.config/nvim/UltiSnips",
---   "UltiSnips",
--- }
+vim.cmd([[
+  let g:UltiSnipsExpandTrigger="<Plug>(ultisnips_expand)"
+  let g:UltiSnipsJumpForwardTrigger="<Plug>(ultisnips_jump_forward)"
+  let g:UltiSnipsJumpBackwardTrigger="<Plug>(ultisnips_jump_backward)"
+  let g:UltiSnipsListSnippets="<c-x><c-s>"
+  let g:UltiSnipsRemoveSelectModeMappings=0
+  let g:UltiSnipsEditSplit="tabdo"
+  let g:UltiSnipsSnippetDirectories=[$HOME."/.config/nvim/UltiSnips", "UltiSnips"]
+]])

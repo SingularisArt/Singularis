@@ -21,18 +21,18 @@ local lazy = function(plugin_info)
       pattern = pattern,
       group = group,
       callback = function()
-        -- vim.defer_fn(function()
-        load(plugin_info)
-        -- end, 0)
+        vim.defer_fn(function()
+          load(plugin_info)
+        end, 0)
       end,
     })
 
     return
   end
 
-  -- vim.defer_fn(function()
-  load(plugin_info)
-  -- end, 0)
+  vim.defer_fn(function()
+    load(plugin_info)
+  end, 0)
 end
 
 return lazy

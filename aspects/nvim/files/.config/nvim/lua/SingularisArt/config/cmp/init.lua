@@ -6,6 +6,10 @@ local t = function(str)
   return vim.api.nvim_replace_termcodes(str, true, true, true)
 end
 
+if cmp == nil then
+  return
+end
+
 cmp.setup({
   snippet = {
     expand = function(args)
@@ -107,13 +111,13 @@ cmp.setup({
   sources = {
     { name = "nvim_lsp" },
     { name = "nvim_lua" },
-    { name = "latex_symbols" },
     { name = "ultisnips" },
     { name = "calc" },
     { name = "path" },
     { name = "buffer" },
     { name = "emails" },
     { name = "emoji" },
+    { name = "latex_symbols" },
     { name = "neorg" },
   },
   confirm_opts = {
