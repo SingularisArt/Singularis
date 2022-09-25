@@ -217,7 +217,18 @@ M.load = function()
   -- Manage my wiki stuff.
   lazy({
     plugin = "corpus",
-    config = function() end,
+    config = function()
+      CorpusDirectories = {
+        ["~/Documents/Website/content/posts"] = {
+          autocommit = true,
+          autoreference = 0,
+          autotitle = 0,
+          base = "~/Documents/Website/",
+          repo = "~/Documents/Website/",
+          transform = "web",
+        }
+      }
+    end,
   })
 
   -- Comment stuff out.
