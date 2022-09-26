@@ -31,10 +31,12 @@ M.load = function()
   })
 
   -- Required stuff.
-  load("plenary.nvim")
-  -- load({
-  --   plugin = "popup.nvim",
-  -- })
+  load({
+    plugin = "plenary.nvim",
+  })
+  load({
+    plugin = "popup.nvim",
+  })
 
   -- LSP.
   load({
@@ -155,14 +157,19 @@ M.load = function()
     plugin = "pinnacle",
   })
 
+  -- Manage project
+  load({
+    plugin = "project.nvim",
+    config = "project",
+  })
+
   -- Telescope.
   load({
     plugin = "telescope.nvim",
     config = "telescope",
   })
   lazy({
-    plugin = "project.nvim",
-    config = "project",
+    plugin = "telescope-ultisnips.nvim",
   })
 
   -- Snippets
@@ -226,7 +233,7 @@ M.load = function()
           base = "~/Documents/Website/",
           repo = "~/Documents/Website/",
           transform = "web",
-        }
+        },
       }
     end,
   })
@@ -271,6 +278,11 @@ M.load = function()
   -- Monitor what and how much I code.
   lazy({
     plugin = "vim-wakatime",
+  })
+
+  load({
+    plugin = "neorg",
+    config = "neorg",
   })
 end
 

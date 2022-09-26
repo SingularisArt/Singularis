@@ -108,10 +108,10 @@ telescope.setup({
         ["<C-b>"] = actions.results_scrolling_up,
         ["<C-f>"] = actions.results_scrolling_down,
 
-        ["<Tab>"] = actions.close,
-        ["<S-Tab>"] = actions.close,
-        -- ["<Tab>"] = actions.toggle_selection + actions.move_selection_worse,
-        -- ["<S-Tab>"] = actions.toggle_selection + actions.move_selection_better,
+        -- ["<Tab>"] = actions.close,
+        -- ["<S-Tab>"] = actions.close,
+        ["<Tab>"] = actions.toggle_selection + actions.move_selection_worse,
+        ["<S-Tab>"] = actions.toggle_selection + actions.move_selection_better,
         ["<C-q>"] = actions.send_to_qflist + actions.open_qflist,
         ["<M-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
 
@@ -142,7 +142,6 @@ telescope.setup({
     },
   },
   pickers = {
-
     live_grep = {
       theme = "dropdown",
     },
@@ -154,43 +153,26 @@ telescope.setup({
       previewer = false,
     },
     buffers = {
-      theme = "dropdown",
-      previewer = false,
-      initial_mode = "normal",
-    },
-    planets = {
-      show_pluto = true,
-      show_moon = true,
+      theme = "dropdown", previewer = false,
     },
     colorscheme = {
-      -- enable_preview = true,
+      enable_preview = false,
     },
     lsp_references = {
       theme = "dropdown",
-      initial_mode = "normal",
     },
     lsp_definitions = {
       theme = "dropdown",
-      initial_mode = "normal",
     },
     lsp_declarations = {
       theme = "dropdown",
-      initial_mode = "normal",
     },
     lsp_implementations = {
       theme = "dropdown",
-      initial_mode = "normal",
     },
-
-    -- Default configuration for builtin pickers goes here:
-    -- picker_name = {
-    --   picker_config_key = value,
-    --   ...
-    -- }
-    -- Now the picker_config_key will be applied every time you call this
-    -- builtin picker
   },
   extensions = {},
 })
 
 telescope.load_extension("projects")
+telescope.load_extension("ultisnips")

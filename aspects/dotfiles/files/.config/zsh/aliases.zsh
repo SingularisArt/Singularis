@@ -15,7 +15,7 @@ alias mkdir='nocorrect mkdir --parents'
 alias cp='nocorrect cp -iv'
 alias mv='nocorrect mv -iv'
 alias rm='nocorrect rm -vI'
-alias myip='curl http://ipecho.net/plain; echo'
+alias ip="ip -4 -o a | cut -d ' ' -f 2,7 | cut -d '/' -f 1"
 alias distro='source /etc/lsb-release && source /etc/os-release && echo "Main Distro: $ID_LIKE. Sub Distro: $DISTRIB_ID"'
 
 if [ -f "/etc/arch-release" ] || [ -f "/etc/artix-release" ]; then

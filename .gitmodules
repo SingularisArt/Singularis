@@ -211,3 +211,12 @@
 [submodule "vim-startuptime"]
 	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/vim-startuptime
 	url = https://github.com/dstein64/vim-startuptime
+[submodule "telescope-media-files.nvim"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/telescope-media-files.nvim
+	url = https://github.com/nvim-telescope/telescope-media-files.nvim
+[submodule "telescope-ultisnips.nvim"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/telescope-ultisnips.nvim
+	url = https://github.com/fhill2/telescope-ultisnips.nvim
+[submodule "telescope-project.nvim"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/telescope-project.nvim
+	url = https://github.com/nvim-telescope/telescope-project.nvim

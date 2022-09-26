@@ -193,6 +193,7 @@ local mappings = {
   ["f"] = {
     name = "Telescope",
     f = { "<cmd>Telescope find_files<CR>", "Fuzzy find files" },
+    g = { "<cmd>Telescope grep_string<CR>", "Fuzzy find string" },
     o = { "<cmd>Telescope oldfiles<CR>", "Fuzzy find old files" },
     c = { "<cmd>Telescope colorscheme<CR>", "Fuzzy find colorschemes" },
     b = { "<cmd>Telescope buffers<CR>", "Fuzzy find buffers" },
@@ -208,6 +209,10 @@ local mappings = {
     t = { "<cmd>Telescope treesitter<CR>", "Fuzzy find treesitter" },
     r = { "<cmd>Telescope registers<CR>", "Fuzzy find registers" },
     h = { "<cmd>Telescope help_tags<CR>", "Fuzzy find help tags" },
+    u = {
+      "<cmd>require'telescope'.extensions.ultisnips.ultisnips{}<CR>",
+      "Fuzzy find snippets",
+    },
     S = { "<cmd>Telescope search_history<CR>", "Fuzzy find search history" },
     C = {
       name = "Commands",
