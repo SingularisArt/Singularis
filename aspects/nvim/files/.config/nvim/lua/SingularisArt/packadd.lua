@@ -279,11 +279,6 @@ M.load = function()
   lazy({
     plugin = "vim-wakatime",
   })
-
-  load({
-    plugin = "neorg",
-    config = "neorg",
-  })
 end
 
 return M

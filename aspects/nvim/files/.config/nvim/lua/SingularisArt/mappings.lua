@@ -44,6 +44,21 @@ mappings.load = function()
   keymap("n", "<C-t>", ":tabnew<CR>", opts)
   keymap("n", "<C-a>", "ggVG", opts)
   keymap("n", ";", ":nohl<CR>", opts)
+  keymap(
+    "n",
+    "<C-f>",
+    ":silent exec '!inkscape-figures edit \"'.b:vimtex.root.'/figures/\" > /dev/null 2>&1 &'<CR><CR>:redraw!<CR>",
+    opts
+  )
+
+  -- Insert Mode
+  keymap("i", "<C-l>", "<c-g>u<Esc>[s1z=`]a<c-g>u", opts)
+  keymap(
+    "i",
+    "<C-f>",
+    "<Esc>: silent exec '.!inkscape-figures create \"'.getline('.').'\" \"'.b:vimtex.root.'/figures/\"'<CR><CR>:w<CR>",
+    opts
+  )
 
   -- Terminal Mode
   keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", term_opts)
