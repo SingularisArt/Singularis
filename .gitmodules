@@ -220,3 +220,114 @@
 [submodule "telescope-project.nvim"]
 	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/telescope-project.nvim
 	url = https://github.com/nvim-telescope/telescope-project.nvim
+[submodule "magma-nvim"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/magma-nvim
+	url = https://github.com/dccsillag/magma-nvim
+[submodule "lua-dev.nvim"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/lua-dev.nvim
+	url = https://github.com/christianchiarulli/lua-dev.nvim
+[submodule "fidget.nvim"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/fidget.nvim
+	url = https://github.com/j-hui/fidget.nvim
+[submodule "nvim-surround"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/nvim-surround
+	url = https://github.com/kylechui/nvim-surround
+[submodule "tabout.nvim"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/tabout.nvim
+	url = https://github.com/abecodes/tabout.nvim
+[submodule "harpoon"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/harpoon
+	url = https://github.com/christianchiarulli/harpoon
+[submodule "vim-bookmarks"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/vim-bookmarks
+	url = https://github.com/MattesGroeger/vim-bookmarks
+[submodule "zk-nvim"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/zk-nvim
+	url = https://github.com/mickael-menu/zk-nvim
+[submodule "dressing.nvim"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/dressing.nvim
+	url = https://github.com/stevearc/dressing.nvim
+[submodule "cybu.nvim"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/cybu.nvim
+	url = https://github.com/ghillb/cybu.nvim
+[submodule "vim-bbye"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/vim-bbye
+	url = https://github.com/moll/vim-bbye
+[submodule "browse.nvim"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/browse.nvim
+	url = https://github.com/lalitmee/browse.nvim
+[submodule "registers.nvim"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/registers.nvim
+	url = https://github.com/tversteeg/registers.nvim
+[submodule "nvim-web-devicons"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/nvim-web-devicons
+	url = https://github.com/kyazdani42/nvim-web-devicons
+[submodule "lir.nvim"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/lir.nvim
+	url = https://github.com/christianchiarulli/lir.nvim
+[submodule "toggleterm.nvim"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/toggleterm.nvim
+	url = https://github.com/akinsho/toggleterm.nvim
+[submodule "nvim-spectre"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/nvim-spectre
+	url = https://github.com/windwp/nvim-spectre
+[submodule "auto-session"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/auto-session
+	url = https://github.com/rmagatti/auto-session
+[submodule "session-lens"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/session-lens
+	url = https://github.com/rmagatti/session-lens
+[submodule "nvim-bqf"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/nvim-bqf
+	url = https://github.com/kevinhwang91/nvim-bqf
+[submodule "jaq-nvim"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/jaq-nvim
+	url = https://github.com/is0n/jaq-nvim
+[submodule "lab.nvim"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/lab.nvim
+	url = https://github.com/0x100101/lab.nvim
+[submodule "git-blame.nvim"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/git-blame.nvim
+	url = https://github.com/f-person/git-blame.nvim
+[submodule "gitlinker.nvim"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/gitlinker.nvim
+	url = https://github.com/ruifm/gitlinker.nvim
+[submodule "vim-gist"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/vim-gist
+	url = https://github.com/mattn/vim-gist
+[submodule "webapi-vim"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/webapi-vim
+	url = https://github.com/mattn/webapi-vim
+[submodule "octo.nvim"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/octo.nvim
+	url = https://github.com/pwntester/octo.nvim
+[submodule "dial.nvim"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/dial.nvim
+	url = https://github.com/monaqa/dial.nvim
+[submodule "numb.nvim"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/numb.nvim
+	url = https://github.com/nacro90/numb.nvim
+[submodule "vim-matchup"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/vim-matchup
+	url = https://github.com/andymass/vim-matchup
+[submodule "neoscroll.nvim"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/neoscroll.nvim
+	url = https://github.com/karb94/neoscroll.nvim
+[submodule "vim-slash"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/vim-slash
+	url = https://github.com/junegunn/vim-slash
+[submodule "hop.nvim"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/hop.nvim
+	url = https://github.com/phaazon/hop.nvim
+[submodule "nvim-jdtls"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/nvim-jdtls
+	url = https://github.com/mfussenegger/nvim-jdtls
+[submodule "crates.nvim"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/crates.nvim
+	url = https://github.com/Saecki/crates.nvim
+[submodule "typescript.nvim"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/typescript.nvim
+	url = https://github.com/jose-elias-alvarez/typescript.nvim
+[submodule "nvim-navic"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/nvim-navic
+	url = https://github.com/SmiteshP/nvim-navic

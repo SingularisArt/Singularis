@@ -1,13 +1,7 @@
-local load = function(plugin_info)
-  local plugin = ""
-  local config = nil
+local load = function(plugin, config)
+  config = vim.deepcopy(config or {})
 
-  if type(plugin_info) == "table" then
-    plugin = plugin_info["plugin"] or plugin_info[1]
-    config = plugin_info["config"] or nil
-  elseif type(plugin_info) == "string" then
-    plugin = plugin_info
-  end
+  local plugin_config = config["plugin_config"] or ""
 
   if vim.v.vim_did_enter == 1 then
     -- Modifies 'runtimepath' _and_ sources files.
@@ -18,14 +12,16 @@ local load = function(plugin_info)
     vim.cmd("packadd! " .. plugin)
   end
 
-  if type(config) == "string" then
-    -- Try execute its configuration
-    -- NOTE: configuration file should have the same name as plugin directory
-    pcall(require, "SingularisArt.config." .. config)
-  elseif type(config) == "function" then
-    config()
-  else
-    return
+  if plugin_config ~= nil then
+    if type(plugin_config) == "string" then
+      -- Try execute its configuration
+      -- NOTE: configuration file should have the same name as plugin directory
+      pcall(require, "SingularisArt.config." .. plugin_config)
+    elseif type(plugin_config) == "function" then
+      plugin_config()
+    else
+      return
+    end
   end
 end
 

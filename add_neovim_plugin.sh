@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-url=$1
+url="https://github.com/$1"
 path="aspects/nvim/files/.config/nvim/pack/plugins/opt"
 
 echo $url >> ~/....f
