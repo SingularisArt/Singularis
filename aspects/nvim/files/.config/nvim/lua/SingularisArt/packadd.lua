@@ -211,7 +211,9 @@ M.load = function()
 
   -- Rust
   lazy("rust-tools.nvim")
-  lazy("crates.nvim")
+  lazy("crates.nvim", {
+    config = "crates",
+  })
 
   -- Markdown
   lazy("markdown-preview.nvim", {

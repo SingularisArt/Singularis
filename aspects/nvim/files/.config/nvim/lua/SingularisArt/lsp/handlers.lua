@@ -60,19 +60,19 @@ M.load = function()
   })
 end
 
--- local function attach_navic(client, bufnr)
---   vim.g.navic_silence = true
---   local status_ok, navic = pcall(require, "nvim-navic")
---   if not status_ok then
---     return
---   end
---   navic.attach(client, bufnr)
--- end
+local function attach_navic(client, bufnr)
+  vim.g.navic_silence = true
+  local status_ok, navic = pcall(require, "nvim-navic")
+  if not status_ok then
+    return
+  end
+  navic.attach(client, bufnr)
+end
 
 M.on_attach = function(client, bufnr)
   vim.keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", { buffer = true, silent = true })
 
-  -- attach_navic(client, bufnr)
+  attach_navic(client, bufnr)
   require("lsp-inlayhints").on_attach(client, bufnr)
 
   if client.name == "sqls" then

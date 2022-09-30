@@ -17,6 +17,7 @@
   br = branch
   ci = commit -v
   c = commit
+  ce = commit --allow-empty-message -m ""
   cm = commit -m
   co = checkout
   count = !git --no-pager log --oneline | wc -l
