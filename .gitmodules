@@ -223,9 +223,6 @@
 [submodule "magma-nvim"]
 	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/magma-nvim
 	url = https://github.com/dccsillag/magma-nvim
-[submodule "lua-dev.nvim"]
-	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/lua-dev.nvim
-	url = https://github.com/christianchiarulli/lua-dev.nvim
 [submodule "fidget.nvim"]
 	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/fidget.nvim
 	url = https://github.com/j-hui/fidget.nvim
