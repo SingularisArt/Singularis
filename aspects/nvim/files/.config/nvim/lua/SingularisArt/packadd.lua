@@ -42,9 +42,9 @@ M.load = function()
   load("lsp-inlayhints.nvim")
   load("lsp_signature.nvim")
   load("symbols-outline.nvim")
-  load("fidget.nvim", {
-    plugin_config = "fidget",
-  })
+  -- load("fidget.nvim", {
+  --   plugin_config = "fidget",
+  -- })
 
   -- Completion.
   load("nvim-cmp", {
@@ -117,9 +117,6 @@ M.load = function()
   -- Show indentation.
   load("indent-blankline.nvim", {
     plugin_config = "indent-blankline",
-    commands = {
-      "IndentBlanklineToggle",
-    },
   })
 
   -- Auto documentation.
@@ -128,9 +125,9 @@ M.load = function()
   })
 
   -- Run code.
-  -- lazy("sniprun", {
-  --   plugin_config = "snip-run",
-  -- })
+  lazy("sniprun", {
+    plugin_config = "snip-run",
+  })
 
   -- Display mappings.
   lazy("which-key.nvim", {
@@ -138,7 +135,7 @@ M.load = function()
   })
 
   -- Manage my wiki stuff.
-  load("corpus", {
+  lazy("corpus", {
     plugin_config = function()
       CorpusDirectories = {
         ["~/Documents/Website/content/posts"] = {
@@ -239,7 +236,7 @@ M.load = function()
   lazy("tex-conceal.vim", {
     pattern = "tex",
   })
-  load("cmp-latex-symbols")
+  lazy("cmp-latex-symbols")
 end
 
 return M

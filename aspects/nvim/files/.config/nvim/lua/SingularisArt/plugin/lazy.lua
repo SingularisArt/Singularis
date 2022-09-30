@@ -1,7 +1,9 @@
 SingularisArt.g.lazy = {}
+SingularisArt.g.plugin_group = vim.api.nvim_create_augroup("PluginGroup", {
+  clear = true,
+})
 
 local lazy_index = 0
-local load = SingularisArt.plugin.load
 
 local lazy = function(plugin, config)
   config = vim.deepcopy(config or {})
@@ -93,7 +95,10 @@ local lazy = function(plugin, config)
 
   if config.commands == nil and config.keymap == nil then
     -- No triggers defined, so just load this thing after startup.
-    vim.defer_fn(config.load, 0)
+    -- vim.defer_fn(config.load, 0)
+    SingularisArt.vim.autocmd("VimEnter", config.pattern or "*", function()
+      vim.defer_fn(config.load, 0)
+    end)
   else
     -- `packadd!` adds directories to 'runtimepath', so things like `:help`
     -- will work, but Vim won't load the plugin files as long as we do this
@@ -101,10 +106,9 @@ local lazy = function(plugin, config)
     if vim.v.vim_did_enter == 1 then
       vim.cmd("packadd! " .. plugin)
     else
-      local pattern = config["pattern"] or "*"
-      SingularisArt.vim.autocmd("VimEnter",pattern, function()
+      SingularisArt.vim.autocmd("VimEnter", config.pattern or "*", function()
         vim.cmd("packadd! " .. plugin)
-      end, { once = true })
+      end)
     end
   end
 end

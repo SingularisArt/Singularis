@@ -328,3 +328,6 @@
 [submodule "nvim-navic"]
 	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/nvim-navic
 	url = https://github.com/SmiteshP/nvim-navic
+[submodule "rust-tools.nvim"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/rust-tools.nvim
+	url = https://github.com/simrat39/rust-tools.nvim
