@@ -42,9 +42,9 @@ M.load = function()
   load("lsp-inlayhints.nvim")
   load("lsp_signature.nvim")
   load("symbols-outline.nvim")
-  -- load("fidget.nvim", {
-  --   plugin_config = "fidget",
-  -- })
+  load("fidget.nvim", {
+    plugin_config = "fidget",
+  })
 
   -- Completion.
   load("nvim-cmp", {
@@ -98,9 +98,6 @@ M.load = function()
   -- Color viewer.
   lazy("nvim-colorizer.lua", {
     plugin_config = "colorizer",
-    commands = {
-      "ColorizerToggle",
-    },
   })
 
   -- Icon
@@ -135,20 +132,20 @@ M.load = function()
   })
 
   -- Manage my wiki stuff.
-  lazy("corpus", {
-    plugin_config = function()
-      CorpusDirectories = {
-        ["~/Documents/Website/content/posts"] = {
-          autocommit = true,
-          autoreference = 0,
-          autotitle = 0,
-          base = "~/Documents/Website/",
-          repo = "~/Documents/Website/",
-          transform = "web",
-        },
-      }
-    end,
-  })
+  -- lazy("corpus", {
+  --   plugin_config = function()
+  --     CorpusDirectories = {
+  --       ["~/Documents/Website/content/posts"] = {
+  --         autocommit = true,
+  --         autoreference = 0,
+  --         autotitle = 0,
+  --         base = "~/Documents/Website/",
+  --         repo = "~/Documents/Website/",
+  --         transform = "web",
+  --       },
+  --     }
+  --   end,
+  -- })
 
   -- Comment stuff out.
   lazy("Comment.nvim", {
