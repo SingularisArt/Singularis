@@ -86,7 +86,6 @@ handles.setup = function()
       { name = "buffer" },
       { name = "emoji" },
       { name = "latex_symbols" },
-      { name = "neorg" },
 
       -- My custom sources.
       { name = "handles" },

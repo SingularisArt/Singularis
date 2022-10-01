@@ -102,7 +102,6 @@ cmp.setup({
         buffer = "",
         emoji = "",
         latex_symbols = "",
-        neorg = "",
       })[entry.source.name]
       return vim_item
     end,
@@ -116,7 +115,6 @@ cmp.setup({
     { name = "buffer" },
     { name = "emoji" },
     { name = "latex_symbols" },
-    { name = "neorg" },
   },
   confirm_opts = {
     behavior = cmp.ConfirmBehavior.Replace,

@@ -54,6 +54,7 @@ M.load = function()
   load("cmp-calc")
   load("cmp-nvim-ultisnips")
   load("cmp-path")
+  load("cmp-emoji")
   load("cmp-nvim-lsp")
 
   -- Debugger.
@@ -132,20 +133,20 @@ M.load = function()
   })
 
   -- Manage my wiki stuff.
-  -- lazy("corpus", {
-  --   plugin_config = function()
-  --     CorpusDirectories = {
-  --       ["~/Documents/Website/content/posts"] = {
-  --         autocommit = true,
-  --         autoreference = 0,
-  --         autotitle = 0,
-  --         base = "~/Documents/Website/",
-  --         repo = "~/Documents/Website/",
-  --         transform = "web",
-  --       },
-  --     }
-  --   end,
-  -- })
+  lazy("corpus", {
+    plugin_config = function()
+      CorpusDirectories = {
+        ["~/Documents/Website/content/posts"] = {
+          autocommit = true,
+          autoreference = 0,
+          autotitle = 0,
+          base = "~/Documents/Website/",
+          repo = "~/Documents/Website/",
+          transform = "web",
+        },
+      }
+    end,
+  })
 
   -- Comment stuff out.
   lazy("Comment.nvim", {

@@ -370,38 +370,6 @@ local mappings = {
     },
     O = { "<cmd>wincmd =<CR>", "Bring back the tabs" },
   },
-
-  ["n"] = {
-    name = "Neorg",
-    i = { "<cmd>Telescope neorg insert_link<CR>", "Insert Link" },
-    f = { "<cmd>Telescope neorg find_linkable<CR>", "" },
-    F = { "<cmd>Telescope neorg find_aof_tasks<CR>", "" },
-    s = { "<cmd>Telescope neorg search_headings<CR>", "" },
-    S = { "<cmd>Telescope neorg switch_workspace<CR>", "" },
-    I = { "<cmd>Telescope neorg insert_file_link<CR>", "" },
-    p = { "<cmd>Telescope neorg find_project_tasks<CR>", "" },
-    c = { "<cmd>Telescope neorg find_context_tasks<CR>", "" },
-    a = { "<cmd>Telescope neorg find_aof_project_tasks<CR>", "" },
-
-    t = {
-      name = "Todos",
-      u = { "", "" },
-      p = { "", "" },
-      d = { "", "" },
-      h = { "", "" },
-      c = { "", "" },
-      r = { "", "" },
-      i = { "", "" },
-      C = { "", "" },
-    },
-
-    g = {
-      name = "GTD",
-      c = { "", "" },
-      v = { "", "" },
-      e = { "", "" },
-    },
-  },
 }
 
 local which_key = require("which-key")
