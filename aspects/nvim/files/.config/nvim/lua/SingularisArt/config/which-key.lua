@@ -270,7 +270,7 @@ local mappings = {
     c = { "<cmd>lua vim.lsp.buf.code_action()<CR>", "Show code actions" },
     e = {
       function()
-        local config = SingularisArt.lsp.diagnostics.float
+        local config = SingularisArt.lsp.config.diagnostics.float
         config.scope = "line"
         vim.diagnostic.open_float(0, config)
       end,
@@ -279,45 +279,22 @@ local mappings = {
     q = { "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>", "Show QuickFix" },
     f = { "<cmd>lua vim.lsp.buf.format { async = true }<CR>", "Format" },
     r = { "<cmd>lua vim.lsp.buf.rename()<CR>", "Rename" },
-    i = {
-      "<cmd>lua require('goto-preview').goto_preview_implementation()<CR>",
-      "Go to implementation",
-    },
+    i = { "<cmd>lua require('goto-preview').goto_preview_implementation()<CR>", "Go to implementation" },
     j = { "<cmd>lua vim.diagnostic.goto_next()<CR>", "Go to next diagnostic" },
-    k = {
-      "<cmd>lua vim.diagnostic.goto_prev()<CR>",
-      "Go to previous diagnostic",
-    },
-    C = {
-      "<cmd>lua require('goto-preview').close_all_win()<CR>",
-      "Close all windows",
-    },
+    k = { "<cmd>lua vim.diagnostic.goto_prev()<CR>", "Go to previous diagnostic" },
+    C = { "<cmd>lua require('goto-preview').close_all_win()<CR>", "Close all windows" },
     l = { "<cmd>lua require('lsp_lines').toggle()<CR>", "Toggle LSP Lines" },
     d = {
       name = "Definition",
-      d = { "<cmd>lua vim.lsp.buf.definition()<CR>", "Go to definition" },
-      r = { "<cmd>lua vim.lsp.buf.references()<CR>", "Find references" },
-      t = {
-        "<cmd>lua vim.lsp.buf.type_definition()<CR>",
-        "Get type definition",
-      },
-      p = {
-        function()
-          require("SingularisArt.lsp.peek").Peek("definition")
-        end,
-        "Peek definition",
-      },
+      d = { "<cmd>lua vim.lsp.buf.definition<CR>", "Definition" },
+      p = { "<cmd>lua require('SingularisArt.lsp.peek').Peek('definition')<CR>", "Peek" },
+      t = { "<cmd>lua require('SingularisArt.lsp.peek').Peek('typeDefinition')<CR>", "Type Definition" },
+      i = { "<cmd>lua require('SingularisArt.lsp.peek').Peek('implementation')<CR>", "Implementation" },
     },
     w = {
       name = "Workspace",
-      a = {
-        "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>",
-        "Add workspace",
-      },
-      r = {
-        "<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>",
-        "Remove workspace",
-      },
+      a = { "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>", "Add workspace" },
+      r = { "<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>", "Remove workspace" },
     },
   },
 

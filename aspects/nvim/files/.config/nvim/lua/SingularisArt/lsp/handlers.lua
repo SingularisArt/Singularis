@@ -8,42 +8,13 @@ M.capabilities.textDocument.completion.completionItem.snippetSupport = true
 M.capabilities = cmp_nvim_lsp.update_capabilities(M.capabilities)
 
 M.load = function()
-  local icons = require("SingularisArt.icons")
-  local signs = {
-    { name = "DiagnosticSignError", text = icons.diagnostics.Error },
-    { name = "DiagnosticSignWarn", text = icons.diagnostics.Warning },
-    { name = "DiagnosticSignHint", text = icons.diagnostics.Hint },
-    { name = "DiagnosticSignInfo", text = icons.diagnostics.Information },
-  }
+  local signs = SingularisArt.lsp.config.diagnostics.signs.values
 
   for _, sign in ipairs(signs) do
     vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
   end
 
-  local config = {
-    -- disable virtual text
-    virtual_lines = false,
-    virtual_text = false,
-
-    -- show signs
-    signs = {
-      active = signs,
-    },
-
-    update_in_insert = true,
-    underline = true,
-    severity_sort = true,
-    float = {
-      focusable = true,
-      style = "minimal",
-      border = "rounded",
-      -- border = {"▄","▄","▄","█","▀","▀","▀","█"},
-      source = "if_many", -- Or "always"
-      header = "",
-      prefix = "",
-      -- width = 40,
-    },
-  }
+  local config = SingularisArt.lsp.config.diagnostics
 
   vim.diagnostic.config(config)
 

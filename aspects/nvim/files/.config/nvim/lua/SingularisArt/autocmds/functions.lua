@@ -118,7 +118,7 @@ local blur_window = function()
   if filetype == "" or autocmds.conceallevel_filetypes[filetype] == nil then
     vim.wo.conceallevel = 0
   end
-  statusline.blur_statusline()
+  -- statusline.blur_statusline()
 end
 
 -- http://vim.wikia.com/wiki/Make_views_automatic

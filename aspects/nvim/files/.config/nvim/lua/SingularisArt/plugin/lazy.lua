@@ -93,10 +93,12 @@ local lazy = function(plugin, config)
     end
   end
 
+  local event = config.event or "VimEnter"
+
   if config.commands == nil and config.keymap == nil then
     -- No triggers defined, so just load this thing after startup.
     -- vim.defer_fn(config.load, 0)
-    SingularisArt.vim.autocmd("VimEnter", config.pattern or "*", function()
+    SingularisArt.vim.autocmd(event, config.pattern or "*", function()
       vim.defer_fn(config.load, 0)
     end)
   else
@@ -104,9 +106,11 @@ local lazy = function(plugin, config)
     -- will work, but Vim won't load the plugin files as long as we do this
     -- _after_ startup.
     if vim.v.vim_did_enter == 1 then
-      vim.cmd("packadd! " .. plugin)
+      SingularisArt.vim.autocmd(event, config.pattern or "*", function()
+        vim.cmd("packadd! " .. plugin)
+      end)
     else
-      SingularisArt.vim.autocmd("VimEnter", config.pattern or "*", function()
+      SingularisArt.vim.autocmd(event, config.pattern or "*", function()
         vim.cmd("packadd! " .. plugin)
       end)
     end

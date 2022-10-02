@@ -17,7 +17,8 @@ M.load = function()
           path = vim.fn.stdpath("cache") .. "/luacache_modpaths",
         },
       }
-      require("impatient")
+      local impatient = require("impatient")
+      impatient.enable_profile()
     end,
   })
   load("filetype.nvim", {
@@ -42,9 +43,9 @@ M.load = function()
   load("lsp-inlayhints.nvim")
   load("lsp_signature.nvim")
   load("symbols-outline.nvim")
-  load("fidget.nvim", {
-    plugin_config = "fidget",
-  })
+  -- load("fidget.nvim", {
+  --   plugin_config = "fidget",
+  -- })
 
   -- Completion.
   load("nvim-cmp", {
@@ -56,6 +57,9 @@ M.load = function()
   load("cmp-path")
   load("cmp-emoji")
   load("cmp-nvim-lsp")
+  load("cmp-nvim-lua")
+  load("cmp-latex-symbols")
+  load("cmp-tmux")
 
   -- Debugger.
   lazy("nvim-dap", {
@@ -81,14 +85,17 @@ M.load = function()
   load("pinnacle")
 
   -- Manage project
-  load("project.nvim", {
-    plugin_config = "project",
-  })
-  lazy("nvim-spectre")
+  -- load("project.nvim", {
+  --   plugin_config = "project",
+  -- })
+  -- lazy("nvim-spectre")
 
   -- Telescope.
   load("telescope.nvim", {
     plugin_config = "telescope",
+    commands = {
+      "Telescope",
+    },
   })
 
   -- Snippets
@@ -97,12 +104,16 @@ M.load = function()
   })
 
   -- Color viewer.
-  lazy("nvim-colorizer.lua", {
-    plugin_config = "colorizer",
-  })
+  -- lazy("nvim-colorizer.lua", {
+  --   plugin_config = "colorizer",
+  -- })
 
   -- Icon
-  lazy("nvim-web-devicons")
+  lazy("nvim-web-devicons", {
+    commands = {
+      "NvimTreeToggle",
+    },
+  })
 
   -- File Browser.
   lazy("nvim-tree.lua", {
@@ -113,19 +124,23 @@ M.load = function()
   })
 
   -- Show indentation.
-  load("indent-blankline.nvim", {
+  lazy("indent-blankline.nvim", {
     plugin_config = "indent-blankline",
+    -- event = "BufReadPre",
   })
 
   -- Auto documentation.
   lazy("neogen", {
     plugin_config = "neogen",
+    commands = {
+      "Neogen",
+    },
   })
 
   -- Run code.
-  lazy("sniprun", {
-    plugin_config = "snip-run",
-  })
+  -- lazy("sniprun", {
+  --   plugin_config = "snip-run",
+  -- })
 
   -- Display mappings.
   lazy("which-key.nvim", {
@@ -163,6 +178,7 @@ M.load = function()
 
   -- View all changes within file.
   lazy("undotree", {
+    plugin_config = "undotree",
     commands = {
       "UndotreeToggle",
     },
@@ -180,10 +196,10 @@ M.load = function()
   })
 
   -- Session
-  lazy("session-lens", {
+  load("session-lens", {
     plugin_config = "session-manager",
   })
-  lazy("auto-session", {
+  load("auto-session", {
     plugin_config = "auto-session",
   })
 
@@ -197,37 +213,41 @@ M.load = function()
   lazy("zen-mode.nvim", {
     plugin_config = "zen-mode",
   })
-  lazy("nvim-navic", {
-    plugin_config = "navic",
+  load("nvim-navic", {
+    plugin_config = function()
+      require("SingularisArt.config.navic")
+      require("SingularisArt.config.winbar")
+    end,
   })
-  lazy("neoscroll.nvim", {
-    plugin_config = "neoscroll",
-  })
+  -- lazy("neoscroll.nvim", {
+  --   plugin_config = "neoscroll",
+  -- })
 
   -- Java
   lazy("nvim-jdtls")
 
   -- Rust
-  lazy("rust-tools.nvim")
-  lazy("crates.nvim", {
-    config = "crates",
-  })
+  -- load("rust-tools.nvim")
+  -- load("crates.nvim", {
+  --   config = "crates",
+  -- })
 
   -- Markdown
+  load("vim-markdown-toc")
   lazy("markdown-preview.nvim", {
     config = "markdown-preview",
+    commands = {
+      "MarkdownPreviewToggle",
+    },
   })
-  lazy("vim-markdown-toc")
-  lazy("vim-table-mode")
-
-  -- Git
-  load("cmp-git")
+  lazy("vim-table-mode", {
+    commands = {
+      "TableModeToggle",
+    },
+  })
 
   -- HTML
   lazy("MatchTagAlways")
-
-  -- Lua
-  load("cmp-nvim-lua")
 
   -- LaTeX
   load("vimtex", {
@@ -236,7 +256,6 @@ M.load = function()
   lazy("tex-conceal.vim", {
     pattern = "tex",
   })
-  lazy("cmp-latex-symbols")
 end
 
 return M

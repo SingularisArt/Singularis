@@ -1,5 +1,7 @@
 local null_ls = require("null-ls")
 
+local icons = require("SingularisArt.icons")
+
 -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/formatting
 local formatting = null_ls.builtins.formatting
 -- https://github.com/jose-elias-alvarez/null-ls.nvim/tree/main/lua/null-ls/builtins/diagnostics
@@ -50,5 +52,43 @@ return {
     diagnostics.flake8,
     diagnostics.shellcheck,
     diagnostics.cppcheck,
+  },
+
+  peek = {
+    max_height = 15,
+    max_width = 30,
+    context = 10,
+  },
+
+  diagnostics = {
+    signs = {
+      active = true,
+      values = {
+        { name = "DiagnosticSignError", text = icons.diagnostics.Error },
+        { name = "DiagnosticSignWarn", text = icons.diagnostics.Warning },
+        { name = "DiagnosticSignHint", text = icons.diagnostics.Hint },
+        { name = "DiagnosticSignInfo", text = icons.diagnostics.Information },
+      },
+    },
+    virtual_text = false,
+    update_in_insert = false,
+    underline = true,
+    severity_sort = true,
+    float = {
+      focusable = false,
+      style = "minimal",
+      border = "rounded",
+      source = "always",
+      header = "",
+      prefix = "",
+      format = function(d)
+        local t = vim.deepcopy(d)
+        local code = d.code or (d.user_data and d.user_data.lsp.code)
+        if code then
+          t.message = string.format("%s [%s]", t.message, code):gsub("1. ", "")
+        end
+        return t.message
+      end,
+    },
   },
 }

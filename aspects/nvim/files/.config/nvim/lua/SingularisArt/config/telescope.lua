@@ -174,5 +174,5 @@ telescope.setup({
   extensions = {},
 })
 
-telescope.load_extension("projects")
-telescope.load_extension("ultisnips")
+-- telescope.load_extension("projects")
+-- telescope.load_extension("ultisnips")

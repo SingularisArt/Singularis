@@ -57,7 +57,7 @@ M.load = function()
   ------------------------------------------------------------------------
 
   vim.opt.termguicolors = true -- Enable gui colors.
-  vim.opt.laststatus = 2 -- Always show statusline.
+  vim.opt.laststatus = 3 -- Always show statusline.
   vim.opt.showtabline = 0 -- Don't show tabline.
   vim.opt.cursorline = true -- Enable highlighting of the current line.
   vim.opt.number = true -- Show line numbers.

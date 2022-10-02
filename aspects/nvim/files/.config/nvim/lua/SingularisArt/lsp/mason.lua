@@ -41,6 +41,10 @@ lsp.load = function()
       opts = vim.tbl_deep_extend("force", sumneko_lua_opts, opts)
     end
 
+    if server == "clangd" then
+      opts.capabilities.offsetEncoding = { "utf-16" }
+    end
+
     lspconfig[server].setup(opts)
   end
 end

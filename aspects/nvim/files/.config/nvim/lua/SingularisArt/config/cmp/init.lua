@@ -10,6 +10,27 @@ if cmp == nil then
   return
 end
 
+local source_names = {
+  nvim_lsp = "(LSP)",
+  nvim_lua = "(Lua)",
+  ultisnips = "(Snippet)",
+  cmp_tabnine = "(Tabnine)",
+  calc = "(Calc)",
+  path = "(Path)",
+  buffer = "(Buffer)",
+  emoji = "(Emoji)",
+  tmux = "(TMUX)",
+  latex_symbols = "(LaTeX)",
+  crates = "(Crates)",
+}
+
+local duplicates = {
+  buffer = 1,
+  path = 1,
+  nvim_lsp = 0,
+  luasnip = 1,
+}
+
 cmp.setup({
   snippet = {
     expand = function(args)
@@ -30,14 +51,12 @@ cmp.setup({
       c = function()
         if cmp.visible() then
           cmp.select_next_item({ behavior = cmp.SelectBehavior.Insert })
-        else
-          cmp.complete()
+        -- else
+        --   cmp.complete()
         end
       end,
       i = function(fallback)
-        if cmp.visible() then
-          cmp.select_next_item({ behavior = cmp.SelectBehavior.Insert })
-        elseif vim.fn["UltiSnips#CanJumpForwards"]() == 1 then
+        if vim.fn["UltiSnips#CanJumpForwards"]() == 1 then
           vim.api.nvim_feedkeys(t("<Plug>(ultisnips_jump_forward)"), "m", true)
         else
           if require("neogen").jumpable() then
@@ -56,17 +75,8 @@ cmp.setup({
       end,
     }),
     ["<C-k>"] = cmp.mapping({
-      c = function()
-        if cmp.visible() then
-          cmp.select_prev_item({ behavior = cmp.SelectBehavior.Insert })
-        else
-          cmp.complete()
-        end
-      end,
       i = function(fallback)
-        if cmp.visible() then
-          cmp.select_prev_item({ behavior = cmp.SelectBehavior.Insert })
-        elseif vim.fn["UltiSnips#CanJumpBackwards"]() == 1 then
+        if vim.fn["UltiSnips#CanJumpBackwards"]() == 1 then
           return vim.api.nvim_feedkeys(t("<Plug>(ultisnips_jump_backward)"), "m", true)
         else
           if require("neogen").jumpable(true) then
@@ -88,21 +98,15 @@ cmp.setup({
 
   formatting = {
     fields = { "kind", "abbr", "menu" },
-    format = function(entry, vim_item)
-      -- Kind icons
-      vim_item.kind = string.format("%s", kind_icons[vim_item.kind])
 
-      -- NOTE: order matters
-      vim_item.menu = ({
-        nvim_lsp = "",
-        nvim_lua = "",
-        ultisnips = "",
-        calc = "",
-        path = "",
-        buffer = "",
-        emoji = "",
-        latex_symbols = "",
-      })[entry.source.name]
+    format = function(entry, vim_item)
+      local max_width = 0
+      if max_width ~= 0 and #vim_item.abbr > max_width then
+        vim_item.abbr = string.sub(vim_item.abbr, 1, max_width - 1) .. "…"
+      end
+      vim_item.kind = kind_icons[vim_item.kind]
+      vim_item.menu = source_names[entry.source.name]
+      vim_item.dup = duplicates[entry.source.name] or duplicates_default
       return vim_item
     end,
   },
@@ -110,28 +114,29 @@ cmp.setup({
     { name = "nvim_lsp" },
     { name = "nvim_lua" },
     { name = "ultisnips" },
+    { name = "cmp_tabnine" },
     { name = "calc" },
     { name = "path" },
     { name = "buffer" },
     { name = "emoji" },
+    { name = "tmux" },
     { name = "latex_symbols" },
+    { name = "crates" },
   },
   confirm_opts = {
     behavior = cmp.ConfirmBehavior.Replace,
     select = false,
   },
+  completion = {
+    keyword_length = 1,
+  },
   window = {
-    documentation = {
-      border = "rounded",
-      winhighlight = "NormalFloat:Pmenu,NormalFloat:Pmenu,CursorLine:PmenuSel,Search:None",
-    },
-    completion = {
-      border = "rounded",
-      winhighlight = "NormalFloat:Pmenu,NormalFloat:Pmenu,CursorLine:PmenuSel,Search:None",
-    },
+    completion = cmp.config.window.bordered(),
+    documentation = cmp.config.window.bordered(),
   },
   experimental = {
     ghost_text = true,
+    native_menu = false,
   },
 })
 
