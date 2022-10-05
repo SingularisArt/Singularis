@@ -27,11 +27,11 @@ nvim_tree.setup({
   --   enable = true,
   --   auto_open = true,
   -- },
-  -- --   error
-  -- --   info
-  -- --   question
-  -- --   warning
-  -- --   lightbulb
+  --   error
+  --   info
+  --   question
+  --   warning
+  --   lightbulb
   renderer = {
     add_trailing = false,
     group_empty = false,
@@ -91,11 +91,11 @@ nvim_tree.setup({
       error = icons.diagnostics.Error,
     },
   },
-  update_focused_file = {
-    enable = true,
-    update_cwd = true,
-    ignore_list = {},
-  },
+  -- update_focused_file = {
+  --   enable = true,
+  --   update_cwd = true,
+  --   ignore_list = {},
+  -- },
   -- system_open = {
   --   cmd = nil,
   --   args = {},
@@ -109,22 +109,22 @@ nvim_tree.setup({
     ignore = true,
     timeout = 500,
   },
-  view = {
-    width = 30,
-    -- height = 30,
-    hide_root_folder = false,
-    side = "left",
-    -- auto_resize = true,
-    mappings = {
-      custom_only = false,
-      list = {
-        { key = { "l", "<CR>", "o" }, cb = tree_cb("edit") },
-        { key = "h", cb = tree_cb("close_node") },
-        { key = "v", cb = tree_cb("vsplit") },
-        { key = "s", cb = tree_cb("split") },
-      },
-    },
-    number = false,
-    relativenumber = false,
-  },
+  -- view = {
+  --   width = 30,
+  --   -- height = 30,
+  --   hide_root_folder = false,
+  --   side = "left",
+  --   auto_resize = true,
+  --   mappings = {
+  --     custom_only = false,
+  --     list = {
+  --       { key = { "l", "<CR>", "o" }, cb = tree_cb("edit") },
+  --       { key = "h", cb = tree_cb("close_node") },
+  --       { key = "v", cb = tree_cb("vsplit") },
+  --       { key = "s", cb = tree_cb("split") },
+  --     },
+  --   },
+  --   number = false,
+  --   relativenumber = false,
+  -- },
 })

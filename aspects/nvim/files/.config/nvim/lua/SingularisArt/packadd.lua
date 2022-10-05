@@ -6,7 +6,7 @@ M.load = function()
 
   -- Speed up loading.
   load("impatient.nvim", {
-    plugin_config = function()
+    config = function()
       _G.__luacache_config = {
         chunks = {
           enable = true,
@@ -22,7 +22,7 @@ M.load = function()
     end,
   })
   load("filetype.nvim", {
-    plugin_config = function()
+    config = function()
       vim.g.did_load_filetypes = 1
     end,
   })
@@ -42,14 +42,19 @@ M.load = function()
   load("vim-illuminate")
   load("lsp-inlayhints.nvim")
   load("lsp_signature.nvim")
-  load("symbols-outline.nvim")
-  -- load("fidget.nvim", {
-  --   plugin_config = "fidget",
+  lazy("symbols-outline.nvim", {
+    config = "symbols-outline",
+    commands = {
+      "SymbolsOutlineToggle",
+    },
+  })
+  -- lazy("fidget.nvim", {
+  --   config = "fidget",
   -- })
 
   -- Completion.
   load("nvim-cmp", {
-    plugin_config = "cmp",
+    config = "cmp",
   })
   load("cmp-buffer")
   load("cmp-calc")
@@ -63,7 +68,7 @@ M.load = function()
 
   -- Debugger.
   lazy("nvim-dap", {
-    plugin_config = "dap",
+    config = "dap",
   })
   lazy("DAPInstall.nvim")
   lazy("nvim-dap-ui")
@@ -71,41 +76,39 @@ M.load = function()
 
   -- Tree sitter.
   load("nvim-treesitter", {
-    plugin_config = "treesitter",
+    config = "treesitter",
   })
   lazy("nvim-ts-context-commentstring")
 
   -- Git.
   lazy("gitsigns.nvim", {
-    plugin_config = "gitsigns",
+    config = "gitsigns",
   })
 
   -- Color schemes.
   load("base16-nvim")
+  load("tokyonight.nvim")
   load("pinnacle")
 
   -- Manage project
-  -- load("project.nvim", {
-  --   plugin_config = "project",
-  -- })
-  -- lazy("nvim-spectre")
+  lazy("project.nvim", {
+    config = "project",
+  })
+  lazy("nvim-spectre")
 
   -- Telescope.
-  load("telescope.nvim", {
-    plugin_config = "telescope",
-    commands = {
-      "Telescope",
-    },
+  lazy("telescope.nvim", {
+    config = "telescope",
   })
 
   -- Snippets
   load("ultisnips", {
-    plugin_config = "ultisnips",
+    config = "ultisnips",
   })
 
   -- Color viewer.
   -- lazy("nvim-colorizer.lua", {
-  --   plugin_config = "colorizer",
+  --   config = "colorizer",
   -- })
 
   -- Icon
@@ -117,21 +120,20 @@ M.load = function()
 
   -- File Browser.
   lazy("nvim-tree.lua", {
-    plugin_config = "nvim-tree",
+    config = "nvim-tree",
     commands = {
       "NvimTreeToggle",
     },
   })
 
   -- Show indentation.
-  lazy("indent-blankline.nvim", {
-    plugin_config = "indent-blankline",
-    -- event = "BufReadPre",
+  load("indent-blankline.nvim", {
+    config = "indent-blankline",
   })
 
   -- Auto documentation.
   lazy("neogen", {
-    plugin_config = "neogen",
+    config = "neogen",
     commands = {
       "Neogen",
     },
@@ -139,17 +141,20 @@ M.load = function()
 
   -- Run code.
   -- lazy("sniprun", {
-  --   plugin_config = "snip-run",
+  --   config = "snip-run",
+  --   commands = {
+  --     "SnipRun",
+  --   },
   -- })
 
   -- Display mappings.
   lazy("which-key.nvim", {
-    plugin_config = "which-key",
+    config = "which-key",
   })
 
   -- Manage my wiki stuff.
   lazy("corpus", {
-    plugin_config = function()
+    config = function()
       CorpusDirectories = {
         ["~/Documents/Website/content/posts"] = {
           autocommit = true,
@@ -165,20 +170,20 @@ M.load = function()
 
   -- Comment stuff out.
   lazy("Comment.nvim", {
-    plugin_config = "comment",
+    config = "comment",
   })
   lazy("todo-comments.nvim", {
-    plugin_config = "todo-comments",
+    config = "todo-comments",
   })
 
   -- Auto pairs.
   lazy("nvim-autopairs", {
-    plugin_config = "autopairs",
+    config = "autopairs",
   })
 
   -- View all changes within file.
   lazy("undotree", {
-    plugin_config = "undotree",
+    config = "undotree",
     commands = {
       "UndotreeToggle",
     },
@@ -192,53 +197,53 @@ M.load = function()
 
   -- Utility
   lazy("cybu.nvim", {
-    plugin_config = "cybu",
+    config = "cybu",
   })
 
   -- Session
-  load("session-lens", {
-    plugin_config = "session-manager",
-  })
-  load("auto-session", {
-    plugin_config = "auto-session",
-  })
+  -- load("session-lens", {
+  --   config = "session-manager",
+  -- })
+  -- load("auto-session", {
+  --   config = "auto-session",
+  -- })
 
   -- Quickfix
   lazy("nvim-bqf")
 
   -- Editing Support
   lazy("numb.nvim", {
-    plugin_config = "numb",
+    config = "numb",
   })
   lazy("zen-mode.nvim", {
-    plugin_config = "zen-mode",
+    config = "zen-mode",
   })
   load("nvim-navic", {
-    plugin_config = function()
+    config = function()
       require("SingularisArt.config.navic")
       require("SingularisArt.config.winbar")
     end,
   })
   -- lazy("neoscroll.nvim", {
-  --   plugin_config = "neoscroll",
+  --   config = "neoscroll",
   -- })
 
   -- Java
-  lazy("nvim-jdtls")
+  load("nvim-jdtls")
 
   -- Rust
-  -- load("rust-tools.nvim")
-  -- load("crates.nvim", {
-  --   config = "crates",
-  -- })
+  lazy("rust-tools.nvim")
+  lazy("crates.nvim", {
+    config = "crates",
+  })
 
   -- Markdown
   load("vim-markdown-toc")
-  lazy("markdown-preview.nvim", {
+  load("markdown-preview.nvim", {
     config = "markdown-preview",
-    commands = {
-      "MarkdownPreviewToggle",
-    },
+    -- commands = {
+    --   "MarkdownPreviewToggle",
+    -- },
   })
   lazy("vim-table-mode", {
     commands = {
@@ -246,8 +251,15 @@ M.load = function()
     },
   })
 
+  -- Python
+  lazy("magma-nvim", {
+    -- config = "magma",
+  })
+
   -- HTML
-  lazy("MatchTagAlways")
+  lazy("MatchTagAlways", {
+    pattern = "html",
+  })
 
   -- LaTeX
   load("vimtex", {

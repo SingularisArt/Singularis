@@ -6,7 +6,6 @@ SingularisArt.lsp.load = function()
   SingularisArt.lsp.null_ls.load()
   SingularisArt.lsp.illuminate.load()
   SingularisArt.lsp.signature.load()
-  -- SingularisArt.lsp.symbols_outline.load()
   SingularisArt.lsp.inlay_hints.load()
 end
 

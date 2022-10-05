@@ -1,7 +1,7 @@
 local load = function(plugin, config)
   config = vim.deepcopy(config or {})
 
-  local plugin_config = config["plugin_config"] or nil
+  local plugin_config = config["config"] or nil
 
   if vim.v.vim_did_enter == 1 then
     -- Modifies 'runtimepath' _and_ sources files.

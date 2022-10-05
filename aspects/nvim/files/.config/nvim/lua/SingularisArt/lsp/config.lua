@@ -18,14 +18,15 @@ return {
     "html",
     "jdtls",
     "jsonls",
-    "pylsp",
+    -- "pylsp",
+    "pyright",
     "rust_analyzer",
     "solang",
     "solc",
     "solidity_ls",
     "sumneko_lua",
     "sqls",
-    "tailwindcss",
+    -- "tailwindcss",
     "texlab",
     "tsserver",
     "yamlls",
@@ -34,7 +35,7 @@ return {
   null_ls_sources = {
     formatting.prettier.with({
       extra_filetypes = { "toml", "solidity" },
-      extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" },
+      extra_args = { "--arrow-parens always", "--trailing-comma all" },
     }),
     formatting.standardrb.with({
       extra_filetypes = { "--fix", "--format", "quiet", "--stderr", "--stdin", "$FILENAME" },

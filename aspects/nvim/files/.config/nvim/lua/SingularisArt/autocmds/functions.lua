@@ -234,6 +234,13 @@ autocmds.conceallevel_filetypes = {
   ["NvimTree"] = true,
   ["Outline"] = true,
   ["alpha"] = true,
+  ["dap-repl"] = true,
+  ["dapui_console"] = true,
+  ["dapui_watches"] = true,
+  ["dapui_stacks"] = true,
+  ["dapui_breakpoints"] = true,
+  ["dapui_scopes"] = true,
+  ["mason"] = true,
 }
 
 autocmds.cursorline_blacklist = {
@@ -247,6 +254,13 @@ autocmds.cursorline_blacklist = {
   ["NvimTree"] = true,
   ["Outline"] = true,
   ["alpha"] = true,
+  ["dap-repl"] = true,
+  ["dapui_console"] = true,
+  ["dapui_watches"] = true,
+  ["dapui_stacks"] = true,
+  ["dapui_breakpoints"] = true,
+  ["dapui_scopes"] = true,
+  ["mason"] = true,
 }
 
 -- Don't use 'winhighlight' to make these filetypes seem blurred.
@@ -264,6 +278,13 @@ autocmds.winhighlight_filetype_blacklist = {
   ["NvimTree"] = true,
   ["Outline"] = true,
   ["alpha"] = true,
+  ["dap-repl"] = true,
+  ["dapui_console"] = true,
+  ["dapui_watches"] = true,
+  ["dapui_stacks"] = true,
+  ["dapui_breakpoints"] = true,
+  ["dapui_scopes"] = true,
+  ["mason"] = true,
 }
 
 -- Force 'list' (when `true`) or 'nolist' (when `false`) for these.
@@ -279,6 +300,13 @@ autocmds.list_filetypes = {
   ["NvimTree"] = false,
   ["Outline"] = false,
   ["alpha"] = true,
+  ["dap-repl"] = true,
+  ["dapui_console"] = true,
+  ["dapui_watches"] = true,
+  ["dapui_stacks"] = true,
+  ["dapui_breakpoints"] = true,
+  ["dapui_scopes"] = true,
+  ["mason"] = true,
 }
 
 autocmds.mkview_filetype_blacklist = {
@@ -290,6 +318,13 @@ autocmds.mkview_filetype_blacklist = {
   ["NvimTree"] = true,
   ["Outline"] = true,
   ["alpha"] = true,
+  ["dap-repl"] = true,
+  ["dapui_console"] = true,
+  ["dapui_watches"] = true,
+  ["dapui_stacks"] = true,
+  ["dapui_breakpoints"] = true,
+  ["dapui_scopes"] = true,
+  ["mason"] = true,
 }
 
 -- Don't mess with numbers in these filetypes.
@@ -309,6 +344,13 @@ autocmds.number_blacklist = {
   ["NvimTree"] = true,
   ["Outline"] = true,
   ["alpha"] = true,
+  ["dap-repl"] = true,
+  ["dapui_console"] = true,
+  ["dapui_watches"] = true,
+  ["dapui_stacks"] = true,
+  ["dapui_breakpoints"] = true,
+  ["dapui_scopes"] = true,
+  ["mason"] = true,
 }
 
 -- Don't do "ownsyntax on/off" for these.
@@ -326,6 +368,13 @@ autocmds.ownsyntax_filetypes = {
   ["NvimTree"] = true,
   ["Outline"] = true,
   ["alpha"] = true,
+  ["dap-repl"] = true,
+  ["dapui_console"] = true,
+  ["dapui_watches"] = true,
+  ["dapui_stacks"] = true,
+  ["dapui_breakpoints"] = true,
+  ["dapui_scopes"] = true,
+  ["mason"] = true,
 }
 
 return autocmds

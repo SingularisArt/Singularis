@@ -1,6 +1,6 @@
 return {
   settings = {
-    typescript = {
+    javascript = {
       inlayHints = {
         includeInlayEnumMemberValueHints = true,
         includeInlayFunctionLikeReturnTypeHints = true,

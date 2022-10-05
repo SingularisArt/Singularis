@@ -64,7 +64,6 @@ return {
     Dashboard = "",
     History = "",
     Comment = "",
-    Bug = "",
     Code = "",
     Telescope = "",
     Gear = "",
@@ -81,6 +80,8 @@ return {
     Table = "",
     Calendar = "",
     CloudDownload = "",
+    Bug = "",
+    BoldRightArrow = "",
   },
   diagnostics = {
     Error = "",

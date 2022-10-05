@@ -334,3 +334,9 @@
 [submodule "cmp-tmux"]
 	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/cmp-tmux
 	url = https://github.com/andersevenrud/cmp-tmux
+[submodule "nvim-dap-python"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/nvim-dap-python
+	url = https://github.com/mfussenegger/nvim-dap-python
+[submodule "tokyonight.nvim"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/tokyonight.nvim
+	url = https://github.com/folke/tokyonight.nvim

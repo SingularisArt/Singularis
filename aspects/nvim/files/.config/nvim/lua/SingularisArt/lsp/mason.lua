@@ -1,10 +1,19 @@
 local lsp = {}
 
+lsp.organize_imports = function()
+  local params = {
+    command = "_typescript.organizeImports",
+    arguments = { vim.api.nvim_buf_get_name(0) },
+    title = "",
+  }
+  vim.lsp.buf.execute_command(params)
+end
+
 lsp.load = function()
   local servers = SingularisArt.lsp.config.servers
 
   local mason = require("mason")
-  -- local mason_lspconfig = require("mason-lspconfig")
+  local mason_lspconfig = require("mason-lspconfig")
 
   local settings = {
     ui = {
@@ -19,10 +28,10 @@ lsp.load = function()
   }
 
   mason.setup(settings)
-  -- mason_lspconfig.setup({
-  --   ensure_installed = servers,
-  --   automatic_installation = true,
-  -- })
+  mason_lspconfig.setup({
+    ensure_installed = servers,
+    automatic_installation = true,
+  })
 
   local lspconfig = require("lspconfig")
 
@@ -39,6 +48,10 @@ lsp.load = function()
     if server == "sumneko_lua" then
       local sumneko_lua_opts = require("SingularisArt.lsp.settings.sumneko_lua")
       opts = vim.tbl_deep_extend("force", sumneko_lua_opts, opts)
+    end
+    if server == "tsserver" then
+      local tsserver_opts = require("SingularisArt.lsp.settings.tsserver")
+      opts = vim.tbl_deep_extend("force", tsserver_opts, opts)
     end
 
     if server == "clangd" then

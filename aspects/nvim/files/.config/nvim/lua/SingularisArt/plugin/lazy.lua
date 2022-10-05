@@ -7,6 +7,7 @@ local lazy_index = 0
 
 local lazy = function(plugin, config)
   config = vim.deepcopy(config or {})
+  local plugin_config = config.config or nil
 
   -- As a convenience, accept: {'CommandA', 'CommandB'}
   -- and transform it into: {CommandA = true, CommandB = true}
@@ -36,12 +37,12 @@ local lazy = function(plugin, config)
 
     vim.cmd("packadd " .. plugin)
 
-    if type(config.plugin_config) == "string" then
+    if type(plugin_config) == "string" then
       -- Try execute its configuration
       -- NOTE: configuration file should have the same name as plugin directory
-      pcall(require, "SingularisArt.config." .. config.plugin_config)
-    elseif type(config.plugin_config) == "function" then
-      config.plugin_config()
+      pcall(require, "SingularisArt.config." .. plugin_config)
+    elseif type(plugin_config) == "function" then
+      plugin_config()
     end
 
     if config.keymap ~= nil then
@@ -94,11 +95,12 @@ local lazy = function(plugin, config)
   end
 
   local event = config.event or "VimEnter"
+  local pattern = config.pattern or "*"
 
   if config.commands == nil and config.keymap == nil then
     -- No triggers defined, so just load this thing after startup.
     -- vim.defer_fn(config.load, 0)
-    SingularisArt.vim.autocmd(event, config.pattern or "*", function()
+    SingularisArt.vim.autocmd(event, pattern, function()
       vim.defer_fn(config.load, 0)
     end)
   else
@@ -106,11 +108,11 @@ local lazy = function(plugin, config)
     -- will work, but Vim won't load the plugin files as long as we do this
     -- _after_ startup.
     if vim.v.vim_did_enter == 1 then
-      SingularisArt.vim.autocmd(event, config.pattern or "*", function()
+      SingularisArt.vim.autocmd(event, pattern, function()
         vim.cmd("packadd! " .. plugin)
       end)
     else
-      SingularisArt.vim.autocmd(event, config.pattern or "*", function()
+      SingularisArt.vim.autocmd(event, pattern, function()
         vim.cmd("packadd! " .. plugin)
       end)
     end
