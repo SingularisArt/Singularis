@@ -48,9 +48,9 @@ M.load = function()
       "SymbolsOutlineToggle",
     },
   })
-  -- lazy("fidget.nvim", {
-  --   config = "fidget",
-  -- })
+  lazy("fidget.nvim", {
+    config = "fidget",
+  })
 
   -- Completion.
   load("nvim-cmp", {

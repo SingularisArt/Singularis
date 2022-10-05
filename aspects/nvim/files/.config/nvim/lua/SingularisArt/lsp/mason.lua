@@ -1,19 +1,49 @@
 local lsp = {}
+local lspconfig = require("lspconfig")
+local functions = SingularisArt.functions
 
-lsp.organize_imports = function()
-  local params = {
-    command = "_typescript.organizeImports",
-    arguments = { vim.api.nvim_buf_get_name(0) },
-    title = "",
+lsp.load_server = function()
+  local filetype = vim.bo.filetype
+  local server = ""
+  local filetypes = ""
+
+  local opts = {
+    on_attach = require("SingularisArt.lsp.handlers").on_attach,
+    capabilities = require("SingularisArt.lsp.handlers").capabilities,
   }
-  vim.lsp.buf.execute_command(params)
+
+  for _, table_info in pairs(SingularisArt.lsp.config.servers) do
+    if type(table_info["filetype"]) == "table" then
+      filetypes = table_info["filetype"]
+
+      if functions.has_value(filetypes, filetype) then
+        server = table_info["server"]
+      end
+    else
+      if table_info["filetype"] == filetype then
+        server = table_info["server"]
+      end
+    end
+  end
+
+  pcall(function()
+    local other_opts = require("SingularisArt.lsp.settings." .. server)
+    opts = vim.tbl_deep_extend("force", other_opts, opts)
+  end)
+
+  if server == "clangd" then
+    opts.capabilities.offsetEncoding = { "utf-16" }
+  end
+
+  lspconfig[server].setup(opts)
+  lspconfig[server].setup(opts)
 end
 
 lsp.load = function()
   local servers = SingularisArt.lsp.config.servers
 
   local mason = require("mason")
-  local mason_lspconfig = require("mason-lspconfig")
+  -- local mason_lspconfig = require("mason-lspconfig")
 
   local settings = {
     ui = {
@@ -28,37 +58,28 @@ lsp.load = function()
   }
 
   mason.setup(settings)
-  mason_lspconfig.setup({
-    ensure_installed = servers,
-    automatic_installation = true,
-  })
+  -- mason_lspconfig.setup({
+  --   ensure_installed = servers,
+  --   automatic_installation = true,
+  -- })
 
-  local lspconfig = require("lspconfig")
+  local filetype = ""
+  local server = ""
 
-  local opts = {}
+  for _, server_table in pairs(servers) do
+    filetype = server_table["filetype"]
+    server = server_table["server"]
 
-  for _, server in pairs(servers) do
-    opts = {
-      on_attach = require("SingularisArt.lsp.handlers").on_attach,
-      capabilities = require("SingularisArt.lsp.handlers").capabilities,
-    }
-
-    server = vim.split(server, "@")[1]
-
-    if server == "sumneko_lua" then
-      local sumneko_lua_opts = require("SingularisArt.lsp.settings.sumneko_lua")
-      opts = vim.tbl_deep_extend("force", sumneko_lua_opts, opts)
+    if type(server) == "string" then
+      vim.api.nvim_create_autocmd({ "FileType" }, {
+        pattern = filetype,
+        callback = function()
+          vim.schedule(function()
+            lsp.load_server()
+          end)
+        end,
+      })
     end
-    if server == "tsserver" then
-      local tsserver_opts = require("SingularisArt.lsp.settings.tsserver")
-      opts = vim.tbl_deep_extend("force", tsserver_opts, opts)
-    end
-
-    if server == "clangd" then
-      opts.capabilities.offsetEncoding = { "utf-16" }
-    end
-
-    lspconfig[server].setup(opts)
   end
 end
 
