@@ -9,7 +9,7 @@ lsp.load_server = function()
 
   local opts = {
     on_attach = require("SingularisArt.lsp.handlers").on_attach,
-    capabilities = require("SingularisArt.lsp.handlers").capabilities,
+    capabilities = require("SingularisArt.lsp.handlers").capabilities(),
   }
 
   for _, table_info in pairs(SingularisArt.lsp.config.servers) do

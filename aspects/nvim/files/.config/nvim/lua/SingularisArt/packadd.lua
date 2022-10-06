@@ -48,9 +48,9 @@ M.load = function()
       "SymbolsOutlineToggle",
     },
   })
-  lazy("fidget.nvim", {
-    config = "fidget",
-  })
+  -- lazy("fidget.nvim", {
+  --   config = "fidget",
+  -- })
 
   -- Completion.
   load("nvim-cmp", {
@@ -148,7 +148,7 @@ M.load = function()
   -- })
 
   -- Display mappings.
-  load("which-key.nvim", {
+  lazy("which-key.nvim", {
     config = "which-key",
   })
 
