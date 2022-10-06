@@ -1,4 +1,9 @@
 ^import
+* {
+  --secondary-background-color: --background;
+}
+
+
 body {
   background-color: var(--background);
 }

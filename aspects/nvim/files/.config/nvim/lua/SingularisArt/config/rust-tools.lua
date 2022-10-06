@@ -1,0 +1,1 @@
+I don't remember everything, letter for letter. I just remember things like class on line N, function on line n, debug on line a. It's weird because this is what chess grandmasters use to memorize thousands of chess games.

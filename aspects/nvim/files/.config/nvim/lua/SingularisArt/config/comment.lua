@@ -2,6 +2,12 @@ local nvim_comment = require("Comment")
 
 nvim_comment.setup({
   ignore = "^$",
+  toggler = {
+    ---Line-comment toggle keymap
+    line = "<Leader>/",
+    ---Block-comment toggle keymap
+    block = "gbc",
+  },
   pre_hook = function(ctx)
     -- For inlay hints
     local line_start = (ctx.srow or ctx.range.srow) - 1

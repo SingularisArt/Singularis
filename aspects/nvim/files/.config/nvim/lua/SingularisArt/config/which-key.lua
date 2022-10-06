@@ -82,261 +82,172 @@ local vopts = {
   nowait = true, -- use `nowait` when creating keymaps
 }
 
-local vmappings = {
-  ["/"] = {
-    '<ESC><CMD>lua require("Comment.api").toggle.linewise(vim.fn.visualmode())<CR>',
-    "Comment",
+SingularisArt.which_key.vmappings["/"] = {
+  "<ESC><CMD>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>",
+  "Comment",
+}
+
+SingularisArt.which_key.mappings["v"] = { "<cmd>vsplit<CR>", "Vertical Split" }
+SingularisArt.which_key.mappings["h"] = { "<cmd>split<CR>", "Horizontal Split" }
+SingularisArt.which_key.mappings[" "] = { "<cmd>normal <C-^><CR>", "Jump to previous buffer" }
+SingularisArt.which_key.mappings["/"] = { "<Plug>(comment_toggle_linewise)", "Comment out current line" }
+SingularisArt.which_key.mappings["e"] = { "<cmd>NvimTreeToggle<CR>", "Toggle NvimTree" }
+SingularisArt.which_key.mappings["c"] = { "<Plug>(Corpus)", "Corpus" }
+
+SingularisArt.which_key.mappings["l"] = {
+  name = "LSP",
+  c = { "<cmd>lua vim.lsp.buf.code_action()<CR>", "Show code actions" },
+  e = {
+    function()
+      local config = SingularisArt.lsp.config.diagnostics.float
+      config.scope = "line"
+      vim.diagnostic.open_float(0, config)
+    end,
+    "Show line diagnostics",
+  },
+  q = { "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>", "Show QuickFix" },
+  f = { "<cmd>lua vim.lsp.buf.format { async = true }<CR>", "Format" },
+  r = { "<cmd>lua vim.lsp.buf.rename()<CR>", "Rename" },
+  i = { "<cmd>lua require('goto-preview').goto_preview_implementation()<CR>", "Go to implementation" },
+  j = { "<cmd>lua vim.diagnostic.goto_next()<CR>", "Go to next diagnostic" },
+  k = { "<cmd>lua vim.diagnostic.goto_prev()<CR>", "Go to previous diagnostic" },
+  C = { "<cmd>lua require('goto-preview').close_all_win()<CR>", "Close all windows" },
+  l = { "<cmd>lua require('lsp_lines').toggle()<CR>", "Toggle LSP Lines" },
+  d = {
+    name = "Definition",
+    d = { "<cmd>lua vim.lsp.buf.definition<CR>", "Definition" },
+    p = { "<cmd>lua require('SingularisArt.lsp.peek').Peek('definition')<CR>", "Peek" },
+    t = { "<cmd>lua require('SingularisArt.lsp.peek').Peek('typeDefinition')<CR>", "Type Definition" },
+    i = { "<cmd>lua require('SingularisArt.lsp.peek').Peek('implementation')<CR>", "Implementation" },
+  },
+  w = {
+    name = "Workspace",
+    a = { "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>", "Add workspace" },
+    r = { "<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>", "Remove workspace" },
   },
 }
-local mappings = {
-  ["v"] = { "<cmd>vsplit<CR>", "Vertical Split" },
-  ["h"] = { "<cmd>split<CR>", "Horizontal Split" },
-  ["u"] = { "<cmd>SymbolsOutline<CR>", "Toggle Symbols Outline" },
-  [" "] = { "<cmd>normal <C-^><CR>", "Jump to previous buffer" },
-  ["e"] = { "<cmd>NvimTreeToggle<CR>", "Toggle NvimTree" },
-  ["c"] = { "<Plug>(Corpus)", "Corpus" },
 
-  ["g"] = {
-    name = "Git",
-    j = { "<cmd>lua require 'gitsigns'.next_hunk()<CR>", "Next Hunk" },
-    k = { "<cmd>lua require 'gitsigns'.prev_hunk()<CR>", "Prev Hunk" },
-    l = { "<cmd>lua require 'gitsigns'.blame_line()<CR>", "Blame" },
-    p = { "<cmd>lua require 'gitsigns'.preview_hunk()<CR>", "Preview Hunk" },
-    r = { "<cmd>lua require 'gitsigns'.reset_hunk()<CR>", "Reset Hunk" },
-    R = { "<cmd>lua require 'gitsigns'.reset_buffer()<CR>", "Reset Buffer" },
-    s = { "<cmd>lua require 'gitsigns'.stage_hunk()<CR>", "Stage Hunk" },
-    u = {
-      "<cmd>lua require 'gitsigns'.undo_stage_hunk()<CR>",
-      "Undo Stage Hunk",
-    },
-    o = { "<cmd>Telescope git_status<CR>", "Open changed file" },
-    b = { "<cmd>Telescope git_branches<CR>", "Checkout branch" },
-    c = { "<cmd>Telescope git_commits<CR>", "Checkout commit" },
-    C = {
-      "<cmd>Telescope git_bcommits<CR>",
-      "Checkout commit(for current file)",
-    },
-    d = {
-      "<cmd>Gitsigns diffthis HEAD<CR>",
-      "Git Diff",
+SingularisArt.which_key.mappings["g"] = {
+  name = "Git",
+  j = { "<cmd>lua require 'gitsigns'.next_hunk()<CR>", "Next Hunk" },
+  k = { "<cmd>lua require 'gitsigns'.prev_hunk()<CR>", "Prev Hunk" },
+  l = { "<cmd>lua require 'gitsigns'.blame_line()<CR>", "Blame" },
+  p = { "<cmd>lua require 'gitsigns'.preview_hunk()<CR>", "Preview Hunk" },
+  r = { "<cmd>lua require 'gitsigns'.reset_hunk()<CR>", "Reset Hunk" },
+  R = { "<cmd>lua require 'gitsigns'.reset_buffer()<CR>", "Reset Buffer" },
+  s = { "<cmd>lua require 'gitsigns'.stage_hunk()<CR>", "Stage Hunk" },
+  u = {
+    "<cmd>lua require 'gitsigns'.undo_stage_hunk()<CR>",
+    "Undo Stage Hunk",
+  },
+  o = { "<cmd>Telescope git_status<CR>", "Open changed file" },
+  b = { "<cmd>Telescope git_branches<CR>", "Checkout branch" },
+  c = { "<cmd>Telescope git_commits<CR>", "Checkout commit" },
+  C = {
+    "<cmd>Telescope git_bcommits<CR>",
+    "Checkout commit(for current file)",
+  },
+  d = {
+    "<cmd>Gitsigns diffthis HEAD<CR>",
+    "Git Diff",
+  },
+}
+
+SingularisArt.which_key.mappings["f"] = {
+  name = "Telescope",
+  f = { "<cmd>Telescope find_files<CR>", "Fuzzy find files" },
+  g = { "<cmd>Telescope grep_string<CR>", "Fuzzy find string" },
+  o = { "<cmd>Telescope oldfiles<CR>", "Fuzzy find old files" },
+  c = { "<cmd>Telescope colorscheme<CR>", "Fuzzy find colorschemes" },
+  b = { "<cmd>Telescope buffers<CR>", "Fuzzy find buffers" },
+  a = { "<cmd>Telescope autocommands<CR>", "Fuzzy find auto commands" },
+  l = { "<cmd>Telescope live_grep<CR>", "Fuzzy find words" },
+  m = { "<cmd>Telescope marks<CR>", "Fuzzy find marks" },
+  p = { "<cmd>Telescope projects<CR>", "Fuzzy find projects" },
+  s = { "<cmd>Telescope symbols<CR>", "Fuzzy find symbols" },
+  d = { "<cmd>Telescope diagnostics<CR>", "Fuzzy find diagnostics" },
+  v = { "<cmd>Telescope vim_options<CR>", "Fuzzy find vim options" },
+  M = { "<cmd>Telescope man_pages<CR>", "Fuzzy find man pages" },
+  k = { "<cmd>Telescope keymaps<CR>", "Fuzzy find keymaps" },
+  t = { "<cmd>Telescope treesitter<CR>", "Fuzzy find treesitter" },
+  r = { "<cmd>Telescope registers<CR>", "Fuzzy find registers" },
+  h = { "<cmd>Telescope help_tags<CR>", "Fuzzy find help tags" },
+  u = {
+    "<cmd>require'telescope'.extensions.ultisnips.ultisnips{}<CR>",
+    "Fuzzy find snippets",
+  },
+  S = { "<cmd>Telescope search_history<CR>", "Fuzzy find search history" },
+  C = {
+    name = "Commands",
+    c = { "<cmd>Telescope commands<CR>", "Fuzzy find commands" },
+    h = {
+      "<cmd>Telescope command_history<CR>",
+      "Fuzzy find commands history",
     },
   },
-
-  ["m"] = {
-    name = "Markdown",
-    p = { "<cmd>MarkdownPreview<CR>", "View Markdown" },
-  },
-
-  ["t"] = {
-    name = "Table",
-    t = { "<cmd>TableModeToggle<CR>", "Enable/Disable Table Mode" },
-    n = { "<Leader>ti", "Get cell info" },
-    f = {
-      name = "Formula",
-      a = { "<cmd>TableAddFormula<CR>", "Add formula" },
-      e = { "<Leader>tfe", "Evaluate formula on current row" },
-    },
-    d = {
-      name = "Delete",
-      r = { "<Leader>tdr", "Delete row" },
-      c = { "<Leader>tdc", "Delete column" },
-    },
-    i = {
-      name = "Insert",
-      c = { "<Leader>tic", "Insert column" },
+  q = {
+    name = "QuickFix",
+    q = { "<cmd>Telescope quickfix<CR>", "Fuzzy find quickfix" },
+    h = {
+      "<cmd>Telescope quickfixhistory<CR>",
+      "Fuzzy find quickfix history",
     },
   },
+}
 
-  ["l"] = {
-    name = "LaTeX",
-    m = { "<cmd>VimtexContextMenu<CR>", "Open Context Menu" },
-    u = { "<cmd>VimtexCountLetters<CR>", "Count Letters" },
-    w = { "<cmd>VimtexCountWords<CR>", "Count Words" },
-    d = { "<cmd>VimtexDocPackage<CR>", "Open Doc for package" },
-    e = { "<cmd>VimtexErrors<CR>", "Look at the errors" },
-    s = { "<cmd>VimtexStatus<CR>", "Look at the status" },
-    a = { "<cmd>VimtexToggleMain<CR>", "Toggle Main" },
-    v = { "<cmd>VimtexView<CR>", "View pdf" },
-    i = { "<cmd>VimtexInfo<CR>", "Vimtex Info" },
-    l = {
-      name = "Clean",
-      l = { "<cmd>VimtexClean<CR>", "Clean Project" },
-      c = { "<cmd>VimtexClean<CR>", "Clean Cache" },
-    },
-    c = {
-      name = "Compile",
-      c = { "<cmd>VimtexCompile<CR>", "Compile Project" },
-      o = {
-        "<cmd>VimtexCompileOutput<CR>",
-        "Compile Project and Show Output",
-      },
-      s = { "<cmd>VimtexCompileSS<CR>", "Compile project super fast" },
-      e = { "<cmd>VimtexCompileSelected<CR>", "Compile Selected" },
-    },
-    r = {
-      name = "Reload",
-      r = { "<cmd>VimtexReload<CR>", "Reload" },
-      s = { "<cmd>VimtexReloadState<CR>", "Reload State" },
-    },
+SingularisArt.which_key.mappings["o"] = {
+  name = "Only",
+  o = {
+    name = "Close",
     o = {
-      name = "Stop",
-      p = { "<cmd>VimtexStop<CR>", "Stop" },
-      a = { "<cmd>VimtexStopAll<CR>", "Stop All" },
+      "<cmd>wincmd _ | wincmd |<CR>",
+      "Minimize all tabs (you can always bring them back with <Leader>oO)",
     },
-    t = {
-      name = "TOC",
-      o = { "<cmd>VimtexTocOpen<CR>", "Open TOC" },
-      t = { "<cmd>VimtexTocToggle<CR>", "Toggle TOC" },
+    O = {
+      "<cmd>only<CR>",
+      "Close all tabs",
     },
   },
+  O = { "<cmd>wincmd =<CR>", "Bring back the tabs" },
+}
 
-  ["f"] = {
-    name = "Telescope",
-    f = { "<cmd>Telescope find_files<CR>", "Fuzzy find files" },
-    g = { "<cmd>Telescope grep_string<CR>", "Fuzzy find string" },
-    o = { "<cmd>Telescope oldfiles<CR>", "Fuzzy find old files" },
-    c = { "<cmd>Telescope colorscheme<CR>", "Fuzzy find colorschemes" },
-    b = { "<cmd>Telescope buffers<CR>", "Fuzzy find buffers" },
-    a = { "<cmd>Telescope autocommands<CR>", "Fuzzy find auto commands" },
-    l = { "<cmd>Telescope live_grep<CR>", "Fuzzy find words" },
-    m = { "<cmd>Telescope marks<CR>", "Fuzzy find marks" },
-    p = { "<cmd>Telescope projects<CR>", "Fuzzy find projects" },
-    s = { "<cmd>Telescope symbols<CR>", "Fuzzy find symbols" },
-    d = { "<cmd>Telescope diagnostics<CR>", "Fuzzy find diagnostics" },
-    v = { "<cmd>Telescope vim_options<CR>", "Fuzzy find vim options" },
-    M = { "<cmd>Telescope man_pages<CR>", "Fuzzy find man pages" },
-    k = { "<cmd>Telescope keymaps<CR>", "Fuzzy find keymaps" },
-    t = { "<cmd>Telescope treesitter<CR>", "Fuzzy find treesitter" },
-    r = { "<cmd>Telescope registers<CR>", "Fuzzy find registers" },
-    h = { "<cmd>Telescope help_tags<CR>", "Fuzzy find help tags" },
-    u = {
-      "<cmd>require'telescope'.extensions.ultisnips.ultisnips{}<CR>",
-      "Fuzzy find snippets",
-    },
-    S = { "<cmd>Telescope search_history<CR>", "Fuzzy find search history" },
-    C = {
-      name = "Commands",
-      c = { "<cmd>Telescope commands<CR>", "Fuzzy find commands" },
-      h = {
-        "<cmd>Telescope command_history<CR>",
-        "Fuzzy find commands history",
-      },
-    },
-    q = {
-      name = "QuickFix",
-      q = { "<cmd>Telescope quickfix<CR>", "Fuzzy find quickfix" },
-      h = {
-        "<cmd>Telescope quickfixhistory<CR>",
-        "Fuzzy find quickfix history",
-      },
-    },
+SingularisArt.which_key.mappings["T"] = {
+  name = "Translator",
+  t = { "<cmd>Translate --engines=google<CR>", "Translate" },
+  h = { "<cmd>TranslateH --engines=google<CR>", "Translate History" },
+  l = { "<cmd>TranslateL --engines=google<CR>", "Translate Log" },
+  r = { "<cmd>TranslateR --engines=google<CR>", "Translate" },
+  w = {
+    "<cmd>TranslateW --engines=google<CR>",
+    "Translate and display in a Popup Window",
   },
+  x = {
+    "<cmd>TranslateX --engines=google<CR>",
+    "Translate and Display in the cmdline",
+  },
+}
 
-  ["d"] = {
-    name = "Debug",
-    t = { "<cmd>lua require('dap').toggle_breakpoint()<CR>", "Toggle Breakpoint" },
-    b = { "<cmd>lua require('dap').step_back()<CR>", "Step Back" },
-    c = { "<cmd>lua require('dap').continue()<CR>", "Continue" },
-    C = { "<cmd>lua require('dap').run_to_cursor()<CR>", "Run To Cursor" },
-    d = { "<cmd>lua require('dap').disconnect()<CR>", "Disconnect" },
-    g = { "<cmd>lua require('dap').session()<CR>", "Get Session" },
-    i = { "<cmd>lua require('dap').step_into()<CR>", "Step Into" },
-    o = { "<cmd>lua require('dap').step_over()<CR>", "Step Over" },
-    u = { "<cmd>lua require('dap').step_out()<CR>", "Step Out" },
-    p = { "<cmd>lua require('dap').pause()<CR>", "Pause" },
-    r = { "<cmd>lua require('dap').repl.toggle()<CR>", "Toggle Repl" },
-    s = { "<cmd>lua require('dap').continue()<CR>", "Start" },
-    q = { "<cmd>lua require('dap').close()<CR>", "Quit" },
-    O = { "<cmd>lua require('dapui').close()<CR>", "Close UI" },
-    U = { "<cmd>lua require('dapui').toggle()<CR>", "Toggle UI" },
-  },
-
-  ["s"] = {
-    name = "LSP",
-    c = { "<cmd>lua vim.lsp.buf.code_action()<CR>", "Show code actions" },
-    e = {
-      function()
-        local config = SingularisArt.lsp.config.diagnostics.float
-        config.scope = "line"
-        vim.diagnostic.open_float(0, config)
-      end,
-      "Show line diagnostics",
-    },
-    q = { "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>", "Show QuickFix" },
-    f = { "<cmd>lua vim.lsp.buf.format { async = true }<CR>", "Format" },
-    r = { "<cmd>lua vim.lsp.buf.rename()<CR>", "Rename" },
-    i = { "<cmd>lua require('goto-preview').goto_preview_implementation()<CR>", "Go to implementation" },
-    j = { "<cmd>lua vim.diagnostic.goto_next()<CR>", "Go to next diagnostic" },
-    k = { "<cmd>lua vim.diagnostic.goto_prev()<CR>", "Go to previous diagnostic" },
-    C = { "<cmd>lua require('goto-preview').close_all_win()<CR>", "Close all windows" },
-    l = { "<cmd>lua require('lsp_lines').toggle()<CR>", "Toggle LSP Lines" },
-    d = {
-      name = "Definition",
-      d = { "<cmd>lua vim.lsp.buf.definition<CR>", "Definition" },
-      p = { "<cmd>lua require('SingularisArt.lsp.peek').Peek('definition')<CR>", "Peek" },
-      t = { "<cmd>lua require('SingularisArt.lsp.peek').Peek('typeDefinition')<CR>", "Type Definition" },
-      i = { "<cmd>lua require('SingularisArt.lsp.peek').Peek('implementation')<CR>", "Implementation" },
-    },
-    w = {
-      name = "Workspace",
-      a = { "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>", "Add workspace" },
-      r = { "<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>", "Remove workspace" },
-    },
-  },
-
-  ["p"] = {
-    name = "Packer",
-    c = { "<cmd>PackerClean<CR>", "Clean Plugins" },
-    C = { "<cmd>PackerCompile<CR>", "Compile Plugins" },
-    i = { "<cmd>PackerInstall<CR>", "Install Plugins" },
-    l = { "<cmd>PackerLoad<CR>", "Load Plugins" },
-    p = { "<cmd>PackerProfile<CR>", "Profile Plugins" },
-    t = { "<cmd>PackerStatus<CR>", "Plugins Status" },
-    y = { "<cmd>PackerSync<CR>", "Sync Plugins" },
-    u = { "<cmd>PackerUpdate<CR>", "Update Plugins" },
-    s = {
-      name = "Snapshot",
-      s = { "<cmd>PackerSnapshot<CR>", "Snapshot Plugins" },
-      d = { "<cmd>PackerSnapshotDelete<CR>", "Delete Snapshot Plugins" },
-      r = { "<cmd>PackerSnapshotRollback<CR>", "Rollback Snapshot Plugins" },
-    },
-  },
-
-  ["T"] = {
-    name = "Translator",
-    t = { "<cmd>Translate --engines=google<CR>", "Translate" },
-    h = { "<cmd>TranslateH --engines=google<CR>", "Translate History" },
-    l = { "<cmd>TranslateL --engines=google<CR>", "Translate Log" },
-    r = { "<cmd>TranslateR --engines=google<CR>", "Translate" },
-    w = {
-      "<cmd>TranslateW --engines=google<CR>",
-      "Translate and display in a Popup Window",
-    },
-    x = {
-      "<cmd>TranslateX --engines=google<CR>",
-      "Translate and Display in the cmdline",
-    },
-  },
-
-  ["o"] = {
-    name = "Only",
-    o = {
-      name = "Close",
-      o = {
-        "<cmd>wincmd _ | wincmd |<CR>",
-        "Minimize all tabs (you can always bring them back with <Leader>oO)",
-      },
-      O = {
-        "<cmd>only<CR>",
-        "Close all tabs",
-      },
-    },
-    O = { "<cmd>wincmd =<CR>", "Bring back the tabs" },
-  },
+SingularisArt.which_key.mappings["d"] = {
+  name = "Debug",
+  t = { "<cmd>lua require('dap').toggle_breakpoint()<CR>", "Toggle Breakpoint" },
+  b = { "<cmd>lua require('dap').step_back()<CR>", "Step Back" },
+  c = { "<cmd>lua require('dap').continue()<CR>", "Continue" },
+  C = { "<cmd>lua require('dap').run_to_cursor()<CR>", "Run To Cursor" },
+  d = { "<cmd>lua require('dap').disconnect()<CR>", "Disconnect" },
+  g = { "<cmd>lua require('dap').session()<CR>", "Get Session" },
+  i = { "<cmd>lua require('dap').step_into()<CR>", "Step Into" },
+  o = { "<cmd>lua require('dap').step_over()<CR>", "Step Over" },
+  u = { "<cmd>lua require('dap').step_out()<CR>", "Step Out" },
+  p = { "<cmd>lua require('dap').pause()<CR>", "Pause" },
+  r = { "<cmd>lua require('dap').repl.toggle()<CR>", "Toggle Repl" },
+  s = { "<cmd>lua require('dap').continue()<CR>", "Start" },
+  q = { "<cmd>lua require('dap').close()<CR>", "Quit" },
+  O = { "<cmd>lua require('dapui').close()<CR>", "Close UI" },
+  U = { "<cmd>lua require('dapui').toggle()<CR>", "Toggle UI" },
 }
 
 local which_key = require("which-key")
 
 which_key.setup(setup)
-which_key.register(mappings, opts)
-which_key.register(vmappings, vopts)
+which_key.register(SingularisArt.which_key.mappings, opts)
+which_key.register(SingularisArt.which_key.vmappings, vopts)

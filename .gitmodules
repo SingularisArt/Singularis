@@ -340,3 +340,6 @@
 [submodule "tokyonight.nvim"]
 	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/tokyonight.nvim
 	url = https://github.com/folke/tokyonight.nvim
+[submodule "swenv.nvim"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/swenv.nvim
+	url = https://github.com/AckslD/swenv.nvim

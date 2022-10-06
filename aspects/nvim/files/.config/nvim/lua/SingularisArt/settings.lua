@@ -57,6 +57,7 @@ M.load = function()
   ------------------------------------------------------------------------
 
   vim.opt.termguicolors = true -- Enable gui colors.
+  vim.opt.cmdheight = 0 -- Move statusline completly down.
   vim.opt.laststatus = 3 -- Always show statusline.
   vim.opt.showtabline = 0 -- Don't show tabline.
   vim.opt.cursorline = true -- Enable highlighting of the current line.
@@ -76,7 +77,7 @@ M.load = function()
   vim.opt.shortmess:append("o") -- Overwrite file-written messages.
   vim.opt.shortmess:append("t") -- Truncate file messages at start.
   vim.opt.inccommand = "split" -- Live preview of :s results.
-  vim.opt.showmode = true -- Show mode in command line.
+  vim.opt.showmode = false -- Don't show mode in command line.
   vim.opt.fillchars = {
     diff = "∙", -- BULLET OPERATOR (U+2219, UTF-8: E2 88 99).
     eob = " ", -- NO-BREAK SPACE (U+00A0, UTF-8: C2 A0) to suppress ~ at EndOfBuffer.

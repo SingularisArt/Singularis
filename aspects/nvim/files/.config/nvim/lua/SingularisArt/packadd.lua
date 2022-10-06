@@ -148,7 +148,7 @@ M.load = function()
   -- })
 
   -- Display mappings.
-  lazy("which-key.nvim", {
+  load("which-key.nvim", {
     config = "which-key",
   })
 
@@ -232,18 +232,20 @@ M.load = function()
   load("nvim-jdtls")
 
   -- Rust
-  lazy("rust-tools.nvim")
+  lazy("rust-tools.nvim", {
+    config = "rust-tools",
+  })
   lazy("crates.nvim", {
-    config = "crates",
+    -- config = "crates",
+    config = function()
+      require("crates").setup()
+    end,
   })
 
   -- Markdown
   load("vim-markdown-toc")
   load("markdown-preview.nvim", {
     config = "markdown-preview",
-    -- commands = {
-    --   "MarkdownPreviewToggle",
-    -- },
   })
   lazy("vim-table-mode", {
     commands = {
@@ -253,7 +255,7 @@ M.load = function()
 
   -- Python
   lazy("magma-nvim", {
-    -- config = "magma",
+    config = "magma",
   })
 
   -- HTML
