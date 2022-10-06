@@ -57,7 +57,6 @@ M.load = function()
   ------------------------------------------------------------------------
 
   vim.opt.termguicolors = true -- Enable gui colors.
-  -- vim.opt.cmdheight = 0 -- Move statusline completly down.
   vim.opt.laststatus = 3 -- Always show statusline.
   vim.opt.showtabline = 0 -- Don't show tabline.
   vim.opt.cursorline = true -- Enable highlighting of the current line.
