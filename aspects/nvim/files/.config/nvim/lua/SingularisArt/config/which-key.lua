@@ -1,4 +1,4 @@
-local setup = {
+SingularisArt.which_key.setup = {
   plugins = {
     marks = true, -- shows a list of your marks on ' and `
     registers = true, -- shows your registers on " in NORMAL or <C-r> in INSERT mode
@@ -65,7 +65,7 @@ local setup = {
   },
 }
 
-local opts = {
+SingularisArt.which_key.opts = {
   mode = "n", -- NORMAL mode
   prefix = "<leader>",
   buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
@@ -73,7 +73,7 @@ local opts = {
   noremap = true, -- use `noremap` when creating keymaps
   nowait = true, -- use `nowait` when creating keymaps
 }
-local vopts = {
+SingularisArt.which_key.vopts = {
   mode = "v", -- VISUAL mode
   prefix = "<leader>",
   buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
@@ -248,6 +248,6 @@ SingularisArt.which_key.mappings["d"] = {
 
 local which_key = require("which-key")
 
-which_key.setup(setup)
-which_key.register(SingularisArt.which_key.mappings, opts)
-which_key.register(SingularisArt.which_key.vmappings, vopts)
+which_key.setup(SingularisArt.which_key.setup)
+which_key.register(SingularisArt.which_key.mappings, SingularisArt.which_key.opts)
+which_key.register(SingularisArt.which_key.vmappings, SingularisArt.which_key.vopts)

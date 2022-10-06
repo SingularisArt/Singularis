@@ -39,7 +39,9 @@ M.load = function()
   load("null-ls.nvim")
   load("SchemaStore.nvim")
   load("sqls.nvim")
-  load("vim-illuminate")
+  load("vim-illuminate", {
+    config = "illuminate",
+  })
   load("lsp-inlayhints.nvim")
   load("lsp_signature.nvim")
   lazy("symbols-outline.nvim", {
@@ -148,7 +150,7 @@ M.load = function()
   -- })
 
   -- Display mappings.
-  lazy("which-key.nvim", {
+  load("which-key.nvim", {
     config = "which-key",
   })
 

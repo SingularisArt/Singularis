@@ -51,4 +51,12 @@ function M.has_value(tab, val)
   return false
 end
 
+function M.reload_keymappings()
+  local which_key = require("which-key")
+
+  which_key.setup(SingularisArt.which_key.setup)
+  which_key.register(SingularisArt.which_key.mappings, SingularisArt.which_key.opts)
+  which_key.register(SingularisArt.which_key.vmappings, SingularisArt.which_key.vopts)
+end
+
 return M
