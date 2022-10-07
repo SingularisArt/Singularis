@@ -3,7 +3,7 @@ treesitter.setup({
   sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
   ensure_installed = "all",
   ignore_install = {
-    "latex",
+    -- "latex",
     -- "markdown",
   },
   matchup = {
