@@ -343,3 +343,6 @@
 [submodule "swenv.nvim"]
   path = aspects/nvim/files/.config/nvim/pack/plugins/opt/swenv.nvim
   url = https://github.com/AckslD/swenv.nvim
+[submodule "noice.nvim"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/noice.nvim
+	url = https://github.com/folke/noice.nvim
