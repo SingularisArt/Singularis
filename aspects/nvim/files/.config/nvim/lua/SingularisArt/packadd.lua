@@ -70,6 +70,10 @@ M.load = function()
   load("cmp-emoji")
   load("cmp-nvim-lsp")
   load("cmp-nvim-lua")
+  load("cmp-latex-symbols", {
+    event = "FileType",
+    pattern = "tex",
+  })
   -- load("cmp-tmux")
 
   -- Debugger.
@@ -240,6 +244,11 @@ M.load = function()
   })
   lazy("neoscroll.nvim", {
     config = "neoscroll",
+  })
+
+  -- Vimtex stuff
+  load("vimtex", {
+    config = "vimtex",
   })
 end
 
