@@ -1,3 +1,10 @@
+SingularisArt.plugin.lazy("rust-tools.nvim", {
+  config = "rust-tools",
+})
+SingularisArt.plugin.load("crates.nvim", {
+  config = "crates",
+})
+
 local which_key = require("which-key")
 local options = SingularisArt.which_key.opts
 
@@ -23,3 +30,5 @@ which_key.register({
     o = { "<cmd>RustOpenExternalDocs<CR>", "Open External Docs" },
   },
 }, options)
+
+require("SingularisArt.config.dap.c")

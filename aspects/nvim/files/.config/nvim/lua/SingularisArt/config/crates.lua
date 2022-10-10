@@ -2,7 +2,7 @@ local crates = require("crates")
 
 crates.setup({
   popup = {
-    -- autofocus = true,
+    autofocus = true,
     style = "minimal",
     border = "rounded",
     show_version_date = false,

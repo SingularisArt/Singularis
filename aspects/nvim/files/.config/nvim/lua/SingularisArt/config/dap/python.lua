@@ -1,8 +1,10 @@
 local dap = require("dap")
+local mason_path = vim.fn.glob(vim.fn.stdpath("data") .. "/mason/")
+local python_exec_path = mason_path .. "packages/debugpy/venv/bin/python"
 
 dap.adapters.python = {
   type = "executable",
-  command = "/usr/bin/python",
+  command = python_exec_path
   args = { "-m", "debugpy.adapter" },
 }
 
@@ -26,7 +28,7 @@ dap.configurations.python = {
       elseif vim.fn.executable(cwd .. "/.venv/bin/python") == 1 then
         return cwd .. "/.venv/bin/python"
       else
-        return "/usr/bin/python"
+        return python_exec_path
       end
     end,
   },

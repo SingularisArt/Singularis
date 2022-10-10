@@ -21,7 +21,7 @@ treesitter.setup({
   autopairs = {
     enable = true,
   },
-  indent = { enable = true, disable = { "latex", "markdown", "python", "css", "rust" } },
+  indent = { enable = true },
   context_commentstring = {
     enable = true,
     enable_autocmd = false,

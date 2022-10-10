@@ -1,3 +1,9 @@
+SingularisArt.plugin.load("vimtex", {
+  config = "vimtex",
+})
+SingularisArt.plugin.load("cmp-latex-symbols")
+SingularisArt.plugin.load("tex-conceal.vim")
+
 local which_key = require("which-key")
 local options = SingularisArt.which_key.opts
 

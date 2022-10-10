@@ -8,6 +8,38 @@ local formatting = null_ls.builtins.formatting
 local diagnostics = null_ls.builtins.diagnostics
 
 return {
+  ensure_installed = {
+    "bashls",
+    "clangd",
+    "cssls",
+    "cssmodules_ls",
+    "emmet_ls",
+    "html",
+    "golangci_lint_ls",
+    "jdtls",
+    "jsonls",
+    "pyright",
+    "rust_analyzer",
+    "solang",
+    "solc",
+    "solidity_ls",
+    "sqls",
+    "tailwindcss",
+    "texlab",
+    "tsserver",
+    "sumneko_lua",
+    "yamlls",
+    "prettier",
+    "standardrb",
+    "black",
+    "clang-format",
+    "sql-formatter",
+    "stylua",
+    "shellharden",
+    "flake8",
+    "shellcheck",
+    "cpplint",
+  },
   servers = {
     { filetype = "sh", server = "bashls" },
     { filetype = { "cpp", "c" }, server = "clangd" },
@@ -47,7 +79,7 @@ return {
 
     diagnostics.flake8,
     diagnostics.shellcheck,
-    diagnostics.cppcheck,
+    diagnostics.cpplint,
   },
 
   peek = {

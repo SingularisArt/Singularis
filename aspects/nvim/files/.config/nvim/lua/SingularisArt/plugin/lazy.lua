@@ -62,6 +62,10 @@ local lazy = function(plugin, config)
     SingularisArt.g.lazy[key] = nil
   end
 
+  config.load_after = function()
+    vim.defer_fn("packadd! " .. plugin, 0)
+  end
+
   if config.commands ~= nil then
     for command, opts in pairs(config.commands) do
       if opts == true then

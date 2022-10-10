@@ -1,14 +1,6 @@
 local auto_session = require("auto-session")
-
-local t_status_ok, telescope = pcall(require, "telescope")
-if not t_status_ok then
-  return
-end
-
-local l_status_ok, session_lens = pcall(require, "session-lens")
-if not l_status_ok then
-  return
-end
+local telescope = require("telescope")
+local session_lens = require("session-lens")
 
 local opts = {
   log_level = "info",
@@ -17,11 +9,11 @@ local opts = {
   auto_session_enabled = true,
   auto_save_enabled = nil,
   auto_restore_enabled = nil,
-  auto_session_suppress_dirs = {
-    -- vim.fn.glob(vim.fn.stdpath "config" .. "/*"),
-    os.getenv("HOME"),
-    -- os.getenv "HOME" .. "/Machfiles",
-  },
+  -- auto_session_suppress_dirs = {
+  --   vim.fn.glob(vim.fn.stdpath "config" .. "/*"),
+  --   os.getenv("HOME"),
+  --   os.getenv "HOME" .. "/Machfiles",
+  -- },
   auto_session_use_git_branch = nil,
   -- the configs below are lua only
   bypass_session_save_file_types = { "alpha" },

@@ -109,6 +109,7 @@ M.load = function()
   vim.opt.breakindent = true -- Indent wrapped lines to match line start.
   vim.opt.smartcase = true -- Don't ignore case in searches if uppercase characters present.
   vim.opt.clipboard = "unnamedplus" -- Use system clipboard.
+  vim.opt.shell = "/usr/bin/zsh" -- Change shell from bash to zsh.
 
   vim.opt.suffixes:remove(".h") -- Don't sort header files at lower priority.
   vim.opt.swapfile = false -- Don't create swap files.
@@ -124,6 +125,8 @@ M.load = function()
   vim.opt.showbreak = "↳ " -- DOWNWARDS ARROW WITH TIP RIGHTWARDS (U+21B3, UTF-8: E2 86 B3).
   vim.opt.showcmd = false -- Don't show extra info at end of command line.
   vim.opt.sidescroll = 0 -- Sidescroll in jumps because terminals are slow.
+  vim.g.loaded_netrw = 1 -- Disable netrw.
+  vim.g.loaded_netrwPlugin = 1 -- Enable the actual file browser.
 
   if root then
     vim.opt.shada = "" -- Don't create root-owned files.

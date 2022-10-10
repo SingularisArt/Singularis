@@ -346,3 +346,18 @@
 [submodule "noice.nvim"]
 	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/noice.nvim
 	url = https://github.com/folke/noice.nvim
+[submodule "nvim-notify"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/nvim-notify
+	url = https://github.com/rcarriga/nvim-notify
+[submodule "onedarker.nvim"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/onedarker.nvim
+	url = https://github.com/lunarvim/onedarker.nvim
+[submodule "darkplus.nvim"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/darkplus.nvim
+	url = https://github.com/lunarvim/darkplus.nvim
+[submodule "colorschemes"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/colorschemes
+	url = https://github.com/lunarvim/colorschemes
+[submodule "colortils.nvim"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/colortils.nvim
+	url = https://github.com/nvim-colortils/colortils.nvim

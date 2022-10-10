@@ -1,3 +1,14 @@
+-- Markdown
+SingularisArt.plugin.load("vim-markdown-toc")
+SingularisArt.plugin.load("markdown-preview.nvim", {
+  config = "markdown-preview",
+})
+SingularisArt.plugin.lazy("vim-table-mode", {
+  commands = {
+    "TableModeToggle",
+  },
+})
+
 local which_key = require("which-key")
 local options = SingularisArt.which_key.opts
 
