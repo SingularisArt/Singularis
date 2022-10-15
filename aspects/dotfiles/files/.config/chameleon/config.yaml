@@ -1,40 +1,47 @@
 oomoxicons:
-  # This changes depending on your iconset
-  command: "oomox-archdroid-icons-cli"
-  # Path to the desired theme you want to apply
-  themepath: "/opt/oomox/scripted_colors/xresources/xresources-reverse"
+  arguments: "oomox-archdroid-icons-cli /opt/oomox/scripted_colors/xresources/xresources-reverse"
 
 oomoxgtk:
-  # Path to the desired theme you want to apply
-  themepath: "/opt/oomox/scripted_colors/xresources/xresources-reverse"
+  arguments: "oomox-cli /opt/oomox/scripted_colors/xresources/xresources-reverse"
 
 oomoxspotify:
-  spotifypath: "/opt/spotify/Apps"
-  enabled: True
+  arguments: "oomoxify-cli /opt/spotify/Apps/.cache/wal/colors-oomox -s"
 
 # slickpywal:
-  # path:
+#   path: ""
+#   config_path: ""
+#   executable: ""
+#   arguments: ""
 
 # pywalneopixels:
-  # path:
+#   path: ""
+#   config_path: ""
+#   executable: ""
+#   arguments: ""
 
 # razercli:
-  # path:
+#   path: ""
+#   config_path: ""
+#   executable: ""
+#   arguments: ""
 
 # telegrampalletegen:
 #   path: ""
-
-# spicetify:
-  # path:
+#   config_path: ""
+#   executable: ""
+#   arguments: ""
 
 pywalfox:
-  enable: True
+  arguments: "pywalfox update"
 
-waldiscord:
-  path: "/home/singularis/.local/share/Singularis/third-party-tools/wal-discord"
+wal-discord:
+  path: "/home/singularis/.local/bin"
+  executable: "wal-discord"
+  arguments: "beautifuldiscord --css ~/.cache/wal-discord/style.css"
 
 xmenu:
-  path: "/home/hashem/.config/xmenu"
+  path: "/home/singularis/.config/xmenu"
+  arguments: "sudo make clean install"
 
 starttree:
   path: "/home/singularis/.local/share/Singularis/third-party-tools/start-tree"
@@ -43,426 +50,6 @@ gnuplot:
   path: "/home/singularis/.local/share/Singularis/third-party-tools/gnuplot-pywal"
 
 xfce4-terminal:
-  path: "/home/hashem/.config/xfce4"
-
-hooks:
-  notify: "notify-send 'Success!' 'success, theme applied'"
-  startTree:
-    command: "docker-compose -f docker-compose.yaml restart StartTree"
-    directory: "/home/singularis/.local/share/Singularis/third-party-tools/start-tree/docker/"
-oomoxicons:
-  # This changes depending on your iconset
-  command: "oomox-archdroid-icons-cli"
-  # Path to the desired theme you want to apply
-  themepath: "/opt/oomox/scripted_colors/xresources/xresources-reverse"
-
-oomoxgtk:
-  # Path to the desired theme you want to apply
-  themepath: "/opt/oomox/scripted_colors/xresources/xresources-reverse"
-
-oomoxspotify:
-  spotifypath: "/opt/spotify/Apps"
-  enabled: True
-
-# slickpywal:
-#   path:
-
-# pywalneopixels:
-#   path:
-
-# razercli:
-#   path:
-
-# telegrampalletegen:
-#   path: ""
-
-# spicetify:
-#   path:
-
-pywalfox:
-  enable: True
-
-waldiscord:
-  path: "/home/singularis/.local/share/Singularis/third-party-tools/wal-discord"
-
-xmenu:
-  path: "/home/singularis/.config/xmenu"
-
-starttree:
-  path: "/home/singularis/Singularis/third-party-tools/start-tree"
-
-gnuplot:
-  path: "/home/singularis/Singularis/third-party-tools/gnuplot-pywal"
-
-xfce4-terminal:
-  path: "/home/singularis/.config/xfce4"
-
-hooks:
-  notify: "notify-send 'Success!' 'success, theme applied'"
-  startTree:
-    command: "docker-compose -f docker-compose.yaml restart StartTree"
-    directory: "/home/singularis/Singularis/third-party-tools/start-tree/docker/"
-oomoxicons:
-  # This changes depending on your iconset
-  command: "oomox-archdroid-icons-cli"
-  # Path to the desired theme you want to apply
-  themepath: "/opt/oomox/scripted_colors/xresources/xresources-reverse"
-
-oomoxgtk:
-  # Path to the desired theme you want to apply
-  themepath: "/opt/oomox/scripted_colors/xresources/xresources-reverse"
-
-oomoxspotify:
-  spotifypath: "/opt/spotify/Apps"
-  enabled: True
-
-# slickpywal:
-#   path:
-
-# pywalneopixels:
-#   path:
-
-# razercli:
-#   path:
-
-# telegrampalletegen:
-#   path: ""
-
-# spicetify:
-#   path:
-
-pywalfox:
-  enable: True
-
-waldiscord:
-  path: "/home/singularis/Singularis/third-party-tools/wal-discord"
-
-xmenu:
-  path: "/home/singularis/.config/xmenu"
-
-starttree:
-  path: "/home/singularis/Singularis/third-party-tools/start-tree"
-
-gnuplot:
-  path: "/home/singularis/Singularis/third-party-tools/gnuplot-pywal"
-
-xfce4-terminal:
-  path: "/home/singularis/.config/xfce4"
-
-hooks:
-  notify: "notify-send 'Success!' 'success, theme applied'"
-  startTree:
-    command: "docker-compose -f docker-compose.yaml restart StartTree"
-    directory: "/home/singularis/Singularis/third-party-tools/start-tree/docker/"
-oomoxicons:
-  # This changes depending on your iconset
-  command: "oomox-archdroid-icons-cli"
-  # Path to the desired theme you want to apply
-  themepath: "/opt/oomox/scripted_colors/xresources/xresources-reverse"
-
-oomoxgtk:
-  # Path to the desired theme you want to apply
-  themepath: "/opt/oomox/scripted_colors/xresources/xresources-reverse"
-
-oomoxspotify:
-  spotifypath: "/opt/spotify/Apps"
-  enabled: True
-
-# slickpywal:
-#   path:
-
-# pywalneopixels:
-#   path:
-
-# razercli:
-#   path:
-
-# telegrampalletegen:
-#   path: ""
-
-# spicetify:
-#   path:
-
-pywalfox:
-  enable: True
-
-waldiscord:
-  path: "/home/singularis/Singularis/third-party-tools/wal-discord"
-
-xmenu:
-  path: "/home/singularis/.config/xmenu"
-
-starttree:
-  path: "/home/singularis/Singularis/third-party-tools/start-tree"
-
-gnuplot:
-  path: "/home/singularis/Singularis/third-party-tools/gnuplot-pywal"
-
-xfce4-terminal:
-  path: "/home/singularis/.config/xfce4"
-
-hooks:
-  notify: "notify-send 'Success!' 'success, theme applied'"
-  startTree:
-    command: "docker-compose -f docker-compose.yaml restart StartTree"
-    directory: "/home/singularis/Singularis/third-party-tools/start-tree/docker/"
-oomoxicons:
-  # This changes depending on your iconset
-  command: "oomox-archdroid-icons-cli"
-  # Path to the desired theme you want to apply
-  themepath: "/opt/oomox/scripted_colors/xresources/xresources-reverse"
-
-oomoxgtk:
-  # Path to the desired theme you want to apply
-  themepath: "/opt/oomox/scripted_colors/xresources/xresources-reverse"
-
-oomoxspotify:
-  spotifypath: "/opt/spotify/Apps"
-  enabled: True
-
-# slickpywal:
-#   path:
-
-# pywalneopixels:
-#   path:
-
-# razercli:
-#   path:
-
-# telegrampalletegen:
-#   path: ""
-
-# spicetify:
-#   path:
-
-pywalfox:
-  enable: True
-
-waldiscord:
-  path: "/home/singularis/Singularis/third-party-tools/wal-discord"
-
-xmenu:
-  path: "/home/singularis/.config/xmenu"
-
-starttree:
-  path: "/home/singularis/Singularis/third-party-tools/start-tree"
-
-gnuplot:
-  path: "/home/singularis/Singularis/third-party-tools/gnuplot-pywal"
-
-xfce4-terminal:
-  path: "/home/singularis/.config/xfce4"
-
-hooks:
-  notify: "notify-send 'Success!' 'success, theme applied'"
-  startTree:
-    command: "docker-compose -f docker-compose.yaml restart StartTree"
-    directory: "/home/singularis/Singularis/third-party-tools/start-tree/docker/"
-oomoxicons:
-  # This changes depending on your iconset
-  command: "oomox-archdroid-icons-cli"
-  # Path to the desired theme you want to apply
-  themepath: "/opt/oomox/scripted_colors/xresources/xresources-reverse"
-
-oomoxgtk:
-  # Path to the desired theme you want to apply
-  themepath: "/opt/oomox/scripted_colors/xresources/xresources-reverse"
-
-oomoxspotify:
-  spotifypath: "/opt/spotify/Apps"
-  enabled: True
-
-# slickpywal:
-#   path:
-
-# pywalneopixels:
-#   path:
-
-# razercli:
-#   path:
-
-# telegrampalletegen:
-#   path: ""
-
-# spicetify:
-#   path:
-
-pywalfox:
-  enable: True
-
-waldiscord:
-  path: "/home/singularis/Singularis/third-party-tools/wal-discord"
-
-xmenu:
-  path: "/home/singularis/.config/xmenu"
-
-starttree:
-  path: "/home/singularis/Singularis/third-party-tools/start-tree"
-
-gnuplot:
-  path: "/home/singularis/Singularis/third-party-tools/gnuplot-pywal"
-
-xfce4-terminal:
-  path: "/home/singularis/.config/xfce4"
-
-hooks:
-  notify: "notify-send 'Success!' 'success, theme applied'"
-  startTree:
-    command: "docker-compose -f docker-compose.yaml restart StartTree"
-    directory: "/home/singularis/Singularis/third-party-tools/start-tree/docker/"
-oomoxicons:
-  # This changes depending on your iconset
-  command: "oomox-archdroid-icons-cli"
-  # Path to the desired theme you want to apply
-  themepath: "/opt/oomox/scripted_colors/xresources/xresources-reverse"
-
-oomoxgtk:
-  # Path to the desired theme you want to apply
-  themepath: "/opt/oomox/scripted_colors/xresources/xresources-reverse"
-
-oomoxspotify:
-  spotifypath: "/opt/spotify/Apps"
-  enabled: True
-
-# slickpywal:
-#   path:
-
-# pywalneopixels:
-#   path:
-
-# razercli:
-#   path:
-
-# telegrampalletegen:
-#   path: ""
-
-# spicetify:
-#   path:
-
-pywalfox:
-  enable: True
-
-waldiscord:
-  path: "/home/singularis/Singularis/third-party-tools/wal-discord"
-
-xmenu:
-  path: "/home/singularis/.config/xmenu"
-
-starttree:
-  path: "/home/singularis/Singularis/third-party-tools/start-tree"
-
-gnuplot:
-  path: "/home/singularis/Singularis/third-party-tools/gnuplot-pywal"
-
-xfce4-terminal:
-  path: "/home/singularis/.config/xfce4"
-
-hooks:
-  notify: "notify-send 'Success!' 'success, theme applied'"
-  startTree:
-    command: "docker-compose -f docker-compose.yaml restart StartTree"
-    directory: "/home/singularis/Singularis/third-party-tools/start-tree/docker/"
-oomoxicons:
-  # This changes depending on your iconset
-  command: "oomox-archdroid-icons-cli"
-  # Path to the desired theme you want to apply
-  themepath: "/opt/oomox/scripted_colors/xresources/xresources-reverse"
-
-oomoxgtk:
-  # Path to the desired theme you want to apply
-  themepath: "/opt/oomox/scripted_colors/xresources/xresources-reverse"
-
-oomoxspotify:
-  spotifypath: "/opt/spotify/Apps"
-  enabled: True
-
-# slickpywal:
-#   path:
-
-# pywalneopixels:
-#   path:
-
-# razercli:
-#   path:
-
-# telegrampalletegen:
-#   path: ""
-
-# spicetify:
-#   path:
-
-pywalfox:
-  enable: True
-
-waldiscord:
-  path: "/home/singularis/Singularis/third-party-tools/wal-discord"
-
-xmenu:
-  path: "/home/singularis/.config/xmenu"
-
-starttree:
-  path: "/home/singularis/Singularis/third-party-tools/start-tree"
-
-gnuplot:
-  path: "/home/singularis/Singularis/third-party-tools/gnuplot-pywal"
-
-xfce4-terminal:
-  path: "/home/singularis/.config/xfce4"
-
-hooks:
-  notify: "notify-send 'Success!' 'success, theme applied'"
-  startTree:
-    command: "docker-compose -f docker-compose.yaml restart StartTree"
-    directory: "/home/singularis/Singularis/third-party-tools/start-tree/docker/"
-oomoxicons:
-  # This changes depending on your iconset
-  command: "oomox-archdroid-icons-cli"
-  # Path to the desired theme you want to apply
-  themepath: "/opt/oomox/scripted_colors/xresources/xresources-reverse"
-
-oomoxgtk:
-  # Path to the desired theme you want to apply
-  themepath: "/opt/oomox/scripted_colors/xresources/xresources-reverse"
-
-oomoxspotify:
-  spotifypath: "/opt/spotify/Apps"
-  enabled: True
-
-# slickpywal:
-#   path:
-
-# pywalneopixels:
-#   path:
-
-# razercli:
-#   path:
-
-# telegrampalletegen:
-#   path: ""
-
-# spicetify:
-#   path:
-
-pywalfox:
-  enable: True
-
-waldiscord:
-  path: "/home/singularis/.local/share/Singularis/third-party-tools/wal-discord"
-
-xmenu:
-  path: "/home/singularis/.config/xmenu"
-
-starttree:
-  path: "/home/singularis/.local/share/Singularis/third-party-tools/start-tree"
-
-gnuplot:
-  path: "/home/singularis/.local/share/Singularis/third-party-tools/gnuplot-pywal"
-
-xfce4-terminal:
-  path: "/home/singularis/.config/xfce4"
-
-hooks:
-  notify: "notify-send 'Success!' 'success, theme applied'"
-  startTree:
-    command: "docker-compose -f docker-compose.yaml restart StartTree"
-    directory: "/home/singularis/.local/share/Singularis/third-party-tools/start-tree/docker/"
+  path: "/home/singularis/.local/share/Singularis/third-party-tools/chameleon/scripts"
+  config_path: "/home/singularis/.config/xfce4/terminal/terminalrc"
+  executable: "./xfce4-terminal.sh"

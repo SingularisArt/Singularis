@@ -1,8 +1,8 @@
-local handles = {}
+local emails = {}
 
 local registered = false
 
-handles.setup = function()
+emails.setup = function()
   if registered then
     return
   end
@@ -13,7 +13,7 @@ handles.setup = function()
     return
   end
 
-  local success, handles_with_names_and_emails = pcall(function()
+  local success, emails_with_names_and_emails = pcall(function()
     local json_path = vim.fn.expand("~/.config/nvim/misc/personal/emails.json")
     if vim.fn.filereadable(json_path) == 0 then
       error(json_path .. " not readable")
@@ -46,7 +46,7 @@ handles.setup = function()
     if vim.startswith(input, "@") and (prefix == "@" or vim.endswith(prefix, " @")) then
       local items = {}
 
-      for handle, name_and_email in pairs(handles_with_names_and_emails) do
+      for handle, name_and_email in pairs(emails_with_names_and_emails) do
         table.insert(items, {
           filterText = handle .. " " .. name_and_email,
           label = name_and_email,
@@ -74,23 +74,26 @@ handles.setup = function()
     end
   end
 
-  cmp.register_source("handles", source.new())
+  cmp.register_source("emails", source.new())
 
   cmp.setup({
     sources = cmp.config.sources({
       { name = "nvim_lsp" },
       { name = "nvim_lua" },
       { name = "ultisnips" },
+      { name = "cmp_tabnine" },
       { name = "calc" },
       { name = "path" },
       { name = "buffer" },
       { name = "emoji" },
       { name = "latex_symbols" },
+      { name = "crates" },
+      { name = "email" },
 
       -- My custom sources.
-      { name = "handles" },
+      { name = "emails" },
     }),
   })
 end
 
-return handles
+return emails

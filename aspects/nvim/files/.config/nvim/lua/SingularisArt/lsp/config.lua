@@ -80,6 +80,7 @@ return {
     diagnostics.flake8,
     diagnostics.shellcheck,
     diagnostics.cpplint,
+    -- diagnostics.chktex,
   },
 
   peek = {

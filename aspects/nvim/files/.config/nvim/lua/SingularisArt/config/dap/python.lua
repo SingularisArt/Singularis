@@ -4,7 +4,7 @@ local python_exec_path = mason_path .. "packages/debugpy/venv/bin/python"
 
 dap.adapters.python = {
   type = "executable",
-  command = python_exec_path
+  command = python_exec_path,
   args = { "-m", "debugpy.adapter" },
 }
 

@@ -70,6 +70,7 @@ M.load = function()
   load("cmp-emoji")
   load("cmp-nvim-lsp")
   load("cmp-nvim-lua")
+  load("nvim-cmp-buffer-lines")
   load("cmp-latex-symbols", {
     event = "FileType",
     pattern = "tex",
@@ -103,6 +104,14 @@ M.load = function()
   load("darkplus.nvim")
   load("colorschemes")
   load("pinnacle")
+
+  -- -- Noice Animations.
+  -- lazy("nui.nvim")
+  -- lazy("noice.nvim", {
+  --   config = function()
+  --     require("noice").setup()
+  --   end
+  -- })
 
   -- Colors
   lazy("colortils.nvim")

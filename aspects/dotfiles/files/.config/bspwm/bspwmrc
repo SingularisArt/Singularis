@@ -65,6 +65,5 @@ bspc config window_gap 10
 workspaces_multimonitor &
 
 bspc rule -a matplotlib state=floating
-bspc rule -a Inkscape state=floating
 bspc rule -a gnome-terminal-server state=floating
 bspc rule -a Gnome-terminal state=floating
