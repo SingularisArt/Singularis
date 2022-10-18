@@ -220,12 +220,12 @@ M.load = function()
   -- Monitor what and how much I code.
   lazy("vim-wakatime")
 
-  -- Utility
+  -- Utility.
   lazy("cybu.nvim", {
     config = "cybu",
   })
 
-  -- Session
+  -- Session.
   lazy("session-lens", {
     config = "session-manager",
   })
@@ -233,12 +233,12 @@ M.load = function()
     config = "auto-session",
   })
 
-  -- Quickfix
+  -- Quickfix.
   lazy("nvim-bqf", {
     config = "bqf",
   })
 
-  -- Editing Support
+  -- Editing Support.
   lazy("numb.nvim", {
     config = "numb",
   })
@@ -255,10 +255,18 @@ M.load = function()
     config = "neoscroll",
   })
 
-  -- Vimtex stuff
+  -- LaTeX.
+  -- Can't lazy load this one for some reason.
   load("vimtex", {
     config = "vimtex",
   })
+
+  -- Markdown.
+  -- Can't lazy load these ones for some reason.
+  load("markdown-preview.nvim", {
+    config = "markdown-preview",
+  })
+  load("vim-markdown-toc")
 end
 
 return M
