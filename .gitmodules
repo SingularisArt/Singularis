@@ -367,3 +367,6 @@
 [submodule "nvim-cmp-buffer-lines"]
 	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/nvim-cmp-buffer-lines
 	url = https://github.com/amarakon/nvim-cmp-buffer-lines
+[submodule "duck.nvim"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/duck.nvim
+	url = https://github.com/tamton-aquib/duck.nvim
