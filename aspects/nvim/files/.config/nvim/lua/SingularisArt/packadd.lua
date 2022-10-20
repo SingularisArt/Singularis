@@ -100,6 +100,7 @@ M.load = function()
   -- Color schemes.
   load("tokyonight.nvim")
   load("base16-nvim")
+  load("catppuccin")
   load("onedarker.nvim")
   load("darkplus.nvim")
   load("colorschemes")
