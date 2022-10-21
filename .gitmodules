@@ -373,3 +373,6 @@
 [submodule "catppuccin"]
 	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/catppuccin
 	url = https://github.com/catppuccin/vim
+[submodule "synthwave84.nvim"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/synthwave84.nvim
+	url = https://github.com/LunarVim/synthwave84.nvim

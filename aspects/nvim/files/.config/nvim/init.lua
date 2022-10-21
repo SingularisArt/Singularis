@@ -8,7 +8,7 @@ SingularisArt.augroup.load()
 
 SingularisArt.statusline.load()
 
-SingularisArt.color_scheme = "tokyonight-night"
+SingularisArt.color_scheme = "base16-default-dark"
 SingularisArt.colorscheme.load()
 
 SingularisArt.mappings.load()

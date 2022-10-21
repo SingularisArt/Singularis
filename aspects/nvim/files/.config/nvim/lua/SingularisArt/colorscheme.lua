@@ -31,9 +31,9 @@ color.edit_colors = function()
   vim.cmd([[
     highlight clear NonText
     highlight link NonText Conceal
-    highlight clear CursorLineNr
+    " highlight clear CursorLineNr
   ]])
-  vim.cmd("highlight CursorLineNr " .. pinnacle.extract_highlight("DiffText"):gsub("cterm", "gui"))
+  -- vim.cmd("highlight CursorLineNr " .. pinnacle.extract_highlight("DiffText"):gsub("cterm", "gui"))
   vim.cmd([[
     highlight clear Pmenu
     highlight link Pmenu Visual
@@ -41,10 +41,10 @@ color.edit_colors = function()
     " See :help 'pb'.
     highlight PmenuSel blend=0
 
-    highlight clear DiffDelete
-    highlight link DiffDelete Conceal
-    highlight clear VertSplit
-    highlight link VertSplit LineNr
+    " highlight clear DiffDelete
+    " highlight link DiffDelete Conceal
+    " highlight clear VertSplit
+    " highlight link VertSplit LineNr
 
     " Resolve clashes with ColorColumn.
     " Instead of linking to Normal (which has a higher priority, link to nothing).
@@ -52,12 +52,12 @@ color.edit_colors = function()
   ]])
 
   -- For Git commits, suppress the background of these groups:
-  for _, group in ipairs({ "DiffAdded", "DiffFile", "DiffNewFile", "DiffLine", "DiffRemoved" }) do
-    local highlight = pinnacle.dump(group)
-    highlight["bg"] = nil
-    vim.cmd("highlight! clear " .. group)
-    vim.cmd("highlight! " .. group .. " " .. pinnacle.highlight(highlight):gsub("cterm", "gui"))
-  end
+  -- for _, group in ipairs({ "DiffAdded", "DiffFile", "DiffNewFile", "DiffLine", "DiffRemoved" }) do
+  --   local highlight = pinnacle.dump(group)
+  --   highlight["bg"] = nil
+  --   vim.cmd("highlight! clear " .. group)
+  --   vim.cmd("highlight! " .. group .. " " .. pinnacle.highlight(highlight):gsub("cterm", "gui"))
+  -- end
 
   -- More subtle highlighting during merge conflict resolution.
   vim.cmd([[
@@ -102,7 +102,7 @@ color.edit_colors = function()
 end
 
 color.load = function()
-  SingularisArt.colorscheme.apply_colorscheme("base16-bright")
+  SingularisArt.colorscheme.apply_colorscheme()
   SingularisArt.colorscheme.highlight_lsp()
   SingularisArt.colorscheme.edit_colors()
 end

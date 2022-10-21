@@ -82,6 +82,7 @@ return {
     CloudDownload = "",
     Bug = "",
     BoldRightArrow = "",
+    Ellipsis = "…",
   },
   diagnostics = {
     Error = "",

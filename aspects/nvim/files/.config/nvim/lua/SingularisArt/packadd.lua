@@ -104,6 +104,7 @@ M.load = function()
   load("onedarker.nvim")
   load("darkplus.nvim")
   load("colorschemes")
+  load("synthwave84.nvim")
   load("pinnacle")
 
   -- -- Noice Animations.

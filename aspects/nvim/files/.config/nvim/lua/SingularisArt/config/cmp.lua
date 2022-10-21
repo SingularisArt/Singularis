@@ -91,9 +91,14 @@ cmp.setup({
     fields = { "kind", "abbr", "menu" },
 
     format = function(entry, vim_item)
+      local max_width = 50
+      if max_width ~= 0 and #vim_item.abbr > max_width then
+        vim_item.abbr = string.sub(vim_item.abbr, 1, max_width - 1) .. icons.ui.Ellipsis
+      end
+
       vim_item.kind = kind_icons[vim_item.kind]
       vim_item.menu = source_names[entry.source.name]
-      vim_item.dup = duplicates[entry.source.name] or duplicates_default
+      vim_item.dup = duplicates[entry.source.name]
       return vim_item
     end,
   },
@@ -127,5 +132,3 @@ cmp.setup({
     ghost_text = true,
   },
 })
-
--- require("SingularisArt.config.cmp.cmp_emails").setup()
