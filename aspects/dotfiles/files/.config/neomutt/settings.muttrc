@@ -13,7 +13,7 @@ set mail_check_stats = yes
 auto_view text/html text/calendar application/ics # view html automatically
 # alternative_order text/html text/plain text/enriched text/*
 
-set smtp_authenticators = ""     
+set smtp_authenticators = ""
 set smtp_authenticators = "plain"     # Allows neomutt to send mail
 set ssl_force_tls = yes
 
@@ -53,7 +53,7 @@ set beep_new             # bell on new mails
 # status bar, date format, finding stuff etc.
 set status_chars = " *%A"
 set status_format = "[ Folder: %f ] [%r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ]%>─%?p?( %p postponed )?"
-set date_format = "%d.%m.%Y %H:%M"
+set date_format = "%a %d %Y %h %H:%M"
 set sort = threads
 set sort_aux = reverse-last-date-received
 set uncollapse_jump

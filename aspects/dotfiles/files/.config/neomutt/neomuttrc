@@ -1,12 +1,12 @@
 # vim: filetype=muttrc
 
+bind pager <Keypad> noop
 # source ~/.config/neomutt/keys/unbind.muttrc
 # source ~/.config/neomutt/keys/bind.muttrc
 # source ~/.config/neomutt/settings.muttrc
-# source ~/.config/neomutt/colors.muttrc
+source ~/.config/neomutt/colors.muttrc
 
 # Accounts
-
 source ~/.config/neomutt/accounts/personal.muttrc
 folder-hook $folder 'source ~/.config/neomutt/accounts/personal.muttrc'
 

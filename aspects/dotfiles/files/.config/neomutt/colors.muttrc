@@ -1,7 +1,10 @@
 # vim: filetype=muttrc
 
-# Formatting   ----------------------------------------------------------------
-set date_format = "%a %d %h %H:%M"
+################
+#  Formatting  #
+################
+
+set date_format = "%a %d %Y %h %H:%M"
 set index_format="  %zc %zs %zt  | %-35.35L   %@attachment_info@  %?M10?~(%1M) ?%-30.100s %> %?Y?%Y ? %(!%a %d %h %H:%M)  "
 set pager_format="[%n] [%T %s]%* [ %{!%d %b · %H:%M}] [%?X? %X?%P]"
 set status_format = " [%D] %?u?[ %u] ?%?R?[ %R] ?%?d?[ %d] ?%?t?[ %t] ?%?F?[ %F] ?%?p?[ %p]? \n  \n"
@@ -14,16 +17,20 @@ set sidebar_format = '%D%?Z? [%Z]?%* %?S?%S?'
 # index-format-hook attachment_info '~X 1' "  "
 # index-format-hook attachment_info '~A' "   "
 
+####################
+#  General Colors  #
+####################
 
-# General Colors   ------------------------------------------------------------
 color normal default default                            # general text
 color error color231 color212                           # error messages
 color message default default                           # messages at the bottom
 color prompt default default                            # prompt text
 color search black color10                              # search highlight
 
+##################
+#  Index Colors  #
+##################
 
-# Index Colors   --------------------------------------------------------------
 color header blue default ".*"
 color header brightmagenta default "^(From)"
 color header brightcyan default "^(Subject)"
@@ -91,8 +98,10 @@ color index_subject brightcyan black "~N"
 
 color progress black cyan
 
+####################
+#  Sidebar Colors  #
+####################
 
-# Sidebar Colors   ------------------------------------------------------------
 color sidebar_indicator color14 black   # currently selected mailbox
 color sidebar_highlight white color8    # highlighted, but not open, mailbox.
 color sidebar_ordinary color8 default   # Color to give mailboxes by default
@@ -102,12 +111,15 @@ color sidebar_new green black           # mailboxes containing new mail
 color sidebar_unread color7 default     # mailboxes containing unread mail
 color sidebar_unread color7 default     # mailboxes containing unread mail
 
+####################
+#  Message Header  #
+####################
 
-# Message Headers   -----------------------------------------------------------
 color hdrdefault color8 default
 
-
-# Message Body   --------------------------------------------------------------
+##################
+#  Message Body  #
+##################
 
 # Attachments
 color attachment color8 default
@@ -141,87 +153,52 @@ color quoted4		color212	default
 color body color8 default '(^(To|From|Sent|Subject):.*)'
 
 # Patch syntax highlighting
-color   body    brightwhite     default         '^[[:space:]].*'
-color   body    yellow          default         ^(diff).*
-color   body    white           default         ^[\-\-\-].*
-color   body    white           default         ^[\+\+\+].*
-color   body    green           default         ^[\+].*
-color   body    red             default         ^[\-].*
-color   body    brightblue      default         [@@].*
-color   body    cyan            default         ^(Signed-off-by).*
+  color   body    brightwhite     default         '^[[:space:]].*'
+  color   body    yellow          default         ^(diff).*
+  color   body    white           default         ^[\-\-\-].*
+  color   body    white           default         ^[\+\+\+].*
+  color   body    green           default         ^[\+].*
+  color   body    red             default         ^[\-].*
+  color   body    brightblue      default         [@@].*
+  color   body    cyan            default         ^(Signed-off-by).*
 color   body    brightwhite     default         ^(Cc)
-color   body    yellow          default         "^diff \-.*"
-color   body    brightwhite     default         "^index [a-f0-9].*"
-color   body    brightblue      default         "^---$"
-color   body    white           default         "^\-\-\- .*"
-color   body    white           default         "^[\+]{3} .*"
-color   body    green           default         "^[\+][^\+]+.*"
-color   body    red             default         "^\-[^\-]+.*"
-color   body    brightblue      default         "^@@ .*"
-color   body    green           default         "LGTM"
-color   body    brightmagenta   default         "-- Commit Summary --"
-color   body    brightmagenta   default         "-- File Changes --"
-color   body    brightmagenta   default         "-- Patch Links --"
-color   body    green           default         "^Merged #.*"
-color   body    red             default         "^Closed #.*"
-color   body    brightblue      default         "^Reply to this email.*"
+  color   body    yellow          default         "^diff \-.*"
+  color   body    brightwhite     default         "^index [a-f0-9].*"
+  color   body    brightblue      default         "^---$"
+  color   body    white           default         "^\-\-\- .*"
+  color   body    white           default         "^[\+]{3} .*"
+  color   body    green           default         "^[\+][^\+]+.*"
+  color   body    red             default         "^\-[^\-]+.*"
+  color   body    brightblue      default         "^@@ .*"
+  color   body    green           default         "LGTM"
+  color   body    brightmagenta   default         "-- Commit Summary --"
+  color   body    brightmagenta   default         "-- File Changes --"
+  color   body    brightmagenta   default         "-- Patch Links --"
+  color   body    green           default         "^Merged #.*"
+  color   body    red             default         "^Closed #.*"
+  color   body    brightblue      default         "^Reply to this email.*"
 
+##########
+#  Misc  #
+##########
 
-# Misc  -----------------------------------------------------------------------
+  set to_chars = ""
+  set status_chars = " "
+  set flag_chars = "  "
+  set crypt_chars = " "
+  set markers = no
 
-# The mail is not addressed to your address.
-# You are the only recipient of the message.
-# Your address appears in the "To:" header field, but you are not the only
-#   recipient of the message.
-# Your address is specified in the "Cc:" header field, but you are not the only
-#   recipient.
-# Indicates the mail that was sent by you .
-# Indicates the mail was sent to a mailing-list you subscribe to.
-# Your address appears in the "Reply-To:" header field but none of the above
-#   applies.
-set to_chars = ""
+######################
+#  Statusbar Colors  #
+######################
 
-# Mailbox is unchanged
-# Mailbox has been changed and needs to be resynchronized
-# Mailbox is read-only, or will not be written when exiting. (You can toggle
-#   whether to write changes to a mailbox with the <toggle-write>operation,
-#   bound by default to "%")
-# Folder opened in attach-message mode. (Certain operations like composing a
-#   new mail, replying, forwarding, etc. are not permitted in this mode)
-set status_chars = " "
-
-# The mail is tagged.
-# The mail is flagged as important.
-# The mail is marked for deletion.
-# The mail has attachments marked for deletion.
-# The mail has been replied to.
-# The mail is Old (Unread but seen).
-# The mail is New (Unread but not seen).
-# The mail thread is Old (Unread but seen).
-# The mail thread is New (Unread but not seen).
-# The mail is read - %S expando.
-# The mail is read - %Z expando.
-set flag_chars = "  "
-
-# The mail is signed, and the signature is successfully verified.
-# The mail is PGP encrypted.
-# The mail is signed.
-# The mail contains a PGP public key.
-# The mail has no crypto info.
-set crypt_chars = " "
-
-# don't put '+' at the beginning of wrapped lines
-set markers = no
-
-
-# Statusbar Colors   ----------------------------------------------------------
-color status brightyellow black
-color status blue default '(\[|\])'
-color status magenta default '( )'
-color status magenta default ''
-color status magenta default ''
-color status magenta default ''
-color status magenta default ''
-color status magenta default ''
-color status magenta default ''
-color status magenta default ''
+  color status brightyellow black
+  color status blue default '(\[|\])'
+  color status magenta default '( )'
+  color status magenta default ''
+  color status magenta default ''
+  color status magenta default ''
+  color status magenta default ''
+  color status magenta default ''
+  color status magenta default ''
+  color status magenta default ''

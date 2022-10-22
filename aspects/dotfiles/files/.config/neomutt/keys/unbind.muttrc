@@ -1,6 +1,4 @@
 # Unbind everything. The defaults suck balls and do crazy things
-bind pager <Keypad noop
-
 bind generic,pager,editor,index,compose,browser,attach | noop
 bind generic,pager,editor,index,compose,browser,attach a noop
 bind generic,pager,editor,index,compose,browser,attach b noop
