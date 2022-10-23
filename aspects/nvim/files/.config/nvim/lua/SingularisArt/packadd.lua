@@ -107,13 +107,13 @@ M.load = function()
   load("synthwave84.nvim")
   load("pinnacle")
 
-  -- -- Noice Animations.
-  -- lazy("nui.nvim")
-  -- lazy("noice.nvim", {
-  --   config = function()
-  --     require("noice").setup()
-  --   end
-  -- })
+  -- Noice Animations.
+  load("nui.nvim")
+  load("noice.nvim", {
+    -- config = function()
+    --   require("noice").setup()
+    -- end
+  })
 
   -- Colors
   lazy("colortils.nvim")
