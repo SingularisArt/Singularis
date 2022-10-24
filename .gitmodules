@@ -376,3 +376,6 @@
 [submodule "synthwave84.nvim"]
 	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/synthwave84.nvim
 	url = https://github.com/LunarVim/synthwave84.nvim
+[submodule "vim-doge"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/vim-doge
+	url = https://github.com/kkoomen/vim-doge

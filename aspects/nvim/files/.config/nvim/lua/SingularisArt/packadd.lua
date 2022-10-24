@@ -165,6 +165,7 @@ M.load = function()
       "Neogen",
     },
   })
+  -- lazy("vim-doge")
 
   -- Run code.
   lazy("sniprun", {
