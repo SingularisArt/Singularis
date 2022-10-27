@@ -29,11 +29,7 @@ which_key.register({
       R = { "<Cmd>MagmaRestart!<CR>", "Restart Magma" },
       S = { "<Cmd>MagmaSave<CR>", "Save" },
     },
-    e = {
-      name = "Virtual Environments",
-      i = { "<cmd>lua require('swenv.api').pick_venv()<cr>", "Pick Env" },
-      d = { "<cmd>lua require('swenv.api').get_current_venv()<cr>", "Show Env" },
-    },
+    p = { "<CmdPyrightOrganizeImports<CR>", "Organize Imports" },
   },
 }, options)
 
