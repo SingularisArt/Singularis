@@ -8,7 +8,7 @@ SingularisArt.autocmds.load = function()
     autocmd("BufWritePost", "*/spell/*.add", "silent! :mkspell! %")
     autocmd("InsertLeave", "*", "set nopaste")
     autocmd("VimResized", "*", "execute 'normal! \\<c-w>='")
-    autocmd("BufReadPost", "*", "normal `0")
+    -- autocmd("BufReadPost", "*", "normal `0")
 
     autocmd(
       "TextYankPost",
