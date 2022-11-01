@@ -379,3 +379,6 @@
 [submodule "vim-doge"]
 	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/vim-doge
 	url = https://github.com/kkoomen/vim-doge
+[submodule "nvim-tree-docs"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/nvim-tree-docs
+	url = https://github.com/nvim-treesitter/nvim-tree-docs
