@@ -382,3 +382,9 @@
 [submodule "nvim-tree-docs"]
 	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/nvim-tree-docs
 	url = https://github.com/nvim-treesitter/nvim-tree-docs
+[submodule "navigator.lua"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/navigator.lua
+	url = https://github.com/ray-x/navigator.lua
+[submodule "guihua.lua"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/guihua.lua
+	url = https://github.com/ray-x/guihua.lua

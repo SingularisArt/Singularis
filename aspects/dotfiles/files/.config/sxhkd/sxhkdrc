@@ -28,9 +28,7 @@ super + shift + p
 super + shift + d
   bash $HOME/.local/share/Singularis/aspects/dotfiles/files/.local/bin/xmenu-script
 super + shift + z
-  sioyek
-super + shift + s
-  tdrop -am -n 0 xfce4-terminal
+  zathura
 
 #------#
 # Rofi #
@@ -38,9 +36,11 @@ super + shift + s
 
 super + r
   rofi -show drun -show-icons
-super + alt + shift + r
+super + shift + r
   rofi -show window
-super + alt + shift + e
+super + shift + e
+  rofi -mode emoji -show emoji
+super + p
   rofi -mode emoji -show emoji
 
 ###########
