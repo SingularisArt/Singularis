@@ -1,6 +1,8 @@
-#####################
-#  Quick shortcuts  #
-#####################
+################################################################################
+#                                                                              #
+#                               Quick Shortcuts                                #
+#                                                                              #
+################################################################################
 
 alias b='bash'
 alias z='zsh'
@@ -25,14 +27,15 @@ if [ -f "/etc/arch-release" ] || [ -f "/etc/artix-release" ]; then
   fi
 fi
 
-####################################
-#  Aliases for installed programs  #
-####################################
+
+################################################################################
+#                                                                              #
+#                              Installed Programs                              #
+#                                                                              #
+################################################################################
 
 if command -v git &> /dev/null; then
   alias g='git'
-  alias oo='git log --oneline'
-  alias oos='git log --stat'
 fi
 if command -v yarn &> /dev/null; then
   alias yarn='yarn --use-yarnrc '$XDG_CONFIG_HOME/yarn/config''
@@ -74,9 +77,12 @@ if command -v pulsemixer &> /dev/null; then
   alias p='pulsemixer'
 fi
 
-#####################
-#  Directory stuff  #
-#####################
+
+################################################################################
+#                                                                              #
+#                            Traversing Directories                            #
+#                                                                              #
+################################################################################
 
 if command -v exa &> /dev/null; then
   alias ls='exa --icons'
@@ -94,7 +100,6 @@ fi
 
 alias lsn='ls | wc -l'
 alias lsnc='clear && ls && echo "" && echo "Current Number of Files: $(ls | wc -l)"'
-
 alias lan='la | wc -l'
 alias lanc='clear && la && echo "" && echo "Current Number of Files: $(ls -a | wc -l)"'
 

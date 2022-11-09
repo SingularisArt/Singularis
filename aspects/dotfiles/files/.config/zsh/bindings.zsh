@@ -1,16 +1,28 @@
-if [[ $(uname -a) =~ "Ubuntu" ]]; then
-  bindkey "$key[Up]" history-substring-search-up
-  bindkey "$key[Down]" history-substring-search-down
-else
-  bindkey '^p' history-substring-search-up
-  bindkey '^n' history-substring-search-down
-fi
-bindkey '^p' history-substring-search-up
-bindkey '^n' history-substring-search-down
+# Go up one command history.
+bindkey '^k' vi-up-line-or-history
+
+# Go down one command history.
+bindkey '^j' vi-down-line-or-history
+
+# Go forward a character.
 bindkey -M vicmd 'k' history-substring-search-up
+
+# Go down one command history.
 bindkey -M vicmd 'j' history-substring-search-down
 
-autoload -U edit-command-line
+# Accept autosuggestion from zsh-autosuggestion.
+bindkey '^ ' autosuggest-accept
+
+# Fixes a bug that happens when I leave and come back in insert mode, I can't
+# remove anything.
+bindkey -v '^?' backward-delete-char
+
+# Edit line in vim with ctrl-e.
+autoload edit-command-line; zle -N edit-command-line
+bindkey '^e' edit-command-line
+
+# Resource zsh config when pressing ctrl-r.
+bindkey -s '^r' '^usource ~/.config/zsh/.zshrc\n'
 
 # Make CTRL-Z background things and unbackground them.
 function fg-bg() {
@@ -23,21 +35,14 @@ function fg-bg() {
 zle -N fg-bg
 bindkey '^Z' fg-bg
 
-# Edit line in vim with ctrl-e:
-autoload edit-command-line; zle -N edit-command-line
-bindkey '^e' edit-command-line
-
-# Use lf to switch directories and bind it to ctrl-o
+# Use lf to switch directories and bind it to ctrl-o.
 lfcd () {
   tmp="$(mktemp)"
-  lf -last-dir-path="$tmp" "$@"
+  lfub -last-dir-path="$tmp" "$@"
   if [ -f "$tmp" ]; then
     dir="$(cat "$tmp")"
     rm -f "$tmp" >/dev/null
     [ -d "$dir" ] && [ "$dir" != "$(pwd)" ] && cd "$dir"
   fi
 }
-bindkey -s '^o' '^ulfcd\n'
-
-# Resource zsh config when pressing ctrl-r:
-bindkey -s '^r' '^usource ~/.config/zsh/.zshrc\n'
+bindkey -s '^o' '^ulfcd^M'

@@ -1,10 +1,14 @@
-# `git` wrapper:
+################################################################################
+#                                                                              #
+#                                 Git Wrapper                                  #
+#                                                                              #
+################################################################################
 #
-#     - `git` with no arguments = `git status`; run `git help` to show what
-#       vanilla `git` without arguments would normally show.
-#     - `git root` = `cd` to repo root.
-#     - `git root ARG...` = evals `ARG...` from the root (eg. `git root ls`).
-#     - `git ARG...` = behaves just like normal `git` command.
+# - `git` with no arguments = `git status`; run `git help` to show what
+#   vanilla `git` without arguments would normally show..
+# - `git root` = `cd` to repo root.
+# - `git root ARG...` = evals `ARG...` from the root (eg. `git root ls`).
+# - `git ARG...` = behaves just like normal `git` command.
 #
 function git() {
   if [ $# -eq 0 ]; then
@@ -42,6 +46,18 @@ function git() {
   fi
 }
 
+
+################################################################################
+#                                                                              #
+#                                   Scratch                                    #
+#                                                                              #
+################################################################################
+#
+# - Create a temporary folder in /tmp/.
+# - Create a new zsh shell.
+# - Cd into it.
+# - Echo some information.
+#
 function scratch() {
   local SCRATCH=$(mktemp -d)
   echo 'Spawing subshell in scratch directory:'
@@ -51,6 +67,25 @@ function scratch() {
   rm -rf "$SCRATCH"
 }
 
+
+################################################################################
+#                                                                              #
+#                                     Tmux                                     #
+#                                                                              #
+################################################################################
+#
+# - If there's a .tmux file within the current directory and it's a file, then
+#   it performs the following:
+#     - If the file is exeuctable, it'll ask for your permission to run tmux
+#       with that .tmux file by giving you a sha512sum and make sure that's the
+#       file you wish to run.
+#     - You can press 't', and it'll run it.
+#     - It'll remember that you allowed it to run that file because it stores
+#       all the files sha512sum that you allow in ~/.config/tmux/tmux.digests.
+#  - If there isn't a file, it'll open a new tmux session with the name of the
+#    current directory. If there's a session already created with that name,
+#    it'll just open that session up.
+#
 function tmux() {
   emulate -L zsh
 
@@ -87,18 +122,6 @@ function tmux() {
         return
         echo ""
       fi
-    # If the file isn't an executable, ask the user if they would still like to
-    # run it
-    else
-      read -k 1 -r \
-        'REPLY?.tmux file found, but not executable. (m = make executable, otherwise = skip) '
-      if [[ $REPLY =~ ^[Mm]$ ]]; then
-        chmod +x .tmux
-        local DIGEST="$(openssl sha512 .tmux)"
-        echo "$DIGEST" >> ~/.config/tmux/tmux.digests
-        ./.tmux
-        return
-      fi
     fi
   fi
 
@@ -107,46 +130,21 @@ function tmux() {
   env SSH_AUTH_SOCK=$SOCK_SYMLINK tmux new -A -s "$SESSION_NAME"
 }
 
+
+################################################################################
+#                                                                              #
+#                                     GPG                                      #
+#                                                                              #
+################################################################################
+#
+# - `gpg` with no arguments = `gpg --list-keys`
+# - Run `gpg --help` to show what vanilla `gpg` without arguments would normally
+#   show.
+#
 function gpg() {
   if [ "$1" = "" ]; then
     command gpg --list-keys
   else
     command gpg "$@"
   fi
-}
-
-# Function to source files if they exist
-ZDOTDIR=~/.config/zsh
-function zsh_add_file() {
-  [ -f "$ZDOTDIR/$1" ] && source "$ZDOTDIR/$1"
-}
-
-PLUGIN_DIR=~/.config/zsh/plugins
-function zsh_add_plugin() {
-  PLUGIN_NAME=$(echo $1 | cut -d "/" -f 2)
-  if [ -d "$PLUGIN_DIR/$PLUGIN_NAME" ]; then
-    # For plugins
-    zsh_add_file "plugins/$PLUGIN_NAME/$PLUGIN_NAME.plugin.zsh" || \
-    zsh_add_file "plugins/$PLUGIN_NAME/$PLUGIN_NAME.zsh"
-  else
-    git clone "https://github.com/$1.git" "$PLUGIN_DIR/$PLUGIN_NAME"
-    zsh_add_file "plugins/$PLUGIN_NAME/$PLUGIN_NAME.plugin.zsh" || \
-    zsh_add_file "plugins/$PLUGIN_NAME/$PLUGIN_NAME.zsh"
-  fi
-}
-
-COMPLETION_DIR=~/.config/zsh/completions
-function zsh_add_completion() {
-  COMPLETION_NAME=$(echo $1 | cut -d "/" -f 2)
-  if [ -d "$COMPLETION_DIR/$COMPLETION_NAME" ]; then
-    # For completions
-    completion_file_path=$(ls $COMPLETION_DIR/$COMPLETION_NAME/_*)
-    fpath+="$(dirname "${completion_file_path}")"
-    zsh_add_file "completions/$COMPLETION_NAME/$COMPLETION_NAME.plugin.zsh"
-  else
-    git clone "https://github.com/$1.git" "$COMPLETION_DIR/$COMPLETION_NAME"
-    fpath+="$(ls $COMPLETION_DIR/$COMPLETION_NAME/_*)"
-  fi
-  completion_file="$(basename "${completion_file_path}")"
-  if [ "$2" = true ] && compinit "$completion_file:1"
 }
