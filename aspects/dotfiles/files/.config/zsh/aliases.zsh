@@ -85,6 +85,7 @@ if command -v exa &> /dev/null; then
   alias ll='exa --icons -l'
   alias lhi='exa --icons -l -i'
 else
+  alias ls='ls --color'
   alias la='ls --color -a'
   alias l1='ls --color -1'
   alias ll='ls --color -l'
