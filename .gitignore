@@ -1,4 +1,5 @@
 aspects/dotfiles/files/.config/zsh/.chpwd-recent-dirs
+aspects/dotfiles/files/.config/zsh/.base16
 aspects/dotfiles/files/.config/zsh/history
 aspects/dotfiles/files/.config/zsh/.zcompdump*
 aspects/dotfiles/files/.config/zsh/third-party/
