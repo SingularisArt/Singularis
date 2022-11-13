@@ -1,4 +1,25 @@
 autoload -U add-zsh-hook
+autoload -U colors
+colors
+
+# http://zsh.sourceforge.net/Doc/Release/User-Contributions.html
+autoload -Uz vcs_info
+zstyle ':vcs_info:*' enable git hg
+zstyle ':vcs_info:*' check-for-changes true
+zstyle ':vcs_info:*' stagedstr "%F{green}●%f" # default 'S'
+zstyle ':vcs_info:*' unstagedstr "%F{red}●%f" # default 'U'
+zstyle ':vcs_info:*' use-simple true
+zstyle ':vcs_info:git+set-message:*' hooks git-untracked
+zstyle ':vcs_info:git*:*' formats '[%b%m%c%u] ' # default ' (%s)-[%b]%c%u-'
+zstyle ':vcs_info:git*:*' actionformats '[%b|%a%m%c%u] ' # default ' (%s)-[%b|%a]%c%u-'
+zstyle ':vcs_info:hg*:*' formats '[%m%b] '
+zstyle ':vcs_info:hg*:*' actionformats '[%b|%a%m] '
+zstyle ':vcs_info:hg*:*' branchformat '%b'
+zstyle ':vcs_info:hg*:*' get-bookmarks true
+zstyle ':vcs_info:hg*:*' get-revision true
+zstyle ':vcs_info:hg*:*' get-mq false
+zstyle ':vcs_info:hg*+gen-hg-bookmark-string:*' hooks hg-bookmarks
+zstyle ':vcs_info:hg*+set-message:*' hooks hg-message
 
 function -set-tab-and-window-title() {
   emulate -L zsh

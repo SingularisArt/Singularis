@@ -57,7 +57,7 @@ return {
     { filetype = "tex", server = "texlab" },
     -- { filetype = "tex", server = "ltex" },
     { filetype = { "javascript", "typescript" }, server = "tsserver" },
-    { filetype = "lua", server = "sumneko_lua" },
+    -- { filetype = "lua", server = "sumneko_lua" },
     { filetype = "yaml", server = "yamlls" },
   },
 

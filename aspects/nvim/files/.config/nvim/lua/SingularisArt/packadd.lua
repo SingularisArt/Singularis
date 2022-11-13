@@ -48,9 +48,9 @@ M.load = function()
     config = "illuminate",
   })
   load("lsp-inlayhints.nvim")
-  load("lsp_signature.nvim")
-  load("guihua.lua")
-  load("navigator.lua")
+  -- load("lsp_signature.nvim")
+  -- load("guihua.lua")
+  -- load("navigator.lua")
   lazy("symbols-outline.nvim", {
     config = "symbols-outline",
     commands = {

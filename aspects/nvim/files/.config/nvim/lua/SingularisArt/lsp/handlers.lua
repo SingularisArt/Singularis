@@ -174,7 +174,7 @@ lsp.on_attach = function(client, bufnr)
   lsp.setup_codelens_refresh(client, bufnr)
   lsp.attach_navic(client, bufnr)
   lsp.attach_inlay_hints(client, bufnr)
-  lsp.attach_signature(client, bufnr)
+  -- lsp.attach_signature(client, bufnr)
   lsp.attach_sqls(client, bufnr)
 end
 

@@ -23,3 +23,7 @@ export NOTES_DIR="${HOME}/Documents/school-notes"
 export CURRENT_GRADE="${NOTES_DIR}/College"
 export ROOT="${NOTES_DIR}/College/Year-2/semester-1"
 export CURRENT_COURSE="${NOTES_DIR}/current-course"
+
+export PATH="${PATH}:${HOME}/.local/bin"
+export PATH="${PATH}:${HOME}/.local/share/Singularis/third-party-tools/instant-reference/"
+export PATH="${PATH}:${HOME}/.local/share/cargo/bin"
