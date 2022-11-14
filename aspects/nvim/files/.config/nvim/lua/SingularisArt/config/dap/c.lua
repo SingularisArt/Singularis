@@ -1,5 +1,5 @@
 local dap = require("dap")
-local mason_path = vim.fn.glob(vim.fn.stdpath("data") .. "/mason/"
+local mason_path = vim.fn.glob(vim.fn.stdpath("data")) .. "/mason/"
 local codelldb_exec_path = mason_path .. "packages/codelldb/codelldb"
 
 dap.adapters.codelldb = {
