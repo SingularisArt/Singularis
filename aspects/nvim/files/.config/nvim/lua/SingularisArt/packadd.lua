@@ -272,18 +272,19 @@ M.load = function()
     config = "markdown-preview",
   })
   load("vim-markdown-toc")
+  load("magma-nvim")
 
-  -- It's a duck motherducker!
-  load("duck.nvim", {
-    config = function()
-      vim.keymap.set("n", "<leader>Dd", function()
-        require("duck").hatch()
-      end, {})
-      vim.keymap.set("n", "<leader>Dk", function()
-        require("duck").cook()
-      end, {})
-    end
-  })
+  -- -- It's a duck motherducker!
+  -- load("duck.nvim", {
+  --   config = function()
+  --     vim.keymap.set("n", "<leader>Dd", function()
+  --       require("duck").hatch()
+  --     end, {})
+  --     vim.keymap.set("n", "<leader>Dk", function()
+  --       require("duck").cook()
+  --     end, {})
+  --   end
+  -- })
 end
 
 return M
