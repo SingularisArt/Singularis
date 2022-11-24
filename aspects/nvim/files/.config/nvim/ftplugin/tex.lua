@@ -1,4 +1,10 @@
 SingularisArt.plugin.load("tex-conceal.vim")
+vim.cmd[[
+  setlocal foldlevel=0
+  setlocal foldmethod=expr
+  setlocal foldexpr=vimtex#fold#level(v:lnum)
+  setlocal foldtext=vimtex#fold#text()
+]]
 
 local which_key = require("which-key")
 local options = SingularisArt.which_key.opts

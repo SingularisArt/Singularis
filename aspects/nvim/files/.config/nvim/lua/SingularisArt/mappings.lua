@@ -44,6 +44,7 @@ mappings.load = function()
   keymap("n", "<C-t>", ":tabnew<CR>", opts)
   keymap("n", "<C-a>", "ggVG", opts)
   keymap("n", ";", ":nohl<CR>", opts)
+  keymap("n", "<Tab>", "za", opts)
   keymap(
     "n",
     "<C-f>",
