@@ -291,7 +291,7 @@ repo. I have other things like my [neovim](aspects/nvim) config,
 - [giph](https://github.com/phisch/giph): Record gifs from your terminal.
 - [slop](https://github.com/naelstrof/slop): Screen region selector.
 - [xclip](https://github.com/astrand/xclip): Scriptable clipboard utility.
-- [xfce4-terminal](https://github.com/xfce-mirror/xfce4-terminal) as my main
+- [xfce4-terminal](https://github.com/xfce-mirror/xfce4-terminal): My main
   terminal.
 
 ## Tools
@@ -309,22 +309,9 @@ repo. I have other things like my [neovim](aspects/nvim) config,
 
 ### Development
 
-- [Neovim](https://github.com/neovim/neovim): Amazing text editor.
-- [Death.NeoVim](https://github.com/SingularisArt/Death.NeoVim): My custom
-  neovim configuration.
+- [NeoVim](https://github.com/neovim/neovim): Amazing text editor.
 - [Qalculate!](https://github.com/Qalculate): Intuitive and powerful calculator.
 - [gnuplot](http://www.gnuplot.info/): Graph and plot in the terminal.
-- [ghcal](https://github.com/IonicaBizau/ghcal): See the GitHub contributions
-  calendar of a user in the command line.
-- [hexyl](https://github.com/sharkdp/hexyl): Terminal hex viewer.
-- [bitwise](https://github.com/mellowcandle/bitwise): Terminal based bit
-  manipulator in ncurses.
-- [gdb-dashboard](https://github.com/cyrus-and/gdb-dashboard): Modular visual
-  interface for GDB in Python.
-- [github-stats](https://github.com/IonicaBizau/github-stats): Visualize stats
-  about GitHub users and projects in your terminal.
-- [QDbusViewer](https://www.archlinux.org/packages/extra/x86_64/qt5-tools/files/)
-  Dbus investigator GUI.
 - [how2](https://github.com/santinic/how2): Search stack overflow from the
   terminal.
 
@@ -335,7 +322,7 @@ repo. I have other things like my [neovim](aspects/nvim) config,
 ### Productivity
 
 - [dijo](https://github.com/NerdyPepper/dijo): Curses based habit tracker.
-- [bibisco](https://bibisco.com/): Novel writing tool.
+- [manuskript](https://www.theologeek.ch/manuskript/): Novel writing tool.
 
 ### Science
 
@@ -343,9 +330,8 @@ repo. I have other things like my [neovim](aspects/nvim) config,
 - [pymol](https://pymol.org/2/): Molecular science suite.
 - [GROMACS](http://www.gromacs.org/Downloads): Molecular dynamics simulation
   suite.
-- [ASCIIGenome](https://github.com/dariober/ASCIIGenome) Text genome viewer.
-- [Alan](https://github.com/mpdunne/Alan) Text genome alignment viewer.
-- [alv](https://github.com/arvestad/alv) Text genome alignment viewer.
+- [Alan](https://github.com/mpdunne/Alan): Text genome alignment viewer.
+- [alv](https://github.com/arvestad/alv): Text genome alignment viewer.
 - [Desmos-Destkop](https://github.com/DingShizhe/Desmos-Desktop): Electron
   desktop desmos app..
 - [chemtool](https://www.archlinux.org/packages/extra/x86_64/chemtool/): A
@@ -373,17 +359,9 @@ repo. I have other things like my [neovim](aspects/nvim) config,
 - [castero](https://aur.archlinux.org/packages/castero-git/): TUI for podcasts.
 - [newsboat](https://www.archlinux.org/packages/community/x86_64/newsboat/):
   TUI RSS reader.
-- [cava](https://github.com/karlstav/cava): Console music visualizer.
-- [glava](https://github.com/jarcode-foss/glava): OpenGL audio spectrum
-  visualizer.
-- [cmus](https://github.com/cmus/cmus): Lightweight console music player.
-- [cmus-notify](https://github.com/dcx86r/cmus-notify): Notifications for
-  `cmus`.
-- [youtube-dl](https://github.com/ytdl-org/youtube-dl/): Easily download music
-  and videos.
-- [jftui](https://github.com/Aanok/jftui): Jellyfin TUI interface.
-- [swaglyrics](https://aur.archlinux.org/packages/swaglyrics/): Spotify lyrics
-  in browser or terminal.
+- [ncmpcpp](https://github.com/ncmpcpp/ncmpcpp): Lightweight console music
+  player.
+- [mpd](https://github.com/MusicPlayerDaemon/MPD): Music Player Damion.
 
 #### Games
 
@@ -411,7 +389,6 @@ repo. I have other things like my [neovim](aspects/nvim) config,
   your terminal.
 - [termtracker](https://github.com/trehn/termtrack): Track satellites in your
   terminal.
-- [Lyrebird](https://github.com/chxrlt/lyrebird): GTK Voice changer.
 - [genact](https://aur.archlinux.org/packages/genact/): Fake activity generator.
 
 ### Utility
@@ -424,30 +401,16 @@ repo. I have other things like my [neovim](aspects/nvim) config,
 - [diskonaut](https://aur.archlinux.org/packages/diskonaut/): TUI disk usage.
   analyzer.
 - [dust](https://github.com/bootandy/dust): TUI disk usage analyzer.
+- [dunst](https://github.com/dunst-project/dunst): Lightweight notifier.
 - [zathura](https://wiki.archlinux.org/index.php/Zathura): Lightweight PDF
   reader.
-- [ranger](https://github.com/ranger/ranger): Vim inspired console file manager.
+- [lf](https://github.com/gokcehan/lf): Vim inspired console file manager.
 - [haguichi](https://aur.archlinux.org/packages/haguichi-git/): GUI Hamachi
   client (requires.
-- [dmenu-hotkeys](https://github.com/maledorak/dmenu-hotkeys): Searchable i3
-  keybinds for `rofi` or `dmenu`.
-- [gucharmap](https://www.archlinux.org/packages/extra/x86_64/gucharmap/):
-  GNOME interface for system fonts.
-- [greenclip](https://github.com/erebe/greenclip): Clipboard manager
-- gnome-font-viewer.
-- [glow](https://github.com/charmbracelet/glow): CLI/TUI markdown reader.
 - [rofi-emoji](https://github.com/Mange/rofi-emoji): An emoji selector plugin
   for Rofi.
-- [rofi-power-menu](https://github.com/jluttine/rofi-power-menu/blob/master/rofi-power-menu):
-  Power menu for `rofi`.
 - [gpick](https://www.archlinux.org/packages/community/x86_64/gpick/): Advanced
   color picker.
-- [termdown](https://github.com/trehn/termdown): Countdown timer and stopwatch
-  in your terminal.
-- [peaclock](https://aur.archlinux.org/packages/peaclock/): Terminal timer and
-  clock.
-- [yad](https://github.com/v1cont/yad): Create GTK interfaces from the command
-  line.
 
 #### Monitors
 
@@ -455,7 +418,6 @@ repo. I have other things like my [neovim](aspects/nvim) config,
 
 - [s-tui](https://github.com/amanusk/s-tui): Terminal-based CPU stress and
   monitoring utility.
-- [CoreFreq](https://github.com/cyring/CoreFreq): Console CPU monitor.
 - [gotop](https://github.com/cjbassi/gotop): Terminal based graphical activity
   monitor.
 - [bashtop](https://github.com/aristocratos/bashtop/): Terminal based graphical
@@ -471,23 +433,19 @@ repo. I have other things like my [neovim](aspects/nvim) config,
 - [nvtop](https://www.archlinux.org/packages/community/x86_64/nvtop/): NVIDIA
   GPU TUI monitor.
 - [kmon](https://github.com/orhun/kmon): TUI Kernel monitor.
-- [lnav](https://github.com/tstack/lnav): Better log viewer.
 
 ##### Network
 
 - [dnstop](https://aur.archlinux.org/packages/dnstop): Terminal DNS monitor.
 - [ethstatus](https://aur.archlinux.org/packages/ethstatus/): Ethernet status
   monitor.
-- [jnettop](https://github.com/jwilk-mirrors/jnettop): view hosts/ports taking
+- [jnettop](https://github.com/jwilk-mirrors/jnettop): View hosts/ports taking
   up the most network traffic.
 - [nload](https://www.archlinux.org/packages/community/x86_64/nload/): Monitors
   network traffic and bandwidth usage.
 - [bmon](https://github.com/tgraf/bmon): Bandwidth monitor.
 - [termshark](https://github.com/gcla/termshark/): Wireshark implemented in a
   TUI.
-- [gping](https://github.com/orf/gping): TUI ping with graph.
-- [speedtest-cli](https://www.archlinux.org/packages/community/any/speedtest-cli/):
-  CLI speedtest program.
 
 ##### Finance
 
@@ -502,15 +460,15 @@ repo. I have other things like my [neovim](aspects/nvim) config,
 - [translate-shell](https://github.com/soimort/translate-shell): Google
   translate in the terminal.
 - [wtfuitil](https://github.com/wtfutil/wtf): Modular terminal dashboard.
-- [iponmap](https://github.com/nogizhopaboroda/iponmap): commandline IP
-  location finder.
+- [iponmap](https://github.com/nogizhopaboroda/iponmap): Commandline IP location
+  finder.
 
 ### Security
 
-- [Seahorse](https://security.archlinux.org/package/seahorse): GUI to manage
-  PGP/SSH keys.
-- [keepassxc](https://www.archlinux.org/packages/community/x86_64/keepassxc/):
-  Keepass GUI.
+- [Pass](https://www.passwordstore.org/): Light way of managing passwords.
+- [Rofi
+  Pass](https://github.com/SingularisArt/Singularis/blob/master/aspects/dotfiles/files/.local/bin/rofi-pass):
+  Quick program that allows you to select pass password via rofi.
 
 ## Theming
 
