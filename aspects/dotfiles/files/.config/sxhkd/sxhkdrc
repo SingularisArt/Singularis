@@ -26,7 +26,7 @@ super + shift + c
 super + shift + p
   xfce4-terminal -e 'pulsemixer'
 super + shift + d
-  bash $HOME/.local/share/Singularis/aspects/dotfiles/files/.local/bin/xmenu-script
+  bash $HOME/.local/bin/xmenu-script
 super + shift + z
   zathura
 
@@ -41,7 +41,7 @@ super + shift + r
 super + shift + e
   rofi -mode emoji -show emoji
 super + p
-  rofi -mode emoji -show emoji
+  $HOME/.local/bin/rofi-pass
 
 ###########
 # Polybar #

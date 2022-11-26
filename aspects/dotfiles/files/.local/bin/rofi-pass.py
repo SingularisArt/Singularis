@@ -1,0 +1,117 @@
+#!/usr/bin/env python3
+
+from pathlib import Path
+import subprocess
+import time
+
+import pyperclip
+
+PASSWORD_STORE_PATH = Path("~/.config/password-store").expanduser()
+MAX_LEN = 17
+
+
+class Password:
+    def __init__(self, file):
+        self.file = file
+        self.parent_tuples = self.file.parent.parts[5:]
+        self.parent = "/".join(self.parent_tuples)
+        self.display_name = []
+        for parent in self.parent_tuples:
+            self.display_name.append(f"<b>{parent}:</b> ")
+        self.parent = "".join(self.display_name)
+        NEW_MAX_LEN = MAX_LEN - len(self.parent)
+        self.display_name = self.parent + " " * NEW_MAX_LEN + self.file.stem
+
+    def __repr__(self) -> str:
+        if self.parent == "password-store":
+            return self.file.stem
+        return f"{self.parent}/{self.file.stem}"
+
+
+class Passwords(list):
+    def __init__(self):
+        list.__init__(self, self.read_files())
+        self.display_names = [password.display_name for password in self]
+
+    def read_files(self):
+        files = PASSWORD_STORE_PATH.glob("**/*.gpg")
+        return [Password(file) for file in files]
+
+
+class Rofi:
+    def select(self, prompt, options):
+        optionstr = "\n".join(str(o).replace("\n", " ") for o in options)
+
+        args = [
+            "rofi",
+            "-markup",
+            "-matching",
+            "fuzzy",
+            "-dmenu",
+            "-p",
+            prompt,
+            "-format",
+            "s",
+            "-i",
+            "-lines",
+            "5",
+            "-markup-rows",
+            "-kb-row-down",
+            "Down",
+            "-kb-custom-1",
+            "Ctrl+n",
+        ]
+
+        result = subprocess.run(
+            args,
+            input=optionstr,
+            stdout=subprocess.PIPE,
+            universal_newlines=True,
+        )
+
+        returncode = result.returncode
+        stdout = result.stdout.strip()
+
+        selected = stdout.strip()
+
+        try:
+            index = [opt.strip() for opt in options].index(selected)
+        except ValueError:
+            index = -1
+
+        if returncode == 0:
+            code = 0
+        if returncode == 1:
+            code = -1
+        if returncode > 9:
+            code = returncode - 9
+        else:
+            code = -1
+
+        return code, index, selected
+
+    def display_passwords(self):
+        options = Passwords()
+        _, index, _ = self.select("Select password", options.display_names)
+        if index < 0:
+            return
+
+        pyperclip.copy(
+            subprocess.run(
+                ["pass", str(options[index])],
+                input=str(options[index]),
+                stdout=subprocess.PIPE,
+                universal_newlines=True,
+            ).stdout.strip()
+        )
+        time.sleep(5)
+        pyperclip.copy("")
+
+
+def main():
+    r = Rofi()
+    r.display_passwords()
+
+
+if __name__ == "__main__":
+    main()
