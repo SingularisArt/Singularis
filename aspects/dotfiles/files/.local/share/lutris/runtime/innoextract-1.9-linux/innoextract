@@ -1,0 +1,21 @@
+#!/bin/sh
+
+here="$(command -v "$0")" ; here="${here:-$0}" ; here="$(readlink -f "$here")" ; here="${here%/*}"
+command="${0##*/}"
+
+case "$(uname -m)" in
+	i[3-6]86|x86) arch='i686' ;;
+	amd64|x86_64) arch='amd64' ;;
+	arm*) arch='armv6j-hardfloat' ;;
+	*) arch='i686'
+	   printf 'Unsupported architecture "%s", %s\n' \
+	          "$(uname -m)" "using $arch binaries!" >&2 ;;
+esac
+
+if [ "$0" = "$(readlink -f "$(command -v "$command")")" ]
+	then eval ${command}_COMMAND='"$command"'
+	else eval ${command}_COMMAND='"$0"'
+fi
+export ${command}_COMMAND
+
+exec "$here/bin/$arch/$command" "$@"

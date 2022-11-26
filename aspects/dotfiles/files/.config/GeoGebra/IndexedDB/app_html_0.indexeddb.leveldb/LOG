@@ -1,0 +1,6 @@
+2022/11/24-22:27:09.883 db96e Creating DB /home/singularis/.config/GeoGebra/IndexedDB/app_html_0.indexeddb.leveldb since it was missing.
+2022/11/24-22:27:09.894 db96e Reusing MANIFEST /home/singularis/.config/GeoGebra/IndexedDB/app_html_0.indexeddb.leveldb/MANIFEST-000001
+2022/11/24-22:27:09.975 db971 Level-0 table #5: started
+2022/11/24-22:27:09.982 db971 Level-0 table #5: 696 bytes OK
+2022/11/24-22:27:09.996 db971 Delete type=0 #3
+2022/11/24-22:27:09.996 db971 Manual compaction at level-0 from '\x00\x01\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x02\x00\x00\x00' @ 0 : 0; will stop at (end)
