@@ -388,3 +388,6 @@
 [submodule "guihua.lua"]
 	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/guihua.lua
 	url = https://github.com/ray-x/guihua.lua
+[submodule "neomake"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/neomake
+	url = https://github.com/neomake/neomake

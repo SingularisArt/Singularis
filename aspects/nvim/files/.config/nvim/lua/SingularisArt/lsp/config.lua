@@ -42,7 +42,7 @@ return {
     -- "cpplint",
   },
   servers = {
-    { filetype = "sh", server = "bashls" },
+    -- { filetype = "sh", server = "bashls" },
     { filetype = { "cpp", "c" }, server = "clangd" },
     { filetype = "css", server = { "cssls", "cssmodules_ls" } },
     { filetype = "html", server = { "emmet_ls", "html" } },
@@ -55,7 +55,6 @@ return {
     { filetype = "sql", server = "sqls" },
     -- { command = "tailwindcss"},
     { filetype = "tex", server = "texlab" },
-    -- { filetype = "tex", server = "ltex" },
     { filetype = { "javascript", "typescript" }, server = "tsserver" },
     -- { filetype = "lua", server = "sumneko_lua" },
     { filetype = "yaml", server = "yamlls" },

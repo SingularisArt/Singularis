@@ -1,5 +1,6 @@
 SingularisArt.plugin.load("tex-conceal.vim")
 vim.cmd[[
+  setlocal fillchars=fold:\ 
   setlocal foldlevel=0
   setlocal foldmethod=expr
   setlocal foldexpr=vimtex#fold#level(v:lnum)

@@ -17,6 +17,7 @@ local source_names = {
   emoji = "(Emoji)",
   latex_symbols = "(LaTeX)",
   crates = "(Crates)",
+  omni = "(Vimtex)",
 }
 
 local duplicates = {
@@ -96,6 +97,10 @@ cmp.setup({
         vim_item.abbr = string.sub(vim_item.abbr, 1, max_width - 1) .. icons.ui.Ellipsis
       end
 
+      vim_item.menu = ({
+        omni = (vim.inspect(vim_item.menu):gsub('%"', "")),
+        buffer = "[Buffer]",
+      })[entry.source.name]
       vim_item.kind = kind_icons[vim_item.kind]
       vim_item.menu = source_names[entry.source.name]
       vim_item.dup = duplicates[entry.source.name]
@@ -113,6 +118,7 @@ cmp.setup({
     -- { name = "emoji" },
     { name = "latex_symbols" },
     -- { name = "crates" },
+    { name = "omni" },
   },
   confirm_opts = {
     behavior = cmp.ConfirmBehavior.Replace,

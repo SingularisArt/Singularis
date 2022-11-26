@@ -265,6 +265,7 @@ M.load = function()
   load("vimtex", {
     config = "vimtex",
   })
+  load("neomake")
 
   -- Markdown.
   -- Can't lazy load these ones for some reason.
