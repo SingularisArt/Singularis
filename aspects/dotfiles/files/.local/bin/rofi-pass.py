@@ -7,20 +7,22 @@ import time
 import pyperclip
 
 PASSWORD_STORE_PATH = Path("~/.config/password-store").expanduser()
-MAX_LEN = 17
+MAX_LEN = 15
 
 
 class Password:
     def __init__(self, file):
         self.file = file
         self.parent_tuples = self.file.parent.parts[5:]
-        self.parent = "/".join(self.parent_tuples)
-        self.display_name = []
+        self.parent = "".join(self.parent_tuples)
+
+    def get_display_name(self):
+        display_name = []
         for parent in self.parent_tuples:
-            self.display_name.append(f"<b>{parent}:</b> ")
-        self.parent = "".join(self.display_name)
+            display_name.append(f"<b>{parent}:</b> ")
+        parent = "".join(display_name)
         NEW_MAX_LEN = MAX_LEN - len(self.parent)
-        self.display_name = self.parent + " " * NEW_MAX_LEN + self.file.stem
+        return parent + " " * NEW_MAX_LEN + self.file.stem
 
     def __repr__(self) -> str:
         if self.parent == "password-store":
@@ -31,7 +33,7 @@ class Password:
 class Passwords(list):
     def __init__(self):
         list.__init__(self, self.read_files())
-        self.display_names = [password.display_name for password in self]
+        self.display_names = [password.get_display_name() for password in self]
 
     def read_files(self):
         files = PASSWORD_STORE_PATH.glob("**/*.gpg")
