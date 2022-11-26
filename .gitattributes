@@ -5,6 +5,13 @@ aspects/dotfiles/files/.local/share/sioyek/* filter=git-crypt diff=git-crypt
 aspects/dotfiles/files/.local/share/castero/* filter=git-crypt diff=git-crypt
 aspects/dotfiles/files/.local/share/newsboat/* filter=git-crypt diff=git-crypt
 aspects/dotfiles/files/.local/share/zathura/* filter=git-crypt diff=git-crypt
+aspects/dotfiles/files/.local/share/jupyter/* filter=git-crypt diff=git-crypt
+aspects/dotfiles/files/.local/share/calcurse/* filter=git-crypt diff=git-crypt
+aspects/dotfiles/files/.local/share/khal/* filter=git-crypt diff=git-crypt
+aspects/dotfiles/files/.local/share/manuskript/* filter=git-crypt diff=git-crypt
+aspects/dotfiles/files/.local/share/lutris/* filter=git-crypt diff=git-crypt
+aspects/dotfiles/files/.local/share/Steam/* filter=git-crypt diff=git-crypt
+aspects/dotfiles/files/.local/share/tuir/* filter=git-crypt diff=git-crypt
 man/templates/personal/.config/gh/hosts.yml/oauth_token.template filter=git-crypt diff=git-crypt
 man/templates/personal/.config/git/config/user.template filter=git-crypt diff=git-crypt
 man/templates/personal/.config/nvim/personal/emails.json/emails.template filter=git-crypt diff=git-crypt
