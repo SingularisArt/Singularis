@@ -116,7 +116,7 @@ cmp.setup({
     { name = "path" },
     { name = "buffer" },
     -- { name = "emoji" },
-    { name = "latex_symbols" },
+    -- { name = "latex_symbols" },
     -- { name = "crates" },
     { name = "omni" },
   },

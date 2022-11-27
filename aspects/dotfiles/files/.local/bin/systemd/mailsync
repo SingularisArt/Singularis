@@ -1,0 +1,75 @@
+#!/bin/sh
+
+num=$(ps aux | pgrep "mbsync" -c)
+if [ "$num" -gt 0 ]; then
+  echo "mbsync is already running."; exit ;
+fi
+
+export HOME=/home/singularis
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_DATA_HOME="$HOME/.local/share"
+export GNUPGHOME="$XDG_DATA_HOME/gnupg"
+export PASSWORD_STORE_DIR="$XDG_CONFIG_HOME/password-store"
+export MBSYNCRC="$XDG_CONFIG_HOME/mbsync/mbsyncrc"
+export NOTMUCH_CONFIG="$XDG_CONFIG_HOME/notmuch/config"
+export LASTRUN="$XDG_CONFIG_HOME/mailsynclastrun"
+
+mbsync() {
+  command mbsync --config="$MBSYNCRC" "$@"
+}
+
+notmuch() {
+  command notmuch --config="$NOTMUCH_CONFIG" "$@"
+}
+
+notify() {
+  notify-send \
+    --icon="/usr/share/icons/oomox-xresources-reverse-flat/status/scalable/mail-unread-symbolic.svg" \
+    --app-name="neomutt" \
+    "$1" "$2"
+}
+new_notify() {
+  notify "New Mail" "📬 $2 new mail(s) in \`$1\` account."
+}
+
+syncandnotify() {
+  acc=$(basename "$1")
+  opts="$2"
+
+  if [ "$opts" = "" ]; then
+    mbsync "$acc"
+  else
+    mbsync "$opts" "$acc"
+  fi
+
+  new=$(find \
+    "$HOME/.local/share/mail/$acc/"[Ii][Nn][Bb][Oo][Xx]/new/ \
+    "$HOME/.local/share/mail/$acc/"[Ii][Nn][Bb][Oo][Xx]/cur/ \
+    -type f -newer "$LASTRUN" 2> /dev/null)
+
+  newcount=$(echo "$new" | sed '/^\s*$/d' | wc -l)
+  [ "$newcount" -gt 0 ] && new_notify "$acc" "$newcount"
+}
+
+if [ "$#" -gt "0" ]; then
+  for arg in "$@"; do
+    first_char="${arg%"${arg#?}"}"
+    [ "$first_char" = '-' ] && opts="${opts:+${opts} }${arg}" && shift 1
+  done
+  accounts=$*
+fi
+
+if [ "$accounts" = "" ]; then
+  accounts=$(find "$HOME"/.local/share/mail -mindepth 1 -maxdepth 1 -type d \( ! -iname ".*" \))
+fi
+
+for account in $accounts; do
+  notify "Syncing $(basename "$account")"
+  syncandnotify "$account"
+done
+
+wait
+
+notmuch new --quiet
+
+touch "$LASTRUN"

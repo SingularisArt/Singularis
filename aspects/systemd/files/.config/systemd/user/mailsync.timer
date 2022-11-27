@@ -1,0 +1,10 @@
+[Unit]
+Description=Mail sync
+
+[Timer]
+OnBootSec=15m
+OnUnitActiveSec=15m
+Persistent=true
+
+[Install]
+WantedBy=timers.target

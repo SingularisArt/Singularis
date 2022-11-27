@@ -1,0 +1,18 @@
+{
+  "description": "My neomutt email setup",
+  "files": {
+    ".home": {},
+    ".config": {
+      "mbsync": "private",
+      "msmtp": "private",
+      "neomutt": "private",
+      "notmuch": "private"
+    },
+    ".local": {}
+  },
+  "templates": {
+    ".home": {},
+    ".config": {},
+    ".local": {}
+  }
+}

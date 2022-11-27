@@ -76,7 +76,7 @@ if command -v neomutt &> /dev/null; then
   alias m='neomutt'
 fi
 if command -v mbsync &> /dev/null; then
-  alias mbsync='mbsync -c ~/.config/isync/config'
+  alias mbsync='mbsync -c ~/.config/mbsync/mbsyncrc'
 fi
 if command -v pulsemixer &> /dev/null; then
   alias p='pulsemixer'

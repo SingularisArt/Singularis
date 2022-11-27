@@ -1,17 +1,17 @@
 source ~/.config/zsh/exports.zsh
 
-#--------#
-# School #
-#--------#
+############
+#  School  #
+############
 
 alt + {a-z}
   bash ~/Documents/school-setup/shortcut-manager.sh {a-z}
 alt + {A-Z}
   bash ~/Documents/school-setup/shortcut-manager.sh {A-Z}
 
-#--------------#
-# Applications #
-#--------------#
+##################
+#  Applications  #
+##################
 
 super + Return
   xfce4-terminal
@@ -30,9 +30,9 @@ super + shift + d
 super + shift + z
   zathura
 
-#------#
-# Rofi #
-#------#
+##########
+#  Rofi  #
+##########
 
 super + r
   rofi -show drun -show-icons
@@ -43,16 +43,16 @@ super + shift + e
 super + p
   $HOME/.local/bin/rofi-pass
 
-###########
-# Polybar #
-###########
+#############
+#  Polybar  #
+#############
 
 super + b
-  bash $HOME/.local/share/Singularis/aspects/dotfiles/files/.local/bin/statusbar
+  bash $HOME/.local/bin/toggle-polybar
 
-#-------#
-# Dunst #
-#-------#
+###########
+#  Dunst  #
+###########
 
 alt + space
   dunstctl close
@@ -61,9 +61,9 @@ alt + shift + space
 alt + grave
   dunstctl history-pop
 
-#-------#
-# Music #
-#-------#
+###########
+#  Audio  #
+###########
 
 super + alt + t
   mpc toggle
@@ -82,23 +82,21 @@ super + alt + comma
 super + alt + period
   mpc next
 super + alt + u
-  pamixer -i 5 && $HOME/.local/share/Singularis/aspects/dotfiles/files/.local/bin/volume-indicator show
+  pamixer -i 5 && $HOME/.local/bin/volume-indicator show
 super + alt + d
-  pamixer -d 5 && $HOME/.local/share/Singularis/aspects/dotfiles/files/.local/bin/volume-indicator show
-super + c
-  $HOME/.local/share/Singularis/aspects/dotfiles/files/.local/bin/change-theme
+  pamixer -d 5 && $HOME/.local/bin/volume-indicator show
 
-#########
-# Other #
-#########
+###########
+#  Other  #
+###########
 
 Print
-  $HOME/.local/share/Singularis/aspects/dotfiles/files/.local/bin/maimpick
+  $HOME/.local/bin/maimpick
 
 
-#-------#
-# BSPWM #
-#-------#
+###########
+#  BSPWM  #
+###########
 
 ## Desktop/Workspace
 
@@ -149,7 +147,7 @@ super + {Left,Down,Up,Right}
 
 ### Focus the node in the given direction
 super + {_,shift + }{h,j,k,l}
-	bspc node -{f,s} {west,south,north,east}
+  bspc node -{f,s} {west,south,north,east}
 
 ## Selecting areas
 

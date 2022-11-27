@@ -1,0 +1,55 @@
+################################################################################
+account singularisartt@gmail.com
+host smtp.gmail.com
+port 587
+from singularisartt@gmail.com
+user singularisartt@gmail.com
+passwordeval "pass emails/singularisartt@gmail.com"
+auth on
+tls on
+tls_trust_file /etc/ssl/certs/ca-certificates.crt
+logfile ~/.config/msmtp/msmtp.log
+# tls_starttls
+################################################################################
+
+################################################################################
+account hashem.damrah@pcc.edu
+host smtp.gmail.com
+port 587
+from hashem.damrah@pcc.edu
+user hashem.damrah@pcc.edu
+passwordeval "pass emails/hashem.damrah@pcc.edu"
+auth on
+tls on
+tls_trust_file /etc/ssl/certs/ca-certificates.crt
+logfile ~/.config/msmtp/msmtp.log
+# tls_starttls
+################################################################################
+
+################################################################################
+account hdamrah9249@bakercharters.org
+host smtp.gmail.com
+port 587
+from hdamrah9249@bakercharters.org
+user hdamrah9249@bakercharters.org
+passwordeval "pass emails/hdamrah9249@bakercharters.org"
+auth on
+tls on
+tls_trust_file /etc/ssl/certs/ca-certificates.crt
+logfile ~/.config/msmtp/msmtp.log
+# tls_starttls
+################################################################################
+
+################################################################################
+account alaa.damrah@pcc.edu
+host smtp.gmail.com
+port 587
+from alaa.damrah@pcc.edu
+user alaa.damrah@pcc.edu
+passwordeval "pass emails/alaa.damrah@pcc.edu"
+auth on
+tls on
+tls_trust_file /etc/ssl/certs/ca-certificates.crt
+logfile ~/.config/msmtp/msmtp.log
+# tls_starttls
+################################################################################

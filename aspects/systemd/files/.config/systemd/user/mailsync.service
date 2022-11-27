@@ -1,0 +1,10 @@
+[Unit]
+Description=Mail sync
+
+[Service]
+ExecStart=/home/singularis/.local/bin/systemd/mailsync
+Environment="HOME=/home/singularis"
+RestartSec=900
+
+[Install]
+WantedBy=default.target

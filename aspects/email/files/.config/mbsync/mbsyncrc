@@ -1,0 +1,103 @@
+################################################################################
+IMAPStore singularisartt@gmail.com-remote
+Host imap.gmail.com
+Port 993
+User singularisartt@gmail.com
+PassCmd "pass emails/singularisartt@gmail.com"
+AuthMechs LOGIN
+SSLType IMAPS
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+
+MaildirStore singularisartt@gmail.com-local
+Path ~/.local/share/mail/singularisartt@gmail.com/
+Inbox ~/.local/share/mail/singularisartt@gmail.com/INBOX
+SubFolders Verbatim
+
+Channel singularisartt@gmail.com
+Expunge Both
+Far :singularisartt@gmail.com-remote:
+Near :singularisartt@gmail.com-local:
+Patterns *
+Create Both
+SyncState *
+MaxMessages 0
+ExpireUnread no
+################################################################################
+
+################################################################################
+IMAPStore hashem.damrah@pcc.edu-remote
+Host imap.gmail.com
+Port 993
+User hashem.damrah@pcc.edu
+PassCmd "pass emails/hashem.damrah@pcc.edu"
+AuthMechs LOGIN
+SSLType IMAPS
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+
+MaildirStore hashem.damrah@pcc.edu-local
+Path ~/.local/share/mail/hashem.damrah@pcc.edu/
+Inbox ~/.local/share/mail/hashem.damrah@pcc.edu/INBOX
+SubFolders Verbatim
+
+Channel hashem.damrah@pcc.edu
+Expunge Both
+Far :hashem.damrah@pcc.edu-remote:
+Near :hashem.damrah@pcc.edu-local:
+Patterns *
+Create Both
+SyncState *
+MaxMessages 0
+ExpireUnread no
+################################################################################
+
+################################################################################
+IMAPStore hdamrah9249@bakercharters.org-remote
+Host imap.gmail.com
+Port 993
+User hdamrah9249@bakercharters.org
+PassCmd "pass emails/hdamrah9249@bakercharters.org"
+AuthMechs LOGIN
+SSLType IMAPS
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+
+MaildirStore hdamrah9249@bakercharters.org-local
+Path ~/.local/share/mail/hdamrah9249@bakercharters.org/
+Inbox ~/.local/share/mail/hdamrah9249@bakercharters.org/INBOX
+SubFolders Verbatim
+
+Channel hdamrah9249@bakercharters.org
+Expunge Both
+Far :hdamrah9249@bakercharters.org-remote:
+Near :hdamrah9249@bakercharters.org-local:
+Patterns *
+Create Both
+SyncState *
+MaxMessages 0
+ExpireUnread no
+################################################################################
+
+################################################################################
+IMAPStore alaa.damrah@pcc.edu-remote
+Host imap.gmail.com
+Port 993
+User alaa.damrah@pcc.edu
+PassCmd "pass emails/alaa.damrah@pcc.edu"
+AuthMechs LOGIN
+SSLType IMAPS
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+
+MaildirStore alaa.damrah@pcc.edu-local
+Path ~/.local/share/mail/alaa.damrah@pcc.edu/
+Inbox ~/.local/share/mail/alaa.damrah@pcc.edu/INBOX
+SubFolders Verbatim
+
+Channel alaa.damrah@pcc.edu
+Expunge Both
+Far :alaa.damrah@pcc.edu-remote:
+Near :alaa.damrah@pcc.edu-local:
+Patterns *
+Create Both
+SyncState *
+MaxMessages 0
+ExpireUnread no
+################################################################################

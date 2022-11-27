@@ -1,0 +1,10 @@
+[Unit]
+Description=Update newsboat
+
+[Service]
+ExecStart=/home/singularis/.local/bin/systemd/newsup
+Environment="HOME=/home/singularis"
+RestartSec=900
+
+[Install]
+WantedBy=default.target

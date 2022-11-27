@@ -52,7 +52,7 @@ class Log(Colors, InitClass):
             "name": "[Notice]",
             "level": 4,
             "bg": "",
-            "fg": self.fg["green"],
+            "fg": self.fg["yellow"],
             "style": self.style["bold"],
         }
 

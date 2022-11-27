@@ -1,0 +1,15 @@
+{
+  "description": "My systemd setup",
+  "files": {
+    ".home": {},
+    ".config": {
+      "systemd": "public"
+    },
+    ".local": {}
+  },
+  "templates": {
+    ".home": {},
+    ".config": {},
+    ".local": {}
+  }
+}

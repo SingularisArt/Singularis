@@ -54,7 +54,7 @@ return {
     { filetype = "solidity", server = { "solang", "solc", "solidity_ls" } },
     { filetype = "sql", server = "sqls" },
     -- { command = "tailwindcss"},
-    { filetype = "tex", server = "texlab" },
+    -- { filetype = "tex", server = "texlab" },
     { filetype = { "javascript", "typescript" }, server = "tsserver" },
     -- { filetype = "lua", server = "sumneko_lua" },
     { filetype = "yaml", server = "yamlls" },

@@ -2,4 +2,3 @@
 
 volume=$(pamixer --get-volume)
 dunstify -a "changevolume" -u normal -r "9993" -h int:value:"$volume" -i "volume-$1" "Volume: ${volume}%" -t 2000
-
