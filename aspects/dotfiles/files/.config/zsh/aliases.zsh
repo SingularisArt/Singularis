@@ -19,6 +19,8 @@ alias mv='nocorrect mv -iv'
 alias rm='nocorrect rm -vI'
 alias ip="ip -4 -o a | cut -d ' ' -f 2,7 | cut -d '/' -f 1"
 alias distro='source /etc/lsb-release && source /etc/os-release && echo "Main Distro: $ID_LIKE. Sub Distro: $DISTRIB_ID"'
+# Move the stupid ~/.subversion folder to ~/.config/subversion.
+alias svn="svn --config-dir \"$XDG_CONFIG_HOME\"/subversion"
 
 if [ -f "/etc/arch-release" ] || [ -f "/etc/artix-release" ]; then
   alias update='sudo pacman -Syu'
@@ -72,6 +74,9 @@ if command -v lvim &> /dev/null; then
 fi
 if command -v neomutt &> /dev/null; then
   alias m='neomutt'
+fi
+if command -v mbsync &> /dev/null; then
+  alias mbsync='mbsync -c ~/.config/isync/config'
 fi
 if command -v pulsemixer &> /dev/null; then
   alias p='pulsemixer'

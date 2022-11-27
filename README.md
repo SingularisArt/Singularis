@@ -234,8 +234,6 @@
 
 # Table of Content
 
-<!-- vim-markdown-toc GFM -->
-
 * [Overview](#overview)
 * [Applications](#applications)
     * [System](#system)
@@ -268,8 +266,6 @@
 * [License](#license)
 * [Credit](#credit)
 
-<!-- vim-markdown-toc -->
-
 # Overview
 
 This repo contains all my system-wide configuration. Let me clear something up.
@@ -298,14 +294,19 @@ repo. I have other things like my [neovim](aspects/nvim) config,
 
 ### Communication
 
-- [neomutt](https://github.com/neomutt/neomutt): TUI email client.
-- [nctelegram](https://github.com/Nanoseb/ncTelegram): TUI Telegram client.
+- [neomutt](https://github.com/neomutt/neomutt): TUI email client. (I use
+  [mutt-wizard](https://github.com/LukeSmithxyz/mutt-wizard) with a few of my
+  own tweaks.)
 - [Telegram desktop](https://aur.archlinux.org/packages/telegram-desktop-bin/):
   GUI Telegram client.
-- [weechat](https://github.com/weechat/weechat): Terminal IRC client.
-- [tuir](https://gitlab.com/ajak/tuir): Reddit in the terminal.
-- [kdeconnect-sms](https://community.kde.org/KDEConnect): Send SMS from your system.
+- [nctelegram](https://github.com/Nanoseb/ncTelegram): TUI Telegram client.
+- [discord](https://discord.com/): GUI Discord client.
 - [cordless](https://github.com/Bios-Marcel/cordless): TUI Discord client.
+- [weechat](https://github.com/weechat/weechat): Terminal IRC client.
+- [tuir](https://gitlab.com/ajak/tuir): TUI Reddit client.
+- [rainbowstream](https://github.com/orakaro/rainbowstream): TUI Twitter client.
+- [kdeconnect-sms](https://community.kde.org/KDEConnect): Send SMS from your
+  system.
 
 ### Development
 
@@ -330,27 +331,16 @@ repo. I have other things like my [neovim](aspects/nvim) config,
 - [pymol](https://pymol.org/2/): Molecular science suite.
 - [GROMACS](http://www.gromacs.org/Downloads): Molecular dynamics simulation
   suite.
-- [Alan](https://github.com/mpdunne/Alan): Text genome alignment viewer.
-- [alv](https://github.com/arvestad/alv): Text genome alignment viewer.
-- [Desmos-Destkop](https://github.com/DingShizhe/Desmos-Desktop): Electron
-  desktop desmos app..
-- [chemtool](https://www.archlinux.org/packages/extra/x86_64/chemtool/): A
-  small program for drawing chemical structures.
-- [celestia](https://www.archlinux.org/packages/extra/x86_64/celestia/):
-  Real-time space simulation.
-- [geogebra](https://www.archlinux.org/packages/community/x86_64/geogebra/):
-  Dynamic mathematics software with interactive graphics, algebra and
-  spreadsheet.
+- [Desmos-Destkop](https://github.com/DingShizhe/Desmos-Desktop): Desktop desmos
+  app.
+- [celestia](https://github.com/CelestiaProject/Celestia): Real-time space
+  simulation.
+- [inkscape](https://github.com/inkscape/inkscape): Vector drawing program.
 
 ### Personal
 
-- [Khard](https://github.com/scheibler/khard): Console contact manager.
-- [Khal](https://github.com/pimutils/khal): Console calendar.
-- [Nextcloud
-  client](https://www.archlinux.org/packages/community/x86_64/nextcloud-client/):
-  Sync files with Nextcloud server.
-- [vdirsyncer](https://github.com/pimutils/vdirsyncer): Synchronize calendar
-  and contacts with NextCloud.
+- [Goobook](https://gitlab.com/goobook/goobook): Google contact manager.
+- [Calcurse](https://github.com/lfos/calcurse): Console calendar.
 
 ### Entertainment
 
@@ -361,7 +351,7 @@ repo. I have other things like my [neovim](aspects/nvim) config,
   TUI RSS reader.
 - [ncmpcpp](https://github.com/ncmpcpp/ncmpcpp): Lightweight console music
   player.
-- [mpd](https://github.com/MusicPlayerDaemon/MPD): Music Player Damion.
+- [mpd](https://github.com/MusicPlayerDaemon/MPD): Music player daemon.
 
 #### Games
 
@@ -405,10 +395,6 @@ repo. I have other things like my [neovim](aspects/nvim) config,
 - [zathura](https://wiki.archlinux.org/index.php/Zathura): Lightweight PDF
   reader.
 - [lf](https://github.com/gokcehan/lf): Vim inspired console file manager.
-- [haguichi](https://aur.archlinux.org/packages/haguichi-git/): GUI Hamachi
-  client (requires.
-- [rofi-emoji](https://github.com/Mange/rofi-emoji): An emoji selector plugin
-  for Rofi.
 - [gpick](https://www.archlinux.org/packages/community/x86_64/gpick/): Advanced
   color picker.
 

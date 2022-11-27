@@ -117,117 +117,99 @@ cat <<EOF | xmenu -i | bash &
 		Discord (GUI)								discord
 		Discord (TUI)								$TERMINAL -e "cordless"
 		 Email (TUI)								$TERMINAL -e "neomutt"
+		 Telegram (GUI)						telegram-desktop
+		 Telegram (TUI)						nctelegram
+		
 		 IRC												$TERMINAL -e "weechat"
 		 SMS												kdeconnect-sms --style gtk2
 		 Signal										signal-desktop
-		 Telegram									telegram-desktop
-	 Finance
-		 Crypto (TUI)								$TERMINAL -e "cointop"
-		 Stocks (TUI)								$TERMINAL -e "mop"
 	 Utilities
-		 Calculator (TUI)						$TERMINAL -e "qalc"
-		 Calculator (GUI)						qalculate-gtk
-		 Calendar (TUI)							$TERMINAL -e "khal interactive"
-		 Calendar (GUI)							google-calendar-nativefier
-		 Color Picker		 						gpick
-		 Writing Books								manuskript
+		 Calculator (TUI)					$TERMINAL -e "qalc"
+		 Calculator (GUI)					qalculate-gtk
+		 Calendar (TUI)						$TERMINAL -e "khal interactive"
+		 Calendar (GUI)						google-calendar-nativefier
+		 Color Picker							gpick
+		 Writing Books							manuskript
+		Habit Tracker								$TERMINAL -e "dijo"
 		
 		 System
-			 Kill Window								xkill
-			 Smartphone								kdeconnect-app --style gtk2
-			 Screen Recording					obs
+			 Kill Window							xkill
+			 Smartphone							kdeconnect-app --style gtk2
+			 Screen Recording				obs
 			 Screenshot
-				All Displays							flameshot screen -d 5000 -n 3 -p $HOME/Documents/Screenshots
-				Middle Display						flameshot screen -d 5000 -n 0 -p $HOME/Documents/Screenshots
-				Right Display							flameshot screen -d 5000 -n 1 -p $HOME/Documents/Screenshots
-				Left Display							flameshot screen -d 5000 -n 2 -p $HOME/Documents/Screenshots
-		 Personal
-			 Nextcloud									nextcloud
-			 Passwords									keepassxc
-			 Keys											seahorse
+				All Displays						flameshot screen -d 5000 -n 3 -p $HOME/Documents/Screenshots
+				Middle Display					flameshot screen -d 5000 -n 0 -p $HOME/Documents/Screenshots
+				Right Display						flameshot screen -d 5000 -n 1 -p $HOME/Documents/Screenshots
+				Left Display						flameshot screen -d 5000 -n 2 -p $HOME/Documents/Screenshots
 		 Theming
-			lxappearance								lxappearance
-			GTK													oomox-gui
-			Qt													qt5ct --style gtk2
-			WPGTK												wpg
+			lxappearance							lxappearance
+			GTK												oomox-gui
+			Qt												qt5ct --style gtk2
+			WPGTK											wpg
 		 Monitors
-			System (bottom)							$TERMINAL -e "btm"
-			System (bashtop)						$TERMINAL -e "bashtop"
-			System (glances)						$TERMINAL -e "glances"
+			System
+				Baobab (TUI)						$TERMINAL -e "baobab"
+				Diskonaut (TUI)					$TERMINAL -e "diskonaut"
 			
-			Disk Usage (GUI)						baobab
-			Disk Usage (TUI)						$TERMINAL -e "ncdu"
+			Network
 			
-			Kernel (kmon)								$TERMINAL -e "kmon"
-			Nvidia GPU (nvtop)					$TERMINAL -e "nvtop"
-			Power (powertop)						$TERMINAL -e "powertop"
+			Finance
+				 Crypto (TUI)					$TERMINAL -e "cointop"
+				 Stocks (TUI)					$TERMINAL -e "mop"
 			
-			Network Load (nload)				$TERMINAL -e "nload"
-			Bandwidth (bmon)						$TERMINAL -e "bmon"
+			Misc
 		 Media
-			 EasyTag										easytag
+			 EasyTag									easytag
 	 Entertainment
 		 Media
-			 Podcasts (castero)				$TERMINAL -e "castero"
-			 RSS (newsboat)						$TERMINAL -e "newsboat"
-			 Reddit (tuir)							$TERMINAL -e "tuir"
-			 Music (ncmpcpp)						$TERMINAL -e "ncmpcpp"
-			Soulseek (Nicotine+)				nicotine
+			 Podcasts (castero)			$TERMINAL -e "castero"
+			 RSS (newsboat)					$TERMINAL -e "newsboat"
+			 Reddit (tuir)						$TERMINAL -e "tuir"
+			 Twitter (rainbowstream)	$TERMINAL -e "rainbowstream"
+			 Music (ncmpcpp)					$TERMINAL -e "ncmpcpp"
+			Soulseek (Nicotine+)			nicotine
 		 Games
-			 Steam											steam
-			Itch												itch
-			Lutris											$TERMINAL -e "lutris"
-			Tetris											$TERMINAL -e "tetris"
-			Solitaire										$TERMINAL -e "ttysolitaire"
-			 Battleship								$TERMINAL -e "bs"
-			 Minecraft									minecraft-launcher
-			Dopewars										$TERMINAL -e "dopewars"
+			 Steam										steam
+			Itch											itch
+			Lutris										$TERMINAL -e "lutris"
+			Tetris										$TERMINAL -e "tetris"
+			Solitaire									$TERMINAL -e "ttysolitaire"
+			 Battleship							$TERMINAL -e "bs"
+			 Minecraft								minecraft-launcher
+			Dopewars									$TERMINAL -e "dopewars"
 	 Science
-		Anki													anki
+		Anki												anki
 		
 		 Astronomy
-			Celestia										celestia
+			Celestia									celestia
 		 Biology
-			Pymol												pymol
+			Pymol											pymol
 		 Chemistry
-			chemtool										chemtool
+			chemtool									chemtool
 		 Math
-			Geogebra										geogebra
+			Geogebra									geogebra
 	 Development
 		 IDEs
-			Neovim											$TERMINAL -e "nvim"
-			VSCode											code
+			Neovim										$TERMINAL -e "nvim"
+			VSCode										code
 	 LibreOffice
-		LibreOffice										libreoffice
-		Writer												libreoffice --writer
-		Calc													libreoffice --calc
-		Draw													libreoffice --draw
-		Web 													libreoffice --web
-		Base 													libreoffice --base
-		Presentation 									libreoffice --impress
-		Math													libreoffice --math
+		LibreOffice									libreoffice
+		Writer											libreoffice --writer
+		Calc												libreoffice --calc
+		Draw												libreoffice --draw
+		Web 												libreoffice --web
+		Base 												libreoffice --base
+		Presentation 								 libreoffice --impress
+		Math												 libreoffice --math
 
  Configs
 	 System
-		 Bspwm												$TERMINAL -e "nvim $CONFIGDIR/bspwm/bspwmrc"
-		 Start Menu									$TERMINAL -e "nvim $HOME/Singularis/local/xmenu-script"
-		 Notifications								$TERMINAL -e "nvim $CONFIGDIR/dunst/dunstrc"
-		 Smartphone									kdeconnect-settings --style gtk2
-		 Sound												pavucontrol
-		 .Xresources									$TERMINAL -e "nvim $HOME/.Xresources"
-		
-		 Shell
-			zsh													$TERMINAL -e "nvim $HOME/.config/zsh/.zshrc"
-		 polybar
-			config											$TERMINAL -e "nvim $CONFIGDIR/polybar/config.init"
-			modules											$TERMINAL -e "nvim $CONFIGDIR/polybar/modules.init"
-			launch script								$TERMINAL -e "nvim $CONFIGDIR/polybar/scripts/launch.sh"
-		 rofi
-			config											$TERMINAL -e "nvim $CONFIGDIR/rofi/config.rasi"
-		 Utilities
-			 khard											$TERMINAL -e "nvim $CONFIGDIR/khard/khard.conf"
-			 khal											$TERMINAL -e "nvim $CONFIGDIR/khal/config"
-			 vdirsyncer								$TERMINAL -e "nvim $CONFIGDIR/vdirsyncer/config"
+		 Bspwm											 $TERMINAL -e "nvim $CONFIGDIR/bspwm/bspwmrc"
+		 Start Menu								 $TERMINAL -e "nvim $HOME/Singularis/local/xmenu-script"
+		 Notifications							 $TERMINAL -e "nvim $CONFIGDIR/dunst/dunstrc"
+		 Smartphone								 kdeconnect-settings --style gtk2
+		 Sound											 pavucontrol
+		 .Xresources								 $TERMINAL -e "nvim $HOME/.Xresources"
 
  System
 	 Logout			logout

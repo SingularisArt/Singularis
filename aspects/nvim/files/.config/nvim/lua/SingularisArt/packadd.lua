@@ -265,7 +265,7 @@ M.load = function()
   load("vimtex", {
     config = "vimtex",
   })
-  load("neomake")
+  -- load("neomake")
 
   -- Markdown.
   -- Can't lazy load these ones for some reason.
@@ -274,18 +274,6 @@ M.load = function()
   })
   load("vim-markdown-toc")
   load("magma-nvim")
-
-  -- -- It's a duck motherducker!
-  -- load("duck.nvim", {
-  --   config = function()
-  --     vim.keymap.set("n", "<leader>Dd", function()
-  --       require("duck").hatch()
-  --     end, {})
-  --     vim.keymap.set("n", "<leader>Dk", function()
-  --       require("duck").cook()
-  --     end, {})
-  --   end
-  -- })
 end
 
 return M

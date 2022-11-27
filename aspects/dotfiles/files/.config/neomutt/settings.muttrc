@@ -6,16 +6,9 @@ set editor = "nvim"
 # use very high $read_inc to speed up reading hcache'd maildirs
 folder-hook . 'set read_inc=1000'
 
-set imap_check_subscribed = yes       # Show all folders on startup
-set mail_check_stats = yes
-
 # Set preffered view modes
 auto_view text/html text/calendar application/ics # view html automatically
 # alternative_order text/html text/plain text/enriched text/*
-
-set smtp_authenticators = ""
-set smtp_authenticators = "plain"     # Allows neomutt to send mail
-set ssl_force_tls = yes
 
 # main options
 set envelope_from
@@ -46,9 +39,9 @@ unset confirmappend      # don't ask, just do!
 set quit                 # don't ask, just do!!
 unset mark_old           # read/new is good enough for me
 set beep_new             # bell on new mails
-# set pipe_decode          # strip headers and eval mimes when piping
-# set thorough_search      # strip headers and eval mimes before searching
-# set timeout = 0
+set pipe_decode          # strip headers and eval mimes when piping
+set thorough_search      # strip headers and eval mimes before searching
+set timeout = 0
 
 # status bar, date format, finding stuff etc.
 set status_chars = " *%A"
@@ -76,7 +69,6 @@ set mailcap_path = ~/.config/neomutt/mailcap
 set header_cache = "~/.cache/mutt"
 set message_cachedir = "~/.cache/mutt"
 
-# set query_command = "khard email --parsable --search-in-source-files '%s'"
 set query_command="goobook -c ~/.config/goobook/goobookrc query %s"
 
 set new_mail_command="notify-send --icon=/home/hashem/.icons/oomox-xresources-reverse-flat/status/scalable/mail-unread-symbolic.svg 'New Email' '%n new messages, %u unread.' &"
