@@ -12,6 +12,9 @@ aspects/dotfiles/files/.local/share/manuskript/* filter=git-crypt diff=git-crypt
 aspects/dotfiles/files/.local/share/lutris/* filter=git-crypt diff=git-crypt
 aspects/dotfiles/files/.local/share/Steam/* filter=git-crypt diff=git-crypt
 aspects/dotfiles/files/.local/share/tuir/* filter=git-crypt diff=git-crypt
+aspects/dotfiles/files/.local/share/dijo/* filter=git-crypt diff=git-crypt
+aspects/dotfiles/files/.local/share/keyrings/* filter=git-crypt diff=git-crypt
+aspects/dotfiles/files/.local/share/zoom/* filter=git-crypt diff=git-crypt
 man/templates/personal/.config/gh/hosts.yml/oauth_token.template filter=git-crypt diff=git-crypt
 man/templates/personal/.config/git/config/user.template filter=git-crypt diff=git-crypt
 man/templates/personal/.config/nvim/personal/emails.json/emails.template filter=git-crypt diff=git-crypt
