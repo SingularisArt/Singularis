@@ -1,21 +1,8 @@
 aspects/dotfiles/files/.config/git/credentials filter=git-crypt diff=git-crypt
-aspects/dotfiles/files/.local/share/autojump/* filter=git-crypt diff=git-crypt
-aspects/dotfiles/files/.local/share/lf/* filter=git-crypt diff=git-crypt
-aspects/dotfiles/files/.local/share/sioyek/* filter=git-crypt diff=git-crypt
-aspects/dotfiles/files/.local/share/castero/* filter=git-crypt diff=git-crypt
-aspects/dotfiles/files/.local/share/newsboat/* filter=git-crypt diff=git-crypt
-aspects/dotfiles/files/.local/share/zathura/* filter=git-crypt diff=git-crypt
-aspects/dotfiles/files/.local/share/jupyter/* filter=git-crypt diff=git-crypt
-aspects/dotfiles/files/.local/share/calcurse/* filter=git-crypt diff=git-crypt
-aspects/dotfiles/files/.local/share/khal/* filter=git-crypt diff=git-crypt
-aspects/dotfiles/files/.local/share/manuskript/* filter=git-crypt diff=git-crypt
-aspects/dotfiles/files/.local/share/lutris/* filter=git-crypt diff=git-crypt
-aspects/dotfiles/files/.local/share/Steam/* filter=git-crypt diff=git-crypt
-aspects/dotfiles/files/.local/share/tuir/* filter=git-crypt diff=git-crypt
-aspects/dotfiles/files/.local/share/dijo/* filter=git-crypt diff=git-crypt
-aspects/dotfiles/files/.local/share/keyrings/* filter=git-crypt diff=git-crypt
-aspects/dotfiles/files/.local/share/zoom/* filter=git-crypt diff=git-crypt
-aspects/dotfiles/files/.local/share/TelegramDesktop/* filter=git-crypt diff=git-crypt
-man/templates/personal/.config/gh/hosts.yml/oauth_token.template filter=git-crypt diff=git-crypt
-man/templates/personal/.config/git/config/user.template filter=git-crypt diff=git-crypt
-man/templates/personal/.config/nvim/personal/emails.json/emails.template filter=git-crypt diff=git-crypt
+
+aspects/email/files/.config/mbsync/mbsyncrc filter=git-crypt diff=git-crypt
+aspects/email/files/.config/msmtp/config filter=git-crypt diff=git-crypt
+aspects/email/files/.config/notmuch/config filter=git-crypt diff=git-crypt
+
+man/templates/personal/** filter=git-crypt diff=git-crypt
+aspects/dotfiles/files/.local/share/** filter=git-crypt diff=git-crypt

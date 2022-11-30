@@ -21,6 +21,7 @@ aspects/dotfiles/files/.config/git/config
 aspects/dvim/plugin/
 aspects/dotfiles/files/.config/tmux/tmux.digests
 aspects/systemd/files/.config/systemd/user/*.target.wants/
+aspects/email/files/.config/neomutt/accounts/
 
 man/log_level.txt
 
@@ -177,10 +178,3 @@ dmypy.json
 
 # Cython debug symbols
 cython_debug/
-
-# PyCharm
-#  JetBrains specific template is maintained in a separate JetBrains.gitignore that can
-#  be found at https://github.com/github/gitignore/blob/main/Global/JetBrains.gitignore
-#  and can be added to the global gitignore or merged into this file.  For a more nuclear
-#  option (not recommended) you can uncomment the following to ignore the entire idea folder.
-#.idea/
