@@ -2,8 +2,8 @@
 text/html; /usr/bin/google-chrome-stable %s ; nametemplate=%s.html
 
 # show calendar invites
-text/calendar; ~/.config/neomutt/scripts/render-calendar-attachment.py %s; copiousoutput;
-application/ics; ~/.config/neomutt/scripts/mutt-viewical.py; copiousoutput;
+text/calendar; ~/.local/bin/neomutt/render_calendar_attachment %s; copiousoutput;
+application/ics; ~/.local/bin/neomutt/mutt_viewical; copiousoutput;
 
 # open images externally
 image/*; sxiv %s ;
