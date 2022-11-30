@@ -18,9 +18,10 @@ aspects/dotfiles/files/.config/neofetch/ascii/
 aspects/dotfiles/files/.config/ncmpcpp/error.log
 aspects/dotfiles/files/.config/neomutt/accounts/personal.muttrc
 aspects/dotfiles/files/.config/git/config
-aspects/dvim/plugin/
+
 aspects/dotfiles/files/.config/tmux/tmux.digests
 aspects/systemd/files/.config/systemd/user/*.target.wants/
+
 aspects/email/files/.config/neomutt/accounts/
 
 man/log_level.txt

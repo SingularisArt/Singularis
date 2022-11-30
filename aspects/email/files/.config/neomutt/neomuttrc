@@ -6,9 +6,4 @@ source ~/.config/neomutt/keys/bind.muttrc
 source ~/.config/neomutt/settings.muttrc
 source ~/.config/neomutt/colors.muttrc
 
-source ~/.config/neomutt/accounts/singularisartt@gmail.com.muttrc
-
-macro index,pager i1 '<sync-mailbox><enter-command>source /home/singularis/.config/neomutt/accounts/singularisartt@gmail.com.muttrc<enter><change-folder>!<enter>;<check-stats>' "switch to singularisartt@gmail.com"
-macro index,pager i2 '<sync-mailbox><enter-command>source /home/singularis/.config/neomutt/accounts/hashem.damrah@pcc.edu.muttrc<enter><change-folder>!<enter>;<check-stats>' "switch to hashem.damrah@pcc.edu"
-macro index,pager i3 '<sync-mailbox><enter-command>source /home/singularis/.config/neomutt/accounts/hdamrah9249@bakercharters.org<enter><change-folder>!<enter>;<check-stats>' "switch to hdamrah9249@bakercharters.org"
-macro index,pager i4 '<sync-mailbox><enter-command>source /home/singularis/.config/neomutt/accounts/alaa.damrah@pcc.edu<enter><change-folder>!<enter>;<check-stats>' "switch to alaa.damrah@pcc.edu"
+source ~/.config/neomutt/accounts/source-accounts.muttrc
