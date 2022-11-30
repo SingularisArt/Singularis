@@ -26,7 +26,7 @@ super + shift + c
 super + shift + p
   xfce4-terminal -e 'pulsemixer'
 super + shift + d
-  bash $HOME/.local/bin/xmenu-script
+  bash ~/.local/bin/xmenu-script
 super + shift + z
   zathura
 
@@ -41,14 +41,14 @@ super + shift + r
 super + shift + e
   rofi -mode emoji -show emoji
 super + p
-  $HOME/.local/bin/rofi-pass
+  ~/.local/bin/rofi-pass
 
 #############
 #  Polybar  #
 #############
 
 super + b
-  bash $HOME/.local/bin/toggle-polybar
+  bash ~/.local/bin/polybar/toggle_polybar
 
 ###########
 #  Dunst  #
@@ -82,16 +82,16 @@ super + alt + comma
 super + alt + period
   mpc next
 super + alt + u
-  pamixer -i 5 && $HOME/.local/bin/volume-indicator show
+  pamixer -i 5 && ~/.local/bin/volume-indicator show
 super + alt + d
-  pamixer -d 5 && $HOME/.local/bin/volume-indicator show
+  pamixer -d 5 && ~/.local/bin/volume-indicator show
 
 ###########
 #  Other  #
 ###########
 
 Print
-  $HOME/.local/bin/maimpick
+  ~/.local/bin/maimpick
 
 
 ###########
