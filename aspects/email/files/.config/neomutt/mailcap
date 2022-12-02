@@ -1,5 +1,6 @@
 # open html emails in browser
 text/html; /usr/bin/google-chrome-stable %s ; nametemplate=%s.html
+# text/html; ~/.local/bin/neomutt/beautiful_html_renderer %s; nametemplate=%s.html; copiousoutput;
 
 # show calendar invites
 text/calendar; ~/.local/bin/neomutt/render_calendar_attachment %s; copiousoutput;
@@ -16,7 +17,7 @@ video/*; mpv --autofit-larger=90\%x90\% %s; needsterminal;
 application/pdf; zathura %s;
 
 # open plaintext emails in neovim
-text/plain; nvim %s %{charset}; needsterminal
+text/plain; ~/.local/bin/neomutt/view_mail %s %{charset}; needsterminal
 
 # MS Excel
 application/x-msexcel; libreoffice --calc %s

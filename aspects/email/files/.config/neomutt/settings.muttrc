@@ -35,6 +35,15 @@ unset help                            # No help bar at the top of index
 # set status_on_top = yes               # Status bar on top of index
 set tmpdir = /tmp                     # where to keep temp files
 
+#############
+#  Sidebar  #
+#############
+
+set sidebar_visible = yes
+set sidebar_width = 30
+set sidebar_short_path = yes
+set sidebar_next_new_wrap = yes
+set mail_check_stats
 set sidebar_short_path                # Shorten mailbox names
 set sidebar_delim_chars="/"           # Delete everything up to the last / character
 set sidebar_folder_indent             # Indent folders whose names we've shortened

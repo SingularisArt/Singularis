@@ -171,13 +171,13 @@ super + shift + m
 
 ### Enable/Disable gaps
 super + a
-  ${HOME}/.config/sxhkd/scripts/enable-disable-gaps.sh
+  ~/.local/bin/sxhkd/enable_disable_gaps
 super + shift + a
   bspc config window_gap 10
 super + z
-  ${HOME}/.config/sxhkd/scripts/increase-decrease-gaps.sh plus
+  ~/.local/bin/sxhkd/increase_decrease_gasp plus
 super + x
-  ${HOME}/.config/sxhkd/scripts/increase-decrease-gaps.sh minus
+  ~/.local/bin/sxhkd/increase_decrease_gasp minus
 
 ## Other
 

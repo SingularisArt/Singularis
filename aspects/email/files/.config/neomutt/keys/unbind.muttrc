@@ -16,6 +16,7 @@ bind generic,pager,editor,index,compose,browser,attach m noop
 bind generic,pager,editor,index,compose,browser,attach n noop
 bind generic,pager,editor,index,compose,browser,attach o noop
 bind generic,pager,editor,index,compose,browser,attach p noop
+bind generic,pager,editor,index,compose,browser,attach q noop
 bind generic,pager,editor,index,compose,browser,attach r noop
 bind generic,pager,editor,index,compose,browser,attach s noop
 bind generic,pager,editor,index,compose,browser,attach t noop

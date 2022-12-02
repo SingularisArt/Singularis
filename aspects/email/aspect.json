@@ -3,10 +3,13 @@
   "files": {
     ".home": {},
     ".config": {
+      "gcalcli": "private",
+      "glow": "public",
       "mbsync": "private",
       "msmtp": "private",
-      "neomutt": "private",
-      "notmuch": "private"
+      "neomutt": "public",
+      "notmuch": "private",
+      "vdirsyncer": "private"
     },
     ".local": {}
   },

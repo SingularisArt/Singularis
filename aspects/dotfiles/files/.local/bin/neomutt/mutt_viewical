@@ -5,8 +5,8 @@ import os
 import re
 import sys
 
-import icalendar  # https://pypi.python.org/pypi/icalendar
-import pytz  # https://pypi.python.org/pypi/pytz
+import icalendar
+import pytz
 import tzlocal  # https://pypi.python.org/pypi/tzlocal
 
 TIME_FORMAT = "%-I:%M %P"
