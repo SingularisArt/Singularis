@@ -18,13 +18,19 @@ super + Return
 super + w
   $BROWSER
 super + m
-  xfce4-terminal -e 'neomutt'
+  bspc rule -a Xfce4-terminal -o state=floating && xfce4-terminal -e 'neomutt'
+super + shift + m
+  bspc rule -a Xfce4-terminal -o state=floating && xfce4-terminal -e 'nvim +"set ft=mail" +Mail'
+super + n
+  bspc rule -a Xfce4-terminal -o state=floating && xfce4-terminal -e 'newsboat'
 super + e
-  xfce4-terminal -e 'ncmpcpp'
+  bspc rule -a Xfce4-terminal -o state=floating && xfce4-terminal -e 'ncmpcpp'
 super + shift + c
-  xfce4-terminal -e 'castero'
+  bspc rule -a Xfce4-terminal -o state=floating && xfce4-terminal -e 'castero'
+super + c
+  bspc rule -a Xfce4-terminal -o state=floating && xfce4-terminal -e 'calcurse'
 super + shift + p
-  xfce4-terminal -e 'pulsemixer'
+  bspc rule -a Xfce4-terminal -o state=floating && xfce4-terminal -e 'pulsemixer'
 super + shift + d
   bash ~/.local/bin/xmenu-script
 super + shift + z

@@ -54,7 +54,7 @@ macro index Cd ";<copy-message>=[Gmail]/Drafts<enter>" "copy mail to drafts"    
 macro index Cp ";<copy-message>=[Gmail]/Spam<enter>" "copy mail to spam"                                        # Copy mail to spam                                   (Cp)
 macro index Ca ";<copy-message>=[Gmail]/All Mail<enter>" "copy mail to all mail"                                # Copy mail to all mail                               (Ca)
 
-macro index,pager a "<pipe-message>goobook -c ~/.config/goobook/goobookrc add<return>" "add sender to contacts" # Add sender to contacts                              (a)
+macro index,pager a "<pipe-message>goobook add<return>" "add sender to contacts" # Add sender to contacts                              (a)
 macro index,pager \cl '<pipe-message>urlscan -d -w 80<enter>' "call urlscan to open links"                      # Call urlscan to open links                          (<C-l>)
 
 macro attach s '<save-entry><kill-line>~/Downloads/<enter>a' "Save file to ~/Downloads"                         # Save file to ~/Downloads                            (s)

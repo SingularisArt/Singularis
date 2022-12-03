@@ -17,6 +17,8 @@ xrdb -load ~/.config/X11/Xresources
 #############
 
 picom -b --experimental-backends --backend glx --blur-method dual_kawase &
+killall bspswallow
+pidof ~/.local/bin/bspswallow | bspswallow &
 flameshot &
 fcitx -d &
 pidof bspswallow | bspswallow &
@@ -64,6 +66,8 @@ bspc config window_gap 10
 # Rules
 workspaces_multimonitor &
 
+bspc rule -r "*"
 bspc rule -a matplotlib state=floating
 bspc rule -a gnome-terminal-server state=floating
 bspc rule -a Gnome-terminal state=floating
+bspc rule -a Xfce4-terminal:ncmpcpp state=floating

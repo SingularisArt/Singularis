@@ -3,8 +3,11 @@
   "files": {
     ".home": {},
     ".config": {
+      "abook": "public",
       "gcalcli": "private",
       "glow": "public",
+      "goobook": "public",
+      "imapfilter": "public",
       "mbsync": "private",
       "msmtp": "private",
       "neomutt": "public",

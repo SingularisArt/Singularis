@@ -3,7 +3,9 @@ vim.opt.tw = 0
 vim.opt.spell = true
 
 vim.cmd([[
-set omnifunc=mailcomplete#Complete
+setl spell
+setl omnifunc=mailcomplete#Complete
+autocmd TermOpen * setl nonumber norelativenumber laststatus=0
 
 function! s:new_mail()
   let l:path = system('mktemp --tmpdir XXXXXXXXXX.eml')
@@ -23,7 +25,7 @@ function! s:OnExit(job_id, code, event) dict
       quit
     endif
   else
-    execute 'Bd!' s:bufnr
+    execute 'echo "Failed to send email"'
   endif
 endfunction
 
@@ -35,9 +37,12 @@ function! s:SendMail()
     let l:message_file = system('mktemp')
     execute 'w!' l:message_file
   endif
-  call termopen('neomutt ' .
-    \ "-e 'set postpone=no sidebar_visible=no assumed_charset=utf-8' " .
-    \ "-H " . l:message_file)
+  enew
+  call termopen('VISUAL=true PINENTRY_USER_DATA=spawn-xterm neomutt ' .
+        \ "-e 'set postpone=no sidebar_visible=no assumed_charset=utf-8' " .
+        \ "-H " . l:message_file, {'on_exit': function('s:OnExit')})
+  let s:bufnr = bufnr('%')
+  startinsert
 endfunction
 
 nnoremap <buffer> <silent> <C-H> :<C-U>call <SID>SendMail()<CR>
