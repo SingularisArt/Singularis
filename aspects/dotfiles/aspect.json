@@ -61,7 +61,6 @@
   "templates": {
     ".config": {
       "git/config": ["email", "name", "signkey", "username"],
-      "git/credentials": ["key"],
       "gh/hosts.yml": ["username", "oauth_token"]
     }
   }
