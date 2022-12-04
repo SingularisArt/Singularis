@@ -1,3 +1,24 @@
-email-1: your@email.com
-email-password-1: "pass your@email.com"
-email-nickname-1: your@email.com
+email_1: your@email-1.com
+email_1_password: pass your@email-1.com
+email_1_nickname: your@email-1.com
+email_1_server: imap.gmail.com
+
+email_2: your@email-2.com
+email_2_password: pass your@email-2.com
+email_2_nickname: your@email-2.com
+email_2_server: imap.gmail.com
+
+email_3: your@email-3.com
+email_3_password: pass your@email-3.com
+email_3_nickname: your@email-3.com
+email_3_server: imap.gmail.com
+
+email_4: your@email-4.com
+email_4_password: pass your@email-4.com
+email_4_nickname: your@email-4.com
+email_4_server: imap.gmail.com
+
+email_5: your@email-5.com
+email_5_password: pass your@email-5.com
+email_5_nickname: your@email-5.com
+email_5_server: imap.gmail.com
