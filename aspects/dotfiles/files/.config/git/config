@@ -1,10 +1,10 @@
 [user]
-  email = singularisartt@gmail.com
-  name = Hashem A. Damrah
-  signingkey = 685A58158C4ACF59DDEDC6DE16EB2E7074D87347
+  email = ^{email}
+  name = ^{name}
+  signingkey = ^{sign_key}
 
 [github]
-  username = ^{user}
+  username = ^{username}
 
 [credential]
   helper = store
