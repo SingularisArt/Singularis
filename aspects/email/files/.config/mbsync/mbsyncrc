@@ -26,29 +26,33 @@ Channel ^{email_1}-inbox
 Master :^{email_1}-remote:INBOX
 Slave :^{email_1}-local:INBOX
 
+Channel ^{email_1}-archive
+Master :^{email_1}-remote:"[Gmail]/All Mail"
+Slave :^{email_1}-local:Archive
+
 Channel ^{email_1}-drafts
 Master :^{email_1}-remote:"[Gmail]/Drafts"
 Slave :^{email_1}-local:Drafts
+
+Channel ^{email_1}-important
+Master :^{email_1}-remote:"[Gmail]/Important"
+Slave :^{email_1}-local:Important
 
 Channel ^{email_1}-sent
 Master :^{email_1}-remote:"[Gmail]/Sent Mail"
 Slave :^{email_1}-local:Sent
 
-Channel ^{email_1}-starred
-Master :^{email_1}-remote:"[Gmail]/Starred"
-Slave :^{email_1}-local:Starred
-
 Channel ^{email_1}-spam
 Master :^{email_1}-remote:"[Gmail]/Spam"
 Slave :^{email_1}-local:Spam
 
+Channel ^{email_1}-starred
+Master :^{email_1}-remote:"[Gmail]/Starred"
+Slave :^{email_1}-local:Starred
+
 Channel ^{email_1}-trash
 Master :^{email_1}-remote:"[Gmail]/Trash"
 Slave :^{email_1}-local:Trash
-
-Channel ^{email_1}-archive
-Master :^{email_1}-remote:"[Gmail]/All Mail"
-Slave :^{email_1}-local:Archive
 
 Channel ^{email_1}-get-folders
 Master :^{email_1}-remote:
@@ -66,10 +70,324 @@ Patterns !Starred
 
 Group ^{email_1}
 Channel ^{email_1}-inbox
-Channel ^{email_1}-drafts
-Channel ^{email_1}-sent
-Channel ^{email_1}-starred
-Channel ^{email_1}-spam
-Channel ^{email_1}-trash
 Channel ^{email_1}-archive
+Channel ^{email_1}-drafts
+Channel ^{email_1}-important
+Channel ^{email_1}-sent
+Channel ^{email_1}-spam
+Channel ^{email_1}-starred
+Channel ^{email_1}-trash
+Channel ^{email_1}-get-folders
+################################################################################
+
+################################################################################
+#                                                                              #
+#                                  Account 2                                   #
+#                                                                              #
+################################################################################
+IMAPAccount ^{email_2_nickname}
+Host ^{email_2_server}
+User ^{email_2}
+PassCmd "^{email_2_password}"
+SSLType IMAPS
+AuthMechs LOGIN
+
+IMAPStore ^{email_2}-remote
+Account ^{email_2_nickname}
+
+MaildirStore ^{email_2}-local
+Path ~/.local/share/mail/^{email_2}/
+Inbox ~/.local/share/mail/^{email_2}/INBOX
+SubFolders Verbatim
+
+Channel ^{email_2}-inbox
+Master :^{email_2}-remote:INBOX
+Slave :^{email_2}-local:INBOX
+
+Channel ^{email_2}-archive
+Master :^{email_2}-remote:"[Gmail]/All Mail"
+Slave :^{email_2}-local:Archive
+
+Channel ^{email_2}-drafts
+Master :^{email_2}-remote:"[Gmail]/Drafts"
+Slave :^{email_2}-local:Drafts
+
+Channel ^{email_2}-important
+Master :^{email_2}-remote:"[Gmail]/Important"
+Slave :^{email_2}-local:Important
+
+Channel ^{email_2}-sent
+Master :^{email_2}-remote:"[Gmail]/Sent Mail"
+Slave :^{email_2}-local:Sent
+
+Channel ^{email_2}-spam
+Master :^{email_2}-remote:"[Gmail]/Spam"
+Slave :^{email_2}-local:Spam
+
+Channel ^{email_2}-starred
+Master :^{email_2}-remote:"[Gmail]/Starred"
+Slave :^{email_2}-local:Starred
+
+Channel ^{email_2}-trash
+Master :^{email_2}-remote:"[Gmail]/Trash"
+Slave :^{email_2}-local:Trash
+
+Channel ^{email_2}-get-folders
+Master :^{email_2}-remote:
+Slave :^{email_2}-local:
+Patterns *
+Patterns !INBOX
+Patterns !Search
+Patterns !Sent
+Patterns !Spam
+Patterns !Trash
+Patterns ![Gmail]*
+Patterns !Archive
+Patterns !Drafts
+Patterns !Starred
+
+Group ^{email_2}
+Channel ^{email_2}-inbox
+Channel ^{email_2}-archive
+Channel ^{email_2}-drafts
+Channel ^{email_2}-important
+Channel ^{email_2}-sent
+Channel ^{email_2}-spam
+Channel ^{email_2}-starred
+Channel ^{email_2}-trash
+Channel ^{email_2}-get-folders
+################################################################################
+
+################################################################################
+#                                                                              #
+#                                  Account 3                                   #
+#                                                                              #
+################################################################################
+IMAPAccount ^{email_3_nickname}
+Host ^{email_3_server}
+User ^{email_3}
+PassCmd "^{email_3_password}"
+SSLType IMAPS
+AuthMechs LOGIN
+
+IMAPStore ^{email_3}-remote
+Account ^{email_3_nickname}
+
+MaildirStore ^{email_3}-local
+Path ~/.local/share/mail/^{email_3}/
+Inbox ~/.local/share/mail/^{email_3}/INBOX
+SubFolders Verbatim
+
+Channel ^{email_3}-inbox
+Master :^{email_3}-remote:INBOX
+Slave :^{email_3}-local:INBOX
+
+Channel ^{email_3}-archive
+Master :^{email_3}-remote:"[Gmail]/All Mail"
+Slave :^{email_3}-local:Archive
+
+Channel ^{email_3}-drafts
+Master :^{email_3}-remote:"[Gmail]/Drafts"
+Slave :^{email_3}-local:Drafts
+
+Channel ^{email_3}-important
+Master :^{email_3}-remote:"[Gmail]/Important"
+Slave :^{email_3}-local:Important
+
+Channel ^{email_3}-sent
+Master :^{email_3}-remote:"[Gmail]/Sent Mail"
+Slave :^{email_3}-local:Sent
+
+Channel ^{email_3}-spam
+Master :^{email_3}-remote:"[Gmail]/Spam"
+Slave :^{email_3}-local:Spam
+
+Channel ^{email_3}-starred
+Master :^{email_3}-remote:"[Gmail]/Starred"
+Slave :^{email_3}-local:Starred
+
+Channel ^{email_3}-trash
+Master :^{email_3}-remote:"[Gmail]/Trash"
+Slave :^{email_3}-local:Trash
+
+Channel ^{email_3}-get-folders
+Master :^{email_3}-remote:
+Slave :^{email_3}-local:
+Patterns *
+Patterns !INBOX
+Patterns !Search
+Patterns !Sent
+Patterns !Spam
+Patterns !Trash
+Patterns ![Gmail]*
+Patterns !Archive
+Patterns !Drafts
+Patterns !Starred
+
+Group ^{email_3}
+Channel ^{email_3}-inbox
+Channel ^{email_3}-archive
+Channel ^{email_3}-drafts
+Channel ^{email_3}-important
+Channel ^{email_3}-sent
+Channel ^{email_3}-spam
+Channel ^{email_3}-starred
+Channel ^{email_3}-trash
+Channel ^{email_3}-get-folders
+################################################################################
+
+################################################################################
+#                                                                              #
+#                                  Account 4                                   #
+#                                                                              #
+################################################################################
+IMAPAccount ^{email_4_nickname}
+Host ^{email_4_server}
+User ^{email_4}
+PassCmd "^{email_4_password}"
+SSLType IMAPS
+AuthMechs LOGIN
+
+IMAPStore ^{email_4}-remote
+Account ^{email_4_nickname}
+
+MaildirStore ^{email_4}-local
+Path ~/.local/share/mail/^{email_4}/
+Inbox ~/.local/share/mail/^{email_4}/INBOX
+SubFolders Verbatim
+
+Channel ^{email_4}-inbox
+Master :^{email_4}-remote:INBOX
+Slave :^{email_4}-local:INBOX
+
+Channel ^{email_4}-archive
+Master :^{email_4}-remote:"[Gmail]/All Mail"
+Slave :^{email_4}-local:Archive
+
+Channel ^{email_4}-drafts
+Master :^{email_4}-remote:"[Gmail]/Drafts"
+Slave :^{email_4}-local:Drafts
+
+Channel ^{email_4}-important
+Master :^{email_4}-remote:"[Gmail]/Important"
+Slave :^{email_4}-local:Important
+
+Channel ^{email_4}-sent
+Master :^{email_4}-remote:"[Gmail]/Sent Mail"
+Slave :^{email_4}-local:Sent
+
+Channel ^{email_4}-spam
+Master :^{email_4}-remote:"[Gmail]/Spam"
+Slave :^{email_4}-local:Spam
+
+Channel ^{email_4}-starred
+Master :^{email_4}-remote:"[Gmail]/Starred"
+Slave :^{email_4}-local:Starred
+
+Channel ^{email_4}-trash
+Master :^{email_4}-remote:"[Gmail]/Trash"
+Slave :^{email_4}-local:Trash
+
+Channel ^{email_4}-get-folders
+Master :^{email_4}-remote:
+Slave :^{email_4}-local:
+Patterns *
+Patterns !INBOX
+Patterns !Search
+Patterns !Sent
+Patterns !Spam
+Patterns !Trash
+Patterns ![Gmail]*
+Patterns !Archive
+Patterns !Drafts
+Patterns !Starred
+
+Group ^{email_4}
+Channel ^{email_4}-inbox
+Channel ^{email_4}-archive
+Channel ^{email_4}-drafts
+Channel ^{email_4}-important
+Channel ^{email_4}-sent
+Channel ^{email_4}-spam
+Channel ^{email_4}-starred
+Channel ^{email_4}-trash
+Channel ^{email_4}-get-folders
+################################################################################
+
+################################################################################
+#                                                                              #
+#                                  Account 5                                   #
+#                                                                              #
+################################################################################
+IMAPAccount ^{email_5_nickname}
+Host ^{email_5_server}
+User ^{email_5}
+PassCmd "^{email_5_password}"
+SSLType IMAPS
+AuthMechs LOGIN
+
+IMAPStore ^{email_5}-remote
+Account ^{email_5_nickname}
+
+MaildirStore ^{email_5}-local
+Path ~/.local/share/mail/^{email_5}/
+Inbox ~/.local/share/mail/^{email_5}/INBOX
+SubFolders Verbatim
+
+Channel ^{email_5}-inbox
+Master :^{email_5}-remote:INBOX
+Slave :^{email_5}-local:INBOX
+
+Channel ^{email_5}-archive
+Master :^{email_5}-remote:"[Gmail]/All Mail"
+Slave :^{email_5}-local:Archive
+
+Channel ^{email_5}-drafts
+Master :^{email_5}-remote:"[Gmail]/Drafts"
+Slave :^{email_5}-local:Drafts
+
+Channel ^{email_5}-important
+Master :^{email_5}-remote:"[Gmail]/Important"
+Slave :^{email_5}-local:Important
+
+Channel ^{email_5}-sent
+Master :^{email_5}-remote:"[Gmail]/Sent Mail"
+Slave :^{email_5}-local:Sent
+
+Channel ^{email_5}-spam
+Master :^{email_5}-remote:"[Gmail]/Spam"
+Slave :^{email_5}-local:Spam
+
+Channel ^{email_5}-starred
+Master :^{email_5}-remote:"[Gmail]/Starred"
+Slave :^{email_5}-local:Starred
+
+Channel ^{email_5}-trash
+Master :^{email_5}-remote:"[Gmail]/Trash"
+Slave :^{email_5}-local:Trash
+
+Channel ^{email_5}-get-folders
+Master :^{email_5}-remote:
+Slave :^{email_5}-local:
+Patterns *
+Patterns !INBOX
+Patterns !Search
+Patterns !Sent
+Patterns !Spam
+Patterns !Trash
+Patterns ![Gmail]*
+Patterns !Archive
+Patterns !Drafts
+Patterns !Starred
+
+Group ^{email_5}
+Channel ^{email_5}-inbox
+Channel ^{email_5}-archive
+Channel ^{email_5}-drafts
+Channel ^{email_5}-important
+Channel ^{email_5}-sent
+Channel ^{email_5}-spam
+Channel ^{email_5}-starred
+Channel ^{email_5}-trash
+Channel ^{email_5}-get-folders
 ################################################################################
