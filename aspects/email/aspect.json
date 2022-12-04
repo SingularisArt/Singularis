@@ -1,7 +1,6 @@
 {
   "description": "My neomutt email setup",
   "files": {
-    ".home": {},
     ".config": {
       "abook": "public",
       "gcalcli": "private",
@@ -13,12 +12,11 @@
       "neomutt": "public",
       "notmuch": "private",
       "vdirsyncer": "private"
-    },
-    ".local": {}
+    }
   },
   "templates": {
-    ".home": {},
-    ".config": {},
-    ".local": {}
+    ".config": {
+      "mbsync/mbsyncrc": ["email-1", "email-password-1", "email-nickname-1"]
+    }
   }
 }

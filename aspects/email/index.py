@@ -8,10 +8,10 @@ from man.operations.template import Templates as Templates
 
 log = Log()
 
-log.log_notice("Installing my Email Setup.")
+# log.log_notice("Installing my Email Setup.")
 
-Files("email", specific_items_to_install, args)
+# Files("email", specific_items_to_install, args)
 Templates("email", specific_items_to_install, args)
-Packages("email")
+# Packages("email")
 
-log.log_success("Installed my Email Setup.")
+# log.log_success("Installed my Email Setup.")

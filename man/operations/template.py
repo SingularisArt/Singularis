@@ -1,7 +1,8 @@
 #!/usr/bin/python3.10
 
+import yaml
+from string import Template
 import os
-import string
 
 from man.variables import (
     aspects_dir,
@@ -15,36 +16,35 @@ from man.log import Log as Log
 import man.helpers as helpers
 
 
+class NewStrTemp(Template):
+    delimiter = "[-"
+    pattern = r"""
+    \^\{(?:
+       (?P<escaped>-) |
+       (?P<named>(.)+)\} |
+       \b\B(?P<braced>) |
+       (?P<invalid>)
+    )
+    """
+
+
 log = Log()
-
-
-class CustomTemplate(string.Template):
-    delimiter = "^"
 
 
 class Template:
     def __init__(
         self,
-        template_name: str,
-        root_folder: str,
-        type: str,
-        delimiter: str,
-        data: dict,
-        specific_items_to_install: list,
-        personal: dict,
+        aspect,
+        template_name,
+        root_folder,
+        type,
+        delimiter,
+        data,
+        specific_items_to_install,
+        personal,
     ):
-        if delimiter != CustomTemplate.delimiter:
-            og_delimiter = helpers.pretty_log(
-                log,
-                log.trace,
-                CustomTemplate.delimiter,
-            )
-
-            delimiter = helpers.pretty_log(log, log.trace, delimiter)
-
-            log.log_trace(f"Changing delimiter from {og_delimiter} to {delimiter}")
-            CustomTemplate.delimiter = delimiter
-
+        self.aspect = aspect
+        self.aspect_dir = helpers.join(aspects_dir, aspect)
         self.root_folder = root_folder
         self.name = template_name
         self.type = type
@@ -56,7 +56,6 @@ class Template:
         self.personal = personal
 
         # TODO: Implement this function
-
         destination = helpers.pretty_log(
             log,
             log.trace,
@@ -115,19 +114,15 @@ class Template:
 
     def install(self):
         opened_template = open(self.template_location, "r").read()
-        opened_template = CustomTemplate(opened_template)
+        info = open(helpers.join(self.aspect_dir, "vars/private.yaml"))
+        private_vars = yaml.load(info, Loader=yaml.FullLoader)
+        opened_template = NewStrTemp(opened_template)
 
-        variable_repacment = {}
+        replace_dict = {}
+        for var in private_vars:
+            replace_dict[var] = private_vars[var]
 
-        for snippet in self.data:
-            template_location = self.get_path_to_template_snippets(snippet)
-            opened_template_location = open(template_location, "r").read()
-
-            variable_repacment[snippet] = opened_template_location
-
-        completed_template = opened_template.safe_substitute(
-            variable_repacment,
-        )
+        completed_template = opened_template.safe_substitute(replace_dict)
 
         name = helpers.pretty_log(log, log.trace, self.name)
         destination = helpers.pretty_log(
@@ -152,7 +147,8 @@ class Template:
 
 class Templates(dict):
     def __init__(self, aspect, specific_items_to_install, args):
-        self.root_folder = helpers.join(aspects_dir, aspect, "templates")
+        self.aspect = aspect
+        self.root_folder = helpers.join(aspects_dir, aspect, "files")
         self.specific_items_to_install = specific_items_to_install
         self.args = args
 
@@ -186,23 +182,22 @@ class Templates(dict):
             "local": {},
         }
 
-        # This variable will store all the information that's required for
-        # keeping track about if the aspect is a public or personal one.
-        # It also keeps track if the user uses the --singularis option, which
-        # makes the progarm install all aspects that are personal, which means
-        # if you aren't SingularisArt, then don't use the frecking option.
         personal = True if self.args.singularis else False
 
         for type in types:
-            for template in self.data["templates"][type]:
-                Template(
-                    template,
-                    self.root_folder,
-                    type,
-                    "^",
-                    self.data["templates"][type][template],
-                    self.specific_items_to_install,
-                    personal,
-                )
+            try:
+                for template in self.data["templates"][type]:
+                    Template(
+                        self.aspect,
+                        template,
+                        self.root_folder,
+                        type,
+                        "^",
+                        self.data["templates"][type][template],
+                        self.specific_items_to_install,
+                        personal,
+                    )
+            except KeyError:
+                pass
 
         return templates
