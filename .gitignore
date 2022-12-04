@@ -13,9 +13,6 @@ aspects/dotfiles/files/.config/mpd/mpd.db
 aspects/dotfiles/files/.config/mpd/mpd.log
 aspects/dotfiles/files/.config/mpd/mpd.pid
 aspects/dotfiles/files/.config/mpd/mpdstate
-aspects/dotfiles/files/.config/mpv/scripts/
-aspects/dotfiles/files/.config/neofetch/ascii/
-aspects/dotfiles/files/.config/ncmpcpp/error.log
 
 aspects/dotfiles/files/.config/tmux/tmux.digests
 aspects/systemd/files/.config/systemd/user/*.target.wants/
