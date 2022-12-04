@@ -1,3 +1,4 @@
 email-1: singularisartt@gmail.com
-email-password-1: "pass emails/singularisartt@gmail.com-neomutt"
-email-nickname-1: singularisartt@gmail.com
+email-1-password: "pass emails/singularisartt@gmail.com-neomutt"
+email-1-nickname: singularisartt@gmail.com
+email-1-server: imap.gmail.com
