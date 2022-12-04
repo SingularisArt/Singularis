@@ -41,7 +41,7 @@ class Template:
         delimiter,
         data,
         specific_items_to_install,
-        personal,
+        private,
     ):
         self.aspect = aspect
         self.aspect_dir = helpers.join(aspects_dir, aspect)
@@ -53,7 +53,7 @@ class Template:
         self.delimiter = delimiter
         self.data = data
         self.specific_items_to_install = specific_items_to_install
-        self.personal = personal
+        self.private = private
 
         # TODO: Implement this function
         destination = helpers.pretty_log(
@@ -101,14 +101,14 @@ class Template:
             self.install()
 
     def get_path_to_template_snippets(self, snippet):
-        public_or_personal = "personal" if self.personal else "public"
+        public_or_private = "private" if self.private else "public"
         file_ending = helpers.join(self.type, self.name, snippet + ".template")
 
-        path = helpers.join(man_dir, "templates", public_or_personal, file_ending)
+        path = helpers.join(man_dir, "templates", public_or_private, file_ending)
 
-        if not os.path.exists(path) and public_or_personal == "personal":
-            public_or_personal = "personal" if not self.personal else "public"
-            path = helpers.join(man_dir, "templates", public_or_personal, file_ending)
+        if not os.path.exists(path) and public_or_private == "private":
+            public_or_private = "private" if not self.private else "public"
+            path = helpers.join(man_dir, "templates", public_or_private, file_ending)
 
         return path
 
@@ -182,7 +182,7 @@ class Templates(dict):
             "local": {},
         }
 
-        personal = True if self.args.singularis else False
+        private = True if self.args.singularis else False
 
         for type in types:
             try:
@@ -195,7 +195,7 @@ class Templates(dict):
                         "^",
                         self.data["templates"][type][template],
                         self.specific_items_to_install,
-                        personal,
+                        private,
                     )
             except KeyError:
                 pass

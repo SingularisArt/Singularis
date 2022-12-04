@@ -55,7 +55,7 @@
     },
     ".local": {
       "bin": "public",
-      "share": "personal"
+      "share": "private"
     }
   },
   "templates": {

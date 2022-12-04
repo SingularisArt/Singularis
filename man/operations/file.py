@@ -23,7 +23,7 @@ class File:
         root: str,
         type: str,
         specific_items_to_install: list,
-        personal: dict,
+        private: dict,
     ):
         self.root = root
         self.name = file_name
@@ -31,7 +31,7 @@ class File:
         self.file_location = helpers.join(self.root, self.type, self.name)
         self.file_destination = self.get_location()
         self.specific_items_to_install = specific_items_to_install
-        self.personal = personal
+        self.private = private
 
         self.setup_for_installation()
 
@@ -67,11 +67,11 @@ class File:
             log.log_warn(f"Skipping the installation of {name}")
 
     def install(self):
-        is_aspect_personal = self.personal["install_personal_aspect"]
-        is_personal_command_running = self.personal["running_personal_command"]
+        is_aspect_private = self.private["install_private_aspect"]
+        is_private_command_running = self.private["running_private_command"]
 
         # displayed to the user.
-        if is_aspect_personal and not is_personal_command_running:
+        if is_aspect_private and not is_private_command_running:
             name = helpers.pretty_log(log, log.warn, self.name)
             cmd = helpers.pretty_log(log, log.warn, "--singularis")
 
@@ -156,19 +156,19 @@ class Files:
         log.log_trace(f"Installed all files for {aspect.title()}.")
 
     def get_files(self):
-        personal = {
-            "install_personal_aspect": False,
-            "running_personal_command": False,
+        private = {
+            "install_private_aspect": False,
+            "running_private_command": False,
         }
 
         for current_type in types:
             try:
                 for file in self.data["files"][current_type]:
-                    personal_aspect = self.data["files"][current_type][file]
-                    personal["install_personal_aspect"] = (
-                        True if personal_aspect == "personal" else False
+                    private_aspect = self.data["files"][current_type][file]
+                    private["install_private_aspect"] = (
+                        True if private_aspect == "private" else False
                     )
-                    personal["running_personal_command"] = (
+                    private["running_private_command"] = (
                         True if self.args.singularis else False
                     )
 
@@ -177,7 +177,7 @@ class Files:
                         self.root,
                         current_type,
                         self.specific_items_to_install,
-                        personal,
+                        private,
                     )
             except KeyError:
                 pass
