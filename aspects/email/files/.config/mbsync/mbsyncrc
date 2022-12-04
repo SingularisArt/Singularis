@@ -7,56 +7,56 @@ SyncState *
 #                                  Account 1                                   #
 #                                                                              #
 ################################################################################
-IMAPAccount ^{email_1_nickname}
-Host ^{email_1_server}
-User ^{email_1}
-PassCmd "^{email_1_password}"
+IMAPAccount singularisartt@gmail.com
+Host imap.gmail.com
+User singularisartt@gmail.com
+PassCmd "pass emails/singularisartt@gmail.com-neomutt"
 SSLType IMAPS
 AuthMechs LOGIN
 
-IMAPStore ^{email_1}-remote
-Account ^{email_1_nickname}
+IMAPStore singularisartt@gmail.com-remote
+Account singularisartt@gmail.com
 
-MaildirStore ^{email_1}-local
-Path ~/.local/share/mail/^{email_1}/
-Inbox ~/.local/share/mail/^{email_1}/INBOX
+MaildirStore singularisartt@gmail.com-local
+Path ~/.local/share/mail/singularisartt@gmail.com/
+Inbox ~/.local/share/mail/singularisartt@gmail.com/INBOX
 SubFolders Verbatim
 
-Channel ^{email_1}-inbox
-Master :^{email_1}-remote:INBOX
-Slave :^{email_1}-local:INBOX
+Channel singularisartt@gmail.com-inbox
+Master :singularisartt@gmail.com-remote:INBOX
+Slave :singularisartt@gmail.com-local:INBOX
 
-Channel ^{email_1}-archive
-Master :^{email_1}-remote:"[Gmail]/All Mail"
-Slave :^{email_1}-local:Archive
+Channel singularisartt@gmail.com-archive
+Master :singularisartt@gmail.com-remote:"[Gmail]/All Mail"
+Slave :singularisartt@gmail.com-local:Archive
 
-Channel ^{email_1}-drafts
-Master :^{email_1}-remote:"[Gmail]/Drafts"
-Slave :^{email_1}-local:Drafts
+Channel singularisartt@gmail.com-drafts
+Master :singularisartt@gmail.com-remote:"[Gmail]/Drafts"
+Slave :singularisartt@gmail.com-local:Drafts
 
-Channel ^{email_1}-important
-Master :^{email_1}-remote:"[Gmail]/Important"
-Slave :^{email_1}-local:Important
+Channel singularisartt@gmail.com-important
+Master :singularisartt@gmail.com-remote:"[Gmail]/Important"
+Slave :singularisartt@gmail.com-local:Important
 
-Channel ^{email_1}-sent
-Master :^{email_1}-remote:"[Gmail]/Sent Mail"
-Slave :^{email_1}-local:Sent
+Channel singularisartt@gmail.com-sent
+Master :singularisartt@gmail.com-remote:"[Gmail]/Sent Mail"
+Slave :singularisartt@gmail.com-local:Sent
 
-Channel ^{email_1}-spam
-Master :^{email_1}-remote:"[Gmail]/Spam"
-Slave :^{email_1}-local:Spam
+Channel singularisartt@gmail.com-spam
+Master :singularisartt@gmail.com-remote:"[Gmail]/Spam"
+Slave :singularisartt@gmail.com-local:Spam
 
-Channel ^{email_1}-starred
-Master :^{email_1}-remote:"[Gmail]/Starred"
-Slave :^{email_1}-local:Starred
+Channel singularisartt@gmail.com-starred
+Master :singularisartt@gmail.com-remote:"[Gmail]/Starred"
+Slave :singularisartt@gmail.com-local:Starred
 
-Channel ^{email_1}-trash
-Master :^{email_1}-remote:"[Gmail]/Trash"
-Slave :^{email_1}-local:Trash
+Channel singularisartt@gmail.com-trash
+Master :singularisartt@gmail.com-remote:"[Gmail]/Trash"
+Slave :singularisartt@gmail.com-local:Trash
 
-Channel ^{email_1}-get-folders
-Master :^{email_1}-remote:
-Slave :^{email_1}-local:
+Channel singularisartt@gmail.com-get-folders
+Master :singularisartt@gmail.com-remote:
+Slave :singularisartt@gmail.com-local:
 Patterns *
 Patterns !INBOX
 Patterns !Search
@@ -68,16 +68,16 @@ Patterns !Archive
 Patterns !Drafts
 Patterns !Starred
 
-Group ^{email_1}
-Channel ^{email_1}-inbox
-Channel ^{email_1}-archive
-Channel ^{email_1}-drafts
-Channel ^{email_1}-important
-Channel ^{email_1}-sent
-Channel ^{email_1}-spam
-Channel ^{email_1}-starred
-Channel ^{email_1}-trash
-Channel ^{email_1}-get-folders
+Group singularisartt@gmail.com
+Channel singularisartt@gmail.com-inbox
+Channel singularisartt@gmail.com-archive
+Channel singularisartt@gmail.com-drafts
+Channel singularisartt@gmail.com-important
+Channel singularisartt@gmail.com-sent
+Channel singularisartt@gmail.com-spam
+Channel singularisartt@gmail.com-starred
+Channel singularisartt@gmail.com-trash
+Channel singularisartt@gmail.com-get-folders
 ################################################################################
 
 ################################################################################
@@ -85,56 +85,56 @@ Channel ^{email_1}-get-folders
 #                                  Account 2                                   #
 #                                                                              #
 ################################################################################
-IMAPAccount ^{email_2_nickname}
-Host ^{email_2_server}
-User ^{email_2}
-PassCmd "^{email_2_password}"
+IMAPAccount dermdorm2@gmail.com
+Host imap.gmail.com
+User dermdorm2@gmail.com
+PassCmd "pass emails/dermdorm2@gmail.com-neomutt"
 SSLType IMAPS
 AuthMechs LOGIN
 
-IMAPStore ^{email_2}-remote
-Account ^{email_2_nickname}
+IMAPStore dermdorm2@gmail.com-remote
+Account dermdorm2@gmail.com
 
-MaildirStore ^{email_2}-local
-Path ~/.local/share/mail/^{email_2}/
-Inbox ~/.local/share/mail/^{email_2}/INBOX
+MaildirStore dermdorm2@gmail.com-local
+Path ~/.local/share/mail/dermdorm2@gmail.com/
+Inbox ~/.local/share/mail/dermdorm2@gmail.com/INBOX
 SubFolders Verbatim
 
-Channel ^{email_2}-inbox
-Master :^{email_2}-remote:INBOX
-Slave :^{email_2}-local:INBOX
+Channel dermdorm2@gmail.com-inbox
+Master :dermdorm2@gmail.com-remote:INBOX
+Slave :dermdorm2@gmail.com-local:INBOX
 
-Channel ^{email_2}-archive
-Master :^{email_2}-remote:"[Gmail]/All Mail"
-Slave :^{email_2}-local:Archive
+Channel dermdorm2@gmail.com-archive
+Master :dermdorm2@gmail.com-remote:"[Gmail]/All Mail"
+Slave :dermdorm2@gmail.com-local:Archive
 
-Channel ^{email_2}-drafts
-Master :^{email_2}-remote:"[Gmail]/Drafts"
-Slave :^{email_2}-local:Drafts
+Channel dermdorm2@gmail.com-drafts
+Master :dermdorm2@gmail.com-remote:"[Gmail]/Drafts"
+Slave :dermdorm2@gmail.com-local:Drafts
 
-Channel ^{email_2}-important
-Master :^{email_2}-remote:"[Gmail]/Important"
-Slave :^{email_2}-local:Important
+Channel dermdorm2@gmail.com-important
+Master :dermdorm2@gmail.com-remote:"[Gmail]/Important"
+Slave :dermdorm2@gmail.com-local:Important
 
-Channel ^{email_2}-sent
-Master :^{email_2}-remote:"[Gmail]/Sent Mail"
-Slave :^{email_2}-local:Sent
+Channel dermdorm2@gmail.com-sent
+Master :dermdorm2@gmail.com-remote:"[Gmail]/Sent Mail"
+Slave :dermdorm2@gmail.com-local:Sent
 
-Channel ^{email_2}-spam
-Master :^{email_2}-remote:"[Gmail]/Spam"
-Slave :^{email_2}-local:Spam
+Channel dermdorm2@gmail.com-spam
+Master :dermdorm2@gmail.com-remote:"[Gmail]/Spam"
+Slave :dermdorm2@gmail.com-local:Spam
 
-Channel ^{email_2}-starred
-Master :^{email_2}-remote:"[Gmail]/Starred"
-Slave :^{email_2}-local:Starred
+Channel dermdorm2@gmail.com-starred
+Master :dermdorm2@gmail.com-remote:"[Gmail]/Starred"
+Slave :dermdorm2@gmail.com-local:Starred
 
-Channel ^{email_2}-trash
-Master :^{email_2}-remote:"[Gmail]/Trash"
-Slave :^{email_2}-local:Trash
+Channel dermdorm2@gmail.com-trash
+Master :dermdorm2@gmail.com-remote:"[Gmail]/Trash"
+Slave :dermdorm2@gmail.com-local:Trash
 
-Channel ^{email_2}-get-folders
-Master :^{email_2}-remote:
-Slave :^{email_2}-local:
+Channel dermdorm2@gmail.com-get-folders
+Master :dermdorm2@gmail.com-remote:
+Slave :dermdorm2@gmail.com-local:
 Patterns *
 Patterns !INBOX
 Patterns !Search
@@ -146,16 +146,16 @@ Patterns !Archive
 Patterns !Drafts
 Patterns !Starred
 
-Group ^{email_2}
-Channel ^{email_2}-inbox
-Channel ^{email_2}-archive
-Channel ^{email_2}-drafts
-Channel ^{email_2}-important
-Channel ^{email_2}-sent
-Channel ^{email_2}-spam
-Channel ^{email_2}-starred
-Channel ^{email_2}-trash
-Channel ^{email_2}-get-folders
+Group dermdorm2@gmail.com
+Channel dermdorm2@gmail.com-inbox
+Channel dermdorm2@gmail.com-archive
+Channel dermdorm2@gmail.com-drafts
+Channel dermdorm2@gmail.com-important
+Channel dermdorm2@gmail.com-sent
+Channel dermdorm2@gmail.com-spam
+Channel dermdorm2@gmail.com-starred
+Channel dermdorm2@gmail.com-trash
+Channel dermdorm2@gmail.com-get-folders
 ################################################################################
 
 ################################################################################
@@ -163,56 +163,56 @@ Channel ^{email_2}-get-folders
 #                                  Account 3                                   #
 #                                                                              #
 ################################################################################
-IMAPAccount ^{email_3_nickname}
-Host ^{email_3_server}
-User ^{email_3}
-PassCmd "^{email_3_password}"
+IMAPAccount hashem.damrah@pcc.edu
+Host imap.gmail.com
+User hashem.damrah@pcc.edu
+PassCmd "pass emails/hashem.damrah@pcc.edu"
 SSLType IMAPS
 AuthMechs LOGIN
 
-IMAPStore ^{email_3}-remote
-Account ^{email_3_nickname}
+IMAPStore hashem.damrah@pcc.edu-remote
+Account hashem.damrah@pcc.edu
 
-MaildirStore ^{email_3}-local
-Path ~/.local/share/mail/^{email_3}/
-Inbox ~/.local/share/mail/^{email_3}/INBOX
+MaildirStore hashem.damrah@pcc.edu-local
+Path ~/.local/share/mail/hashem.damrah@pcc.edu/
+Inbox ~/.local/share/mail/hashem.damrah@pcc.edu/INBOX
 SubFolders Verbatim
 
-Channel ^{email_3}-inbox
-Master :^{email_3}-remote:INBOX
-Slave :^{email_3}-local:INBOX
+Channel hashem.damrah@pcc.edu-inbox
+Master :hashem.damrah@pcc.edu-remote:INBOX
+Slave :hashem.damrah@pcc.edu-local:INBOX
 
-Channel ^{email_3}-archive
-Master :^{email_3}-remote:"[Gmail]/All Mail"
-Slave :^{email_3}-local:Archive
+Channel hashem.damrah@pcc.edu-archive
+Master :hashem.damrah@pcc.edu-remote:"[Gmail]/All Mail"
+Slave :hashem.damrah@pcc.edu-local:Archive
 
-Channel ^{email_3}-drafts
-Master :^{email_3}-remote:"[Gmail]/Drafts"
-Slave :^{email_3}-local:Drafts
+Channel hashem.damrah@pcc.edu-drafts
+Master :hashem.damrah@pcc.edu-remote:"[Gmail]/Drafts"
+Slave :hashem.damrah@pcc.edu-local:Drafts
 
-Channel ^{email_3}-important
-Master :^{email_3}-remote:"[Gmail]/Important"
-Slave :^{email_3}-local:Important
+Channel hashem.damrah@pcc.edu-important
+Master :hashem.damrah@pcc.edu-remote:"[Gmail]/Important"
+Slave :hashem.damrah@pcc.edu-local:Important
 
-Channel ^{email_3}-sent
-Master :^{email_3}-remote:"[Gmail]/Sent Mail"
-Slave :^{email_3}-local:Sent
+Channel hashem.damrah@pcc.edu-sent
+Master :hashem.damrah@pcc.edu-remote:"[Gmail]/Sent Mail"
+Slave :hashem.damrah@pcc.edu-local:Sent
 
-Channel ^{email_3}-spam
-Master :^{email_3}-remote:"[Gmail]/Spam"
-Slave :^{email_3}-local:Spam
+Channel hashem.damrah@pcc.edu-spam
+Master :hashem.damrah@pcc.edu-remote:"[Gmail]/Spam"
+Slave :hashem.damrah@pcc.edu-local:Spam
 
-Channel ^{email_3}-starred
-Master :^{email_3}-remote:"[Gmail]/Starred"
-Slave :^{email_3}-local:Starred
+Channel hashem.damrah@pcc.edu-starred
+Master :hashem.damrah@pcc.edu-remote:"[Gmail]/Starred"
+Slave :hashem.damrah@pcc.edu-local:Starred
 
-Channel ^{email_3}-trash
-Master :^{email_3}-remote:"[Gmail]/Trash"
-Slave :^{email_3}-local:Trash
+Channel hashem.damrah@pcc.edu-trash
+Master :hashem.damrah@pcc.edu-remote:"[Gmail]/Trash"
+Slave :hashem.damrah@pcc.edu-local:Trash
 
-Channel ^{email_3}-get-folders
-Master :^{email_3}-remote:
-Slave :^{email_3}-local:
+Channel hashem.damrah@pcc.edu-get-folders
+Master :hashem.damrah@pcc.edu-remote:
+Slave :hashem.damrah@pcc.edu-local:
 Patterns *
 Patterns !INBOX
 Patterns !Search
@@ -224,16 +224,16 @@ Patterns !Archive
 Patterns !Drafts
 Patterns !Starred
 
-Group ^{email_3}
-Channel ^{email_3}-inbox
-Channel ^{email_3}-archive
-Channel ^{email_3}-drafts
-Channel ^{email_3}-important
-Channel ^{email_3}-sent
-Channel ^{email_3}-spam
-Channel ^{email_3}-starred
-Channel ^{email_3}-trash
-Channel ^{email_3}-get-folders
+Group hashem.damrah@pcc.edu
+Channel hashem.damrah@pcc.edu-inbox
+Channel hashem.damrah@pcc.edu-archive
+Channel hashem.damrah@pcc.edu-drafts
+Channel hashem.damrah@pcc.edu-important
+Channel hashem.damrah@pcc.edu-sent
+Channel hashem.damrah@pcc.edu-spam
+Channel hashem.damrah@pcc.edu-starred
+Channel hashem.damrah@pcc.edu-trash
+Channel hashem.damrah@pcc.edu-get-folders
 ################################################################################
 
 ################################################################################
@@ -241,56 +241,56 @@ Channel ^{email_3}-get-folders
 #                                  Account 4                                   #
 #                                                                              #
 ################################################################################
-IMAPAccount ^{email_4_nickname}
-Host ^{email_4_server}
-User ^{email_4}
-PassCmd "^{email_4_password}"
+IMAPAccount alaa.damrah@pcc.edu
+Host imap.gmail.com
+User alaa.damrah@pcc.edu
+PassCmd "pass emails/alaa.damrah@pcc.edu"
 SSLType IMAPS
 AuthMechs LOGIN
 
-IMAPStore ^{email_4}-remote
-Account ^{email_4_nickname}
+IMAPStore alaa.damrah@pcc.edu-remote
+Account alaa.damrah@pcc.edu
 
-MaildirStore ^{email_4}-local
-Path ~/.local/share/mail/^{email_4}/
-Inbox ~/.local/share/mail/^{email_4}/INBOX
+MaildirStore alaa.damrah@pcc.edu-local
+Path ~/.local/share/mail/alaa.damrah@pcc.edu/
+Inbox ~/.local/share/mail/alaa.damrah@pcc.edu/INBOX
 SubFolders Verbatim
 
-Channel ^{email_4}-inbox
-Master :^{email_4}-remote:INBOX
-Slave :^{email_4}-local:INBOX
+Channel alaa.damrah@pcc.edu-inbox
+Master :alaa.damrah@pcc.edu-remote:INBOX
+Slave :alaa.damrah@pcc.edu-local:INBOX
 
-Channel ^{email_4}-archive
-Master :^{email_4}-remote:"[Gmail]/All Mail"
-Slave :^{email_4}-local:Archive
+Channel alaa.damrah@pcc.edu-archive
+Master :alaa.damrah@pcc.edu-remote:"[Gmail]/All Mail"
+Slave :alaa.damrah@pcc.edu-local:Archive
 
-Channel ^{email_4}-drafts
-Master :^{email_4}-remote:"[Gmail]/Drafts"
-Slave :^{email_4}-local:Drafts
+Channel alaa.damrah@pcc.edu-drafts
+Master :alaa.damrah@pcc.edu-remote:"[Gmail]/Drafts"
+Slave :alaa.damrah@pcc.edu-local:Drafts
 
-Channel ^{email_4}-important
-Master :^{email_4}-remote:"[Gmail]/Important"
-Slave :^{email_4}-local:Important
+Channel alaa.damrah@pcc.edu-important
+Master :alaa.damrah@pcc.edu-remote:"[Gmail]/Important"
+Slave :alaa.damrah@pcc.edu-local:Important
 
-Channel ^{email_4}-sent
-Master :^{email_4}-remote:"[Gmail]/Sent Mail"
-Slave :^{email_4}-local:Sent
+Channel alaa.damrah@pcc.edu-sent
+Master :alaa.damrah@pcc.edu-remote:"[Gmail]/Sent Mail"
+Slave :alaa.damrah@pcc.edu-local:Sent
 
-Channel ^{email_4}-spam
-Master :^{email_4}-remote:"[Gmail]/Spam"
-Slave :^{email_4}-local:Spam
+Channel alaa.damrah@pcc.edu-spam
+Master :alaa.damrah@pcc.edu-remote:"[Gmail]/Spam"
+Slave :alaa.damrah@pcc.edu-local:Spam
 
-Channel ^{email_4}-starred
-Master :^{email_4}-remote:"[Gmail]/Starred"
-Slave :^{email_4}-local:Starred
+Channel alaa.damrah@pcc.edu-starred
+Master :alaa.damrah@pcc.edu-remote:"[Gmail]/Starred"
+Slave :alaa.damrah@pcc.edu-local:Starred
 
-Channel ^{email_4}-trash
-Master :^{email_4}-remote:"[Gmail]/Trash"
-Slave :^{email_4}-local:Trash
+Channel alaa.damrah@pcc.edu-trash
+Master :alaa.damrah@pcc.edu-remote:"[Gmail]/Trash"
+Slave :alaa.damrah@pcc.edu-local:Trash
 
-Channel ^{email_4}-get-folders
-Master :^{email_4}-remote:
-Slave :^{email_4}-local:
+Channel alaa.damrah@pcc.edu-get-folders
+Master :alaa.damrah@pcc.edu-remote:
+Slave :alaa.damrah@pcc.edu-local:
 Patterns *
 Patterns !INBOX
 Patterns !Search
@@ -302,16 +302,16 @@ Patterns !Archive
 Patterns !Drafts
 Patterns !Starred
 
-Group ^{email_4}
-Channel ^{email_4}-inbox
-Channel ^{email_4}-archive
-Channel ^{email_4}-drafts
-Channel ^{email_4}-important
-Channel ^{email_4}-sent
-Channel ^{email_4}-spam
-Channel ^{email_4}-starred
-Channel ^{email_4}-trash
-Channel ^{email_4}-get-folders
+Group alaa.damrah@pcc.edu
+Channel alaa.damrah@pcc.edu-inbox
+Channel alaa.damrah@pcc.edu-archive
+Channel alaa.damrah@pcc.edu-drafts
+Channel alaa.damrah@pcc.edu-important
+Channel alaa.damrah@pcc.edu-sent
+Channel alaa.damrah@pcc.edu-spam
+Channel alaa.damrah@pcc.edu-starred
+Channel alaa.damrah@pcc.edu-trash
+Channel alaa.damrah@pcc.edu-get-folders
 ################################################################################
 
 ################################################################################
@@ -319,56 +319,56 @@ Channel ^{email_4}-get-folders
 #                                  Account 5                                   #
 #                                                                              #
 ################################################################################
-IMAPAccount ^{email_5_nickname}
-Host ^{email_5_server}
-User ^{email_5}
-PassCmd "^{email_5_password}"
+IMAPAccount hdamrah9249@bakercharters.org
+Host imap.gmail.com
+User hdamrah9249@bakercharters.org
+PassCmd "pass emails/hdamrah9249@bakercharters.org"
 SSLType IMAPS
 AuthMechs LOGIN
 
-IMAPStore ^{email_5}-remote
-Account ^{email_5_nickname}
+IMAPStore hdamrah9249@bakercharters.org-remote
+Account hdamrah9249@bakercharters.org
 
-MaildirStore ^{email_5}-local
-Path ~/.local/share/mail/^{email_5}/
-Inbox ~/.local/share/mail/^{email_5}/INBOX
+MaildirStore hdamrah9249@bakercharters.org-local
+Path ~/.local/share/mail/hdamrah9249@bakercharters.org/
+Inbox ~/.local/share/mail/hdamrah9249@bakercharters.org/INBOX
 SubFolders Verbatim
 
-Channel ^{email_5}-inbox
-Master :^{email_5}-remote:INBOX
-Slave :^{email_5}-local:INBOX
+Channel hdamrah9249@bakercharters.org-inbox
+Master :hdamrah9249@bakercharters.org-remote:INBOX
+Slave :hdamrah9249@bakercharters.org-local:INBOX
 
-Channel ^{email_5}-archive
-Master :^{email_5}-remote:"[Gmail]/All Mail"
-Slave :^{email_5}-local:Archive
+Channel hdamrah9249@bakercharters.org-archive
+Master :hdamrah9249@bakercharters.org-remote:"[Gmail]/All Mail"
+Slave :hdamrah9249@bakercharters.org-local:Archive
 
-Channel ^{email_5}-drafts
-Master :^{email_5}-remote:"[Gmail]/Drafts"
-Slave :^{email_5}-local:Drafts
+Channel hdamrah9249@bakercharters.org-drafts
+Master :hdamrah9249@bakercharters.org-remote:"[Gmail]/Drafts"
+Slave :hdamrah9249@bakercharters.org-local:Drafts
 
-Channel ^{email_5}-important
-Master :^{email_5}-remote:"[Gmail]/Important"
-Slave :^{email_5}-local:Important
+Channel hdamrah9249@bakercharters.org-important
+Master :hdamrah9249@bakercharters.org-remote:"[Gmail]/Important"
+Slave :hdamrah9249@bakercharters.org-local:Important
 
-Channel ^{email_5}-sent
-Master :^{email_5}-remote:"[Gmail]/Sent Mail"
-Slave :^{email_5}-local:Sent
+Channel hdamrah9249@bakercharters.org-sent
+Master :hdamrah9249@bakercharters.org-remote:"[Gmail]/Sent Mail"
+Slave :hdamrah9249@bakercharters.org-local:Sent
 
-Channel ^{email_5}-spam
-Master :^{email_5}-remote:"[Gmail]/Spam"
-Slave :^{email_5}-local:Spam
+Channel hdamrah9249@bakercharters.org-spam
+Master :hdamrah9249@bakercharters.org-remote:"[Gmail]/Spam"
+Slave :hdamrah9249@bakercharters.org-local:Spam
 
-Channel ^{email_5}-starred
-Master :^{email_5}-remote:"[Gmail]/Starred"
-Slave :^{email_5}-local:Starred
+Channel hdamrah9249@bakercharters.org-starred
+Master :hdamrah9249@bakercharters.org-remote:"[Gmail]/Starred"
+Slave :hdamrah9249@bakercharters.org-local:Starred
 
-Channel ^{email_5}-trash
-Master :^{email_5}-remote:"[Gmail]/Trash"
-Slave :^{email_5}-local:Trash
+Channel hdamrah9249@bakercharters.org-trash
+Master :hdamrah9249@bakercharters.org-remote:"[Gmail]/Trash"
+Slave :hdamrah9249@bakercharters.org-local:Trash
 
-Channel ^{email_5}-get-folders
-Master :^{email_5}-remote:
-Slave :^{email_5}-local:
+Channel hdamrah9249@bakercharters.org-get-folders
+Master :hdamrah9249@bakercharters.org-remote:
+Slave :hdamrah9249@bakercharters.org-local:
 Patterns *
 Patterns !INBOX
 Patterns !Search
@@ -380,14 +380,14 @@ Patterns !Archive
 Patterns !Drafts
 Patterns !Starred
 
-Group ^{email_5}
-Channel ^{email_5}-inbox
-Channel ^{email_5}-archive
-Channel ^{email_5}-drafts
-Channel ^{email_5}-important
-Channel ^{email_5}-sent
-Channel ^{email_5}-spam
-Channel ^{email_5}-starred
-Channel ^{email_5}-trash
-Channel ^{email_5}-get-folders
+Group hdamrah9249@bakercharters.org
+Channel hdamrah9249@bakercharters.org-inbox
+Channel hdamrah9249@bakercharters.org-archive
+Channel hdamrah9249@bakercharters.org-drafts
+Channel hdamrah9249@bakercharters.org-important
+Channel hdamrah9249@bakercharters.org-sent
+Channel hdamrah9249@bakercharters.org-spam
+Channel hdamrah9249@bakercharters.org-starred
+Channel hdamrah9249@bakercharters.org-trash
+Channel hdamrah9249@bakercharters.org-get-folders
 ################################################################################

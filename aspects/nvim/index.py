@@ -11,8 +11,6 @@ log = Log()
 
 log.log_notice("Installing my NeoVim configuration.")
 
-specific_items_to_install = ""
-
 Files("nvim", specific_items_to_install, args)
 Templates("nvim", specific_items_to_install, args)
 Packages("nvim")

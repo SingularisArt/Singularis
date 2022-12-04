@@ -1,18 +1,8 @@
 {
   "description": "My NeoVim configuration.",
   "files": {
-    ".home": {},
     ".config": {
       "nvim": "public"
-    },
-    ".local": {}
-  },
-  "templates": {
-    ".home": {},
-    ".config": {
-      "nvim/misc/static/markdown-preview/customStyle.css": ["import"],
-      "nvim/misc/personal/emails.json": ["emails"]
-    },
-    ".local": {}
+    }
   }
 }
