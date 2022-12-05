@@ -43,12 +43,14 @@ syncandnotify() {
   fi
 
   new=$(find \
-    "$HOME/.local/share/mail/$acc/"[Ii][Nn][Bb][Oo][Xx]/new/ \
-    "$HOME/.local/share/mail/$acc/"[Ii][Nn][Bb][Oo][Xx]/cur/ \
+    "$XDG_DATA_HOME/mail/$acc/"[Ii][Nn][Bb][Oo][Xx]/new/ \
+    "$XDG_DATA_HOME/mail/$acc/"[Ii][Nn][Bb][Oo][Xx]/cur/ \
     -type f -newer "$LASTRUN" 2> /dev/null)
 
   newcount=$(echo "$new" | sed '/^\s*$/d' | wc -l)
   [ "$newcount" -gt 0 ] && new_notify "$acc" "$newcount"
+
+  "$HOME"/.local/bin/neomutt/get_folders "$acc"
 }
 
 if [ "$#" -gt "0" ]; then
@@ -60,7 +62,7 @@ if [ "$#" -gt "0" ]; then
 fi
 
 if [ "$accounts" = "" ]; then
-  accounts=$(find "$HOME"/.local/share/mail -mindepth 1 -maxdepth 1 -type d \( ! -iname ".*" \))
+  accounts=$(find "$XDG_DATA_HOME/mail" -mindepth 1 -maxdepth 1 -type d \( ! -iname ".*" \))
 fi
 
 for account in $accounts; do

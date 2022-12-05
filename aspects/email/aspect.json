@@ -1,21 +1,35 @@
 {
-  "description": "My neomutt email setup",
+  "description": "My email setup",
   "files": {
     ".config": {
       "abook": "public",
-      "gcalcli": "private",
+      "gcalcli": "public",
       "glow": "public",
       "goobook": "public",
       "imapfilter": "public",
-      "msmtp": "private",
+      "khal": "public",
+      "khard": "public",
       "neomutt": "public",
-      "notmuch": "private",
-      "vdirsyncer": "private"
+      "vdirsyncer": "public"
     }
   },
   "templates": {
     ".config": {
-      "mbsync/mbsyncrc": ["email-1", "email-password-1", "email-nickname-1"]
+      "mbsync/mbsyncrc": [
+        "email_1", "email_password_1", "email_nickname_1",
+        "email_2", "email_password_2", "email_nickname_2",
+        "email_3", "email_password_3", "email_nickname_3",
+        "email_4", "email_password_4", "email_nickname_4",
+        "email_5", "email_password_5", "email_nickname_5"
+      ],
+      "msmtp/config": [
+        "email_1", "email_1_host", "email_1_port", "email_1_password",
+        "email_2", "email_2_host", "email_2_port", "email_2_password",
+        "email_3", "email_3_host", "email_3_port", "email_3_password",
+        "email_4", "email_4_host", "email_4_port", "email_4_password",
+        "email_5", "email_5_host", "email_5_port", "email_5_password"
+      ],
+      "notmuch/config": ["user", "primary_email"]
     }
   }
 }

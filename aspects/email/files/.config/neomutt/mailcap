@@ -3,8 +3,10 @@ text/html; /usr/bin/google-chrome-stable %s ; nametemplate=%s.html
 # text/html; ~/.local/bin/neomutt/beautiful_html_renderer %s; nametemplate=%s.html; copiousoutput;
 
 # show calendar invites
-text/calendar; ~/.local/bin/neomutt/render_calendar_attachment %s; copiousoutput;
-application/ics; ~/.local/bin/neomutt/mutt_viewical; copiousoutput;
+# text/calendar; ~/.local/bin/neomutt/render_calendar_attachment %s; copiousoutput;
+# application/ics; ~/.local/bin/neomutt/mutt_viewical; copiousoutput;
+text/calendar; mutt-ics; copiousoutput
+application/ics; mutt-ics; copiousoutput
 
 # open images externally
 image/*; sxiv %s ;
