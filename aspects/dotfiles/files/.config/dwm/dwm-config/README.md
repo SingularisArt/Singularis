@@ -1,1 +1,0 @@
-# Dwm Config
