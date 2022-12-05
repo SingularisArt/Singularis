@@ -31,9 +31,9 @@ See also: #456, #789
 Signature
 
 -------------------------------------------------------------------------------
-${1:Company Name}
+Company Name
 
-${2:Author Name}
+Author Name
 
 Streetname 21
 City and Area

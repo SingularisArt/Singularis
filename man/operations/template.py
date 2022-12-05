@@ -51,7 +51,7 @@ class Template:
         self.template_location = helpers.join(
             self.root_folder,
             self.type,
-            self.name,
+            self.name + ".temp",
         )
         self.template_destination = self.get_location()
         self.delimiter = delimiter
