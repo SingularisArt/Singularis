@@ -1,4 +1,4 @@
-#!/usr/bin/python3.10
+#!/usr/bin/env python3
 
 import yaml
 from string import Template
@@ -48,7 +48,11 @@ class Template:
         self.root_folder = root_folder
         self.name = template_name
         self.type = type
-        self.template_location = helpers.join(self.root_folder, self.type, self.name)
+        self.template_location = helpers.join(
+            self.root_folder,
+            self.type,
+            self.name,
+        )
         self.template_destination = self.get_location()
         self.delimiter = delimiter
         self.data = data
@@ -78,12 +82,12 @@ class Template:
     def setup_for_installation(self):
         try:
             open(self.template_destination, "x")
-            log.log_trace("Creating file {}".format(self.template_destination))
+            log.log_trace(f"Creating file {self.template_destination}")
         except FileNotFoundError:
             os.makedirs(os.path.dirname(self.template_destination))
-            log.log_trace("Creating folder {}".format(self.template_destination))
+            log.log_trace(f"Creating folder {self.template_destination}")
         except FileExistsError:
-            log.log_trace("File {} already exists".format(self.template_destination))
+            log.log_trace(f"File {self.template_destination} already exists")
 
         if len(self.specific_items_to_install) > 0:
             if (
@@ -104,23 +108,45 @@ class Template:
         public_or_private = "private" if self.private else "public"
         file_ending = helpers.join(self.type, self.name, snippet + ".template")
 
-        path = helpers.join(man_dir, "templates", public_or_private, file_ending)
+        path = helpers.join(
+            man_dir,
+            "templates",
+            public_or_private,
+            file_ending,
+        )
 
         if not os.path.exists(path) and public_or_private == "private":
             public_or_private = "private" if not self.private else "public"
-            path = helpers.join(man_dir, "templates", public_or_private, file_ending)
+            path = helpers.join(
+                man_dir,
+                "templates",
+                public_or_private,
+                file_ending,
+            )
 
         return path
 
     def install(self):
         opened_template = open(self.template_location, "r").read()
-        info = open(helpers.join(self.aspect_dir, "vars/private.yaml"))
-        private_vars = yaml.load(info, Loader=yaml.FullLoader)
+        private_info = open(helpers.join(self.aspect_dir, "vars/private.yaml"))
+        public_info = open(
+            helpers.join(self.aspect_dir, "vars/public.yaml"),
+        )
+
+        private_vars = yaml.load(private_info, Loader=yaml.FullLoader)
+        public_vars = yaml.load(public_info, Loader=yaml.FullLoader)
         opened_template = NewStrTemp(opened_template)
 
         replace_dict = {}
-        for var in private_vars:
-            replace_dict[var] = private_vars[var]
+        if not self.private:
+            for var in public_vars:
+                replace_dict[var] = public_vars[var]
+        else:
+            for var in private_vars:
+                try:
+                    replace_dict[var] = private_vars[var]
+                except KeyError:
+                    replace_dict[var] = public_vars[var]
 
         completed_template = opened_template.safe_substitute(replace_dict)
 

@@ -8,7 +8,6 @@ folder-hook . 'set read_inc=1000'
 
 # Set preffered view modes
 auto_view text/html text/calendar application/ics # view html automatically
-alternative_order text/html text/plain text/enriched text/*
 
 # main options
 set envelope_from
