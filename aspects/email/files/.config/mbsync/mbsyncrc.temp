@@ -23,40 +23,40 @@ Inbox ~/.local/share/mail/^{email_1}/INBOX
 SubFolders Verbatim
 
 Channel ^{email_1}-inbox
-Master :^{email_1}-remote:INBOX
-Slave :^{email_1}-local:INBOX
+Far :^{email_1}-remote:INBOX
+Near :^{email_1}-local:INBOX
 
 Channel ^{email_1}-archive
-Master :^{email_1}-remote:"[Gmail]/All Mail"
-Slave :^{email_1}-local:Archive
+Far :^{email_1}-remote:"[Gmail]/All Mail"
+Near :^{email_1}-local:Archive
 
 Channel ^{email_1}-drafts
-Master :^{email_1}-remote:"[Gmail]/Drafts"
-Slave :^{email_1}-local:Drafts
+Far :^{email_1}-remote:"[Gmail]/Drafts"
+Near :^{email_1}-local:Drafts
 
 Channel ^{email_1}-important
-Master :^{email_1}-remote:"[Gmail]/Important"
-Slave :^{email_1}-local:Important
+Far :^{email_1}-remote:"[Gmail]/Important"
+Near :^{email_1}-local:Important
 
 Channel ^{email_1}-sent
-Master :^{email_1}-remote:"[Gmail]/Sent Mail"
-Slave :^{email_1}-local:Sent
+Far :^{email_1}-remote:"[Gmail]/Sent Mail"
+Near :^{email_1}-local:Sent
 
 Channel ^{email_1}-spam
-Master :^{email_1}-remote:"[Gmail]/Spam"
-Slave :^{email_1}-local:Spam
+Far :^{email_1}-remote:"[Gmail]/Spam"
+Near :^{email_1}-local:Spam
 
 Channel ^{email_1}-starred
-Master :^{email_1}-remote:"[Gmail]/Starred"
-Slave :^{email_1}-local:Starred
+Far :^{email_1}-remote:"[Gmail]/Starred"
+Near :^{email_1}-local:Starred
 
 Channel ^{email_1}-trash
-Master :^{email_1}-remote:"[Gmail]/Trash"
-Slave :^{email_1}-local:Trash
+Far :^{email_1}-remote:"[Gmail]/Trash"
+Near :^{email_1}-local:Trash
 
 Channel ^{email_1}-get-folders
-Master :^{email_1}-remote:
-Slave :^{email_1}-local:
+Far :^{email_1}-remote:
+Near :^{email_1}-local:
 Patterns *
 Patterns !INBOX
 Patterns !Search
@@ -101,40 +101,40 @@ Inbox ~/.local/share/mail/^{email_2}/INBOX
 SubFolders Verbatim
 
 Channel ^{email_2}-inbox
-Master :^{email_2}-remote:INBOX
-Slave :^{email_2}-local:INBOX
+Far :^{email_2}-remote:INBOX
+Near :^{email_2}-local:INBOX
 
 Channel ^{email_2}-archive
-Master :^{email_2}-remote:"[Gmail]/All Mail"
-Slave :^{email_2}-local:Archive
+Far :^{email_2}-remote:"[Gmail]/All Mail"
+Near :^{email_2}-local:Archive
 
 Channel ^{email_2}-drafts
-Master :^{email_2}-remote:"[Gmail]/Drafts"
-Slave :^{email_2}-local:Drafts
+Far :^{email_2}-remote:"[Gmail]/Drafts"
+Near :^{email_2}-local:Drafts
 
 Channel ^{email_2}-important
-Master :^{email_2}-remote:"[Gmail]/Important"
-Slave :^{email_2}-local:Important
+Far :^{email_2}-remote:"[Gmail]/Important"
+Near :^{email_2}-local:Important
 
 Channel ^{email_2}-sent
-Master :^{email_2}-remote:"[Gmail]/Sent Mail"
-Slave :^{email_2}-local:Sent
+Far :^{email_2}-remote:"[Gmail]/Sent Mail"
+Near :^{email_2}-local:Sent
 
 Channel ^{email_2}-spam
-Master :^{email_2}-remote:"[Gmail]/Spam"
-Slave :^{email_2}-local:Spam
+Far :^{email_2}-remote:"[Gmail]/Spam"
+Near :^{email_2}-local:Spam
 
 Channel ^{email_2}-starred
-Master :^{email_2}-remote:"[Gmail]/Starred"
-Slave :^{email_2}-local:Starred
+Far :^{email_2}-remote:"[Gmail]/Starred"
+Near :^{email_2}-local:Starred
 
 Channel ^{email_2}-trash
-Master :^{email_2}-remote:"[Gmail]/Trash"
-Slave :^{email_2}-local:Trash
+Far :^{email_2}-remote:"[Gmail]/Trash"
+Near :^{email_2}-local:Trash
 
 Channel ^{email_2}-get-folders
-Master :^{email_2}-remote:
-Slave :^{email_2}-local:
+Far :^{email_2}-remote:
+Near :^{email_2}-local:
 Patterns *
 Patterns !INBOX
 Patterns !Search
@@ -179,40 +179,40 @@ Inbox ~/.local/share/mail/^{email_3}/INBOX
 SubFolders Verbatim
 
 Channel ^{email_3}-inbox
-Master :^{email_3}-remote:INBOX
-Slave :^{email_3}-local:INBOX
+Far :^{email_3}-remote:INBOX
+Near :^{email_3}-local:INBOX
 
 Channel ^{email_3}-archive
-Master :^{email_3}-remote:"[Gmail]/All Mail"
-Slave :^{email_3}-local:Archive
+Far :^{email_3}-remote:"[Gmail]/All Mail"
+Near :^{email_3}-local:Archive
 
 Channel ^{email_3}-drafts
-Master :^{email_3}-remote:"[Gmail]/Drafts"
-Slave :^{email_3}-local:Drafts
+Far :^{email_3}-remote:"[Gmail]/Drafts"
+Near :^{email_3}-local:Drafts
 
 Channel ^{email_3}-important
-Master :^{email_3}-remote:"[Gmail]/Important"
-Slave :^{email_3}-local:Important
+Far :^{email_3}-remote:"[Gmail]/Important"
+Near :^{email_3}-local:Important
 
 Channel ^{email_3}-sent
-Master :^{email_3}-remote:"[Gmail]/Sent Mail"
-Slave :^{email_3}-local:Sent
+Far :^{email_3}-remote:"[Gmail]/Sent Mail"
+Near :^{email_3}-local:Sent
 
 Channel ^{email_3}-spam
-Master :^{email_3}-remote:"[Gmail]/Spam"
-Slave :^{email_3}-local:Spam
+Far :^{email_3}-remote:"[Gmail]/Spam"
+Near :^{email_3}-local:Spam
 
 Channel ^{email_3}-starred
-Master :^{email_3}-remote:"[Gmail]/Starred"
-Slave :^{email_3}-local:Starred
+Far :^{email_3}-remote:"[Gmail]/Starred"
+Near :^{email_3}-local:Starred
 
 Channel ^{email_3}-trash
-Master :^{email_3}-remote:"[Gmail]/Trash"
-Slave :^{email_3}-local:Trash
+Far :^{email_3}-remote:"[Gmail]/Trash"
+Near :^{email_3}-local:Trash
 
 Channel ^{email_3}-get-folders
-Master :^{email_3}-remote:
-Slave :^{email_3}-local:
+Far :^{email_3}-remote:
+Near :^{email_3}-local:
 Patterns *
 Patterns !INBOX
 Patterns !Search
@@ -257,40 +257,40 @@ Inbox ~/.local/share/mail/^{email_4}/INBOX
 SubFolders Verbatim
 
 Channel ^{email_4}-inbox
-Master :^{email_4}-remote:INBOX
-Slave :^{email_4}-local:INBOX
+Far :^{email_4}-remote:INBOX
+Near :^{email_4}-local:INBOX
 
 Channel ^{email_4}-archive
-Master :^{email_4}-remote:"[Gmail]/All Mail"
-Slave :^{email_4}-local:Archive
+Far :^{email_4}-remote:"[Gmail]/All Mail"
+Near :^{email_4}-local:Archive
 
 Channel ^{email_4}-drafts
-Master :^{email_4}-remote:"[Gmail]/Drafts"
-Slave :^{email_4}-local:Drafts
+Far :^{email_4}-remote:"[Gmail]/Drafts"
+Near :^{email_4}-local:Drafts
 
 Channel ^{email_4}-important
-Master :^{email_4}-remote:"[Gmail]/Important"
-Slave :^{email_4}-local:Important
+Far :^{email_4}-remote:"[Gmail]/Important"
+Near :^{email_4}-local:Important
 
 Channel ^{email_4}-sent
-Master :^{email_4}-remote:"[Gmail]/Sent Mail"
-Slave :^{email_4}-local:Sent
+Far :^{email_4}-remote:"[Gmail]/Sent Mail"
+Near :^{email_4}-local:Sent
 
 Channel ^{email_4}-spam
-Master :^{email_4}-remote:"[Gmail]/Spam"
-Slave :^{email_4}-local:Spam
+Far :^{email_4}-remote:"[Gmail]/Spam"
+Near :^{email_4}-local:Spam
 
 Channel ^{email_4}-starred
-Master :^{email_4}-remote:"[Gmail]/Starred"
-Slave :^{email_4}-local:Starred
+Far :^{email_4}-remote:"[Gmail]/Starred"
+Near :^{email_4}-local:Starred
 
 Channel ^{email_4}-trash
-Master :^{email_4}-remote:"[Gmail]/Trash"
-Slave :^{email_4}-local:Trash
+Far :^{email_4}-remote:"[Gmail]/Trash"
+Near :^{email_4}-local:Trash
 
 Channel ^{email_4}-get-folders
-Master :^{email_4}-remote:
-Slave :^{email_4}-local:
+Far :^{email_4}-remote:
+Near :^{email_4}-local:
 Patterns *
 Patterns !INBOX
 Patterns !Search
@@ -335,40 +335,40 @@ Inbox ~/.local/share/mail/^{email_5}/INBOX
 SubFolders Verbatim
 
 Channel ^{email_5}-inbox
-Master :^{email_5}-remote:INBOX
-Slave :^{email_5}-local:INBOX
+Far :^{email_5}-remote:INBOX
+Near :^{email_5}-local:INBOX
 
 Channel ^{email_5}-archive
-Master :^{email_5}-remote:"[Gmail]/All Mail"
-Slave :^{email_5}-local:Archive
+Far :^{email_5}-remote:"[Gmail]/All Mail"
+Near :^{email_5}-local:Archive
 
 Channel ^{email_5}-drafts
-Master :^{email_5}-remote:"[Gmail]/Drafts"
-Slave :^{email_5}-local:Drafts
+Far :^{email_5}-remote:"[Gmail]/Drafts"
+Near :^{email_5}-local:Drafts
 
 Channel ^{email_5}-important
-Master :^{email_5}-remote:"[Gmail]/Important"
-Slave :^{email_5}-local:Important
+Far :^{email_5}-remote:"[Gmail]/Important"
+Near :^{email_5}-local:Important
 
 Channel ^{email_5}-sent
-Master :^{email_5}-remote:"[Gmail]/Sent Mail"
-Slave :^{email_5}-local:Sent
+Far :^{email_5}-remote:"[Gmail]/Sent Mail"
+Near :^{email_5}-local:Sent
 
 Channel ^{email_5}-spam
-Master :^{email_5}-remote:"[Gmail]/Spam"
-Slave :^{email_5}-local:Spam
+Far :^{email_5}-remote:"[Gmail]/Spam"
+Near :^{email_5}-local:Spam
 
 Channel ^{email_5}-starred
-Master :^{email_5}-remote:"[Gmail]/Starred"
-Slave :^{email_5}-local:Starred
+Far :^{email_5}-remote:"[Gmail]/Starred"
+Near :^{email_5}-local:Starred
 
 Channel ^{email_5}-trash
-Master :^{email_5}-remote:"[Gmail]/Trash"
-Slave :^{email_5}-local:Trash
+Far :^{email_5}-remote:"[Gmail]/Trash"
+Near :^{email_5}-local:Trash
 
 Channel ^{email_5}-get-folders
-Master :^{email_5}-remote:
-Slave :^{email_5}-local:
+Far :^{email_5}-remote:
+Near :^{email_5}-local:
 Patterns *
 Patterns !INBOX
 Patterns !Search
