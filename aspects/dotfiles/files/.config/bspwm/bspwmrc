@@ -16,17 +16,15 @@ xrdb -load ~/.config/X11/Xresources
 # Autostart #
 #############
 
-picom -b --experimental-backends --backend glx --blur-method dual_kawase &
-killall bspswallow
-pidof ~/.local/bin/bspswallow | bspswallow &
-flameshot &
-fcitx -d &
-pidof bspswallow | bspswallow &
+picom -b --backend glx --blur-method dual_kawase &
+killall bspswallow; pidof ~/.local/bin/bspswallow | bspswallow &
+killall flameshot; flameshot &
+killall fcitx; fcitx -d &
 feh --bg-scale ~/.config/wall.jpg &
-"$HOME/.config/polybar/launch.sh" &
+killall polybar; "$HOME/.config/polybar/launch.sh" &
 
 # Variable
-source ~/.config/zsh/exports.zsh
+~/.config/zsh/exports.zsh
 
 # Workspaces
 bspc monitor -d         

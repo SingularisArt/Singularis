@@ -1,9 +1,20 @@
 vim.opt.wrap = true
 vim.opt.tw = 0
 vim.opt.spell = true
+vim.opt.spell = true
+vim.opt.omnifunc = "v:lua.SinularisArt.MailComplete()"
+
+local keymap = vim.api.nvim_set_keymap
+local opts = { noremap = true, silent = true }
+
+keymap("n", "<C-H>", ":call SendMail()<CR>", opts)
+keymap("n", "<leader>f", "gg/From:<CR>:nohlsearch<CR>4lC: ", opts)
+keymap("n", "<leader>t", "gg/To:<CR>:nohlsearch<CR>2lC: ", opts)
+keymap("n", "<leader>c", "gg/Cc:<CR>:nohlsearch<CR>2lC: ", opts)
+keymap("n", "<leader>b", "gg/Bcc:<CR>:nohlsearch<CR>3lC: ", opts)
+keymap("n", "<leader>s", "gg/Subject:<CR>:nohlsearch<CR>7lC: ", opts)
 
 vim.cmd([[
-setl spell
 setl omnifunc=mailcomplete#Complete
 autocmd TermOpen * setl nonumber norelativenumber laststatus=0
 
@@ -44,12 +55,4 @@ function! s:SendMail()
   let s:bufnr = bufnr('%')
   startinsert
 endfunction
-
-nnoremap <buffer> <silent> <C-H> :<C-U>call <SID>SendMail()<CR>
-
-nnoremap <buffer> <silent> <localleader>f gg/From:<CR>:nohlsearch<CR>4lC: 
-nnoremap <buffer> <silent> <localleader>t gg/To:<CR>:nohlsearch<CR>2lC: 
-nnoremap <buffer> <silent> <localleader>c gg/Cc:<CR>:nohlsearch<CR>2lC: 
-nnoremap <buffer> <silent> <localleader>b gg/Bcc:<CR>:nohlsearch<CR>3lC: 
-nnoremap <buffer> <silent> <localleader>s gg/Subject:<CR>:nohlsearch<CR>7lC: 
 ]])
