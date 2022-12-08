@@ -11,30 +11,30 @@ set status_format  = " [%D] %?u?[ %u] ?%?R?[ %R] ?%?d?[ %d] ?%?t?[
 set compose_format = "-- NeoMutt: Compose  [Approx. msg size: %l   Atts: %a]%>-"
 set vfolder_format = "[%N %?n?%3n&   ?  %8m  · %f]"
 set attach_format  = "%u%D  %T%-75.75d %?T?%&   ? %5s · %m/%M"
-set sidebar_format = '%D%?Z? [%Z]?%* %?S?%S?'
-# index-format-hook attachment_info '=B text/calendar ~X 1' ' '
-# index-format-hook attachment_info '=B text/calendar' "  "
-# index-format-hook attachment_info '~X 1' "  "
-# index-format-hook attachment_info '~A' "   "
+set sidebar_format = "%D%?Z? [%Z]?%* %?S?%S?"
+# index-format-hook attachment_info "=B text/calendar ~X 1" " "
+# index-format-hook attachment_info "=B text/calendar" "  "
+# index-format-hook attachment_info "~X 1" "  "
+# index-format-hook attachment_info "~A" "   "
 
 ####################
 #  General Colors  #
 ####################
 
-color normal default default                            # general text
-color error color231 color212                           # error messages
-color message default default                           # messages at the bottom
-color prompt default default                            # prompt text
-color search black color10                              # search highlight
+color normal  default  default  # general text
+color error   color231 color212 # error messages
+color message default  default  # messages at the bottom
+color prompt  default  default  # prompt text
+color search  black    color10  # search highlight
 
 ##################
 #  Index Colors  #
 ##################
 
-color header blue default ".*"
+color header blue          default ".*"
 color header brightmagenta default "^(From)"
-color header brightcyan default "^(Subject)"
-color header brightwhite default "^(CC|BCC)"
+color header brightcyan    default "^(Subject)"
+color header brightwhite   default "^(CC|BCC)"
 
 mono bold      bold
 mono underline underline
@@ -87,10 +87,10 @@ color body red          default "([a-z][a-z0-9+-]*://(((([a-z0-9_.!~*'();:&=+$,-
 color body brightyellow red     "^gpg: BAD signature from.*"
 
 # Default index colors:
-color index         yellow default '.*'
-color index_author  red    default '.*'
+color index         yellow default ".*"
+color index_author  red    default ".*"
 color index_number  blue   default
-color index_subject cyan   default '.*'
+color index_subject cyan   default ".*"
 
 # For new mail:
 color index         brightyellow black "~N"
@@ -103,14 +103,12 @@ color progress black cyan
 #  Sidebar Colors  #
 ####################
 
-color sidebar_indicator color14 black   # currently selected mailbox
-color sidebar_highlight white color8    # highlighted, but not open, mailbox.
-color sidebar_ordinary  color8 default  # Color to give mailboxes by default
-color sidebar_divider   color8 black    # divider between sidebar & content
-color sidebar_flagged   red black       # mailboxes containing flagged mail
-color sidebar_new       green black     # mailboxes containing new mail
-color sidebar_unread    color7 default  # mailboxes containing unread mail
-color sidebar_unread    color7 default  # mailboxes containing unread mail
+color sidebar_indicator color14     black   # currently selected mailbox
+color sidebar_highlight white       color8  # highlighted, but not open, mailbox.
+color sidebar_ordinary  brightwhite default # Color to give mailboxes by default
+color sidebar_divider   color8      black   # divider between sidebar & content
+color sidebar_new       green       black   # mailboxes containing new mail
+color sidebar_unread    color7      default # mailboxes containing unread mail
 
 ####################
 #  Message Header  #
@@ -124,11 +122,11 @@ color hdrdefault color8 default
 
 color attachment color8  default
 color signature  color8  default
-color body       color14 default '[\-\.+_a-zA-Z0-9]+@[\-\.a-zA-Z0-9]+'
-color body       color0  color0  '<mailto:[\-\.+_a-zA-Z0-9]+@[\-\.a-zA-Z0-9]+>'
-color body       color3  default '(https?|ftp)://[-\.,/%~_:?&=\#a-zA-Z0-9\+]+'
-color body       color8  default '(^[-_]*$)'
-color body       color6  default '^(Date\/Time|Location|Organiser|Invitees|Teams Meeting)(:| \~\~)'
+color body       color14 default "[\-\.+_a-zA-Z0-9]+@[\-\.a-zA-Z0-9]+"
+color body       color0  color0  "<mailto:[\-\.+_a-zA-Z0-9]+@[\-\.a-zA-Z0-9]+>"
+color body       color3  default "(https?|ftp)://[-\.,/%~_:?&=\#a-zA-Z0-9\+]+"
+color body       color8  default "(^[-_]*$)"
+color body       color6  default "^(Date\/Time|Location|Organiser|Invitees|Teams Meeting)(:| \~\~)"
 
 # Quotes
 color quoted  color61  default
@@ -138,10 +136,10 @@ color quoted3 color215 default
 color quoted4 color212 default
 
 # Forward/reply headers
-color body color8 default '(^(To|From|Sent|Subject):.*)'
+color body color8 default "(^(To|From|Sent|Subject):.*)"
 
 # Patch syntax highlighting
-color body brightwhite   default '^[[:space:]].*'
+color body brightwhite   default "^[[:space:]].*"
 color body yellow        default ^(diff).*
 color body white         default ^[\-\-\-].*
 color body white         default ^[\+\+\+].*
@@ -207,12 +205,12 @@ set markers = yes
 ######################
 
 color status brightyellow black
-color status blue         default '(\[|\])'
-color status magenta      default '( )'
-color status magenta      default ''
-color status magenta      default ''
-color status magenta      default ''
-color status magenta      default ''
-color status magenta      default ''
-color status magenta      default ''
-color status magenta      default ''
+color status blue         default "(\[|\])"
+color status magenta      default "( )"
+color status magenta      default ""
+color status magenta      default ""
+color status magenta      default ""
+color status magenta      default ""
+color status magenta      default ""
+color status magenta      default ""
+color status magenta      default ""

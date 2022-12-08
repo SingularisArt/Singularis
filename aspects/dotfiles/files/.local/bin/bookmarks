@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+bookmark_file="$XDG_DATA_HOME/bookmarks"
+rofi -markup -matching fuzzy -dmenu -p "Select Bookmark" -format s -i -lines 5 \
+  -markup-rows -kb-row-down Down -kb-custom-1 Ctrl+n < "$bookmark_file" | \
+tr -d '\n' | xclip -selection clipboard

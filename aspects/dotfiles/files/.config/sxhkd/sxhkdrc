@@ -48,13 +48,10 @@ super + shift + e
   rofi -mode emoji -show emoji
 super + p
   ~/.local/bin/rofi-pass
-
-#############
-#  Polybar  #
-#############
-
 super + b
-  bash ~/.local/bin/polybar/toggle_polybar
+  ~/.local/bin/bookmarks
+super + shift + b
+  ~/.local/bin/bookmark-this
 
 ###########
 #  Dunst  #

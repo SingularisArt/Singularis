@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+bookmark_file="$XDG_DATA_HOME/bookmarks"
+bookmark="$(xclip -o)"
+
+if grep -q "^$bookmark$" "$bookmark_file"; then
+  notify-send "Oops." "Already Bookmarked."
+else
+  echo "$bookmark" >> "$bookmark_file"
+  notify-send "Bookmarked." "Bookmarked $bookmark."
+fi
