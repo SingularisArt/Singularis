@@ -40,7 +40,7 @@ function! s:OnExit(job_id, code, event) dict
   endif
 endfunction
 
-function! s:SendMail()
+function! SendMail()
   let l:message_file = expand('%')
   if l:message_file != ''
     update
