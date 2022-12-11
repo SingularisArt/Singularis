@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+path="$1"
+first_line=$(head -n 1 "$path")
+email=$(echo "$first_line" | cut -f2 -d"<" | cut -f1 -d">")
+
+rm -rf /tmp/email.muttrc
+touch /tmp/email.muttrc
+sed "s/EMAIL/$email/" >> /tmp/email.muttrc < "$HOME/.config/neomutt/source.muttrc"
+cat /tmp/email.muttrc
+
+neomutt -F /tmp/email.muttrc \
+  -e 'set postpone=no sidebar_visible=no assumed_charset=utf-8' \
+  -H "$path"
+
+rm -rf /tmp/email.muttrc
