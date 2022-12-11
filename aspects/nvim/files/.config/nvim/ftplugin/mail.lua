@@ -12,7 +12,7 @@ local file_path = os.tmpname() .. ".eml"
 local keymap = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
 
-keymap("n", "<C-H>", ":SendMail<CR>", opts)
+keymap("n", "<Leader>x", ":SendMail<CR>", opts)
 keymap("n", "<leader>f", "gg/From:<CR>:nohlsearch<CR>4lC: ", opts)
 keymap("n", "<leader>t", "gg/To:<CR>:nohlsearch<CR>2lC: ", opts)
 keymap("n", "<leader>c", "gg/Cc:<CR>:nohlsearch<CR>2lC: ", opts)
