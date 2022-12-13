@@ -7,7 +7,6 @@ import time
 import pyperclip
 
 PASSWORD_STORE_PATH = Path("~/.config/password-store").expanduser()
-MAX_LEN = 15
 
 
 class Password:
@@ -19,14 +18,13 @@ class Password:
     def get_display_name(self):
         display_name = []
         for parent in self.parent_tuples:
-            display_name.append(f"<b>{parent}:</b> ")
+            display_name.append(f"{parent}/")
         parent = "".join(display_name)
-        NEW_MAX_LEN = MAX_LEN - len(self.parent)
-        return parent + " " * NEW_MAX_LEN + self.file.stem
+        return f"{parent}<b>{self.file.stem}</b>"
 
     def __repr__(self) -> str:
         if self.parent == "password-store":
-            return self.file.stem
+            return f"{self.file.stem}"
         return f"{self.parent}/{self.file.stem}"
 
 
