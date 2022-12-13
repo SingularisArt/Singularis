@@ -52,6 +52,8 @@ super + b
   ~/.local/bin/bookmarks
 super + shift + b
   ~/.local/bin/bookmark-this
+super + ctrl + b
+  ~/.local/bin/sxhkd/open_bookmarks
 
 ###########
 #  Dunst  #

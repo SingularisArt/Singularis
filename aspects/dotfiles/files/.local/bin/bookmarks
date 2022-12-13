@@ -25,7 +25,7 @@ done
 output=$(rofi -markup -matching fuzzy -dmenu -p "Select Bookmark" -format s -i \
   -lines 5 -markup-rows -kb-row-down Down -kb-custom-1 Ctrl+n < "$tmp_file")
 
-if [ "$output" != "--------------------------------------------------------------" ]; then
+if [ "$output" != "$sep" ]; then
   echo "$output" | tr -d '\n' | xclip -selection clipboard
 fi
 
