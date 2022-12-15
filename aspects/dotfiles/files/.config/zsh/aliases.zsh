@@ -7,7 +7,6 @@
 alias b='bash'
 alias z='zsh'
 alias c='clear'
-alias cg='clear && git status'
 alias e='exit'
 alias minecraft='java -jar ~/.local/bin/minecraft.jar'
 alias reloud='clear && source ~/.config/zsh/.zshrc'
@@ -38,6 +37,8 @@ fi
 
 if command -v git &> /dev/null; then
   alias g='git'
+  alias cg='clear && git status'
+  alias update_plugins="git update-submodules; git add aspects/nvim/files/.config/nvim/pack/plugins/opt/; git commit -m 'chore: update submodules'; git push;"
 fi
 if command -v yarn &> /dev/null; then
   alias yarn='yarn --use-yarnrc '$XDG_CONFIG_HOME/yarn/config''

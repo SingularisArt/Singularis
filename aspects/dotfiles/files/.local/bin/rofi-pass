@@ -13,7 +13,8 @@ class Password:
     def __init__(self, file):
         self.file = file
         self.parent_tuples = self.file.parent.parts[5:]
-        self.parent = "".join(self.parent_tuples)
+        self.parent = "/".join(self.parent_tuples)
+        self.name = self.parent + self.file.stem
 
     def get_display_name(self):
         display_name = []
@@ -35,7 +36,7 @@ class Passwords(list):
 
     def read_files(self):
         files = PASSWORD_STORE_PATH.glob("**/*.gpg")
-        return [Password(file) for file in files]
+        return sorted([Password(file) for file in files], key=lambda p: p.name)
 
 
 class Rofi:
@@ -104,6 +105,8 @@ class Rofi:
                 universal_newlines=True,
             ).stdout.strip()
         )
+        message_header = f"Copied password {options[index]}"
+        subprocess.run(["notify-send", message_header])
         time.sleep(5)
         pyperclip.copy("")
 
