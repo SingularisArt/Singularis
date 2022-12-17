@@ -155,46 +155,20 @@ SingularisArt.which_key.mappings["g"] = {
   },
 }
 
-SingularisArt.which_key.mappings["f"] = {
-  name = "Telescope",
+SingularisArt.which_key.mappings["s"] = {
+  name = "Search",
   f = { "<cmd>Telescope find_files<cr>", "Fuzzy find files" },
   g = { "<cmd>Telescope grep_string<cr>", "Fuzzy find string" },
-  o = { "<cmd>Telescope oldfiles<cr>", "Fuzzy find old files" },
-  c = { "<cmd>Telescope colorscheme<cr>", "Fuzzy find colorschemes" },
   b = { "<cmd>Telescope buffers<cr>", "Fuzzy find buffers" },
-  a = { "<cmd>Telescope autocommands<cr>", "Fuzzy find auto commands" },
   l = { "<cmd>Telescope live_grep<cr>", "Fuzzy find words" },
-  m = { "<cmd>Telescope marks<cr>", "Fuzzy find marks" },
-  p = { "<cmd>Telescope projects<cr>", "Fuzzy find projects" },
   s = { "<cmd>Telescope symbols<cr>", "Fuzzy find symbols" },
   d = { "<cmd>Telescope diagnostics<cr>", "Fuzzy find diagnostics" },
-  v = { "<cmd>Telescope vim_options<cr>", "Fuzzy find vim options" },
-  M = { "<cmd>Telescope man_pages<cr>", "Fuzzy find man pages" },
-  k = { "<cmd>Telescope keymaps<cr>", "Fuzzy find keymaps" },
-  t = { "<cmd>Telescope treesitter<cr>", "Fuzzy find treesitter" },
-  r = { "<cmd>Telescope registers<cr>", "Fuzzy find registers" },
-  h = { "<cmd>Telescope help_tags<cr>", "Fuzzy find help tags" },
-  u = {
-    "<cmd>require'telescope'.extensions.ultisnips.ultisnips{}<cr>",
-    "Fuzzy find snippets",
-  },
-  S = { "<cmd>Telescope search_history<cr>", "Fuzzy find search history" },
-  C = {
-    name = "Commands",
-    c = { "<cmd>Telescope commands<cr>", "Fuzzy find commands" },
-    h = {
-      "<cmd>Telescope command_history<cr>",
-      "Fuzzy find commands history",
-    },
-  },
-  q = {
-    name = "QuickFix",
-    q = { "<cmd>Telescope quickfix<cr>", "Fuzzy find quickfix" },
-    h = {
-      "<cmd>Telescope quickfixhistory<cr>",
-      "Fuzzy find quickfix history",
-    },
-  },
+  c = { function()
+    require("telescope.builtin").current_buffer_fuzzy_find(require("telescope.themes").get_dropdown {
+      winblend = 10,
+      previewer = false,
+    })
+  end, "Fuzzily search in current buffer" }
 }
 
 SingularisArt.which_key.mappings["o"] = {
