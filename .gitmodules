@@ -391,3 +391,6 @@
 [submodule "neomake"]
 	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/neomake
 	url = https://github.com/neomake/neomake
+[submodule "lsp-zero.nvim"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/lsp-zero.nvim
+	url = https://github.com/VonHeikemen/lsp-zero.nvim
