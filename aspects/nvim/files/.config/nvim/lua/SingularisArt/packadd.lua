@@ -32,9 +32,9 @@ M.load = function()
   load("popup.nvim")
 
   -- Notifications.
-  lazy("nvim-notify", {
-    config = "notify",
-  })
+  -- lazy("nvim-notify", {
+  --   config = "notify",
+  -- })
 
   -- LSP.
   load("nvim-lspconfig")
@@ -48,9 +48,9 @@ M.load = function()
     config = "illuminate",
   })
   load("lsp-inlayhints.nvim")
-  -- load("lsp_signature.nvim")
-  -- load("guihua.lua")
-  -- load("navigator.lua")
+  load("lsp_signature.nvim")
+  load("guihua.lua")
+  load("navigator.lua")
   lazy("symbols-outline.nvim", {
     config = "symbols-outline",
     commands = {
@@ -98,6 +98,7 @@ M.load = function()
   lazy("gitsigns.nvim", {
     config = "gitsigns",
   })
+  lazy("vim-fugitive")
 
   -- Color schemes.
   load("tokyonight.nvim")
@@ -111,11 +112,11 @@ M.load = function()
 
   -- Noice Animations.
   load("nui.nvim")
-  load("noice.nvim", {
-    -- config = function()
-    --   require("noice").setup()
-    -- end
-  })
+  -- load("noice.nvim", {
+  --   config = function()
+  --     require("noice").setup()
+  --   end
+  -- })
 
   -- Colors
   lazy("colortils.nvim")
@@ -167,7 +168,6 @@ M.load = function()
       "Neogen",
     },
   })
-  -- lazy("vim-doge")
 
   -- Run code.
   lazy("sniprun", {
@@ -265,7 +265,7 @@ M.load = function()
   load("vimtex", {
     config = "vimtex",
   })
-  -- load("neomake")
+  load("neomake")
 
   -- Markdown.
   -- Can't lazy load these ones for some reason.
@@ -274,6 +274,8 @@ M.load = function()
   })
   load("vim-markdown-toc")
   load("magma-nvim")
+
+  load("lsp-zero.nvim")
 end
 
 return M

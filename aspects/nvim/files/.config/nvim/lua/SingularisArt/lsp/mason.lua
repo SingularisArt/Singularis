@@ -13,7 +13,6 @@ lsp.load_single_server = function(opts, server)
   end
 
   lspconfig[server].setup(opts)
-  lspconfig[server].setup(opts)
 end
 
 lsp.load_server = function()
