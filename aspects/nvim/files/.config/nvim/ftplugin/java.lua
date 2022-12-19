@@ -1,5 +1,3 @@
-SingularisArt.plugin.lazy("nvim-jdtls")
-
 local capabilities = require("SingularisArt.lsp.handlers").capabilities()
 local jdtls = require("jdtls")
 

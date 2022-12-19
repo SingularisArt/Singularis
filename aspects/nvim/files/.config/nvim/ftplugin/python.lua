@@ -1,7 +1,3 @@
-SingularisArt.plugin.lazy("magma-nvim", {
-  config = "magma",
-})
-
 local which_key = require("which-key")
 local options = SingularisArt.which_key.opts
 local voptions = SingularisArt.which_key.vopts

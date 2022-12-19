@@ -1,10 +1,4 @@
 -- Markdown
-SingularisArt.plugin.lazy("vim-table-mode", {
-  commands = {
-    "TableModeToggle",
-  },
-})
-
 local which_key = require("which-key")
 local options = SingularisArt.which_key.opts
 

@@ -1,9 +1,3 @@
-SingularisArt.plugin.lazy("rust-tools.nvim", {
-  config = "rust-tools",
-})
-SingularisArt.plugin.load("crates.nvim", {
-  config = "crates",
-})
 
 local which_key = require("which-key")
 local options = SingularisArt.which_key.opts

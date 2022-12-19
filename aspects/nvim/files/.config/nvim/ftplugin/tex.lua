@@ -1,4 +1,3 @@
-SingularisArt.plugin.load("tex-conceal.vim")
 vim.cmd[[
   setlocal fillchars=fold:\ 
   setlocal foldlevel=0
