@@ -44,9 +44,6 @@ M.load = function()
   load("mason-null-ls.nvim")
   load("mason-tool-installer.nvim")
   load("null-ls.nvim")
-  -- load("SchemaStore.nvim")
-  -- load("sqls.nvim")
-  -- load("lsp-zero.nvim")
   load("lsp-inlayhints.nvim")
   load("lsp_signature.nvim")
   load("guihua.lua")
@@ -60,6 +57,9 @@ M.load = function()
       "SymbolsOutlineToggle",
     },
   })
+  -- load("SchemaStore.nvim")
+  -- load("sqls.nvim")
+  -- load("lsp-zero.nvim")
   -- lazy("fidget.nvim", {
   --   config = "fidget",
   -- })
@@ -119,10 +119,10 @@ M.load = function()
   })
   lazy("vim-fugitive")
   lazy("vim-rhubarb")
-  lazy("git-blame.nvim")
   lazy("gitlinker.nvim")
   lazy("octo.nvim")
-  -- lazy("vim-gist")
+  lazy("vim-gist")
+  -- lazy("git-blame.nvim")
 
   --------------------
   --  Colorschemes  --
@@ -161,14 +161,13 @@ M.load = function()
     config = "telescope",
   })
   -- Extensions
+  lazy("telescope-media-files.nvim")
+  lazy("project.nvim", {
+    config = "project",
+  })
   -- lazy("neorg-telescope")
-  -- lazy("telescope-media-files.nvim")
   -- lazy("telescope-ultisnips.nvim")
-  -- lazy("telescope-project.nvim")
   -- lazy("browse.nvim")
-  -- lazy("project.nvim", {
-  --   config = "project",
-  -- })
 
   ----------------
   --  Snippets  --
@@ -184,16 +183,18 @@ M.load = function()
 
   -- Nice icons.
   lazy("nvim-web-devicons")
-  -- File Browser.
+  -- Side file Browser.
   lazy("nvim-tree.lua", {
     config = "nvim-tree",
     commands = {
       "NvimTreeToggle",
     },
   })
+  -- Floating file browser.
   lazy("lir.nvim", {
     config = "lir",
   })
+  -- Inline file browser.
   -- lazy("vim-dirvish", {
   --   config = "dirvish",
   -- })

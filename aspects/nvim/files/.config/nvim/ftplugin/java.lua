@@ -1,18 +1,6 @@
 local capabilities = require("SingularisArt.lsp.handlers").capabilities()
 local jdtls = require("jdtls")
 
-local options = SingularisArt.which_key.opts
-local voptions = SingularisArt.which_key.vopts
-
-options = vim.tbl_deep_extend("force", {
-  filetype = "python",
-  buffer = vim.api.nvim_get_current_buf(),
-}, options)
-voptions = vim.tbl_deep_extend("force", {
-  filetype = "python",
-  buffer = vim.api.nvim_get_current_buf(),
-}, voptions)
-
 -- Determine OS
 local home = os.getenv("HOME")
 if vim.fn.has("mac") == 1 then
@@ -160,6 +148,17 @@ vim.cmd(
 )
 
 local which_key = require("which-key")
+local options = SingularisArt.which_key.opts
+local voptions = SingularisArt.which_key.vopts
+
+options = vim.tbl_deep_extend("force", {
+  filetype = "java",
+  buffer = vim.api.nvim_get_current_buf(),
+}, options)
+voptions = vim.tbl_deep_extend("force", {
+  filetype = "java",
+  buffer = vim.api.nvim_get_current_buf(),
+}, voptions)
 
 which_key.register({
   ["L"] = {

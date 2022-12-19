@@ -13,4 +13,4 @@ SingularisArt.colorscheme.load()
 
 SingularisArt.mappings.load()
 
--- SingularisArt.lsp.load()
+SingularisArt.lsp.load()

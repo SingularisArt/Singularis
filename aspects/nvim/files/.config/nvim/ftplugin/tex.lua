@@ -10,7 +10,7 @@ local which_key = require("which-key")
 local options = SingularisArt.which_key.opts
 
 options = vim.tbl_deep_extend("force", {
-  filetype = "rust",
+  filetype = "tex",
   buffer = vim.api.nvim_get_current_buf(),
 }, options)
 
