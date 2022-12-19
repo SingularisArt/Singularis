@@ -1,8 +1,18 @@
 local lsp = {}
-local lspconfig = require("lspconfig")
-local functions = SingularisArt.functions
 
-lsp.load_single_server = function(opts, server)
+local lspconfig = require("lspconfig")
+local mason = require("mason")
+local mason_lspconfig = require("mason-lspconfig")
+local mason_null_ls = require("mason-null-ls")
+local mason_dap = require("mason-nvim-dap")
+local servers = SingularisArt.lsp.config.servers
+
+lsp.load_server = function(server)
+  local opts = {
+    on_attach = require("SingularisArt.lsp.handlers").on_attach,
+    capabilities = require("SingularisArt.lsp.handlers").capabilities(),
+  }
+
   pcall(function()
     local other_opts = require("SingularisArt.lsp.settings." .. server)
     opts = vim.tbl_deep_extend("force", other_opts, opts)
@@ -15,42 +25,7 @@ lsp.load_single_server = function(opts, server)
   lspconfig[server].setup(opts)
 end
 
-lsp.load_server = function()
-  local filetype = vim.bo.filetype
-  local server = ""
-  local filetypes = ""
-
-  local opts = {
-    on_attach = require("SingularisArt.lsp.handlers").on_attach,
-    capabilities = require("SingularisArt.lsp.handlers").capabilities(),
-  }
-
-  for _, table_info in pairs(SingularisArt.lsp.config.servers) do
-    if type(table_info["filetype"]) == "table" then
-      if functions.has_value(table_info["filetype"], filetype) then
-        server = table_info["server"]
-      end
-    else
-      if table_info["filetype"] == filetype then
-        server = table_info["server"]
-      end
-    end
-  end
-  if type(server) == "table" then
-    for _, current_server in pairs(server) do
-      lsp.load_single_server(opts, current_server)
-    end
-  else
-    lsp.load_single_server(opts, server)
-  end
-end
-
 lsp.load = function()
-  local servers = SingularisArt.lsp.config.servers
-
-  local mason = require("mason")
-  local mason_lspconfig = require("mason-lspconfig")
-
   local settings = {
     ui = {
       border = "rounded",
@@ -65,27 +40,22 @@ lsp.load = function()
 
   mason.setup(settings)
   mason_lspconfig.setup({
-    ensure_installed = SingularisArt.lsp.config.ensure_installed,
+    ensure_installed = nil,
     automatic_installation = true,
   })
+  mason_null_ls.setup({
+    ensure_installed = SingularisArt.lsp.config.ensure_installed_servers,
+    automatic_installation = true,
+    automatic_setup = false,
+  })
+  mason_dap.setup({
+    ensure_installed = SingularisArt.lsp.config.ensure_installed_dap,
+    automatic_installation = true,
+    automatic_setup = false,
+  })
 
-  local filetype = ""
-  local server = ""
-
-  for _, server_table in pairs(servers) do
-    filetype = server_table["filetype"]
-    server = server_table["server"]
-
-    -- if type(server) == "string" then
-    vim.api.nvim_create_autocmd({ "FileType" }, {
-      pattern = filetype,
-      callback = function()
-        vim.schedule(function()
-          lsp.load_server()
-        end)
-      end,
-    })
-    -- end
+  for _, server in ipairs(servers) do
+    lsp.load_server(server)
   end
 end
 

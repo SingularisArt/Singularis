@@ -32,14 +32,16 @@ M.load = function()
   load("popup.nvim")
 
   -- Notifications.
-  -- lazy("nvim-notify", {
-  --   config = "notify",
-  -- })
+  lazy("nvim-notify", {
+    config = "notify",
+  })
 
   -- LSP.
   load("nvim-lspconfig")
   load("mason.nvim")
   load("mason-lspconfig.nvim")
+  load("mason-null-ls.nvim")
+  load("mason-nvim-dap.nvim")
   load("mason-tool-installer.nvim")
   load("null-ls.nvim")
   load("SchemaStore.nvim")
@@ -57,6 +59,7 @@ M.load = function()
       "SymbolsOutlineToggle",
     },
   })
+  -- load("lsp-zero.nvim")
   -- lazy("fidget.nvim", {
   --   config = "fidget",
   -- })
@@ -77,7 +80,7 @@ M.load = function()
     event = "FileType",
     pattern = "tex",
   })
-  -- load("cmp-tmux")
+  load("cmp-tmux")
 
   -- Debugger.
   lazy("nvim-dap", {
@@ -112,11 +115,11 @@ M.load = function()
 
   -- Noice Animations.
   load("nui.nvim")
-  -- load("noice.nvim", {
-  --   config = function()
-  --     require("noice").setup()
-  --   end
-  -- })
+  load("noice.nvim", {
+    config = function()
+      require("noice").setup()
+    end
+  })
 
   -- Colors
   lazy("colortils.nvim")
@@ -265,7 +268,7 @@ M.load = function()
   load("vimtex", {
     config = "vimtex",
   })
-  load("neomake")
+  -- load("neomake")
 
   -- Markdown.
   -- Can't lazy load these ones for some reason.
@@ -274,8 +277,6 @@ M.load = function()
   })
   load("vim-markdown-toc")
   load("magma-nvim")
-
-  load("lsp-zero.nvim")
 end
 
 return M
