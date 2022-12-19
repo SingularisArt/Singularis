@@ -394,3 +394,9 @@
 [submodule "lsp-zero.nvim"]
 	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/lsp-zero.nvim
 	url = https://github.com/VonHeikemen/lsp-zero.nvim
+[submodule "mason-null-ls.nvim"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/mason-null-ls.nvim
+	url = https://github.com/jay-babu/mason-null-ls.nvim
+[submodule "mason-nvim-dap.nvim"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/mason-nvim-dap.nvim
+	url = https://github.com/jay-babu/mason-nvim-dap.nvim
