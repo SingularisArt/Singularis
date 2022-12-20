@@ -64,12 +64,12 @@ M.load = function()
       "SymbolsOutlineToggle",
     },
   })
-  -- load("SchemaStore.nvim")
-  -- load("sqls.nvim")
-  -- load("lsp-zero.nvim")
-  -- lazy("fidget.nvim", {
-  --   config = "fidget",
-  -- })
+  load("SchemaStore.nvim")
+  load("sqls.nvim")
+  load("lsp-zero.nvim")
+  lazy("fidget.nvim", {
+    config = "fidget",
+  })
 
   -------------------------
   --  Completion Engine  --
@@ -85,14 +85,14 @@ M.load = function()
   load("cmp-emoji")
   load("cmp-nvim-lsp")
   load("cmp-nvim-lua")
-  -- load("nvim-cmp-buffer-lines")
-  -- load("cmp-tmux")
-  -- load("cmp-cmdline")
-  -- load("cmp-git")
-  -- load("cmp-latex-symbols", {
-  --   event = "FileType",
-  --   pattern = "tex",
-  -- })
+  load("nvim-cmp-buffer-lines")
+  load("cmp-tmux")
+  load("cmp-cmdline")
+  load("cmp-git")
+  load("cmp-latex-symbols", {
+    event = "FileType",
+    pattern = "tex",
+  })
 
   ----------------
   --  Debugger  --
@@ -104,7 +104,7 @@ M.load = function()
   lazy("DAPInstall.nvim")
   lazy("nvim-dap-ui")
   lazy("nvim-dap-virtual-text")
-  -- lazy("nvim-dap-python")
+  lazy("nvim-dap-python")
 
   ---------------------------
   --  Syntax Highlighting  --
@@ -115,7 +115,7 @@ M.load = function()
   })
   load("nvim-ts-context-commentstring")
   load("playground")
-  -- load("nvim-tree-docs")
+  load("nvim-tree-docs")
 
   -----------------------
   --  Git Integration  --
@@ -129,7 +129,7 @@ M.load = function()
   lazy("gitlinker.nvim")
   lazy("octo.nvim")
   lazy("vim-gist")
-  -- lazy("git-blame.nvim")
+  lazy("git-blame.nvim")
 
   --------------------
   --  Colorschemes  --
@@ -177,9 +177,9 @@ M.load = function()
   lazy("project.nvim", {
     config = "project",
   })
-  -- lazy("neorg-telescope")
-  -- lazy("telescope-ultisnips.nvim")
-  -- lazy("browse.nvim")
+  lazy("neorg-telescope")
+  lazy("telescope-ultisnips.nvim")
+  lazy("browse.nvim")
 
   ----------------
   --  Snippets  --
@@ -207,9 +207,9 @@ M.load = function()
     config = "lir",
   })
   -- Inline file browser.
-  -- lazy("vim-dirvish", {
-  --   config = "dirvish",
-  -- })
+  lazy("vim-dirvish", {
+    config = "dirvish",
+  })
 
   ---------------------
   --  Documentation  --
@@ -221,7 +221,7 @@ M.load = function()
       "Neogen",
     },
   })
-  -- lazy("vim-doge")
+  lazy("vim-doge")
 
   ----------------
   --  Run Code  --
@@ -350,22 +350,22 @@ M.load = function()
   })
   -- Run the code of any language.
   lazy("jaq-nvim")
-  -- lazy("registers.nvim")
-  -- lazy("vim-startuptime")
-  -- lazy("nvim-surround")
-  -- lazy("tabout.nvim")
-  -- lazy("harpoon")
-  -- lazy("zk-nvim")
-  -- lazy("vim-bookmarks")
-  -- lazy("toggleterm.nvim")
-  -- lazy("webapi-vim")
-  -- lazy("dial.nvim")
-  -- lazy("hop.nvim")
-  -- lazy("duck.nvim")
-  -- load("vim-matchup")
-  -- load("vim-bbye")
-  -- load("vim-slash")
-  -- load("neomake")
+  lazy("registers.nvim")
+  lazy("vim-startuptime")
+  lazy("nvim-surround")
+  lazy("tabout.nvim")
+  lazy("harpoon")
+  lazy("zk-nvim")
+  lazy("vim-bookmarks")
+  lazy("toggleterm.nvim")
+  lazy("webapi-vim")
+  lazy("dial.nvim")
+  lazy("hop.nvim")
+  lazy("duck.nvim")
+  load("vim-matchup")
+  load("vim-bbye")
+  load("vim-slash")
+  load("neomake")
 
   -------------------------
   --  Language Specific  --
@@ -390,7 +390,7 @@ M.load = function()
 
   -- Python
   load("magma-nvim")
-  -- load("swenv.nvim")
+  load("swenv.nvim")
 
   -- Rust
   lazy("rust-tools.nvim", {
@@ -407,10 +407,10 @@ M.load = function()
   load("nvim-jdtls")
 
   -- HTML
-  -- load("MatchTagAlways")
+  load("MatchTagAlways")
 
   -- Neorg
-  -- load("neorg")
+  load("neorg")
 end
 
 return M
