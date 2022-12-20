@@ -1,218 +1,231 @@
 #!/usr/bin/env bash
-
+#
 # If you're editing this file with neovim, you must need to run the following
 # command:
 # 	set noexpandtab
 
-TERMINAL="xfce4-terminal"
-CONFIGDIR="$HOME/.config"
-SCHOOL_NOTES_DIR="$HOME/Documents/school-notes"
-MTH_251_DIR="$SCHOOL_NOTES_DIR/College/Year-2/fall/mth-251"
+XMENU_ITEMS_DIR="$XDG_DATA_HOME/xmenu/"
+XMENU_ITEMS=$(find "$XMENU_ITEMS_DIR" -type f | grep -v "$0")
+OUTPUT=""
 
+for XMENU_ITEM in $XMENU_ITEMS; do
+  CURRENT_XMENU_ITEM_OUTPUT=$(bash "$XMENU_ITEM")
+  LAST_XMENU_ITEM=${#XMENU_ITEMS[@]}
 
-cat <<EOF | xmenu -i | bash &
- Applications
-	 Firefox												firefox
-	 Chrome												google-chrome-stable
-	 Terminal											$TERMINAL
-	 Files													pcmanfm
-	
-	 School
-		 Zotero											zotero
-		
-		 Notes
-			 Current Course Notes			zathura $SCHOOL_NOTES_DIR/current-course/master.pdf
-			
-			MTH 251
-				Notes Source Code	(TEX)		$TERMINAL -e "nvim $MTH_251_DIR/master.tex"
-				Final Notes (PDF) 				zathura $MTH_251_DIR/master.pdf
-				Books (PDF)
-					Single Variable Calc		zathura $MTH_251_DIR/books/single-variable-calculus.pdf
-				
-				Lecture Notes (TEX)
-					Lecture 1								$TERMINAL -e "nvim $MTH_251_DIR/lectures/lec-01.tex"
-					Lecture 2								$TERMINAL -e "nvim $MTH_251_DIR/lectures/lec-02.tex"
-					Lecture 3								$TERMINAL -e "nvim $MTH_251_DIR/lectures/lec-03.tex"
-					Lecture 4								$TERMINAL -e "nvim $MTH_251_DIR/lectures/lec-04.tex"
-					Lecture 5								$TERMINAL -e "nvim $MTH_251_DIR/lectures/lec-05.tex"
-					Lecture 6								$TERMINAL -e "nvim $MTH_251_DIR/lectures/lec-06.tex"
-					Lecture 7								$TERMINAL -e "nvim $MTH_251_DIR/lectures/lec-07.tex"
-					Lecture 8								$TERMINAL -e "nvim $MTH_251_DIR/lectures/lec-08.tex"
-					Lecture 9								$TERMINAL -e "nvim $MTH_251_DIR/lectures/lec-09.tex"
-				Professor Notes (PDF)
-					Lecture 1 							zathura $MTH_251_DIR/online-lecture-notes/lec-01.pdf
-					Lecture 2 							zathura $MTH_251_DIR/online-lecture-notes/lec-02.pdf
-					Lecture 3 							zathura $MTH_251_DIR/online-lecture-notes/lec-03.pdf
-					Lecture 4 							zathura $MTH_251_DIR/online-lecture-notes/lec-04.pdf
-					Lecture 5 							zathura $MTH_251_DIR/online-lecture-notes/lec-05.pdf
-					Lecture 6 							zathura $MTH_251_DIR/online-lecture-notes/lec-06.pdf
-					Lecture 7 							zathura $MTH_251_DIR/online-lecture-notes/lec-07.pdf
-					Lecture 8 							zathura $MTH_251_DIR/online-lecture-notes/lec-08.pdf
-					Lecture 9 							zathura $MTH_251_DIR/online-lecture-notes/lec-09.pdf
-					Lecture 10 							zathura $MTH_251_DIR/online-lecture-notes/lec-10.pdf
-				
-				Assignments
-					My Assignments
-						Latex Files
-							Graded Assignment 1	$TERMINAL -e "nvim $MTH_251_DIR/assignments/my-assignments/latex-files/graded-assignment-01.tex"
-							Graded Assignment 2	$TERMINAL -e "nvim $MTH_251_DIR/assignments/my-assignments/latex-files/graded-assignment-02.tex"
-							Graded Assignment 3	$TERMINAL -e "nvim $MTH_251_DIR/assignments/my-assignments/latex-files/graded-assignment-03.tex"
-							Graded Assignment 4	$TERMINAL -e "nvim $MTH_251_DIR/assignments/my-assignments/latex-files/graded-assignment-04.tex"
-							Graded Assignment 5	$TERMINAL -e "nvim $MTH_251_DIR/assignments/my-assignments/latex-files/graded-assignment-05.tex"
-							Graded Assignment 6	$TERMINAL -e "nvim $MTH_251_DIR/assignments/my-assignments/latex-files/graded-assignment-06.tex"
-							Graded Assignment 7	$TERMINAL -e "nvim $MTH_251_DIR/assignments/my-assignments/latex-files/graded-assignment-07.tex"
-							Graded Assignment 8	$TERMINAL -e "nvim $MTH_251_DIR/assignments/my-assignments/latex-files/graded-assignment-08.tex"
-							Graded Assignment 9	$TERMINAL -e "nvim $MTH_251_DIR/assignments/my-assignments/latex-files/graded-assignment-09.tex"
-							Takehome Exam	1			$TERMINAL -e "nvim $MTH_251_DIR/assignments/my-assignments/latex-files/takehome-exam-01.tex"
-							Takehome Exam 2			$TERMINAL -e "nvim $MTH_251_DIR/assignments/my-assignments/latex-files/takehome-exam-02.tex"
-						Yaml Files
-							Graded Assignment 1	$TERMINAL -e "nvim $MTH_251_DIR/assignments/my-assignments/yaml-files/graded-assignment-01.yaml"
-							Graded Assignment 2	$TERMINAL -e "nvim $MTH_251_DIR/assignments/my-assignments/yaml-files/graded-assignment-02.yaml"
-							Graded Assignment 3	$TERMINAL -e "nvim $MTH_251_DIR/assignments/my-assignments/yaml-files/graded-assignment-03.yaml"
-							Graded Assignment 4	$TERMINAL -e "nvim $MTH_251_DIR/assignments/my-assignments/yaml-files/graded-assignment-04.yaml"
-							Graded Assignment 5	$TERMINAL -e "nvim $MTH_251_DIR/assignments/my-assignments/yaml-files/graded-assignment-05.yaml"
-							Graded Assignment 6	$TERMINAL -e "nvim $MTH_251_DIR/assignments/my-assignments/yaml-files/graded-assignment-06.yaml"
-							Graded Assignment 7	$TERMINAL -e "nvim $MTH_251_DIR/assignments/my-assignments/yaml-files/graded-assignment-07.yaml"
-							Graded Assignment 8	$TERMINAL -e "nvim $MTH_251_DIR/assignments/my-assignments/yaml-files/graded-assignment-08.yaml"
-							Graded Assignment 9	$TERMINAL -e "nvim $MTH_251_DIR/assignments/my-assignments/yaml-files/graded-assignment-09.yaml"
-							Takehome Exam	1			$TERMINAL -e "nvim $MTH_251_DIR/assignments/my-assignments/yaml-files/takehome-exam-01.yaml"
-							Takehome Exam 2			$TERMINAL -e "nvim $MTH_251_DIR/assignments/my-assignments/yaml-files/takehome-exam-02.yaml"
-						PDF Files
-							Graded Assignment 1	zathura $MTH_251_DIR/assignments/my-assignments/pdf-files/graded-assignment-01.pdf
-							Graded Assignment 2	zathura $MTH_251_DIR/assignments/my-assignments/pdf-files/graded-assignment-02.pdf
-							Graded Assignment 3	zathura $MTH_251_DIR/assignments/my-assignments/pdf-files/graded-assignment-03.pdf
-							Graded Assignment 4	zathura $MTH_251_DIR/assignments/my-assignments/pdf-files/graded-assignment-04.pdf
-							Graded Assignment 5	zathura $MTH_251_DIR/assignments/my-assignments/pdf-files/graded-assignment-05.pdf
-							Graded Assignment 6	zathura $MTH_251_DIR/assignments/my-assignments/pdf-files/graded-assignment-06.pdf
-							Graded Assignment 7	zathura $MTH_251_DIR/assignments/my-assignments/pdf-files/graded-assignment-07.pdf
-							Graded Assignment 8	zathura $MTH_251_DIR/assignments/my-assignments/pdf-files/graded-assignment-08.pdf
-							Graded Assignment 9	zathura $MTH_251_DIR/assignments/my-assignments/pdf-files/graded-assignment-09.pdf
-							Takehome Exam 1			zathura $MTH_251_DIR/assignments/my-assignments/pdf-files/takehome-exam-01.pdf
-							Takehome Exam 2			zathura $MTH_251_DIR/assignments/my-assignments/pdf-files/takehome-exam-02.pdf
-					Online Assignments
-						Graded Assignment 1	zathura $MTH_251_DIR/assignments/online-assignments/graded-assignment-01.pdf
-						Graded Assignment 2	zathura $MTH_251_DIR/assignments/online-assignments/graded-assignment-02.pdf
-						Graded Assignment 3	zathura $MTH_251_DIR/assignments/online-assignments/graded-assignment-03.pdf
-						Graded Assignment 4	zathura $MTH_251_DIR/assignments/online-assignments/graded-assignment-04.pdf
-						Graded Assignment 5	zathura $MTH_251_DIR/assignments/online-assignments/graded-assignment-05.pdf
-						Graded Assignment 6	zathura $MTH_251_DIR/assignments/online-assignments/graded-assignment-06.pdf
-						Graded Assignment 7	zathura $MTH_251_DIR/assignments/online-assignments/graded-assignment-07.pdf
-						Graded Assignment 8	zathura $MTH_251_DIR/assignments/online-assignments/graded-assignment-08.pdf
-						Graded Assignment 9	zathura $MTH_251_DIR/assignments/online-assignments/graded-assignment-09.pdf
-						Takehome Exam 1			zathura $MTH_251_DIR/assignments/online-assignments/takehome-exam-01.pdf
-						Takehome Exam 2			zathura $MTH_251_DIR/assignments/online-assignments/takehome-exam-02.pdf
-					Graded Assignments
-						Graded Assignment 1	zathura $MTH_251_DIR/assignments/graded-assignments/graded-assignment-01.pdf
-						Graded Assignment 2	zathura $MTH_251_DIR/assignments/graded-assignments/graded-assignment-02.pdf
-						Graded Assignment 3	zathura $MTH_251_DIR/assignments/graded-assignments/graded-assignment-03.pdf
-						Graded Assignment 4	zathura $MTH_251_DIR/assignments/graded-assignments/graded-assignment-04.pdf
-						Graded Assignment 5	zathura $MTH_251_DIR/assignments/graded-assignments/graded-assignment-05.pdf
-						Graded Assignment 6	zathura $MTH_251_DIR/assignments/graded-assignments/graded-assignment-06.pdf
-						Graded Assignment 7	zathura $MTH_251_DIR/assignments/graded-assignments/graded-assignment-07.pdf
-						Graded Assignment 8	zathura $MTH_251_DIR/assignments/graded-assignments/graded-assignment-08.pdf
-						Graded Assignment 9	zathura $MTH_251_DIR/assignments/graded-assignments/graded-assignment-09.pdf
-						Takehome Exam 1			zathura $MTH_251_DIR/assignments/graded-assignments/takehome-exam-01.pdf
-						Takehome Exam 2			zathura $MTH_251_DIR/assignments/graded-assignments/takehome-exam-02.pdf
-	 Comms
-		Discord (GUI)								discord
-		Discord (TUI)								$TERMINAL -e "cordless"
-		 Email (TUI)								$TERMINAL -e "neomutt"
-		 Telegram (GUI)						telegram-desktop
-		 Telegram (TUI)						nctelegram
-		
-		 IRC												$TERMINAL -e "weechat"
-		 SMS												kdeconnect-sms --style gtk2
-		 Signal										signal-desktop
-	 Utilities
-		 Calculator (TUI)					$TERMINAL -e "qalc"
-		 Calculator (GUI)					qalculate-gtk
-		 Calendar (TUI)						$TERMINAL -e "khal interactive"
-		 Calendar (GUI)						google-calendar-nativefier
-		 Color Picker							gpick
-		 Writing Books							manuskript
-		Habit Tracker								$TERMINAL -e "dijo"
-		
-		 System
-			 Kill Window							xkill
-			 Smartphone							kdeconnect-app --style gtk2
-			 Screen Recording				obs
-			 Screenshot
-				All Displays						flameshot screen -d 5000 -n 3 -p $HOME/Documents/Screenshots
-				Middle Display					flameshot screen -d 5000 -n 0 -p $HOME/Documents/Screenshots
-				Right Display						flameshot screen -d 5000 -n 1 -p $HOME/Documents/Screenshots
-				Left Display						flameshot screen -d 5000 -n 2 -p $HOME/Documents/Screenshots
-		 Theming
-			lxappearance							lxappearance
-			GTK												oomox-gui
-			Qt												qt5ct --style gtk2
-			WPGTK											wpg
-		 Monitors
-			System
-				Baobab (TUI)						$TERMINAL -e "baobab"
-				Diskonaut (TUI)					$TERMINAL -e "diskonaut"
-			
-			Network
-			
-			Finance
-				 Crypto (TUI)					$TERMINAL -e "cointop"
-				 Stocks (TUI)					$TERMINAL -e "mop"
-			
-			Misc
-		 Media
-			 EasyTag									easytag
-	 Entertainment
-		 Media
-			 Podcasts (castero)			$TERMINAL -e "castero"
-			 RSS (newsboat)					$TERMINAL -e "newsboat"
-			 Reddit (tuir)						$TERMINAL -e "tuir"
-			 Twitter (rainbowstream)	$TERMINAL -e "rainbowstream"
-			 Music (ncmpcpp)					$TERMINAL -e "ncmpcpp"
-			Soulseek (Nicotine+)			nicotine
-		 Games
-			 Steam										steam
-			Itch											itch
-			Lutris										$TERMINAL -e "lutris"
-			Tetris										$TERMINAL -e "tetris"
-			Solitaire									$TERMINAL -e "ttysolitaire"
-			 Battleship							$TERMINAL -e "bs"
-			 Minecraft								minecraft-launcher
-			Dopewars									$TERMINAL -e "dopewars"
-	 Science
-		Anki												anki
-		
-		 Astronomy
-			Celestia									celestia
-		 Biology
-			Pymol											pymol
-		 Chemistry
-			chemtool									chemtool
-		 Math
-			Geogebra									geogebra
-	 Development
-		 IDEs
-			Neovim										$TERMINAL -e "nvim"
-			VSCode										code
-	 LibreOffice
-		LibreOffice									libreoffice
-		Writer											libreoffice --writer
-		Calc												libreoffice --calc
-		Draw												libreoffice --draw
-		Web 												libreoffice --web
-		Base 												libreoffice --base
-		Presentation 								 libreoffice --impress
-		Math												 libreoffice --math
+  if [ "$OUTPUT" != "" ]; then
+    [ "$LAST_XMENU_ITEM" = "$CURRENT_XMENU_ITEM_OUTPUT" ] && \
+      OUTPUT="$OUTPUT\n\n${CURRENT_XMENU_ITEM_OUTPUT}" || \
+      OUTPUT="$OUTPUT${CURRENT_XMENU_ITEM_OUTPUT}"
+  else
+    OUTPUT="$(bash "$XMENU_ITEM")"
+  fi
+done
 
- Configs
-	 System
-		 Bspwm											 $TERMINAL -e "nvim $CONFIGDIR/bspwm/bspwmrc"
-		 Start Menu								 $TERMINAL -e "nvim $HOME/Singularis/local/xmenu-script"
-		 Notifications							 $TERMINAL -e "nvim $CONFIGDIR/dunst/dunstrc"
-		 Smartphone								 kdeconnect-settings --style gtk2
-		 Sound											 pavucontrol
-		 .Xresources								 $TERMINAL -e "nvim $HOME/.Xresources"
+echo -e "$OUTPUT" | xmenu -i | bash &
 
- System
-	 Logout			logout
-	 Shutdown		poweroff
-	 Reboot			reboot
-EOF
+#  Applications
+# 	 Firefox												firefox
+# 	 Chrome												google-chrome-stable
+# 	 Terminal											$TERMINAL
+# 	 Files													pcmanfm
+# 	
+# 	 School
+# 		 Zotero											zotero
+# 		
+# 		 Notes
+# 			 Current Course Notes			zathura $SCHOOL_NOTES_DIR/current-course/master.pdf
+# 			
+# 			MTH 251
+# 				Notes Source Code	(TEX)		$TERMINAL -e "nvim $MTH_251_DIR/master.tex"
+# 				Final Notes (PDF) 				zathura $MTH_251_DIR/master.pdf
+# 				Books (PDF)
+# 					Single Variable Calc		zathura $MTH_251_DIR/books/single-variable-calculus.pdf
+# 					PCC Lab Manual					zathura $MTH_251_DIR/books/lab-manual.pdf
+# 				
+# 				Lecture Notes (TEX)
+# 					Lecture 1								$TERMINAL -e "nvim $MTH_251_DIR/lectures/lec-01.tex"
+# 					Lecture 2								$TERMINAL -e "nvim $MTH_251_DIR/lectures/lec-02.tex"
+# 					Lecture 3								$TERMINAL -e "nvim $MTH_251_DIR/lectures/lec-03.tex"
+# 					Lecture 4								$TERMINAL -e "nvim $MTH_251_DIR/lectures/lec-04.tex"
+# 					Lecture 5								$TERMINAL -e "nvim $MTH_251_DIR/lectures/lec-05.tex"
+# 					Lecture 6								$TERMINAL -e "nvim $MTH_251_DIR/lectures/lec-06.tex"
+# 					Lecture 7								$TERMINAL -e "nvim $MTH_251_DIR/lectures/lec-07.tex"
+# 					Lecture 8								$TERMINAL -e "nvim $MTH_251_DIR/lectures/lec-08.tex"
+# 					Lecture 9								$TERMINAL -e "nvim $MTH_251_DIR/lectures/lec-09.tex"
+# 					Lecture 10							$TERMINAL -e "nvim $MTH_251_DIR/lectures/lec-10.tex"
+# 				Professor Notes (PDF)
+# 					Lecture 1 							zathura $MTH_251_DIR/online-lecture-notes/lec-01.pdf
+# 					Lecture 2 							zathura $MTH_251_DIR/online-lecture-notes/lec-02.pdf
+# 					Lecture 3 							zathura $MTH_251_DIR/online-lecture-notes/lec-03.pdf
+# 					Lecture 4 							zathura $MTH_251_DIR/online-lecture-notes/lec-04.pdf
+# 					Lecture 5 							zathura $MTH_251_DIR/online-lecture-notes/lec-05.pdf
+# 					Lecture 6 							zathura $MTH_251_DIR/online-lecture-notes/lec-06.pdf
+# 					Lecture 7 							zathura $MTH_251_DIR/online-lecture-notes/lec-07.pdf
+# 					Lecture 8 							zathura $MTH_251_DIR/online-lecture-notes/lec-08.pdf
+# 					Lecture 9 							zathura $MTH_251_DIR/online-lecture-notes/lec-09.pdf
+# 					Lecture 10 							zathura $MTH_251_DIR/online-lecture-notes/lec-10.pdf
+# 				
+# 				Assignments
+# 					My Assignments
+# 						Latex Files
+# 							Graded Assignment 1	$TERMINAL -e "nvim $MTH_251_DIR/assignments/my-assignments/latex-files/graded-assignment-01.tex"
+# 							Graded Assignment 2	$TERMINAL -e "nvim $MTH_251_DIR/assignments/my-assignments/latex-files/graded-assignment-02.tex"
+# 							Graded Assignment 3	$TERMINAL -e "nvim $MTH_251_DIR/assignments/my-assignments/latex-files/graded-assignment-03.tex"
+# 							Graded Assignment 4	$TERMINAL -e "nvim $MTH_251_DIR/assignments/my-assignments/latex-files/graded-assignment-04.tex"
+# 							Graded Assignment 5	$TERMINAL -e "nvim $MTH_251_DIR/assignments/my-assignments/latex-files/graded-assignment-05.tex"
+# 							Graded Assignment 6	$TERMINAL -e "nvim $MTH_251_DIR/assignments/my-assignments/latex-files/graded-assignment-06.tex"
+# 							Graded Assignment 7	$TERMINAL -e "nvim $MTH_251_DIR/assignments/my-assignments/latex-files/graded-assignment-07.tex"
+# 							Graded Assignment 8	$TERMINAL -e "nvim $MTH_251_DIR/assignments/my-assignments/latex-files/graded-assignment-08.tex"
+# 							Graded Assignment 9	$TERMINAL -e "nvim $MTH_251_DIR/assignments/my-assignments/latex-files/graded-assignment-09.tex"
+# 							Takehome Exam	1			$TERMINAL -e "nvim $MTH_251_DIR/assignments/my-assignments/latex-files/takehome-exam-01.tex"
+# 							Takehome Exam 2			$TERMINAL -e "nvim $MTH_251_DIR/assignments/my-assignments/latex-files/takehome-exam-02.tex"
+# 						Yaml Files
+# 							Graded Assignment 1	$TERMINAL -e "nvim $MTH_251_DIR/assignments/my-assignments/yaml-files/graded-assignment-01.yaml"
+# 							Graded Assignment 2	$TERMINAL -e "nvim $MTH_251_DIR/assignments/my-assignments/yaml-files/graded-assignment-02.yaml"
+# 							Graded Assignment 3	$TERMINAL -e "nvim $MTH_251_DIR/assignments/my-assignments/yaml-files/graded-assignment-03.yaml"
+# 							Graded Assignment 4	$TERMINAL -e "nvim $MTH_251_DIR/assignments/my-assignments/yaml-files/graded-assignment-04.yaml"
+# 							Graded Assignment 5	$TERMINAL -e "nvim $MTH_251_DIR/assignments/my-assignments/yaml-files/graded-assignment-05.yaml"
+# 							Graded Assignment 6	$TERMINAL -e "nvim $MTH_251_DIR/assignments/my-assignments/yaml-files/graded-assignment-06.yaml"
+# 							Graded Assignment 7	$TERMINAL -e "nvim $MTH_251_DIR/assignments/my-assignments/yaml-files/graded-assignment-07.yaml"
+# 							Graded Assignment 8	$TERMINAL -e "nvim $MTH_251_DIR/assignments/my-assignments/yaml-files/graded-assignment-08.yaml"
+# 							Graded Assignment 9	$TERMINAL -e "nvim $MTH_251_DIR/assignments/my-assignments/yaml-files/graded-assignment-09.yaml"
+# 							Takehome Exam	1			$TERMINAL -e "nvim $MTH_251_DIR/assignments/my-assignments/yaml-files/takehome-exam-01.yaml"
+# 							Takehome Exam 2			$TERMINAL -e "nvim $MTH_251_DIR/assignments/my-assignments/yaml-files/takehome-exam-02.yaml"
+# 						PDF Files
+# 							Graded Assignment 1	zathura $MTH_251_DIR/assignments/my-assignments/pdf-files/graded-assignment-01.pdf
+# 							Graded Assignment 2	zathura $MTH_251_DIR/assignments/my-assignments/pdf-files/graded-assignment-02.pdf
+# 							Graded Assignment 3	zathura $MTH_251_DIR/assignments/my-assignments/pdf-files/graded-assignment-03.pdf
+# 							Graded Assignment 4	zathura $MTH_251_DIR/assignments/my-assignments/pdf-files/graded-assignment-04.pdf
+# 							Graded Assignment 5	zathura $MTH_251_DIR/assignments/my-assignments/pdf-files/graded-assignment-05.pdf
+# 							Graded Assignment 6	zathura $MTH_251_DIR/assignments/my-assignments/pdf-files/graded-assignment-06.pdf
+# 							Graded Assignment 7	zathura $MTH_251_DIR/assignments/my-assignments/pdf-files/graded-assignment-07.pdf
+# 							Graded Assignment 8	zathura $MTH_251_DIR/assignments/my-assignments/pdf-files/graded-assignment-08.pdf
+# 							Graded Assignment 9	zathura $MTH_251_DIR/assignments/my-assignments/pdf-files/graded-assignment-09.pdf
+# 							Takehome Exam 1			zathura $MTH_251_DIR/assignments/my-assignments/pdf-files/takehome-exam-01.pdf
+# 							Takehome Exam 2			zathura $MTH_251_DIR/assignments/my-assignments/pdf-files/takehome-exam-02.pdf
+# 					Online Assignments
+# 						Graded Assignment 1	zathura $MTH_251_DIR/assignments/online-assignments/graded-assignment-01.pdf
+# 						Graded Assignment 2	zathura $MTH_251_DIR/assignments/online-assignments/graded-assignment-02.pdf
+# 						Graded Assignment 3	zathura $MTH_251_DIR/assignments/online-assignments/graded-assignment-03.pdf
+# 						Graded Assignment 4	zathura $MTH_251_DIR/assignments/online-assignments/graded-assignment-04.pdf
+# 						Graded Assignment 5	zathura $MTH_251_DIR/assignments/online-assignments/graded-assignment-05.pdf
+# 						Graded Assignment 6	zathura $MTH_251_DIR/assignments/online-assignments/graded-assignment-06.pdf
+# 						Graded Assignment 7	zathura $MTH_251_DIR/assignments/online-assignments/graded-assignment-07.pdf
+# 						Graded Assignment 8	zathura $MTH_251_DIR/assignments/online-assignments/graded-assignment-08.pdf
+# 						Graded Assignment 9	zathura $MTH_251_DIR/assignments/online-assignments/graded-assignment-09.pdf
+# 						Takehome Exam 1			zathura $MTH_251_DIR/assignments/online-assignments/takehome-exam-01.pdf
+# 						Takehome Exam 2			zathura $MTH_251_DIR/assignments/online-assignments/takehome-exam-02.pdf
+# 					Graded Assignments
+# 						Graded Assignment 1	zathura $MTH_251_DIR/assignments/graded-assignments/graded-assignment-01.pdf
+# 						Graded Assignment 2	zathura $MTH_251_DIR/assignments/graded-assignments/graded-assignment-02.pdf
+# 						Graded Assignment 3	zathura $MTH_251_DIR/assignments/graded-assignments/graded-assignment-03.pdf
+# 						Graded Assignment 4	zathura $MTH_251_DIR/assignments/graded-assignments/graded-assignment-04.pdf
+# 						Graded Assignment 5	zathura $MTH_251_DIR/assignments/graded-assignments/graded-assignment-05.pdf
+# 						Graded Assignment 6	zathura $MTH_251_DIR/assignments/graded-assignments/graded-assignment-06.pdf
+# 						Graded Assignment 7	zathura $MTH_251_DIR/assignments/graded-assignments/graded-assignment-07.pdf
+# 						Graded Assignment 8	zathura $MTH_251_DIR/assignments/graded-assignments/graded-assignment-08.pdf
+# 						Graded Assignment 9	zathura $MTH_251_DIR/assignments/graded-assignments/graded-assignment-09.pdf
+# 						Takehome Exam 1			zathura $MTH_251_DIR/assignments/graded-assignments/takehome-exam-01.pdf
+# 						Takehome Exam 2			zathura $MTH_251_DIR/assignments/graded-assignments/takehome-exam-02.pdf
+# 	 Comms
+# 		Discord (GUI)								discord
+# 		Discord (TUI)								$TERMINAL -e "cordless"
+# 		 Email (TUI)								$TERMINAL -e "neomutt"
+# 		 Telegram (GUI)						telegram-desktop
+# 		 Telegram (TUI)						nctelegram
+# 		
+# 		 IRC												$TERMINAL -e "weechat"
+# 		 SMS												kdeconnect-sms --style gtk2
+# 		 Signal										signal-desktop
+# 	 Utilities
+# 		 Calculator (TUI)					$TERMINAL -e "qalc"
+# 		 Calculator (GUI)					qalculate-gtk
+# 		 Calendar (TUI)						$TERMINAL -e "khal interactive"
+# 		 Calendar (GUI)						google-calendar-nativefier
+# 		 Color Picker							gpick
+# 		 Writing Books							manuskript
+# 		Habit Tracker								$TERMINAL -e "dijo"
+# 		
+# 		 System
+# 			 Kill Window							xkill
+# 			 Smartphone							kdeconnect-app --style gtk2
+# 			 Screen Recording				obs
+# 			 Screenshot
+# 				All Displays						flameshot screen -d 5000 -n 3 -p $HOME/Documents/Screenshots
+# 				Middle Display					flameshot screen -d 5000 -n 0 -p $HOME/Documents/Screenshots
+# 				Right Display						flameshot screen -d 5000 -n 1 -p $HOME/Documents/Screenshots
+# 				Left Display						flameshot screen -d 5000 -n 2 -p $HOME/Documents/Screenshots
+# 		 Theming
+# 			lxappearance							lxappearance
+# 			GTK												oomox-gui
+# 			Qt												qt5ct --style gtk2
+# 			WPGTK											wpg
+# 		 Monitors
+# 			System
+# 				Baobab (TUI)						$TERMINAL -e "baobab"
+# 				Diskonaut (TUI)					$TERMINAL -e "diskonaut"
+# 			
+# 			Network
+# 			
+# 			Finance
+# 				 Crypto (TUI)					$TERMINAL -e "cointop"
+# 				 Stocks (TUI)					$TERMINAL -e "mop"
+# 			
+# 			Misc
+# 		 Media
+# 			 EasyTag									easytag
+# 	 Entertainment
+# 		 Media
+# 			 Podcasts (castero)			$TERMINAL -e "castero"
+# 			 RSS (newsboat)					$TERMINAL -e "newsboat"
+# 			 Reddit (tuir)						$TERMINAL -e "tuir"
+# 			 Twitter (rainbowstream)	$TERMINAL -e "rainbowstream"
+# 			 Music (ncmpcpp)					$TERMINAL -e "ncmpcpp"
+# 			Soulseek (Nicotine+)			nicotine
+# 		 Games
+# 			 Steam										steam
+# 			Itch											itch
+# 			Lutris										$TERMINAL -e "lutris"
+# 			Tetris										$TERMINAL -e "tetris"
+# 			Solitaire									$TERMINAL -e "ttysolitaire"
+# 			 Battleship							$TERMINAL -e "bs"
+# 			 Minecraft								minecraft-launcher
+# 			Dopewars									$TERMINAL -e "dopewars"
+# 	 Science
+# 		Anki												anki
+# 		
+# 		 Astronomy
+# 			Celestia									celestia
+# 		 Biology
+# 			Pymol											pymol
+# 		 Chemistry
+# 			chemtool									chemtool
+# 		 Math
+# 			Geogebra									geogebra
+# 	 Development
+# 		 IDEs
+# 			Neovim										$TERMINAL -e "nvim"
+# 			VSCode										code
+# 	 LibreOffice
+# 		LibreOffice									libreoffice
+# 		Writer											libreoffice --writer
+# 		Calc												libreoffice --calc
+# 		Draw												libreoffice --draw
+# 		Web 												libreoffice --web
+# 		Base 												libreoffice --base
+# 		Presentation 								 libreoffice --impress
+# 		Math												 libreoffice --math
+
+#  Configs
+# 	 System
+# 		 Bspwm											 $TERMINAL -e "nvim $CONFIGDIR/bspwm/bspwmrc"
+# 		 Start Menu								 $TERMINAL -e "nvim $HOME/Singularis/local/xmenu-script"
+# 		 Notifications							 $TERMINAL -e "nvim $CONFIGDIR/dunst/dunstrc"
+# 		 Smartphone								 kdeconnect-settings --style gtk2
+# 		 Sound											 pavucontrol
+# 		 .Xresources								 $TERMINAL -e "nvim $HOME/.Xresources"
+
+#  System
+# 	 Logout			logout
+# 	 Shutdown		poweroff
+# 	 Reboot			reboot

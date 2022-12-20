@@ -47,9 +47,16 @@ M.load = function()
   load("lsp-inlayhints.nvim")
   load("lsp_signature.nvim")
   load("guihua.lua")
+  load("neoconf.nvim")
   load("navigator.lua")
+  load("neodev.nvim")
   load("vim-illuminate", {
     config = "illuminate",
+  })
+  lazy("trouble.nvim", {
+    config = function()
+      require("trouble").setup()
+    end,
   })
   lazy("symbols-outline.nvim", {
     config = "symbols-outline",
@@ -136,6 +143,11 @@ M.load = function()
   load("colorschemes")
   load("synthwave84.nvim")
   load("pinnacle")
+  load("paint.nvim", {
+    config = function()
+      require("paint").setup()
+    end,
+  })
   lazy("colortils.nvim")
   lazy("nvim-colorizer.lua", {
     config = "colorizer",
@@ -278,6 +290,11 @@ M.load = function()
   -- Distraction free writing.
   lazy("zen-mode.nvim", {
     config = "zen-mode",
+  })
+  lazy("twilight.nvim", {
+    config = function()
+      require("twilight").setup()
+    end,
   })
   -- Top bar information display.
   load("nvim-navic", {

@@ -39,19 +39,11 @@ lsp.load = function()
   }
 
   mason.setup(settings)
-  mason_lspconfig.setup({
-    ensure_installed = nil,
-    automatic_installation = true,
-  })
-  mason_null_ls.setup({
-    ensure_installed = SingularisArt.lsp.config.ensure_installed_servers,
-    automatic_installation = true,
-    automatic_setup = false,
-  })
+  mason_lspconfig.setup({ automatic_installation = true })
+  mason_null_ls.setup({ automatic_installation = true })
   mason_dap.setup({
-    ensure_installed = SingularisArt.lsp.config.ensure_installed_dap,
     automatic_installation = true,
-    automatic_setup = false,
+    automatic_setup = true,
   })
 
   for _, server in ipairs(servers) do

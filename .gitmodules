@@ -400,3 +400,18 @@
 [submodule "mason-nvim-dap.nvim"]
 	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/mason-nvim-dap.nvim
 	url = https://github.com/jay-babu/mason-nvim-dap.nvim
+[submodule "neodev.nvim"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/neodev.nvim
+	url = https://github.com/folke/neodev.nvim
+[submodule "neoconf.nvim"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/neoconf.nvim
+	url = https://github.com/folke/neoconf.nvim
+[submodule "paint.nvim"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/paint.nvim
+	url = https://github.com/folke/paint.nvim
+[submodule "trouble.nvim"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/trouble.nvim
+	url = https://github.com/folke/trouble.nvim
+[submodule "twilight.nvim"]
+	path = aspects/nvim/files/.config/nvim/pack/plugins/opt/twilight.nvim
+	url = https://github.com/folke/twilight.nvim
