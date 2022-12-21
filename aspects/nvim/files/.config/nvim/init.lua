@@ -1,7 +1,7 @@
 require("SingularisArt")
 
 SingularisArt.settings.load()
-SingularisArt.packadd.load()
+SingularisArt.plugins.load()
 
 SingularisArt.autocmds.load()
 SingularisArt.augroup.load()
