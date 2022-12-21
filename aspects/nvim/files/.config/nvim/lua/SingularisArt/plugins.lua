@@ -79,16 +79,16 @@ plugins.load = function()
         "hrsh7th/cmp-calc",
         "hrsh7th/cmp-emoji",
         "hrsh7th/cmp-nvim-lua",
+        "amarakon/nvim-cmp-buffer-lines",
+        "andersevenrud/cmp-tmux",
+        "hrsh7th/cmp-cmdline",
+        "petertriho/cmp-git",
         {
           "tzachar/cmp-tabnine",
           config = function()
             require("SingularisArt.config.tabnine")
           end,
         },
-        -- "amarakon/nvim-cmp-buffer-lines",
-        -- "andersevenrud/cmp-tmux",
-        -- "hrsh7th/cmp-cmdline",
-        -- "petertriho/cmp-git",
       },
       config = function()
         require("SingularisArt.config.cmp")
@@ -197,7 +197,7 @@ plugins.load = function()
         "ravenxrz/DAPInstall.nvim",
         "rcarriga/nvim-dap-ui",
         "theHamsta/nvim-dap-virtual-text",
-        -- "mfussenegger/nvim-dap-python",
+        "mfussenegger/nvim-dap-python",
       },
     },
 
@@ -358,13 +358,13 @@ plugins.load = function()
     --  Other  --
     -------------
 
-    -- "andymass/vim-matchup",
-    -- "moll/vim-bbye",
-    -- "junegunn/vim-slash",
-    -- "kylechui/nvim-surround",
-    -- "abecodes/tabout.nvim",
-    -- "ThePrimeagen/harpoon",
-    -- "mattn/webapi-vim",
+    "andymass/vim-matchup",
+    "moll/vim-bbye",
+    "junegunn/vim-slash",
+    "kylechui/nvim-surround",
+    "abecodes/tabout.nvim",
+    "ThePrimeagen/harpoon",
+    "mattn/webapi-vim",
     {
       "ghillb/cybu.nvim",
       config = function()
@@ -454,17 +454,17 @@ plugins.load = function()
       "wakatime/vim-wakatime",
       event = "VeryLazy",
     },
-    -- {
-    --   "kevinhwang91/nvim-bqf",
-    --   config = function()
-    --     require("SingularisArt.config.bqf")
-    --   end,
-    --   event = "VeryLazy",
-    -- },
-    -- {
-    --   "nvim-pack/nvim-spectre",
-    --   event = "VeryLazy",
-    -- },
+    {
+      "kevinhwang91/nvim-bqf",
+      config = function()
+        require("SingularisArt.config.bqf")
+      end,
+      event = "VeryLazy",
+    },
+    {
+      "nvim-pack/nvim-spectre",
+      event = "VeryLazy",
+    },
     {
       "lukas-reineke/indent-blankline.nvim",
       config = function()
