@@ -41,7 +41,8 @@ plugins.load = function()
       "j-hui/fidget.nvim",
       config = function()
         require("SingularisArt.config.fidget")
-      end
+      end,
+      event = "VeryLazy",
     },
     {
       "simrat39/symbols-outline.nvim",
@@ -53,14 +54,15 @@ plugins.load = function()
     {
       "folke/trouble.nvim",
       config = function()
-        require("SingularisArt.config.trouble").setup()
-      end
+        require("SingularisArt.config.trouble")
+      end,
+      cmd = "Trouble",
     },
     {
       "RRethy/vim-illuminate",
       config = function()
-        require("SingularisArt.config.illuminate").setup()
-      end
+        require("SingularisArt.config.illuminate")
+      end,
     },
 
     -------------------------
@@ -75,13 +77,18 @@ plugins.load = function()
         "hrsh7th/cmp-path",
         "hrsh7th/cmp-nvim-lsp",
         "hrsh7th/cmp-calc",
-        "hrsh7th/cmp-cmdline",
         "hrsh7th/cmp-emoji",
         "hrsh7th/cmp-nvim-lua",
-        "amarakon/nvim-cmp-buffer-lines",
-        "andersevenrud/cmp-tmux",
-        "hrsh7th/cmp-cmdline",
-        "petertriho/cmp-git",
+        {
+          "tzachar/cmp-tabnine",
+          config = function()
+            require("SingularisArt.config.tabnine")
+          end,
+        },
+        -- "amarakon/nvim-cmp-buffer-lines",
+        -- "andersevenrud/cmp-tmux",
+        -- "hrsh7th/cmp-cmdline",
+        -- "petertriho/cmp-git",
       },
       config = function()
         require("SingularisArt.config.cmp")
@@ -215,7 +222,7 @@ plugins.load = function()
       "norcalli/nvim-colorizer.lua",
       config = function()
         require("SingularisArt.config.colorizer")
-      end
+      end,
     },
     "wincent/pinnacle",
 
@@ -301,12 +308,10 @@ plugins.load = function()
       end,
     },
 
+    { "mzlogin/vim-markdown-toc", ft = "markdown" },
+    { "dhruvasagar/vim-table-mode", ft = "markdown" },
     {
       "iamcco/markdown-preview.nvim",
-      dependencies = {
-        "mzlogin/vim-markdown-toc",
-        "dhruvasagar/vim-table-mode",
-      },
       ft = "markdown",
       config = function()
         require("SingularisArt.config.markdown-preview")
@@ -353,13 +358,13 @@ plugins.load = function()
     --  Other  --
     -------------
 
-    "andymass/vim-matchup",
-    "moll/vim-bbye",
-    "junegunn/vim-slash",
-    "kylechui/nvim-surround",
-    "abecodes/tabout.nvim",
-    "ThePrimeagen/harpoon",
-    "mattn/webapi-vim",
+    -- "andymass/vim-matchup",
+    -- "moll/vim-bbye",
+    -- "junegunn/vim-slash",
+    -- "kylechui/nvim-surround",
+    -- "abecodes/tabout.nvim",
+    -- "ThePrimeagen/harpoon",
+    -- "mattn/webapi-vim",
     {
       "ghillb/cybu.nvim",
       config = function()
@@ -368,7 +373,7 @@ plugins.load = function()
       keys = {
         "H",
         "L",
-      }
+      },
     },
     {
       "nacro90/numb.nvim",
@@ -403,6 +408,15 @@ plugins.load = function()
       config = function()
         require("SingularisArt.config.neoscroll")
       end,
+      keys = {
+        "<C-u>",
+        "<C-d>",
+        "<C-e>",
+        "<C-y>",
+        "zz",
+        "n",
+        "N",
+      },
     },
     {
       "numToStr/Comment.nvim",
@@ -410,9 +424,6 @@ plugins.load = function()
         require("SingularisArt.config.comment")
       end,
       event = "VeryLazy",
-      keys = {
-        "<Leader>/",
-      },
     },
     {
       "folke/todo-comments.nvim",
@@ -433,7 +444,6 @@ plugins.load = function()
       config = function()
         require("SingularisArt.config.undotree")
       end,
-      event = "VeryLazy",
       cmd = "UndotreeToggle",
     },
     {
@@ -444,17 +454,17 @@ plugins.load = function()
       "wakatime/vim-wakatime",
       event = "VeryLazy",
     },
-    {
-      "kevinhwang91/nvim-bqf",
-      config = function()
-        require("SingularisArt.config.bqf")
-      end,
-      event = "VeryLazy",
-    },
-    {
-      "nvim-pack/nvim-spectre",
-      event = "VeryLazy",
-    },
+    -- {
+    --   "kevinhwang91/nvim-bqf",
+    --   config = function()
+    --     require("SingularisArt.config.bqf")
+    --   end,
+    --   event = "VeryLazy",
+    -- },
+    -- {
+    --   "nvim-pack/nvim-spectre",
+    --   event = "VeryLazy",
+    -- },
     {
       "lukas-reineke/indent-blankline.nvim",
       config = function()
