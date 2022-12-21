@@ -463,8 +463,7 @@ plugins.load = function()
     },
     {
       "monaqa/dial.nvim",
-      -- lazy-load on keys
-      keys = { "<C-a>", "<C-x>" },
+      event = "VeryLazy",
     },
   }
 
