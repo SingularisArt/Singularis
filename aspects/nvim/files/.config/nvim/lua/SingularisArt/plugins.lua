@@ -82,7 +82,6 @@ plugins.load = function()
         "andersevenrud/cmp-tmux",
         "hrsh7th/cmp-cmdline",
         "petertriho/cmp-git",
-        "kdheepak/cmp-latex-symbols",
       },
       config = function()
         require("SingularisArt.config.cmp")
@@ -288,10 +287,15 @@ plugins.load = function()
     -----------------
 
     {
+      "kdheepak/cmp-latex-symbols",
+      ft = "tex",
+    },
+    {
+      "KeitaNakamura/tex-conceal.vim",
+      ft = "tex",
+    },
+    {
       "lervag/vimtex",
-      dependencies = {
-        "KeitaNakamura/tex-conceal.vim",
-      },
       config = function()
         require("SingularisArt.config.vimtex")
       end,
