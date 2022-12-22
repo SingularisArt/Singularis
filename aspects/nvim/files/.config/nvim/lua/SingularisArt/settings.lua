@@ -5,9 +5,6 @@ M.load = function()
   local config = home .. "/.config/nvim"
   local root = vim.env.USER == "root"
 
-  local join = require("SingularisArt.util.join")
-  local range = require("SingularisArt.util.range")
-
   ------------------------------------------------------------------------
   --                              General                               --
   ------------------------------------------------------------------------
@@ -174,6 +171,8 @@ M.load = function()
   ------------------------------------------------------------------------
 
   vim.opt.foldlevelstart = 99 -- Start unfolded.
+  vim.opt.foldlevel = 99 -- Start unfolded.
+  vim.opt.foldenable = true -- Start unfolded.
   vim.opt.foldmethod = "expr" -- Not as cool as syntax, but faster.
   vim.opt.foldexpr = "nvim_treesitter#foldexpr()" -- Use TreeSitter for folding.
   vim.opt.foldtext = "v:lua.SingularisArt.foldtext()" -- Folding style (lua/SingularisArt/foldtext.lua).

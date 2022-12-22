@@ -34,7 +34,7 @@ plugins.load = function()
     "WhoIsSethDaniel/mason-tool-installer.nvim",
     "jay-babu/mason-nvim-dap.nvim",
     "jose-elias-alvarez/null-ls.nvim",
-    -- "lvimuser/lsp-inlayhints.nvim",
+    "lvimuser/lsp-inlayhints.nvim",
     "ray-x/lsp_signature.nvim",
     "ray-x/guihua.lua",
     -- "b0o/SchemaStore.nvim",
@@ -50,7 +50,37 @@ plugins.load = function()
       "ray-x/navigator.lua",
       event = "VeryLazy",
       config = function()
-        require("navigator").setup()
+        require("navigator").setup({
+          debug = false,
+          width = 0.75,
+          height = 0.3,
+          preview_height = 0.35,
+          border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
+          ts_fold = false,
+          default_mapping = true,
+          treesitter_analysis = true,
+          treesitter_analysis_max_num = 100,
+          treesitter_analysis_condense = true,
+          transparency = 50,
+          lsp_signature_help = true,
+          signature_help_cfg = nil,
+          lsp_installer = false,
+          mason = false,
+          lsp = {
+            enable = true,
+            disable_lsp = "all",
+            code_action = { enable = true, sign = true, sign_priority = 40, virtual_text = true },
+            code_lens_action = { enable = true, sign = true, sign_priority = 40, virtual_text = true },
+            document_highlight = true,
+            format_on_save = false,
+            diagnostic = {
+              underline = true,
+              virtual_text = false,
+              update_in_insert = false,
+            },
+          }
+        })
+
       end,
     },
     {
@@ -194,6 +224,7 @@ plugins.load = function()
         require("SingularisArt.config.nvim-tree")
       end,
     },
+    { "nvim-neo-tree/neo-tree.nvim", cmd = "Neotree" },
     {
       "tamago324/lir.nvim",
       event = "VeryLazy",
@@ -240,6 +271,7 @@ plugins.load = function()
       "ray-x/starry.nvim",
       event = "BufWinEnter",
       dependencies = {
+        "lambdalisue/glyph-palette.vim",
         "wincent/base16-nvim",
         "catppuccin/vim",
         "LunarVim/onedarker.nvim",
@@ -247,6 +279,9 @@ plugins.load = function()
         "flazz/vim-colorschemes",
         "LunarVim/synthwave84.nvim",
         "folke/tokyonight.nvim",
+        "catppuccin/vim",
+        "ray-x/aurora",
+        "projekt0n/github-nvim-theme",
       },
       config = function()
         vim.cmd("colorscheme oceanic")
@@ -257,17 +292,20 @@ plugins.load = function()
     --  Animations  --
     ------------------
 
-    {
-      "folke/noice.nvim",
-      dependencies = {
-        "MunifTanjim/nui.nvim",
-      },
-      config = function()
-        require("noice").setup({
-          lsp = { hover = { enabled = false } },
-        })
-      end,
-    },
+    -- {
+    --   "folke/noice.nvim",
+    --   dependencies = {
+    --     "MunifTanjim/nui.nvim",
+    --   },
+    --   config = function()
+    --     require("noice").setup({
+    --       lsp = {
+    --         hover = { enabled = false },
+    --         signature = { enabled = false }
+    --       },
+    --     })
+    --   end,
+    -- },
 
     -----------------
     --  Telescope  --
@@ -291,9 +329,20 @@ plugins.load = function()
     {
       "nvim-treesitter/nvim-treesitter",
       dependencies = {
-        "JoosepAlviste/nvim-ts-context-commentstring",
         "nvim-treesitter/playground",
-        "nvim-treesitter/nvim-tree-docs",
+        "RRethy/nvim-treesitter-textsubjects",
+        {
+          "nvim-treesitter/nvim-treesitter-context",
+          config = function()
+            require("treesitter-context").setup()
+          end,
+        },
+        {
+          "m-demare/hlargs.nvim",
+          config = function()
+            require("hlargs").setup()
+          end
+        },
       },
       config = function()
         require("SingularisArt.config.treesitter")
@@ -304,21 +353,60 @@ plugins.load = function()
     --  Git  --
     ------------
 
+    { "sindrets/diffview.nvim", cmd = "DiffviewOpen" },
+    { "AndrewRadev/linediff.vim", cmd = "Linediff" },
+    { "tpope/vim-fugitive", event = "VeryLazy" },
+    { "tpope/vim-rhubarb", event = "VeryLazy" },
+    {
+      -- TODO: DO THIS!
+      "pwntester/octo.nvim",
+      cmd = "Octo",
+      config = function()
+        require("SingularisArt.config.octo")
+      end,
+    },
+    {
+      -- TODO: DO THIS!
+      "mattn/vim-gist",
+      cmd = "Gist",
+      config = function()
+        require("SingularisArt.config.gist")
+      end,
+    },
+    {
+      "gorbit99/codewindow.nvim",
+      event = "VeryLazy",
+      config = function()
+        local codewindow = require("codewindow")
+        codewindow.setup()
+      end,
+    },
+    {
+      "akinsho/git-conflict.nvim",
+      event = "VeryLazy",
+      config = function()
+        require("git-conflict").setup()
+      end,
+    },
     {
       "lewis6991/gitsigns.nvim",
       event = "VeryLazy",
-      dependencies = {
-        "tpope/vim-fugitive",
-        "tpope/vim-rhubarb",
-        "ruifm/gitlinker.nvim",
-        "pwntester/octo.nvim",
-        "mattn/vim-gist",
-        -- "f-person/git-blame.nvim",
-      },
       config = function()
         require("SingularisArt.config.gitsigns")
       end,
     },
+
+    ------------------
+    --  Bufferline  --
+    ------------------
+
+    -- TODO: DO THIS!
+    -- {
+    --   "akinsho/bufferline.nvim",
+    --   config = function()
+    --     require("SingularisArt.config.bufferline")
+    --   end,
+    -- },
 
     -----------------
     --  Filetypes  --
@@ -354,6 +442,21 @@ plugins.load = function()
     { "mfussenegger/nvim-jdtls", ft = "java" },
 
     { "Valloric/MatchTagAlways", ft = "html" },
+    { "turbio/bracey.vim", ft = "html" },
+    { "mattn/emmet-vim", ft = "html" },
+    -- TODO: DO THIS!
+    { "ray-x/go.nvim", ft = "go" },
+
+    { "MTDL9/vim-log-highlighting", ft = "log" },
+
+    {
+      "p00f/clangd_extensions.nvim",
+      event = "VeryLazy",
+      ft = { "c", "cpp" },
+      config = function()
+        require("SingularisArt.config.clangd-extensions")
+      end,
+    },
 
     {
       "nvim-neorg/neorg",
@@ -375,6 +478,7 @@ plugins.load = function()
     { "abecodes/tabout.nvim", event = "VeryLazy" },
     { "ThePrimeagen/harpoon", event = "VeryLazy" },
     { "mattn/webapi-vim", event = "VeryLazy" },
+    { "AndrewRadev/splitjoin.vim", keymaps = { "gS", "gJ" } },
     {
       "ghillb/cybu.nvim",
       config = function()
@@ -430,7 +534,9 @@ plugins.load = function()
     },
     {
       "numToStr/Comment.nvim",
-      event = "VeryLazy",
+      dependencies = {
+        "JoosepAlviste/nvim-ts-context-commentstring",
+      },
       config = function()
         require("SingularisArt.config.comment")
       end,
@@ -473,6 +579,48 @@ plugins.load = function()
       end,
     },
     { "monaqa/dial.nvim", event = "VeryLazy" },
+    {
+      "phaazon/hop.nvim",
+      cmd = "HopWord",
+      config = function()
+        require("hop").setup()
+      end
+    },
+    { "TimUntersberger/neogit", cmd = "Neogit" },
+    {
+      -- TODO: DO THIS!
+      "nvim-neotest/neotest",
+      event = "VeryLazy",
+      dependencies = {
+        "antoinemadec/FixCursorHold.nvim"
+      },
+    },
+    {
+      -- TODO: DO THIS!
+      "bennypowers/nvim-regexplainer",
+      event = "VeryLazy",
+      config = function()
+        require("regexplainer").setup()
+      end,
+    },
+    {
+      -- TODO: DO THIS!
+      "kylechui/nvim-surround",
+      event = "VeryLazy",
+      config = function()
+        require("nvim-surround").setup()
+      end,
+    },
+
+    {
+      "kevinhwang91/nvim-ufo",
+      dependencies = {
+        "kevinhwang91/promise-async",
+      },
+      config = function()
+        require("ufo").setup()
+      end,
+    },
   }
 
   require("lazy").setup(plugins.plugins)

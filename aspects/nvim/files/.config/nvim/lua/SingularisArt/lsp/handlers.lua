@@ -178,6 +178,10 @@ lsp.attach_sqls = function(client, bufnr)
   end
 end
 
+lsp.attach_navigator = function(client, bufnr)
+  require("navigator.lspclient.mapping").setup({ bufnr = bufnr, client = client })
+end
+
 lsp.on_attach = function(client, bufnr)
   vim.keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", { buffer = true, silent = true })
 
@@ -186,6 +190,7 @@ lsp.on_attach = function(client, bufnr)
   lsp.attach_inlay_hints(client, bufnr)
   lsp.attach_signature(client, bufnr)
   lsp.attach_sqls(client, bufnr)
+  lsp.attach_navigator(client, bufnr)
 end
 
 return lsp

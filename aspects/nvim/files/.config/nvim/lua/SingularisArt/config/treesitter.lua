@@ -1,4 +1,5 @@
 local treesitter = require("nvim-treesitter.configs")
+
 treesitter.setup({
   sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
   ensure_installed = "all",
@@ -24,7 +25,7 @@ treesitter.setup({
   indent = { enable = true },
   context_commentstring = {
     enable = true,
-    enable_autocmd = false,
+    -- enable_autocmd = false,
   },
   autotag = {
     enable = true,
