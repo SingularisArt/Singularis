@@ -38,7 +38,7 @@ plugins.load = function()
     "ray-x/lsp_signature.nvim",
     "ray-x/guihua.lua",
     -- "b0o/SchemaStore.nvim",
-    "nanotee/sqls.nvim",
+    -- "nanotee/sqls.nvim",
     {
       url = "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
       config = function()

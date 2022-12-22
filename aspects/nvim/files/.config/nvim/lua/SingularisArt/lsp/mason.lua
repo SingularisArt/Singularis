@@ -9,11 +9,11 @@ local mason_dap = require("mason-nvim-dap")
 local servers = {
   "bashls",
   "clangd",
-  -- "cssls",
-  -- "cssmodules_ls",
-  -- "tailwindcss",
-  -- "emmet_ls",
-  -- "html",
+  "cssls",
+  "cssmodules_ls",
+  "tailwindcss",
+  "emmet_ls",
+  "html",
   -- "golangci_lint_ls",
   -- "jdtls",
   -- "jsonls",
@@ -25,8 +25,8 @@ local servers = {
   -- "sqls",
   "texlab",
   -- "tsserver",
-  -- "sumneko_lua",
-  -- "yamlls",
+  "sumneko_lua",
+  "yamlls",
 }
 
 lsp.load_server = function(server)
