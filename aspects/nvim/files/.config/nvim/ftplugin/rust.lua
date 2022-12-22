@@ -1,5 +1,6 @@
 local which_key = require("which-key")
-local options = SingularisArt.which_key.opts
+local options = _G.which_key.opts
+local voptions = _G.which_key.vopts
 
 options = vim.tbl_deep_extend("force", {
   filetype = "rust",

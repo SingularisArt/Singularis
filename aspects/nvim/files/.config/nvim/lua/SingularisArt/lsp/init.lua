@@ -1,9 +1,9 @@
-SingularisArt.lsp = SingularisArt.autoload("SingularisArt.lsp")
+local lsp = {}
 
-SingularisArt.lsp.load = function()
-  SingularisArt.lsp.handlers.load()
-  SingularisArt.lsp.mason.load()
-  SingularisArt.lsp.null_ls.load()
+lsp.load = function()
+  require("SingularisArt.lsp.handlers").load()
+  require("SingularisArt.lsp.mason").load()
+  require("SingularisArt.lsp.null_ls").load()
 end
 
-return SingularisArt.lsp
+return lsp

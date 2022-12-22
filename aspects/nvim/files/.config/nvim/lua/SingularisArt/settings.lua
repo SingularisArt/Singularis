@@ -5,9 +5,8 @@ M.load = function()
   local config = home .. "/.config/nvim"
   local root = vim.env.USER == "root"
 
-  local setlocal = SingularisArt.vim.setlocal
-  local join = SingularisArt.util.join
-  local range = SingularisArt.util.range
+  local join = require("SingularisArt.util.join")
+  local range = require("SingularisArt.util.range")
 
   ------------------------------------------------------------------------
   --                              General                               --
@@ -60,6 +59,7 @@ M.load = function()
   vim.opt.laststatus = 3 -- Always show statusline.
   vim.opt.showtabline = 0 -- Don't show tabline.
   vim.opt.cursorline = true -- Enable highlighting of the current line.
+  vim.opt.cursorcolumn = true -- Enable highlighting of the current column.
   vim.opt.number = true -- Show line numbers.
   vim.opt.relativenumber = true -- Show relative numbers.
   vim.opt.splitbelow = true -- Horizontal splits will be below.
@@ -91,7 +91,7 @@ M.load = function()
     tab = "▷⋯", -- WHITE RIGHT-POINTING TRIANGLE (U+25B7, UTF-8: E2 96 B7) + MIDLINE HORIZONTAL ELLIPSIS (U+22EF, UTF-8: E2 8B AF).
     trail = "•", -- BULLET (U+2022, UTF-8: E2 80 A2).
   }
-  setlocal("colorcolumn", "+" .. join(range(80, 255), ",")) -- Add a colorcolumn.
+  -- setlocal("colorcolumn", "+" .. join(range(80, 255), ",")) -- Add a colorcolumn.
 
   ------------------------------------------------------------------------
   --                              Editing                               --

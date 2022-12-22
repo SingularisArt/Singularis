@@ -1,4 +1,4 @@
-vim.cmd[[
+vim.cmd [[
   setlocal fillchars=fold:\ 
   setlocal foldlevel=0
   setlocal foldmethod=expr
@@ -7,7 +7,7 @@ vim.cmd[[
 ]]
 
 local which_key = require("which-key")
-local options = SingularisArt.which_key.opts
+local options = _G.which_key.opts
 
 options = vim.tbl_deep_extend("force", {
   filetype = "tex",

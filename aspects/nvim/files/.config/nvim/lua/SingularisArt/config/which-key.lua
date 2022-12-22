@@ -65,43 +65,64 @@ local setup = {
   },
 }
 
-SingularisArt.which_key.opts = {
-  mode = "n", -- NORMAL mode
-  prefix = "<leader>",
-  buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
-  silent = true, -- use `silent` when creating keymaps
-  noremap = true, -- use `noremap` when creating keymaps
-  nowait = true, -- use `nowait` when creating keymaps
-}
-SingularisArt.which_key.vopts = {
-  mode = "v", -- VISUAL mode
-  prefix = "<leader>",
-  buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
-  silent = true, -- use `silent` when creating keymaps
-  noremap = true, -- use `noremap` when creating keymaps
-  nowait = true, -- use `nowait` when creating keymaps
+local float = {
+  focusable = false,
+  style = "minimal",
+  border = "rounded",
+  source = "always",
+  header = "",
+  prefix = "",
+  format = function(d)
+    local t = vim.deepcopy(d)
+    local code = d.code or (d.user_data and d.user_data.lsp.code)
+    if code then
+      t.message = string.format("%s [%s]", t.message, code):gsub("1. ", "")
+    end
+    return t.message
+  end,
 }
 
-SingularisArt.which_key.vmappings["/"] = {
+_G.which_key = {
+  opts = {
+    mode = "n", -- NORMAL mode
+    prefix = "<leader>",
+    buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
+    silent = true, -- use `silent` when creating keymaps
+    noremap = true, -- use `noremap` when creating keymaps
+    nowait = true, -- use `nowait` when creating keymaps
+  },
+  vopts = {
+    mode = "v", -- VISUAL mode
+    prefix = "<leader>",
+    buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
+    silent = true, -- use `silent` when creating keymaps
+    noremap = true, -- use `noremap` when creating keymaps
+    nowait = true, -- use `nowait` when creating keymaps
+  },
+  vmappings = {},
+  mappings = {},
+}
+
+_G.which_key.vmappings["/"] = {
   "<ESC><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<cr>",
   "Comment",
 }
 
-SingularisArt.which_key.mappings["v"] = { "<cmd>vsplit<cr>", "Vertical Split" }
-SingularisArt.which_key.mappings["h"] = { "<cmd>split<cr>", "Horizontal Split" }
-SingularisArt.which_key.mappings[" "] = { "<cmd>normal <C-^><cr>", "Jump to previous buffer" }
-SingularisArt.which_key.mappings["/"] = { "<Plug>(comment_toggle_linewise)", "Comment out current line" }
-SingularisArt.which_key.mappings["e"] = { "<cmd>NvimTreeToggle<cr>", "Toggle NvimTree" }
-SingularisArt.which_key.mappings["-"] = { "<cmd>lua require('lir.float').toggle()<cr>", "Toggle Lir" }
-SingularisArt.which_key.mappings["c"] = { "<Plug>(Corpus)", "Corpus" }
-SingularisArt.which_key.mappings["z"] = { "<cmd>ZenMode<cr>", "Zen Mode" }
+_G.which_key.mappings["v"] = { "<cmd>vsplit<cr>", "Vertical Split" }
+_G.which_key.mappings["h"] = { "<cmd>split<cr>", "Horizontal Split" }
+_G.which_key.mappings[" "] = { "<cmd>normal <C-^><cr>", "Jump to previous buffer" }
+_G.which_key.mappings["/"] = { "<Plug>(comment_toggle_linewise)", "Comment out current line" }
+_G.which_key.mappings["e"] = { "<cmd>NvimTreeToggle<cr>", "Toggle NvimTree" }
+_G.which_key.mappings["-"] = { "<cmd>lua require('lir.float').toggle()<cr>", "Toggle Lir" }
+_G.which_key.mappings["c"] = { "<Plug>(Corpus)", "Corpus" }
+_G.which_key.mappings["z"] = { "<cmd>ZenMode<cr>", "Zen Mode" }
 
-SingularisArt.which_key.mappings["l"] = {
+_G.which_key.mappings["l"] = {
   name = "LSP",
   c = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Show code actions" },
   e = {
     function()
-      local config = SingularisArt.lsp.config.diagnostics.float
+      local config = float
       config.scope = "line"
       vim.diagnostic.open_float(0, config)
     end,
@@ -129,7 +150,7 @@ SingularisArt.which_key.mappings["l"] = {
   },
 }
 
-SingularisArt.which_key.mappings["g"] = {
+_G.which_key.mappings["g"] = {
   name = "Git",
   j = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", "Next Hunk" },
   k = { "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", "Prev Hunk" },
@@ -155,7 +176,7 @@ SingularisArt.which_key.mappings["g"] = {
   },
 }
 
-SingularisArt.which_key.mappings["s"] = {
+_G.which_key.mappings["s"] = {
   name = "Search",
   f = { "<cmd>Telescope find_files<cr>", "Fuzzy find files" },
   g = { "<cmd>Telescope grep_string<cr>", "Fuzzy find string" },
@@ -171,7 +192,7 @@ SingularisArt.which_key.mappings["s"] = {
   end, "Fuzzily search in current buffer" }
 }
 
-SingularisArt.which_key.mappings["o"] = {
+_G.which_key.mappings["o"] = {
   name = "Only",
   o = {
     name = "Close",
@@ -187,7 +208,7 @@ SingularisArt.which_key.mappings["o"] = {
   O = { "<cmd>wincmd =<cr>", "Bring back the tabs" },
 }
 
-SingularisArt.which_key.mappings["T"] = {
+_G.which_key.mappings["T"] = {
   name = "Translator",
   t = { "<cmd>Translate --engines=google<cr>", "Translate" },
   h = { "<cmd>TranslateH --engines=google<cr>", "Translate History" },
@@ -203,7 +224,7 @@ SingularisArt.which_key.mappings["T"] = {
   },
 }
 
-SingularisArt.which_key.mappings["d"] = {
+_G.which_key.mappings["d"] = {
   name = "Debug",
   t = { "<cmd>lua require('dap').toggle_breakpoint()<cr>", "Toggle Breakpoint" },
   b = { "<cmd>lua require('dap').step_back()<cr>", "Step Back" },
@@ -224,5 +245,5 @@ SingularisArt.which_key.mappings["d"] = {
 local which_key = require("which-key")
 
 which_key.setup(setup)
-which_key.register(SingularisArt.which_key.mappings, SingularisArt.which_key.opts)
-which_key.register(SingularisArt.which_key.vmappings, SingularisArt.which_key.vopts)
+which_key.register(_G.which_key.mappings, _G.which_key.opts)
+which_key.register(_G.which_key.vmappings, _G.which_key.vopts)

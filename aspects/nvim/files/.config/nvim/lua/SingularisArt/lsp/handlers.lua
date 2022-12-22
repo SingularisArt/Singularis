@@ -34,15 +34,28 @@ lsp.capabilities = function()
 end
 
 lsp.load = function()
-  local signs = SingularisArt.lsp.config.diagnostics.signs.values
+  local icons = require("SingularisArt.icons")
+  local diagnostics = {
+    signs = {
+      active = true,
+      values = {
+        { name = "DiagnosticSignError", text = icons.diagnostics.Error },
+        { name = "DiagnosticSignWarn", text = icons.diagnostics.Warning },
+        { name = "DiagnosticSignHint", text = icons.diagnostics.Hint },
+        { name = "DiagnosticSignInfo", text = icons.diagnostics.Information },
+      },
+    },
+    virtual_text = false,
+    update_in_insert = false,
+    underline = true,
+    severity_sort = true,
+  }
 
-  for _, sign in ipairs(signs) do
+  for _, sign in ipairs(diagnostics.signs.values) do
     vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
   end
 
-  local config = SingularisArt.lsp.config.diagnostics
-
-  vim.diagnostic.config(config)
+  vim.diagnostic.config(diagnostics)
 end
 
 lsp.setup_codelens_refresh = function(client, bufnr)
@@ -117,10 +130,7 @@ lsp.attach_inlay_hints = function(client, bufnr)
 end
 
 lsp.attach_signature = function(client, bufnr)
-  local status, signature = pcall(require, "lsp_signature")
-  if not status then
-    return
-  end
+  local signature = require("lsp_signature")
 
   local icons = require("SingularisArt.icons")
   local setup = {
@@ -174,7 +184,7 @@ lsp.on_attach = function(client, bufnr)
   lsp.setup_codelens_refresh(client, bufnr)
   lsp.attach_navic(client, bufnr)
   lsp.attach_inlay_hints(client, bufnr)
-  -- lsp.attach_signature(client, bufnr)
+  lsp.attach_signature(client, bufnr)
   lsp.attach_sqls(client, bufnr)
 end
 

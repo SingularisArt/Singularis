@@ -1,16 +1,38 @@
 local lsp = {}
+local handlers = require("SingularisArt.lsp.handlers")
 
 local lspconfig = require("lspconfig")
 local mason = require("mason")
 local mason_lspconfig = require("mason-lspconfig")
 local mason_null_ls = require("mason-null-ls")
 local mason_dap = require("mason-nvim-dap")
-local servers = SingularisArt.lsp.config.servers
+local servers = {
+  "bashls",
+  "clangd",
+  -- "cssls",
+  -- "cssmodules_ls",
+  -- "tailwindcss",
+  -- "emmet_ls",
+  -- "html",
+  -- "golangci_lint_ls",
+  -- "jdtls",
+  -- "jsonls",
+  "pyright",
+  -- "rust_analyzer",
+  -- "solang",
+  -- "solc",
+  -- "solidity_ls",
+  -- "sqls",
+  "texlab",
+  -- "tsserver",
+  -- "sumneko_lua",
+  -- "yamlls",
+}
 
 lsp.load_server = function(server)
   local opts = {
-    on_attach = require("SingularisArt.lsp.handlers").on_attach,
-    capabilities = require("SingularisArt.lsp.handlers").capabilities(),
+    on_attach = handlers.on_attach,
+    capabilities = handlers.capabilities(),
   }
 
   pcall(function()
