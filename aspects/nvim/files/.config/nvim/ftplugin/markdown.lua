@@ -1,5 +1,5 @@
 local which_key = require("which-key")
-local options = _G.which_key.opts
+local options = require("SingularisArt.local-variables").options
 
 options = vim.tbl_deep_extend("force", {
   filetype = "markdown",

@@ -29,19 +29,31 @@ M.winbar_filetype_exclude = {
   "",
 }
 
+local function isempty(s)
+  return s == nil or s == ""
+end
+
+local function get_buf_option(opt)
+  local status_ok, buf_option = pcall(vim.api.nvim_buf_get_option, 0, opt)
+  if not status_ok then
+    return nil
+  else
+    return buf_option
+  end
+end
+
 M.get_filename = function()
   local filename = vim.fn.expand("%:t")
   local extension = vim.fn.expand("%:e")
-  local f = require("SingularisArt.functions")
 
-  if not f.isempty(filename) then
+  if not isempty(filename) then
     local file_icon, file_icon_color =
-      require("nvim-web-devicons").get_icon_color(filename, extension, { default = true })
+    require("nvim-web-devicons").get_icon_color(filename, extension, { default = true })
 
     local hl_group = "FileIconColor" .. extension
 
     vim.api.nvim_set_hl(0, hl_group, { fg = file_icon_color })
-    if f.isempty(file_icon) then
+    if isempty(file_icon) then
       file_icon = ""
       file_icon_color = ""
     end
@@ -68,7 +80,7 @@ local get_gps = function()
     return ""
   end
 
-  if not require("SingularisArt.functions").isempty(gps_location) then
+  if not isempty(gps_location) then
     return require("SingularisArt.icons").ui.ChevronRight .. " " .. gps_location
   else
     return ""
@@ -88,19 +100,18 @@ M.get_winbar = function()
     return
   end
 
-  local f = require("SingularisArt.functions")
   local value = M.get_filename()
 
   local gps_added = false
-  if not f.isempty(value) then
+  if not isempty(value) then
     local gps_value = get_gps()
     value = value .. " " .. gps_value
-    if not f.isempty(gps_value) then
+    if not isempty(gps_value) then
       gps_added = true
     end
   end
 
-  if not f.isempty(value) and f.get_buf_option("mod") then
+  if not isempty(value) and get_buf_option("mod") then
     local mod = "%#LspCodeLens#" .. require("SingularisArt.icons").ui.Circle .. "%*"
     if gps_added then
       value = value .. " " .. mod
@@ -111,7 +122,7 @@ M.get_winbar = function()
 
   local num_tabs = #vim.api.nvim_list_tabpages()
 
-  if num_tabs > 1 and not f.isempty(value) then
+  if num_tabs > 1 and not isempty(value) then
     local tabpage_number = tostring(vim.api.nvim_tabpage_get_number(0))
     value = value .. "%=" .. tabpage_number .. "/" .. tostring(num_tabs)
   end

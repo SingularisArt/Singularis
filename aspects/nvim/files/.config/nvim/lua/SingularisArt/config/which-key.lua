@@ -1,189 +1,136 @@
 local setup = {
   plugins = {
-    marks = true, -- shows a list of your marks on ' and `
-    registers = true, -- shows your registers on " in NORMAL or <C-r> in INSERT mode
+    marks = true,
+    registers = true,
     spelling = {
-      enabled = true, -- enabling this will show WhichKey when pressing z= to select spelling suggestions
-      suggestions = 20, -- how many suggestions should be shown in the list?
+      enabled = true,
+      suggestions = 20,
     },
-    -- the presets plugin, adds help for a bunch of default keybindings in Neovim
-    -- No actual key bindings are created
     presets = {
-      operators = false, -- adds help for operators like d, y, ... and registers them for motion / text object completion
-      motions = false, -- adds help for motions
-      text_objects = false, -- help for text objects triggered after entering an operator
-      windows = true, -- default bindings on <c-w>
-      nav = true, -- misc bindings to work with windows
-      z = true, -- bindings for folds, spelling and others prefixed with z
-      g = true, -- bindings for prefixed with g
+      operators = false,
+      motions = false,
+      text_objects = false,
+      windows = true,
+      nav = true,
+      z = true,
+      g = true,
     },
   },
-  -- add operators that will trigger motion and text object completion
-  -- to enable all native operators, set the preset / operators plugin above
-  -- operators = { gc = "Comments" },
   key_labels = {
-    -- override the label used to display some keys. It doesn't effect WK in any other way.
-    -- For example:
-    -- ["<space>"] = "SPC",
     ["<leader>"] = "SPC",
-    -- ["<cr>"] = "RET",
-    -- ["<tab>"] = "TAB",
   },
   icons = {
-    breadcrumb = "»", -- symbol used in the command line area that shows your active key combo
-    separator = "➜", -- symbol used between a key and it's label
-    group = "+", -- symbol prepended to a group
+    breadcrumb = "»",
+    separator = "➜",
+    group = "+",
   },
   popup_mappings = {
-    scroll_down = "<c-d>", -- binding to scroll down inside the popup
-    scroll_up = "<c-u>", -- binding to scroll up inside the popup
+    scroll_down = "<c-d>",
+    scroll_up = "<c-u>",
   },
   window = {
-    border = "rounded", -- none, single, double, shadow
-    position = "bottom", -- bottom, top
-    margin = { 1, 0, 1, 0 }, -- extra window margin [top, right, bottom, left]
-    padding = { 2, 2, 2, 2 }, -- extra window padding [top, right, bottom, left]
+    border = "rounded",
+    position = "bottom",
+    margin = { 1, 0, 1, 0 },
+    padding = { 2, 2, 2, 2 },
     winblend = 0,
   },
   layout = {
-    height = { min = 4, max = 25 }, -- min and max height of the columns
-    width = { min = 20, max = 50 }, -- min and max width of the columns
-    spacing = 3, -- spacing between columns
-    align = "center", -- align columns left, center or right
+    height = { min = 4, max = 25 },
+    width = { min = 20, max = 50 },
+    spacing = 3,
+    align = "center",
   },
-  ignore_missing = true, -- enable this to hide mappings for which you didn't specify a label
-  hidden = { "<silent>", "<cmd>", "<cmd>", "<cr>", "call", "lua", "^:", "^ " }, -- hide mapping boilerplate
-  show_help = false, -- show help message on the command line when the popup is visible
-  -- triggers = "auto", -- automatically setup triggers
-  -- triggers = {"<leader>"} -- or specify a list manually
+  ignore_missing = true,
+  hidden = { "<silent>", "<CMD>", "<CMD>", "<CR>", "call", "lua", "^:", "^ " },
+  show_help = false,
   triggers_blacklist = {
-    -- list of mode / prefixes that should never be hooked by WhichKey
-    -- this is mostly relevant for key maps that start with a native binding
-    -- most people should not need to change this
     i = { "j", "k" },
     v = { "j", "k" },
   },
 }
 
-local float = {
-  focusable = false,
-  style = "minimal",
-  border = "rounded",
-  source = "always",
-  header = "",
-  prefix = "",
-  format = function(d)
-    local t = vim.deepcopy(d)
-    local code = d.code or (d.user_data and d.user_data.lsp.code)
-    if code then
-      t.message = string.format("%s [%s]", t.message, code):gsub("1. ", "")
-    end
-    return t.message
-  end,
-}
+local vars = require("SingularisArt.local-variables")
 
-_G.which_key = {
-  opts = {
-    mode = "n", -- NORMAL mode
-    prefix = "<leader>",
-    buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
-    silent = true, -- use `silent` when creating keymaps
-    noremap = true, -- use `noremap` when creating keymaps
-    nowait = true, -- use `nowait` when creating keymaps
-  },
-  vopts = {
-    mode = "v", -- VISUAL mode
-    prefix = "<leader>",
-    buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
-    silent = true, -- use `silent` when creating keymaps
-    noremap = true, -- use `noremap` when creating keymaps
-    nowait = true, -- use `nowait` when creating keymaps
-  },
-  vmappings = {},
-  mappings = {},
-}
-
-_G.which_key.vmappings["/"] = {
-  "<ESC><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<cr>",
+vars.vmappings["/"] = {
+  "<ESC><CMD>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>",
   "Comment",
 }
 
-_G.which_key.mappings["v"] = { "<cmd>vsplit<cr>", "Vertical Split" }
-_G.which_key.mappings["h"] = { "<cmd>split<cr>", "Horizontal Split" }
-_G.which_key.mappings[" "] = { "<cmd>normal <C-^><cr>", "Jump to previous buffer" }
-_G.which_key.mappings["/"] = { "<cmd>lua require('Comment.api').toggle.linewise()<CR>", "Comment out current line" }
-_G.which_key.mappings["e"] = { "<cmd>NvimTreeToggle<cr>", "Toggle NvimTree" }
-_G.which_key.mappings["-"] = { "<cmd>lua require('lir.float').toggle()<cr>", "Toggle Lir" }
-_G.which_key.mappings["c"] = { "<Plug>(Corpus)", "Corpus" }
-_G.which_key.mappings["z"] = { "<cmd>ZenMode<cr>", "Zen Mode" }
+vars.mappings["v"] = { "<CMD>vsplit<CR>", "Vertical Split" }
+vars.mappings["h"] = { "<CMD>split<CR>", "Horizontal Split" }
+vars.mappings[" "] = { "<CMD>normal <C-^><CR>", "Jump to previous buffer" }
+vars.mappings["/"] = { "<CMD>lua require('Comment.api').toggle.linewise()<CR>", "Comment out current line" }
+vars.mappings["e"] = { "<CMD>NvimTreeToggle<CR>", "Toggle NvimTree" }
+vars.mappings["-"] = { "<CMD>lua require('lir.float').toggle()<CR>", "Toggle Lir" }
+vars.mappings["c"] = { "<Plug>(Corpus)", "Corpus" }
+vars.mappings["z"] = { "<CMD>ZenMode<CR>", "Zen Mode" }
 
-_G.which_key.mappings["l"] = {
+vars.mappings["l"] = {
   name = "LSP",
-  c = { "<cmd>lua vim.lsp.buf.code_action()<cr>", "Show code actions" },
-  e = {
-    function()
-      local config = float
-      config.scope = "line"
-      vim.diagnostic.open_float(0, config)
-    end,
-    "Show line diagnostics",
-  },
-  q = { "<cmd>lua vim.lsp.diagnostic.set_loclist()<cr>", "Show QuickFix" },
-  f = { "<cmd>lua vim.lsp.buf.format { async = true }<cr>", "Format" },
-  r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
-  i = { "<cmd>lua require('goto-preview').goto_preview_implementation()<cr>", "Go to implementation" },
-  j = { "<cmd>lua vim.diagnostic.goto_next()<cr>", "Go to next diagnostic" },
-  k = { "<cmd>lua vim.diagnostic.goto_prev()<cr>", "Go to previous diagnostic" },
-  C = { "<cmd>lua require('goto-preview').close_all_win()<cr>", "Close all windows" },
-  l = { "<cmd>lua require('lsp_lines').toggle()<cr>", "Toggle LSP Lines" },
+  c = { "<CMD>lua require('navigator.codeAction').code_action()<CR>", "Show code actions" },
+  e = { "<CMD>lua require('navigator.diagnostics').show_diagnostics()<CR>", "Show line diagnostics" },
+  E = { "<CMD>lua require('navigator.diagnostics').show_buf_diagnostics()<CR>", "Show diagnostic for all buffers" },
+  f = { "<CMD>lua vim.lsp.buf.format { async = true }<CR>", "Format" },
+  r = { "<CMD>lua require('navigator.rename').rename()<CR>", "Rename" },
+  i = { "<CMD>lua vim.lsp.buf.implementation()<CR>", "Go to implementation" },
+  j = { "<CMD>lua vim.diagnostic.goto_next()<CR>", "Go to next diagnostic" },
+  J = { "<CMD>lua require('navigator.treesitter').goto_next_usage()<CR>", "Go to next highlight" },
+  k = { "<CMD>lua vim.diagnostic.goto_prev()<CR>", "Go to previous diagnostic" },
+  K = { "<CMD>lua require('navigator.treesitter').goto_previous_usage()<CR>", "Go to previous highlight" },
+  l = { "<CMD>lua require('lsp_lines').toggle()<CR>", "Toggle LSP Lines" },
+  k = { "<CMD>lua require('navigator.dochighlight').hi_symbol()<CR>", "Toggle reference highlight" },
+  L = { "<CMD>lua require('navigator.diagnostics').toggle_diagnostics()<CR>", "Toggle diagnostics completely" },
+  s = { "<CMD>LspSymbols<CR>", "Toggle symbols outline" },
   d = {
     name = "Definition",
-    d = { "<cmd>lua vim.lsp.buf.definition()<cr>", "Definition" },
-    p = { "<cmd>lua require('SingularisArt.lsp.peek').Peek('definition')<cr>", "Peek" },
-    t = { "<cmd>lua require('SingularisArt.lsp.peek').Peek('typeDefinition')<cr>", "Type Definition" },
-    i = { "<cmd>lua require('SingularisArt.lsp.peek').Peek('implementation')<cr>", "Implementation" },
+    d = { "<CMD>lua require('navigator.reference').async_ref()<CR>", "Definition" },
+    p = { "<CMD>lua require('navigator.definition').definition_preview()<CR>", "Peek" },
+    t = { "<CMD>lua vim.lsp.buf.type_definition()<CR>", "Type Definition" },
+    i = { "<CMD>lua vim.lsp.buf.implementation()<CR>", "Implementation" },
   },
   w = {
     name = "Workspace",
-    a = { "<cmd>lua vim.lsp.buf.add_workspace_folder()<cr>", "Add workspace" },
-    r = { "<cmd>lua vim.lsp.buf.remove_workspace_folder()<cr>", "Remove workspace" },
+    a = { "<CMD>lua require('navigator.workspace').add_workspace_folder()<CR>", "Add workspace folder" },
+    r = { "<CMD>lua require('navigator.workspace').remove_workspace_folder()<CR>", "Remove workspace folder" },
+    l = { "<CMD>lua require('navigator.workspace').list_workspace_folders()<CR>", "List workspace folders" },
   },
 }
 
-_G.which_key.mappings["g"] = {
+vars.mappings["g"] = {
   name = "Git",
-  j = { "<cmd>lua require 'gitsigns'.next_hunk()<cr>", "Next Hunk" },
-  k = { "<cmd>lua require 'gitsigns'.prev_hunk()<cr>", "Prev Hunk" },
-  l = { "<cmd>lua require 'gitsigns'.blame_line()<cr>", "Blame" },
-  p = { "<cmd>lua require 'gitsigns'.preview_hunk()<cr>", "Preview Hunk" },
-  r = { "<cmd>lua require 'gitsigns'.reset_hunk()<cr>", "Reset Hunk" },
-  R = { "<cmd>lua require 'gitsigns'.reset_buffer()<cr>", "Reset Buffer" },
-  s = { "<cmd>lua require 'gitsigns'.stage_hunk()<cr>", "Stage Hunk" },
+  j = { "<CMD>lua require 'gitsigns'.next_hunk()<CR>", "Next Hunk" },
+  k = { "<CMD>lua require 'gitsigns'.prev_hunk()<CR>", "Prev Hunk" },
+  l = { "<CMD>lua require 'gitsigns'.blame_line()<CR>", "Blame" },
+  p = { "<CMD>lua require 'gitsigns'.preview_hunk()<CR>", "Preview Hunk" },
+  r = { "<CMD>lua require 'gitsigns'.reset_hunk()<CR>", "Reset Hunk" },
+  R = { "<CMD>lua require 'gitsigns'.reset_buffer()<CR>", "Reset Buffer" },
+  s = { "<CMD>lua require 'gitsigns'.stage_hunk()<CR>", "Stage Hunk" },
   u = {
-    "<cmd>lua require 'gitsigns'.undo_stage_hunk()<cr>",
+    "<CMD>lua require 'gitsigns'.undo_stage_hunk()<CR>",
     "Undo Stage Hunk",
   },
-  o = { "<cmd>Telescope git_status<cr>", "Open changed file" },
-  b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
-  c = { "<cmd>Telescope git_commits<cr>", "Checkout commit" },
+  o = { "<CMD>Telescope git_status<CR>", "Open changed file" },
+  b = { "<CMD>Telescope git_branches<CR>", "Checkout branch" },
+  c = { "<CMD>Telescope git_commits<CR>", "Checkout commit" },
   C = {
-    "<cmd>Telescope git_bcommits<cr>",
+    "<CMD>Telescope git_bcommits<CR>",
     "Checkout commit(for current file)",
   },
   d = {
-    "<cmd>Gitsigns diffthis HEAD<cr>",
+    "<CMD>Gitsigns diffthis HEAD<CR>",
     "Git Diff",
   },
 }
 
-_G.which_key.mappings["s"] = {
+vars.mappings["s"] = {
   name = "Search",
-  f = { "<cmd>Telescope find_files<cr>", "Fuzzy find files" },
-  g = { "<cmd>Telescope grep_string<cr>", "Fuzzy find string" },
-  b = { "<cmd>Telescope buffers<cr>", "Fuzzy find buffers" },
-  l = { "<cmd>Telescope live_grep<cr>", "Fuzzy find words" },
-  s = { "<cmd>Telescope symbols<cr>", "Fuzzy find symbols" },
-  d = { "<cmd>Telescope diagnostics<cr>", "Fuzzy find diagnostics" },
+  f = { "<CMD>Telescope find_files<CR>", "Fuzzy find files" },
+  g = { "<CMD>Telescope grep_string<CR>", "Fuzzy find string" },
+  b = { "<CMD>Telescope buffers<CR>", "Fuzzy find buffers" },
+  l = { "<CMD>Telescope live_grep<CR>", "Fuzzy find words" },
+  s = { "<CMD>Telescope symbols<CR>", "Fuzzy find symbols" },
+  d = { "<CMD>Telescope diagnostics<CR>", "Fuzzy find diagnostics" },
   c = { function()
     require("telescope.builtin").current_buffer_fuzzy_find(require("telescope.themes").get_dropdown {
       winblend = 10,
@@ -192,58 +139,58 @@ _G.which_key.mappings["s"] = {
   end, "Fuzzily search in current buffer" }
 }
 
-_G.which_key.mappings["o"] = {
+vars.mappings["o"] = {
   name = "Only",
   o = {
     name = "Close",
     o = {
-      "<cmd>wincmd _ | wincmd |<cr>",
+      "<CMD>wincmd _ | wincmd |<CR>",
       "Minimize all tabs (you can always bring them back with <Leader>oO)",
     },
     O = {
-      "<cmd>only<cr>",
+      "<CMD>only<CR>",
       "Close all tabs",
     },
   },
-  O = { "<cmd>wincmd =<cr>", "Bring back the tabs" },
+  O = { "<CMD>wincmd =<CR>", "Bring back the tabs" },
 }
 
-_G.which_key.mappings["T"] = {
+vars.mappings["T"] = {
   name = "Translator",
-  t = { "<cmd>Translate --engines=google<cr>", "Translate" },
-  h = { "<cmd>TranslateH --engines=google<cr>", "Translate History" },
-  l = { "<cmd>TranslateL --engines=google<cr>", "Translate Log" },
-  r = { "<cmd>TranslateR --engines=google<cr>", "Translate" },
+  t = { "<CMD>Translate --engines=google<CR>", "Translate" },
+  h = { "<CMD>TranslateH --engines=google<CR>", "Translate History" },
+  l = { "<CMD>TranslateL --engines=google<CR>", "Translate Log" },
+  r = { "<CMD>TranslateR --engines=google<CR>", "Translate" },
   w = {
-    "<cmd>TranslateW --engines=google<cr>",
+    "<CMD>TranslateW --engines=google<CR>",
     "Translate and display in a Popup Window",
   },
   x = {
-    "<cmd>TranslateX --engines=google<cr>",
+    "<CMD>TranslateX --engines=google<CR>",
     "Translate and Display in the cmdline",
   },
 }
 
-_G.which_key.mappings["d"] = {
+vars.mappings["d"] = {
   name = "Debug",
-  t = { "<cmd>lua require('dap').toggle_breakpoint()<cr>", "Toggle Breakpoint" },
-  b = { "<cmd>lua require('dap').step_back()<cr>", "Step Back" },
-  c = { "<cmd>lua require('dap').continue()<cr>", "Continue" },
-  C = { "<cmd>lua require('dap').run_to_cursor()<cr>", "Run To Cursor" },
-  d = { "<cmd>lua require('dap').disconnect()<cr>", "Disconnect" },
-  g = { "<cmd>lua require('dap').session()<cr>", "Get Session" },
-  i = { "<cmd>lua require('dap').step_into()<cr>", "Step Into" },
-  o = { "<cmd>lua require('dap').step_over()<cr>", "Step Over" },
-  u = { "<cmd>lua require('dap').step_out()<cr>", "Step Out" },
-  p = { "<cmd>lua require('dap').pause()<cr>", "Pause" },
-  r = { "<cmd>lua require('dap').repl.toggle()<cr>", "Toggle Repl" },
-  s = { "<cmd>lua require('dap').continue()<cr>", "Start" },
-  q = { "<cmd>lua require('dap').close()<cr>", "Quit" },
-  U = { "<cmd>lua require('dapui').toggle()<cr>", "Enable/Disable UI" },
+  t = { "<CMD>lua require('dap').toggle_breakpoint()<CR>", "Toggle Breakpoint" },
+  b = { "<CMD>lua require('dap').step_back()<CR>", "Step Back" },
+  c = { "<CMD>lua require('dap').continue()<CR>", "Continue" },
+  C = { "<CMD>lua require('dap').run_to_cursor()<CR>", "Run To Cursor" },
+  d = { "<CMD>lua require('dap').disconnect()<CR>", "Disconnect" },
+  g = { "<CMD>lua require('dap').session()<CR>", "Get Session" },
+  i = { "<CMD>lua require('dap').step_into()<CR>", "Step Into" },
+  o = { "<CMD>lua require('dap').step_over()<CR>", "Step Over" },
+  u = { "<CMD>lua require('dap').step_out()<CR>", "Step Out" },
+  p = { "<CMD>lua require('dap').pause()<CR>", "Pause" },
+  r = { "<CMD>lua require('dap').repl.toggle()<CR>", "Toggle Repl" },
+  s = { "<CMD>lua require('dap').continue()<CR>", "Start" },
+  q = { "<CMD>lua require('dap').close()<CR>", "Quit" },
+  U = { "<CMD>lua require('dapui').toggle()<CR>", "Enable/Disable UI" },
 }
 
 local which_key = require("which-key")
 
 which_key.setup(setup)
-which_key.register(_G.which_key.mappings, _G.which_key.opts)
-which_key.register(_G.which_key.vmappings, _G.which_key.vopts)
+which_key.register(vars.mappings, vars.options)
+which_key.register(vars.vmappings, vars.voptions)

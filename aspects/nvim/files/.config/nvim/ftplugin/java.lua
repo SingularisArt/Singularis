@@ -148,8 +148,8 @@ vim.cmd(
 )
 
 local which_key = require("which-key")
-local options = _G.which_key.opts
-local voptions = _G.which_key.vopts
+local options = require("SingularisArt.local-variables").options
+local voptions = require("SingularisArt.local-variables").voptions
 
 options = vim.tbl_deep_extend("force", {
   filetype = "java",

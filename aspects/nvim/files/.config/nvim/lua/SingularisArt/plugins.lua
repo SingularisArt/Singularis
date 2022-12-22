@@ -40,6 +40,13 @@ plugins.load = function()
     -- "b0o/SchemaStore.nvim",
     "nanotee/sqls.nvim",
     {
+      url = "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+      config = function()
+        require("lsp_lines").setup()
+        require("lsp_lines").toggle()
+      end
+    },
+    {
       "ray-x/sad.nvim",
       cmd = "Sad",
       config = function()
@@ -50,37 +57,7 @@ plugins.load = function()
       "ray-x/navigator.lua",
       event = "VeryLazy",
       config = function()
-        require("navigator").setup({
-          debug = false,
-          width = 0.75,
-          height = 0.3,
-          preview_height = 0.35,
-          border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
-          ts_fold = false,
-          default_mapping = true,
-          treesitter_analysis = true,
-          treesitter_analysis_max_num = 100,
-          treesitter_analysis_condense = true,
-          transparency = 50,
-          lsp_signature_help = true,
-          signature_help_cfg = nil,
-          lsp_installer = false,
-          mason = false,
-          lsp = {
-            enable = true,
-            disable_lsp = "all",
-            code_action = { enable = true, sign = true, sign_priority = 40, virtual_text = true },
-            code_lens_action = { enable = true, sign = true, sign_priority = 40, virtual_text = true },
-            document_highlight = true,
-            format_on_save = false,
-            diagnostic = {
-              underline = true,
-              virtual_text = false,
-              update_in_insert = false,
-            },
-          }
-        })
-
+        require("SingularisArt.config.navigator")
       end,
     },
     {
@@ -173,7 +150,7 @@ plugins.load = function()
 
     {
       "folke/which-key.nvim",
-      event = "InsertEnter",
+      -- event = "InsertEnter",
       config = function()
         require("SingularisArt.config.which-key")
       end,
@@ -224,7 +201,13 @@ plugins.load = function()
         require("SingularisArt.config.nvim-tree")
       end,
     },
-    { "nvim-neo-tree/neo-tree.nvim", cmd = "Neotree" },
+    {
+      "nvim-neo-tree/neo-tree.nvim",
+      cmd = "NeoTreeShowToggle",
+      dependencies = {
+        "MunifTanjim/nui.nvim",
+      },
+    },
     {
       "tamago324/lir.nvim",
       event = "VeryLazy",
@@ -284,7 +267,7 @@ plugins.load = function()
         "projekt0n/github-nvim-theme",
       },
       config = function()
-        vim.cmd("colorscheme oceanic")
+        vim.cmd("colorscheme tokyonight-night")
       end,
     },
 
@@ -292,20 +275,20 @@ plugins.load = function()
     --  Animations  --
     ------------------
 
-    -- {
-    --   "folke/noice.nvim",
-    --   dependencies = {
-    --     "MunifTanjim/nui.nvim",
-    --   },
-    --   config = function()
-    --     require("noice").setup({
-    --       lsp = {
-    --         hover = { enabled = false },
-    --         signature = { enabled = false }
-    --       },
-    --     })
-    --   end,
-    -- },
+    {
+      "folke/noice.nvim",
+      dependencies = {
+        "MunifTanjim/nui.nvim",
+      },
+      config = function()
+        require("noice").setup({
+          lsp = {
+            hover = { enabled = false },
+            signature = { enabled = false }
+          },
+        })
+      end,
+    },
 
     -----------------
     --  Telescope  --
@@ -331,6 +314,7 @@ plugins.load = function()
       dependencies = {
         "nvim-treesitter/playground",
         "RRethy/nvim-treesitter-textsubjects",
+        "p00f/nvim-ts-rainbow",
         {
           "nvim-treesitter/nvim-treesitter-context",
           config = function()
@@ -401,12 +385,12 @@ plugins.load = function()
     ------------------
 
     -- TODO: DO THIS!
-    -- {
-    --   "akinsho/bufferline.nvim",
-    --   config = function()
-    --     require("SingularisArt.config.bufferline")
-    --   end,
-    -- },
+    {
+      "akinsho/bufferline.nvim",
+      config = function()
+        require("SingularisArt.config.bufferline")
+      end,
+    },
 
     -----------------
     --  Filetypes  --
@@ -433,7 +417,13 @@ plugins.load = function()
       end,
     },
 
-    { "dccsillag/magma-nvim", ft = "python" },
+    {
+      "dccsillag/magma-nvim",
+      -- ft = "python"
+      config = function()
+        require("SingularisArt.config.magma")
+      end,
+    },
     { "AckslD/swenv.nvim", ft = "python" },
 
     { "simrat39/rust-tools.nvim", ft = "rust" },
@@ -471,6 +461,20 @@ plugins.load = function()
     --  Other  --
     -------------
 
+    {
+      "dstein64/nvim-scrollview",
+      event = { "CursorMoved", "CursorMovedI" },
+      config = function()
+        require("SingularisArt.config.scrollview")
+      end
+    },
+    -- {
+    --   "levouh/tint.nvim",
+    --   event = "VeryLazy",
+    --   config = function()
+    --     require("SingularisArt.config.tint")
+    --   end
+    -- },
     { "andymass/vim-matchup", event = "VeryLazy" },
     { "moll/vim-bbye", event = "VeryLazy" },
     { "junegunn/vim-slash", event = "VeryLazy" },
@@ -534,6 +538,7 @@ plugins.load = function()
     },
     {
       "numToStr/Comment.nvim",
+      event = "InsertEnter",
       dependencies = {
         "JoosepAlviste/nvim-ts-context-commentstring",
       },
@@ -550,7 +555,7 @@ plugins.load = function()
     },
     {
       "windwp/nvim-autopairs",
-      event = "VeryLazy",
+      event = "InsertEnter",
       config = function()
         require("SingularisArt.config.autopairs")
       end,
@@ -592,8 +597,14 @@ plugins.load = function()
       "nvim-neotest/neotest",
       event = "VeryLazy",
       dependencies = {
-        "antoinemadec/FixCursorHold.nvim"
+        "antoinemadec/FixCursorHold.nvim",
+        "nvim-neotest/neotest-python",
+        "nvim-neotest/neotest-vim-test",
+        "haydenmeade/neotest-jest",
       },
+      config = function()
+        require("SingularisArt.config.neotest")
+      end
     },
     {
       -- TODO: DO THIS!
@@ -611,7 +622,6 @@ plugins.load = function()
         require("nvim-surround").setup()
       end,
     },
-
     {
       "kevinhwang91/nvim-ufo",
       dependencies = {
@@ -619,6 +629,13 @@ plugins.load = function()
       },
       config = function()
         require("ufo").setup()
+      end,
+    },
+    {
+      "lukas-reineke/virt-column.nvim",
+      event = "VeryLazy",
+      config = function()
+        require("virt-column").setup()
       end,
     },
   }

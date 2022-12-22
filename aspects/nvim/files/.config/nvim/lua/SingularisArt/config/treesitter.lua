@@ -32,7 +32,7 @@ treesitter.setup({
     disable = { "xml", "markdown" },
   },
   rainbow = {
-    enable = false,
+    enable = true,
   },
   playground = {
     enable = true,

@@ -88,7 +88,6 @@ M.load = function()
     tab = "▷⋯", -- WHITE RIGHT-POINTING TRIANGLE (U+25B7, UTF-8: E2 96 B7) + MIDLINE HORIZONTAL ELLIPSIS (U+22EF, UTF-8: E2 8B AF).
     trail = "•", -- BULLET (U+2022, UTF-8: E2 80 A2).
   }
-  -- setlocal("colorcolumn", "+" .. join(range(80, 255), ",")) -- Add a colorcolumn.
 
   ------------------------------------------------------------------------
   --                              Editing                               --
@@ -175,7 +174,6 @@ M.load = function()
   vim.opt.foldenable = true -- Start unfolded.
   vim.opt.foldmethod = "expr" -- Not as cool as syntax, but faster.
   vim.opt.foldexpr = "nvim_treesitter#foldexpr()" -- Use TreeSitter for folding.
-  vim.opt.foldtext = "v:lua.SingularisArt.foldtext()" -- Folding style (lua/SingularisArt/foldtext.lua).
 
   ------------------------------------------------------------------------
   --                           Miscellaneous                            --
