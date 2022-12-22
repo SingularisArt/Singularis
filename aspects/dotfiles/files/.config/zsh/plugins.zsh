@@ -10,7 +10,7 @@ function zsh_add_plugin() {
   PLUGIN_PATH="$ZDOTDIR/${__SingularisArt[PLUGIN_DIR]}/$PLUGIN_NAME"
 
   if [ ! -d "$PLUGIN_PATH" ]; then
-    git clone "https://github.com/$1.git" "${__SingularisArt[PLUGIN_DIR]}/$PLUGIN_NAME"
+    git clone "https://github.com/$1.git" "$PLUGIN_PATH"
   fi
 
   source "$PLUGIN_PATH/$PLUGIN_NAME.plugin.zsh" || \

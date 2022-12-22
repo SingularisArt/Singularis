@@ -36,6 +36,7 @@ function personal_config() {
   zsh_add_plugin "zsh-users/zsh-autosuggestions"
   zsh_add_plugin "zsh-users/zsh-syntax-highlighting"
   zsh_add_plugin "zsh-users/zsh-history-substring-search"
+  zsh_add_plugin "SingularisArt/docker-completion"
   # zsh_add_plugin "hlissner/zsh-autopair"
 
   # Completions
