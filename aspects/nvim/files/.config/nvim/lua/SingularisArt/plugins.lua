@@ -31,12 +31,27 @@ plugins.load = function()
     "lvimuser/lsp-inlayhints.nvim",
     "ray-x/lsp_signature.nvim",
     "ray-x/guihua.lua",
-    "folke/neoconf.nvim",
-    "ray-x/navigator.lua",
     "b0o/SchemaStore.nvim",
     "nanotee/sqls.nvim",
     -- "VonHeikemen/lsp-zero.nvim",
-    "folke/neodev.nvim",
+    {
+      "ray-x/navigator.lua",
+      config = function()
+        require("navigator").setup()
+      end,
+    },
+    {
+      "folke/neoconf.nvim",
+      config = function()
+        require("neoconf").setup()
+      end,
+    },
+    {
+      "folke/neodev.nvim",
+      config = function()
+        require("neodev").setup()
+      end,
+    },
     {
       "j-hui/fidget.nvim",
       config = function()
@@ -88,6 +103,7 @@ plugins.load = function()
           config = function()
             require("SingularisArt.config.tabnine")
           end,
+          run = "./install.sh",
         },
       },
       config = function()
@@ -233,7 +249,9 @@ plugins.load = function()
     {
       "folke/noice.nvim",
       config = function()
-        require("noice").setup()
+        require("noice").setup({
+          lsp = { hover = { enabled = false } },
+        })
       end,
       dependencies = {
         "MunifTanjim/nui.nvim",
