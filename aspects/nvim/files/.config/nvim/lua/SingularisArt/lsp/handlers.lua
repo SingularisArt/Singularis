@@ -108,6 +108,7 @@ lsp.on_attach = function(client, bufnr)
   lsp.setup_codelens_refresh(client, bufnr)
   lsp.attach_inlay_hints(client, bufnr)
   lsp.attach_mappings(client, bufnr)
+  require("lsp_signature").on_attach(client, bufnr)
 end
 
 return lsp

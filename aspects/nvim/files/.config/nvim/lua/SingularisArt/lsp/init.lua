@@ -24,6 +24,8 @@ lsp.load = function()
     },
   }
 
+  require("lsp_signature").setup(signature_help_setup)
+
   require("navigator").setup({
     debug = false,
     width = 0.75,
@@ -36,10 +38,8 @@ lsp.load = function()
     treesitter_analysis_max_num = 100,
     treesitter_analysis_condense = true,
     transparency = 50,
-    signature_help_cfg = nil,
     lsp_installer = false,
     mason = true,
-    lsp_signature_help = signature_help_setup,
 
     on_attach = handlers.on_attach,
 
