@@ -1,18 +1,5 @@
 local lazy_timer = 20
 
-local fsize = vim.fn.getfsize(vim.fn.expand("%:p:f"))
-if fsize == nil or fsize < 0 then
-  fsize = 1
-end
-
-local load_ts = true
-local load_lsp = true
-
-if fsize > 1024 * 1024 then
-  load_ts = false
-  load_lsp = false
-end
-
 local function loader(plugin)
   require("lazy").load({
     plugins = plugin,
@@ -20,161 +7,140 @@ local function loader(plugin)
 end
 
 local function Lazyload()
-  local plugins = {
-    "plenary.nvim",
-    "diffview.nvim",
-    "linediff.vim",
-    "vim-fugitive",
-    "vim-rhubarb",
-    "forgit.nvim",
-    "neogit",
-    "vim-matchup",
-    "vim-bbye",
-    "vim-slash",
-    "tabout.nvim",
-    "harpoon",
-    "webapi-vim",
-    "splitjoin.vim",
-    "vim-highlightedyank",
-    "vim-wakatime",
-    "nvim-spectre",
-    "dial.nvim",
-    "vim-startuptime",
-    "fzy-lua-native",
-    "fzy-lua-native",
-    "spelunker.vim",
-    "plenary.nvim",
-    "nvim-lspconfig",
-    "lsp-inlayhints.nvim",
-    "lsp_signature.nvim",
-    "guihua.lua",
-    "SchemaStore.nvim",
-    "sqls.nvim",
-    "nvim-luadev",
-    "diffview.nvim",
-    "linediff.vim",
-    "vim-fugitive",
-    "vim-rhubarb",
-    "forgit.nvim",
-    "neogit",
-    "vim-matchup",
-    "vim-bbye",
-    "vim-slash",
-    "tabout.nvim",
-    "harpoon",
-    "webapi-vim",
-    "splitjoin.vim",
-    "vim-highlightedyank",
-    "vim-wakatime",
-    "nvim-spectre",
-    "dial.nvim",
-    "vim-startuptime",
-    "fzy-lua-native",
-    "fzy-lua-native",
-    "spelunker.vim",
-    "null-ls.nvim",
-    "lspsaga.nvim",
-    "lsp_lines.nvim",
-    "sad.nvim",
-    "navigator.lua",
-    "neoconf.nvim",
-    "neodev.nvim",
-    "fidget.nvim",
-    "symbols-outline.nvim",
-    "trouble.nvim",
-    "vim-illuminate",
-    "nvim-notify",
-    "corpus",
-    "nvim-tree.lua",
-    "neo-tree.nvim",
-    "lir.nvim",
-    "bufferline.nvim",
-    "close-buffers.nvim",
-    "neogen",
-    "nvim-dap",
-    "nvim-colorizer.lua",
-    "telescope.nvim",
-    "telescope-dap.nvim",
-    "telescope-file-browser.nvim",
-    "telescope-frecency.nvim",
-    "telescope-live-grep-args.nvim",
-    "neorg-telescope",
-    "vgit.nvim",
-    "octo.nvim",
-    "vim-gist",
-    "git-conflict.nvim",
-    "gitsigns.nvim",
-    "git-worktree.nvim",
-    "vimtex",
-    "tex-conceal.vim",
-    "vim-markdown",
-    "vim-markdown-toc",
-    "vim-table-mode",
-    "markdown-preview.nvim",
-    "magma-nvim",
-    "swenv.nvim",
-    "rust-tools.nvim",
-    "crates.nvim",
-    "nvim-jdtls",
-    "MatchTagAlways",
-    "bracey.vim",
-    "emmet-vim",
-    "go.nvim",
-    "vim-log-highlighting",
-    "clangd_extensions.nvim",
-    "neorg",
-    "sqlite.lua",
-    "ssr.nvim",
-    "refactoring.nvim",
-    "codewindow.nvim",
-    "numb.nvim",
-    "zen-mode.nvim",
-    "twilight.nvim",
-    "Comment.nvim",
-    "todo-comments.nvim",
-    "nvim-autopairs",
-    "undotree",
-    "nvim-bqf",
-    "indent-blankline.nvim",
-    "hop.nvim",
-    "neotest",
-    "nvim-regexplainer",
-    "nvim-surround",
-    "nvim-ufo",
-    "virt-column.nvim",
-    "hlargs.nvim",
-    "nvim-neoclip.lua",
-    "viewdoc.nvim",
-  }
+  loader("nvim-treesitter")
+  loader("playground")
+  loader("nvim-treesitter-textobjects")
+  loader("nvim-treesitter-textsubjects")
+  loader("nvim-treesitter-refactor")
+  loader("nvim-treesitter-context")
+  loader("nvim-ts-rainbow")
+  loader("nvim-ts-autotag")
 
-  if load_lsp then
-    local lsp_plugins = {
-      "nvim-lspconfig",
-      "lsp-inlayhints.nvim",
-      "lsp_signature.nvim",
-      "guihua.lua",
-      "SchemaStore.nvim",
-      "sqls.nvim",
-      "nvim-luadev",
-    }
-    loader(lsp_plugins)
-  end
-
-  if load_ts then
-    local ts_plugins = {
-      "nvim-treesitter",
-      "playground",
-      "nvim-treesitter-textobjects",
-      "nvim-treesitter-textsubjects",
-      "nvim-treesitter-refactor",
-      "nvim-treesitter-context",
-      "nvim-ts-rainbow",
-      "nvim-ts-autotag",
-    }
-    loader(ts_plugins)
-  end
-
-  loader(plugins)
+  loader("plenary.nvim")
+  loader("diffview.nvim")
+  loader("linediff.vim")
+  loader("vim-fugitive")
+  loader("vim-rhubarb")
+  loader("forgit.nvim")
+  loader("neogit")
+  loader("vim-matchup")
+  loader("vim-bbye")
+  loader("vim-slash")
+  loader("tabout.nvim")
+  loader("harpoon")
+  loader("webapi-vim")
+  loader("splitjoin.vim")
+  loader("vim-highlightedyank")
+  loader("vim-wakatime")
+  loader("nvim-spectre")
+  loader("dial.nvim")
+  loader("vim-startuptime")
+  loader("fzy-lua-native")
+  loader("fzy-lua-native")
+  loader("spelunker.vim")
+  loader("plenary.nvim")
+  loader("nvim-lspconfig")
+  loader("lsp-inlayhints.nvim")
+  loader("lsp_signature.nvim")
+  loader("guihua.lua")
+  loader("SchemaStore.nvim")
+  loader("sqls.nvim")
+  loader("nvim-luadev")
+  loader("diffview.nvim")
+  loader("linediff.vim")
+  loader("vim-fugitive")
+  loader("vim-rhubarb")
+  loader("forgit.nvim")
+  loader("neogit")
+  loader("vim-matchup")
+  loader("vim-bbye")
+  loader("vim-slash")
+  loader("tabout.nvim")
+  loader("harpoon")
+  loader("webapi-vim")
+  loader("splitjoin.vim")
+  loader("vim-highlightedyank")
+  loader("vim-wakatime")
+  loader("nvim-spectre")
+  loader("dial.nvim")
+  loader("vim-startuptime")
+  loader("fzy-lua-native")
+  loader("fzy-lua-native")
+  loader("spelunker.vim")
+  loader("null-ls.nvim")
+  loader("lspsaga.nvim")
+  loader("lsp_lines.nvim")
+  loader("sad.nvim")
+  loader("navigator.lua")
+  loader("neoconf.nvim")
+  loader("neodev.nvim")
+  loader("fidget.nvim")
+  loader("symbols-outline.nvim")
+  loader("trouble.nvim")
+  loader("vim-illuminate")
+  loader("nvim-notify")
+  loader("corpus")
+  loader("nvim-tree.lua")
+  loader("neo-tree.nvim")
+  loader("lir.nvim")
+  loader("bufferline.nvim")
+  loader("close-buffers.nvim")
+  loader("neogen")
+  loader("nvim-dap")
+  loader("nvim-colorizer.lua")
+  loader("telescope.nvim")
+  loader("telescope-dap.nvim")
+  loader("telescope-file-browser.nvim")
+  loader("telescope-frecency.nvim")
+  loader("telescope-live-grep-args.nvim")
+  loader("neorg-telescope")
+  loader("vgit.nvim")
+  loader("octo.nvim")
+  loader("vim-gist")
+  loader("git-conflict.nvim")
+  loader("gitsigns.nvim")
+  loader("git-worktree.nvim")
+  loader("vimtex")
+  loader("tex-conceal.vim")
+  loader("vim-markdown")
+  loader("vim-markdown-toc")
+  loader("vim-table-mode")
+  loader("markdown-preview.nvim")
+  loader("magma-nvim")
+  loader("swenv.nvim")
+  loader("rust-tools.nvim")
+  loader("crates.nvim")
+  loader("nvim-jdtls")
+  loader("MatchTagAlways")
+  loader("bracey.vim")
+  loader("emmet-vim")
+  loader("go.nvim")
+  loader("vim-log-highlighting")
+  loader("clangd_extensions.nvim")
+  loader("neorg")
+  loader("sqlite.lua")
+  loader("ssr.nvim")
+  loader("refactoring.nvim")
+  loader("codewindow.nvim")
+  loader("numb.nvim")
+  loader("zen-mode.nvim")
+  loader("twilight.nvim")
+  loader("Comment.nvim")
+  loader("todo-comments.nvim")
+  loader("nvim-autopairs")
+  loader("undotree")
+  loader("nvim-bqf")
+  loader("indent-blankline.nvim")
+  loader("hop.nvim")
+  loader("neotest")
+  loader("nvim-regexplainer")
+  loader("nvim-surround")
+  loader("nvim-ufo")
+  loader("virt-column.nvim")
+  loader("hlargs.nvim")
+  loader("nvim-neoclip.lua")
+  loader("viewdoc.nvim")
+  loader("nvim-luadev")
 end
 
 vim.defer_fn(function()
