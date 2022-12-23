@@ -1,8 +1,8 @@
 local lsp = {}
 local icons = require("SingularisArt.icons")
-local handlers = require("SingularisArt.lsp.handlers")
+local handlers = require("SingularisArt.config.lsp.handlers")
 
-lsp.load = function()
+lsp.setup = function()
   local signature_help_setup = {
     bind = true,
     doc_lines = 0,
