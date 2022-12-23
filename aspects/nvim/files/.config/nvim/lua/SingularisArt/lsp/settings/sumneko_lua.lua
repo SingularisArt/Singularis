@@ -28,7 +28,6 @@ return {
       diagnostics = {
         globals = {
           "vim",
-          "SingularisArt",
         },
       },
       workspace = {

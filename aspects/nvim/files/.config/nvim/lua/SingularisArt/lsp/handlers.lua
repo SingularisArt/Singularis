@@ -1,63 +1,5 @@
 local lsp = {}
 
-lsp.capabilities = function()
-  local status, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
-  if not status then
-    return
-  end
-
-  local capabilities = vim.lsp.protocol.make_client_capabilities()
-  capabilities = cmp_nvim_lsp.default_capabilities(capabilities)
-  capabilities.textDocument.completion.completionItem.snippetSupport = true
-  capabilities.textDocument.completion.completionItem.resolveSupport = {
-    properties = {
-      "documentation",
-      "detail",
-      "additionalTextEdits",
-    },
-  }
-
-  vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-    border = "rounded",
-  })
-  vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
-    border = "rounded",
-  })
-  vim.lsp.handlers["textDocument/references"] = vim.lsp.with(vim.lsp.handlers["textDocument/references"], {
-    loclist = true,
-  })
-  vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-    signs = true,
-  })
-
-  return capabilities
-end
-
-lsp.load = function()
-  local icons = require("SingularisArt.icons")
-  local diagnostics = {
-    signs = {
-      active = true,
-      values = {
-        { name = "DiagnosticSignError", text = icons.diagnostics.Error },
-        { name = "DiagnosticSignWarn", text = icons.diagnostics.Warning },
-        { name = "DiagnosticSignHint", text = icons.diagnostics.Hint },
-        { name = "DiagnosticSignInfo", text = icons.diagnostics.Information },
-      },
-    },
-    virtual_text = false,
-    update_in_insert = false,
-    underline = true,
-    severity_sort = true,
-  }
-
-  for _, sign in ipairs(diagnostics.signs.values) do
-    vim.fn.sign_define(sign.name, { texthl = sign.name, text = sign.text, numhl = "" })
-  end
-
-  vim.diagnostic.config(diagnostics)
-end
-
 lsp.setup_codelens_refresh = function(client, bufnr)
   local status_ok, codelens_supported = pcall(function()
     return client.supports_method("textDocument/codeLens")
@@ -84,16 +26,6 @@ lsp.setup_codelens_refresh = function(client, bufnr)
     buffer = bufnr,
     callback = vim.lsp.codelens.refresh,
   })
-end
-
-lsp.attach_navic = function(client, bufnr)
-  local status, navic = pcall(require, "nvim-navic")
-  if not status then
-    return
-  end
-
-  vim.g.navic_silence = true
-  navic.attach(client, bufnr)
 end
 
 lsp.attach_inlay_hints = function(client, bufnr)
@@ -129,68 +61,53 @@ lsp.attach_inlay_hints = function(client, bufnr)
   inlay_hints.on_attach(client, bufnr)
 end
 
-lsp.attach_signature = function(client, bufnr)
-  local signature = require("lsp_signature")
+lsp.attach_mappings = function(_, bufnr)
+  vim.keymap.set("n", "K", "<CMD>Lspsaga hover_doc<CR>", { buffer = true, silent = true })
 
-  local icons = require("SingularisArt.icons")
-  local setup = {
-    debug = false,
-    verbose = false,
-    bind = true,
-    doc_lines = 0,
-    floating_window = false,
-    floating_window_above_cur_line = false,
-    fix_pos = false,
-    hint_enable = true,
-    hint_prefix = icons.misc.Squirrel .. " ",
-    hint_scheme = "Comment",
-    use_lspsaga = false,
-    hi_parameter = "LspSignatureActiveParameter",
-    max_height = 12,
-    max_width = 120,
-    handler_opts = {
-      border = "rounded",
-    },
-    always_trigger = false,
-    auto_close_after = nil,
-    extra_trigger_chars = {},
-    zindex = 200,
-    padding = "",
-    transparency = nil,
-    shadow_blend = 36,
-    shadow_guibg = "Black",
-    timer_interval = 200,
-    toggle_key = nil,
-  }
+  -- local which_key = require("which-key")
+  local options = require("SingularisArt.local-variables").options
 
-  signature.setup(setup)
-  signature.on_attach(setup, client, bufnr)
-end
+  -- options = vim.tbl_deep_extend("force", {
+  --   buffer = bufnr,
+  -- }, options)
 
-lsp.attach_sqls = function(client, bufnr)
-  if client.name == "sqls" then
-    local status, sqls = pcall(require, "sqls")
-    if not status then
-      return
-    end
-
-    sqls.on_attach(client, bufnr)
-  end
-end
-
-lsp.attach_navigator = function(client, bufnr)
-  require("navigator.lspclient.mapping").setup({ bufnr = bufnr, client = client })
+  -- which_key.register({
+  --   l = {
+  --     name = "LSP",
+  --     c = { "<CMD>lua require('navigator.codeAction').code_action()<CR>", "Show code actions" },
+  --     e = { "<CMD>lua require('navigator.diagnostics').show_diagnostics()<CR>", "Show line diagnostics" },
+  --     E = { "<CMD>lua require('navigator.diagnostics').show_buf_diagnostics()<CR>", "Show diagnostic for all buffers" },
+  --     f = { "<CMD>lua vim.lsp.buf.format { async = true }<CR>", "Format" },
+  --     r = { "<CMD>lua require('navigator.rename').rename()<CR>", "Rename" },
+  --     i = { "<CMD>lua vim.lsp.buf.implementation()<CR>", "Go to implementation" },
+  --     j = { "<CMD>lua vim.diagnostic.goto_next()<CR>", "Go to next diagnostic" },
+  --     J = { "<CMD>lua require('navigator.treesitter').goto_next_usage()<CR>", "Go to next highlight" },
+  --     k = { "<CMD>lua vim.diagnostic.goto_prev()<CR>", "Go to previous diagnostic" },
+  --     K = { "<CMD>lua require('navigator.treesitter').goto_previous_usage()<CR>", "Go to previous highlight" },
+  --     l = { "<CMD>lua require('lsp_lines').toggle()<CR>", "Toggle LSP Lines" },
+  --     L = { "<CMD>lua require('navigator.diagnostics').toggle_diagnostics()<CR>", "Toggle diagnostics completely" },
+  --     s = { "<CMD>LspSymbols<CR>", "Toggle symbols outline" },
+  --     d = {
+  --       name = "Definition",
+  --       d = { "<CMD>lua require('navigator.reference').async_ref()<CR>", "Definition" },
+  --       p = { "<CMD>lua require('navigator.definition').definition_preview()<CR>", "Peek" },
+  --       t = { "<CMD>lua vim.lsp.buf.type_definition()<CR>", "Type Definition" },
+  --       i = { "<CMD>lua vim.lsp.buf.implementation()<CR>", "Implementation" },
+  --     },
+  --     w = {
+  --       name = "Workspace",
+  --       a = { "<CMD>lua require('navigator.workspace').add_workspace_folder()<CR>", "Add workspace folder" },
+  --       r = { "<CMD>lua require('navigator.workspace').remove_workspace_folder()<CR>", "Remove workspace folder" },
+  --       l = { "<CMD>lua require('navigator.workspace').list_workspace_folders()<CR>", "List workspace folders" },
+  --     },
+  --   },
+  -- }, options)
 end
 
 lsp.on_attach = function(client, bufnr)
-  vim.keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>", { buffer = true, silent = true })
-
   lsp.setup_codelens_refresh(client, bufnr)
-  lsp.attach_navic(client, bufnr)
   lsp.attach_inlay_hints(client, bufnr)
-  lsp.attach_signature(client, bufnr)
-  lsp.attach_sqls(client, bufnr)
-  lsp.attach_navigator(client, bufnr)
+  lsp.attach_mappings(client, bufnr)
 end
 
 return lsp

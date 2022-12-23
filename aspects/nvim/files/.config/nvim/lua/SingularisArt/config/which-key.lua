@@ -64,38 +64,8 @@ vars.mappings["/"] = { "<CMD>lua require('Comment.api').toggle.linewise()<CR>", 
 vars.mappings["e"] = { "<CMD>NvimTreeToggle<CR>", "Toggle NvimTree" }
 vars.mappings["-"] = { "<CMD>lua require('lir.float').toggle()<CR>", "Toggle Lir" }
 vars.mappings["c"] = { "<Plug>(Corpus)", "Corpus" }
+vars.mappings["C"] = { "<CMD>lua codewindow.toggle_minimap()<CR>", "Toggle codewindow" }
 vars.mappings["z"] = { "<CMD>ZenMode<CR>", "Zen Mode" }
-
-vars.mappings["l"] = {
-  name = "LSP",
-  c = { "<CMD>lua require('navigator.codeAction').code_action()<CR>", "Show code actions" },
-  e = { "<CMD>lua require('navigator.diagnostics').show_diagnostics()<CR>", "Show line diagnostics" },
-  E = { "<CMD>lua require('navigator.diagnostics').show_buf_diagnostics()<CR>", "Show diagnostic for all buffers" },
-  f = { "<CMD>lua vim.lsp.buf.format { async = true }<CR>", "Format" },
-  r = { "<CMD>lua require('navigator.rename').rename()<CR>", "Rename" },
-  i = { "<CMD>lua vim.lsp.buf.implementation()<CR>", "Go to implementation" },
-  j = { "<CMD>lua vim.diagnostic.goto_next()<CR>", "Go to next diagnostic" },
-  J = { "<CMD>lua require('navigator.treesitter').goto_next_usage()<CR>", "Go to next highlight" },
-  k = { "<CMD>lua vim.diagnostic.goto_prev()<CR>", "Go to previous diagnostic" },
-  K = { "<CMD>lua require('navigator.treesitter').goto_previous_usage()<CR>", "Go to previous highlight" },
-  l = { "<CMD>lua require('lsp_lines').toggle()<CR>", "Toggle LSP Lines" },
-  k = { "<CMD>lua require('navigator.dochighlight').hi_symbol()<CR>", "Toggle reference highlight" },
-  L = { "<CMD>lua require('navigator.diagnostics').toggle_diagnostics()<CR>", "Toggle diagnostics completely" },
-  s = { "<CMD>LspSymbols<CR>", "Toggle symbols outline" },
-  d = {
-    name = "Definition",
-    d = { "<CMD>lua require('navigator.reference').async_ref()<CR>", "Definition" },
-    p = { "<CMD>lua require('navigator.definition').definition_preview()<CR>", "Peek" },
-    t = { "<CMD>lua vim.lsp.buf.type_definition()<CR>", "Type Definition" },
-    i = { "<CMD>lua vim.lsp.buf.implementation()<CR>", "Implementation" },
-  },
-  w = {
-    name = "Workspace",
-    a = { "<CMD>lua require('navigator.workspace').add_workspace_folder()<CR>", "Add workspace folder" },
-    r = { "<CMD>lua require('navigator.workspace').remove_workspace_folder()<CR>", "Remove workspace folder" },
-    l = { "<CMD>lua require('navigator.workspace').list_workspace_folders()<CR>", "List workspace folders" },
-  },
-}
 
 vars.mappings["g"] = {
   name = "Git",

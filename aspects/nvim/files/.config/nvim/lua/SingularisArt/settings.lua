@@ -124,28 +124,6 @@ M.load = function()
   vim.g.loaded_netrw = 1 -- Disable netrw.
   vim.g.loaded_netrwPlugin = 1 -- Enable the actual file browser.
 
-  if root then
-    vim.opt.shada = "" -- Don't create root-owned files.
-    vim.opt.shadafile = "NONE"
-  else
-    -- Defaults:
-    --   Neovim: !,'100,<50,s10,h
-
-    -- - ! save/restore global variables (only all-uppercase variables).
-    -- - '100 save/restore marks from last 100 files.
-    -- - <50 save/restore 50 lines from each register.
-    -- - s10 max item size 10KB.
-    -- - h do not save/restore 'hlsearch' setting.
-
-    -- Our overrides:
-    -- - '0 store marks for 0 files.
-    -- - <0 don't save registers.
-    -- - f0 don't store file marks.
-    -- - n: store in ~/.config/nvim/misc/shada.
-    --
-    vim.opt.shada = "'0,<0,f0,n~/.config/nvim/misc/shada"
-  end
-
   vim.opt.modelines = 5 -- Scan this many lines looking for modeline.
   vim.opt.pumblend = 10 -- Pseudo-transparency for popup-menu.
 
