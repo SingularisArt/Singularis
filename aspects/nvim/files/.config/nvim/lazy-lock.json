@@ -1,20 +1,3 @@
 {
-  "aurora": { "branch": "master", "commit": "b60f56ad0bd797eb2f643e4c856b60d898f1435c" },
-  "base16-nvim": { "branch": "main", "commit": "e71ae2694402d5e9227228d66ac273e5a5a2af76" },
-  "darkplus.nvim": { "branch": "main", "commit": "6101ffce60682208e9e076710299d189ce11c40d" },
-  "edge": { "branch": "master", "commit": "316a2d93c02332e17815d5540404465ae790f56a" },
-  "everforest": { "branch": "master", "commit": "34c9fbc6f9777c4b1e5a65e590f0fa614c1e747c" },
-  "github-nvim-theme": { "branch": "main", "commit": "54ff75c40cd2cb512dc9cf8030dda92d30e25205" },
-  "gruvbox-material": { "branch": "master", "commit": "3ac46b45892fb4a641c1462947d3b1ad0b283981" },
-  "horizon.nvim": { "branch": "master", "commit": "f7c758f0ebd47a72dd2832a8744340e72dad62f8" },
-  "lazy.nvim": { "branch": "main", "commit": "3974a6cbe38f7958c2e4f41c6f0d9a6c001a723d" },
-  "nightfox.nvim": { "branch": "main", "commit": "21e7e733e28b79b876e6bd514e6046a8da63ddae" },
-  "nvim": { "branch": "main", "commit": "3020af75aae098a77737d91ee37c7147c8450d99" },
-  "onedarker.nvim": { "branch": "master", "commit": "b4f92f073ed7cdf0358ad005cee0484411232b1b" },
-  "sonokai": { "branch": "master", "commit": "a2a648b709bc52d64504ba4fddedc25690029d8d" },
-  "starry.nvim": { "branch": "master", "commit": "5af70a9da0756723fd0bbf1ade597f852ca69b50" },
-  "synthwave84.nvim": { "branch": "master", "commit": "809b4847b2efbaa2fbd8ce542026efc8613f7c34" },
-  "tokyonight.nvim": { "branch": "main", "commit": "42cccfe663f36b91792a350164f0695b44a031d9" },
-  "vim-colorschemes": { "branch": "master", "commit": "fd8f122cef604330c96a6a6e434682dbdfb878c9" },
-  "zephyr-nvim": { "branch": "main", "commit": "7fd86b7164442d3b5ec2c81b2694d040e716b5cf" }
+  "lazy.nvim": { "branch": "main", "commit": "c59c05c7a80693fda369ccab572f8eaca50a1b4f" }
 }
