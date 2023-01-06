@@ -100,6 +100,29 @@ return {
         },
       })
     end,
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter-textobjects",
+      "RRethy/nvim-treesitter-textsubjects",
+      "nvim-treesitter/nvim-treesitter-refactor",
+      "JoosepAlviste/nvim-ts-context-commentstring",
+      "windwp/nvim-ts-autotag",
+      "nvim-treesitter/nvim-treesitter-context",
+      "p00f/nvim-ts-rainbow",
+      {
+        "nvim-treesitter/playground",
+        cmd = {
+          "TSPlaygroundToggle",
+          "TSHighlightCapturesUnderCursor",
+        },
+      },
+    },
     lazy = false,
+  },
+
+  {
+    "m-demare/hlargs.nvim",
+    config = function()
+      require("hlargs").setup()
+    end,
   },
 }

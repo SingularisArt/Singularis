@@ -278,10 +278,8 @@ return {
           keyword_length = 1,
         },
         window = {
-          completion = {
-            completion = cmp.config.window.bordered(),
-            documentation = cmp.config.window.bordered(),
-          },
+          completion = cmp.config.window.bordered(),
+          documentation = cmp.config.window.bordered(),
         },
         view = {
           entries = { selection_order = "near_cursor" }

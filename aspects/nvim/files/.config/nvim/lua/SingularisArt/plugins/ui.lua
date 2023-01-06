@@ -27,7 +27,6 @@ return {
     "lukas-reineke/indent-blankline.nvim",
     event = "BufReadPre",
     config = {
-      -- char = "▏",
       char = "│",
       filetype_exclude = { "help", "alpha", "dashboard", "neo-tree", "Trouble", "lazy" },
       show_trailing_blankline_indent = false,
@@ -38,7 +37,6 @@ return {
   -- active indent guide and indent text objects
   {
     "echasnovski/mini.indentscope",
-    version = false, -- wait till new 0.7.0 release to put it back on semver
     event = "BufReadPre",
     config = function()
       vim.api.nvim_create_autocmd("FileType", {
@@ -48,7 +46,6 @@ return {
         end,
       })
       require("mini.indentscope").setup({
-        -- symbol = "▏",
         symbol = "│",
         options = { try_as_border = true },
       })

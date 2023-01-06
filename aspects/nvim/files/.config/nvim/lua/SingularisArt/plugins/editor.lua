@@ -85,101 +85,26 @@ return {
         },
       })
     end,
+    lazy = true,
   },
 
-  -- floating fire browser
+  -- floating file browser
   {
     "tamago324/lir.nvim",
     config = function()
-      local lir = require("lir")
-
-      local actions = require("lir.actions")
-      local mark_actions = require("lir.mark.actions")
-      local clipboard_actions = require("lir.clipboard.actions")
-
-      lir.setup({
-        show_hidden_files = false,
-        devicons_enable = true,
-        mappings = {
-          ["<cr>"] = actions.edit,
-          ["l"] = actions.edit,
-          ["<C-s>"] = actions.split,
-          ["v"] = actions.vsplit,
-          ["<C-t>"] = actions.tabedit,
-
-          ["h"] = actions.up,
-          ["q"] = actions.quit,
-
-          ["A"] = actions.mkdir,
-          ["a"] = actions.newfile,
-          ["r"] = actions.rename,
-          ["@"] = actions.cd,
-          ["Y"] = actions.yank_path,
-          ["i"] = actions.toggle_show_hidden,
-          ["d"] = actions.delete,
-
-          ["J"] = function()
-            mark_actions.toggle_mark()
-            vim.cmd("normal! j")
-          end,
-          ["c"] = clipboard_actions.copy,
-          ["x"] = clipboard_actions.cut,
-          ["p"] = clipboard_actions.paste,
-        },
-        float = {
-          winblend = 0,
-          curdir_window = {
-            enable = false,
-            highlight_dirname = true,
-          },
-
-          -- -- You can define a function that returns a table to be passed as the third
-          -- -- argument of nvim_open_win().
-          win_opts = function()
-            local width = math.floor(vim.o.columns * 0.7)
-            local height = math.floor(vim.o.lines * 0.7)
-            return {
-              border = "rounded",
-              width = width,
-              height = height,
-              -- row = 1,
-              -- col = math.floor((vim.o.columns - width) / 2),
-            }
-          end,
-        },
-        hide_cursor = false,
-        on_init = function()
-          -- use visual mode
-          vim.api.nvim_buf_set_keymap(
-            0,
-            "x",
-            "J",
-            ':<C-u>lua require"lir.mark.actions".toggle_mark("v")<CR>',
-            { noremap = true, silent = true }
-          )
-
-          -- echo cwd
-          -- vim.api.nvim_echo({ { vim.fn.expand "%:p", "Normal" } }, false, {})
-        end,
-      })
-
-      -- custom folder icon
-      require("nvim-web-devicons").set_icon({
-        lir_folder_icon = {
-          icon = "",
-          -- color = "#7ebae4",
-          -- color = "#569CD6",
-          color = "#42A5F5",
-          name = "LirFolderNode",
-        },
-      })
+      require("lir").setup()
     end,
+    keys = {
+      {
+        "<Leader>-",
+        "<cmd>lua require('lir.float').toggle()<cr>",
+      },
+    },
   },
 
   -- search/replace in multiple files
   {
     "windwp/nvim-spectre",
-    -- stylua: ignore
     keys = {
       { "<leader>r", function() require("spectre").open() end, desc = "Replace in files (Spectre)" },
     },
@@ -456,7 +381,7 @@ return {
       vars.mappings["h"] = { "<CMD>split<CR>", "Horizontal Split" }
       vars.mappings[" "] = { "<CMD>normal <C-^><CR>", "Jump to previous buffer" }
       vars.mappings["/"] = { "<CMD>lua require('Comment.api').toggle.linewise()<CR>", "Comment out current line" }
-      vars.mappings["e"] = { "<CMD>NvimTreeToggle<CR>", "Toggle NvimTree" }
+      vars.mappings["e"] = { "<CMD>Neotree toggle<CR>", "Toggle NeoTree" }
       vars.mappings["-"] = { "<CMD>lua require('lir.float').toggle()<CR>", "Toggle Lir" }
       vars.mappings["c"] = { "<Plug>(Corpus)", "Corpus" }
       vars.mappings["C"] = { "<CMD>lua codewindow.toggle_minimap()<CR>", "Toggle codewindow" }
@@ -594,20 +519,125 @@ return {
     end,
   },
 
+  -- comment.
+  {
+    "numToStr/Comment.nvim",
+    config = function()
+      local nvim_comment = require("Comment")
+
+      nvim_comment.setup({
+        ignore = "^$",
+        toggler = {
+          ---Line-comment toggle keymap
+          line = "<Leader>/",
+          ---Block-comment toggle keymap
+          block = "gbc",
+        },
+        pre_hook = function(ctx)
+          -- For inlay hints
+          local line_start = (ctx.srow or ctx.range.srow) - 1
+          local line_end = ctx.erow or ctx.range.erow
+          require("lsp-inlayhints.core").clear(0, line_start, line_end)
+
+          require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook()
+
+          if vim.bo.filetype == "javascript" or vim.bo.filetype == "typescript" then
+            local U = require("Comment.utils")
+
+            -- Determine whether to use linewise or blockwise commentstring
+            local type = ctx.ctype == U.ctype.linewise and "__default" or "__multiline"
+
+            -- Determine the location where to calculate commentstring from
+            local location = nil
+            if ctx.ctype == U.ctype.blockwise then
+              location = require("ts_context_commentstring.utils").get_cursor_location()
+            elseif ctx.cmotion == U.cmotion.v or ctx.cmotion == U.cmotion.V then
+              location = require("ts_context_commentstring.utils").get_visual_start_location()
+            end
+
+            return require("ts_context_commentstring.internal").calculate_commentstring({
+              key = type,
+              location = location,
+            })
+          end
+        end,
+      })
+    end,
+    keys = {
+      "g",
+      "<ESC>",
+      "v",
+      "V",
+      "<c-v>",
+      "<Leader>/",
+    },
+    lazy = true,
+  },
+
   -- todo comments
   {
     "folke/todo-comments.nvim",
     cmd = { "TodoTrouble", "TodoTelescope" },
     event = "BufReadPost",
-    config = true,
-    -- stylua: ignore
-    keys = {
-      { "]t", function() require("todo-comments").jump_next() end, desc = "Next todo comment" },
-      { "[t", function() require("todo-comments").jump_prev() end, desc = "Previous todo comment" },
-      { "<leader>xt", "<cmd>TodoTrouble<cr>", desc = "Todo Trouble" },
-      { "<leader>xtt", "<cmd>TodoTrouble keywords=TODO,FIX,FIXME<cr>", desc = "Todo Trouble" },
-      { "<leader>xT", "<cmd>TodoTelescope<cr>", desc = "Todo Telescope" },
-    },
+    config = function()
+      local todo_comments = require("todo-comments")
+
+      local icons = require("SingularisArt.confg.icons")
+
+      local error_red = "#F44747"
+      local warning_orange = "#ff8800"
+      local hint_blue = "#4FC1FF"
+      local perf_purple = "#7C3AED"
+      local note_green = "#10B981"
+
+      todo_comments.setup({
+        signs = true,
+        sign_priority = 8,
+        keywords = {
+          FIX = {
+            icon = icons.ui.Bug,
+            color = error_red,
+            alt = { "FIXME", "BUG", "FIXIT", "ISSUE" },
+          },
+          TODO = { icon = icons.ui.Check, color = hint_blue, alt = { "TIP" } },
+          HACK = { icon = icons.ui.Fire, color = warning_orange },
+          WARN = { icon = icons.diagnostics.Warning, color = warning_orange, alt = { "WARNING", "XXX" } },
+          PERF = {
+            icon = icons.ui.Dashboard,
+            color = perf_purple,
+            alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE", "TEST" },
+          },
+          NOTE = { icon = icons.ui.Note, color = note_green, alt = { "INFO" } },
+        },
+        highlight = {
+          before = "",
+          keyword = "wide",
+          after = "fg",
+          pattern = [[.*<(KEYWORDS)\s*:]],
+          comments_only = true,
+          max_line_len = 400,
+          exclude = { "markdown" },
+        },
+        search = {
+          command = "rg",
+          args = {
+            "--color=never",
+            "--no-heading",
+            "--with-filename",
+            "--line-number",
+            "--column",
+          },
+          pattern = [[\b(KEYWORDS):]],
+        },
+      })
+    end,
+    -- keys = {
+    --   { "]t", function() require("todo-comments").jump_next() end, desc = "Next todo comment" },
+    --   { "[t", function() require("todo-comments").jump_prev() end, desc = "Previous todo comment" },
+    --   { "<leader>xt", "<cmd>TodoTrouble<cr>", desc = "Todo Trouble" },
+    --   { "<leader>xtt", "<cmd>TodoTrouble keywords=TODO,FIX,FIXME<cr>", desc = "Todo Trouble" },
+    --   { "<leader>xT", "<cmd>TodoTelescope<cr>", desc = "Todo Telescope" },
+    -- },
   },
 
   {
@@ -624,9 +654,9 @@ return {
             number = false,
             relativenumber = false,
             cursorline = true,
-            cursorcolumn = false, -- disable cursor column
-            foldcolumn = "0", -- disable fold column
-            list = false, -- disable whitespace characters
+            cursorcolumn = false,
+            foldcolumn = "0",
+            list = false,
           },
         },
         plugins = {
@@ -838,17 +868,5 @@ return {
   {
     "dhruvasagar/vim-table-mode",
     cmd = "TableModeToggle",
-  },
-
-  -- latex
-  {
-    "lervag/vimtex",
-    config = function()
-      vim.g.vimtex_view_method = "zathura"
-      vim.g.latex_view_general_viewer = "zathura"
-      vim.g.vimtex_compiler_progname = "nvr"
-      vim.g.vimtex_quickfix_enabled = 0
-    end,
-    lazy = false,
   },
 }
