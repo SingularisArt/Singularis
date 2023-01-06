@@ -1,7 +1,0 @@
-{
-  "$schema": "https://raw.githubusercontent.com/sumneko/vscode-lua/master/setting/schema.json",
-  "Lua.diagnostics.globals": ["vim", "SingularisArt"],
-  "Lua.workspace.checkThirdParty": false,
-  "Lua.workspace.library": ["${3rd}/lfs/library"],
-  "Lua.workspace.maxPreload": 10000
-}
