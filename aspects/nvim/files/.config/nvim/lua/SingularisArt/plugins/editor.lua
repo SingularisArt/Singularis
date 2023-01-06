@@ -18,69 +18,78 @@ return {
       vim.g.neo_tree_remove_legacy_commands = 1
     end,
     config = function()
+      vim.g.neo_tree_remove_legacy_commands = 1
+
       require("neo-tree").setup({
-        popup_border_style = "rounded",
-        enable_diagnostics = false,
-        default_component_configs = {
-          indent = {
-            padding = 0,
-            with_expanders = false,
+        sources = {
+          "filesystem",
+          "buffers",
+          "git_status",
+          "diagnostics",
+        },
+        source_selector = {
+          winbar = true,
+          separator_active = " ",
+        },
+        enable_git_status = true,
+        git_status_async = true,
+        filesystem = {
+          hijack_netrw_behavior = "open_current",
+          use_libuv_file_watcher = true,
+          group_empty_dirs = true,
+          follow_current_file = false,
+          filtered_items = {
+            visible = true,
+            hide_dotfiles = false,
+            hide_gitignored = true,
+            never_show = {
+              ".DS_Store",
+            },
           },
+          window = {
+            mappings = {
+              ["/"] = "noop",
+              ["g/"] = "fuzzy_finder",
+            },
+          },
+        },
+        default_component_configs = {
           icon = {
-            folder_closed = "",
-            folder_open = "",
-            folder_empty = "",
-            default = "",
+            folder_empty = "",
+          },
+          diagnostics = {
+            highlights = {
+              hint = "DiagnosticHint",
+              info = "DiagnosticInfo",
+              warn = "DiagnosticWarn",
+              error = "DiagnosticError",
+            },
+          },
+          modified = {
+            symbol = icons.misc.circle .. " ",
           },
           git_status = {
             symbols = {
-              added = "",
-              deleted = "",
-              modified = "",
-              renamed = "➜",
-              untracked = "★",
-              ignored = "◌",
-              unstaged = "✗",
-              staged = "✓",
+              added = icons.git.add,
+              deleted = icons.git.remove,
+              modified = icons.git.mod,
+              renamed = icons.git.rename,
+              untracked = "",
+              ignored = "",
+              unstaged = "",
+              staged = "",
               conflict = "",
             },
           },
         },
         window = {
-          width = 25,
           mappings = {
-            ["o"] = "open",
-          },
-        },
-        filesystem = {
-          filtered_items = {
-            visible = false,
-            hide_dotfiles = true,
-            hide_gitignored = false,
-            hide_by_name = {
-              ".DS_Store",
-              "thumbs.db",
-              "node_modules",
-              "__pycache__",
-            },
-          },
-          follow_current_file = true,
-          hijack_netrw_behavior = "open_current",
-          use_libuv_file_watcher = true,
-        },
-        git_status = {
-          window = {
-            position = "float",
-          },
-        },
-        event_handlers = {
-          {
-            event = "vim_buffer_enter",
-            handler = function(_)
-              if vim.bo.filetype == "neo-tree" then
-                vim.wo.signcolumn = "auto"
-              end
-            end,
+            ["o"] = "toggle_node",
+            ["<CR>"] = "open_with_window_picker",
+            ["<c-s>"] = "split_with_window_picker",
+            ["<c-v>"] = "vsplit_with_window_picker",
+            ["<esc>"] = "revert_preview",
+            ["P"] = { "toggle_preview", config = { use_float = true } },
           },
         },
       })
