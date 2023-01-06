@@ -1,4 +1,4 @@
-local handlers = require("SingularisArt.plugins.lsp.handlers")
+local handlers = require("lazyvim.plugins.lsp.handlers")
 
 require("navigator").setup({
   debug = false,
@@ -36,18 +36,18 @@ require("navigator").setup({
     diagnostic_update_in_insert = false,
     disply_diagnostic_qf = true,
 
-    clangd = { require("SingularisArt.plugins.lsp.settings.clangd") },
-    emmet_ls = { require("SingularisArt.plugins.lsp.settings.emmet_ls") },
-    jsonls = { require("SingularisArt.plugins.lsp.settings.jsonls") },
-    pyright = { require("SingularisArt.plugins.lsp.settings.pyright") },
-    rust_analyzer = { require("SingularisArt.plugins.lsp.settings.rust_analyzer") },
-    solang = { require("SingularisArt.plugins.lsp.settings.solang") },
-    solc = { require("SingularisArt.plugins.lsp.settings.solc") },
-    sumneko_lua = { require("SingularisArt.plugins.lsp.settings.sumneko_lua") },
-    texlab = { require("SingularisArt.plugins.lsp.settings.texlab") },
-    tsserver = { require("SingularisArt.plugins.lsp.settings.tsserver") },
-    yamlls = { require("SingularisArt.plugins.lsp.settings.yamlls") },
-    sqls = { require("SingularisArt.plugins.lsp.settings.sqls") },
+    clangd = { require("lazyvim.plugins.lsp.settings.clangd") },
+    emmet_ls = { require("lazyvim.plugins.lsp.settings.emmet_ls") },
+    jsonls = { require("lazyvim.plugins.lsp.settings.jsonls") },
+    pyright = { require("lazyvim.plugins.lsp.settings.pyright") },
+    rust_analyzer = { require("lazyvim.plugins.lsp.settings.rust_analyzer") },
+    solang = { require("lazyvim.plugins.lsp.settings.solang") },
+    solc = { require("lazyvim.plugins.lsp.settings.solc") },
+    sumneko_lua = { require("lazyvim.plugins.lsp.settings.sumneko_lua") },
+    texlab = { require("lazyvim.plugins.lsp.settings.texlab") },
+    tsserver = { require("lazyvim.plugins.lsp.settings.tsserver") },
+    yamlls = { require("lazyvim.plugins.lsp.settings.yamlls") },
+    sqls = { require("lazyvim.plugins.lsp.settings.sqls") },
 
     disable_lsp = {
       "pylsp",
@@ -66,4 +66,4 @@ require("navigator").setup({
   },
 })
 
--- require("SingularisArt.plugins.lsp.winbar")
+-- require("lazyvim.plugins.lsp.winbar")

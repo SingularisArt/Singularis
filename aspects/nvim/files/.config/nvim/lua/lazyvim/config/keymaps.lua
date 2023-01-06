@@ -1,10 +1,10 @@
 -- -- This file is automatically loaded by plugins.config
 
--- local util = require("SingularisArt.util")
+-- local util = require("lazyvim.util")
 
 -- -- better up/down
--- vim.keymap.set("n", "j", "gj")
--- vim.keymap.set("n", "k", "gk")
+-- vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+-- vim.keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 
 -- -- Move to window using the <meta> movement keys
 -- vim.keymap.set("n", "<A-left>", "<C-w>h")
@@ -82,11 +82,6 @@
 
 -- -- quit
 -- vim.keymap.set("n", "<leader>qq", "<cmd>qa<cr>", { desc = "Quit all" })
-
--- -- highlights under cursor
--- if vim.fn.has("nvim-0.9.0") == 1 then
---   vim.keymap.set("n", "<leader>hl", vim.show_pos, { desc = "Highlight Groups at cursor" })
--- end
 
 -- -- floating terminal
 -- vim.keymap.set("n", "<leader>ot", function() util.float_term(nil, { cwd = util.get_root() }) end, { desc = "Terminal (root dir)" })

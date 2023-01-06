@@ -94,10 +94,10 @@ return {
   },
 
   -- lua
-  {
-    "folke/neodev.nvim",
-    ft = "lua",
-  },
+  -- {
+  --   "folke/neodev.nvim",
+  --   ft = "lua",
+  -- },
 
   -- sql
   {

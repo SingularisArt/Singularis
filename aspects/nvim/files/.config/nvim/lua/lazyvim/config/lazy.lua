@@ -12,7 +12,7 @@ end
 vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 
 require("lazy").setup({
-  spec = "SingularisArt.plugins",
+  spec = "lazyvim.plugins",
   defaults = { lazy = true, version = "*" },
   install = { colorscheme = { "tokyonight", "habamax" } },
   checker = { enabled = true },

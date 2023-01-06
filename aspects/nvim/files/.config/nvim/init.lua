@@ -1,2 +1,1 @@
-require("SingularisArt.config.lazy")
-require("SingularisArt.config.colorscheme")
+require("lazyvim.config.lazy")
