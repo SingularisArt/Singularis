@@ -4,11 +4,131 @@ return {
     "hrsh7th/nvim-cmp",
     event = "InsertEnter",
     dependencies = {
-      "hrsh7th/cmp-nvim-lsp",
-      "hrsh7th/cmp-buffer",
-      "hrsh7th/cmp-path",
-      "hrsh7th/cmp-emoji",
-      "saadparwaiz1/cmp_luasnip",
+      { "hrsh7th/cmp-buffer", after = "nvim-cmp", lazy = true },
+      { "hrsh7th/cmp-nvim-lua", after = "nvim-cmp", lazy = true },
+      { "hrsh7th/cmp-calc", after = "nvim-cmp", lazy = true },
+      { "hrsh7th/cmp-path", after = "nvim-cmp", lazy = true },
+      { "hrsh7th/cmp-cmdline", after = "nvim-cmp", lazy = true },
+      { "hrsh7th/cmp-emoji", after = "nvim-cmp", lazy = true },
+      { "ray-x/cmp-treesitter", after = "nvim-cmp", lazy = true },
+      { "hrsh7th/cmp-nvim-lsp", after = "nvim-cmp", lazy = true },
+      { "f3fora/cmp-spell", after = "nvim-cmp", lazy = true },
+      { "octaltree/cmp-look", after = "nvim-cmp", lazy = true },
+      { "kdheepak/cmp-latex-symbols", after = "nvim-cmp", lazy = true },
+      { "hrsh7th/cmp-nvim-lsp-document-symbol", after = "nvim-cmp", lazy = true },
+      { "Dosx001/cmp-commit", after = "nvim-cmp", lazy = true },
+      { "hrsh7th/cmp-cmdline", after = "nvim-cmp", lazy = true },
+      { "David-Kunz/cmp-npm", after = "nvim-cmp", lazy = true },
+      { "max397574/cmp-greek", after = "nvim-cmp", lazy = true },
+      {
+        "petertriho/cmp-git",
+        after = "nvim-cmp",
+        -- config = function()
+        --   local format = require("cmp_git.format")
+        --   local sort = require("cmp_git.sort")
+
+        --   require("cmp_git").setup({
+        --     -- defaults
+        --     filetypes = { "gitcommit", "octo" },
+        --     remotes = { "upstream", "origin" }, -- in order of most to least prioritized
+        --     enableRemoteUrlRewrites = false, -- enable git url rewrites, see https://git-scm.com/docs/git-config#Documentation/git-config.txt-urlltbasegtinsteadOf
+        --     git = {
+        --       commits = {
+        --         limit = 100,
+        --         sort_by = sort.git.commits,
+        --         format = format.git.commits,
+        --       },
+        --     },
+        --     github = {
+        --       issues = {
+        --         fields = { "title", "number", "body", "updatedAt", "state" },
+        --         filter = "all", -- assigned, created, mentioned, subscribed, all, repos
+        --         limit = 100,
+        --         state = "open", -- open, closed, all
+        --         sort_by = sort.github.issues,
+        --         format = format.github.issues,
+        --       },
+        --       mentions = {
+        --         limit = 100,
+        --         sort_by = sort.github.mentions,
+        --         format = format.github.mentions,
+        --       },
+        --       pull_requests = {
+        --         fields = { "title", "number", "body", "updatedAt", "state" },
+        --         limit = 100,
+        --         state = "open", -- open, closed, merged, all
+        --         sort_by = sort.github.pull_requests,
+        --         format = format.github.pull_requests,
+        --       },
+        --     },
+        --     gitlab = {
+        --       issues = {
+        --         limit = 100,
+        --         state = "opened", -- opened, closed, all
+        --         sort_by = sort.gitlab.issues,
+        --         format = format.gitlab.issues,
+        --       },
+        --       mentions = {
+        --         limit = 100,
+        --         sort_by = sort.gitlab.mentions,
+        --         format = format.gitlab.mentions,
+        --       },
+        --       merge_requests = {
+        --         limit = 100,
+        --         state = "opened", -- opened, closed, locked, merged
+        --         sort_by = sort.gitlab.merge_requests,
+        --         format = format.gitlab.merge_requests,
+        --       },
+        --     },
+        --     trigger_actions = {
+        --       {
+        --         debug_name = "git_commits",
+        --         trigger_character = ":",
+        --         action = function(sources, trigger_char, callback, params, _)
+        --           return sources.git:get_commits(callback, params, trigger_char)
+        --         end,
+        --       },
+        --       {
+        --         debug_name = "gitlab_issues",
+        --         trigger_character = "#",
+        --         action = function(sources, trigger_char, callback, _, git_info)
+        --           return sources.gitlab:get_issues(callback, git_info, trigger_char)
+        --         end,
+        --       },
+        --       {
+        --         debug_name = "gitlab_mentions",
+        --         trigger_character = "@",
+        --         action = function(sources, trigger_char, callback, _, git_info)
+        --           return sources.gitlab:get_mentions(callback, git_info, trigger_char)
+        --         end,
+        --       },
+        --       {
+        --         debug_name = "gitlab_mrs",
+        --         trigger_character = "!",
+        --         action = function(sources, trigger_char, callback, _, git_info)
+        --           return sources.gitlab:get_merge_requests(callback, git_info, trigger_char)
+        --         end,
+        --       },
+        --       {
+        --         debug_name = "github_issues_and_pr",
+        --         trigger_character = "#",
+        --         action = function(sources, trigger_char, callback, _, git_info)
+        --           return sources.github:get_issues_and_prs(callback, git_info, trigger_char)
+        --         end,
+        --       },
+        --       {
+        --         debug_name = "github_mentions",
+        --         trigger_character = "@",
+        --         action = function(sources, trigger_char, callback, _, git_info)
+        --           return sources.github:get_mentions(callback, git_info, trigger_char)
+        --         end,
+        --       },
+        --     },
+        --   }
+        --   )
+        -- end,
+        lazy = true,
+      },
     },
     config = function()
       local cmp = require("cmp")
@@ -54,40 +174,19 @@ return {
         { name = "git" },
         { name = "npm" },
         { name = "greek" },
+        { name = "vim-dadbod-completion" },
+        { name = "neorg" },
+        { name = "spell" },
+        { name = "look" },
+        { name = "latex_symbols",
+          option = {
+            strategy = 2,
+          },
+        },
+        { name = "nvim_lua" },
+        { name = "crates" },
+        { name = "omni" },
       }
-
-      -- if vim.o.ft == "sql" then
-      --   table.insert(sources, { name = "vim-dadbod-completion" })
-      -- end
-
-      -- if vim.o.ft == "norg" then
-      --   table.insert(sources, { name = "neorg" })
-      -- end
-
-      -- if vim.o.ft == "markdown" or vim.o.ft == "tex" then
-      --   table.insert(sources, { name = "spell" })
-      --   table.insert(sources, { name = "look" })
-      -- end
-
-      -- if vim.o.ft == "tex" then
-      --   table.insert(sources, { name = "latex_symbols",
-      --     option = {
-      --       strategy = 2,
-      --     },
-      --   })
-      -- end
-
-      -- if vim.o.ft == "lua" then
-      --   table.insert(sources, { name = "nvim_lua" })
-      -- end
-
-      -- if vim.o.ft == "rust" then
-      --   table.insert(sources, { name = "crates" })
-      -- end
-
-      -- if vim.o.ft == "elm" then
-      --   table.insert(sources, { name = "omni" })
-      -- end
 
       local t = function(str)
         return vim.api.nvim_replace_termcodes(str, true, true, true)
@@ -180,9 +279,6 @@ return {
         },
         window = {
           completion = {
-            winhighlight = "Normal:Pmenu,FloatBorder:Pmenu,Search:None",
-            col_offset = -3,
-            side_padding = 0,
             completion = cmp.config.window.bordered(),
             documentation = cmp.config.window.bordered(),
           },
