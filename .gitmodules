@@ -1,0 +1,15 @@
+[submodule "UltiSnips"]
+	path = aspects/nvim/files/.config/nvim/UltiSnips
+	url = https://github.com/SingularisArt/snippets
+[submodule "UltiSnips-Dependencies"]
+	path = aspects/nvim/files/.config/nvim/pythonx
+	url = https://github.com/SingularisArt/snippet-dependencies
+[submodule "instant-reference"]
+	path = third-party-tools/instant-reference
+	url = https://github.com/gillescastel/instant-reference
+[submodule "chameleon"]
+	path = third-party-tools/chameleon
+	url = https://github.com/SingularisArt/Chameleon
+[submodule "start-tree"]
+	path = third-party-tools/start-tree
+	url = https://github.com/AlexW00/StartTreeV2
