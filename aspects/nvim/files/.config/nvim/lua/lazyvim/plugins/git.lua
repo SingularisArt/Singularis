@@ -1,18 +1,76 @@
 return {
-  "sindrets/diffview.nvim",
-  "AndrewRadev/linediff.vim",
-  "tpope/vim-fugitive",
-  "tpope/vim-rhubarb",
-  "ray-x/forgit.nvim",
-  "TimUntersberger/neogit",
-  "pwntester/octo.nvim",
-  "mattn/vim-gist",
+  {
+    "AndrewRadev/linediff.vim",
+    cmd = {
+      "Linediff",
+      "LinediffReset",
+    },
+  },
+
+  -- { "tpope/vim-rhubarb", cmd = "GBrowse" },
+
+  { "tpope/vim-fugitive", cmd = "Git" },
+
+  {
+    "sindrets/diffview.nvim",
+    cmd = {
+      "DiffviewOpen",
+      "DiffviewFileHistory",
+    },
+  },
+
+  {
+    "ray-x/forgit.nvim",
+    config = function()
+      require("forgit").setup({
+        debug = false,
+        diff = "delta",
+        fugitive = false,
+        git_alias = true,
+        show_result = "quickfix",
+
+        shell_mode = true,
+        height_ratio = 0.6,
+        width_ratio = 0.6,
+      })
+    end,
+  },
+
+  {
+    "TimUntersberger/neogit",
+    cmd = "Neogit",
+  },
+
+  {
+    "pwntester/octo.nvim",
+    config = function()
+      require("octo").setup()
+    end,
+    cmd = "Octo",
+  },
+
+  {
+    "mattn/vim-gist",
+    cmd = "Gist",
+    dependencies = {
+      "mattn/webapi-vim",
+    },
+  },
 
   {
     "akinsho/git-conflict.nvim",
     config = function()
       require("git-conflict").setup()
     end,
+    cmd = {
+      "GitConflictChooseOurs",
+      "GitConflictChooseTheirs",
+      "GitConflictChooseBoth",
+      "GitConflictChooseNone",
+      "GitConflictNextConflict",
+      "GitConflictPrevConflict",
+      "GitConflictListQf",
+    },
   },
 
   {

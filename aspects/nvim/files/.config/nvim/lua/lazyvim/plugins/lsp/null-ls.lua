@@ -37,7 +37,7 @@ local sources = {
 
   code_actions.gitsigns,
   code_actions.proselint,
-  code_actions.refactoring,
+  -- code_actions.refactoring,
 
   diagnostics.misspell.with({
     filetypes = { "markdown", "text", "txt" },

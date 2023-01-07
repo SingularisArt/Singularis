@@ -655,6 +655,7 @@ return {
         end,
       })
     end,
+    cmd = "ZenMode",
   },
 
   {

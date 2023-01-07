@@ -62,4 +62,47 @@ return {
     end,
     lazy = false,
   },
+
+  {
+    "martinsione/darkplus.nvim",
+    config = function()
+      vim.cmd("colorscheme darkplus")
+    end,
+    lazy = true,
+  },
+
+  {
+    "LunarVim/synthwave84.nvim",
+    config = function()
+      vim.cmd("colorscheme synthwave84")
+    end,
+    lazy = true,
+  },
+
+  {
+    "glepnir/zephyr-nvim",
+    config = function()
+      vim.cmd("colorscheme zephyr")
+    end,
+    lazy = true,
+  },
+  {
+    "ray-x/aurora",
+    config = function()
+      vim.cmd("colorscheme aurora")
+    end,
+    lazy = true,
+    setup = function()
+      vim.g.aurora_italic = 1
+      vim.g.aurora_transparent = 1
+      vim.g.aurora_bold = 1
+    end,
+  },
+
+  { "ray-x/starry.nvim", lazy = true },
+  { "catppuccin/nvim", as = "catppuccin", lazy = true },
+  { "sainnhe/gruvbox-material", lazy = true },
+  { "projekt0n/github-nvim-theme", lazy = true },
+  { "flazz/vim-colorschemes", lazy = true },
+  { "wincent/base16-nvim", lazy = true },
 }

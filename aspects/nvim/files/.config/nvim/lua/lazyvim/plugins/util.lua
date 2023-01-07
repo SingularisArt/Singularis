@@ -8,6 +8,7 @@ return {
     end,
   },
 
-  -- library used by other plugins
+  -- libraries used by other plugins
   "nvim-lua/plenary.nvim",
+  "ray-x/guihua.lua",
 }

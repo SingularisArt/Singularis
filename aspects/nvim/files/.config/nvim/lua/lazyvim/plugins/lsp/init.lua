@@ -24,7 +24,6 @@ return {
       require("lazyvim.plugins.lsp.navigator")
     end,
     dependencies = {
-      "ray-x/guihua.lua",
       {
         "ray-x/lsp_signature.nvim",
         config = function()
@@ -98,6 +97,8 @@ return {
         end
       },
     },
+    event = "VeryLazy",
+    lazy = false,
   },
 
   {
@@ -127,7 +128,6 @@ return {
       "SymbolsOutline",
       "SymbolsOutlineOpen",
     },
-    lazy = true,
   },
 
   {
@@ -139,7 +139,19 @@ return {
         },
       })
     end,
+    lazy = false,
   },
 
-  "lvimuser/lsp-inlayhints.nvim",
+  {
+    "j-hui/fidget.nvim",
+    config = function()
+      require("fidget").setup({
+        sources = {
+          ["null-ls"] = { ignore = true },
+        },
+      })
+    end,
+  },
+
+  { "lvimuser/lsp-inlayhints.nvim", lazy = false },
 }
