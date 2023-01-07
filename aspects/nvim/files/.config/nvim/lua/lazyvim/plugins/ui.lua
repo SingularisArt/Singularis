@@ -2,33 +2,44 @@ return {
   -- icons
   "nvim-tree/nvim-web-devicons",
 
-  -- better vim.notify
+  -- notify
   {
     "rcarriga/nvim-notify",
-    keys = {
-      {
-        "<leader>nd",
-        function()
-          require("notify").dismiss({ silent = true, pending = true })
+    config = function()
+      require("notify").setup({
+        stages = "fade_in_slide_out",
+        on_open = nil,
+        on_close = nil,
+        render = "default",
+        timeout = 5000,
+        minimum_width = 50,
+        icons = {
+          ERROR = "",
+          WARN = "",
+          INFO = "",
+          DEBUG = "",
+          TRACE = "✎",
+        },
+        background_colour = function()
+          local group_bg = vim.fn.synIDattr(vim.fn.synIDtrans(vim.fn.hlID("Normal")), "bg#")
+          if group_bg == "" or group_bg == "none" then
+            group_bg = vim.fn.synIDattr(vim.fn.synIDtrans(vim.fn.hlID("Float")), "bg#")
+            if group_bg == "" or group_bg == "none" then
+              return "#000000"
+            end
+          end
+          return group_bg
         end,
-        desc = "Delete all Notifications",
-      },
-    },
-    config = {
-      timeout = 3000,
-      max_height = function()
-        return math.floor(vim.o.lines * 0.75)
-      end,
-      max_width = function()
-        return math.floor(vim.o.columns * 0.75)
-      end,
-    },
+      })
+
+      require("telescope").load_extension("notify")
+    end,
+    event = "VeryLazy",
   },
 
   -- indent guides for Neovim
   {
     "lukas-reineke/indent-blankline.nvim",
-    event = "BufReadPre",
     config = function()
       local indent_blankline = require("indent_blankline")
 
@@ -75,5 +86,130 @@ return {
 
       indent_blankline.setup({ show_current_context = true })
     end,
+    event = "BufRead",
+  },
+
+  {
+    "Pocco81/true-zen.nvim",
+    config = function()
+      require("true-zen").setup()
+    end,
+    cmd = {
+      "TZAtaraxis",
+      "TZMinimalist",
+      "TZNarrow",
+      "TZFocus",
+    },
+  },
+
+  {
+    "folke/zen-mode.nvim",
+    config = function()
+      require("zen-mode").setup({
+        window = {
+          backdrop = 1,
+          height = 0.9,
+          -- width = 0.5,
+          width = 80,
+          options = {
+            signcolumn = "no",
+            number = false,
+            relativenumber = false,
+            cursorline = true,
+            cursorcolumn = false, -- disable cursor column
+            foldcolumn = "0", -- disable fold column
+            list = false, -- disable whitespace characters
+          },
+        },
+        plugins = {
+          gitsigns = { enabled = false },
+          tmux = { enabled = false },
+          twilight = { enabled = false },
+        },
+        on_open = function()
+          require("lsp-inlayhints").toggle()
+          vim.g.cmp_active = false
+          vim.cmd([[LspStop]])
+          local status_ok, _ = pcall(vim.api.nvim_set_option_value, "winbar", nil, { scope = "local" })
+          if not status_ok then
+            return
+          end
+          if vim.fn.exists("#" .. "_winbar") == 1 then
+            vim.cmd("au! " .. "_winbar")
+          end
+        end,
+
+        on_close = function()
+          require("lsp-inlayhints").toggle()
+          vim.g.cmp_active = true
+          vim.cmd([[LspStart]])
+
+          -- pcall(function()
+          --   require("SingularisArt.plugins.winbar")
+          -- end)
+        end,
+      })
+    end,
+    cmd = "ZenMode",
+  },
+
+  {
+    "folke/twilight.nvim",
+    config = function()
+      require("twilight").setup()
+    end,
+  },
+
+  {
+    "dstein64/nvim-scrollview",
+    config = function()
+      if vim.wo.diff then
+        return
+      end
+      local w = vim.api.nvim_call_function("winwidth", { 0 })
+      if w < 70 then
+        return
+      end
+
+      vim.g.scrollview_column = 1
+    end,
+    event = {
+      "CursorMoved",
+      "CursorMovedI",
+    },
+  },
+
+  {
+    "karb94/neoscroll.nvim",
+    config = function()
+      require("neoscroll").setup({
+        mappings = { "<C-u>", "<C-d>", "<C-y>", "<C-e>", "zt", "zz", "zb", "n", "N" },
+        hide_cursor = true,
+        stop_eof = true,
+        use_local_scrolloff = false,
+        respect_scrolloff = true,
+        cursor_scrolls_alone = false,
+      })
+    end,
+    keys = {
+      "<C-u>",
+      "<C-d>",
+      "<C-e>",
+      "<C-y>",
+      "zz",
+      "n",
+      "N",
+    },
+  },
+
+  {
+    "gorbit99/codewindow.nvim",
+    config = function()
+      local codewindow = require("codewindow")
+      codewindow.setup()
+      codewindow.apply_default_keybinds()
+      vim.cmd("command! -nargs=0 Minimap :lua require(\"codewindow\").toggle_minimap()")
+    end,
+    cmd = "Minimap",
   },
 }

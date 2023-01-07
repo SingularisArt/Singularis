@@ -2,10 +2,6 @@ return {
   -- lspconfig
   {
     "neovim/nvim-lspconfig",
-    event = "BufEnter",
-    dependencies = {
-      "SmiteshP/nvim-navic",
-    },
     config = function()
       -- diagnostics
       for name, icon in pairs(require("lazyvim.config.global").icons.diagnostics) do
@@ -13,13 +9,16 @@ return {
         vim.fn.sign_define(name, { text = icon, texthl = name, numhl = "" })
       end
     end,
+    dependencies = {
+      "SmiteshP/nvim-navic",
+    },
+    event = "BufEnter",
   },
 
   -- server configuration
   {
     "ray-x/navigator.lua",
     after = "nvim-lspconfig",
-    event = "BufEnter",
     config = function()
       require("lazyvim.plugins.lsp.navigator")
     end,
@@ -54,15 +53,16 @@ return {
         end,
       },
     },
+    event = "BufEnter",
   },
 
   -- formatters
   {
     "jose-elias-alvarez/null-ls.nvim",
-    event = "BufEnter",
     config = function()
       require("lazyvim.plugins.lsp.null-ls")
     end,
+    event = "BufEnter",
   },
 
   -- auto installer
@@ -98,7 +98,6 @@ return {
       },
     },
     event = "VeryLazy",
-    lazy = false,
   },
 
   {
@@ -131,18 +130,6 @@ return {
   },
 
   {
-    "kosayoda/nvim-lightbulb",
-    config = function()
-      require("nvim-lightbulb").setup({
-        autocmd = {
-          enabled = true,
-        },
-      })
-    end,
-    lazy = false,
-  },
-
-  {
     "j-hui/fidget.nvim",
     config = function()
       require("fidget").setup({
@@ -151,6 +138,7 @@ return {
         },
       })
     end,
+    event = "BufEnter",
   },
 
   { "lvimuser/lsp-inlayhints.nvim", lazy = false },

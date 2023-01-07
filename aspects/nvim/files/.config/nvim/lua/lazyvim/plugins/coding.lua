@@ -378,7 +378,6 @@ return {
   },
 
   -- comments
-  "JoosepAlviste/nvim-ts-context-commentstring",
   {
     "numToStr/Comment.nvim",
     config = function()

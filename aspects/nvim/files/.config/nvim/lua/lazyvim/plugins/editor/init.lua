@@ -2,26 +2,168 @@ return {
   -- file explorer
   {
     "nvim-neo-tree/neo-tree.nvim",
-    cmd = "Neotree",
-    keys = {
-      {
-        "<leader>ft",
-        function()
-          require("neo-tree.command").execute({ toggle = true, dir = require("lazyvim.util").get_root() })
-        end,
-        desc = "NeoTree (root dir)",
-      },
-      { "<leader>fT", "<cmd>Neotree toggle<CR>", desc = "NeoTree (cwd)" },
-    },
-    init = function()
-      vim.g.neo_tree_remove_legacy_commands = 1
+    config = function()
+      require("neo-tree").setup({
+        popup_border_style = "rounded",
+        enable_diagnostics = false,
+        default_component_configs = {
+          indent = {
+            padding = 0,
+            with_expanders = false,
+          },
+          icon = {
+            folder_closed = "",
+            folder_open = "",
+            folder_empty = "",
+            default = "",
+          },
+          git_status = {
+            symbols = {
+              added = "",
+              deleted = "",
+              modified = "",
+              renamed = "➜",
+              untracked = "★",
+              ignored = "◌",
+              unstaged = "✗",
+              staged = "✓",
+              conflict = "",
+            },
+          },
+        },
+        window = {
+          width = 25,
+          mappings = {
+            ["o"] = "open",
+          },
+        },
+        filesystem = {
+          filtered_items = {
+            visible = false,
+            hide_dotfiles = true,
+            hide_gitignored = false,
+            hide_by_name = {
+              ".DS_Store",
+              "thumbs.db",
+              "node_modules",
+              "__pycache__",
+            },
+          },
+          follow_current_file = true,
+          hijack_netrw_behavior = "open_current",
+          use_libuv_file_watcher = true,
+        },
+        git_status = {
+          window = {
+            position = "float",
+          },
+        },
+        event_handlers = {
+          {
+            event = "vim_buffer_enter",
+            handler = function(_)
+              if vim.bo.filetype == "neo-tree" then
+                vim.wo.signcolumn = "auto"
+              end
+            end,
+          },
+        },
+      })
     end,
-    config = {
-      filesystem = {
-        follow_current_file = true,
-        hijack_netrw_behavior = "open_current",
-      },
+    cmd = "Neotree",
+    dependencies = {
+      "MunifTanjim/nui.nvim",
     },
+  },
+
+  -- floating file explorer
+  {
+    "tamago324/lir.nvim",
+    config = function()
+      local lir = require("lir")
+
+      local actions = require("lir.actions")
+      local mark_actions = require("lir.mark.actions")
+      local clipboard_actions = require("lir.clipboard.actions")
+
+      lir.setup({
+        show_hidden_files = false,
+        devicons_enable = true,
+        mappings = {
+          ["<cr>"] = actions.edit,
+          ["l"] = actions.edit,
+          ["<C-s>"] = actions.split,
+          ["v"] = actions.vsplit,
+          ["<C-t>"] = actions.tabedit,
+
+          ["h"] = actions.up,
+          ["q"] = actions.quit,
+
+          ["A"] = actions.mkdir,
+          ["a"] = actions.newfile,
+          ["r"] = actions.rename,
+          ["@"] = actions.cd,
+          ["Y"] = actions.yank_path,
+          ["i"] = actions.toggle_show_hidden,
+          ["d"] = actions.delete,
+
+          ["J"] = function()
+            mark_actions.toggle_mark()
+            vim.cmd("normal! j")
+          end,
+          ["c"] = clipboard_actions.copy,
+          ["x"] = clipboard_actions.cut,
+          ["p"] = clipboard_actions.paste,
+        },
+        float = {
+          winblend = 0,
+          curdir_window = {
+            enable = false,
+            highlight_dirname = true,
+          },
+
+          -- -- You can define a function that returns a table to be passed as the third
+          -- -- argument of nvim_open_win().
+          win_opts = function()
+            local width = math.floor(vim.o.columns * 0.7)
+            local height = math.floor(vim.o.lines * 0.7)
+            return {
+              border = "rounded",
+              width = width,
+              height = height,
+              -- row = 1,
+              -- col = math.floor((vim.o.columns - width) / 2),
+            }
+          end,
+        },
+        hide_cursor = false,
+        on_init = function()
+          -- use visual mode
+          vim.api.nvim_buf_set_keymap(
+            0,
+            "x",
+            "J",
+            ':<C-u>lua require"lir.mark.actions".toggle_mark("v")<CR>',
+            { noremap = true, silent = true }
+          )
+
+          -- echo cwd
+          -- vim.api.nvim_echo({ { vim.fn.expand "%:p", "Normal" } }, false, {})
+        end,
+      })
+
+      -- custom folder icon
+      require("nvim-web-devicons").set_icon({
+        lir_folder_icon = {
+          icon = "",
+          -- color = "#7ebae4",
+          -- color = "#569CD6",
+          color = "#42A5F5",
+          name = "LirFolderNode",
+        },
+      })
+    end,
+    keys = "<Leader>-",
   },
 
   -- search/replace in multiple files
@@ -229,7 +371,6 @@ return {
   -- git signs
   {
     "lewis6991/gitsigns.nvim",
-    event = "BufReadPost",
     config = function()
       local gitsigns = require("gitsigns")
 
@@ -305,26 +446,25 @@ return {
         yadm = { enable = false },
       })
     end,
+    event = "BufReadPost",
   },
 
   -- references
   {
     "RRethy/vim-illuminate",
-    event = "BufReadPost",
     config = function()
       require("illuminate").configure({ delay = 200 })
     end,
+    event = "BufReadPost",
   },
 
   -- better diagnostics list and others
   {
     "folke/trouble.nvim",
+    config = function()
+      require("trouble").setup()
+    end,
     cmd = { "TroubleToggle", "Trouble" },
-    config = { use_diagnostic_signs = true },
-    keys = {
-      { "<leader>xx", "<cmd>TroubleToggle document_diagnostics<cr>", desc = "Document Diagnostics (Trouble)" },
-      { "<leader>xX", "<cmd>TroubleToggle workspace_diagnostics<cr>", desc = "Workspace Diagnostics (Trouble)" },
-    },
   },
 
   -- todo comments
@@ -450,38 +590,16 @@ return {
         },
       })
     end,
-  },
-
-  {
-    "rrethy/vim-hexokinase",
-    config = function()
-      vim.g.Hexokinase_optInPatterns = {
-        "full_hex",
-        "triple_hex",
-        "rgb",
-        "rgba",
-        "hsl",
-        "hsla",
-        "colour_names",
-      }
-      vim.g.Hexokinase_highlighters = {
-        "virtual",
-        "sign_column",
-        "backgroundfull",
-      }
-    end,
-    cmd = {
-      "HexokinaseTurnOn",
-      "HexokinaseToggle",
+    keys = {
+      "ys",
+      "ds",
+      "cs",
     },
   },
 
   {
     "chrisbra/Colorizer",
-    cmd = {
-      "ColorHighlight",
-      "ColorUnhighlight",
-    },
+    event = "VeryLazy",
     ft = {
       "log",
       "txt",
@@ -491,12 +609,6 @@ return {
 
   {
     "booperlv/nvim-gomove",
-    keys = {
-      "v",
-      "V",
-      "<c-v>",
-      "<c-V>",
-    },
     config = function()
       require("gomove").setup({
         map_defaults = true,
@@ -505,6 +617,12 @@ return {
         ignore_indent_lh_dup = true,
       })
     end,
+    keys = {
+      "v",
+      "V",
+      "<c-v>",
+      "<c-V>",
+    },
   },
 
   {
@@ -560,7 +678,7 @@ return {
         require("ufo").setVirtTextHandler(bufnr, handler)
       end
     end,
-    dependencies = { "kevinhwang91/promise-async" },
+    dependencies = "kevinhwang91/promise-async",
     lazy = false,
   },
 
@@ -593,75 +711,4 @@ return {
   },
 
   { "indianboy42/hop-extensions", after = "hop.nvim" },
-
-  {
-    "Pocco81/true-zen.nvim",
-    config = function()
-      require("true-zen").setup()
-    end,
-    cmd = {
-      "TZAtaraxis",
-      "TZMinimalist",
-      "TZNarrow",
-      "TZFocus",
-    },
-  },
-
-  {
-    "folke/zen-mode.nvim",
-    config = function()
-      require("zen-mode").setup({
-        window = {
-          backdrop = 1,
-          height = 0.9,
-          -- width = 0.5,
-          width = 80,
-          options = {
-            signcolumn = "no",
-            number = false,
-            relativenumber = false,
-            cursorline = true,
-            cursorcolumn = false, -- disable cursor column
-            foldcolumn = "0", -- disable fold column
-            list = false, -- disable whitespace characters
-          },
-        },
-        plugins = {
-          gitsigns = { enabled = false },
-          tmux = { enabled = false },
-          twilight = { enabled = false },
-        },
-        on_open = function()
-          require("lsp-inlayhints").toggle()
-          vim.g.cmp_active = false
-          vim.cmd([[LspStop]])
-          local status_ok, _ = pcall(vim.api.nvim_set_option_value, "winbar", nil, { scope = "local" })
-          if not status_ok then
-            return
-          end
-          if vim.fn.exists("#" .. "_winbar") == 1 then
-            vim.cmd("au! " .. "_winbar")
-          end
-        end,
-
-        on_close = function()
-          require("lsp-inlayhints").toggle()
-          vim.g.cmp_active = true
-          vim.cmd([[LspStart]])
-
-          -- pcall(function()
-          --   require("SingularisArt.plugins.winbar")
-          -- end)
-        end,
-      })
-    end,
-    cmd = "ZenMode",
-  },
-
-  {
-    "folke/twilight.nvim",
-    config = function()
-      require("twilight").setup()
-    end,
-  },
 }

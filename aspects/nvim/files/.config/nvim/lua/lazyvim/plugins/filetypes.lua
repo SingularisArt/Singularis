@@ -2,6 +2,12 @@ return {
   -- markdown
   {
     "mzlogin/vim-markdown-toc",
+    cmd = {
+      "GenTocGFM",
+      "GenTocRedcarpet",
+      "GenTocGitLab",
+      "GenTocMarked",
+    },
     ft = "markdown",
   },
   {
@@ -14,6 +20,7 @@ return {
       vim.g.vim_markdown_conceal_code_blocks = 0
       vim.g.vim_markdown_strikethrough = 1
     end,
+    cmd = "MarkdownPreviewToggle",
     ft = "markdown",
   },
 
@@ -40,54 +47,54 @@ return {
     },
   },
 
-  -- -- python
-  -- {
-  --   "dccsillag/magma-nvim",
-  --   config = function()
-  --     vim.g.magma_image_provider = "ueberzug"
-  --     vim.g.magma_automatically_open_output = false
-  --     vim.g.magma_wrap_output = false
-  --     vim.g.magma_output_window_borders = true
-  --     vim.g.magma_cell_highlight_group = "CursorLine"
-  --     vim.g.magma_save_path = vim.fn.stdpath("config") .. "/misc/magma"
-  --   end,
-  --   ft = "python",
-  -- },
-  -- {
-  --   "AckslD/swenv.nvim",
-  --   ft = "python",
-  -- },
+  -- python
+  {
+    "dccsillag/magma-nvim",
+    config = function()
+      vim.g.magma_image_provider = "ueberzug"
+      vim.g.magma_automatically_open_output = false
+      vim.g.magma_wrap_output = false
+      vim.g.magma_output_window_borders = true
+      vim.g.magma_cell_highlight_group = "CursorLine"
+      vim.g.magma_save_path = vim.fn.stdpath("config") .. "/misc/magma"
+    end,
+    cmd = "MagmaInit",
+    ft = "python",
+  },
 
-  -- -- rust
-  -- {
-  --   "simrat39/rust-tools.nvim",
-  --   config = function()
-  --     require("rust-tools").setup({
-  --       server = {
-  --         on_attach = function(c, b)
-  --           require("navigator.lspclient.mapping").setup({ client = c, bufnr = b })
-  --         end,
-  --       },
-  --     })
-  --   end,
-  --   ft = "rust",
-  -- },
-  -- {
-  --   "Saecki/crates.nvim",
-  --   ft = "rust",
-  -- },
+  -- rust
+  {
+    "simrat39/rust-tools.nvim",
+    config = function()
+      require("rust-tools").setup({
+        server = {
+          on_attach = function(c, b)
+            require("navigator.lspclient.mapping").setup({ client = c, bufnr = b })
+          end,
+        },
+      })
+    end,
+    ft = "rust",
+  },
+  {
+    "Saecki/crates.nvim",
+    config = function()
+      require("crates").setup()
+    end,
+    ft = "toml",
+  },
 
-  -- -- java
-  -- {
-  --   "mfussenegger/nvim-jdtls",
-  --   ft = "java",
-  -- },
+  -- java
+  {
+    "mfussenegger/nvim-jdtls",
+    ft = "java",
+  },
 
-  -- -- go
-  -- {
-  --   "ray-x/go.nvim",
-  --   ft = "go",
-  -- },
+  -- go
+  {
+    "ray-x/go.nvim",
+    ft = { "go", "gomod" },
+  },
 
   -- C/C++
   {
@@ -107,45 +114,144 @@ return {
 
   -- html
   { "Valloric/MatchTagAlways", ft = "html" },
-  { "turbio/bracey.vim", ft = "html"
-  },
-  { "mattn/emmet-vim", ft = "html"
-  },
+  { "turbio/bracey.vim", ft = "html" },
+  { "mattn/emmet-vim", ft = "html" },
 
   -- neorg
   {
     "nvim-neorg/neorg",
     config = function()
-      require("neorg").setup({
+      -- local neorg_callbacks = require("neorg.callbacks")
+      local neorg = require("neorg")
+
+      neorg.setup({
         load = {
-          ["core.defaults"] = {},
-          ["core.norg.concealer"] = {},
-          ["core.norg.dirman"] = {
-            config = { workspaces = { my_workspace = "~/neorg" } },
+          ["core.defaults"] = {}, -- Load all the default modules
+          ["core.export"] = {},
+          ["core.norg.completion"] = {
+            config = {
+              engine = "nvim-cmp",
+            },
           },
+          ["core.looking-glass"] = {}, -- Enable the looking_glass module
+          ["core.export.markdown"] = {
+            config = {
+              extensions = "all",
+            },
+          },
+          -- ["external.kanban"] = {},
+          -- ["external.zettelkasten"] = {},
+          -- ["external.context"] = {},
+          ["core.norg.concealer"] = {
+            config = {
+              -- markup_preset = "dimmed",
+              -- markup_preset = "conceal",
+              markup_preset = "varied",
+              icon_preset = "diamond",
+              icons = {
+                marker = {
+                  enabled = true,
+                  icon = " ",
+                },
+                todo = {
+                  enable = true,
+                  pending = {
+                    -- icon = ""
+                    icon = "",
+                  },
+                  uncertain = {
+                    icon = "?",
+                  },
+                  urgent = {
+                    icon = "",
+                  },
+                  on_hold = {
+                    icon = "",
+                  },
+                  cancelled = {
+                    icon = "",
+                  },
+                },
+                heading = {
+                  enabled = true,
+                  level_1 = {
+                    icon = "◈",
+                  },
+
+                  level_2 = {
+                    icon = " ◇",
+                  },
+
+                  level_3 = {
+                    icon = "  ◆",
+                  },
+                  level_4 = {
+                    icon = "   ❖",
+                  },
+                  level_5 = {
+                    icon = "    ⟡",
+                  },
+                  level_6 = {
+                    icon = "     ⋄",
+                  },
+                },
+              },
+            },
+          },
+
+          ["core.presenter"] = {
+            config = {
+              zen_mode = "zen-mode",
+              slide_count = {
+                enable = true,
+                position = "top",
+                count_format = "[%d/%d]",
+              },
+            },
+          },
+
+          ["core.norg.esupports.metagen"] = {
+            config = {
+              type = "auto",
+            },
+          },
+
           ["core.keybinds"] = {
             config = {
               default_keybinds = true,
-              neorg_leader = "<Leader>o",
+              neorg_leader = "<Leader>",
             },
           },
-          ["core.norg.completion"] = { config = { engine = "nvim-cmp" } },
-          ["core.integrations.telescope"] = {},
+
+          ["core.norg.dirman"] = { -- Manage your directories with Neorg
+            config = {
+              workspaces = {
+                home = "~/Documents/school-notes/notes",
+                personal = "~/Documents/school-notes/personal",
+                college = "~/Documents/school-notes/college",
+              },
+              index = "index.norg",
+              --[[ autodetect = true,
+                  autochdir = false, ]]
+            },
+          },
+
+          ["core.norg.qol.toc"] = {
+            config = {
+              close_split_on_jump = false,
+              toc_split_placement = "left",
+            },
+          },
+
+          ["core.norg.journal"] = {
+            config = {
+              workspace = "home",
+              journal_folder = "journal",
+              use_folders = false,
+            },
+          },
         },
       })
-      local neorg_callbacks = require("neorg.callbacks")
-
-      neorg_callbacks.on_event("core.keybinds.events.enable_keybinds", function(_, keybinds)
-        keybinds.map_event_to_mode("norg", {
-          n = {
-            { "<C-s>", "core.integrations.telescope.find_linkable" },
-          },
-
-          i = {
-            { "<C-l>", "core.integrations.telescope.insert_link" },
-          },
-        }, { silent = true, noremap = true })
-      end)
     end,
     dependencies = {
       { "nvim-neorg/neorg-telescope", ft = "norg" }
@@ -157,28 +263,21 @@ return {
     config = function()
       require("org-bullets").setup()
     end,
+    ft = "norg",
   },
   {
     "lukas-reineke/headlines.nvim",
+    config = function()
+      require("headlines").setup()
+    end,
     ft = {
       "org",
       "norg",
       "markdown",
       "yaml",
     },
-    config = function()
-      require("headlines").setup({
-        markdown = {
-          headline_highlights = { "Headline1", "Headline2", "Headline3" },
-        },
-        org = {
-          headline_highlights = false,
-        },
-        norg = { codeblock_highlight = false },
-      })
-    end,
   },
 
   -- json/yaml
-  "b0o/SchemaStore.nvim",
+  { "b0o/SchemaStore.nvim", ft = { "json", "yaml" } },
 }
