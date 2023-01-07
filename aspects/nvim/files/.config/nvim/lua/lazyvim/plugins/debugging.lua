@@ -22,12 +22,18 @@ return {
         },
       })
     end,
+    dependencies = {
+      "nvim-neotest/neotest-python",
+      "nvim-neotest/neotest-plenary",
+      "nvim-neotest/neotest-vim-test",
+      "haydenmeade/neotest-jest",
+    },
   },
 
   {
     "mfussenegger/nvim-dap",
     config = function()
-      local icons = require("SingularisArt.config.icons")
+      local icons = require("lazyvim.config.global").icons
       local dap = require("dap")
       local dapui = require("dapui")
 

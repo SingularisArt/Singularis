@@ -44,19 +44,19 @@ local sources = {
     args = { "$FILENAME" },
   }),
   diagnostics.write_good.with({
-    filetypes = { "markdown", "tex", "" },
+    filetypes = { "markdown" },
     extra_filetypes = { "txt", "text" },
     args = { "--text=$TEXT", "--parse" },
     command = "write-good",
   }),
   diagnostics.proselint.with({
-    filetypes = { "markdown", "tex" },
+    filetypes = { "markdown", },
     extra_filetypes = { "txt", "text" },
     command = "proselint",
     args = { "--json" },
   }),
 
-  actions.proselint.with({ filetypes = { "markdown", "tex" }, command = "proselint", args = { "--json" } }),
+  actions.proselint.with({ filetypes = { "markdown" }, command = "proselint", args = { "--json" } }),
 }
 
 table.insert(

@@ -1,109 +1,74 @@
--- -- This file is automatically loaded by plugins.config
+local function keymap(mode, binding, action, opts, description)
+  opts["desc"] = description
 
--- local util = require("lazyvim.util")
+  vim.api.nvim_set_keymap(mode, binding, action, opts)
+end
 
--- -- better up/down
--- vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
--- vim.keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+local opts = { noremap = true, silent = true }
+local term_opts = { silent = true }
 
--- -- Move to window using the <meta> movement keys
--- vim.keymap.set("n", "<A-left>", "<C-w>h")
--- vim.keymap.set("n", "<A-down>", "<C-w>j")
--- vim.keymap.set("n", "<A-up>", "<C-w>k")
--- vim.keymap.set("n", "<A-right>", "<C-w>l")
+-- Modes
+--   normal_mode = "n",
+--   insert_mode = "i",
+--   visual_mode = "v",
+--   visual_block_mode = "x",
+--   term_mode = "t",
+--   command_mode = "c",
 
--- -- Resize window using <shift> arrow keys
--- vim.keymap.set("n", "<S-Up>", "<cmd>resize +2<CR>")
--- vim.keymap.set("n", "<S-Down>", "<cmd>resize -2<CR>")
--- vim.keymap.set("n", "<S-Left>", "<cmd>vertical resize -2<CR>")
--- vim.keymap.set("n", "<S-Right>", "<cmd>vertical resize +2<CR>")
+keymap("n", "<Space>", "", opts, "")
 
--- -- Move Lines
--- vim.keymap.set("n", "<A-j>", ":m .+1<CR>==")
--- vim.keymap.set("v", "<A-j>", ":m '>+1<CR>gv=gv")
--- vim.keymap.set("i", "<A-j>", "<Esc>:m .+1<CR>==gi")
--- vim.keymap.set("n", "<A-k>", ":m .-2<CR>==")
--- vim.keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv")
--- vim.keymap.set("i", "<A-k>", "<Esc>:m .-2<CR>==gi")
+-- Normal --
+keymap("n", "<C-h>", "<C-w>h", opts, "Jump to left split.")
+keymap("n", "<C-j>", "<C-w>j", opts, "Jump to below split.")
+keymap("n", "<C-k>", "<C-w>k", opts, "Jump to above split.")
+keymap("n", "<C-l>", "<C-w>l", opts, "Jump to right split.")
+keymap("n", "<Leader><Leader>", "<C-^>", opts, "Jump to previous buffer.")
+keymap("n", "n", "nzzzv", opts, "Jump to next search.")
+keymap("n", "N", "Nzzzv", opts, "Jump to previous search.")
+keymap("n", "J", "mzJ`z", opts, "Concat lines.")
+keymap("n", "<Leader>j", ":m . +1<CR>==", opts, "Move line down.")
+keymap("n", "<Leader>k", ":m . -2<CR>==", opts, "Move line up.")
+keymap("n", "<Leader>v", ":vsplit<CR>", opts, "Create vertical split.")
+keymap("n", "<Leader>h", ":split<CR>", opts, "Create horizontal split.")
+keymap("n", "<C-w>", ":bdelete<CR>", opts, "Delete buffer.")
+keymap("n", "<C-t>", ":tabnew<CR>", opts, "Create new tab.")
+keymap("n", "<C-a>", "ggVG", opts, "Highlight everything.")
+keymap("n", ";", ":nohl<CR>", opts, "Clear search highlight.")
+keymap("n", "<Tab>", "za", opts, "Toggle tab.")
+keymap(
+  "n",
+  "<C-f>",
+  ":silent exec '!inkscape-figures edit \"'.b:vimtex.root.'/figures/\" > /dev/null 2>&1 &'<CR><CR>:redraw!<CR>",
+  opts,
+  "Create new figure."
+)
 
--- -- Switch buffers with <ctrl>
--- vim.keymap.set("n", "<C-Left>", "<cmd>bprevious<cr>")
--- vim.keymap.set("n", "<C-Right>", "<cmd>bnext<cr>")
+-- Insert Mode
+keymap("i", "<C-l>", "<c-g>u<Esc>[s1z=`]a<c-g>u", opts, "Correct spelling mistake.")
+keymap("i", "<C-j>", "<NOP>", opts, "")
+keymap("i", "<C-k>", "<NOP>", opts, "")
+keymap(
+  "i",
+  "<C-f>",
+  "<Esc>: silent exec '.!inkscape-figures create \"'.getline('.').'\" \"'.b:vimtex.root.'/figures/\"'<CR><CR>:w<CR>",
+  opts,
+  "List all figures."
+)
 
--- -- Easier pasting
--- vim.keymap.set("n", "[p", ":pu!<cr>")
--- vim.keymap.set("n", "]p", ":pu<cr>")
+-- Terminal Mode
+keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", term_opts, "Jump to left split.")
+keymap("t", "<C-j>", "<C-\\><C-N><C-w>j", term_opts, "Jump to below split.")
+keymap("t", "<C-k>", "<C-\\><C-N><C-w>k", term_opts, "Jump to above split.")
+keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts, "Jump to right split.")
 
--- -- Clear search with <esc>
--- vim.keymap.set({ "i", "n" }, "<esc>", "<cmd>noh<cr><esc>")
--- vim.keymap.set("n", "gw", "*N")
--- vim.keymap.set("x", "gw", "*N")
+-- Visual Mode
+keymap("v", "<", "<gv", opts, "")
+keymap("v", ">", ">gv", opts, "")
+keymap("v", "J", ":m '>+1<CR>gv=gv", opts, "")
+keymap("v", "K", ":m '<-2<CR>gv=gv", opts, "")
+keymap("v", "K", ":move '<-2<CR>gv-gv", opts, "")
+keymap("v", "J", ":move '>+1<CR>gv-gv", opts, "")
 
--- -- https://github.com/mhinz/vim-galore#saner-behavior-of-n-and-n
--- vim.keymap.set("n", "n", "'Nn'[v:searchforward]", { expr = true })
--- vim.keymap.set("x", "n", "'Nn'[v:searchforward]", { expr = true })
--- vim.keymap.set("o", "n", "'Nn'[v:searchforward]", { expr = true })
--- vim.keymap.set("n", "N", "'nN'[v:searchforward]", { expr = true })
--- vim.keymap.set("x", "N", "'nN'[v:searchforward]", { expr = true })
--- vim.keymap.set("o", "N", "'nN'[v:searchforward]", { expr = true })
-
--- -- Add undo break-points
--- vim.keymap.set("i", ",", ",<c-g>u")
--- vim.keymap.set("i", ".", ".<c-g>u")
--- vim.keymap.set("i", ";", ";<c-g>u")
-
--- -- save in insert mode
--- vim.keymap.set({ "i", "v", "n", "s" }, "<C-s>", "<cmd>w<cr><esc>")
-
--- -- better indenting
--- vim.keymap.set("v", "<", "<gv")
--- vim.keymap.set("v", ">", ">gv")
-
--- -- lazy
--- vim.keymap.set("n", "<leader>l", "<cmd>:Lazy<cr>")
-
--- -- new file
--- vim.keymap.set("n", "<leader>fn", "<cmd>enew<cr>", { desc = "New File" })
-
--- vim.keymap.set("n", "<leader>xl", "<cmd>lopen<cr>", { desc = "Open Location List" })
--- vim.keymap.set("n", "<leader>xq", "<cmd>copen<cr>", { desc = "Open Quickfix List" })
-
--- -- stylua: ignore start
-
--- -- toggle options
--- vim.keymap.set("n", "<leader>tf", require("lazyvim.plugins.lsp.format").toggle, { desc = "Format on Save" })
--- vim.keymap.set("n", "<leader>ts", function() util.toggle("spell") end, { desc = "Spelling" })
--- vim.keymap.set("n", "<leader>tw", function() util.toggle("wrap") end, { desc = "Word Wrap" })
--- vim.keymap.set("n", "<leader>tn", function() util.toggle("relativenumber", true) util.toggle("number") end, { desc = "Line Numbers" })
-
--- -- lazygit
--- vim.keymap.set("n", "<leader>gg", function() require("lazyvim.util").float_term({ "lazygit" }) end, { desc = "Lazygit (cwd)" })
--- vim.keymap.set("n", "<leader>gG", function() util.float_term({ "lazygit" }, { cwd = util.get_root() }) end, { desc = "Lazygit (root dir)" })
-
--- -- quit
--- vim.keymap.set("n", "<leader>qq", "<cmd>qa<cr>", { desc = "Quit all" })
-
--- -- floating terminal
--- vim.keymap.set("n", "<leader>ot", function() util.float_term(nil, { cwd = util.get_root() }) end, { desc = "Terminal (root dir)" })
--- vim.keymap.set("n", "<leader>oT", function() require("lazyvim.util").float_term() end, { desc = "Terminal (cwd)" })
--- vim.keymap.set("t", "<esc><esc>", "<c-\\><c-n>", {desc = "Enter Normal Mode"})
-
--- -- windows
--- vim.keymap.set("n", "<leader>ww", "<C-W>p", { desc = "other-window" })
--- vim.keymap.set("n", "<leader>wd", "<C-W>c", { desc = "delete-window" })
--- vim.keymap.set("n", "<leader>w-", "<C-W>s", { desc = "split-window-below" })
--- vim.keymap.set("n", "<leader>w|", "<C-W>v", { desc = "split-window-right" })
-
--- -- tabs
--- vim.keymap.set("n", "<leader><tab>l", "<cmd>tablast<CR>", { desc = "Last" })
--- vim.keymap.set("n", "<leader><tab>f", "<cmd>tabfirst<CR>", { desc = "First" })
--- vim.keymap.set("n", "<leader><tab><tab>", "<cmd>tabnew<CR>", { desc = "New Tab" })
--- vim.keymap.set("n", "<leader><tab>]", "<cmd>tabnext<CR>", { desc = "Next" })
--- vim.keymap.set("n", "<leader><tab>d", "<cmd>tabclose<CR>", { desc = "Close" })
--- vim.keymap.set("n", "<leader><tab>[", "<cmd>tabprevious<CR>", { desc = "Previous" })
-
--- -- buffers
--- vim.keymap.set("n", "<leader>b]", "<cmd>:BufferLineCycleNext<CR>", { desc = "Next Buffer" })
--- vim.keymap.set("n", "<leader>bb", "<cmd>:e #<cr>", { desc = "Switch to Other Buffer" })
--- vim.keymap.set("n", "<leader>b[", "<cmd>:BufferLineCyclePrev<CR>", { desc = "Previous Buffer" })
--- vim.keymap.set("n", "<leader>`", "<cmd>:e #<cr>", { desc = "Switch to Other Buffer" })
+-- Visual Block Mode
+keymap("x", "<A-j>", ":m '>+1<CR>gv-gv", opts, "")
+keymap("x", "<A-k>", ":m '<-2<CR>gv-gv", opts, "")

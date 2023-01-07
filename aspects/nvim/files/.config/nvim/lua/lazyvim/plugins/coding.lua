@@ -7,17 +7,131 @@ return {
       "hrsh7th/cmp-nvim-lsp",
       "hrsh7th/cmp-nvim-lua",
       "hrsh7th/cmp-buffer",
-      "hrsh7th/cmp-path",
-      "hrsh7th/cmp-emoji",
-      "kdheepak/cmp-latex-symbols",
-      "octaltree/cmp-look",
-      "f3fora/cmp-spell",
       "hrsh7th/cmp-calc",
+      "hrsh7th/cmp-path",
+      "hrsh7th/cmp-cmdline",
+      "hrsh7th/cmp-emoji",
+      "ray-x/cmp-treesitter",
+      "f3fora/cmp-spell",
+      "octaltree/cmp-look",
+      "kdheepak/cmp-latex-symbols",
+      "hrsh7th/cmp-nvim-lsp-document-symbol",
+      "Dosx001/cmp-commit",
+      "hrsh7th/cmp-cmdline",
+      "David-Kunz/cmp-npm",
+      "max397574/cmp-greek",
+      {
+        "petertriho/cmp-git",
+        config = function()
+          local format = require("cmp_git.format")
+          local sort = require("cmp_git.sort")
+
+          require("cmp_git").setup({
+            -- defaults
+            filetypes = { "gitcommit", "octo" },
+            remotes = { "upstream", "origin" }, -- in order of most to least prioritized
+            enableRemoteUrlRewrites = false, -- enable git url rewrites, see https://git-scm.com/docs/git-config#Documentation/git-config.txt-urlltbasegtinsteadOf
+            git = {
+              commits = {
+                limit = 100,
+                sort_by = sort.git.commits,
+                format = format.git.commits,
+              },
+            },
+            github = {
+              issues = {
+                fields = { "title", "number", "body", "updatedAt", "state" },
+                filter = "all", -- assigned, created, mentioned, subscribed, all, repos
+                limit = 100,
+                state = "open", -- open, closed, all
+                sort_by = sort.github.issues,
+                format = format.github.issues,
+              },
+              mentions = {
+                limit = 100,
+                sort_by = sort.github.mentions,
+                format = format.github.mentions,
+              },
+              pull_requests = {
+                fields = { "title", "number", "body", "updatedAt", "state" },
+                limit = 100,
+                state = "open", -- open, closed, merged, all
+                sort_by = sort.github.pull_requests,
+                format = format.github.pull_requests,
+              },
+            },
+            gitlab = {
+              issues = {
+                limit = 100,
+                state = "opened", -- opened, closed, all
+                sort_by = sort.gitlab.issues,
+                format = format.gitlab.issues,
+              },
+              mentions = {
+                limit = 100,
+                sort_by = sort.gitlab.mentions,
+                format = format.gitlab.mentions,
+              },
+              merge_requests = {
+                limit = 100,
+                state = "opened", -- opened, closed, locked, merged
+                sort_by = sort.gitlab.merge_requests,
+                format = format.gitlab.merge_requests,
+              },
+            },
+            trigger_actions = {
+              {
+                debug_name = "git_commits",
+                trigger_character = ":",
+                action = function(sources, trigger_char, callback, params, _)
+                  return sources.git:get_commits(callback, params, trigger_char)
+                end,
+              },
+              {
+                debug_name = "gitlab_issues",
+                trigger_character = "#",
+                action = function(sources, trigger_char, callback, _, git_info)
+                  return sources.gitlab:get_issues(callback, git_info, trigger_char)
+                end,
+              },
+              {
+                debug_name = "gitlab_mentions",
+                trigger_character = "@",
+                action = function(sources, trigger_char, callback, _, git_info)
+                  return sources.gitlab:get_mentions(callback, git_info, trigger_char)
+                end,
+              },
+              {
+                debug_name = "gitlab_mrs",
+                trigger_character = "!",
+                action = function(sources, trigger_char, callback, _, git_info)
+                  return sources.gitlab:get_merge_requests(callback, git_info, trigger_char)
+                end,
+              },
+              {
+                debug_name = "github_issues_and_pr",
+                trigger_character = "#",
+                action = function(sources, trigger_char, callback, _, git_info)
+                  return sources.github:get_issues_and_prs(callback, git_info, trigger_char)
+                end,
+              },
+              {
+                debug_name = "github_mentions",
+                trigger_character = "@",
+                action = function(sources, trigger_char, callback, _, git_info)
+                  return sources.github:get_mentions(callback, git_info, trigger_char)
+                end,
+              },
+            },
+          }
+          )
+        end,
+      },
     },
     config = function()
       local cmp = require("cmp")
 
-      local icons = require("lazyvim.config.icons")
+      local icons = require("lazyvim.config.global").icons
       local kind_icons = icons.kind
       local duplicates = {
         buffer = 1,
@@ -58,19 +172,40 @@ return {
         { name = "git" },
         { name = "npm" },
         { name = "greek" },
-        { name = "vim-dadbod-completion" },
-        { name = "neorg" },
-        { name = "spell" },
-        { name = "look" },
-        { name = "latex_symbols",
-          option = {
-            strategy = 2,
-          },
-        },
-        { name = "nvim_lua" },
-        { name = "crates" },
-        { name = "omni" },
       }
+
+      -- if vim.o.ft == "sql" then
+      --   table.insert(sources, { name = "vim-dadbod-completion" })
+      -- end
+
+      -- if vim.o.ft == "norg" then
+      --   table.insert(sources, { name = "neorg" })
+      -- end
+
+      -- if vim.o.ft == "markdown" or vim.o.ft == "tex" then
+      --   table.insert(sources, { name = "spell" })
+      --   table.insert(sources, { name = "look" })
+      -- end
+
+      -- if vim.o.ft == "tex" then
+      --   table.insert(sources, { name = "latex_symbols",
+      --     option = {
+      --       strategy = 2,
+      --     },
+      --   })
+      -- end
+
+      -- if vim.o.ft == "lua" then
+      --   table.insert(sources, { name = "nvim_lua" })
+      -- end
+
+      -- if vim.o.ft == "rust" then
+      --   table.insert(sources, { name = "crates" })
+      -- end
+
+      -- if vim.o.ft == "elm" then
+      --   table.insert(sources, { name = "omni" })
+      -- end
 
       local t = function(str)
         return vim.api.nvim_replace_termcodes(str, true, true, true)
@@ -189,21 +324,61 @@ return {
       let g:UltiSnipsSnippetDirectories=[$HOME."/.config/nvim/UltiSnips", "UltiSnips"]
     ]] )
     end,
+    event = "VeryLazy",
     ft = "tex",
-    event = "InsertEnter",
   },
 
   -- auto pairs
   {
-    "echasnovski/mini.pairs",
-    event = "VeryLazy",
+    "windwp/nvim-autopairs",
     config = function()
-      require("mini.pairs").setup({})
+      local npairs = require("nvim-autopairs")
+      local Rule = require("nvim-autopairs.rule")
+
+      npairs.setup({
+        disable_filetype = { "TelescopePrompt", "guihua", "guihua_rust", "clap_input" },
+        autopairs = { enable = true },
+        ignored_next_char = string.gsub([[ [%w%%%'%[%"%.] ]], "%s+", ""),
+        enable_check_bracket_line = false,
+        html_break_line_filetype = { "html", "vue", "typescriptreact", "svelte", "javascriptreact" },
+        check_ts = true,
+        ts_config = {
+          lua = { "string" },
+          javascript = { "template_string" },
+          java = false,
+        },
+        fast_wrap = {
+          map = "<M-e>",
+          chars = { "{", "[", "(", '"', "'", "`" },
+          pattern = string.gsub([[ [%'%"%`%+%)%>%]%)%}%,%s] ]], "%s+", ""),
+          end_key = "$",
+          keys = "qwertyuiopzxcvbnmasdfghjkl",
+          check_comma = true,
+          hightlight = "Search",
+        },
+      })
+
+      npairs.add_rules({
+        Rule(" ", " "):with_pair(function(opts)
+          local pair = opts.line:sub(opts.col - 1, opts.col)
+          return vim.tbl_contains({ "()", "[]", "{}" }, pair)
+        end),
+        Rule("(", ")"):with_pair(function(opts)
+          return opts.prev_char:match(".%)") ~= nil
+        end):use_key(")"),
+        Rule("{", "}"):with_pair(function(opts)
+          return opts.prev_char:match(".%}") ~= nil
+        end):use_key("}"),
+        Rule("[", "]"):with_pair(function(opts)
+          return opts.prev_char:match(".%]") ~= nil
+        end):use_key("]"),
+      })
     end,
+    event = "VeryLazy",
   },
 
   -- comments
-  { "JoosepAlviste/nvim-ts-context-commentstring" },
+  "JoosepAlviste/nvim-ts-context-commentstring",
   {
     "numToStr/Comment.nvim",
     config = function()
@@ -242,45 +417,7 @@ return {
         end,
       })
     end,
-    keys = {
-      "g",
-      "<ESC>",
-      "v",
-      "V",
-      "<c-v>",
-      "<Leader>/",
-    },
+    keys = { "<Leader>/" },
     lazy = true,
-  },
-
-  -- better text-objects
-  {
-    "echasnovski/mini.ai",
-    keys = {
-      { "a", mode = { "x", "o" } },
-      { "i", mode = { "x", "o" } },
-    },
-    dependencies = {
-      {
-        "nvim-treesitter/nvim-treesitter-textobjects",
-        init = function()
-          require("lazy.core.loader").disable_rtp_plugin("nvim-treesitter-textobjects")
-        end,
-      },
-    },
-    config = function()
-      local ai = require("mini.ai")
-      ai.setup({
-        n_lines = 500,
-        custom_textobjects = {
-          o = ai.gen_spec.treesitter({
-            a = { "@block.outer", "@conditional.outer", "@loop.outer" },
-            i = { "@block.inner", "@conditional.inner", "@loop.inner" },
-          }, {}),
-          f = ai.gen_spec.treesitter({ a = "@function.outer", i = "@function.inner" }, {}),
-          c = ai.gen_spec.treesitter({ a = "@class.outer", i = "@class.inner" }, {}),
-        },
-      })
-    end,
   },
 }

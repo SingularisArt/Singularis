@@ -5,10 +5,6 @@ return {
     ft = "markdown",
   },
   {
-    "dhruvasagar/vim-table-mode",
-    ft = "markdown",
-  },
-  {
     "iamcco/markdown-preview.nvim",
     config = function()
       vim.g.mkdp_markdown_css = os.getenv("HOME") .. "/.config/nvim/misc/static/markdown-preview.css"
@@ -44,66 +40,54 @@ return {
     },
   },
 
-  -- python
-  {
-    "dccsillag/magma-nvim",
-    config = function()
-      vim.g.magma_image_provider = "ueberzug"
-      vim.g.magma_automatically_open_output = false
-      vim.g.magma_wrap_output = false
-      vim.g.magma_output_window_borders = true
-      vim.g.magma_cell_highlight_group = "CursorLine"
-      vim.g.magma_save_path = vim.fn.stdpath("config") .. "/misc/magma"
-    end,
-    ft = "python",
-  },
-  {
-    "AckslD/swenv.nvim",
-    ft = "python",
-  },
-
-  -- rust
-  {
-    "simrat39/rust-tools.nvim",
-    config = function()
-      require("rust-tools").setup({
-        server = {
-          on_attach = function(c, b)
-            require("navigator.lspclient.mapping").setup({ client = c, bufnr = b })
-          end,
-        },
-      })
-    end,
-    ft = "rust",
-  },
-  {
-    "Saecki/crates.nvim",
-    ft = "rust",
-  },
-
-  -- java
-  {
-    "mfussenegger/nvim-jdtls",
-    ft = "java",
-  },
-
-  -- go
-  {
-    "ray-x/go.nvim",
-    ft = "go",
-  },
-
-  -- lua
+  -- -- python
   -- {
-  --   "folke/neodev.nvim",
-  --   ft = "lua",
+  --   "dccsillag/magma-nvim",
+  --   config = function()
+  --     vim.g.magma_image_provider = "ueberzug"
+  --     vim.g.magma_automatically_open_output = false
+  --     vim.g.magma_wrap_output = false
+  --     vim.g.magma_output_window_borders = true
+  --     vim.g.magma_cell_highlight_group = "CursorLine"
+  --     vim.g.magma_save_path = vim.fn.stdpath("config") .. "/misc/magma"
+  --   end,
+  --   ft = "python",
+  -- },
+  -- {
+  --   "AckslD/swenv.nvim",
+  --   ft = "python",
   -- },
 
-  -- sql
-  {
-    "kkharji/sqlite.lua",
-    ft = "sqlite",
-  },
+  -- -- rust
+  -- {
+  --   "simrat39/rust-tools.nvim",
+  --   config = function()
+  --     require("rust-tools").setup({
+  --       server = {
+  --         on_attach = function(c, b)
+  --           require("navigator.lspclient.mapping").setup({ client = c, bufnr = b })
+  --         end,
+  --       },
+  --     })
+  --   end,
+  --   ft = "rust",
+  -- },
+  -- {
+  --   "Saecki/crates.nvim",
+  --   ft = "rust",
+  -- },
+
+  -- -- java
+  -- {
+  --   "mfussenegger/nvim-jdtls",
+  --   ft = "java",
+  -- },
+
+  -- -- go
+  -- {
+  --   "ray-x/go.nvim",
+  --   ft = "go",
+  -- },
 
   -- C/C++
   {
@@ -122,17 +106,10 @@ return {
   },
 
   -- html
-  {
-    "Valloric/MatchTagAlways",
-    ft = "html",
+  { "Valloric/MatchTagAlways", ft = "html" },
+  { "turbio/bracey.vim", ft = "html"
   },
-  {
-    "turbio/bracey.vim",
-    ft = "html",
-  },
-  {
-    "mattn/emmet-vim",
-    ft = "html",
+  { "mattn/emmet-vim", ft = "html"
   },
 
   -- neorg

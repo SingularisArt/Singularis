@@ -15,7 +15,6 @@ return {
     end,
   },
 
-  -- git signs
   {
     "lewis6991/gitsigns.nvim",
     event = "BufReadPre",
@@ -31,7 +30,6 @@ return {
     },
   },
 
-  -- TODO: DO THIS!
   {
     "ThePrimeagen/git-worktree.nvim",
     config = function()

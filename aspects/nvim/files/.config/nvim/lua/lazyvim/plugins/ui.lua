@@ -1,4 +1,7 @@
 return {
+  -- icons
+  "nvim-tree/nvim-web-devicons",
+
   -- better vim.notify
   {
     "rcarriga/nvim-notify",
@@ -22,102 +25,55 @@ return {
     },
   },
 
-  -- bufferline
-  {
-    "akinsho/nvim-bufferline.lua",
-    config = {
-      options = {
-        diagnostics = "nvim_lsp",
-        always_show_bufferline = false,
-        diagnostics_indicator = function(_, _, diag)
-          local icons = require("lazyvim.config.icons").diagnostics
-          local ret = (diag.error and icons.Error .. diag.error .. " " or "")
-            .. (diag.warning and icons.Warn .. diag.warning or "")
-          return vim.trim(ret)
-        end,
-        offsets = {
-          {
-            filetype = "neo-tree",
-            text = "Neo-tree",
-            highlight = "Directory",
-            text_align = "left",
-          },
-        },
-      },
-    },
-    event = "BufAdd",
-  },
-
-  -- statusline
-  {
-    "nvim-lualine/lualine.nvim",
-    config = function()
-      local navic = require("nvim-navic")
-      local lualine = require("lualine")
-      local icons = require("lazyvim.config.icons")
-      local setup = {
-        options = {
-          globalstatus = true,
-          disabled_filetypes = { statusline = { "lazy", "alpha" } },
-        },
-        sections = {
-          lualine_a = { "mode" },
-          lualine_b = {
-            { "branch" },
-            {
-              "diff",
-              symbols = { added = icons.git.added, modified = icons.git.modified, removed = icons.git.removed }, -- changes diff symbols
-            },
-          },
-          lualine_c = {
-            {
-              "diagnostics",
-              symbols = { error = icons.diagnostics.Error, warn = icons.diagnostics.Warn, info = icons.diagnostics.Info, hint = icons.diagnostics.Hint }
-            },
-            { "filename", padding = { left = 1, right = 1 } },
-            { navic.get_location, cond = navic.is_available }
-          },
-        }
-      }
-
-      lualine.setup(setup)
-    end,
-    lazy = false,
-  },
-
   -- indent guides for Neovim
   {
     "lukas-reineke/indent-blankline.nvim",
     event = "BufReadPre",
-    config = {
-      char = "│",
-      filetype_exclude = { "help", "alpha", "dashboard", "neo-tree", "Trouble", "lazy" },
-      show_trailing_blankline_indent = false,
-      show_current_context = false,
-    },
-  },
-
-  -- active indent guide and indent text objects
-  {
-    "echasnovski/mini.indentscope",
-    event = "BufReadPre",
     config = function()
-      vim.api.nvim_create_autocmd("FileType", {
-        pattern = { "help", "alpha", "dashboard", "neo-tree", "Trouble", "lazy", "mason" },
-        callback = function()
-          vim.b.miniindentscope_disable = true
-        end,
-      })
-      require("mini.indentscope").setup({
-        symbol = "│",
-        options = { try_as_border = true },
-      })
+      local indent_blankline = require("indent_blankline")
+
+      vim.cmd("highlight IndentBlanklineChar guifg=Grey10 gui=nocombine")
+
+      vim.g.indent_blankline_buftype_exclude = { "terminal", "nofile" }
+      vim.g.indent_blankline_filetype_exclude = {
+        "help",
+        "startify",
+        "dashboard",
+        "packer",
+        "neogitstatus",
+        "NvimTree",
+        "Trouble",
+      }
+      vim.g.indentLine_enabled = 1
+      vim.g.indent_blankline_char = "▏"
+      vim.g.indent_blankline_show_trailing_blankline_indent = false
+      vim.g.indent_blankline_show_first_indent_level = true
+      vim.g.indent_blankline_use_treesitter = true
+      vim.g.indent_blankline_show_current_context = true
+      vim.g.indent_blankline_context_patterns = {
+        "class",
+        "return",
+        "function",
+        "method",
+        "^if",
+        "^while",
+        "jsx_element",
+        "^for",
+        "^object",
+        "^table",
+        "block",
+        "arguments",
+        "if_statement",
+        "else_clause",
+        "jsx_element",
+        "jsx_self_closing_element",
+        "try_statement",
+        "catch_clause",
+        "import_statement",
+        "operation_type",
+      }
+
+      indent_blankline.setup({ show_current_context = true })
     end,
   },
-
-  -- icons
-  "nvim-tree/nvim-web-devicons",
-
-  -- ui components
-  "MunifTanjim/nui.nvim",
 }

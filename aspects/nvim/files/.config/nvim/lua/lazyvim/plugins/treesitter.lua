@@ -116,7 +116,7 @@ return {
         },
       },
     },
-    lazy = false,
+    event = "VeryLazy",
   },
 
   {
@@ -124,5 +124,6 @@ return {
     config = function()
       require("hlargs").setup()
     end,
+    event = "VeryLazy",
   },
 }

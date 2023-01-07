@@ -65,7 +65,7 @@ lsp.attach_mappings = function(_, bufnr)
   vim.keymap.set("n", "K", "<CMD>Lspsaga hover_doc<CR>", { buffer = true, silent = true })
 
   local which_key = require("which-key")
-  local options = require("lazyvim.config.globals").options
+  local options = require("lazyvim.config.global").which_key_vars.options
 
   options = vim.tbl_deep_extend("force", {
     buffer = bufnr,
@@ -104,11 +104,15 @@ lsp.attach_mappings = function(_, bufnr)
   }, options)
 end
 
+lsp.attach_signature = function(client, bufnr)
+  require("lsp_signature").on_attach(client, bufnr)
+end
+
 lsp.on_attach = function(client, bufnr)
   lsp.setup_codelens_refresh(client, bufnr)
   lsp.attach_inlay_hints(client, bufnr)
-  -- lsp.attach_mappings(client, bufnr)
-  require("lsp_signature").on_attach(client, bufnr)
+  lsp.attach_mappings(client, bufnr)
+  lsp.attach_signature(client, bufnr)
 end
 
 return lsp
