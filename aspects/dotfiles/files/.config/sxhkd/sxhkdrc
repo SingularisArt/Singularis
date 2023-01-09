@@ -14,23 +14,23 @@ alt + {A-Z}
 ##################
 
 super + Return
-  xfce4-terminal
+  kitty
 super + w
   $BROWSER
 super + m
-  bspc rule -a Xfce4-terminal -o state=floating && xfce4-terminal -e 'neomutt'
+  bspc rule -a kitty -o state=floating && kitty -e 'neomutt'
 super + shift + m
-  bspc rule -a Xfce4-terminal -o state=floating && xfce4-terminal -e 'nvim +"set ft=mail" +Mail'
+  bspc rule -a kitty -o state=floating && kitty -e 'nvim +"set ft=mail" +Mail'
 super + n
-  bspc rule -a Xfce4-terminal -o state=floating && xfce4-terminal -e 'newsboat'
+  bspc rule -a kitty -o state=floating && kitty -e 'newsboat'
 super + e
-  bspc rule -a Xfce4-terminal -o state=floating && xfce4-terminal -e 'ncmpcpp'
+  bspc rule -a kitty -o state=floating && kitty -e 'ncmpcpp'
 super + shift + c
-  bspc rule -a Xfce4-terminal -o state=floating && xfce4-terminal -e 'castero'
+  bspc rule -a kitty -o state=floating && kitty -e 'castero'
 super + c
-  bspc rule -a Xfce4-terminal -o state=floating && xfce4-terminal -e 'calcurse'
+  bspc rule -a kitty -o state=floating && kitty -e 'calcurse'
 super + shift + p
-  bspc rule -a Xfce4-terminal -o state=floating && xfce4-terminal -e 'pulsemixer'
+  bspc rule -a kitty -o state=floating && kitty -e 'pulsemixer'
 super + shift + d
   bash ~/.local/bin/xmenu-script
 super + shift + z

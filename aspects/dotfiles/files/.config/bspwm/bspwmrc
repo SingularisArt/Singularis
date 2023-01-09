@@ -24,7 +24,8 @@ feh --bg-scale ~/.config/wall.jpg &
 killall polybar; "$HOME/.config/polybar/launch.sh" &
 
 # Variable
-~/.config/zsh/exports.zsh
+"${HOME}/.config/zsh/exports.zsh"
+"${HOME}/.cache/wal/colors.sh"
 
 # Workspaces
 bspc monitor -d         
@@ -52,6 +53,11 @@ bspc config focus_follows_pointer true
 bspc config remove_disabled_monitors true
 bspc config remove_unplugged_monitors true
 bspc config merge_overlapping_monitors true
+
+bspc config normal_border_color "$color1"
+bspc config active_border_color "$color2"
+bspc config focused_border_color "$color15"
+bspc config presel_border_color "$color1"
 
 # Monitor And Desktop Settings
 bspc config top_padding 32

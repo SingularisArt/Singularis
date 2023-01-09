@@ -13,3 +13,6 @@
 [submodule "start-tree"]
 	path = third-party-tools/start-tree
 	url = https://github.com/AlexW00/StartTreeV2
+[submodule "zathura-pywal"]
+	path = third-party-tools/zathura-pywal
+	url = https://github.com/GideonWolfe/Zathura-Pywal

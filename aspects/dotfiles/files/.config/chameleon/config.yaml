@@ -1,55 +1,47 @@
 oomoxicons:
-  arguments: "oomox-archdroid-icons-cli /opt/oomox/scripted_colors/xresources/xresources-reverse"
+  command: "oomox-archdroid-icons-cli /opt/oomox/scripted_colors/xresources/xresources-reverse"
+  name: "Oomix Icons"
 
 oomoxgtk:
-  arguments: "oomox-cli /opt/oomox/scripted_colors/xresources/xresources-reverse"
+  command: "oomox-cli /opt/oomox/scripted_colors/xresources/xresources-reverse"
+  name: "Oomix GTK"
 
 oomoxspotify:
-  arguments: "oomoxify-cli /opt/spotify/Apps/.cache/wal/colors-oomox -s"
+  command: "oomoxify-cli /opt/spotify/Apps/.cache/wal/colors-oomox -s"
+  name: "Oomix Spotify"
 
 # slickpywal:
 #   path: ""
-#   config_path: ""
-#   executable: ""
-#   arguments: ""
+#   command: ""
+#   name: ""
 
 # pywalneopixels:
 #   path: ""
-#   config_path: ""
-#   executable: ""
-#   arguments: ""
+#   command: ""
+#   name: ""
 
 # razercli:
 #   path: ""
-#   config_path: ""
-#   executable: ""
-#   arguments: ""
+#   command: ""
+#   name: ""
 
 # telegrampalletegen:
 #   path: ""
-#   config_path: ""
-#   executable: ""
-#   arguments: ""
+#   command: ""
+#   name: ""
 
 pywalfox:
-  arguments: "pywalfox update"
+  command: "pywalfox update"
+  name: "Firefox"
 
 wal-discord:
   path: "/home/singularis/.local/bin"
-  executable: "wal-discord"
-  arguments: "beautifuldiscord --css ~/.cache/wal-discord/style.css"
+  command:
+    - "wal-discord"
+    - "beautifuldiscord --css /home/singularis/.cache/wal-discord/style.css"
+  name: "Discord"
 
 xmenu:
   path: "/home/singularis/.config/xmenu"
-  arguments: "sudo make clean install"
-
-starttree:
-  path: "/home/singularis/.local/share/Singularis/third-party-tools/start-tree"
-
-gnuplot:
-  path: "/home/singularis/.local/share/Singularis/third-party-tools/gnuplot-pywal"
-
-xfce4-terminal:
-  path: "/home/singularis/.local/share/Singularis/third-party-tools/chameleon/scripts"
-  config_path: "/home/singularis/.config/xfce4/terminal/terminalrc"
-  executable: "./xfce4-terminal.sh"
+  command: "sudo make clean install"
+  name: "XMenu"

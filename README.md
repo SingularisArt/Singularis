@@ -269,9 +269,12 @@
 # Overview
 
 This repo contains all my system-wide configuration. Let me clear something up.
-This ISN'T my dotfiles. My [dotfiles](aspects/dotfiles) are a subset of this
-repo. I have other things like my [neovim](aspects/nvim) config,
-[python](aspects/python) libraries, [cronjobs](aspects/cronjobs), etc.
+**This ISN'T my dotfiles**. My [dotfiles](aspects/dotfiles) are a subset of
+this repo. I have other things like my [neovim](aspects/nvim) config,
+[systemd](aspects/systemd), [email](aspects/email), etc. I have more
+information on each aspect in the root folder of each of the aspects. I used to
+have all that information on the main README, which wasn't a good idea since it
+turned out to be 2000+ lines.
 
 # Applications
 
@@ -464,8 +467,6 @@ repo. I have other things like my [neovim](aspects/nvim) config,
   the schemes below.
 - [Zathura-Pywal](https://github.com/GideonWolfe/Zathura-Pywal): pywal
   colorscheme for zathura.
-- [Gnuplot-Pywal](https://github.com/GideonWolfe/Gnuplot-Pywal): pywal
-  colorscheme for gnuplot.
 - [qutewal](https://github.com/jjzmajic/qutewal): pywal theme for qutebrowser.
 - [oomox](https://github.com/themix-project/oomox): Generate icon themes,
   spotify themes, and GTK themes from pywal.
@@ -482,22 +483,6 @@ repo. I have other things like my [neovim](aspects/nvim) config,
   Enable Qt features such as GTK theme.
 - [Pywalfox](https://github.com/Frewacom/Pywalfox): Theme firefox and DDG with
   pywal.
-
-# Dotfiles
-
-[A set of dotfiles](aspects) that I’ve been tweaking and twiddling since mid
-2018 ([under version
-control](https://github.com/SingularisArt/Singularis/commit/f0bce4d1) since
-2022).
-
-I used to have all the information about this repo in this readme, which turned
-out to be a horrible idea, since the readme was 2000+ lines. Now I've moved the
-documentation to each individual folder. If you want to learn more about my
-neovim config, check out the README [here](aspects/nvim#readme). If you want to
-learn more about my dotfiles, check out the README
-[here](aspects/dotfiles#readme). If you want to learn more about my zsh config,
-check out the README [here](aspects/dotfiles/zsh#readme). You should've gotten
-the idea by now.
 
 # Dependencies
 

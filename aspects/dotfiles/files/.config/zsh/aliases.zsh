@@ -8,8 +8,8 @@ alias b='bash'
 alias z='zsh'
 alias c='clear'
 alias e='exit'
-alias minecraft='java -jar ~/.local/bin/minecraft.jar'
-alias reloud='clear && source ~/.config/zsh/.zshrc'
+alias minecraft='java -jar '$HOME/.local/bin/minecraft.jar''
+alias reloud='clear && source '$HOME/.config/zsh/.zshrc''
 alias l='lfub'
 alias grep='grep --color'
 alias mkdir='nocorrect mkdir --parents'
@@ -18,7 +18,6 @@ alias mv='nocorrect mv -iv'
 alias rm='nocorrect rm -vI'
 alias ip="ip -4 -o a | cut -d ' ' -f 2,7 | cut -d '/' -f 1"
 alias distro='source /etc/lsb-release && source /etc/os-release && echo "Main Distro: $ID_LIKE. Sub Distro: $DISTRIB_ID"'
-# Move the stupid ~/.subversion folder to ~/.config/subversion.
 alias svn="svn --config-dir \"$XDG_CONFIG_HOME\"/subversion"
 
 if [ -f "/etc/arch-release" ] || [ -f "/etc/artix-release" ]; then
@@ -38,13 +37,15 @@ fi
 if command -v git &> /dev/null; then
   alias g='git'
   alias cg='clear && git status'
-  alias update_plugins="git update-submodules; git add aspects/nvim/files/.config/nvim/pack/plugins/opt/; git commit -m 'chore: update submodules'; git push;"
+fi
+if command -v gnuplot &> /dev/null; then
+  alias gplot='cp -r '$XDG_CONFIG_HOME/gnuplot/gnuplotrc' '$HOME/.gnuplot'; gnuplot; rm -rf '$HOME/.gnuplot''
 fi
 if command -v yarn &> /dev/null; then
   alias yarn='yarn --use-yarnrc '$XDG_CONFIG_HOME/yarn/config''
 fi
 if command -v abook &> /dev/null; then
-  alias abook='abook --config '$XDG_CONFIG_HOME'/abook/abookrc --datafile '$XDG_DATA_HOME'/abook/addressbook'
+  alias abook='abook --config '$XDG_CONFIG_HOME/abook/abookrc' --datafile '$XDG_DATA_HOME/abook/addressbook''
 fi
 if command -v &> /dev/null; then
   alias c='calcurse'
@@ -77,7 +78,7 @@ if command -v neomutt &> /dev/null; then
   alias m='neomutt'
 fi
 if command -v mbsync &> /dev/null; then
-  alias mbsync='mbsync -c ~/.config/mbsync/mbsyncrc'
+  alias mbsync='mbsync -c '$HOME/.config/mbsync/mbsyncrc''
 fi
 if command -v pulsemixer &> /dev/null; then
   alias p='pulsemixer'
@@ -121,4 +122,4 @@ alias .........='cd ../../../../../../../..'
 alias ..........='cd ../../../../../../../../..'
 alias ...........='cd ../../../../../../../../../..'
 alias -- -='cd -'
-alias ~'cd ~/'
+alias ~'cd '$HOME/''
