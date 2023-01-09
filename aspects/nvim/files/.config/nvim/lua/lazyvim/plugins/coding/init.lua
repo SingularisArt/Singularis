@@ -8,7 +8,7 @@ return {
     dependencies = {
       "hrsh7th/cmp-nvim-lsp",
       "hrsh7th/cmp-nvim-lua",
-      { "saadparwaiz1/cmp_luasnip", dependencies = "L3MON4D3/LuaSnip" },
+      -- "quangnguyen30192/cmp-nvim-ultisnips",
       "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-calc",
       "hrsh7th/cmp-path",
@@ -136,31 +136,19 @@ return {
 
   -- snippets
   {
-    "L3MON4D3/LuaSnip",
+    "SirVer/ultisnips",
     config = function()
-      require("lazyvim.plugins.coding.snippets")
+      -- vim.g.UltiSnipsExpandTrigger = "<CR>"
+      vim.g.UltiSnipsJumpForwardTrigger = "<C-j>"
+      vim.g.UltiSnipsJumpBackwardTrigger = "<C-k>"
+      vim.g.UltiSnipsRemoveSelectModeMappings = 0
+      vim.g.UltiSnipsEditSplit = "tabdo"
+      vim.g.UltiSnipsSnippetDirectories = {
+        "~/.config/nvim/UltiSnips", "UltiSnips"
+      }
     end,
-    dependencies = {
-      "rafamadriz/friendly-snippets"
-    },
     event = "InsertEnter",
   },
-  -- {
-  --   "SirVer/ultisnips",
-  --   config = function()
-  --     vim.cmd([[
-  --     let g:UltiSnipsExpandTrigger="<Tab>"
-  --     let g:UltiSnipsJumpForwardTrigger="<Plug>(ultisnips_jump_forward)"
-  --     let g:UltiSnipsJumpBackwardTrigger="<Plug>(ultisnips_jump_backward)"
-  --     let g:UltiSnipsListSnippets="<c-x><c-s>"
-  --     let g:UltiSnipsRemoveSelectModeMappings=0
-  --     let g:UltiSnipsEditSplit="tabdo"
-  --     let g:UltiSnipsSnippetDirectories=[$HOME."/.config/nvim/UltiSnips", "UltiSnips"]
-  --   ]] )
-  --   end,
-  --   event = "VeryLazy",
-  --   ft = "tex",
-  -- },
 
   -- auto pairs
   {

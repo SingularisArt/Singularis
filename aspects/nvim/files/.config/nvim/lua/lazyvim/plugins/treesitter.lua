@@ -5,7 +5,7 @@ return {
       require("nvim-treesitter.configs").setup({
         highlight = {
           enable = true,
-          additional_vim_regex_highlighting = false,
+          additional_vim_regex_highlighting = true,
           use_languagetree = true,
           disable = function(_, buf)
             local max_filesize = 100 * 1024

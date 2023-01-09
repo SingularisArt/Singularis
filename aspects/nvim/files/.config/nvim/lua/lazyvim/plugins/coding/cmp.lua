@@ -1,19 +1,17 @@
 local cmp = require("cmp")
-local ls = require("luasnip")
 local neogen_ok, neogen = pcall(require, "neogen")
 
-local icons = require("lazyvim.config.global").icons
-local kind_icons = icons.kind
+local kind_icons = require("lazyvim.config.global").icons.kind
 local duplicates = {
   buffer = 1,
   path = 1,
   nvim_lsp = 0,
-  luasnip = 1,
 }
 
 local source_names = {
   nvim_lsp = "(LSP)",
-  luasnip = "(Snippets)",
+  nvim_lua = "(Lua)",
+  ultisnips = "(Snippets)",
   calc = "(Calc)",
   path = "(Path)",
   buffer = "(Buffer)",
@@ -27,14 +25,14 @@ local source_names = {
   spell = "(Spell)",
   look = "(Look)",
   latex_symbols = "(LaTeX)",
-  nvim_lua = "(Lua)",
   crates = "(Crates)",
   omni = "(Mail)",
 }
 
 local cmp_sources = {
   { name = "nvim_lsp" },
-  { name = "luasnip" },
+  { name = "nvim_lua" },
+  { name = "ultisnips" },
   { name = "calc" },
   { name = "path" },
   { name = "buffer" },
@@ -81,67 +79,29 @@ local cmp_sources = {
 cmp.setup({
   snippet = {
     expand = function(args)
-      ls.lsp_expand(args.body)
+      vim.fn["UltiSnips#Anon"](args.body)
     end,
   },
 
   mapping = cmp.mapping.preset.insert({
-    ["<CR>"] = cmp.mapping.confirm({ select = false }),
-
     ["<C-j>"] = cmp.mapping({
-      c = function()
-        if cmp.visible() then
-          cmp.select_next_item({ behavior = cmp.SelectBehavior.Insert })
-        end
-      end,
       i = function(fallback)
-        if ls.expand_or_jumpable() then
-          ls.expand_or_jump()
-        elseif neogen_ok and neogen.jumpable() then
-          neogen.jump_next()
-        else
+        if neogen_ok and neogen.jumpable() then
           fallback()
-        end
-      end,
-      s = function(fallback)
-        if ls.expand_or_jumpable() then
-          ls.expand_or_jump()
         else
           fallback()
         end
       end,
     }),
+
     ["<C-k>"] = cmp.mapping({
       i = function(fallback)
-        if ls.jumpable(-1) then
-          ls.jump(-1)
-        elseif neogen_ok and neogen.jumpable(true) then
+        if neogen_ok and neogen.jumpable(true) then
           neogen.jump_prev()
         else
           fallback()
         end
       end,
-      s = function(fallback)
-        if ls.jumpable(-1) then
-          ls.jump(-1)
-        else
-          fallback()
-        end
-      end,
-    }),
-    ["<C-l>"] = cmp.mapping({
-      i = function()
-        if ls.choice_active() then
-          ls.change_choice(1)
-        end
-      end
-    }),
-    ["<C-h>"] = cmp.mapping({
-      i = function()
-        if ls.choice_active() then
-          ls.change_choice(-1)
-        end
-      end
     }),
   }),
 
