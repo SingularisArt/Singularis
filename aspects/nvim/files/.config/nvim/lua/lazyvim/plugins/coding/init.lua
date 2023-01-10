@@ -8,7 +8,7 @@ return {
     dependencies = {
       "hrsh7th/cmp-nvim-lsp",
       "hrsh7th/cmp-nvim-lua",
-      -- "quangnguyen30192/cmp-nvim-ultisnips",
+      "quangnguyen30192/cmp-nvim-ultisnips",
       "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-calc",
       "hrsh7th/cmp-path",
@@ -138,9 +138,6 @@ return {
   {
     "SirVer/ultisnips",
     config = function()
-      -- vim.g.UltiSnipsExpandTrigger = "<CR>"
-      vim.g.UltiSnipsJumpForwardTrigger = "<C-j>"
-      vim.g.UltiSnipsJumpBackwardTrigger = "<C-k>"
       vim.g.UltiSnipsRemoveSelectModeMappings = 0
       vim.g.UltiSnipsEditSplit = "tabdo"
       vim.g.UltiSnipsSnippetDirectories = {

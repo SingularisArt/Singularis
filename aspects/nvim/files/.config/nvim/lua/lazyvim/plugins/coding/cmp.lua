@@ -1,4 +1,5 @@
 local cmp = require("cmp")
+local cmp_ultisnips_mappings = require("cmp_nvim_ultisnips.mappings")
 local neogen_ok, neogen = pcall(require, "neogen")
 
 local kind_icons = require("lazyvim.config.global").icons.kind
@@ -84,23 +85,33 @@ cmp.setup({
   },
 
   mapping = cmp.mapping.preset.insert({
+    ["<CR>"] = cmp.mapping({
+      i = function(fallback)
+        cmp_ultisnips_mappings.compose { "expand" } (fallback)
+      end,
+    }),
+
     ["<C-j>"] = cmp.mapping({
       i = function(fallback)
-        if neogen_ok and neogen.jumpable() then
-          fallback()
-        else
-          fallback()
-        end
+        cmp_ultisnips_mappings.compose { "jump_forwards" } (function()
+          if neogen_ok and neogen.jumpable() then
+            neogen.jump_next()
+          else
+            fallback()
+          end
+        end)
       end,
     }),
 
     ["<C-k>"] = cmp.mapping({
       i = function(fallback)
-        if neogen_ok and neogen.jumpable(true) then
-          neogen.jump_prev()
-        else
-          fallback()
-        end
+        cmp_ultisnips_mappings.compose { "jump_backwards" } (function()
+          if neogen_ok and neogen.jumpable(true) then
+            neogen.jump_prev()
+          else
+            fallback()
+          end
+        end)
       end,
     }),
   }),
