@@ -83,7 +83,6 @@ end
 if vim.o.ft == "json" then
   table.insert(cmp_sources, { name = "npm" })
 end
-print(vim.inspect(cmp_sources))
 
 cmp.setup({
   snippet = {

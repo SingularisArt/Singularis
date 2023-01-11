@@ -35,7 +35,7 @@ require("lazy").setup({
   -- 100+ plugins in under 45 milliseconds, according to startuptime-vim.
   ------------------------------------------------------------------------------
   -- spec = "lazyvim.plugins",
-  defaults = { lazy = true, version = "*" },
+  defaults = { lazy = true },
   install = {},
   checker = { enabled = false },
   performance = {
