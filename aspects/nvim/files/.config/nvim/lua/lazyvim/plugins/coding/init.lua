@@ -1,4 +1,17 @@
 return {
+  -- snippets
+  {
+    "SirVer/ultisnips",
+    config = function()
+      vim.g.UltiSnipsRemoveSelectModeMappings = 0
+      vim.g.UltiSnipsEditSplit = "tabdo"
+      vim.g.UltiSnipsSnippetDirectories = {
+        "~/.config/nvim/UltiSnips", "UltiSnips"
+      }
+    end,
+    event = "InsertEnter",
+  },
+
   -- auto completion
   {
     "hrsh7th/nvim-cmp",
@@ -8,6 +21,7 @@ return {
     dependencies = {
       "hrsh7th/cmp-nvim-lsp",
       "hrsh7th/cmp-nvim-lua",
+      "quangnguyen30192/cmp-nvim-ultisnips",
       "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-calc",
       "hrsh7th/cmp-path",
@@ -18,10 +32,10 @@ return {
       "octaltree/cmp-look",
       "kdheepak/cmp-latex-symbols",
       "hrsh7th/cmp-nvim-lsp-document-symbol",
-      "Dosx001/cmp-commit",
       "hrsh7th/cmp-cmdline",
       "David-Kunz/cmp-npm",
       "max397574/cmp-greek",
+      "Dosx001/cmp-commit",
       {
         "petertriho/cmp-git",
         config = function()
@@ -133,22 +147,6 @@ return {
     event = "InsertEnter",
   },
 
-  -- snippets
-  {
-    "SirVer/ultisnips",
-    config = function()
-      vim.g.UltiSnipsRemoveSelectModeMappings = 0
-      vim.g.UltiSnipsEditSplit = "tabdo"
-      vim.g.UltiSnipsSnippetDirectories = {
-        "~/.config/nvim/UltiSnips", "UltiSnips"
-      }
-    end,
-    dependencies = {
-      "quangnguyen30192/cmp-nvim-ultisnips",
-    },
-    event = "InsertEnter",
-  },
-
   -- auto pairs
   {
     "windwp/nvim-autopairs",
@@ -238,6 +236,5 @@ return {
       })
     end,
     keys = { "<Leader>/" },
-    lazy = true,
   },
 }

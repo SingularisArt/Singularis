@@ -19,63 +19,71 @@ local source_names = {
   emoji = "(Emoji)",
   nvim_lsp_document_symbol = "(Symbols)",
   git = "(Git)",
+  commit = "(Git)",
   npm = "(NPM)",
   greek = "(Greek)",
   ["vim-dadbod-completion"] = "(SQL)",
-  neorg = "(Neorg)",
   spell = "(Spell)",
   look = "(Look)",
   latex_symbols = "(LaTeX)",
   crates = "(Crates)",
   omni = "(Mail)",
+  neorg = "(Norg)",
 }
 
 local cmp_sources = {
   { name = "nvim_lsp" },
-  { name = "nvim_lua" },
   { name = "ultisnips" },
   { name = "calc" },
   { name = "path" },
   { name = "buffer" },
   { name = "emoji" },
   { name = "nvim_lsp_document_symbol" },
-  { name = "git" },
-  { name = "npm" },
-  { name = "greek" },
 }
 
--- if vim.o.ft == "sql" then
---   table.insert(sources, { name = "vim-dadbod-completion" })
--- end
+if vim.o.ft == "sql" then
+  table.insert(cmp_sources, { name = "vim-dadbod-completion" })
+end
 
--- if vim.o.ft == "norg" then
---   table.insert(sources, { name = "neorg" })
--- end
+if vim.o.ft == "norg" then
+  table.insert(cmp_sources, { name = "neorg" })
+end
 
--- if vim.o.ft == "markdown" or vim.o.ft == "tex" then
---   table.insert(sources, { name = "spell" })
---   table.insert(sources, { name = "look" })
--- end
+if vim.o.ft == "markdown" or vim.o.ft == "tex" then
+  table.insert(cmp_sources, { name = "spell" })
+  table.insert(cmp_sources, { name = "look" })
+  table.insert(cmp_sources, { name = "greek" })
+end
 
--- if vim.o.ft == "tex" then
---   table.insert(sources, { name = "latex_symbols",
---     option = {
---       strategy = 2,
---     },
---   })
--- end
+if vim.o.ft == "tex" then
+  table.insert(cmp_sources, { name = "latex_symbols",
+    option = {
+      strategy = 2,
+    },
+  })
+end
 
--- if vim.o.ft == "lua" then
---   table.insert(sources, { name = "nvim_lua" })
--- end
+if vim.o.ft == "lua" then
+  table.insert(cmp_sources, { name = "nvim_lua" })
+end
 
--- if vim.o.ft == "rust" then
---   table.insert(sources, { name = "crates" })
--- end
+if vim.o.ft == "rust" then
+  table.insert(cmp_sources, { name = "crates" })
+end
 
--- if vim.o.ft == "elm" then
---   table.insert(sources, { name = "omni" })
--- end
+if vim.o.ft == "elm" then
+  table.insert(cmp_sources, { name = "omni" })
+end
+
+if vim.o.ft == "gitcommit" then
+  table.insert(cmp_sources, { name = "git" })
+  table.insert(cmp_sources, { name = "commit" })
+end
+
+if vim.o.ft == "json" then
+  table.insert(cmp_sources, { name = "npm" })
+end
+print(vim.inspect(cmp_sources))
 
 cmp.setup({
   snippet = {

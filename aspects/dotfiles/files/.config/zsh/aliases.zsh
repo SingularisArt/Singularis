@@ -105,6 +105,8 @@ else
   alias lhi='ls --color -l -i'
 fi
 
+alias cls="clear; ls"
+alias cla="clear; la"
 alias lsn='ls | wc -l'
 alias lsnc='clear && ls && echo "" && echo "Current Number of Files: $(ls | wc -l)"'
 alias lan='la | wc -l'
