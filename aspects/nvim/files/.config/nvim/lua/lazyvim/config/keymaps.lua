@@ -45,8 +45,8 @@ keymap(
 
 -- Insert Mode
 keymap("i", "<C-l>", "<c-g>u<Esc>[s1z=`]a<c-g>u", opts, "Correct spelling mistake.")
-keymap("i", "<C-j>", "<NOOP>", opts, "")
-keymap("i", "<C-k>", "<NOOP>", opts, "")
+keymap("i", "<C-j>", "<NOP>", opts, "")
+keymap("i", "<C-k>", "<NOP>", opts, "")
 keymap(
   "i",
   "<C-f>",
