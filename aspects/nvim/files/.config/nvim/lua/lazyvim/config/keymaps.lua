@@ -21,7 +21,7 @@ keymap("n", "<Space>", "", opts, "")
 keymap("n", "<C-h>", "<C-w>h", opts, "Jump to left split.")
 keymap("n", "<C-j>", "<C-w>j", opts, "Jump to below split.")
 keymap("n", "<C-k>", "<C-w>k", opts, "Jump to above split.")
--- keymap("n", "<C-l>", "<C-w>l", opts, "Jump to right split.")
+keymap("n", "<C-l>", "<C-w>l", opts, "Jump to right split.")
 keymap("n", "<Leader><Leader>", "<C-^>", opts, "Jump to previous buffer.")
 keymap("n", "n", "nzzzv", opts, "Jump to next search.")
 keymap("n", "N", "Nzzzv", opts, "Jump to previous search.")
@@ -44,7 +44,9 @@ keymap(
 )
 
 -- Insert Mode
--- keymap("i", "<C-l>", "<c-g>u<Esc>[s1z=`]a<c-g>u", opts, "Correct spelling mistake.")
+keymap("i", "<C-l>", "<c-g>u<Esc>[s1z=`]a<c-g>u", opts, "Correct spelling mistake.")
+keymap("i", "<C-j>", "<NOOP>", opts, "")
+keymap("i", "<C-k>", "<NOOP>", opts, "")
 keymap(
   "i",
   "<C-f>",
