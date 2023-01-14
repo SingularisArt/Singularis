@@ -28,6 +28,7 @@ return {
       "nvim-neotest/neotest-vim-test",
       "haydenmeade/neotest-jest",
     },
+    event = "VeryLazy",
   },
 
   {
@@ -116,8 +117,12 @@ return {
       "theHamsta/nvim-dap-virtual-text",
       {
         "mfussenegger/nvim-dap-python",
+        config = function()
+          require("dap-python").setup("/usr/bin/python3")
+        end,
         ft = "python",
       },
     },
+    event = "VeryLazy",
   },
 }

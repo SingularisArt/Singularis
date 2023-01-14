@@ -2,7 +2,8 @@ local cmp = require("cmp")
 local cmp_ultisnips_mappings = require("cmp_nvim_ultisnips.mappings")
 local neogen_ok, neogen = pcall(require, "neogen")
 
-local kind_icons = require("lazyvim.config.global").icons.kind
+local icons = require("lazyvim.config.global").icons
+local kind_icons = icons.kind
 local duplicates = {
   buffer = 1,
   path = 1,

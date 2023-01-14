@@ -6,7 +6,7 @@ return {
       tokyonight.setup({ style = "moon" })
       tokyonight.load()
     end,
-    lazy = true,
+    lazy = false,
   },
 
   {
@@ -60,7 +60,7 @@ return {
     config = function()
       vim.cmd("colorscheme nightfox")
     end,
-    lazy = false,
+    lazy = true,
   },
 
   {
@@ -97,6 +97,13 @@ return {
       vim.g.aurora_transparent = 1
       vim.g.aurora_bold = 1
     end,
+  },
+  {
+    "nekonako/xresources-nvim",
+    config = function()
+      require("xresources")
+    end,
+    lazy = true,
   },
 
   { "ray-x/starry.nvim", lazy = true },

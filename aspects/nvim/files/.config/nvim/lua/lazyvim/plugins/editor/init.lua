@@ -88,7 +88,7 @@ return {
 
       lir.setup({
         show_hidden_files = false,
-        devicons_enable = true,
+        devicons = { enable = true },
         mappings = {
           ["<cr>"] = actions.edit,
           ["l"] = actions.edit,
@@ -163,7 +163,9 @@ return {
         },
       })
     end,
-    keys = "<Leader>-",
+    keys = {
+      { "<Leader>-", "<CMD>lua require('lir.float').toggle()<CR>" },
+    },
   },
 
   -- search/replace in multiple files
@@ -179,182 +181,7 @@ return {
   {
     "nvim-telescope/telescope.nvim",
     config = function()
-      local telescope = require("telescope")
-
-      local actions = require("telescope.actions")
-      local icons = require("lazyvim.config.global").icons
-
-      telescope.setup({
-        defaults = {
-          prompt_prefix = icons.ui.Telescope .. " ",
-          selection_caret = " ",
-          path_display = { "smart" },
-          file_ignore_patterns = {
-            ".git/",
-            "target/",
-            "docs/",
-            "vendor/*",
-            "%.lock",
-            "__pycache__/*",
-            "%.sqlite3",
-            "%.ipynb",
-            "node_modules/*",
-            -- "%.jpg",
-            -- "%.jpeg",
-            -- "%.png",
-            "%.svg",
-            "%.otf",
-            "%.ttf",
-            "%.webp",
-            ".dart_tool/",
-            ".github/",
-            ".gradle/",
-            ".idea/",
-            ".settings/",
-            ".vscode/",
-            "__pycache__/",
-            "build/",
-            "env/",
-            "gradle/",
-            "node_modules/",
-            "%.pdb",
-            "%.dll",
-            "%.class",
-            "%.exe",
-            "%.cache",
-            "%.ico",
-            "%.pdf",
-            "%.dylib",
-            "%.jar",
-            "%.docx",
-            "%.met",
-            "smalljre_*/*",
-            ".vale/",
-            "%.burp",
-            "%.mp4",
-            "%.mkv",
-            "%.rar",
-            "%.zip",
-            "%.7z",
-            "%.tar",
-            "%.bz2",
-            "%.epub",
-            "%.flac",
-            "%.tar.gz",
-          },
-
-          mappings = {
-            i = {
-              ["<C-n>"] = actions.cycle_history_next,
-              ["<C-p>"] = actions.cycle_history_prev,
-
-              ["<C-j>"] = actions.move_selection_next,
-              ["<C-k>"] = actions.move_selection_previous,
-
-              ["<C-b>"] = actions.results_scrolling_up,
-              ["<C-f>"] = actions.results_scrolling_down,
-
-              ["<C-c>"] = actions.close,
-
-              ["<Down>"] = actions.move_selection_next,
-              ["<Up>"] = actions.move_selection_previous,
-
-              ["<CR>"] = actions.select_default,
-              ["<C-s>"] = actions.select_horizontal,
-              ["<C-v>"] = actions.select_vertical,
-              ["<C-t>"] = actions.select_tab,
-
-              ["<c-d>"] = require("telescope.actions").delete_buffer,
-
-              -- ["<C-u>"] = actions.preview_scrolling_up,
-              -- ["<C-d>"] = actions.preview_scrolling_down,
-
-              -- ["<Tab>"] = actions.toggle_selection + actions.move_selection_worse,
-              ["<Tab>"] = actions.close,
-              ["<S-Tab>"] = actions.close,
-              -- ["<S-Tab>"] = actions.toggle_selection + actions.move_selection_better,
-              ["<C-q>"] = actions.send_to_qflist + actions.open_qflist,
-              ["<M-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
-              ["<C-l>"] = actions.complete_tag,
-              ["<C-h>"] = actions.which_key, -- keys from pressing <C-h>
-              ["<esc>"] = actions.close,
-            },
-
-            n = {
-              ["<esc>"] = actions.close,
-              ["<CR>"] = actions.select_default,
-              ["<C-x>"] = actions.select_horizontal,
-              ["<C-v>"] = actions.select_vertical,
-              ["<C-t>"] = actions.select_tab,
-              ["<C-b>"] = actions.results_scrolling_up,
-              ["<C-f>"] = actions.results_scrolling_down,
-
-              -- ["<Tab>"] = actions.close,
-              -- ["<S-Tab>"] = actions.close,
-              ["<Tab>"] = actions.toggle_selection + actions.move_selection_worse,
-              ["<S-Tab>"] = actions.toggle_selection + actions.move_selection_better,
-              ["<C-q>"] = actions.send_to_qflist + actions.open_qflist,
-              ["<M-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
-
-              ["j"] = actions.move_selection_next,
-              ["k"] = actions.move_selection_previous,
-              ["H"] = actions.move_to_top,
-              ["M"] = actions.move_to_middle,
-              ["L"] = actions.move_to_bottom,
-              ["q"] = actions.close,
-              ["dd"] = require("telescope.actions").delete_buffer,
-              ["s"] = actions.select_horizontal,
-              ["v"] = actions.select_vertical,
-              ["t"] = actions.select_tab,
-
-              ["<Down>"] = actions.move_selection_next,
-              ["<Up>"] = actions.move_selection_previous,
-              ["gg"] = actions.move_to_top,
-              ["G"] = actions.move_to_bottom,
-
-              ["<C-u>"] = actions.preview_scrolling_up,
-              ["<C-d>"] = actions.preview_scrolling_down,
-
-              ["<PageUp>"] = actions.results_scrolling_up,
-              ["<PageDown>"] = actions.results_scrolling_down,
-
-              ["?"] = actions.which_key,
-            },
-          },
-        },
-        pickers = {
-          live_grep = {
-            theme = "dropdown",
-          },
-          grep_string = {
-            theme = "dropdown",
-          },
-          find_files = {
-            theme = "dropdown",
-            previewer = true,
-          },
-          buffers = {
-            theme = "dropdown",
-            previewer = false,
-          },
-          colorscheme = {
-            enable_preview = false,
-          },
-          lsp_references = {
-            theme = "dropdown",
-          },
-          lsp_definitions = {
-            theme = "dropdown",
-          },
-          lsp_declarations = {
-            theme = "dropdown",
-          },
-          lsp_implementations = {
-            theme = "dropdown",
-          },
-        },
-        extensions = {},
-      })
+      require("lazyvim.plugins.editor.telescope")
     end,
     cmd = "Telescope",
   },
@@ -455,7 +282,7 @@ return {
     config = function()
       require("illuminate").configure({ delay = 200 })
     end,
-    event = "BufReadPost",
+    event = "BufRead",
   },
 
   -- better diagnostics list and others
@@ -464,7 +291,12 @@ return {
     config = function()
       require("trouble").setup()
     end,
-    cmd = { "TroubleToggle", "Trouble" },
+    cmd = {
+      "Trouble",
+      "TroubleClose",
+      "TroubleToggle",
+      "TroubleRefresh",
+    },
   },
 
   -- todo comments
@@ -550,38 +382,6 @@ return {
   },
 
   {
-    "machakann/vim-sandwich",
-    config = function()
-      vim.cmd([[
-      nmap ca <Plug>(sandwich-add)
-      xmap ca <Plug>(sandwich-add)
-      omap ca <Plug>(sandwich-add)
-      nmap cd <Plug>(sandwich-delete)
-      xmap cd <Plug>(sandwich-delete)
-      nmap cda <Plug>(sandwich-delete-auto)
-      nmap cdb <Plug>(sandwich-delete-auto)
-      nmap cr <Plug>(sandwich-replace)
-      xmap cr <Plug>(sandwich-replace)
-      nmap crb <Plug>(sandwich-replace-auto)
-      nmap cra <Plug>(sandwich-replace-auto)
-      omap ib <Plug>(textobj-sandwich-auto-i)
-      xmap ib <Plug>(textobj-sandwich-auto-i)
-      omap ab <Plug>(textobj-sandwich-auto-a)
-      xmap ab <Plug>(textobj-sandwich-auto-a)
-      omap is <Plug>(textobj-sandwich-query-i)
-      xmap is <Plug>(textobj-sandwich-query-i)
-      omap as <Plug>(textobj-sandwich-query-a)
-      xmap as <Plug>(textobj-sandwich-query-a)
-    ]] )
-    end,
-    cmd = "Sandwith",
-    event = { "CursorMoved", "CursorMovedI" },
-    setup = function()
-      vim.g.sandwich_no_default_key_mappings = 1
-    end,
-  },
-
-  {
     "kylechui/nvim-surround",
     config = function()
       require("nvim-surround").setup({
@@ -599,7 +399,6 @@ return {
 
   {
     "chrisbra/Colorizer",
-    event = "VeryLazy",
     ft = {
       "log",
       "txt",
@@ -623,6 +422,28 @@ return {
       "<c-v>",
       "<c-V>",
     },
+  },
+
+  {
+    "kevinhwang91/nvim-bqf",
+    config = function()
+      require("bqf").setup()
+    end,
+    cmd = {
+      "BqfEnable",
+      "BqfDisable",
+      "BqfToggle",
+      "BqfAutoToggle",
+    },
+    dependencies = {
+      {
+        "junegunn/fzf",
+        run = function()
+          vim.fn["fzf#install"]()
+        end,
+      },
+    },
+    ft = "qf",
   },
 
   {
@@ -685,30 +506,102 @@ return {
   {
     "phaazon/hop.nvim",
     config = function()
-      require("hop").setup({ keys = "adghklqwertyuiopzxcvbnmfjADHKLWERTYUIOPZXCVBNMFJ1234567890" })
+      require("hop").setup()
     end,
     cmd = {
       "HopWord",
-      "HopWordMW",
-      "HopWordAC",
       "HopWordBC",
-      "HopLine",
-      "HopChar1",
-      "HopChar1MW",
-      "HopChar1AC",
-      "HopChar1BC",
-      "HopChar2",
-      "HopChar2MW",
-      "HopChar2AC",
-      "HopChar2BC",
+      "HopWordAC",
+      "HopWordCurrentLine",
+      "HopWordCurrentLineBC",
+      "HopWordCurrentLineAC",
+      "HopWordMW",
       "HopPattern",
-      "HopPatternAC",
       "HopPatternBC",
-      "HopChar1CurrentLineAC",
-      "HopChar1CurrentLineBC",
+      "HopPatternAC",
+      "HopPatternCurrentLine",
+      "HopPatternCurrentLineBC",
+      "HopPatternCurrentLineAC",
+      "HopPatternMW",
+      "HopChar1",
+      "HopChar1BC",
+      "HopChar1AC",
       "HopChar1CurrentLine",
+      "HopChar1CurrentLineBC",
+      "HopChar1CurrentLineAC",
+      "HopChar1MW",
+      "HopChar2",
+      "HopChar2BC",
+      "HopChar2AC",
+      "HopChar2CurrentLine",
+      "HopChar2CurrentLineBC",
+      "HopChar2CurrentLineAC",
+      "HopChar2MW",
+      "HopLine",
+      "HopLineBC",
+      "HopLineAC",
+      "HopLineCurrentLine",
+      "HopLineCurrentLineBC",
+      "HopLineCurrentLineAC",
+      "HopLineMW",
+      "HopLineStart",
+      "HopLineStartBC",
+      "HopLineStartAC",
+      "HopLineStartCurrentLine",
+      "HopLineStartCurrentLineBC",
+      "HopLineStartCurrentLineAC",
+      "HopLineStartMW",
+      "HopVertical",
+      "HopVerticalBC",
+      "HopVerticalAC",
+      "HopVerticalMW",
+      "HopAnywhere",
+      "HopAnywhereBC",
+      "HopAnywhereAC",
+      "HopAnywhereCurrentLine",
+      "HopAnywhereCurrentLineBC",
+      "HopAnywhereCurrentLineAC",
+      "HopAnywhereMW",
+    },
+  },
+  { "indianboy42/hop-extensions", after = "hop.nvim" },
+
+  {
+    "rmagatti/alternate-toggler",
+    config = function()
+      print("hi")
+      require("alternate-toggler").setup({})
+    end,
+    keys = {
+      { "<Space>t", "<CMD>lua require('alternate-toggler').toggleAlternate()<CR>" },
     },
   },
 
-  { "indianboy42/hop-extensions", after = "hop.nvim" },
+  -- {
+  --   "wincent/corpus",
+  --   config = function()
+  --   end,
+  --   event = "BufEnter",
+  -- },
+
+  {
+    "mbbill/undotree",
+    config = function()
+      vim.cmd([[
+      if has("persistent_undo")
+        let target_path = expand("~/.config/nvim/misc/undo")
+
+        " create the directory and any parent directories
+        " if the location does not exist.
+        if !isdirectory(target_path)
+          call mkdir(target_path, "p", 0700)
+        endif
+
+        let &undodir=target_path
+        set undofile
+      endif
+    ]])
+    end,
+    cmd = "UndotreeToggle",
+  },
 }

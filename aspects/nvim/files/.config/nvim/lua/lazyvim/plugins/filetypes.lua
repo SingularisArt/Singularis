@@ -23,6 +23,18 @@ return {
     cmd = "MarkdownPreviewToggle",
     ft = "markdown",
   },
+  {
+    "antonk52/markdowny.nvim",
+    config = function()
+      require("markdowny").setup()
+    end,
+    ft = "markdown",
+    keys = {
+      { mode = "v", "<C-b>", ":lua require('markdowny').bold()<cr>" },
+      { mode = "v", "<C-i>", ":lua require('markdowny').italic()<cr>" },
+      { mode = "v", "<C-k>", ":lua require('markdowny').link()<cr>" },
+    },
+  },
 
   -- latex
   {

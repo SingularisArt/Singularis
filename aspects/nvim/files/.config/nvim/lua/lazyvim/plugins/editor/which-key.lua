@@ -61,11 +61,12 @@ vars.mappings["v"] = { "<CMD>vsplit<CR>", "Vertical Split" }
 vars.mappings["h"] = { "<CMD>split<CR>", "Horizontal Split" }
 vars.mappings[" "] = { "<CMD>normal <C-^><CR>", "Jump to previous buffer" }
 vars.mappings["/"] = { "<CMD>lua require('Comment.api').toggle.linewise()<CR>", "Comment out current line" }
-vars.mappings["e"] = { "<CMD>NvimTreeToggle<CR>", "Toggle NvimTree" }
+vars.mappings["e"] = { "<CMD>Neotree toggle<CR>", "Toggle Neotree" }
 vars.mappings["-"] = { "<CMD>lua require('lir.float').toggle()<CR>", "Toggle Lir" }
 vars.mappings["c"] = { "<Plug>(Corpus)", "Corpus" }
 vars.mappings["C"] = { "<CMD>lua codewindow.toggle_minimap()<CR>", "Toggle codewindow" }
 vars.mappings["z"] = { "<CMD>ZenMode<CR>", "Zen Mode" }
+vars.mappings["t"] = { "<CMD>lua require('alternate-toggler').toggleAlternate()<CR>", "Alternate" }
 
 vars.mappings["g"] = {
   name = "Git",

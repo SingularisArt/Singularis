@@ -86,11 +86,12 @@ return {
       Ellipsis = "…",
     },
     diagnostics = {
-      Error = "",
-      Warning = "",
-      Information = "",
-      Question = "",
-      Hint = "",
+      Error = "",
+      Warn = "",
+      Info = "",
+      Hint = "",
+      Debug = "",
+      Trace = "✎",
     },
     misc = {
       Robot = "ﮧ",

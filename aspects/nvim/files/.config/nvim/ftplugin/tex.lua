@@ -1,13 +1,17 @@
-vim.cmd [[
+vim.cmd([[
   setlocal fillchars=fold:\ 
   setlocal foldlevel=0
   setlocal foldmethod=expr
   setlocal foldexpr=vimtex#fold#level(v:lnum)
   setlocal foldtext=vimtex#fold#text()
-]]
+]])
 
 local which_key = require("which-key")
-local options = require("SingularisArt.local-variables").options
+local options = require("lazyvim.config.global").which_key_vars.options
+
+-- Disable cmp
+local cmp = require("cmp")
+cmp.setup.buffer({ sources = {} })
 
 options = vim.tbl_deep_extend("force", {
   filetype = "tex",

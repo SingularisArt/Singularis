@@ -1,6 +1,6 @@
 local which_key = require("which-key")
-local options = require("SingularisArt.local-variables").options
-local voptions = require("SingularisArt.local-variables").voptions
+local options = require("lazyvim.config.global").which_key_vars.options
+-- local voptions = require("lazyvim.config.global").which_key_vars.voptions
 
 options = vim.tbl_deep_extend("force", {
   filetype = "rust",
@@ -25,4 +25,4 @@ which_key.register({
   },
 }, options)
 
-require("SingularisArt.config.dap.c")
+-- require("SingularisArt.config.dap.c")

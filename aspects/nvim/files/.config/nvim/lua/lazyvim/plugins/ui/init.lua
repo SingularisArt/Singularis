@@ -2,6 +2,14 @@ return {
   -- icons
   "nvim-tree/nvim-web-devicons",
 
+  {
+    "stevearc/dressing.nvim",
+    config = function()
+      require("dressing").setup()
+    end,
+    event = "BufEnter",
+  },
+
   -- notify
   {
     "rcarriga/nvim-notify",
@@ -211,5 +219,21 @@ return {
       vim.cmd("command! -nargs=0 Minimap :lua require(\"codewindow\").toggle_minimap()")
     end,
     cmd = "Minimap",
+  },
+
+  {
+    "tjdevries/express_line.nvim",
+    config = function()
+      require("lazyvim.plugins.ui.statusline")
+    end,
+    event = "BufEnter",
+  },
+
+  {
+    "akinsho/bufferline.nvim",
+    config = function()
+      require("lazyvim.plugins.ui.bufferline")
+    end,
+    event = "BufAdd",
   },
 }

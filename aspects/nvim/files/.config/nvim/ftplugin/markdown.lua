@@ -1,5 +1,5 @@
 local which_key = require("which-key")
-local options = require("SingularisArt.local-variables").options
+local options = require("lazyvim.config.global").which_key_vars.options
 
 options = vim.tbl_deep_extend("force", {
   filetype = "markdown",

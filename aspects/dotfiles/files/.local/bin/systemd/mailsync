@@ -66,7 +66,7 @@ if [ "$accounts" = "" ]; then
 fi
 
 for account in $accounts; do
-  notify "Syncing $(basename "$account")"
+  # notify "Syncing $(basename "$account")"
   syncandnotify "$account"
 done
 
