@@ -160,8 +160,51 @@ vars.mappings["d"] = {
   U = { "<CMD>lua require('dapui').toggle()<CR>", "Enable/Disable UI" },
 }
 
+vars.mappings["S"] = {
+  name = "Sessions",
+  l = { "<CMD>lua require('nvim-possession').list()<CR>", "List sessions" },
+  c = { "<CMD>lua require('nvim-possession').new()<CR>", "Create new session" },
+  u = { "<CMD>lua require('nvim-possession').update()<CR>", "Update current session" },
+}
+
+-- vars.mappings["n"] = {
+--   name = "Neorg",
+--   i = { "<CMD>Telescope neorg insert_link<CR>", "Insert link" },
+--   f = { "<CMD>Telescope neorg find_linkable<CR>", "Find linkables" },
+--   F = { "<CMD>Telescope neorg find_aof_tasks<CR>", "Find AOF tasks" },
+--   s = { "<CMD>Telescope neorg search_headings<CR>", "Search headings" },
+--   S = { "<CMD>Telescope neorg switch_workspace<CR>", "Switch workspaces" },
+--   I = { "<CMD>Telescope neorg insert_file_link<CR>", "Insert file link" },
+--   p = { "<CMD>Telescope neorg find_project_tasks<CR>", "Find project tasks" },
+--   c = { "<CMD>Telescope neorg find_context_tasks<CR>", "Find context tasks" },
+--   a = { "<CMD>Telescope neorg find_aof_project_tasks<CR>", "Find AOF project tasks" },
+--   t = {
+--     name = "Todos",
+--     u = { "", "" },
+--     p = { "", "" },
+--     d = { "", "" },
+--     h = { "", "" },
+--     c = { "", "" },
+--     r = { "", "" },
+--     i = { "", "" },
+--     C = { "", "" },
+--   },
+--   g = {
+--     name = "GTD",
+--     c = { "", "" },
+--     v = { "", "" },
+--     e = { "", "" },
+--   },
+-- }
+
 local which_key = require("which-key")
 
+which_key.setup(setup)
+which_key.register(vars.mappings, vars.options)
+which_key.register(vars.vmappings, vars.voptions)
+which_key.setup(setup)
+which_key.register(vars.mappings, vars.options)
+which_key.register(vars.vmappings, vars.voptions)
 which_key.setup(setup)
 which_key.register(vars.mappings, vars.options)
 which_key.register(vars.vmappings, vars.voptions)

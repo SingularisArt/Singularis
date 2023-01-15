@@ -254,4 +254,29 @@ return {
     end,
     cmd = "Neogen",
   },
+
+  {
+    "SingularisArt/nvim-possession",
+    config = function()
+      require("nvim-possession").setup({
+        sessions = {
+          sessions_path = os.getenv("HOME") .. "/.config/nvim/misc/sessions/",
+        },
+        fzf_winopts = {
+          width = 0.5,
+          preview = {
+            vertical = "right:30%"
+          }
+        }
+      })
+    end,
+    dependencies = {
+      "ibhagwan/fzf-lua"
+    },
+    keys = {
+      { "<Leader>Sl", "<CMD>lua require('nvim-possession').list()<CR>" },
+      { "<Leader>Sc", "<CMD>lua require('nvim-possession').new()<CR>" },
+      { "<Leader>Su", "<CMD>lua require('nvim-possession').update()<CR>" },
+    },
+  },
 }
