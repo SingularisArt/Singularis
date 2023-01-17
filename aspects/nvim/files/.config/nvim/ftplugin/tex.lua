@@ -9,10 +9,6 @@ vim.cmd([[
 local which_key = require("which-key")
 local options = require("lazyvim.config.global").which_key_vars.options
 
--- Disable cmp
-local cmp = require("cmp")
-cmp.setup.buffer({ sources = {} })
-
 options = vim.tbl_deep_extend("force", {
   filetype = "tex",
   buffer = vim.api.nvim_get_current_buf(),

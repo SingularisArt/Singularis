@@ -37,6 +37,23 @@ return {
       "max397574/cmp-greek",
       "Dosx001/cmp-commit",
       {
+        "jalvesaq/cmp-nvim-r",
+        config = function()
+          require("cmp_zotcite").setup({
+            filetypes = { "pandoc", "markdown", "rmd", "r", "quarto" }
+          })
+        end,
+      },
+      {
+        "jalvesaq/cmp-zotcite",
+        config = function()
+          require("cmp_zotcite").setup({
+            filetypes = { "pandoc", "markdown", "rmd", "r", "quarto" }
+          })
+        end,
+        dependencies = "jalvesaq/zotcite",
+      },
+      {
         "petertriho/cmp-git",
         config = function()
           local format = require("cmp_git.format")

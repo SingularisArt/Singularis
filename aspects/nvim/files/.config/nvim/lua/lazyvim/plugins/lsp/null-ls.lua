@@ -4,16 +4,18 @@ local diagnostics = null_ls.builtins.diagnostics
 local formatting = null_ls.builtins.formatting
 local actions = null_ls.builtins.code_actions
 local code_actions = null_ls.builtins.code_actions
+local hover = null_ls.builtins.hover
 
 local sources = {
+  formatting.trim_newlines,
+  formatting.trim_whitespace,
   formatting.rustfmt,
   formatting.google_java_format,
   formatting.sql_formatter,
   formatting.stylua,
   formatting.shellharden,
   formatting.clang_format,
-  formatting.trim_newlines,
-  formatting.trim_whitespace,
+  formatting.format_r,
   formatting.prettier.with({
     extra_filetypes = { "toml", "solidity" },
     extra_args = { "--arrow-parens always", "--trailing-comma all" },
@@ -37,7 +39,7 @@ local sources = {
 
   code_actions.gitsigns,
   code_actions.proselint,
-  -- code_actions.refactoring,
+  code_actions.refactoring,
 
   diagnostics.misspell.with({
     filetypes = { "markdown", "text", "txt" },
@@ -57,6 +59,9 @@ local sources = {
   }),
 
   actions.proselint.with({ filetypes = { "markdown" }, command = "proselint", args = { "--json" } }),
+
+  hover.dictionary,
+  hover.printenv,
 }
 
 table.insert(

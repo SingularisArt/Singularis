@@ -30,6 +30,8 @@ local source_names = {
   crates = "(Crates)",
   omni = "(Mail)",
   neorg = "(Norg)",
+  cmp_nvim_r = "(R)",
+  cmp_zotcite = "(Zotero)",
 }
 
 local cmp_sources = {
@@ -42,48 +44,9 @@ local cmp_sources = {
   { name = "nvim_lsp_document_symbol" },
 }
 
-if vim.o.ft == "sql" then
-  table.insert(cmp_sources, { name = "vim-dadbod-completion" })
-end
-
-if vim.o.ft == "norg" then
-  table.insert(cmp_sources, { name = "neorg" })
-end
-
-if vim.o.ft == "markdown" or vim.o.ft == "tex" then
-  table.insert(cmp_sources, { name = "spell" })
-  table.insert(cmp_sources, { name = "look" })
-  table.insert(cmp_sources, { name = "greek" })
-end
-
-if vim.o.ft == "tex" then
-  table.insert(cmp_sources, { name = "latex_symbols",
-    option = {
-      strategy = 2,
-    },
-  })
-end
-
-if vim.o.ft == "lua" then
-  table.insert(cmp_sources, { name = "nvim_lua" })
-end
-
-if vim.o.ft == "rust" then
-  table.insert(cmp_sources, { name = "crates" })
-end
-
-if vim.o.ft == "elm" then
-  table.insert(cmp_sources, { name = "omni" })
-end
-
-if vim.o.ft == "gitcommit" then
-  table.insert(cmp_sources, { name = "git" })
-  table.insert(cmp_sources, { name = "commit" })
-end
-
-if vim.o.ft == "json" then
-  table.insert(cmp_sources, { name = "npm" })
-end
+----------------------------
+--  Global Configuration  --
+----------------------------
 
 cmp.setup({
   snippet = {
@@ -95,13 +58,13 @@ cmp.setup({
   mapping = cmp.mapping.preset.insert({
     ["<CR>"] = cmp.mapping({
       i = function(fallback)
-        cmp_ultisnips_mappings.compose { "expand" } (fallback)
+        cmp_ultisnips_mappings.compose({ "expand" })(fallback)
       end,
     }),
 
     ["<C-j>"] = cmp.mapping({
       i = function(fallback)
-        cmp_ultisnips_mappings.compose { "jump_forwards" } (function()
+        cmp_ultisnips_mappings.compose({ "jump_forwards" })(function()
           if neogen_ok and neogen.jumpable() then
             neogen.jump_next()
           else
@@ -113,7 +76,7 @@ cmp.setup({
 
     ["<C-k>"] = cmp.mapping({
       i = function(fallback)
-        cmp_ultisnips_mappings.compose { "jump_backwards" } (function()
+        cmp_ultisnips_mappings.compose({ "jump_backwards" })(function()
           if neogen_ok and neogen.jumpable(true) then
             neogen.jump_prev()
           else
@@ -134,7 +97,7 @@ cmp.setup({
       end
 
       vim_item.menu = ({
-        omni = (vim.inspect(vim_item.menu):gsub('%"', "")),
+        omni = (vim.inspect(vim_item.menu):gsub("%\"", "")),
         buffer = "[Buffer]",
       })[entry.source.name]
       vim_item.kind = kind_icons[vim_item.kind]
@@ -157,9 +120,73 @@ cmp.setup({
     documentation = cmp.config.window.bordered(),
   },
   view = {
-    entries = { selection_order = "near_cursor" }
+    entries = { selection_order = "near_cursor" },
   },
   experimental = {
     ghost_text = true,
   },
 })
+
+------------------------------
+--  FileType Configuration  --
+------------------------------
+
+-- cmp.setup.filetype("tex", { sources = {} })
+
+-- cmp.setup.filetype("sql", {
+--   sources = cmp.config.sources({
+--     { name = "vim-dadbod-completion" },
+--   }),
+-- })
+
+-- cmp.setup.filetype("norg", {
+--   sources = cmp.config.sources({
+--     { name = "neorg" },
+--   }),
+-- })
+
+-- cmp.setup.filetype("markdown", {
+--   sources = cmp.config.sources({
+--     { name = "spell" },
+--     { name = "look" },
+--     { name = "greek" },
+--   }),
+-- })
+
+-- cmp.setup.filetype("lua", {
+--   sources = cmp.config.sources({
+--     { name = "nvim_lua" },
+--   }),
+-- })
+
+-- cmp.setup.filetype("rust", {
+--   sources = cmp.config.sources({
+--     { name = "crates" },
+--   }),
+-- })
+
+-- cmp.setup.filetype("elm", {
+--   sources = cmp.config.sources({
+--     { name = "omni" },
+--   }),
+-- })
+
+-- cmp.setup.filetype("gitcommit", {
+--   sources = cmp.config.sources({
+--     { name = "git" },
+--     { name = "commit" },
+--   }),
+-- })
+
+-- cmp.setup.filetype("json", {
+--   sources = cmp.config.sources({
+--     { name = "npm" },
+--   }),
+-- })
+
+-- cmp.setup.filetype({ "r", "rmd" }, {
+--   sources = cmp.config.sources({
+--     { name = "cmp_zotcite" },
+--     { name = "cmp_nvim_r" },
+--   }),
+-- })

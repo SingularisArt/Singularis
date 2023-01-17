@@ -6,7 +6,7 @@ return {
       tokyonight.setup({ style = "moon" })
       tokyonight.load()
     end,
-    lazy = false,
+    lazy = true,
   },
 
   {
@@ -14,7 +14,7 @@ return {
     config = function()
       vim.cmd("colorscheme horizon")
     end,
-    lazy = true,
+    lazy = false,
   },
 
   {
@@ -102,6 +102,13 @@ return {
     "nekonako/xresources-nvim",
     config = function()
       require("xresources")
+    end,
+    lazy = true,
+  },
+  {
+    "talha-akram/noctis.nvim",
+    config = function()
+      vim.cmd("colorscheme noctis_minimus")
     end,
     lazy = true,
   },

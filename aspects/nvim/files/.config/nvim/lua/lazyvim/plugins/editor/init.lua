@@ -569,8 +569,7 @@ return {
   {
     "rmagatti/alternate-toggler",
     config = function()
-      print("hi")
-      require("alternate-toggler").setup({})
+      require("alternate-toggler").setup()
     end,
     keys = {
       { "<Space>t", "<CMD>lua require('alternate-toggler').toggleAlternate()<CR>" },

@@ -62,7 +62,7 @@ lsp.attach_inlay_hints = function(client, bufnr)
 end
 
 lsp.attach_mappings = function(_, bufnr)
-  vim.keymap.set("n", "K", "<CMD>Lspsaga hover_doc<CR>", { buffer = true, silent = true })
+  vim.keymap.set("n", "K", "<CMD>lua vim.lsp.buf.hover()<CR>", { buffer = true, silent = true })
 
   local which_key = require("which-key")
   local options = require("lazyvim.config.global").which_key_vars.options

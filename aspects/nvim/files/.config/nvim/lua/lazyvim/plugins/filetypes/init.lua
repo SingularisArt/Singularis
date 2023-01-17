@@ -150,4 +150,9 @@ return {
 
   -- json/yaml
   { "b0o/SchemaStore.nvim", ft = { "json", "yaml" } },
+
+  -- r
+  { "jalvesaq/Nvim-R", ft = { "r", "rmd"} },
+  { "jalvesaq/R-Vim-runtime", ft = { "r", "rmd"} },
+  { "jalvesaq/colorout", ft = { "r", "rmd"} },
 }

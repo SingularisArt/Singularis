@@ -16,12 +16,12 @@ xrdb -load ~/.config/X11/Xresources
 # Autostart #
 #############
 
-picom -b --backend glx --blur-method dual_kawase &
+# picom -b --backend glx --blur-method dual_kawase &
 killall bspswallow; pidof ~/.local/bin/bspwm/bspswallow | ~/.local/bin/bspwm/bspswallow &
 killall flameshot; flameshot &
 killall fcitx; fcitx -d &
 feh --bg-scale ~/.config/wall.jpg &
-killall polybar; "$HOME/.config/polybar/launch.sh" &
+# killall polybar; "$HOME/.config/polybar/launch.sh" &
 
 # Variable
 "${HOME}/.config/zsh/exports.zsh"
@@ -60,7 +60,8 @@ bspc config focused_border_color "$color15"
 bspc config presel_border_color "$color1"
 
 # Monitor And Desktop Settings
-bspc config top_padding 32
+# bspc config top_padding 32
+bspc config top_padding 0
 bspc config bottom_padding 0
 bspc config left_padding 0
 bspc config right_padding 0
