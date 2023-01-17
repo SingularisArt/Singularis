@@ -42,6 +42,7 @@ local cmp_sources = {
   { name = "buffer" },
   { name = "emoji" },
   { name = "nvim_lsp_document_symbol" },
+  { name = "nvim_lua" },
 }
 
 ----------------------------

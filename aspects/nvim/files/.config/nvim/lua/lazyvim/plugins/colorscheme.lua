@@ -112,6 +112,20 @@ return {
     end,
     lazy = true,
   },
+  {
+    "Yazeed1s/oh-lucy.nvim",
+    config = function()
+      vim.cmd("colorscheme oh-lucy-evening")
+    end,
+    lazy = true,
+  },
+  {
+    "kvrohit/mellow.nvim",
+    config = function()
+      vim.cmd("colorscheme mellow")
+    end,
+    lazy = true,
+  },
 
   { "ray-x/starry.nvim", lazy = true },
   { "catppuccin/nvim", as = "catppuccin", lazy = true },

@@ -28,39 +28,6 @@ lsp.setup_codelens_refresh = function(client, bufnr)
   })
 end
 
-lsp.attach_inlay_hints = function(client, bufnr)
-  local status, inlay_hints = pcall(require, "lsp-inlayhints")
-  if not status then
-    return
-  end
-
-  local setup = {
-    inlay_hints = {
-      parameter_hints = {
-        show = true,
-        separator = ", ",
-      },
-      type_hints = {
-        show = true,
-        prefix = "",
-        separator = ", ",
-        remove_colon_end = false,
-        remove_colon_start = false,
-      },
-      labels_separator = "  ",
-      max_len_align = false,
-      max_len_align_padding = 1,
-      right_align = false,
-      right_align_padding = 7,
-      highlight = "Comment",
-    },
-    debug_mode = false,
-  }
-
-  inlay_hints.setup(setup)
-  inlay_hints.on_attach(client, bufnr)
-end
-
 lsp.attach_mappings = function(_, bufnr)
   vim.keymap.set("n", "K", "<CMD>lua vim.lsp.buf.hover()<CR>", { buffer = true, silent = true })
 
@@ -104,15 +71,11 @@ lsp.attach_mappings = function(_, bufnr)
   }, options)
 end
 
-lsp.attach_signature = function(client, bufnr)
-  require("lsp_signature").on_attach(client, bufnr)
-end
-
 lsp.on_attach = function(client, bufnr)
+  require("lsp_signature").on_attach(client, bufnr)
+  require("lsp-inlayhints").on_attach(client, bufnr)
   lsp.setup_codelens_refresh(client, bufnr)
-  lsp.attach_inlay_hints(client, bufnr)
   lsp.attach_mappings(client, bufnr)
-  lsp.attach_signature(client, bufnr)
 end
 
 return lsp

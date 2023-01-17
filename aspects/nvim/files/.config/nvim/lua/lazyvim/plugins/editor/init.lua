@@ -3,76 +3,24 @@ return {
   {
     "nvim-neo-tree/neo-tree.nvim",
     config = function()
-      require("neo-tree").setup({
-        popup_border_style = "rounded",
-        enable_diagnostics = false,
-        default_component_configs = {
-          indent = {
-            padding = 0,
-            with_expanders = false,
-          },
-          icon = {
-            folder_closed = "",
-            folder_open = "",
-            folder_empty = "",
-            default = "",
-          },
-          git_status = {
-            symbols = {
-              added = "",
-              deleted = "",
-              modified = "",
-              renamed = "➜",
-              untracked = "★",
-              ignored = "◌",
-              unstaged = "✗",
-              staged = "✓",
-              conflict = "",
-            },
-          },
-        },
-        window = {
-          width = 25,
-          mappings = {
-            ["o"] = "open",
-          },
-        },
-        filesystem = {
-          filtered_items = {
-            visible = false,
-            hide_dotfiles = true,
-            hide_gitignored = false,
-            hide_by_name = {
-              ".DS_Store",
-              "thumbs.db",
-              "node_modules",
-              "__pycache__",
-            },
-          },
-          follow_current_file = true,
-          hijack_netrw_behavior = "open_current",
-          use_libuv_file_watcher = true,
-        },
-        git_status = {
-          window = {
-            position = "float",
-          },
-        },
-        event_handlers = {
-          {
-            event = "vim_buffer_enter",
-            handler = function(_)
-              if vim.bo.filetype == "neo-tree" then
-                vim.wo.signcolumn = "auto"
-              end
-            end,
-          },
-        },
-      })
+      require("lazyvim.plugins.editor.neotree")
     end,
     cmd = "Neotree",
-    dependencies = {
-      "MunifTanjim/nui.nvim",
+    dependencies = "MunifTanjim/nui.nvim",
+    keys = {
+      { "<Leader>e", "<CMD>Neotree toggle<CR>" },
+    },
+  },
+
+  -- file explorer (second option)
+  {
+    "nvim-tree/nvim-tree.lua",
+    config = function()
+      require("lazyvim.plugins.editor.nvim-tree")
+    end,
+    cmd = "NvimTreeToggle",
+    keys = {
+      { "<Leader>E", "<CMD>NvimTreeToggle<CR>" },
     },
   },
 
@@ -184,15 +132,6 @@ return {
       require("lazyvim.plugins.editor.telescope")
     end,
     cmd = "Telescope",
-  },
-
-  -- which-key
-  {
-    "folke/which-key.nvim",
-    config = function()
-      require("lazyvim.plugins.editor.which-key")
-    end,
-    event = "BufEnter",
   },
 
   -- git signs
@@ -363,22 +302,6 @@ return {
       require("numb").setup()
     end,
     event = "CmdlineEnter",
-  },
-
-  {
-    "andymass/vim-matchup",
-    config = function()
-      vim.g.matchup_enabled = 1
-      vim.g.matchup_surround_enabled = 1
-      vim.g.matchup_transmute_enabled = 1
-      vim.g.matchup_matchparen_deferred = 1
-      vim.g.matchup_matchparen_offscreen = { method = "popup" }
-      vim.cmd([[nnoremap <c-s-k> :<c-u>MatchupWhereAmI?<cr>]])
-    end,
-    event = {
-      "CursorHold",
-      "CursorHoldI",
-    },
   },
 
   {
@@ -599,8 +522,91 @@ return {
         let &undodir=target_path
         set undofile
       endif
-    ]])
+    ]] )
     end,
     cmd = "UndotreeToggle",
+  },
+
+  {
+    "ghillb/cybu.nvim",
+    config = function()
+      local cybu = require("cybu")
+
+      cybu.setup({
+        position = {
+          relative_to = "win",
+          anchor = "topright",
+        },
+        display_time = 1750,
+        style = {
+          path = "relative",
+          border = "rounded",
+          separator = " ",
+          prefix = "…",
+          padding = 1,
+          hide_buffer_id = true,
+          devicons = {
+            enabled = true,
+            colored = true,
+          },
+        },
+      })
+
+      vim.keymap.set("n", "H", "<Plug>(CybuPrev)")
+      vim.keymap.set("n", "L", "<Plug>(CybuNext)")
+    end,
+    keys = {
+      "H",
+      "L",
+    },
+  },
+
+  {
+    "wincent/corpus",
+    cmd = "Corpus",
+    config = function()
+      CorpusDirectories = {
+        ["~/Documents/Website/content/posts"] = {
+          autocommit = true,
+          autoreference = 0,
+          autotitle = 0,
+          base = "~/Documents/Website/",
+          repo = "~/Documents/Website/",
+          transform = "web",
+        },
+      }
+    end,
+  },
+
+  {
+    "machakann/vim-sandwich",
+    config = function()
+      vim.cmd([[
+      nmap ca <Plug>(sandwich-add)
+      xmap ca <Plug>(sandwich-add)
+      omap ca <Plug>(sandwich-add)
+      nmap cd <Plug>(sandwich-delete)
+      xmap cd <Plug>(sandwich-delete)
+      nmap cda <Plug>(sandwich-delete-auto)
+      nmap cdb <Plug>(sandwich-delete-auto)
+      nmap cr <Plug>(sandwich-replace)
+      xmap cr <Plug>(sandwich-replace)
+      nmap crb <Plug>(sandwich-replace-auto)
+      nmap cra <Plug>(sandwich-replace-auto)
+      omap ib <Plug>(textobj-sandwich-auto-i)
+      xmap ib <Plug>(textobj-sandwich-auto-i)
+      omap ab <Plug>(textobj-sandwich-auto-a)
+      xmap ab <Plug>(textobj-sandwich-auto-a)
+      omap is <Plug>(textobj-sandwich-query-i)
+      xmap is <Plug>(textobj-sandwich-query-i)
+      omap as <Plug>(textobj-sandwich-query-a)
+      xmap as <Plug>(textobj-sandwich-query-a)
+    ]] )
+    end,
+    cmd = "Sandwith",
+    event = { "CursorMoved", "CursorMovedI" },
+    setup = function()
+      vim.g.sandwich_no_default_key_mappings = 1
+    end,
   },
 }

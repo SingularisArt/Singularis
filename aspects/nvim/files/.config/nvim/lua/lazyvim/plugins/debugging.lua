@@ -28,7 +28,7 @@ return {
       "nvim-neotest/neotest-vim-test",
       "haydenmeade/neotest-jest",
     },
-    event = "VeryLazy",
+    -- event = "VeryLazy",
   },
 
   {
@@ -115,6 +115,7 @@ return {
       "ravenxrz/DAPInstall.nvim",
       "rcarriga/nvim-dap-ui",
       "theHamsta/nvim-dap-virtual-text",
+
       {
         "mfussenegger/nvim-dap-python",
         config = function()
@@ -122,7 +123,31 @@ return {
         end,
         ft = "python",
       },
+      {
+        "jay-babu/mason-nvim-dap.nvim",
+        config = function()
+          require("mason-nvim-dap").setup({
+            automatic_installation = true,
+          })
+        end,
+        dependencies = "williamboman/mason.nvim",
+      },
     },
-    event = "VeryLazy",
+    keys = {
+      "<Leader>dt",
+      "<Leader>db",
+      "<Leader>dc",
+      "<Leader>dC",
+      "<Leader>dd",
+      "<Leader>dg",
+      "<Leader>di",
+      "<Leader>do",
+      "<Leader>du",
+      "<Leader>dp",
+      "<Leader>dr",
+      "<Leader>ds",
+      "<Leader>dq",
+      "<Leader>dU",
+    },
   },
 }

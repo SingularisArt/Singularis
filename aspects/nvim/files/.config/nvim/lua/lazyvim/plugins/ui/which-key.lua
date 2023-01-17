@@ -50,6 +50,10 @@ local setup = {
   },
 }
 
+local function pc(func)
+  return "<CMD>lua require(\"pommodoro-clock\")." .. func .. "()<CR>"
+end
+
 local vars = require("lazyvim.config.global").which_key_vars
 
 vars.vmappings["/"] = {
@@ -62,6 +66,7 @@ vars.mappings["h"] = { "<CMD>split<CR>", "Horizontal Split" }
 vars.mappings[" "] = { "<CMD>normal <C-^><CR>", "Jump to previous buffer" }
 vars.mappings["/"] = { "<CMD>lua require('Comment.api').toggle.linewise()<CR>", "Comment out current line" }
 vars.mappings["e"] = { "<CMD>Neotree toggle<CR>", "Toggle Neotree" }
+vars.mappings["E"] = { "<CMD>NvimTreeToggle<CR>", "Toggle NvimTree" }
 vars.mappings["-"] = { "<CMD>lua require('lir.float').toggle()<CR>", "Toggle Lir" }
 vars.mappings["c"] = { "<Plug>(Corpus)", "Corpus" }
 vars.mappings["C"] = { "<CMD>lua codewindow.toggle_minimap()<CR>", "Toggle codewindow" }
@@ -165,6 +170,15 @@ vars.mappings["S"] = {
   l = { "<CMD>lua require('nvim-possession').list()<CR>", "List sessions" },
   c = { "<CMD>lua require('nvim-possession').new()<CR>", "Create new session" },
   u = { "<CMD>lua require('nvim-possession').update()<CR>", "Update current session" },
+}
+
+vars.mappings["p"] = {
+  name = "Pommodoro",
+  w = { pc("start_work"), "Start Pommodoro" },
+  s = { pc("start_short_break"), "Short Break" },
+  l = { pc("start_long_break"), "Long Break" },
+  c = { pc("toggle_pause"), "Toggle Pause" },
+  c = { pc("close"), "Close" },
 }
 
 -- vars.mappings["n"] = {

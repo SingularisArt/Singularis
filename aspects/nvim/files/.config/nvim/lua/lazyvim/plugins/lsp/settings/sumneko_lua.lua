@@ -1,6 +1,9 @@
 return {
   settings = {
     Lua = {
+      completion = {
+        callSnippet = "Replace"
+      },
       type = {
         weakUnionCheck = true,
         weakNilCheck = true,
@@ -11,11 +14,11 @@ return {
       },
       hint = {
         enable = true,
-        arrayIndex = "Disable", -- "Enable", "Auto", "Disable"
+        arrayIndex = "Disable",
         await = true,
-        paramName = "Disable", -- "All", "Literal", "Disable"
+        paramName = "Disable",
         paramType = false,
-        semicolon = "Disable", -- "All", "SameLine", "Disable"
+        semicolon = "Disable",
         setType = true,
       },
       spell = { "the" },
