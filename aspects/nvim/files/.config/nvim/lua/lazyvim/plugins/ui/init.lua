@@ -295,5 +295,12 @@ return {
     config = function()
       require("pommodoro-clock").setup()
     end,
+    keys = {
+      "<Leader>pw",
+      "<Leader>ps",
+      "<Leader>pl",
+      "<Leader>pc",
+      "<Leader>pC",
+    },
   },
 }

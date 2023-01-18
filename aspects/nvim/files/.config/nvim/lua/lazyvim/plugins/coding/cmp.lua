@@ -42,7 +42,7 @@ local cmp_sources = {
   { name = "buffer" },
   { name = "emoji" },
   { name = "nvim_lsp_document_symbol" },
-  { name = "nvim_lua" },
+  -- { name = "nvim_lua" },
 }
 
 ----------------------------
@@ -132,62 +132,62 @@ cmp.setup({
 --  FileType Configuration  --
 ------------------------------
 
--- cmp.setup.filetype("tex", { sources = {} })
+cmp.setup.filetype("tex", { sources = { name = "ultisnips" } })
 
--- cmp.setup.filetype("sql", {
---   sources = cmp.config.sources({
---     { name = "vim-dadbod-completion" },
---   }),
--- })
+cmp.setup.filetype("sql", {
+  sources = cmp.config.sources({
+    { name = "vim-dadbod-completion" },
+  }, cmp.get_config().sources),
+})
 
--- cmp.setup.filetype("norg", {
---   sources = cmp.config.sources({
---     { name = "neorg" },
---   }),
--- })
+cmp.setup.filetype("norg", {
+  sources = cmp.config.sources({
+    { name = "neorg" },
+  }, cmp.get_config().sources),
+})
 
--- cmp.setup.filetype("markdown", {
---   sources = cmp.config.sources({
---     { name = "spell" },
---     { name = "look" },
---     { name = "greek" },
---   }),
--- })
+cmp.setup.filetype("markdown", {
+  sources = cmp.config.sources({
+    { name = "spell" },
+    { name = "look" },
+    { name = "greek" },
+  }, cmp.get_config().sources),
+})
 
--- cmp.setup.filetype("lua", {
---   sources = cmp.config.sources({
---     { name = "nvim_lua" },
---   }),
--- })
+cmp.setup.filetype("lua", {
+  sources = cmp.config.sources({
+    { name = "nvim_lua" },
+  }, cmp.get_config().sources),
+})
 
--- cmp.setup.filetype("rust", {
---   sources = cmp.config.sources({
---     { name = "crates" },
---   }),
--- })
+cmp.setup.filetype("rust", {
+  sources = cmp.config.sources({
+    { name = "crates" },
+  }, cmp.get_config().sources),
+})
 
--- cmp.setup.filetype("elm", {
---   sources = cmp.config.sources({
---     { name = "omni" },
---   }),
--- })
+cmp.setup.filetype("elm", {
+  sources = cmp.config.sources({
+    { name = "omni" },
+  }, cmp.get_config().sources),
+})
 
--- cmp.setup.filetype("gitcommit", {
---   sources = cmp.config.sources({
---     { name = "git" },
---     { name = "commit" },
---   }),
--- })
+cmp.setup.filetype("gitcommit", {
+  sources = cmp.config.sources({
+    { name = "git" },
+    { name = "commit" },
+  }, cmp.get_config().sources),
+})
 
--- cmp.setup.filetype("json", {
---   sources = cmp.config.sources({
---     { name = "npm" },
---   }),
--- })
+cmp.setup.filetype("json", {
+  sources = cmp.config.sources({
+    { name = "npm" },
+  }, cmp.get_config().sources),
+})
 
--- cmp.setup.filetype({ "r", "rmd" }, {
---   sources = cmp.config.sources({
---     { name = "cmp_zotcite" },
---     { name = "cmp_nvim_r" },
---   }),
--- })
+cmp.setup.filetype({ "r", "rmd" }, {
+  sources = cmp.config.sources({
+    { name = "cmp_zotcite" },
+    { name = "cmp_nvim_r" },
+  }, cmp.get_config().sources),
+})

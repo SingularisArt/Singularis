@@ -11,8 +11,37 @@ return {
     end,
     dependencies = {
       "SmiteshP/nvim-navic",
+
+      {
+        "williamboman/mason-lspconfig.nvim",
+        config = function()
+          require("mason-lspconfig").setup({
+            automatic_installation = true,
+          })
+        end,
+        dependencies = "williamboman/mason.nvim",
+      },
     },
-    event = "BufEnter",
+    ft = {
+      "c",
+      "cpp",
+      "html",
+      "css",
+      "json",
+      "python",
+      "rust",
+      "solidity",
+      "lua",
+      "js",
+      "ts",
+      "yaml",
+      "sql",
+      "sh",
+      "go",
+      "gomod",
+      "java",
+      "r",
+    },
   },
 
   -- server configuration
@@ -56,52 +85,9 @@ return {
     event = "BufEnter",
   },
 
-  -- formatters
-  {
-    "jose-elias-alvarez/null-ls.nvim",
-    config = function()
-      require("lazyvim.plugins.lsp.null-ls")
-    end,
-    event = "BufEnter",
-  },
-
-  -- auto installer
-  {
-    "williamboman/mason.nvim",
-    config = function()
-      require("mason").setup()
-    end,
-    dependencies = {
-      {
-        "williamboman/mason-lspconfig.nvim",
-        config = function()
-          require("mason-lspconfig").setup({
-            automatic_installation = true,
-          })
-        end,
-      },
-      {
-        "jay-babu/mason-nvim-dap.nvim",
-        config = function()
-          require("mason-nvim-dap").setup({
-            automatic_installation = true,
-          })
-        end,
-      },
-      {
-        "jay-babu/mason-null-ls.nvim",
-        config = function()
-          require("mason-null-ls").setup({
-            automatic_installation = true,
-          })
-        end,
-      },
-    },
-    event = "VeryLazy",
-  },
-
   {
     "glepnir/lspsaga.nvim",
+    after = "nvim-lspconfig",
     config = function()
       require("lspsaga").setup({
         border_style = "rounded",
@@ -122,6 +108,7 @@ return {
 
   {
     "simrat39/symbols-outline.nvim",
+    after = "nvim-lspconfig",
     config = function()
       require("symbols-outline").setup()
     end,
@@ -133,6 +120,7 @@ return {
 
   {
     "j-hui/fidget.nvim",
+    after = "nvim-lspconfig",
     config = function()
       require("fidget").setup({
         sources = {
@@ -145,6 +133,7 @@ return {
 
   {
     "lvimuser/lsp-inlayhints.nvim",
+    after = "nvim-lspconfig",
     config = function()
       local setup = {
         inlay_hints = {
@@ -176,16 +165,47 @@ return {
 
   {
     "folke/neoconf.nvim",
+    after = "nvim-lspconfig",
     config = function()
       require("neoconf").setup()
     end,
     cmd = "Neoconf",
   },
+
   {
     "folke/neodev.nvim",
+    after = "nvim-lspconfig",
     config = function()
       require("neodev").setup()
     end,
     ft = "lua",
+  },
+
+  -- formatters
+  {
+    "jose-elias-alvarez/null-ls.nvim",
+    config = function()
+      require("lazyvim.plugins.lsp.null-ls")
+    end,
+    dependencies = {
+      {
+        "jay-babu/mason-null-ls.nvim",
+        config = function()
+          require("mason-null-ls").setup({
+            automatic_installation = true,
+          })
+        end,
+        dependencies = "williamboman/mason.nvim",
+      },
+    },
+    keys = "<Leader>lf",
+  },
+
+  -- auto installer
+  {
+    "williamboman/mason.nvim",
+    config = function()
+      require("mason").setup()
+    end,
   },
 }

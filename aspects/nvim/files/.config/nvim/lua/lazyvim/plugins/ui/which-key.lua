@@ -178,7 +178,7 @@ vars.mappings["p"] = {
   s = { pc("start_short_break"), "Short Break" },
   l = { pc("start_long_break"), "Long Break" },
   c = { pc("toggle_pause"), "Toggle Pause" },
-  c = { pc("close"), "Close" },
+  C = { pc("close"), "Close" },
 }
 
 -- vars.mappings["n"] = {

@@ -210,7 +210,7 @@ return {
         end):use_key("]"),
       })
     end,
-    event = "VeryLazy",
+    event = "InsertEnter",
   },
 
   -- comments

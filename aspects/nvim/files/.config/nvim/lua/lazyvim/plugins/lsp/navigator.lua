@@ -52,6 +52,7 @@ require("navigator").setup({
     disable_lsp = {
       "pylsp",
       "ccls",
+      "texlab",
     },
     servers = {
       "bashls",

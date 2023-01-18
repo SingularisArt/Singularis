@@ -123,6 +123,7 @@ return {
         end,
         ft = "python",
       },
+
       {
         "jay-babu/mason-nvim-dap.nvim",
         config = function()
