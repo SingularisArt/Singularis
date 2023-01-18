@@ -132,7 +132,7 @@ cmp.setup({
 --  FileType Configuration  --
 ------------------------------
 
-cmp.setup.filetype("tex", { sources = { name = "ultisnips" } })
+cmp.setup.filetype("tex", { sources = { { name = "ultisnips" } } })
 
 cmp.setup.filetype("sql", {
   sources = cmp.config.sources({
