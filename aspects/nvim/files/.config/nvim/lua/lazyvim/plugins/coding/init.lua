@@ -304,4 +304,6 @@ return {
       { "<Leader>Su", "<CMD>lua require('nvim-possession').update()<CR>" },
     },
   },
+
+  { "wakatime/vim-wakatime", event = "BufEnter" },
 }
