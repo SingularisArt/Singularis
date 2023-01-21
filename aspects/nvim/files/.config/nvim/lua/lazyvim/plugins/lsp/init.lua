@@ -1,3 +1,24 @@
+local lsp_filetypes = {
+  "c",
+  "cpp",
+  "html",
+  "css",
+  "json",
+  "python",
+  "rust",
+  "solidity",
+  "lua",
+  "js",
+  "ts",
+  "yaml",
+  "sql",
+  "sh",
+  "go",
+  "gomod",
+  "java",
+  "r",
+}
+
 return {
   -- lspconfig
   {
@@ -21,27 +42,16 @@ return {
         end,
         dependencies = "williamboman/mason.nvim",
       },
+
+      {
+        "folke/neodev.nvim",
+        config = function()
+          require("neodev").setup()
+        end,
+        ft = "lua",
+      },
     },
-    ft = {
-      "c",
-      "cpp",
-      "html",
-      "css",
-      "json",
-      "python",
-      "rust",
-      "solidity",
-      "lua",
-      "js",
-      "ts",
-      "yaml",
-      "sql",
-      "sh",
-      "go",
-      "gomod",
-      "java",
-      "r",
-    },
+    ft = lsp_filetypes,
   },
 
   -- server configuration
@@ -51,38 +61,38 @@ return {
     config = function()
       require("lazyvim.plugins.lsp.navigator")
     end,
-    dependencies = {
-      {
-        "ray-x/lsp_signature.nvim",
-        config = function()
-          local icons = require("lazyvim.config.global").icons
+    ft = lsp_filetypes,
+  },
 
-          local signature_help_setup = {
-            bind = true,
-            doc_lines = 0,
-            max_height = 10,
-            max_width = 80,
-            wrap = true,
-            floating_window = true,
-            floating_window_above_cur_line = true,
-            floating_window_off_x = 1,
-            floating_window_off_y = 0,
-            fix_pos = false,
-            hint_enable = true,
-            hi_parameter = "LspSignatureActiveParameter",
-            toggle_key = "<C-x>",
-            hint_prefix = icons.misc.Squirrel .. " ",
-            hint_scheme = "Comment",
-            handler_opts = {
-              border = "rounded",
-            },
-          }
+  {
+    "ray-x/lsp_signature.nvim",
+    config = function()
+      local icons = require("lazyvim.config.global").icons
 
-          require("lsp_signature").setup(signature_help_setup)
-        end,
-      },
-    },
-    event = "BufEnter",
+      local signature_help_setup = {
+        bind = true,
+        doc_lines = 0,
+        max_height = 10,
+        max_width = 80,
+        wrap = true,
+        floating_window = true,
+        floating_window_above_cur_line = true,
+        floating_window_off_x = 1,
+        floating_window_off_y = 0,
+        fix_pos = false,
+        hint_enable = true,
+        hi_parameter = "LspSignatureActiveParameter",
+        toggle_key = "<C-x>",
+        hint_prefix = icons.misc.Squirrel .. " ",
+        hint_scheme = "Comment",
+        handler_opts = {
+          border = "rounded",
+        },
+      }
+
+      require("lsp_signature").setup(signature_help_setup)
+    end,
+    ft = lsp_filetypes,
   },
 
   {
@@ -103,7 +113,7 @@ return {
         },
       })
     end,
-    event = "BufRead",
+    ft = lsp_filetypes,
   },
 
   {
@@ -128,7 +138,7 @@ return {
         },
       })
     end,
-    event = "BufEnter",
+    ft = lsp_filetypes,
   },
 
   {
@@ -160,25 +170,17 @@ return {
 
       require("lsp-inlayhints").setup(setup)
     end,
-    event = "BufEnter",
+    ft = lsp_filetypes,
   },
 
   {
     "folke/neoconf.nvim",
-    after = "nvim-lspconfig",
+    -- after = "nvim-lspconfig",
     config = function()
       require("neoconf").setup()
     end,
-    cmd = "Neoconf",
-  },
-
-  {
-    "folke/neodev.nvim",
-    after = "nvim-lspconfig",
-    config = function()
-      require("neodev").setup()
-    end,
-    ft = "lua",
+    ft = { "lua", "json" },
+    -- cmd = "Neoconf",
   },
 
   -- formatters

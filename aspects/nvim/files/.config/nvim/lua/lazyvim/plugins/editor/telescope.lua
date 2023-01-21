@@ -149,7 +149,7 @@ telescope.setup({
       theme = "dropdown",
     },
     find_files = {
-  theme = "dropdown",
+      theme = "dropdown",
       previewer = true,
     },
     buffers = {
@@ -162,13 +162,13 @@ telescope.setup({
     lsp_references = {
       theme = "dropdown",
     },
-lsp_definitions = {
+    lsp_definitions = {
       theme = "dropdown",
     },
     lsp_declarations = {
       theme = "dropdown",
     },
-lsp_implementations = {
+    lsp_implementations = {
       theme = "dropdown",
     },
   },

@@ -132,6 +132,38 @@ return {
       require("lazyvim.plugins.editor.telescope")
     end,
     cmd = "Telescope",
+    dependencies = {
+      {
+        "SingularisArt/telescope-sessions.nvim",
+        config = function()
+          require("telescope").setup({
+            extensions = {
+              sessions = {
+                sessions = {
+                  sessions_path = os.getenv("HOME") .. "/.config/nvim/misc/sessions/",
+                  sessions_variable = "session",
+                  sessions_icon = "📌",
+                },
+
+                dressing = true,
+                autoload = false,
+                autosave = true,
+                autoswitch = {
+                  enable = false,
+                  exclude_ft = { "fugitive", "alpha", "NvimTree", "fzf", "qf" },
+                },
+
+                post_hook = nil,
+              }
+            },
+          })
+
+          require("telescope").load_extension("sessions")
+        end,
+        cmd = "Telescope sessions",
+        dev = true,
+      },
+    },
   },
 
   -- git signs
