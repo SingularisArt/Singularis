@@ -37,6 +37,14 @@ return {
       "max397574/cmp-greek",
       "Dosx001/cmp-commit",
       {
+        "roobert/tailwindcss-colorizer-cmp.nvim",
+        config = function()
+          require("tailwindcss-colorizer-cmp").setup({
+            color_square_width = 2,
+          })
+        end
+      },
+      {
         "jalvesaq/cmp-nvim-r",
         config = function()
           require("cmp_zotcite").setup({

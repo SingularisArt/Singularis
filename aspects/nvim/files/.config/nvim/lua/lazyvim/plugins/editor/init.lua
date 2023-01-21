@@ -384,12 +384,6 @@ return {
     config = function()
       require("bqf").setup()
     end,
-    cmd = {
-      "BqfEnable",
-      "BqfDisable",
-      "BqfToggle",
-      "BqfAutoToggle",
-    },
     dependencies = {
       {
         "junegunn/fzf",
@@ -640,5 +634,18 @@ return {
     setup = function()
       vim.g.sandwich_no_default_key_mappings = 1
     end,
+  },
+
+  {
+    "Wansmer/sibling-swap.nvim",
+    config = function()
+      require("sibling-swap").setup({})
+    end,
+    keys = {
+      "<C-.>",
+      "<C-,>",
+      "<Leader>.",
+      "<Leader>,",
+    },
   },
 }

@@ -1,9 +1,10 @@
 local which_key = require("which-key")
 local options = require("lazyvim.config.global").which_key_vars.options
+local buffer = vim.api.nvim_get_current_buf()
 
 options = vim.tbl_deep_extend("force", {
   filetype = "markdown",
-  buffer = vim.api.nvim_get_current_buf(),
+  buffer = buffer,
 }, options)
 
 which_key.register({
@@ -31,3 +32,16 @@ which_key.register({
     },
   },
 }, options)
+
+vim.keymap.set(
+  "n", "<C-i>", ":lua require(\"markdowny\").italic()<CR>",
+  { buffer = buffer }
+)
+vim.keymap.set(
+  "n", "<C-b>", ":lua require(\"markdowny\").bold()<CR>",
+  { buffer = buffer }
+)
+vim.keymap.set(
+  "n", "<C-K>", ":lua require(\"markdowny\").link()<CR>",
+  { buffer = buffer }
+)

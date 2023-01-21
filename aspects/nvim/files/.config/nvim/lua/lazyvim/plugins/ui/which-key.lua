@@ -50,10 +50,6 @@ local setup = {
   },
 }
 
-local function pc(func)
-  return "<CMD>lua require(\"pommodoro-clock\")." .. func .. "()<CR>"
-end
-
 local vars = require("lazyvim.config.global").which_key_vars
 
 vars.vmappings["/"] = {
@@ -167,49 +163,58 @@ vars.mappings["d"] = {
 
 vars.mappings["S"] = {
   name = "Sessions",
-  l = { "<CMD>lua require('nvim-possession').list()<CR>", "List sessions" },
-  c = { "<CMD>lua require('nvim-possession').new()<CR>", "Create new session" },
-  u = { "<CMD>lua require('nvim-possession').update()<CR>", "Update current session" },
+  l = { "<CMD>Telescope sessions list<CR>", "List sessions" },
+  n = { "<CMD>Telescope sessions new<CR>", "New session" },
+  u = { "<CMD>Telescope sessions update<CR>", "Update current session" },
 }
 
 vars.mappings["p"] = {
   name = "Pommodoro",
-  w = { pc("start_work"), "Start Pommodoro" },
-  s = { pc("start_short_break"), "Short Break" },
-  l = { pc("start_long_break"), "Long Break" },
-  c = { pc("toggle_pause"), "Toggle Pause" },
-  C = { pc("close"), "Close" },
+  w = { "<CMD>require('pommodoro-clock').start_work()<CR>", "Start Pommodoro" },
+  s = { "<CMD>require('start_short_break').start_work()<CR>", "Short Break" },
+  l = { "<CMD>require('start_long_break').start_work()<CR>", "Long Break" },
+  c = { "<CMD>require('toggle_pause').start_work()<CR>", "Toggle Pause" },
+  C = { "<CMD>require('close').start_work()<CR>", "Close" },
 }
 
--- vars.mappings["n"] = {
---   name = "Neorg",
---   i = { "<CMD>Telescope neorg insert_link<CR>", "Insert link" },
---   f = { "<CMD>Telescope neorg find_linkable<CR>", "Find linkables" },
---   F = { "<CMD>Telescope neorg find_aof_tasks<CR>", "Find AOF tasks" },
---   s = { "<CMD>Telescope neorg search_headings<CR>", "Search headings" },
---   S = { "<CMD>Telescope neorg switch_workspace<CR>", "Switch workspaces" },
---   I = { "<CMD>Telescope neorg insert_file_link<CR>", "Insert file link" },
---   p = { "<CMD>Telescope neorg find_project_tasks<CR>", "Find project tasks" },
---   c = { "<CMD>Telescope neorg find_context_tasks<CR>", "Find context tasks" },
---   a = { "<CMD>Telescope neorg find_aof_project_tasks<CR>", "Find AOF project tasks" },
---   t = {
---     name = "Todos",
---     u = { "", "" },
---     p = { "", "" },
---     d = { "", "" },
---     h = { "", "" },
---     c = { "", "" },
---     r = { "", "" },
---     i = { "", "" },
---     C = { "", "" },
---   },
---   g = {
---     name = "GTD",
---     c = { "", "" },
---     v = { "", "" },
---     e = { "", "" },
---   },
--- }
+vars.mappings["b"] = {
+  name = "Buffers",
+  ["1"] = { "<CMD>BufferLineGoToBuffer 1<CR>", "Go to the first buffer" },
+  ["2"] = { "<CMD>BufferLineGoToBuffer 2<CR>", "Go to the second buffer" },
+  ["3"] = { "<CMD>BufferLineGoToBuffer 3<CR>", "Go to the third buffer" },
+  ["4"] = { "<CMD>BufferLineGoToBuffer 4<CR>", "Go to the fourth buffer" },
+  ["5"] = { "<CMD>BufferLineGoToBuffer 5<CR>", "Go to the fifth buffer" },
+  ["6"] = { "<CMD>BufferLineGoToBuffer 6<CR>", "Go to the sixth buffer" },
+  ["7"] = { "<CMD>BufferLineGoToBuffer 7<CR>", "Go to the seventh buffer" },
+  ["8"] = { "<CMD>BufferLineGoToBuffer 8<CR>", "Go to the eighth buffer" },
+  ["9"] = { "<CMD>BufferLineGoToBuffer 9<CR>", "Go to the ninth buffer" },
+  ["0"] = { "<CMD>BufferLineGoToBuffer 10<CR>", "Go to the tenth buffer" },
+  n = { "<CMD>BufferLineCycleNext<CR>", "Go to the next buffer" },
+  p = { "<CMD>BufferLineCyclePrev<CR>", "Go to the previous buffer" },
+  k = { "<CMD>BufferKill<CR>", "Kill current buffer" },
+  c = {
+    name = "Close",
+    l = { "<CMD>BufferLineCloseLeft<CR>", "Close all buffers to the left" },
+    r = { "<CMD>BufferLineCloseRight<CR>", "Close all buffers to the right" },
+  },
+  m = {
+    name = "Move",
+    n = { "<CMD>BufferLineMoveNext<CR>", "Move buffer next" },
+    p = { "<CMD>BufferLineMovePrev<CR>", "Move buffer prev" },
+  },
+  P = {
+    name = "Pick",
+    p = { "<CMD>BufferLinePick<CR>", "Pick buffer" },
+    P = { "<CMD>BufferLinePickClose<CR>", "Pick buffer to close" },
+  },
+  s = {
+    name = "Sort",
+    d = { "<CMD>BufferLineSortByDirectory<CR>", "Sort by directory" },
+    e = { "<CMD>BufferLineSortByExtension<CR>", "Sort by extension" },
+    r = { "<CMD>BufferLineSortByRelativeDirectory<CR>", "Sort by relative directory" },
+    t = { "<CMD>BufferLineSortByTabs<CR>", "Sort by tabs" },
+  },
+}
 
 local which_key = require("which-key")
 

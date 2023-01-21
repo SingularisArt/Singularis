@@ -29,11 +29,6 @@ return {
       require("markdowny").setup()
     end,
     ft = "markdown",
-    keys = {
-      { mode = "v", "<C-i>", ":lua require(\"markdowny\").italic()<cr>" },
-      { mode = "v", "<C-b>", ":lua require(\"markdowny\").bold()<cr>" },
-      { mode = "v", "<C-k>", ":lua require(\"markdowny\").link()<cr>" },
-    },
   },
 
   -- latex
@@ -152,7 +147,7 @@ return {
   { "b0o/SchemaStore.nvim", ft = { "json", "yaml" } },
 
   -- r
-  { "jalvesaq/Nvim-R", ft = { "r", "rmd"} },
-  { "jalvesaq/R-Vim-runtime", ft = { "r", "rmd"} },
-  { "jalvesaq/colorout", ft = { "r", "rmd"} },
+  { "jalvesaq/Nvim-R", ft = { "r", "rmd" } },
+  { "jalvesaq/R-Vim-runtime", ft = { "r", "rmd" } },
+  { "jalvesaq/colorout", ft = { "r", "rmd" } },
 }

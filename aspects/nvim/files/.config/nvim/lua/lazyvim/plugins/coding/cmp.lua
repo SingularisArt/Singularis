@@ -57,11 +57,10 @@ cmp.setup({
   },
 
   mapping = cmp.mapping.preset.insert({
-    ["<CR>"] = cmp.mapping({
-      i = function(fallback)
-        cmp_ultisnips_mappings.compose({ "expand" })(fallback)
-      end,
-    }),
+    ["<C-b>"] = cmp.mapping.scroll_docs(-4),
+    ["<C-f>"] = cmp.mapping.scroll_docs(4),
+    ["<C-e>"] = cmp.mapping.abort(),
+    ["<CR>"] = cmp.mapping.confirm({ select = true }),
 
     ["<C-j>"] = cmp.mapping({
       i = function(fallback)
@@ -104,6 +103,7 @@ cmp.setup({
       vim_item.kind = kind_icons[vim_item.kind]
       vim_item.menu = source_names[entry.source.name]
       vim_item.dup = duplicates[entry.source.name]
+
       return vim_item
     end,
   },

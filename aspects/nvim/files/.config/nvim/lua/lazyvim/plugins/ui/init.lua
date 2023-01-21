@@ -10,41 +10,6 @@ return {
     event = "BufEnter",
   },
 
-  -- notify
-  {
-    "rcarriga/nvim-notify",
-    config = function()
-      require("notify").setup({
-        stages = "fade_in_slide_out",
-        on_open = nil,
-        on_close = nil,
-        render = "default",
-        timeout = 5000,
-        minimum_width = 50,
-        icons = {
-          ERROR = "",
-          WARN = "",
-          INFO = "",
-          DEBUG = "",
-          TRACE = "✎",
-        },
-        background_colour = function()
-          local group_bg = vim.fn.synIDattr(vim.fn.synIDtrans(vim.fn.hlID("Normal")), "bg#")
-          if group_bg == "" or group_bg == "none" then
-            group_bg = vim.fn.synIDattr(vim.fn.synIDtrans(vim.fn.hlID("Float")), "bg#")
-            if group_bg == "" or group_bg == "none" then
-              return "#000000"
-            end
-          end
-          return group_bg
-        end,
-      })
-
-      require("telescope").load_extension("notify")
-    end,
-    event = "VeryLazy",
-  },
-
   -- indent guides for Neovim
   {
     "lukas-reineke/indent-blankline.nvim",
@@ -248,10 +213,10 @@ return {
   },
 
   -- {
-    "mg979/vim-visual-multi",
-    -- config = function()
-    --   
-    -- end,
+  "mg979/vim-visual-multi",
+  -- config = function()
+  --
+  -- end,
   -- },
 
   {
@@ -267,8 +232,10 @@ return {
 
       local kopts = { noremap = true, silent = true }
 
-      vim.api.nvim_set_keymap("n", "n", [[<CMD>execute("normal! " . v:count1 . "n")<CR><CMD>lua require("hlslens").start()<CR>]], kopts)
-      vim.api.nvim_set_keymap("n", "N", [[<CMD>execute("normal! " . v:count1 . "N")<CR><CMD>lua require("hlslens").start()<CR>]], kopts)
+      vim.api.nvim_set_keymap("n", "n",
+        [[<CMD>execute("normal! " . v:count1 . "n")<CR><CMD>lua require("hlslens").start()<CR>]], kopts)
+      vim.api.nvim_set_keymap("n", "N",
+        [[<CMD>execute("normal! " . v:count1 . "N")<CR><CMD>lua require("hlslens").start()<CR>]], kopts)
 
       vim.api.nvim_set_keymap("n", "*", "*<CMD>lua require(\"hlslens\").start()<CR>", kopts)
       vim.api.nvim_set_keymap("n", "#", "#<CMD>lua require(\"hlslens\").start()<CR>", kopts)
@@ -302,5 +269,89 @@ return {
       "<Leader>pc",
       "<Leader>pC",
     },
+  },
+
+  {
+    "anuvyklack/windows.nvim",
+    dependencies = {
+      "anuvyklack/middleclass",
+      "anuvyklack/animation.nvim"
+    },
+    config = function()
+      vim.o.winwidth = 10
+      vim.o.winminwidth = 10
+      vim.o.equalalways = false
+      require("windows").setup()
+    end,
+    event = "BufAdd",
+  },
+
+  {
+    "nvim-zh/colorful-winsep.nvim",
+    config = function()
+      require("colorful-winsep").setup()
+    end,
+    event = "BufAdd",
+  },
+
+  {
+    "folke/noice.nvim",
+    config = function()
+      require("noice").setup({
+        lsp = {
+          signature = { enabled = false },
+          hover = { enabled = false },
+          override = {
+            ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+            ["vim.lsp.util.stylize_markdown"] = true,
+            ["cmp.entry.get_documentation"] = true,
+          },
+        },
+        presets = {
+          bottom_search = true,
+          command_palette = true,
+          long_message_to_split = true,
+          inc_rename = false,
+          lsp_doc_border = false,
+        },
+      })
+    end,
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+
+      {
+        "rcarriga/nvim-notify",
+        config = function()
+          require("notify").setup({
+            stages = "fade_in_slide_out",
+            on_open = nil,
+            on_close = nil,
+            render = "default",
+            timeout = 5000,
+            minimum_width = 50,
+            icons = {
+              ERROR = "",
+              WARN = "",
+              INFO = "",
+              DEBUG = "",
+              TRACE = "✎",
+            },
+            background_colour = function()
+              local group_bg = vim.fn.synIDattr(vim.fn.synIDtrans(vim.fn.hlID("Normal")), "bg#")
+              if group_bg == "" or group_bg == "none" then
+                group_bg = vim.fn.synIDattr(vim.fn.synIDtrans(vim.fn.hlID("Float")), "bg#")
+                if group_bg == "" or group_bg == "none" then
+                  return "#000000"
+                end
+              end
+              return group_bg
+            end,
+          })
+
+          require("telescope").load_extension("notify")
+        end,
+      },
+    },
+    event = "VeryLazy",
   },
 }

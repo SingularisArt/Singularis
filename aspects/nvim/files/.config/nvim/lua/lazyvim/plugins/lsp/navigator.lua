@@ -44,22 +44,45 @@ require("navigator").setup({
     solang = { require("lazyvim.plugins.lsp.settings.solang") },
     solc = { require("lazyvim.plugins.lsp.settings.solc") },
     sumneko_lua = { require("lazyvim.plugins.lsp.settings.sumneko_lua") },
-    -- texlab = { require("lazyvim.plugins.lsp.settings.texlab") },
+    texlab = {
+      require("lazyvim.plugins.lsp.settings.texlab"),
+      filetype = { "bib" },
+    },
     tsserver = { require("lazyvim.plugins.lsp.settings.tsserver") },
     yamlls = { require("lazyvim.plugins.lsp.settings.yamlls") },
     sqls = { require("lazyvim.plugins.lsp.settings.sqls") },
+    html = {
+      on_attach = function()
+        local capabilities = vim.lsp.protocol.make_client_capabilities()
+        capabilities.textDocument.completion.completionItem.snippetSupport = true
+
+        require("lspconfig").html.setup {
+          capabilities = capabilities,
+        }
+      end,
+      require("lazyvim.plugins.lsp.settings.html"),
+    },
+    cssls = {
+      on_attach = function()
+        local capabilities = vim.lsp.protocol.make_client_capabilities()
+        capabilities.textDocument.completion.completionItem.snippetSupport = true
+
+        require("lspconfig").cssls.setup {
+          capabilities = capabilities,
+        }
+      end,
+    },
 
     disable_lsp = {
       "pylsp",
       "ccls",
-      "texlab",
+      "denols",
+      "flow",
     },
     servers = {
       "bashls",
-      "cssls",
       "cssmodules_ls",
       "tailwindcss",
-      "html",
       "golangci_lint_ls",
       "jdtls",
       "solidity_ls",
