@@ -294,64 +294,64 @@ return {
     event = "BufAdd",
   },
 
-  {
-    "folke/noice.nvim",
-    config = function()
-      require("noice").setup({
-        lsp = {
-          signature = { enabled = false },
-          hover = { enabled = false },
-          override = {
-            ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
-            ["vim.lsp.util.stylize_markdown"] = true,
-            ["cmp.entry.get_documentation"] = true,
-          },
-        },
-        presets = {
-          bottom_search = true,
-          command_palette = true,
-          long_message_to_split = true,
-          inc_rename = false,
-          lsp_doc_border = false,
-        },
-      })
-    end,
-    dependencies = {
-      "MunifTanjim/nui.nvim",
+  -- {
+  --   "folke/noice.nvim",
+  --   config = function()
+  --     require("noice").setup({
+  --       lsp = {
+  --         signature = { enabled = false },
+  --         hover = { enabled = false },
+  --         override = {
+  --           ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+  --           ["vim.lsp.util.stylize_markdown"] = true,
+  --           ["cmp.entry.get_documentation"] = true,
+  --         },
+  --       },
+  --       presets = {
+  --         bottom_search = true,
+  --         command_palette = true,
+  --         long_message_to_split = true,
+  --         inc_rename = false,
+  --         lsp_doc_border = false,
+  --       },
+  --     })
+  --   end,
+  --   dependencies = {
+  --     "MunifTanjim/nui.nvim",
 
-      {
-        "rcarriga/nvim-notify",
-        config = function()
-          require("notify").setup({
-            stages = "fade_in_slide_out",
-            on_open = nil,
-            on_close = nil,
-            render = "default",
-            timeout = 5000,
-            minimum_width = 50,
-            icons = {
-              ERROR = "",
-              WARN = "",
-              INFO = "",
-              DEBUG = "",
-              TRACE = "✎",
-            },
-            background_colour = function()
-              local group_bg = vim.fn.synIDattr(vim.fn.synIDtrans(vim.fn.hlID("Normal")), "bg#")
-              if group_bg == "" or group_bg == "none" then
-                group_bg = vim.fn.synIDattr(vim.fn.synIDtrans(vim.fn.hlID("Float")), "bg#")
-                if group_bg == "" or group_bg == "none" then
-                  return "#000000"
-                end
-              end
-              return group_bg
-            end,
-          })
+  --     {
+  --       "rcarriga/nvim-notify",
+  --       config = function()
+  --         require("notify").setup({
+  --           stages = "fade_in_slide_out",
+  --           on_open = nil,
+  --           on_close = nil,
+  --           render = "default",
+  --           timeout = 5000,
+  --           minimum_width = 50,
+  --           icons = {
+  --             ERROR = "",
+  --             WARN = "",
+  --             INFO = "",
+  --             DEBUG = "",
+  --             TRACE = "✎",
+  --           },
+  --           background_colour = function()
+  --             local group_bg = vim.fn.synIDattr(vim.fn.synIDtrans(vim.fn.hlID("Normal")), "bg#")
+  --             if group_bg == "" or group_bg == "none" then
+  --               group_bg = vim.fn.synIDattr(vim.fn.synIDtrans(vim.fn.hlID("Float")), "bg#")
+  --               if group_bg == "" or group_bg == "none" then
+  --                 return "#000000"
+  --               end
+  --             end
+  --             return group_bg
+  --           end,
+  --         })
 
-          require("telescope").load_extension("notify")
-        end,
-      },
-    },
-    event = "VeryLazy",
-  },
+  --         require("telescope").load_extension("notify")
+  --       end,
+  --     },
+  --   },
+  --   event = "VeryLazy",
+  -- },
 }

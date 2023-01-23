@@ -1,4 +1,12 @@
 local handlers = require("lazyvim.plugins.lsp.handlers")
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+
+capabilities.textDocument.completion.completionItem.snippetSupport = true
+
+local html_capabilities = capabilities
+local css_capabilities = capabilities
+capabilities.offsetEncoding = { "utf-32" }
+local clangd_capabilities = capabilities
 
 require("navigator").setup({
   debug = false,
@@ -36,7 +44,6 @@ require("navigator").setup({
     diagnostic_update_in_insert = false,
     disply_diagnostic_qf = true,
 
-    clangd = { require("lazyvim.plugins.lsp.settings.clangd") },
     emmet_ls = { require("lazyvim.plugins.lsp.settings.emmet_ls") },
     jsonls = { require("lazyvim.plugins.lsp.settings.jsonls") },
     pyright = { require("lazyvim.plugins.lsp.settings.pyright") },
@@ -44,34 +51,15 @@ require("navigator").setup({
     solang = { require("lazyvim.plugins.lsp.settings.solang") },
     solc = { require("lazyvim.plugins.lsp.settings.solc") },
     sumneko_lua = { require("lazyvim.plugins.lsp.settings.sumneko_lua") },
-    texlab = {
-      require("lazyvim.plugins.lsp.settings.texlab"),
-      filetype = { "bib" },
-    },
+    texlab = { require("lazyvim.plugins.lsp.settings.texlab"), filetype = { "bib" } },
     tsserver = { require("lazyvim.plugins.lsp.settings.tsserver") },
     yamlls = { require("lazyvim.plugins.lsp.settings.yamlls") },
     sqls = { require("lazyvim.plugins.lsp.settings.sqls") },
     html = {
-      on_attach = function()
-        local capabilities = vim.lsp.protocol.make_client_capabilities()
-        capabilities.textDocument.completion.completionItem.snippetSupport = true
-
-        require("lspconfig").html.setup {
-          capabilities = capabilities,
-        }
-      end,
       require("lazyvim.plugins.lsp.settings.html"),
+      capabilities = html_capabilities,
     },
-    cssls = {
-      on_attach = function()
-        local capabilities = vim.lsp.protocol.make_client_capabilities()
-        capabilities.textDocument.completion.completionItem.snippetSupport = true
-
-        require("lspconfig").cssls.setup {
-          capabilities = capabilities,
-        }
-      end,
-    },
+    cssls = { capabilities = css_capabilities },
 
     disable_lsp = {
       "pylsp",
@@ -79,8 +67,10 @@ require("navigator").setup({
       "denols",
       "flow",
     },
+
     servers = {
       "bashls",
+      "clangd",
       "cssmodules_ls",
       "tailwindcss",
       "golangci_lint_ls",

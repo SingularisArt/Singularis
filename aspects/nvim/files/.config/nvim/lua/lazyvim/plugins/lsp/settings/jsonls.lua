@@ -2,15 +2,16 @@ return {
   on_attach = function(client, _)
     client.server_capabilities.textDocument.completion.completionItem.snippetSupport = true
   end,
+
   init_options = {
     provideFormatter = false,
   },
-  -- settings = {
-  --   json = {
-  --     schemas = require("schemastore").json.schemas(),
-  --     validate = { enable = true },
-  --   },
-  -- },
+  settings = {
+    json = {
+      schemas = require("schemastore").json.schemas(),
+      validate = { enable = true },
+    },
+  },
   setup = {
     commands = {
       Format = {

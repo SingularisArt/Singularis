@@ -110,7 +110,7 @@ return {
 
   {
     "j-hui/fidget.nvim",
-    after = "nvim-lspconfig",
+    -- after = "nvim-lspconfig",
     config = function()
       require("fidget").setup({
         sources = {
