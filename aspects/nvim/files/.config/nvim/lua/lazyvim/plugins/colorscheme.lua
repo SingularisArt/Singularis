@@ -127,6 +127,38 @@ return {
     lazy = true,
   },
 
+  {
+    "bluz71/vim-nightfly-colors",
+    config = function()
+      vim.cmd("colorscheme nightfly")
+    end,
+    lazy = true,
+  },
+
+  {
+    "JoosepAlviste/palenightfall.nvim",
+    config = function()
+      require("palenightfall").setup()
+    end,
+    lazy = true,
+  },
+
+  {
+    "noorwachid/nvim-nightsky",
+    config = function()
+      vim.cmd("colorscheme nightsky")
+    end,
+    lazy = true,
+  },
+
+  {
+    "AlexvZyl/nordic.nvim",
+    config = function()
+      require("nordic").load()
+    end,
+    lazy = true,
+  },
+
   { "ray-x/starry.nvim", lazy = true },
   { "catppuccin/nvim", as = "catppuccin", lazy = true },
   { "sainnhe/gruvbox-material", lazy = true },
