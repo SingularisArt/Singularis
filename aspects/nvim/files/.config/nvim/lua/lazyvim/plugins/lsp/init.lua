@@ -37,16 +37,6 @@ return {
       "SmiteshP/nvim-navic",
 
       {
-        "williamboman/mason-lspconfig.nvim",
-        config = function()
-          require("mason-lspconfig").setup({
-            automatic_installation = true,
-          })
-        end,
-        dependencies = "williamboman/mason.nvim",
-      },
-
-      {
         "folke/neodev.nvim",
         config = function()
           require("neodev").setup()
@@ -169,25 +159,6 @@ return {
     config = function()
       require("lazyvim.plugins.lsp.null-ls")
     end,
-    dependencies = {
-      {
-        "jay-babu/mason-null-ls.nvim",
-        config = function()
-          require("mason-null-ls").setup({
-            automatic_installation = true,
-          })
-        end,
-        dependencies = "williamboman/mason.nvim",
-      },
-    },
     keys = "<Leader>lf",
-  },
-
-  -- auto installer
-  {
-    "williamboman/mason.nvim",
-    config = function()
-      require("mason").setup()
-    end,
   },
 }

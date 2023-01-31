@@ -25,25 +25,9 @@ return {
       "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-calc",
       "hrsh7th/cmp-path",
-      "hrsh7th/cmp-cmdline",
       "hrsh7th/cmp-emoji",
-      "ray-x/cmp-treesitter",
       "f3fora/cmp-spell",
       "octaltree/cmp-look",
-      "kdheepak/cmp-latex-symbols",
-      "hrsh7th/cmp-nvim-lsp-document-symbol",
-      "hrsh7th/cmp-cmdline",
-      "David-Kunz/cmp-npm",
-      "max397574/cmp-greek",
-      "Dosx001/cmp-commit",
-      {
-        "roobert/tailwindcss-colorizer-cmp.nvim",
-        config = function()
-          require("tailwindcss-colorizer-cmp").setup({
-            color_square_width = 2,
-          })
-        end
-      },
       {
         "jalvesaq/cmp-nvim-r",
         config = function()
@@ -60,113 +44,6 @@ return {
           })
         end,
         dependencies = "jalvesaq/zotcite",
-      },
-      {
-        "petertriho/cmp-git",
-        config = function()
-          local format = require("cmp_git.format")
-          local sort = require("cmp_git.sort")
-
-          require("cmp_git").setup({
-            -- defaults
-            filetypes = { "gitcommit", "octo" },
-            remotes = { "upstream", "origin" }, -- in order of most to least prioritized
-            enableRemoteUrlRewrites = false, -- enable git url rewrites, see https://git-scm.com/docs/git-config#Documentation/git-config.txt-urlltbasegtinsteadOf
-            git = {
-              commits = {
-                limit = 100,
-                sort_by = sort.git.commits,
-                format = format.git.commits,
-              },
-            },
-            github = {
-              issues = {
-                fields = { "title", "number", "body", "updatedAt", "state" },
-                filter = "all", -- assigned, created, mentioned, subscribed, all, repos
-                limit = 100,
-                state = "open", -- open, closed, all
-                sort_by = sort.github.issues,
-                format = format.github.issues,
-              },
-              mentions = {
-                limit = 100,
-                sort_by = sort.github.mentions,
-                format = format.github.mentions,
-              },
-              pull_requests = {
-                fields = { "title", "number", "body", "updatedAt", "state" },
-                limit = 100,
-                state = "open", -- open, closed, merged, all
-                sort_by = sort.github.pull_requests,
-                format = format.github.pull_requests,
-              },
-            },
-            gitlab = {
-              issues = {
-                limit = 100,
-                state = "opened", -- opened, closed, all
-                sort_by = sort.gitlab.issues,
-                format = format.gitlab.issues,
-              },
-              mentions = {
-                limit = 100,
-                sort_by = sort.gitlab.mentions,
-                format = format.gitlab.mentions,
-              },
-              merge_requests = {
-                limit = 100,
-                state = "opened", -- opened, closed, locked, merged
-                sort_by = sort.gitlab.merge_requests,
-                format = format.gitlab.merge_requests,
-              },
-            },
-            trigger_actions = {
-              {
-                debug_name = "git_commits",
-                trigger_character = ":",
-                action = function(sources, trigger_char, callback, params, _)
-                  return sources.git:get_commits(callback, params, trigger_char)
-                end,
-              },
-              {
-                debug_name = "gitlab_issues",
-                trigger_character = "#",
-                action = function(sources, trigger_char, callback, _, git_info)
-                  return sources.gitlab:get_issues(callback, git_info, trigger_char)
-                end,
-              },
-              {
-                debug_name = "gitlab_mentions",
-                trigger_character = "@",
-                action = function(sources, trigger_char, callback, _, git_info)
-                  return sources.gitlab:get_mentions(callback, git_info, trigger_char)
-                end,
-              },
-              {
-                debug_name = "gitlab_mrs",
-                trigger_character = "!",
-                action = function(sources, trigger_char, callback, _, git_info)
-                  return sources.gitlab:get_merge_requests(callback, git_info, trigger_char)
-                end,
-              },
-              {
-                debug_name = "github_issues_and_pr",
-                trigger_character = "#",
-                action = function(sources, trigger_char, callback, _, git_info)
-                  return sources.github:get_issues_and_prs(callback, git_info, trigger_char)
-                end,
-              },
-              {
-                debug_name = "github_mentions",
-                trigger_character = "@",
-                action = function(sources, trigger_char, callback, _, git_info)
-                  return sources.github:get_mentions(callback, git_info, trigger_char)
-                end,
-              },
-            },
-          }
-          )
-        end,
       },
     },
     event = "InsertEnter",
@@ -203,10 +80,6 @@ return {
       })
 
       npairs.add_rules({
-        Rule(" ", " "):with_pair(function(opts)
-          local pair = opts.line:sub(opts.col - 1, opts.col)
-          return vim.tbl_contains({ "()", "[]", "{}" }, pair)
-        end),
         Rule("(", ")"):with_pair(function(opts)
           return opts.prev_char:match(".%)") ~= nil
         end):use_key(")"),
@@ -263,6 +136,65 @@ return {
     keys = { "<Leader>/" },
   },
 
+  -- todo comments
+  {
+    "folke/todo-comments.nvim",
+    config = function()
+      local todo_comments = require("todo-comments")
+
+      local icons = require("lazyvim.config.global").icons
+
+      local error_red = "#F44747"
+      local warning_orange = "#ff8800"
+      local hint_blue = "#4FC1FF"
+      local perf_purple = "#7C3AED"
+      local note_green = "#10B981"
+
+      todo_comments.setup({
+        signs = true,
+        sign_priority = 8,
+        keywords = {
+          FIX = {
+            icon = icons.ui.Bug,
+            color = error_red,
+            alt = { "FIXME", "BUG", "FIXIT", "ISSUE" },
+          },
+          TODO = { icon = icons.ui.Check, color = hint_blue, alt = { "TIP" } },
+          HACK = { icon = icons.ui.Fire, color = warning_orange },
+          WARN = { icon = icons.diagnostics.Warning, color = warning_orange, alt = { "WARNING", "XXX" } },
+          PERF = {
+            icon = icons.ui.Dashboard,
+            color = perf_purple,
+            alt = { "OPTIM", "PERFORMANCE", "OPTIMIZE", "TEST" },
+          },
+          NOTE = { icon = icons.ui.Note, color = note_green, alt = { "INFO" } },
+        },
+        highlight = {
+          before = "",
+          keyword = "wide",
+          after = "fg",
+          pattern = [[.*<(KEYWORDS)\s*:]],
+          comments_only = true,
+          max_line_len = 400,
+          exclude = { "markdown" },
+        },
+        search = {
+          command = "rg",
+          args = {
+            "--color=never",
+            "--no-heading",
+            "--with-filename",
+            "--line-number",
+            "--column",
+          },
+          pattern = [[\b(KEYWORDS):]],
+        },
+      })
+    end,
+    event = "BufRead",
+  },
+
+
   {
     "danymat/neogen",
     config = function()
@@ -278,31 +210,6 @@ return {
       })
     end,
     cmd = "Neogen",
-  },
-
-  {
-    "SingularisArt/nvim-possession",
-    config = function()
-      require("nvim-possession").setup({
-        sessions = {
-          sessions_path = os.getenv("HOME") .. "/.config/nvim/misc/sessions/",
-        },
-        fzf_winopts = {
-          width = 0.5,
-          preview = {
-            vertical = "right:30%"
-          }
-        }
-      })
-    end,
-    dependencies = {
-      "ibhagwan/fzf-lua"
-    },
-    keys = {
-      { "<Leader>Sl", "<CMD>lua require('nvim-possession').list()<CR>" },
-      { "<Leader>Sc", "<CMD>lua require('nvim-possession').new()<CR>" },
-      { "<Leader>Su", "<CMD>lua require('nvim-possession').update()<CR>" },
-    },
   },
 
   { "wakatime/vim-wakatime", event = "BufEnter" },

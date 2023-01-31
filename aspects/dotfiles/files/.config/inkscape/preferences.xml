@@ -306,7 +306,7 @@
        id="lpetool"
        mode="drag"
        style="fill:#ff0000;fill-opacity:1;fill-rule:nonzero;stroke:none;"
-       unit="px"
+       unit="mm"
        show_bbox="1" />
     <eventcontext
        id="text"
@@ -538,7 +538,7 @@
        id="toolbox" />
     <group
        id="fillstroke"
-       page="2" />
+       page="1" />
     <group
        id="filtereffects" />
     <group
@@ -584,7 +584,7 @@
     </group>
     <group
        id="save_as"
-       default="org.inkscape.output.png.inkscape"
+       default="org.inkscape.raster.jpg_output"
        append_extension="1"
        enable_preview="1"
        path="/home/singularis/Downloads"
@@ -598,7 +598,7 @@
     <group
        id="open"
        enable_preview="1"
-       path="/home/singularis/Documents/school-notes/current-course/assignments/my-assignments/figures/" />
+       path="/home/singularis/Downloads/" />
     <group
        id="import"
        enable_preview="1"
@@ -963,14 +963,14 @@
      org.inkscape.input.svg.scale="auto" />
   <group
      id="desktop"
-     style="fill:none;stroke-width:3.77952756;-inkscape-font-specification:'sans-serif, Normal';font-family:sans-serif;font-size:20px;stroke:#000000">
+     style="fill:#000000;stroke-width:3.77952756;-inkscape-font-specification:'sans-serif, Normal';font-family:sans-serif;font-size:46.66666667px;stroke:#000000">
     <group
        width="640"
        height="480"
        x="0"
        y="0"
        maximized="1"
-       fullscreen="1"
+       fullscreen="0"
        id="geometry" />
     <group
        id="XYfront" />
@@ -1088,8 +1088,8 @@
   <group
      id="theme"
      defaultPreferDarkTheme="0"
-     defaultIconTheme="oomox-xresources-reverse-flat"
-     defaultGtkTheme="oomox-xresources-reverse"
+     defaultIconTheme="Qogir"
+     defaultGtkTheme="Arc-Darker"
      narrowSpinButton="1"
      preferDarkTheme="1"
      darkTheme="1"

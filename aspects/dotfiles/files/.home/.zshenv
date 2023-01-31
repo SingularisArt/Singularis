@@ -5,6 +5,7 @@ export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_STATE_HOME="$HOME/.local/state"
 
+# export DISPLAY=:0
 export XDG_CURRENT_DESKTOP=ubuntu:GNOME
 export GDMSESSION="ubuntu"
 export XDG_DATA_DIRS="/usr/local/share:/usr/share"

@@ -55,6 +55,8 @@ return {
           },
         },
         ensure_installed = {},
+        ignore_install = { "latex", "markdown" },
+        auto_install = true,
         refactor = {
           highlight_definitions = { enable = true },
           highlight_current_scope = { enable = false },

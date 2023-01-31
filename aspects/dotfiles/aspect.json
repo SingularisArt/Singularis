@@ -7,7 +7,6 @@
     },
     ".config": {
       "GeoGebra": "public",
-      "anki": "public",
       "awesome": "public",
       "bashtop": "public",
       "bottom": "public",
@@ -61,5 +60,37 @@
       "git/config": ["email", "name", "signkey", "username"],
       "gh/hosts.yml": ["username", "oauth_token"]
     }
-  }
+  },
+  "packages": [
+    "awesome",
+    "bashtop",
+    "bottom",
+    "bspwm",
+    "calcurse",
+    "btop",
+    "castero",
+    "cmus",
+    "cointop",
+    "dunst",
+    "easytag",
+    "inkscape",
+    "ipython",
+    "kitty",
+    "lf",
+    "lynx",
+    "manuskript",
+    "mpd",
+    "mpv",
+    "ncmpcpp",
+    "neofetch",
+    "newsboat",
+    "picom",
+    "polybar",
+    "ranger",
+    "sioyek",
+    "sxhkd",
+    "tmux",
+    "zsh",
+    "feh"
+  ]
 }

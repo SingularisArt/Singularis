@@ -123,16 +123,6 @@ return {
         end,
         ft = "python",
       },
-
-      {
-        "jay-babu/mason-nvim-dap.nvim",
-        config = function()
-          require("mason-nvim-dap").setup({
-            automatic_installation = true,
-          })
-        end,
-        dependencies = "williamboman/mason.nvim",
-      },
     },
     keys = {
       "<Leader>dt",
