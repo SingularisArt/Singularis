@@ -1,79 +1,79 @@
-# #!/bin/sh
+#!/bin/sh
 
-# # Autostart
+# Autostart
 
-# ############
-# # Autokill #
-# ############
+############
+# Autokill #
+############
 
-# killall -9 ksuperkey xfce4-power-manager &
-# killall sxhkd; sxhkd &
+killall -9 ksuperkey xfce4-power-manager &
+killall sxhkd; sxhkd &
 sxhkd &
-# killall dunst; dunst &
-# killall mpd; mpd &
-# xrdb -load ~/.config/X11/Xresources
+killall dunst; dunst &
+killall mpd; mpd &
+xrdb -load ~/.config/X11/Xresources
 
-# #############
-# # Autostart #
-# #############
+#############
+# Autostart #
+#############
 
-# # picom -b --backend glx --blur-method dual_kawase &
-# killall bspswallow; pidof ~/.local/bin/bspwm/bspswallow | ~/.local/bin/bspwm/bspswallow &
-# killall flameshot; flameshot &
-# killall fcitx; fcitx -d &
-# feh --bg-scale ~/.config/wall.jpg &
-# killall polybar; "$HOME/.config/polybar/launch.sh" &
+# picom -b --backend glx --blur-method dual_kawase &
+killall bspswallow; pidof ~/.local/bin/bspwm/bspswallow | ~/.local/bin/bspwm/bspswallow &
+killall flameshot; flameshot &
+killall fcitx; fcitx -d &
+feh --bg-scale ~/.config/wall.jpg &
+killall polybar; "$HOME/.config/polybar/launch.sh" &
 
-# # Variable
-# source "${HOME}/.config/zsh/exports.zsh"
-# source "${HOME}/.cache/wal/colors.sh"
+# Variable
+source "${HOME}/.config/zsh/exports.zsh"
+source "${HOME}/.cache/wal/colors.sh"
 
-# # Workspaces
-# bspc monitor -d         
+# Workspaces
+bspc monitor -d         
 
-# # : HOME
-# # : BROWSER
-# # : SCHOOL
-# # : FILE BROWSER
-# # : CODING
-# # : PROJECTS
-# # : MUSIC
-# # : MEDIA/RELAXING
-# # : CHATTING
+# : HOME
+# : BROWSER
+# : SCHOOL
+# : FILE BROWSER
+# : CODING
+# : PROJECTS
+# : MUSIC
+# : MEDIA/RELAXING
+# : CHATTING
 
-# # Config
-# bspc config automatic_scheme alternate
-# bspc config initial_polarity second_child
-# bspc config pointer_modifier lock
-# bspc config pointer_action1 move
-# bspc config pointer_action2 resize_side
-# bspc config pointer_action3 resize_corner
-# bspc config click_to_focus none
+# Config
+bspc config automatic_scheme alternate
+bspc config initial_polarity second_child
+bspc config pointer_modifier lock
+bspc config pointer_action1 move
+bspc config pointer_action2 resize_side
+bspc config pointer_action3 resize_corner
+bspc config click_to_focus none
 
-# bspc config focus_follows_pointer true
-# bspc config remove_disabled_monitors true
-# bspc config remove_unplugged_monitors true
-# bspc config merge_overlapping_monitors true
+bspc config focus_follows_pointer true
+bspc config remove_disabled_monitors true
+bspc config remove_unplugged_monitors true
+bspc config merge_overlapping_monitors true
 
-# bspc config normal_border_color "$color1"
-# bspc config active_border_color "$color2"
-# bspc config focused_border_color "$color15"
-# bspc config presel_border_color "$color1"
+bspc config normal_border_color "$color1"
+bspc config active_border_color "$color2"
+bspc config focused_border_color "$color15"
+bspc config presel_border_color "$color1"
 
-# # Monitor And Desktop Settings
-# # bspc config top_padding 32
-# bspc config top_padding 0
-# bspc config bottom_padding 0
-# bspc config left_padding 0
-# bspc config right_padding 0
-# bspc config border_width 2
-# bspc config window_gap 10
+# Monitor And Desktop Settings
+# bspc config top_padding 32
+bspc config top_padding 0
+bspc config bottom_padding 0
+bspc config left_padding 0
+bspc config right_padding 0
+bspc config border_width 2
+bspc config window_gap 10
 
-# # Rules
-# workspaces_multimonitor &
+# Rules
+workspaces_multimonitor &
 
-# bspc rule -r "*"
-# bspc rule -a matplotlib state=floating
-# bspc rule -a gnome-terminal-server state=floating
-# bspc rule -a Gnome-terminal state=floating
-# bspc rule -a Xfce4-terminal:ncmpcpp state=floating
+bspc rule -r "*"
+bspc rule -a matplotlib state=floating
+bspc rule -a gnome-terminal-server state=floating
+bspc rule -a Gnome-terminal state=floating
+bspc rule -a Xfce4-terminal:ncmpcpp state=floating
