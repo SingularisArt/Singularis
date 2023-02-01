@@ -15,7 +15,7 @@ touch "$tmp_file" 2>&1 /dev/null
 echo "$sep" >> "$tmp_file"
 
 for bookmark_file in $bookmarks; do
-  if [ "$(wc -l "$bookmark_file")" != 0 ]; then
+  if [ "$(wc -l "$bookmark_file")" != "0 $bookmark_file" ]; then
     current_bookmarks=$(cat "$bookmark_file")
     echo "$current_bookmarks" >> "$tmp_file"
     echo "$sep" >> "$tmp_file"
