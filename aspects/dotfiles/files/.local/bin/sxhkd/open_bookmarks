@@ -1,6 +1,4 @@
 #!/usr/bin/env bash
 
-source "$HOME/.config/zsh/exports.zsh" || exit
-
 cd "$HOME"/.local/share/bookmarks || exit
-xfce4-terminal -e "$HOME/.local/bin/lfub"
+kitty "$HOME/.local/bin/lfub"

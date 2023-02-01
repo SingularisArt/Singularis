@@ -290,8 +290,7 @@ turned out to be 2000+ lines.
 - [giph](https://github.com/phisch/giph): Record gifs from your terminal.
 - [slop](https://github.com/naelstrof/slop): Screen region selector.
 - [xclip](https://github.com/astrand/xclip): Scriptable clipboard utility.
-- [xfce4-terminal](https://github.com/xfce-mirror/xfce4-terminal): My main
-  terminal.
+- [kitty](https://sw.kovidgoyal.net/kitty/): My main terminal.
 
 ## Tools
 

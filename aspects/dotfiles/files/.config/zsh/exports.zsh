@@ -2,7 +2,7 @@ HISTFILE="${ZDOTDIR}/history"
 HISTSIZE=1000000
 SAVEHIST=1000000
 
-export TERMINAL="xfce4-terminal"
+export TERMINAL="kitty"
 export PDF_VIEWER="zathura"
 export EDITOR="nvim"
 export VISUAL="nvim"
