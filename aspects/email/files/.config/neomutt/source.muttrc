@@ -5,4 +5,4 @@ source ~/.config/neomutt/keys/bind.muttrc
 source ~/.config/neomutt/settings.muttrc
 source ~/.config/neomutt/colors.muttrc
 
-source ~/.config/neomutt/accounts/EMAIL.muttrc
+source ~/.config/neomutt/accounts/source-accounts.muttrc
