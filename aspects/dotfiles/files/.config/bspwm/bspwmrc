@@ -1,14 +1,10 @@
 #!/bin/sh
 
-# Autostart
-
 ############
 # Autokill #
 ############
 
-killall -9 ksuperkey xfce4-power-manager &
 killall sxhkd; sxhkd &
-sxhkd &
 killall dunst; dunst &
 killall mpd; mpd &
 xrdb -load ~/.config/X11/Xresources
@@ -22,7 +18,7 @@ killall bspswallow; pidof ~/.local/bin/bspwm/bspswallow | ~/.local/bin/bspwm/bsp
 killall flameshot; flameshot &
 killall fcitx; fcitx -d &
 feh --bg-scale ~/.config/wall.jpg &
-killall polybar; "$HOME/.config/polybar/launch.sh" &
+# Killall polybar; "$HOME/.config/polybar/launch.sh" &
 
 # Variable
 source "${HOME}/.config/zsh/exports.zsh"
@@ -55,9 +51,9 @@ bspc config remove_disabled_monitors true
 bspc config remove_unplugged_monitors true
 bspc config merge_overlapping_monitors true
 
-bspc config normal_border_color "$color1"
+bspc config normal_border_color "$color0"
 bspc config active_border_color "$color2"
-bspc config focused_border_color "$color15"
+bspc config focused_border_color "$color1"
 bspc config presel_border_color "$color1"
 
 # Monitor And Desktop Settings
@@ -73,7 +69,3 @@ bspc config window_gap 10
 workspaces_multimonitor &
 
 bspc rule -r "*"
-bspc rule -a matplotlib state=floating
-bspc rule -a gnome-terminal-server state=floating
-bspc rule -a Gnome-terminal state=floating
-bspc rule -a Xfce4-terminal:ncmpcpp state=floating

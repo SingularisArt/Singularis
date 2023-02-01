@@ -18,19 +18,19 @@ super + Return
 super + w
   $BROWSER
 super + m
-  bspc rule -a kitty -o state=floating && kitty -e 'neomutt'
+  bspc rule -a kitty -o state=floating && kitty "neomutt"
 super + shift + m
-  bspc rule -a kitty -o state=floating && kitty -e 'nvim +"set ft=mail" +Mail'
+  bspc rule -a kitty -o state=floating && kitty "nvim +'set ft=mail' +Mail"
 super + n
-  bspc rule -a kitty -o state=floating && kitty -e 'newsboat'
+  bspc rule -a kitty -o state=floating && kitty "newsboat"
 super + e
-  bspc rule -a kitty -o state=floating && kitty -e 'ncmpcpp'
+  bspc rule -a kitty -o state=floating && kitty "ncmpcpp"
 super + shift + c
-  bspc rule -a kitty -o state=floating && kitty -e 'castero'
+  bspc rule -a kitty -o state=floating && kitty "castero"
 super + c
-  bspc rule -a kitty -o state=floating && kitty -e 'calcurse'
+  bspc rule -a kitty -o state=floating && kitty "calcurse"
 super + shift + p
-  bspc rule -a kitty -o state=floating && kitty -e 'pulsemixer'
+  bspc rule -a kitty -o state=floating && kitty "pulsemixer"
 super + shift + d
   bash ~/.local/bin/xmenu-script
 super + shift + z
