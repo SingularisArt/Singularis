@@ -94,9 +94,6 @@ return {
             ":<C-u>lua require('lir.mark.actions').toggle_mark('v')<CR>",
             { noremap = true, silent = true }
           )
-
-          -- echo cwd
-          -- vim.api.nvim_echo({ { vim.fn.expand "%:p", "Normal" } }, false, {})
         end,
       })
 
@@ -104,8 +101,6 @@ return {
       require("nvim-web-devicons").set_icon({
         lir_folder_icon = {
           icon = "",
-          -- color = "#7ebae4",
-          -- color = "#569CD6",
           color = "#42A5F5",
           name = "LirFolderNode",
         },
@@ -119,9 +114,14 @@ return {
   -- search/replace in multiple files
   {
     "windwp/nvim-spectre",
-    -- stylua: ignore
     keys = {
-      { "<leader>sr", function() require("spectre").open() end, desc = "Replace in files (Spectre)" },
+      {
+        "<leader>sr",
+        function()
+          require("spectre").open()
+        end,
+        desc = "Replace in files (Spectre)",
+      },
     },
   },
 
@@ -160,9 +160,9 @@ return {
           require("telescope").load_extension("sessions")
         end,
         keys = {
-          { "<Leader>Sl", "<CMD>lua require('nvim-possession').list()<CR>" },
-          { "<Leader>Sc", "<CMD>lua require('nvim-possession').new()<CR>" },
-          { "<Leader>Su", "<CMD>lua require('nvim-possession').update()<CR>" },
+          { "<Leader>Sl", "<CMD>Telescope sessions list<CR>" },
+          { "<Leader>Sn", "<CMD>Telescope sessions new<CR>" },
+          { "<Leader>Su", "<CMD>Telescope sessions update<CR>" },
         },
       },
     },
