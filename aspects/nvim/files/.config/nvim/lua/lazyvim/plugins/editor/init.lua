@@ -12,18 +12,6 @@ return {
     },
   },
 
-  -- file explorer (second option)
-  {
-    "nvim-tree/nvim-tree.lua",
-    config = function()
-      require("lazyvim.plugins.editor.nvim-tree")
-    end,
-    cmd = "NvimTreeToggle",
-    keys = {
-      { "<Leader>E", "<CMD>NvimTreeToggle<CR>" },
-    },
-  },
-
   -- floating file explorer
   {
     "tamago324/lir.nvim",
@@ -281,22 +269,6 @@ return {
   },
 
   {
-    "kylechui/nvim-surround",
-    config = function()
-      require("nvim-surround").setup({
-        keymaps = {
-          visual = "<Leader>cr",
-        },
-      })
-    end,
-    keys = {
-      "ys",
-      "ds",
-      "cs",
-    },
-  },
-
-  {
     "chrisbra/Colorizer",
     ft = {
       "log",
@@ -469,13 +441,6 @@ return {
     },
   },
 
-  -- {
-  --   "wincent/corpus",
-  --   config = function()
-  --   end,
-  --   event = "BufEnter",
-  -- },
-
   {
     "mbbill/undotree",
     config = function()
@@ -545,38 +510,6 @@ return {
           transform = "web",
         },
       }
-    end,
-  },
-
-  {
-    "machakann/vim-sandwich",
-    config = function()
-      vim.cmd([[
-      nmap ca <Plug>(sandwich-add)
-      xmap ca <Plug>(sandwich-add)
-      omap ca <Plug>(sandwich-add)
-      nmap cd <Plug>(sandwich-delete)
-      xmap cd <Plug>(sandwich-delete)
-      nmap cda <Plug>(sandwich-delete-auto)
-      nmap cdb <Plug>(sandwich-delete-auto)
-      nmap cr <Plug>(sandwich-replace)
-      xmap cr <Plug>(sandwich-replace)
-      nmap crb <Plug>(sandwich-replace-auto)
-      nmap cra <Plug>(sandwich-replace-auto)
-      omap ib <Plug>(textobj-sandwich-auto-i)
-      xmap ib <Plug>(textobj-sandwich-auto-i)
-      omap ab <Plug>(textobj-sandwich-auto-a)
-      xmap ab <Plug>(textobj-sandwich-auto-a)
-      omap is <Plug>(textobj-sandwich-query-i)
-      xmap is <Plug>(textobj-sandwich-query-i)
-      omap as <Plug>(textobj-sandwich-query-a)
-      xmap as <Plug>(textobj-sandwich-query-a)
-    ]] )
-    end,
-    cmd = "Sandwith",
-    event = { "CursorMoved", "CursorMovedI" },
-    setup = function()
-      vim.g.sandwich_no_default_key_mappings = 1
     end,
   },
 
