@@ -62,6 +62,7 @@
     }
   },
   "packages": [
+    "anki",
     "awesome",
     "bashtop",
     "bottom",
@@ -77,6 +78,7 @@
     "ipython",
     "kitty",
     "lf",
+    "ueberzug",
     "lynx",
     "manuskript",
     "mpd",
