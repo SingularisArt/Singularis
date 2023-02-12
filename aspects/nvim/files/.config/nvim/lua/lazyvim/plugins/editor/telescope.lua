@@ -150,14 +150,9 @@ telescope.setup({
     },
     find_files = {
       theme = "dropdown",
-      previewer = true,
     },
     buffers = {
       theme = "dropdown",
-      previewer = false,
-    },
-    colorscheme = {
-      enable_preview = false,
     },
     lsp_references = {
       theme = "dropdown",
