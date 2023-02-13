@@ -42,14 +42,7 @@ return {
     end,
     ft = "tex",
   },
-  {
-    "brymer-meneses/grammar-guard.nvim",
-    config = function()
-      require("grammar-guard").init()
-    end,
-    ft = "tex",
-  },
-  -- { "KeitaNakamura/tex-conceal.vim", ft = "tex" },
+  { "KeitaNakamura/tex-conceal.vim", ft = "tex" },
 
   -- log
   {

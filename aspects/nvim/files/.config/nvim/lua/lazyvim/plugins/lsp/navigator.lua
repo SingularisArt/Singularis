@@ -80,5 +80,3 @@ require("navigator").setup({
     },
   },
 })
-
-require("lspconfig").ltex.setup({})

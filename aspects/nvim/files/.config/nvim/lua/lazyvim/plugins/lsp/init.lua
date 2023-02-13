@@ -20,7 +20,6 @@ local lsp_filetypes = {
   "java",
   "r",
   "bib",
-  -- "tex",
 }
 
 return {

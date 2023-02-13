@@ -1,10 +1,6 @@
 local cmp = require("cmp")
--- local cmp_ultisnips_mappings = require("cmp_nvim_ultisnips.mappings")
-local _, neogen = pcall(require, "neogen")
-
-local t = function(str)
-  return vim.api.nvim_replace_termcodes(str, true, true, true)
-end
+local cmp_ultisnips_mappings = require("cmp_nvim_ultisnips.mappings")
+local neogen_ok, neogen = pcall(require, "neogen")
 
 local icons = require("lazyvim.config.global").icons
 local kind_icons = icons.kind
@@ -54,52 +50,28 @@ cmp.setup({
     ["<C-b>"] = cmp.mapping.scroll_docs( -4),
     ["<C-f>"] = cmp.mapping.scroll_docs(4),
     ["<C-e>"] = cmp.mapping.abort(),
-    ["<Tab>"] = cmp.mapping.confirm({ select = true }),
 
     ["<C-j>"] = cmp.mapping({
-      c = function()
-        if cmp.visible() then
-          cmp.select_next_item({ behavior = cmp.SelectBehavior.Insert })
-        end
-      end,
       i = function(fallback)
-        if vim.fn["UltiSnips#CanJumpForwards"]() == 1 then
-          vim.api.nvim_feedkeys(t("<Plug>(ultisnips_jump_forward)"), "m", true)
-        else
-          if neogen.jumpable() then
+        cmp_ultisnips_mappings.compose({ "jump_forwards" })(function()
+          if neogen_ok and neogen.jumpable() then
             neogen.jump_next()
           else
             fallback()
           end
-        end
-      end,
-      s = function(fallback)
-        if vim.fn["UltiSnips#CanJumpForwards"]() == 1 then
-          vim.api.nvim_feedkeys(t("<Plug>(ultisnips_jump_forward)"), "m", true)
-        else
-          fallback()
-        end
+        end)
       end,
     }),
 
     ["<C-k>"] = cmp.mapping({
       i = function(fallback)
-        if vim.fn["UltiSnips#CanJumpBackwards"]() == 1 then
-          return vim.api.nvim_feedkeys(t("<Plug>(ultisnips_jump_backward)"), "m", true)
-        else
-          if neogen.jumpable(true) then
+        cmp_ultisnips_mappings.compose({ "jump_backwards" })(function()
+          if neogen_ok and neogen.jumpable(true) then
             neogen.jump_prev()
           else
             fallback()
           end
-        end
-      end,
-      s = function(fallback)
-        if vim.fn["UltiSnips#CanJumpBackwards"]() == 1 then
-          return vim.api.nvim_feedkeys(t("<Plug>(ultisnips_jump_backward)"), "m", true)
-        else
-          fallback()
-        end
+        end)
       end,
     }),
   }),
