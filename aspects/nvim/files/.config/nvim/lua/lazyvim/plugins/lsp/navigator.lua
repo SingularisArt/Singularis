@@ -50,7 +50,7 @@ require("navigator").setup({
     rust_analyzer = { require("lazyvim.plugins.lsp.settings.rust_analyzer") },
     solang = { require("lazyvim.plugins.lsp.settings.solang") },
     solc = { require("lazyvim.plugins.lsp.settings.solc") },
-    sumneko_lua = { require("lazyvim.plugins.lsp.settings.sumneko_lua") },
+    lua_ls = { require("lazyvim.plugins.lsp.settings.lua_ls") },
     texlab = { require("lazyvim.plugins.lsp.settings.texlab"), filetype = { "bib" } },
     tsserver = { require("lazyvim.plugins.lsp.settings.tsserver") },
     yamlls = { require("lazyvim.plugins.lsp.settings.yamlls") },
