@@ -3,6 +3,9 @@ return {
     "nvim-treesitter/nvim-treesitter",
     config = function()
       require("nvim-treesitter.configs").setup({
+        ensure_installed = {},
+        ignore_install = { "latex", "markdown" },
+        auto_install = true,
         highlight = {
           enable = true,
           additional_vim_regex_highlighting = true,
@@ -29,15 +32,15 @@ return {
         textobjects = {
           lsp_interop = {
             enable = true,
-            peek_definition_code = { ["DF"] = "@function.outer", ["CF"] = "@class.outer" },
+            peek_definition_code = { ["DF"] = "@function.outer",["CF"] = "@class.outer" },
           },
           move = {
             enable = true,
             set_jumps = true,
-            goto_next_start = { ["]m"] = "@function.outer", ["]]"] = "@class.outer" },
-            goto_next_end = { ["]M"] = "@function.outer", ["]["] = "@class.outer" },
-            goto_previous_start = { ["[m"] = "@function.outer", ["[["] = "@class.outer" },
-            goto_previous_end = { ["[M"] = "@function.outer", ["[]"] = "@class.outer" },
+            goto_next_start = { ["]m"] = "@function.outer",["]]"] = "@class.outer" },
+            goto_next_end = { ["]M"] = "@function.outer",["]["] = "@class.outer" },
+            goto_previous_start = { ["[m"] = "@function.outer",["[["] = "@class.outer" },
+            goto_previous_end = { ["[M"] = "@function.outer",["[]"] = "@class.outer" },
           },
           select = {
             enable = true,
@@ -54,9 +57,6 @@ return {
             swap_previous = { ["<leader>A"] = "@parameter.inner" },
           },
         },
-        ensure_installed = {},
-        ignore_install = { "latex", "markdown" },
-        auto_install = true,
         refactor = {
           highlight_definitions = { enable = true },
           highlight_current_scope = { enable = false },
@@ -118,14 +118,5 @@ return {
         },
       },
     },
-    event = "VeryLazy",
-  },
-
-  {
-    "m-demare/hlargs.nvim",
-    config = function()
-      require("hlargs").setup()
-    end,
-    event = "VeryLazy",
   },
 }

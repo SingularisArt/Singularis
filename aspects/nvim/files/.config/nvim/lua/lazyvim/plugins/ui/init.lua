@@ -201,38 +201,38 @@ return {
     event = "BufAdd",
   },
 
-  {
-    "kevinhwang91/nvim-hlslens",
-    config = function()
-      require("hlslens").setup()
-      vim.cmd([[
-        hi default link HlSearchNear IncSearch
-        hi default link HlSearchLens WildMenu
-        hi default link HlSearchLensNear IncSearch
-        hi default link HlSearchFloat IncSearch
-      ]])
+  -- {
+  --   "kevinhwang91/nvim-hlslens",
+  --   config = function()
+  --     require("hlslens").setup()
+  --     vim.cmd([[
+  --       hi default link HlSearchNear IncSearch
+  --       hi default link HlSearchLens WildMenu
+  --       hi default link HlSearchLensNear IncSearch
+  --       hi default link HlSearchFloat IncSearch
+  --     ]])
 
-      local kopts = { noremap = true, silent = true }
+  --     local kopts = { noremap = true, silent = true }
 
-      vim.api.nvim_set_keymap("n", "n",
-        [[<CMD>execute("normal! " . v:count1 . "n")<CR><CMD>lua require("hlslens").start()<CR>]], kopts)
-      vim.api.nvim_set_keymap("n", "N",
-        [[<CMD>execute("normal! " . v:count1 . "N")<CR><CMD>lua require("hlslens").start()<CR>]], kopts)
+  --     vim.api.nvim_set_keymap("n", "n",
+  --       [[<CMD>execute("normal! " . v:count1 . "n")<CR><CMD>lua require("hlslens").start()<CR>]], kopts)
+  --     vim.api.nvim_set_keymap("n", "N",
+  --       [[<CMD>execute("normal! " . v:count1 . "N")<CR><CMD>lua require("hlslens").start()<CR>]], kopts)
 
-      vim.api.nvim_set_keymap("n", "*", "*<CMD>lua require(\"hlslens\").start()<CR>", kopts)
-      vim.api.nvim_set_keymap("n", "#", "#<CMD>lua require(\"hlslens\").start()<CR>", kopts)
-      vim.api.nvim_set_keymap("n", "g*", "g*<CMD>lua require(\"hlslens\").start()<CR>", kopts)
-      vim.api.nvim_set_keymap("n", "g#", "g#<CMD>lua require(\"hlslens\").start()<CR>", kopts)
-    end,
-    keys = {
-      "n",
-      "N",
-      "*",
-      "#",
-      "g*",
-      "g#",
-    },
-  },
+  --     vim.api.nvim_set_keymap("n", "*", "*<CMD>lua require(\"hlslens\").start()<CR>", kopts)
+  --     vim.api.nvim_set_keymap("n", "#", "#<CMD>lua require(\"hlslens\").start()<CR>", kopts)
+  --     vim.api.nvim_set_keymap("n", "g*", "g*<CMD>lua require(\"hlslens\").start()<CR>", kopts)
+  --     vim.api.nvim_set_keymap("n", "g#", "g#<CMD>lua require(\"hlslens\").start()<CR>", kopts)
+  --   end,
+  --   keys = {
+  --     "n",
+  --     "N",
+  --     "*",
+  --     "#",
+  --     "g*",
+  --     "g#",
+  --   },
+  -- },
 
   {
     "SingularisArt/pommodoro-clock.nvim",

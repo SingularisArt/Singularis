@@ -20,6 +20,7 @@ local lsp_filetypes = {
   "java",
   "r",
   "bib",
+  -- "tex",
 }
 
 return {
@@ -143,15 +144,15 @@ return {
     ft = lsp_filetypes,
   },
 
-  {
-    "folke/neoconf.nvim",
-    -- after = "nvim-lspconfig",
-    config = function()
-      require("neoconf").setup()
-    end,
-    ft = { "lua", "json" },
-    -- cmd = "Neoconf",
-  },
+  -- {
+  --   "folke/neoconf.nvim",
+  --   -- after = "nvim-lspconfig",
+  --   config = function()
+  --     require("neoconf").setup()
+  --   end,
+  --   ft = { "lua", "json" },
+  --   -- cmd = "Neoconf",
+  -- },
 
   -- formatters
   {

@@ -1,6 +1,10 @@
 local cmp = require("cmp")
-local cmp_ultisnips_mappings = require("cmp_nvim_ultisnips.mappings")
-local neogen_ok, neogen = pcall(require, "neogen")
+-- local cmp_ultisnips_mappings = require("cmp_nvim_ultisnips.mappings")
+local _, neogen = pcall(require, "neogen")
+
+local t = function(str)
+  return vim.api.nvim_replace_termcodes(str, true, true, true)
+end
 
 local icons = require("lazyvim.config.global").icons
 local kind_icons = icons.kind
@@ -18,20 +22,13 @@ local source_names = {
   path = "(Path)",
   buffer = "(Buffer)",
   emoji = "(Emoji)",
-  nvim_lsp_document_symbol = "(Symbols)",
-  git = "(Git)",
-  commit = "(Git)",
-  npm = "(NPM)",
-  greek = "(Greek)",
   ["vim-dadbod-completion"] = "(SQL)",
   spell = "(Spell)",
-  look = "(Look)",
   latex_symbols = "(LaTeX)",
   crates = "(Crates)",
   omni = "(Mail)",
-  neorg = "(Norg)",
-  cmp_nvim_r = "(R)",
-  cmp_zotcite = "(Zotero)",
+  -- cmp_nvim_r = "(R)",
+  -- cmp_zotcite = "(Zotero)",
 }
 
 local cmp_sources = {
@@ -41,8 +38,6 @@ local cmp_sources = {
   { name = "path" },
   { name = "buffer" },
   { name = "emoji" },
-  { name = "nvim_lsp_document_symbol" },
-  -- { name = "nvim_lua" },
 }
 
 ----------------------------
@@ -55,38 +50,59 @@ cmp.setup({
       vim.fn["UltiSnips#Anon"](args.body)
     end,
   },
-
   mapping = cmp.mapping.preset.insert({
-    ["<C-b>"] = cmp.mapping.scroll_docs(-4),
+    ["<C-b>"] = cmp.mapping.scroll_docs( -4),
     ["<C-f>"] = cmp.mapping.scroll_docs(4),
     ["<C-e>"] = cmp.mapping.abort(),
     ["<Tab>"] = cmp.mapping.confirm({ select = true }),
 
     ["<C-j>"] = cmp.mapping({
+      c = function()
+        if cmp.visible() then
+          cmp.select_next_item({ behavior = cmp.SelectBehavior.Insert })
+        end
+      end,
       i = function(fallback)
-        cmp_ultisnips_mappings.compose({ "jump_forwards" })(function()
-          if neogen_ok and neogen.jumpable() then
+        if vim.fn["UltiSnips#CanJumpForwards"]() == 1 then
+          vim.api.nvim_feedkeys(t("<Plug>(ultisnips_jump_forward)"), "m", true)
+        else
+          if neogen.jumpable() then
             neogen.jump_next()
           else
             fallback()
           end
-        end)
+        end
+      end,
+      s = function(fallback)
+        if vim.fn["UltiSnips#CanJumpForwards"]() == 1 then
+          vim.api.nvim_feedkeys(t("<Plug>(ultisnips_jump_forward)"), "m", true)
+        else
+          fallback()
+        end
       end,
     }),
 
     ["<C-k>"] = cmp.mapping({
       i = function(fallback)
-        cmp_ultisnips_mappings.compose({ "jump_backwards" })(function()
-          if neogen_ok and neogen.jumpable(true) then
+        if vim.fn["UltiSnips#CanJumpBackwards"]() == 1 then
+          return vim.api.nvim_feedkeys(t("<Plug>(ultisnips_jump_backward)"), "m", true)
+        else
+          if neogen.jumpable(true) then
             neogen.jump_prev()
           else
             fallback()
           end
-        end)
+        end
+      end,
+      s = function(fallback)
+        if vim.fn["UltiSnips#CanJumpBackwards"]() == 1 then
+          return vim.api.nvim_feedkeys(t("<Plug>(ultisnips_jump_backward)"), "m", true)
+        else
+          fallback()
+        end
       end,
     }),
   }),
-
   formatting = {
     fields = { "kind", "abbr", "menu" },
 
@@ -108,7 +124,6 @@ cmp.setup({
     end,
   },
   sources = cmp_sources,
-
   confirm_opts = {
     behavior = cmp.ConfirmBehavior.Replace,
     select = false,
@@ -132,27 +147,23 @@ cmp.setup({
 --  FileType Configuration  --
 ------------------------------
 
-cmp.setup.filetype("tex", { sources = { { name = "ultisnips" } } })
-
-cmp.setup.filetype("sql", {
+cmp.setup.filetype("tex", {
   sources = cmp.config.sources({
-    { name = "vim-dadbod-completion" },
+    { name = "latex_symbols", option = { strategy = 2 } },
   }, cmp.get_config().sources),
 })
 
-cmp.setup.filetype("norg", {
-  sources = cmp.config.sources({
-    { name = "neorg" },
-  }, cmp.get_config().sources),
-})
-
-cmp.setup.filetype("markdown", {
+cmp.setup.filetype({ "markdown", "tex" }, {
   sources = cmp.config.sources({
     { name = "spell" },
-    { name = "look" },
-    { name = "greek" },
   }, cmp.get_config().sources),
 })
+
+-- cmp.setup.filetype("sql", {
+--   sources = cmp.config.sources({
+--     { name = "vim-dadbod-completion" },
+--   }, cmp.get_config().sources),
+-- })
 
 cmp.setup.filetype("lua", {
   sources = cmp.config.sources({
@@ -172,22 +183,9 @@ cmp.setup.filetype("elm", {
   }, cmp.get_config().sources),
 })
 
-cmp.setup.filetype("gitcommit", {
-  sources = cmp.config.sources({
-    { name = "git" },
-    { name = "commit" },
-  }, cmp.get_config().sources),
-})
-
-cmp.setup.filetype("json", {
-  sources = cmp.config.sources({
-    { name = "npm" },
-  }, cmp.get_config().sources),
-})
-
-cmp.setup.filetype({ "r", "rmd" }, {
-  sources = cmp.config.sources({
-    { name = "cmp_zotcite" },
-    { name = "cmp_nvim_r" },
-  }, cmp.get_config().sources),
-})
+-- cmp.setup.filetype({ "r", "rmd" }, {
+--   sources = cmp.config.sources({
+--     { name = "cmp_zotcite" },
+--     { name = "cmp_nvim_r" },
+--   }, cmp.get_config().sources),
+-- })

@@ -6,7 +6,6 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
 local html_capabilities = capabilities
 local css_capabilities = capabilities
 capabilities.offsetEncoding = { "utf-32" }
-local clangd_capabilities = capabilities
 
 require("navigator").setup({
   debug = false,
@@ -51,7 +50,8 @@ require("navigator").setup({
     solang = { require("lazyvim.plugins.lsp.settings.solang") },
     solc = { require("lazyvim.plugins.lsp.settings.solc") },
     lua_ls = { require("lazyvim.plugins.lsp.settings.lua_ls") },
-    texlab = { require("lazyvim.plugins.lsp.settings.texlab"), filetype = { "bib" } },
+    -- texlab = { require("lazyvim.plugins.lsp.settings.texlab"), filetypes = { "bib" } },
+    -- ltex = { require("lazyvim.plugins.lsp.settings.ltex") },
     tsserver = { require("lazyvim.plugins.lsp.settings.tsserver") },
     yamlls = { require("lazyvim.plugins.lsp.settings.yamlls") },
     sqls = { require("lazyvim.plugins.lsp.settings.sqls") },
@@ -80,3 +80,5 @@ require("navigator").setup({
     },
   },
 })
+
+require("lspconfig").ltex.setup({})

@@ -40,9 +40,16 @@ return {
       vim.g.vimtex_compiler_progname = "nvr"
       vim.g.vimtex_quickfix_enabled = 0
     end,
-    lazy = false,
+    ft = "tex",
   },
-  { "KeitaNakamura/tex-conceal.vim", ft = "tex" },
+  {
+    "brymer-meneses/grammar-guard.nvim",
+    config = function()
+      require("grammar-guard").init()
+    end,
+    ft = "tex",
+  },
+  -- { "KeitaNakamura/tex-conceal.vim", ft = "tex" },
 
   -- log
   {
@@ -54,20 +61,20 @@ return {
     },
   },
 
-  -- python
-  {
-    "dccsillag/magma-nvim",
-    config = function()
-      vim.g.magma_image_provider = "ueberzug"
-      vim.g.magma_automatically_open_output = false
-      vim.g.magma_wrap_output = false
-      vim.g.magma_output_window_borders = true
-      vim.g.magma_cell_highlight_group = "CursorLine"
-      vim.g.magma_save_path = vim.fn.stdpath("config") .. "/misc/magma"
-    end,
-    cmd = "MagmaInit",
-    ft = "python",
-  },
+  -- -- python
+  -- {
+  --   "dccsillag/magma-nvim",
+  --   config = function()
+  --     vim.g.magma_image_provider = "ueberzug"
+  --     vim.g.magma_automatically_open_output = false
+  --     vim.g.magma_wrap_output = false
+  --     vim.g.magma_output_window_borders = true
+  --     vim.g.magma_cell_highlight_group = "CursorLine"
+  --     vim.g.magma_save_path = vim.fn.stdpath("config") .. "/misc/magma"
+  --   end,
+  --   cmd = "MagmaInit",
+  --   ft = "python",
+  -- },
 
   -- rust
   {
@@ -121,14 +128,14 @@ return {
 
   -- html
   { "Valloric/MatchTagAlways", ft = "html" },
-  { "turbio/bracey.vim", ft = "html" },
-  { "mattn/emmet-vim", ft = "html" },
+  { "turbio/bracey.vim",       ft = "html" },
+  { "mattn/emmet-vim",         ft = "html" },
 
-  -- json/yaml
-  { "b0o/SchemaStore.nvim", ft = { "json", "yaml" } },
+-- json/yaml
+  { "b0o/SchemaStore.nvim",    ft = { "json", "yaml" } },
 
-  -- r
-  { "jalvesaq/Nvim-R", ft = { "r", "rmd" } },
-  { "jalvesaq/R-Vim-runtime", ft = { "r", "rmd" } },
-  { "jalvesaq/colorout", ft = { "r", "rmd" } },
+-- r
+  { "jalvesaq/Nvim-R",         ft = { "r", "rmd" } },
+  { "jalvesaq/R-Vim-runtime",  ft = { "r", "rmd" } },
+  { "jalvesaq/colorout",       ft = { "r", "rmd" } },
 }

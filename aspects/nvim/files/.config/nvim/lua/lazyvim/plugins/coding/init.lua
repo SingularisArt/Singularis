@@ -21,7 +21,7 @@ return {
     dependencies = {
       "hrsh7th/cmp-nvim-lsp",
       "hrsh7th/cmp-nvim-lua",
-      "quangnguyen30192/cmp-nvim-ultisnips",
+      "kdheepak/cmp-latex-symbols",
       "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-calc",
       "hrsh7th/cmp-path",

@@ -1,35 +1,34 @@
 return {
-  {
-    "nvim-neotest/neotest",
-    config = function()
-      require("neotest").setup({
-        adapters = {
-          require("neotest-python")({
-            dap = { justMyCode = false },
-          }),
-          require("neotest-plenary"),
-          require("neotest-vim-test")({
-            ignore_file_types = { "vim", "lua" },
-          }),
-          require("neotest-jest")({
-            jestCommand = "npm test --",
-            jestConfigFile = "custom.jest.config.ts",
-            env = { CI = true },
-            cwd = function(_)
-              return vim.fn.getcwd()
-            end,
-          }),
-        },
-      })
-    end,
-    dependencies = {
-      "nvim-neotest/neotest-python",
-      "nvim-neotest/neotest-plenary",
-      "nvim-neotest/neotest-vim-test",
-      "haydenmeade/neotest-jest",
-    },
-    -- event = "VeryLazy",
-  },
+  -- {
+  --   "nvim-neotest/neotest",
+  --   config = function()
+  --     require("neotest").setup({
+  --       adapters = {
+  --         require("neotest-python")({
+  --           dap = { justMyCode = false },
+  --         }),
+  --         require("neotest-plenary"),
+  --         require("neotest-vim-test")({
+  --           ignore_file_types = { "vim", "lua" },
+  --         }),
+  --         require("neotest-jest")({
+  --           jestCommand = "npm test --",
+  --           jestConfigFile = "custom.jest.config.ts",
+  --           env = { CI = true },
+  --           cwd = function(_)
+  --             return vim.fn.getcwd()
+  --           end,
+  --         }),
+  --       },
+  --     })
+  --   end,
+  --   dependencies = {
+  --     "nvim-neotest/neotest-python",
+  --     "nvim-neotest/neotest-plenary",
+  --     "nvim-neotest/neotest-vim-test",
+  --     "haydenmeade/neotest-jest",
+  --   },
+  -- },
 
   {
     "mfussenegger/nvim-dap",
