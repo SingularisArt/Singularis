@@ -1,1 +1,1 @@
--- require("SingularisArt.config.dap.c")
+-- require("config.dap.c")

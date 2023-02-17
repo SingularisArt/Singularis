@@ -1,1 +1,1 @@
--- require("lazyvim.config.dap.c")
+-- require("config.dap.c")
