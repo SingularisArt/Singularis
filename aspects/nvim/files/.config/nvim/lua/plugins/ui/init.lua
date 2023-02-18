@@ -14,26 +14,26 @@ return {
     event = "BufEnter",
   },
 
-  -- noicer ui
-  {
-    "folke/noice.nvim",
-    event = "VeryLazy",
-    opts = {
-      lsp = {
-        hover = {
-          enabled = false,
-        },
-        signature = {
-          enabled = false,
-        },
-      },
-      presets = {
-        bottom_search = true,
-        command_palette = true,
-        long_message_to_split = true,
-      },
-    },
-  },
+  -- -- noicer ui
+  -- {
+  --   "folke/noice.nvim",
+  --   event = "VeryLazy",
+  --   opts = {
+  --     lsp = {
+  --       hover = {
+  --         enabled = false,
+  --       },
+  --       signature = {
+  --         enabled = false,
+  --       },
+  --     },
+  --     presets = {
+  --       bottom_search = true,
+  --       command_palette = true,
+  --       long_message_to_split = true,
+  --     },
+  --   },
+  -- },
 
   {
     "rcarriga/nvim-notify",
