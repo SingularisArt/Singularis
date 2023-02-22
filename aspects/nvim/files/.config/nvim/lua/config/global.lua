@@ -86,7 +86,7 @@ return {
       Ellipsis = "…",
     },
     diagnostics = {
-      Error = "",
+      Error = "",
       Warn = "",
       Info = "",
       Hint = "",
