@@ -1,11 +1,9 @@
-#!/usr/bin/python3.10
-
 import argparse
 import sys
 
 from man import InitClass as InitClass
 
-# from man import helpers as helpers
+from man import helpers as helpers
 from man.operations.aspects import Aspects as Aspects
 from man.log import Log as Log
 
@@ -13,18 +11,12 @@ init = InitClass()
 
 
 def core(args):
-    if args.all:
-        print("All")
-    if args.aspect:
+    if args.aspect or args.all:
         aspects = Aspects(args)
         [aspect.install_aspect() for aspect in aspects["aspects_to_install"]]
 
 
 def settings(args):
-    if args.colorscheme or args.all:
-        print("Colorscheme")
-    if args.distro:
-        print("Distro")
     if args.settings or args.all:
         print("Settings")
 
@@ -44,30 +36,22 @@ def log(args):
             f.write("3")
 
 
-def extra(args):
-    if args.describe_aspects:
-        print("Describe")
-
-
-def list(args):
+def lists(args):
     if args.list_aspects:
         print("List Aspects")
-    if args.list_distros:
-        print("List Distros")
 
 
 def parse_arguments(args):
     log(args)
-    settings(args)
     core(args)
-    extra(args)
-    list(args)
+    lists(args)
 
 
 def main():
     argparse.ArgumentParser()
     parser = argparse.ArgumentParser(
-        formatter_class=argparse.RawTextHelpFormatter)
+        formatter_class=argparse.RawTextHelpFormatter,
+    )
 
     parser.add_argument(
         "-a",
@@ -77,6 +61,7 @@ def main():
 1. Setup all of my aspects (You've been warned).
 2. Setup all of my settings.
 3. Install required aur and pacman packages.
+4. Generate colorscheme.
 
 Please, when running this command, be careful because you can wipe out all of
 your hard work with my crappy work. To be safe, please check read this section
@@ -91,55 +76,19 @@ of the README: https://github.com/SingularisArt/Singularis#warning.
         "--aspect",
         help="""Installs individual aspects.
 
-If you run `./install --aspect`, it'll install all the available aspects.
-If you run `./install --aspect "dotfiles"`, it'll install only my dotfiles.
-If you run `./install --aspect "^dotfiles"`, it'll install everything except
-    the dotfiles.
-
-Run `./install --list-aspects` to see the full list of aspects.
+`./install ... --aspect`:                               Install all aspects.
+`./install ... --aspect "dotfiles"`:                    Install only the `dotfiles` aspect.
+`./install ... --aspect "dotfiles,email"`:              Install only the `dotfiles` and `email` aspects.
+`./install ... --aspect "^dotfiles"`:                   Install everything except the `dotfiles` aspect.
+`./install ... --aspect "dotfiles(lf,kitty)"`:          Install only the `lf` and `kitty` configuration within the `dotfiles` aspect.
+`./install ... --aspect "dotfiles(lf,kitty),..."`:      Install only the `lf` and `kitty` configuration within the `dotfiles` aspect.
+`./install ... --aspect "dotfiles(^(lf,kitty)),..."`:   Install everything except the `lf` and `kitty` configuration within the `dotfiles` aspect.
 
 """,
         nargs="?",
         type=str,
         dest="aspect",
         const=" ",
-    )
-
-    parser.add_argument(
-        "-r",
-        "--colorscheme",
-        help="""Generate the colorscheme required for most aspects.
-
-""",
-        default=False,
-        action="store_true",
-    )
-    parser.add_argument(
-        "-s",
-        "--set-distro",
-        help="""Change the default distro (Arch).
-
-If you run `./install --set-distro "ubuntu"`, you'll change the default distro
-    to Ubuntu.
-It's important to note that if you use this command, you have to make it the
-    first command like so: `./install --set-distro "kali" --all`.
-
-Run `./install --list-distros` to see the full list of supported distros.
-
-""",
-        nargs="?",
-        type=str,
-        dest="distro",
-        const=" ",
-    )
-    parser.add_argument(
-        "-S",
-        "--settings",
-        help="""Execute the required settings.
-
-""",
-        default=False,
-        action="store_true",
     )
 
     parser.add_argument(
@@ -167,34 +116,28 @@ Log Levels include:
     )
 
     parser.add_argument(
-        "-d",
-        "--describe",
-        help="""Describe the given aspects.
+        "-p",
+        "--packages",
+        help="""Install all the required packages.
 
-If you run `./install --describe dotfiles`, describe the dotfiles.
-
-Run `./install --list-aspects` to see the full list of aspects.
+`./install ... --packages`:                         Installs all required packages.
+`./install ... --packages false`:                   Doesn't install required packages.
+`./install ... --packages "dotfiles"`:              Install required packages for my dotfiles aspect.
+`./install ... --packages "dotfiles(lf,kitty)"`:    Install required packages for my `lf` and `kitty` configuration within my `dotfiles` aspect.
+`./install ... --packages "dotfiles(^(lf,kitty))"`: Install required packages within my dotfiles aspect except for `lf` and `kitty`.
+`./install ... --packages "^dotfiles"`:             Install all required packages except the packages for the `dotfiles` aspect.
 
 """,
         nargs="?",
         type=str,
-        dest="describe_aspects",
+        dest="packages",
         const=" ",
     )
 
     parser.add_argument(
-        "-C",
+        "-A",
         "--list-aspects",
         help="""List all available aspects.
-
-""",
-        default=False,
-        action="store_true",
-    )
-    parser.add_argument(
-        "-D",
-        "--list-distros",
-        help="""List all the supported distros.
 
 """,
         default=False,
@@ -205,6 +148,24 @@ Run `./install --list-aspects` to see the full list of aspects.
         "-i",
         "--singularis",
         help="""Don't run this command unless you're `singularis`.
+
+""",
+        default=False,
+        action="store_true",
+    )
+    parser.add_argument(
+        "-C",
+        "--confirm",
+        help="""Prompt for confirmation at each step.
+
+""",
+        default=False,
+        action="store_true",
+    )
+    parser.add_argument(
+        "-d",
+        "--dry-run",
+        help="""Don't install anything. Only display what will happen.
 
 """,
         default=False,

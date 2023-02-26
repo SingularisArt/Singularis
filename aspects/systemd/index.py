@@ -10,8 +10,8 @@ log = Log()
 
 log.log_notice("Installing my Systemd Files.")
 
-Files("systemd", specific_items_to_install, args)
-Templates("systemd", specific_items_to_install, args)
-Packages("systemd")
+Files("systemd", specific_items_to_install, specific_items_to_ignore, args)
+Templates("systemd", specific_items_to_install, specific_items_to_ignore, args)
+# Packages("systemd", specific_items_to_ignore, specific_items_to_install, args)
 
 log.log_success("Installed my Systemd Files.")

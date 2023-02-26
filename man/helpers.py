@@ -1,8 +1,9 @@
 import json
 import os
+import subprocess
 
 
-def load_data(file: str) -> dict:
+def load_data(file):
     if os.path.exists(file):
         return json.load(open(file, "r"))
     else:
@@ -27,3 +28,22 @@ def pretty_log(log, log_level, string):
         + string
         + log.style["reset"]
     )
+
+
+def confirm(prompt):
+    while True:
+        choice = input(f"{prompt} (Default: no) ").lower()
+        if choice in ["yes", "y"]:
+            return True
+        elif choice in ["no", "n", ""]:
+            return False
+        else:
+            print("Please enter \"yes\", \"y\" or \"no\", \"n\"")
+
+
+def install_aur_package(package):
+    subprocess.run(["yay", "-S", package, "--noconfirm", "--needed"])
+
+
+def install_apt_package(package):
+    subprocess.run(["sudo", "apt-get", package, "--no-install-recommends", "-y"])

@@ -19,18 +19,22 @@ log = Log()
 class File:
     def __init__(
         self,
-        file_name: str,
-        root: str,
-        type: str,
-        specific_items_to_install: list,
-        private: dict,
+        file_name,
+        root,
+        type,
+        specific_items_to_install,
+        specific_items_to_ignore,
+        private,
+        args,
     ):
+        self.args = args
         self.root = root
         self.name = file_name
         self.type = type
         self.file_location = helpers.join(self.root, self.type, self.name)
         self.file_destination = self.get_location()
         self.specific_items_to_install = specific_items_to_install
+        self.specific_items_to_ignore = specific_items_to_ignore
         self.private = private
 
         self.setup_for_installation()
@@ -44,27 +48,28 @@ class File:
             return helpers.join(local_dir, self.name)
 
     def setup_for_installation(self):
+        specific_items_to_install = self.specific_items_to_install
+
         try:
             open(self.file_destination, "x")
-            log.log_info(f"Creating file {self.file_destination}")
+            log.log_info(f"Creating file {self.file_destination}.")
         except FileNotFoundError:
             os.makedirs(os.path.dirname(self.file_destination))
-            log.log_info(f"Creating folder {self.file_destination}")
+            log.log_info(f"Creating folder {self.file_destination}.")
         except FileExistsError:
             pass
 
-        if len(self.specific_items_to_install) == 0:
+        if len(specific_items_to_install) == 0:
             self.install()
             return
 
-        specific_items_to_install = self.specific_items_to_install
         if os.path.basename(self.file_location) in specific_items_to_install:
             self.install()
         else:
             name = helpers.pretty_log(
                 log, log.warn, os.path.basename(self.file_location)
             )
-            log.log_warn(f"Skipping the installation of {name}")
+            log.log_warn(f"Skipping the installation of {name}.")
 
     def install(self):
         is_aspect_private = self.private["install_private_aspect"]
@@ -81,10 +86,10 @@ class File:
             )
             return
 
-        log.log_trace(f"Checking the hash for {self.file_location}")
+        log.log_trace(f"Checking the hash for {self.file_location}.")
 
         # If the sum isn't correct.
-        if not self.check_sum():
+        if not self.check_sum() and not self.args.no_security:
             name = helpers.pretty_log(log, log.error, self.name)
             cmd = helpers.pretty_log(log, log.error, "--no-security")
             log.log_fatal(
@@ -93,12 +98,26 @@ class File:
             )
             return
 
+        name = os.path.basename(self.file_location)
+        pretty_name = helpers.pretty_log(
+            log, log.info, name
+        )
+        if name in self.specific_items_to_ignore:
+            log.log_warn(f"Skipping the installation of {name}.")
+            return
+
+        if self.args.dry_run:
+            log.log_info(f"Install {name}.")
+            return
+        if self.args.confirm:
+            if not helpers.confirm(f"Would you like to install {pretty_name}"):
+                return
+
         if self.type != ".local":
-            name = os.path.basename(self.file_location)
             log.log_trace(f"Installing {name}.")
             helpers.symlink(self.file_location, self.file_destination)
             log.log_trace(
-                f"Symlinking: {self.file_location} -> {self.file_destination}"
+                f"Symlinking: {self.file_location} -> {self.file_destination}."
             )
             log.log_info(f"Installed {name}.")
 
@@ -109,9 +128,8 @@ class File:
             file_destination = helpers.join(self.file_destination, file)
             helpers.symlink(file_location, file_destination)
             helpers.symlink(file_location, file_destination)
-            log.log_trace(f"Symlinking: {file_location} -> {file_destination}")
+            log.log_trace(f"Symlinking: {file_location} -> {file_destination}.")
 
-        name = os.path.basename(self.file_location)
         log.log_info(f"Installed {name}.")
 
     def check_sum(self):
@@ -123,11 +141,13 @@ class Files:
         self,
         aspect,
         specific_items_to_install,
+        specific_items_to_ignore,
         args,
     ):
         self.args = args
         self.root = helpers.join(aspects_dir, aspect, "files")
         self.specific_items_to_install = specific_items_to_install
+        self.specific_items_to_ignore = specific_items_to_ignore
 
         config = helpers.join(self.root, ".config")
         home = helpers.join(self.root, ".home")
@@ -177,7 +197,9 @@ class Files:
                         self.root,
                         current_type,
                         self.specific_items_to_install,
+                        self.specific_items_to_ignore,
                         private,
+                        self.args,
                     )
             except KeyError:
                 pass

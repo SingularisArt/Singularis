@@ -41,12 +41,14 @@ class Template:
         delimiter,
         data,
         specific_items_to_install,
+        specific_items_to_ignore,
         private,
     ):
         self.aspect = aspect
         self.aspect_dir = helpers.join(aspects_dir, aspect)
         self.root_folder = root_folder
         self.name = template_name
+        self.aspect_name = os.path.dirname(self.name)
         self.type = type
         self.template_location = helpers.join(
             self.root_folder,
@@ -57,6 +59,7 @@ class Template:
         self.delimiter = delimiter
         self.data = data
         self.specific_items_to_install = specific_items_to_install
+        self.specific_items_to_ignore = specific_items_to_ignore
         self.private = private
 
         # TODO: Implement this function
@@ -90,10 +93,7 @@ class Template:
             log.log_trace(f"File {self.template_destination} already exists")
 
         if len(self.specific_items_to_install) > 0:
-            if (
-                os.path.basename(self.template_location)
-                in self.specific_items_to_install
-            ):
+            if self.aspect_name in self.specific_items_to_install:
                 self.install()
             else:
                 log.log_warn(
@@ -172,10 +172,11 @@ class Template:
 
 
 class Templates(dict):
-    def __init__(self, aspect, specific_items_to_install, args):
+    def __init__(self, aspect, specific_items_to_install, specific_items_to_ignore, args):
         self.aspect = aspect
         self.root_folder = helpers.join(aspects_dir, aspect, "files")
         self.specific_items_to_install = specific_items_to_install
+        self.specific_items_to_ignore = specific_items_to_ignore
         self.args = args
 
         config = helpers.join(self.root_folder, ".config")
@@ -221,6 +222,7 @@ class Templates(dict):
                         "^",
                         self.data["templates"][type][template],
                         self.specific_items_to_install,
+                        self.specific_items_to_ignore,
                         private,
                     )
             except KeyError:

@@ -5,23 +5,24 @@
       "nvim": "public"
     }
   },
-  "packages": [
-    "neovim-git",
-    "rust-analyzer",
-    "solang-bin",
-    "solidity",
-    "lua-language-server",
-    "texlab",
-    "typescript-language-server",
-    "yaml-language-server",
-    "vscode-css-languageserver",
-    "bash-language-server",
-    "clangd",
-    "cssmodules-language-server",
-    "tailwind-css",
-    "golangci-lint",
-    "jdtls",
-    "r-languageserver",
-    "xclip"
-  ]
+  "packages": {
+    "nvim": [ "neovim-git" ],
+    "servers": [
+      "rust-analyzer",
+      "solang-bin",
+      "solidity",
+      "lua-language-server",
+      "texlab",
+      "typescript-language-server",
+      "yaml-language-server",
+      "vscode-css-languageserver",
+      "bash-language-server",
+      "clangd",
+      "cssmodules-language-server",
+      "tailwind-css",
+      "golangci-lint",
+      "jdtls",
+      "r-languageserver"
+    ]
+  }
 }

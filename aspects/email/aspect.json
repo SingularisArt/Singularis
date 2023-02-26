@@ -32,18 +32,18 @@
       "notmuch/config": ["user", "primary_email"]
     }
   },
-  "packages": [
-    "abook",
-    "gcalcli",
-    "glow",
-    "goobook",
-    "imapfilter",
-    "khal",
-    "khard",
-    "neomutt",
-    "vdirsyncer",
-    "isync",
-    "msmtp",
-    "notmuch"
-  ]
+  "packages": {
+    "abook": [ "abook" ],
+    "gcalcli": [ "gcalcli" ],
+    "glow": [ "glow" ],
+    "goobook": [ "goobook" ],
+    "imapfilter": [ "imapfilter" ],
+    "khal": [ "khal" ],
+    "khard": [ "khard" ],
+    "neomutt": [ "neomutt" ],
+    "vdirsyncer": [ "vdirsyncer" ],
+    "mbsync": [ "isync" ],
+    "msmtp": [ "msmtp" ],
+    "notmuch": [ "notmuch" ]
+  }
 }

@@ -10,8 +10,8 @@ log = Log()
 
 log.log_notice("Installing my Email Setup.")
 
-Files("email", specific_items_to_install, args)
-Templates("email", specific_items_to_install, args)
-Packages("email")
+Files("email", specific_items_to_install, specific_items_to_ignore, args)
+Templates("email", specific_items_to_install, specific_items_to_ignore, args)
+# Packages("email", specific_items_to_ignore, specific_items_to_install, args)
 
 log.log_success("Installed my Email Setup.")
