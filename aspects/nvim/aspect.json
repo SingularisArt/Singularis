@@ -21,6 +21,7 @@
     "tailwind-css",
     "golangci-lint",
     "jdtls",
-    "r-languageserver"
+    "r-languageserver",
+    "xclip"
   ]
 }
