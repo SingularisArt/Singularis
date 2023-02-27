@@ -1,5 +1,5 @@
 {
-  "description": "All required AUR packages",
+  "description": "All required pacman packages",
   "packages": {
     "fonts": [
       "all-repository-fonts",

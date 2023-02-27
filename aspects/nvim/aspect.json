@@ -1,12 +1,14 @@
 {
-  "description": "My NeoVim configuration.",
+  "description": "My NeoVim configuration",
   "files": {
     ".config": {
       "nvim": "public"
     }
   },
   "packages": {
-    "nvim": [ "neovim-git" ],
+    "nvim": [
+      "neovim-git"
+    ],
     "servers": [
       "rust-analyzer",
       "solang-bin",
@@ -16,6 +18,7 @@
       "typescript-language-server",
       "yaml-language-server",
       "vscode-css-languageserver",
+      "vscode-json-languageserver",
       "bash-language-server",
       "clangd",
       "cssmodules-language-server",
@@ -24,5 +27,17 @@
       "jdtls",
       "r-languageserver"
     ]
+  },
+  "libraries": {
+    "python": {
+      "nvim": [
+        "neovim"
+      ],
+      "servers": [
+        "pyright",
+        "python-language-server[all]",
+        "jedi"
+      ]
+    }
   }
 }

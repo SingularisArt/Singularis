@@ -1,5 +1,5 @@
 {
-  "description": "All required AUR packages",
+  "description": "All required homebrew packages",
   "packages": {
     "fonts": [
       "all-repository-fonts",
