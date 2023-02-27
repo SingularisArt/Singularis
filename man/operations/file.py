@@ -139,13 +139,13 @@ class File:
 class Files:
     def __init__(
         self,
-        aspect,
+        aspect_name,
         specific_items_to_install,
         specific_items_to_ignore,
         args,
     ):
         self.args = args
-        self.root = helpers.join(aspects_dir, aspect, "files")
+        self.root = helpers.join(aspects_dir, aspect_name, "files")
         self.specific_items_to_install = specific_items_to_install
         self.specific_items_to_ignore = specific_items_to_ignore
 
@@ -158,22 +158,15 @@ class Files:
         self.local = local if os.path.exists(local) else None
 
         self.aspect_json_file_location = helpers.join(
-            aspects_dir, aspect, "aspect.json"
+            aspects_dir, aspect_name, "aspect.json"
         )
-        self.data = helpers.load_data(self.aspect_json_file_location)
+        self.data = helpers.load_data(self.aspect_json_file_location, aspect_name, log)
 
-        if not os.path.exists(self.aspect_json_file_location):
-            aspect_json = helpers.pretty_log(log, log.fatal, "aspect.json")
-            name = helpers.pretty_log(log, log.fatal, aspect)
-            log.log_fatal(f"Couldn't find {aspect_json} for {name}. Quitting.")
-
-            return
-
-        log.log_trace(f"Installing all files for {aspect.title()}.")
+        log.log_trace(f"Installing all files for {aspect_name.title()}.")
 
         self.get_files()
 
-        log.log_trace(f"Installed all files for {aspect.title()}.")
+        log.log_trace(f"Installed all files for {aspect_name.title()}.")
 
     def get_files(self):
         private = {

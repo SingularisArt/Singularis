@@ -49,7 +49,7 @@
   "middleclass": { "branch": "master", "commit": "9fab4d5bca67262614960960ca35c4740eb2be2c" },
   "navigator.lua": { "branch": "master", "commit": "99e126fe4e86dd70260872c917b281dcd0121959" },
   "neo-tree.nvim": { "branch": "v2.x", "commit": "74040b34278910d9b467fd914862e2a9a1ebacaa" },
-  "neoconf.nvim": { "branch": "main", "commit": "7d182e759b60bd069d0e483e53cfed0d62f8a7ac" },
+  "neoconf.nvim": { "branch": "main", "commit": "54668cbc4c2f73151eadb361dd94b34ae61dde8e" },
   "neodev.nvim": { "branch": "main", "commit": "8c28ddd85b22a4503f902e34238dfe7681533856" },
   "neogen": { "branch": "main", "commit": "93d997dbddfe084e77ba4541c54a7b8bfd754fb1" },
   "neogit": { "branch": "master", "commit": "bde758e658c1cdc794293afbde698b5aaa93c5de" },

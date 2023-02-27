@@ -5,18 +5,17 @@ from man import InitClass as InitClass
 
 from man import helpers as helpers
 from man.operations.aspects import Aspects as Aspects
+from man.operations.packages import Packages as Packages
+from man.operations.python import Pythons as Pythons
+from man.operations.node import Nodes as Nodes
 from man.log import Log as Log
 
 init = InitClass()
 
 
 def core(args):
-    if (args.aspect or args.all) and args.aspect != "false":
-        aspects = Aspects(args)
-        [aspect.install_aspect() for aspect in aspects["aspects_to_install"]]
-    if (args.package or args.all) and args.package != "false":
-        aspects = Aspects(args)
-        [aspect.install_aspect() for aspect in aspects["aspects_to_install"]]
+    aspects = Aspects(args)
+    [aspect.install_aspect() for aspect in aspects["aspects_to_install"]]
 
 
 def settings(args):
@@ -238,7 +237,7 @@ NOTE: The `...` just means the other commands that you're passing into the insta
 """,
         nargs="?",
         type=str,
-        dest="nodejs",
+        dest="node",
         const=" ",
     )
     parser.add_argument(
@@ -263,6 +262,24 @@ Log Levels include:
         type=str,
         dest="log_level",
         const=" ",
+    )
+    parser.add_argument(
+        "-t",
+        "--package-type",
+        help="""Change the package type.
+
+Available Options:
+    Arch:   aur     (Default)
+    Arch:   pacman
+    Ubuntu: apt
+    Ubuntu: apt-get
+    RedHat: yum
+
+""",
+        nargs="?",
+        type=str,
+        dest="package_type",
+        const="aur",
     )
 
     parser.add_argument(

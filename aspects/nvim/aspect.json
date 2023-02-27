@@ -36,6 +36,7 @@
       "servers": [
         "pyright",
         "python-language-server[all]",
+        "black",
         "jedi"
       ]
     }

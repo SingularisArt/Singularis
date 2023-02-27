@@ -1,9 +1,17 @@
 import json
 import os
+import re
 import subprocess
 
 
-def load_data(file):
+def load_data(file, aspect_name, log):
+    if not os.path.exists(file):
+        aspect_json = pretty_log(log, log.fatal, "aspect.json")
+        name = pretty_log(log, log.fatal, aspect_name)
+        log.log_fatal(f"Couldn't find {aspect_json} for {name}. Quitting.")
+
+        return
+
     if os.path.exists(file):
         return json.load(open(file, "r"))
     else:
@@ -62,3 +70,34 @@ def install_package(package, confirm=False, package_type="aur"):
         cmd = ["sudo", "yum", "install", package, noconfirm]
 
     subprocess.run(cmd)
+
+
+def get_specific_items_to_install_and_ignore(name):
+    specific_items_to_install = []
+    specific_items_to_ignore = []
+
+    try:
+        search = re.search(r"(\w+)\((.+)\)?", name)
+        if search:
+            name = search.group(1)
+
+            specific_items = search.group(2)
+            if specific_items[0] == "^":
+                if (
+                    specific_items[1] == "("
+                    and specific_items[-1] == ")"
+                    and specific_items[-2] == ")"
+                ):
+                    specific_items_to_ignore = specific_items[2:-2].split(",")
+                elif specific_items[1] == "(" and specific_items[-1] == ")":
+                    specific_items_to_ignore = specific_items[2:-2].split(",")
+                else:
+                    specific_items_to_ignore = specific_items[1:-1].split(",")
+                specific_items_to_install = []
+            else:
+                specific_items_to_ignore = []
+                specific_items_to_install = specific_items[0:-1].split(",")
+    except AttributeError:
+        pass
+
+    return name, specific_items_to_install, specific_items_to_ignore
