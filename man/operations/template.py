@@ -95,12 +95,6 @@ class Template:
         if len(self.specific_items_to_install) > 0:
             if self.aspect_name in self.specific_items_to_install:
                 self.install()
-            else:
-                log.log_warn(
-                    "Skipping the installation of {}".format(
-                        os.path.basename(self.template_location),
-                    )
-                )
         else:
             self.install()
 
