@@ -109,10 +109,10 @@ return {
   { "turbio/bracey.vim",       ft = "html" },
   { "mattn/emmet-vim",         ft = "html" },
 
--- json/yaml
+  -- json/yaml
   { "b0o/SchemaStore.nvim",    ft = { "json", "yaml" } },
 
--- r
+  -- r
   { "jalvesaq/Nvim-R",         ft = { "r", "rmd" } },
   { "jalvesaq/R-Vim-runtime",  ft = { "r", "rmd" } },
   { "jalvesaq/colorout",       ft = { "r", "rmd" } },
