@@ -6,8 +6,8 @@ from man import InitClass as InitClass
 from man import helpers as helpers
 from man.operations.aspects import Aspects as Aspects
 from man.operations.packages import Packages as Packages
-from man.operations.python import Pythons as Pythons
-from man.operations.node import Nodes as Nodes
+from man.operations.python import Python as Python
+from man.operations.node import Node as Node
 from man.log import Log as Log
 
 init = InitClass()

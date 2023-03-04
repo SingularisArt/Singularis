@@ -205,7 +205,6 @@ class Templates(dict):
         for type in types:
             try:
                 for template in self.data["templates"][type]:
-                    print(template)
                     Template(
                         self.aspect,
                         template,
