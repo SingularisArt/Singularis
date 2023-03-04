@@ -110,10 +110,6 @@ vim.cmd("au! " .. "_winbar")
           require("lsp-inlayhints").toggle()
           vim.g.cmp_active = true
           vim.cmd("LspStart")
-
-          -- pcall(function()
-          --   require("SingularisArt.plugins.winbar")
--- end)
         end,
 })
 end,
@@ -279,7 +275,7 @@ cond = function() return package.loaded["noice"] and require("noice").api.status
   },
 
   -- lsp symbol navigation for lualine
-  { "SmiteshP/nvim-navic" },
+  "SmiteshP/nvim-navic",
 
   {
     "kevinhwang91/nvim-hlslens",
@@ -376,35 +372,5 @@ cond = function() return package.loaded["noice"] and require("noice").api.status
         end,
       })
     end,
-  },
-
-  -- auto-resize windows
-  {
-    "anuvyklack/windows.nvim",
-    event = "WinNew",
-    dependencies = {
-      { "anuvyklack/middleclass" },
-      { "anuvyklack/animation.nvim", enabled = false },
-    },
-    keys = { { "<leader>Z", "<cmd>WindowsMaximize<cr>", desc = "Zoom" } },
-    config = function()
-      vim.o.winwidth = 5
-      vim.o.equalalways = false
-      require("windows").setup({
-        animation = { enable = false, duration = 150 },
-      })
-    end,
-  },
-
-  -- style windows with different colorschemes
-  {
-    "folke/styler.nvim",
-    event = "VeryLazy",
-    opts = {
-      themes = {
-        markdown = { colorscheme = "tokyonight-storm" },
-        help = { colorscheme = "oxocarbon", background = "dark" },
-      },
-    },
   },
 }
