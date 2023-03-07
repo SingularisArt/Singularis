@@ -5,7 +5,7 @@ export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_STATE_HOME="$HOME/.local/state"
 
-# export DISPLAY=:0
+export DISPLAY=:0
 export XDG_CURRENT_DESKTOP=ubuntu:GNOME
 export GDMSESSION="ubuntu"
 export XDG_DATA_DIRS="/usr/local/share:/usr/share"
@@ -40,6 +40,7 @@ export SSB_HOME="$XDG_DATA_HOME/zoom"
 export GTK_THEME="oomox-xresources-reverse"
 export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
 export WGETRC="$XDG_CONFIG_HOME/wgetrc"
+#export XAUTHORITY="$HOME/.Xauthority"
 export XAUTHORITY="$XDG_CONFIG_HOME/Xauthority"
 export PASSWORD_STORE_DIR="$XDG_CONFIG_HOME/password-store"
 export MBSYNCRC="$XDG_CONFIG_HOME/mbsync/mbsyncrc"
