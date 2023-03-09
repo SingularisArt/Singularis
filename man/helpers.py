@@ -73,6 +73,9 @@ def install_package(package, confirm=False, package_type="aur"):
 
 
 def get_specific_items_to_install_and_ignore(name):
+    if not name:
+        return ("", "", "")
+
     specific_items_to_install = []
     specific_items_to_ignore = []
 

@@ -31,24 +31,24 @@ class Packages(InitClass, list):
         self.specific_items_to_ignore = specific_items_to_ignore
         self.args = args
 
-        # (
-        #     self.package_name,
-        #     self.specific_items_to_install,
-        #     self.specific_items_to_ignore,
-        # ) = helpers.get_specific_items_to_install_and_ignore(args.package)
+        (
+            self.package_name,
+            self.specific_items_to_install,
+            self.specific_items_to_ignore,
+        ) = helpers.get_specific_items_to_install_and_ignore(args.package)
 
-        # self.aspect_json_file_location = helpers.join(
-        #     aspects_dir, self.aspects_name, "aspect.json"
-        # )
-        # self.data = helpers.load_data(
-        #     self.aspect_json_file_location, self.aspects_name, log
-        # )
+        self.aspect_json_file_location = helpers.join(
+            aspects_dir, self.aspects_name, "aspect.json"
+        )
+        self.data = helpers.load_data(
+            self.aspect_json_file_location, self.aspects_name, log
+        )
 
-        # if not args.package_type:
-        #     self.package_type = "aur"
-        # else:
-        #     self.package_type = args.package_type
+        if not args.package_type:
+            self.package_type = "aur"
+        else:
+            self.package_type = args.package_type
 
-        # for package_type in self.data["packages"]:
-        #     # Continue
-        #     pass
+        for package_type in self.data["packages"]:
+            # Continue
+            pass
