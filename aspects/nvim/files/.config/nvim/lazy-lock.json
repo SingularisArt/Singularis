@@ -21,6 +21,7 @@
   "cmp-spell": { "branch": "master", "commit": "60584cb75e5e8bba5a0c9e4c3ab0791e0698bffa" },
   "cmp-zotcite": { "branch": "main", "commit": "431c720a73fb84c8b1a51b4f123e2a7cc8a58bfd" },
   "colorout": { "branch": "master", "commit": "79931fd025a21b86e1643dc8c4e4506ea83e2611" },
+  "copilot.vim": { "branch": "release", "commit": "9e869d29e62e36b7eb6fb238a4ca6a6237e7d78b" },
   "crates.nvim": { "branch": "main", "commit": "aa94d3844d6a12b1a8bf73c8a242ff2f540fb749" },
   "cybu.nvim": { "branch": "main", "commit": "395791b1e1177e3459c85415970ab8216b19a5dc" },
   "diffview.nvim": { "branch": "main", "commit": "ebcbe90401555272025006db00da0972f7e0db63" },

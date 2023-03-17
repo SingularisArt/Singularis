@@ -300,4 +300,34 @@ return {
       "L",
     },
   },
+
+  -- Copilot
+  {
+    "github/copilot.vim",
+    config = function()
+      vim.g.copilot_no_tab_map = true
+      vim.api.nvim_set_keymap("i", "<C-h>", "copilot#Accept('<CR>')", { silent = true, expr = true })
+
+      vim.g.copilot_filetypes = {
+        ["*"] = false,
+        ["python"] = true,
+        ["c++"] = true,
+        ["c#"] = true,
+        ["c"] = true,
+        ["sql"] = true,
+        ["html"] = true,
+        ["css"] = true,
+        ["javascript"] = true,
+        ["typescript"] = true,
+        ["php"] = true,
+        ["ruby"] = true,
+        ["perl"] = true,
+        ["java"] = true,
+        ["rust"] = true,
+        ["tex"] = true,
+        ["go"] = true,
+      }
+    end,
+    event = "InsertEnter",
+  }
 }
