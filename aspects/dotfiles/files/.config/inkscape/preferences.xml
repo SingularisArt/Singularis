@@ -118,8 +118,8 @@
          id="rect"
          style="fill:blue;"
          usecurrent="1"
-         width="1365"
-         height="49.1181335449219" />
+         width="195.738052368164"
+         height="195.496887207031" />
       <eventcontext
          id="3dbox"
          style="stroke:none;stroke-linejoin:round;"
@@ -306,7 +306,7 @@
        id="lpetool"
        mode="drag"
        style="fill:#ff0000;fill-opacity:1;fill-rule:nonzero;stroke:none;"
-       unit="mm"
+       unit="px"
        show_bbox="1" />
     <eventcontext
        id="text"
@@ -533,7 +533,8 @@
        palette="Inkscape default" />
   </group>
   <group
-     id="dialogs">
+     id="dialogs"
+     traceliveUpdate="1">
     <group
        id="toolbox" />
     <group
@@ -584,7 +585,7 @@
     </group>
     <group
        id="save_as"
-       default="org.inkscape.raster.jpg_output"
+       default="org.inkscape.output.png.inkscape"
        append_extension="1"
        enable_preview="1"
        path="/home/singularis/Downloads"
@@ -598,7 +599,7 @@
     <group
        id="open"
        enable_preview="1"
-       path="/home/singularis/Downloads/" />
+       path="/home/singularis/" />
     <group
        id="import"
        enable_preview="1"
@@ -960,10 +961,12 @@
      org.inkscape.effect.func_plot.fofx="x+1008"
      org.inkscape.output.pdf.cairorenderer.PDFversion="PDF-1.5"
      org.inkscape.output.pdf.cairorenderer.area="drawing"
-     org.inkscape.input.svg.scale="auto" />
+     org.inkscape.input.svg.scale="auto"
+     net.texample.tools.svg.export_tikz.effect.crop="0"
+     net.texample.tools.svg.export_tikz.effect.clipboard="1" />
   <group
      id="desktop"
-     style="fill:#000000;stroke-width:3.77952756;-inkscape-font-specification:'sans-serif, Normal';font-family:sans-serif;font-size:46.66666667px;stroke:#000000">
+     style="fill:none;stroke-width:3.77952756;-inkscape-font-specification:'sans-serif, Normal';font-family:sans-serif;font-size:46.66666667px;stroke:#000000;opacity:0.57131369">
     <group
        width="640"
        height="480"
@@ -1089,7 +1092,7 @@
      id="theme"
      defaultPreferDarkTheme="0"
      defaultIconTheme="Qogir"
-     defaultGtkTheme="Arc-Darker"
+     defaultGtkTheme="Adwaita-dark"
      narrowSpinButton="1"
      preferDarkTheme="1"
      darkTheme="1"

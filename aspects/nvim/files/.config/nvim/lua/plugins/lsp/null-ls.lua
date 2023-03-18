@@ -36,6 +36,7 @@ local sources = {
   diagnostics.yamllint,
   diagnostics.shellcheck,
   diagnostics.golangci_lint,
+  diagnostics.flake8,
 
   code_actions.gitsigns,
   code_actions.proselint,
