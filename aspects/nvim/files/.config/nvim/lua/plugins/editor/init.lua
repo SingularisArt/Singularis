@@ -326,6 +326,7 @@ return {
         ["rust"] = true,
         ["tex"] = true,
         ["go"] = true,
+        ["sh"] = true,
       }
     end,
     event = "InsertEnter",
