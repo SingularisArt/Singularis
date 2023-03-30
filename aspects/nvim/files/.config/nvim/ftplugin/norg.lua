@@ -1,5 +1,5 @@
 local which_key = require("which-key")
-local options = require("lazyvim.config.global").which_key_vars.options
+local options = require("config.global").which_key_vars.options
 
 options = vim.tbl_deep_extend("force", {
   filetype = "norg",
