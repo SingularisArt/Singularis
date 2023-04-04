@@ -31,10 +31,8 @@ return {
           ["<C-s>"] = actions.split,
           ["v"] = actions.vsplit,
           ["<C-t>"] = actions.tabedit,
-
           ["h"] = actions.up,
           ["q"] = actions.quit,
-
           ["A"] = actions.mkdir,
           ["a"] = actions.newfile,
           ["r"] = actions.rename,
@@ -42,7 +40,6 @@ return {
           ["Y"] = actions.yank_path,
           ["i"] = actions.toggle_show_hidden,
           ["d"] = actions.delete,
-
           ["J"] = function()
             mark_actions.toggle_mark()
             vim.cmd("normal! j")
@@ -57,7 +54,6 @@ return {
             enable = false,
             highlight_dirname = true,
           },
-
           -- -- You can define a function that returns a table to be passed as the third
           -- -- argument of nvim_open_win().
           win_opts = function()
@@ -117,7 +113,6 @@ return {
                   sessions_path = os.getenv("HOME") .. "/.config/nvim/misc/sessions/",
                   sessions_variable = "session",
                 },
-
                 dressing = true,
                 autoload = false,
                 autosave = true,
@@ -125,7 +120,6 @@ return {
                   enable = false,
                   exclude_ft = { "fugitive", "alpha", "NvimTree", "fzf", "qf" },
                 },
-
                 post_hook = nil,
               },
             },
@@ -330,5 +324,19 @@ return {
       }
     end,
     event = "InsertEnter",
-  }
+  },
+
+  {
+    "ThePrimeagen/harpoon",
+    config = function()
+      require("harpoon").setup()
+      require("telescope").load_extension("harpoon")
+    end,
+    keys = {
+      { "<Leader>Ha", "<CMD>lua require('harpoon.mark').add_file()<CR>" },
+      { "<Leader>Hh", "<CMD>lua require('harpoon.ui').toggle_quick_menu()<CR>" },
+      { "<Leader>Hn", "<CMD>lua require('harpoon.ui').nav_next()<CR>" },
+      { "<Leader>Hp", "<CMD>lua require('harpoon.ui').nav_prev()<CR>" },
+    },
+  },
 }

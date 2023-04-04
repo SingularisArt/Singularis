@@ -92,6 +92,9 @@ vars.mappings["g"] = {
   },
 }
 
+-- vars.mappings["H"] = {
+-- }
+
 vars.mappings["s"] = {
   name = "Search",
   f = { "<CMD>Telescope find_files<CR>", "Fuzzy find files" },
@@ -172,6 +175,13 @@ vars.mappings["p"] = {
   l = { "<CMD>require('start_long_break').start_work()<CR>", "Long Break" },
   c = { "<CMD>require('toggle_pause').start_work()<CR>", "Toggle Pause" },
   C = { "<CMD>require('close').start_work()<CR>", "Close" },
+}
+
+vars.mappings["H"] = {
+  a = { "<CMD>lua require('harpoon.mark').add_file()<CR>", "Add file to harpoon" },
+  h = { "<CMD>lua require('harpoon.ui').toggle_quick_menu()<CR>", "View harpoon" },
+  n = { "<CMD>lua require('harpoon.ui').nav_next()<CR>", "Navigates to next harpoon mark" },
+  p = { "<CMD>lua require('harpoon.ui').nav_prev()<CR>", "Navigates to previous harpoon mark" },
 }
 
 vars.mappings["b"] = {
