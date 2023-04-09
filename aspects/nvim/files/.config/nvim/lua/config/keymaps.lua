@@ -35,13 +35,13 @@ keymap("n", "<C-t>", ":tabnew<CR>", opts, "Create new tab.")
 keymap("n", "<C-a>", "ggVG", opts, "Highlight everything.")
 keymap("n", ";", ":nohl<CR>", opts, "Clear search highlight.")
 keymap("n", "<Tab>", "za", opts, "Toggle tab.")
-keymap(
-  "n",
-  "<C-f>",
-  ":silent exec '!inkscape-figures edit \"'.b:vimtex.root.'/figures/\" > /dev/null 2>&1 &'<CR><CR>:redraw!<CR>",
-  opts,
-  "Create new figure."
-)
+-- keymap(
+--   "n",
+--   "<C-f>",
+--   ":silent exec '!inkscape-figures edit \"'.b:vimtex.root.'/figures/\" > /dev/null 2>&1 &'<CR><CR>:redraw!<CR>",
+--   opts,
+--   "Create new figure."
+-- )
 
 -- Insert Mode
 keymap("i", "<C-l>", "<c-g>u<Esc>[s1z=`]a<c-g>u", opts, "Correct spelling mistake.")

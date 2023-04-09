@@ -54,7 +54,7 @@ require("navigator").setup({
     ltex = { require("plugins.lsp.settings.ltex") },
     tsserver = { require("plugins.lsp.settings.tsserver") },
     yamlls = { require("plugins.lsp.settings.yamlls") },
-    sqls = { require("plugins.lsp.settings.sqls") },
+    sqlls = { require("plugins.lsp.settings.sqlls") },
     html = {
       require("plugins.lsp.settings.html"),
       capabilities = html_capabilities,
