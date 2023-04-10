@@ -20,16 +20,20 @@
     ],
     "other": [
       "zathura",
+      "sioyek",
       "obs-studio",
       "anki",
       "feh",
       "autojump",
       "dijo",
       "xclip",
-      "xorg"
+      "xorg",
+      "pcmanfm"
     ],
     "themes": [
-      "themix-theme-oomox-git"
+      "themix-theme-oomox-git",
+      "themix-full-git",
+      "beautiful-discord-git"
     ],
     "latex": [
       "texlive-full"
