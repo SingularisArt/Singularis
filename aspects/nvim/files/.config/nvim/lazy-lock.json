@@ -87,6 +87,7 @@
   "octo.nvim": { "branch": "master", "commit": "f37efab489a99b4a104e5ee18c73453d5e828b62" },
   "plenary.nvim": { "branch": "master", "commit": "9ac3e9541bbabd9d73663d757e4fe48a675bb054" },
   "pommodoro-clock.nvim": { "branch": "main", "commit": "17b6b1f59396bb46c9269ff8a595a0e94b73be06" },
+  "pretty_hover": { "branch": "master", "commit": "6cefe0c0d6a0435a545f86613da7b2adb70bb957" },
   "promise-async": { "branch": "main", "commit": "e94f35161b8c5d4a4ca3b6ff93dd073eb9214c0e" },
   "rust-tools.nvim": { "branch": "master", "commit": "71d2cf67b5ed120a0e31b2c8adb210dd2834242f" },
   "symbols-outline.nvim": { "branch": "master", "commit": "512791925d57a61c545bc303356e8a8f7869763c" },

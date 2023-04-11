@@ -36,6 +36,15 @@ return {
   },
 
   {
+    "Fildo7525/pretty_hover",
+    after = "nvim-lspconfig",
+    config = function()
+      require("pretty_hover").setup()
+    end,
+    event = { "BufReadPre", "BufNewFile" },
+  },
+
+  {
     "simrat39/symbols-outline.nvim",
     after = "nvim-lspconfig",
     config = function()
