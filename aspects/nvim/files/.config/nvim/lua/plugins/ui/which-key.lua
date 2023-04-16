@@ -223,6 +223,20 @@ vars.mappings["b"] = {
   },
 }
 
+vars.mappings["N"] = {}
+
+vars.mappings["N"] = {
+  name = "NeoAI",
+  t = { "<CMD>NeoAIToggle<CR>", "Toggle NeoAI" },
+  c = { "<CMD>NeoAIContext<CR>", "NeoAI Context" },
+  i = {
+    name = "Inject",
+    c = { "<CMD>NeoAIInjectCode<CR>", "Inject Code" },
+    t = { "<CMD>NeoAIInjectContext<CR>", "Inject Context" },
+    C = { "<CMD>NeoAIInjectContextCode<CR>", "Inject Code and Context" },
+  },
+}
+
 local which_key = require("which-key")
 
 which_key.setup(setup)

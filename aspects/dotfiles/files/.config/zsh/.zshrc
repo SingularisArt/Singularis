@@ -10,6 +10,7 @@ source $ZDOTDIR/plugins.zsh
 
 # Plugins
 # For more plugins: https://github.com/unixorn/awesome-zsh-plugins
+# zsh_add_plugin "jeffreytse/zsh-vi-mode"  # Wait until bug fix: https://github.com/jeffreytse/zsh-vi-mode/issues/199
 zsh_add_plugin "zsh-users/zsh-autosuggestions"
 zsh_add_plugin "zsh-users/zsh-syntax-highlighting"
 zsh_add_plugin "zsh-users/zsh-history-substring-search"
