@@ -101,11 +101,6 @@ local setup = {
       new_client.offset_encoding = "utf-16"
     end
   end,
-  -- on_attach = function(client)
-  --   if client.server_capabilities.documentFormatting then
-  --     vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()")
-  --   end
-  -- end,
 }
 
 null_ls.setup(setup)

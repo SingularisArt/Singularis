@@ -51,6 +51,7 @@ require("navigator").setup({
     solc = { require("plugins.lsp.settings.solc") },
     lua_ls = { require("plugins.lsp.settings.lua_ls") },
     texlab = { require("plugins.lsp.settings.texlab"), filetypes = { "bib" } },
+    cssmodules_ls = { filetypes = { "css" } },
     ltex = { require("plugins.lsp.settings.ltex") },
     tsserver = { require("plugins.lsp.settings.tsserver") },
     yamlls = { require("plugins.lsp.settings.yamlls") },
@@ -71,7 +72,6 @@ require("navigator").setup({
     servers = {
       "bashls",
       "clangd",
-      "cssmodules_ls",
       "tailwindcss",
       "golangci_lint_ls",
       "jdtls",
