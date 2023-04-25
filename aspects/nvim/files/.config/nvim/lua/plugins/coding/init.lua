@@ -29,6 +29,7 @@ return {
       "hrsh7th/cmp-emoji",
       "f3fora/cmp-spell",
       "octaltree/cmp-look",
+      "roobert/tailwindcss-colorizer-cmp.nvim",
       {
         "jalvesaq/cmp-nvim-r",
         config = function()

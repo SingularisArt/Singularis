@@ -3,7 +3,6 @@ return {
   {
     "neovim/nvim-lspconfig",
     config = function()
-      -- diagnostics
       for name, icon in pairs(require("config.global").icons.diagnostics) do
         name = "DiagnosticSign" .. name
         vim.fn.sign_define(name, { text = icon, texthl = name, numhl = "" })
@@ -12,7 +11,6 @@ return {
     dependencies = {
       { "folke/neoconf.nvim", cmd = "Neoconf", config = true },
       { "folke/neodev.nvim",  opts = { experimental = { pathStrict = true } } },
-      -- "mason-lspconfig.nvim",
     },
     event = { "BufReadPre", "BufNewFile" },
   },
@@ -101,11 +99,12 @@ return {
   -- formatters
   {
     "jose-elias-alvarez/null-ls.nvim",
+    after = "nvim-lspconfig",
     config = function()
       require("plugins.lsp.null-ls")
     end,
+    event = { "BufReadPre", "BufNewFile" },
     -- dependencies = "mason-null-ls.nvim",
-    keys = "<Leader>lf",
   },
 
   -- auto installer

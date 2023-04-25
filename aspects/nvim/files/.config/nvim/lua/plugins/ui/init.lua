@@ -85,8 +85,8 @@ return {
             relativenumber = false,
             cursorline = true,
             cursorcolumn = false, -- disable cursor column
-            foldcolumn = "0", -- disable fold column
-            list = false, -- disable whitespace characters
+            foldcolumn = "0",     -- disable fold column
+            list = false,         -- disable whitespace characters
           },
         },
         plugins = {
@@ -102,17 +102,17 @@ return {
           if not status_ok then
             return
           end
-if vim.fn.exists("#" .. "_winbar") == 1 then
-vim.cmd("au! " .. "_winbar")
+          if vim.fn.exists("#" .. "_winbar") == 1 then
+            vim.cmd("au! " .. "_winbar")
           end
         end,
-  on_close = function()
+        on_close = function()
           require("lsp-inlayhints").toggle()
           vim.g.cmp_active = true
           vim.cmd("LspStart")
         end,
-})
-end,
+      })
+    end,
     cmd = "ZenMode",
   },
 
@@ -160,13 +160,12 @@ end,
     event = { "BufReadPost", "BufNewFile" },
     opts = {
       -- char = "▏",
-char = "│",
+      char = "│",
       filetype_exclude = { "help", "alpha", "dashboard", "neo-tree", "Trouble", "lazy" },
       show_trailing_blankline_indent = false,
       show_current_context = false,
     },
-},
-
+  },
 
   -- bufferline
   {
@@ -179,7 +178,7 @@ char = "│",
         diagnostics_indicator = function(_, _, diag)
           local icons = require("config.global").icons.diagnostics
           local ret = (diag.error and icons.Error .. diag.error .. " " or "")
-          .. (diag.warning and icons.Warn .. diag.warning or "")
+              .. (diag.warning and icons.Warn .. diag.warning or "")
           return vim.trim(ret)
         end,
         offsets = {
@@ -228,8 +227,14 @@ char = "│",
                 hint = icons.diagnostics.Hint,
               },
             },
-            { "filetype", icon_only = true, separator = "",                                               padding = { left = 1, right = 0 } },
-            { "filename", path = 1,         symbols = { modified = "  ", readonly = "", unnamed = "" } },
+            {
+              "filetype",
+              icon_only = true,
+              separator = "",
+              padding = {
+                left = 1, right = 0 }
+            },
+            { "filename", path = 1, symbols = { modified = "  ", readonly = "", unnamed = "" } },
             -- stylua: ignore
             {
               function() return require("nvim-navic").get_location() end,
@@ -246,7 +251,7 @@ char = "│",
             -- stylua: ignore
             {
               function() return require("noice").api.status.mode.get() end,
-cond = function() return package.loaded["noice"] and require("noice").api.status.mode.has() end,
+              cond = function() return package.loaded["noice"] and require("noice").api.status.mode.has() end,
               color = fg("Constant"),
             },
             { require("lazy.status").updates, cond = require("lazy.status").has_updates, color = fg("Special") },
@@ -356,12 +361,11 @@ cond = function() return package.loaded["noice"] and require("noice").api.status
     "b0o/incline.nvim",
     event = "BufReadPre",
     config = function()
-      local colors = require("tokyonight.colors").setup()
       require("incline").setup({
         highlight = {
           groups = {
-            InclineNormal = { guibg = "#FC56B1", guifg = colors.black },
-            InclineNormalNC = { guifg = "#FC56B1", guibg = colors.black },
+            InclineNormal = { guibg = "#FC56B1", guifg = "#000" },
+            InclineNormalNC = { guifg = "#FC56B1", guibg = "#000" },
           },
         },
         window = { margin = { vertical = 0, horizontal = 1 } },
@@ -372,5 +376,28 @@ cond = function() return package.loaded["noice"] and require("noice").api.status
         end,
       })
     end,
+  },
+
+  {
+    "NvChad/nvim-colorizer.lua",
+    config = function()
+      require("colorizer").setup({
+        RGB = true,
+        RRGGBB = true,
+        names = true,
+        RRGGBBAA = true,
+        AARRGGBB = true,
+        rgb_fn = true,
+        hsl_fn = true,
+        css = true,
+        css_fn = true,
+        mode = "background",
+        tailwind = true,
+        sass = { enable = true, parsers = { "css" }, },
+        virtualtext = "■",
+        always_update = true,
+      })
+    end,
+    lazy = false,
   },
 }

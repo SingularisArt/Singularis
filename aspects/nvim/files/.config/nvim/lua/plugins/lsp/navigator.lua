@@ -17,32 +17,24 @@ require("navigator").setup({
   default_mapping = false,
   treesitter_analysis = true,
   transparency = 50,
-
   on_attach = handlers.on_attach,
-
   icons = { icons = false },
-
   lsp = {
     enable = true,
-
     code_action = { enable = false },
     code_lens_action = { enable = false },
-
     document_highlight = true,
     format_on_save = false,
-
     diagnostic = {
       underline = true,
       virtual_text = false,
       update_in_insert = false,
       severity_sort = { reverse = true },
     },
-
     disable_format_cap = { "stylua" },
     diagnostic_virtual_text = false,
     diagnostic_update_in_insert = false,
     disply_diagnostic_qf = true,
-
     emmet_ls = { require("plugins.lsp.settings.emmet_ls") },
     jsonls = { require("plugins.lsp.settings.jsonls") },
     pyright = { require("plugins.lsp.settings.pyright") },
@@ -50,25 +42,26 @@ require("navigator").setup({
     solang = { require("plugins.lsp.settings.solang") },
     solc = { require("plugins.lsp.settings.solc") },
     lua_ls = { require("plugins.lsp.settings.lua_ls") },
-    texlab = { require("plugins.lsp.settings.texlab"), filetypes = { "bib" } },
-    cssmodules_ls = { filetypes = { "css" } },
+    cssmodules_ls = { filetypes = "css" },
     ltex = { require("plugins.lsp.settings.ltex") },
     tsserver = { require("plugins.lsp.settings.tsserver") },
     yamlls = { require("plugins.lsp.settings.yamlls") },
     sqlls = { require("plugins.lsp.settings.sqlls") },
+    cssls = { capabilities = css_capabilities },
     html = {
       require("plugins.lsp.settings.html"),
       capabilities = html_capabilities,
     },
-    cssls = { capabilities = css_capabilities },
-
+    texlab = {
+      require("plugins.lsp.settings.texlab"),
+      filetypes = { "bib" }
+    },
     disable_lsp = {
       "pylsp",
       "ccls",
       "denols",
       "flow",
     },
-
     servers = {
       "bashls",
       "clangd",

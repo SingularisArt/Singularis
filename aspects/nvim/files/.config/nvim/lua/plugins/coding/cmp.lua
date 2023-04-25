@@ -93,7 +93,7 @@ cmp.setup({
       vim_item.menu = source_names[entry.source.name]
       vim_item.dup = duplicates[entry.source.name]
 
-      return vim_item
+      return require("tailwindcss-colorizer-cmp").formatter(entry, vim_item)
     end,
   },
   sources = cmp_sources,

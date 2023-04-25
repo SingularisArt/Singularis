@@ -116,4 +116,8 @@ return {
   { "jalvesaq/Nvim-R",         ft = { "r", "rmd" } },
   { "jalvesaq/R-Vim-runtime",  ft = { "r", "rmd" } },
   { "jalvesaq/colorout",       ft = { "r", "rmd" } },
+
+  -- typescript
+  { "ianks/vim-tsx", ft = "typescriptreact" },
+  { "leafgarland/typescript-vim", ft = "typescriptreact" },
 }

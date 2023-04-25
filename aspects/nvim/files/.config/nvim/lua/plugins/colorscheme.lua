@@ -159,10 +159,19 @@ return {
   --   lazy = true,
   -- },
 
+  -- {
+  --   "AlphaTechnolog/pywal.nvim",
+  --   config = function()
+  --     require("pywal").setup()
+  --   end,
+  --   lazy = true,
+  -- },
+
   -- { "ray-x/starry.nvim", lazy = true },
   -- { "catppuccin/nvim", as = "catppuccin", lazy = true },
   -- { "sainnhe/gruvbox-material", lazy = true },
   -- { "projekt0n/github-nvim-theme", lazy = true },
   -- { "flazz/vim-colorschemes", lazy = true },
   -- { "wincent/base16-nvim", lazy = true },
+  --
 }
