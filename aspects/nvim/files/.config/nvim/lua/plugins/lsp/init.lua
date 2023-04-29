@@ -9,8 +9,21 @@ return {
       end
     end,
     dependencies = {
-      { "folke/neoconf.nvim", cmd = "Neoconf", config = true },
-      { "folke/neodev.nvim",  opts = { experimental = { pathStrict = true } } },
+      { "folke/neoconf.nvim", cmd = "Neoconf",                                config = true },
+      {
+        "folke/neodev.nvim",
+        opts = {
+          experimental = { pathStrict = true } }
+      },
+      {
+        "williamboman/mason-lspconfig.nvim",
+        after = "mason.nvim",
+        config = function()
+          require("mason-lspconfig").setup({
+            automatic_installation = true,
+          })
+        end
+      },
     },
     event = { "BufReadPre", "BufNewFile" },
   },
@@ -104,7 +117,17 @@ return {
       require("plugins.lsp.null-ls")
     end,
     event = { "BufReadPre", "BufNewFile" },
-    -- dependencies = "mason-null-ls.nvim",
+    dependencies = {
+      {
+        "jay-babu/mason-null-ls.nvim",
+        after = "mason.nvim",
+        config = function()
+          require("mason-null-ls").setup({
+            automatic_installation = true,
+          })
+        end,
+      }
+    },
   },
 
   -- auto installer
@@ -113,33 +136,5 @@ return {
     config = function()
       require("mason").setup()
     end,
-    dependencies = {
-      {
-        "williamboman/mason-lspconfig.nvim",
-        config = function()
-          require("mason-lspconfig").setup({
-            automatic_installation = true,
-          })
-        end
-      },
-
-      {
-        "jay-babu/mason-null-ls.nvim",
-        config = function()
-          require("mason-null-ls").setup({
-            automatic_installation = true,
-          })
-        end
-      },
-
-      {
-        "jay-babu/mason-nvim-dap.nvim",
-        config = function()
-          require("mason-nvim-dap").setup({
-            automatic_installation = true,
-          })
-        end
-      },
-    },
   },
 }
