@@ -88,7 +88,21 @@ return {
     ft = { "go", "gomod" },
   },
 
-  -- C/C++
+  -- python
+  {
+    "dccsillag/magma-nvim",
+    config = function()
+      vim.g.magma_image_provider = "kitty"
+      vim.g.magma_automatically_open_output = true
+      vim.g.magma_wrap_output = false
+      vim.g.magma_output_window_borders = false
+      vim.g.magma_cell_highlight_group = "CursorLine"
+      vim.g.magma_save_path = vim.fn.stdpath "data" .. "/magma"
+    end,
+    ft = "python",
+  },
+
+  -- c/c++
   {
     "p00f/clangd_extensions.nvim",
     config = function()
@@ -105,19 +119,19 @@ return {
   },
 
   -- html
-  { "Valloric/MatchTagAlways", ft = "html" },
-  { "turbio/bracey.vim",       ft = "html" },
-  { "mattn/emmet-vim",         ft = "html" },
+  { "Valloric/MatchTagAlways",       ft = "html" },
+  { "turbio/bracey.vim",             ft = "html" },
+  { "mattn/emmet-vim",               ft = "html" },
 
   -- json/yaml
-  { "b0o/SchemaStore.nvim",    ft = { "json", "yaml" } },
+  { "b0o/SchemaStore.nvim",          ft = { "json", "yaml" } },
 
   -- r
-  { "jalvesaq/Nvim-R",         ft = { "r", "rmd" } },
-  { "jalvesaq/R-Vim-runtime",  ft = { "r", "rmd" } },
-  { "jalvesaq/colorout",       ft = { "r", "rmd" } },
+  { "jalvesaq/Nvim-R",               ft = { "r", "rmd" } },
+  { "jalvesaq/R-Vim-runtime",        ft = { "r", "rmd" } },
+  { "jalvesaq/colorout",             ft = { "r", "rmd" } },
 
   -- typescript
-  { "ianks/vim-tsx", ft = "typescriptreact" },
-  { "leafgarland/typescript-vim", ft = "typescriptreact" },
+  { "ianks/vim-tsx",                 ft = "typescriptreact" },
+  { "leafgarland/typescript-vim",    ft = "typescriptreact" },
 }

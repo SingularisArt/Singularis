@@ -68,15 +68,15 @@ vars.mappings["t"] = { "<CMD>lua require('alternate-toggler').toggleAlternate()<
 
 vars.mappings["g"] = {
   name = "Git",
-  j = { "<CMD>lua require 'gitsigns'.next_hunk()<CR>", "Next Hunk" },
-  k = { "<CMD>lua require 'gitsigns'.prev_hunk()<CR>", "Prev Hunk" },
-  l = { "<CMD>lua require 'gitsigns'.blame_line()<CR>", "Blame" },
-  p = { "<CMD>lua require 'gitsigns'.preview_hunk()<CR>", "Preview Hunk" },
-  r = { "<CMD>lua require 'gitsigns'.reset_hunk()<CR>", "Reset Hunk" },
-  R = { "<CMD>lua require 'gitsigns'.reset_buffer()<CR>", "Reset Buffer" },
-  s = { "<CMD>lua require 'gitsigns'.stage_hunk()<CR>", "Stage Hunk" },
+  j = { "<CMD>lua require('gitsigns).next_hunk()<CR>", "Next Hunk" },
+  k = { "<CMD>lua require('gitsigns).prev_hunk()<CR>", "Prev Hunk" },
+  l = { "<CMD>lua require('gitsigns).blame_line()<CR>", "Blame" },
+  p = { "<CMD>lua require('gitsigns).preview_hunk()<CR>", "Preview Hunk" },
+  r = { "<CMD>lua require('gitsigns).reset_hunk()<CR>", "Reset Hunk" },
+  R = { "<CMD>lua require('gitsigns).reset_buffer()<CR>", "Reset Buffer" },
+  s = { "<CMD>lua require('gitsigns).stage_hunk()<CR>", "Stage Hunk" },
   u = {
-    "<CMD>lua require 'gitsigns'.undo_stage_hunk()<CR>",
+    "<CMD>lua require('gitsigns').undo_stage_hunk()<CR>",
     "Undo Stage Hunk",
   },
   o = { "<CMD>Telescope git_status<CR>", "Open changed file" },
@@ -141,6 +141,19 @@ vars.mappings["T"] = {
     "<CMD>TranslateX --engines=google<CR>",
     "Translate and Display in the cmdline",
   },
+}
+
+vars.mappings["n"] = {
+  name = "Neotest",
+  a = { "<CMD>lua require('neotest').run.attach()<CR>", "Attach to the nearest test" },
+  c = { "<CMD>lua require('neotest').run.run(vim.fn.expand('%'))<CR>", "Run the current file" },
+  d = { "<CMD>lua require('neotest').run.run({strategy = 'dap'})<CR>", "Debug the nearest test" },
+  e = { "<CMD>lua require('neotest').output.open({ enter = true, auto_close = true })<CR>", "Open the output of a test result" },
+  j = { "<CMD>lua require('neotest').jump.prev({ status = 'failed' })<CR>", "Jump to next error" },
+  k = { "<CMD>lua require('neotest').jump.next({ status = 'failed' })<CR>", "Jump to previous error" },
+  n = { "<CMD>lua require('neotest').run.run()<CR>", "Run the nearest test" },
+  s = { "<CMD>lua require('neotest').run.stop()<CR>", "Stop the nearest test" },
+  S = { "<CMD>lua require('neotest').summary.toggle()<CR>", "Toggle the summary window" },
 }
 
 vars.mappings["d"] = {
