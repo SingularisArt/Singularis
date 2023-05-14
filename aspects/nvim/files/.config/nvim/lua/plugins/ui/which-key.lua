@@ -68,13 +68,13 @@ vars.mappings["t"] = { "<CMD>lua require('alternate-toggler').toggleAlternate()<
 
 vars.mappings["g"] = {
   name = "Git",
-  j = { "<CMD>lua require('gitsigns).next_hunk()<CR>", "Next Hunk" },
-  k = { "<CMD>lua require('gitsigns).prev_hunk()<CR>", "Prev Hunk" },
-  l = { "<CMD>lua require('gitsigns).blame_line()<CR>", "Blame" },
-  p = { "<CMD>lua require('gitsigns).preview_hunk()<CR>", "Preview Hunk" },
-  r = { "<CMD>lua require('gitsigns).reset_hunk()<CR>", "Reset Hunk" },
-  R = { "<CMD>lua require('gitsigns).reset_buffer()<CR>", "Reset Buffer" },
-  s = { "<CMD>lua require('gitsigns).stage_hunk()<CR>", "Stage Hunk" },
+  j = { "<CMD>lua require('gitsigns').next_hunk()<CR>", "Next Hunk" },
+  k = { "<CMD>lua require('gitsigns').prev_hunk()<CR>", "Prev Hunk" },
+  l = { "<CMD>lua require('gitsigns').blame_line()<CR>", "Blame" },
+  p = { "<CMD>lua require('gitsigns').preview_hunk()<CR>", "Preview Hunk" },
+  r = { "<CMD>lua require('gitsigns').reset_hunk()<CR>", "Reset Hunk" },
+  R = { "<CMD>lua require('gitsigns').reset_buffer()<CR>", "Reset Buffer" },
+  s = { "<CMD>lua require('gitsigns').stage_hunk()<CR>", "Stage Hunk" },
   u = {
     "<CMD>lua require('gitsigns').undo_stage_hunk()<CR>",
     "Undo Stage Hunk",

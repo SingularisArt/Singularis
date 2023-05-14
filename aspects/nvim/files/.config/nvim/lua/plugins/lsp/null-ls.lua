@@ -33,7 +33,7 @@ local sources = {
     extra_args = { "--fast" },
   }),
 
-  diagnostics.yamllint,
+  -- diagnostics.yamllint,
   diagnostics.shellcheck,
   diagnostics.golangci_lint,
   diagnostics.flake8,

@@ -47,11 +47,10 @@ cmp.setup({
     end,
   },
   mapping = cmp.mapping.preset.insert({
-    ["<C-b>"] = cmp.mapping.scroll_docs( -4),
+    ["<C-b>"] = cmp.mapping.scroll_docs(-4),
     ["<C-f>"] = cmp.mapping.scroll_docs(4),
     ["<C-e>"] = cmp.mapping.abort(),
     ["<CR>"] = cmp.mapping.confirm({ select = false }),
-
     ["<C-j>"] = cmp.mapping({
       i = function(fallback)
         cmp_ultisnips_mappings.compose({ "jump_forwards" })(function()
@@ -63,7 +62,6 @@ cmp.setup({
         end)
       end,
     }),
-
     ["<C-k>"] = cmp.mapping({
       i = function(fallback)
         cmp_ultisnips_mappings.compose({ "jump_backwards" })(function()
@@ -78,7 +76,6 @@ cmp.setup({
   }),
   formatting = {
     fields = { "kind", "abbr", "menu" },
-
     format = function(entry, vim_item)
       local max_width = 50
       if max_width ~= 0 and #vim_item.abbr > max_width then
@@ -102,6 +99,7 @@ cmp.setup({
     select = false,
   },
   completion = {
+    autocomplete = { require("cmp.types").cmp.TriggerEvent.TextChanged },
     keyword_length = 1,
   },
   window = {

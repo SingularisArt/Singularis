@@ -116,6 +116,13 @@ return {
       "theHamsta/nvim-dap-virtual-text",
       "nvim-dap-python",
       {
+        "LiadOz/nvim-dap-repl-highlights",
+        after = "nvim-treesitter",
+        config = function()
+          require("nvim-dap-repl-highlights").setup()
+        end,
+      },
+      {
         "jay-babu/mason-nvim-dap.nvim",
         after = "mason.nvim",
         config = function()

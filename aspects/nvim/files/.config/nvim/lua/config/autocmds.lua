@@ -45,3 +45,12 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.opt_local.spell = true
   end,
 })
+
+-- disable folds when opening a latex file
+vim.api.nvim_create_autocmd("FileType", {
+  group = augroup("folds"),
+  pattern = { "tex" },
+  callback = function()
+    vim.o.foldenable = false
+  end,
+})

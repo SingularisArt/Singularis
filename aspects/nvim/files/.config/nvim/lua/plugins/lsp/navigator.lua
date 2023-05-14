@@ -54,7 +54,7 @@ require("navigator").setup({
     },
     texlab = {
       require("plugins.lsp.settings.texlab"),
-      filetypes = { "bib" }
+      -- filetypes = { "bib" }
     },
     disable_lsp = {
       "pylsp",
