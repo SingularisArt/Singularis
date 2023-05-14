@@ -19,8 +19,8 @@ local signature_help_setup = {
   hint_enable = true,
   hi_parameter = "LspSignatureActiveParameter",
 
-  toggle_key = "<C-x>",
-  select_signature_key = "<C-s>",
+  toggle_key = "<C-s>",
+  -- select_signature_key = "<C-s>",
 
   hint_prefix = icons.misc.Squirrel .. " ",
   hint_scheme = "Comment",
