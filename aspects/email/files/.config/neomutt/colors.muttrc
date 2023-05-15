@@ -4,14 +4,14 @@
 #  Formatting  #
 ################
 
-set date_format    = "%a %d %Y %h %H:%M"
-set index_format   = "%zc %zs %zt | %-25.25F %-45.45s (%(!%a %d %h, %Y %H:%M))"
+set date_format = "%a %d %h %H:%M"
+set index_format="  %zc %zs %zt  | %-35.35L   %@attachment_info@  %?M10?~(%1M) ?%-30.100s %> %?Y?%Y ? %(!%a %d %h %H:%M)  "
+set compose_format="-- NeoMutt: Compose  [Approx. msg size: %l   Atts: %a]%>-"
 set pager_format   = "[%n] [%T %s]%* [ %{!%d %b %Y · %H:%M}] [%?X? %X?%P]"
 set status_format  = " [%D] %?u?[ %u] ?%?R?[ %R] ?%?d?[ %d] ?%?t?[ %t] ?%?F?[ %F] ?%?p?[ %p]? \n  \n"
-set compose_format = "-- NeoMutt: Compose  [Approx. msg size: %l   Atts: %a]%>-"
 set vfolder_format = "[%N %?n?%3n&   ?  %8m  · %f]"
-set attach_format  = "%u%D  %T%-75.75d %?T?%&   ? %5s · %m/%M"
-set sidebar_format = "%D%?Z? [%Z]?%* %?S?%S?"
+set attach_format = "%u%D  %T%-75.75d %?T?%&   ? %5s · %m/%M"
+set sidebar_format = '%D%?Z? [%Z]?%* %?S?%S?'
 # index-format-hook attachment_info "=B text/calendar ~X 1" " "
 # index-format-hook attachment_info "=B text/calendar" "  "
 # index-format-hook attachment_info "~X 1" "  "
@@ -85,6 +85,7 @@ color body brightblack  default "^gpg: Good signature .*"
 color body brightyellow default "^gpg: "
 color body red          default "([a-z][a-z0-9+-]*://(((([a-z0-9_.!~*'();:&=+$,-]|%[0-9a-f][0-9a-f])*@)?((([a-z0-9]([a-z0-9-]*[a-z0-9])?)\\.)*([a-z]([a-z0-9-]*[a-z0-9])?)\\.?|[0-9]+\\.[0-9]+\\.[0-9]+\\.[0-9]+)(:[0-9]+)?)|([a-z0-9_.!~*'()$,;:@&=+-]|%[0-9a-f][0-9a-f])+)(/([a-z0-9_.!~*'():@&=+$,-]|%[0-9a-f][0-9a-f])*(;([a-z0-9_.!~*'():@&=+$,-]|%[0-9a-f][0-9a-f])*)*(/([a-z0-9_.!~*'():@&=+$,-]|%[0-9a-f][0-9a-f])*(;([a-z0-9_.!~*'():@&=+$,-]|%[0-9a-f][0-9a-f])*)*)*)?(\\?([a-z0-9_.!~*'();/?:@&=+$,-]|%[0-9a-f][0-9a-f])*)?(#([a-z0-9_.!~*'();/?:@&=+$,-]|%[0-9a-f][0-9a-f])*)?|(www|ftp)\\.(([a-z0-9]([a-z0-9-]*[a-z0-9])?)\\.)*([a-z]([a-z0-9-]*[a-z0-9])?)\\.?(:[0-9]+)?(/([-a-z0-9_.!~*'():@&=+$,]|%[0-9a-f][0-9a-f])*(;([-a-z0-9_.!~*'():@&=+$,]|%[0-9a-f][0-9a-f])*)*(/([-a-z0-9_.!~*'():@&=+$,]|%[0-9a-f][0-9a-f])*(;([-a-z0-9_.!~*'():@&=+$,]|%[0-9a-f][0-9a-f])*)*)*)?(\\?([-a-z0-9_.!~*'();/?:@&=+$,]|%[0-9a-f][0-9a-f])*)?(#([-a-z0-9_.!~*'();/?:@&=+$,]|%[0-9a-f][0-9a-f])*)?)[^].,:;!)? \t\r\n<>\"]"
 color body brightyellow red     "^gpg: BAD signature from.*"
+
 
 # Default index colors:
 color index         yellow default ".*"
@@ -165,42 +166,65 @@ color body red           default "^Closed #.*"
 color body brightblue    default "^Reply to this email.*"
 
 # don't put '+' at the beginning of wrapped lines
-set markers=no
+set markers = no
 
 ##########
 #  Misc  #
 ##########
 
-# : The mail is not addressed to your address.
-# : You are the only recipient of the message.
-# : Your address appears in the "To:" header field, but you are not the only
+
+# : The mail is not addressed to your address.
+# : You are the only recipient of the message.
+# : Your address appears in the "To:" header field, but you are not the only
 #    recipient of the message.
-# : Your address is specified in the "Cc:" header field, but you are not the
+# : Your address is specified in the "Cc:" header field, but you are not the
 #    only recipient.
-# : Indicates the mail that was sent by you.
+# : Indicates the mail that was sent by you.
 # : Indicates the mail was sent to a mailing-list you subscribe to.
-set to_chars = ""
+set to_chars=" "
+
 #  : Mailbox is unchanged.
 # : Mailbox has been changed and needs to be resynchronized.
 # : Mailbox is read-only, or will not be written when exiting.
 # : Folder opened in attach-message mode.
 set status_chars = " "
-# : The mail is tagged.
-# : The mail is flagged as important.
-# : The mail is marked for deletion.
-# : The mail has attachments marked for deletion.
-# : The mail has been replied to.
-#  : The mail is Old (Unread but seen).
-# : The mail is New (Unread but not seen).
-#  : The mail thread is Old (Unread but seen).
-# : The mail thread is New (Unread but not seen).
-set flag_chars = "  "
+
 # : The mail is signed, and the signature is successfully verified.
 # : The mail is PGP encrypted.
 # : The mail is signed.
 # : The mail contains a PGP public key.
 #  : The mail has no crypto info.
-set crypt_chars = " "
+ifdef crypt_chars set crypt_chars = " "
+
+# : The mail is tagged.
+# : The mail is flagged as important.
+# : The mail is marked for deletion.
+# : The mail has attachments marked for deletion.
+# : The mail has been replied to.
+# : The mail is Old (Unread but seen).
+# : The mail is New (Unread but not seen).
+# : The mail thread is Old (Unread but seen).
+# : The mail thread is New (Unread but not seen).
+set flag_chars = ""
+
+# Hide some tags
+set hidden_tags = "unread,draft,flagged,passed,replied,attachment,signed,encrypted"
+
+# Replace some tags with icons
+tag-transforms "replied" "↻ "  \
+               "sent" "➥ " \
+               "todo" "T" \
+               "deleted" "DEL" \
+               "invites" "CAL" \
+               "encrytpted" "" \
+               "signed" "" \
+               "attachment" ""
+
+# The formats must start with 'G' and the entire sequence is case sensitive.
+tag-formats "replied" "GR" \
+            "encrypted" "GE" \
+            "signed" "GS" \
+            "attachment" "GA" \
 
 ######################
 #  Statusbar Colors  #
