@@ -164,6 +164,9 @@ color body green         default "^Merged #.*"
 color body red           default "^Closed #.*"
 color body brightblue    default "^Reply to this email.*"
 
+# don't put '+' at the beginning of wrapped lines
+set markers=no
+
 ##########
 #  Misc  #
 ##########
@@ -198,7 +201,6 @@ set flag_chars = "  "
 # : The mail contains a PGP public key.
 #  : The mail has no crypto info.
 set crypt_chars = " "
-set markers = yes
 
 ######################
 #  Statusbar Colors  #

@@ -18,19 +18,19 @@ super + Return
 super + w
   $BROWSER
 super + m
-  bspc rule -a kitty -o state=floating && kitty "neomutt"
+  bspc rule -a kitty -o state=floating center=true rectangle=800x600+0+0 && kitty "neomutt"
 super + shift + m
-  bspc rule -a kitty -o state=floating && kitty "nvim +'set ft=mail' +Mail"
+  bspc rule -a kitty -o state=floating center=true rectangle=800x600+0+0 && ~/.local/bin/neomutt/send_mail
 super + n
-  bspc rule -a kitty -o state=floating && kitty "newsboat"
+  bspc rule -a kitty -o state=floating center=true rectangle=800x600+0+0 && kitty "newsboat"
 super + e
-  bspc rule -a kitty -o state=floating && kitty "ncmpcpp"
+  bspc rule -a kitty -o state=floating center=true rectangle=800x600+0+0 && kitty "ncmpcpp"
 super + shift + c
-  bspc rule -a kitty -o state=floating && kitty "castero"
+  bspc rule -a kitty -o state=floating center=true rectangle=800x600+0+0 && kitty "castero"
 super + c
-  bspc rule -a kitty -o state=floating && kitty "calcurse"
+  bspc rule -a kitty -o state=floating center=true rectangle=800x600+0+0 && kitty "calcurse"
 super + shift + p
-  bspc rule -a kitty -o state=floating && kitty "pulsemixer"
+  bspc rule -a kitty -o state=floating center=true rectangle=800x600+0+0 && kitty "pulsemixer"
 super + shift + d
   bash ~/.local/bin/xmenu-script
 super + shift + z

@@ -1,16 +1,22 @@
 #!/usr/bin/env bash
 
-path="$1"
-first_line=$(head -n 1 "$path")
-email=$(echo "$first_line" | cut -f2 -d"<" | cut -f1 -d">")
+email=$(find ~/.local/share/mail/ -maxdepth 1 -name "*@*.*" -exec basename {} \; | rofi -dmenu -i -p "Select a folder")
 
-cp -r "$HOME/.config/neomutt/source.muttrc" "/tmp/email.muttrc"
-sed -i "s/source-accounts/$email/g" "/tmp/email.muttrc"
+email_template_path="/tmp/email-template.mail"
+neomutt_source_path="/tmp/email.muttrc"
 
-cat /tmp/email.muttrc
+cp -r "$HOME/.config/neomutt/email-template.mail" "$email_template_path"
+cp -r "$HOME/.config/neomutt/neomuttrc" "$neomutt_source_path"
 
-neomutt -F /tmp/email.muttrc \
+name=$(goobook query "$email" | sed 's/^[^\t]*\t//; s/\s\+home$//')
+name="${name//[$'\t\r\n']}"
+
+sed -i "s/From:/From: $name <$email>/g" "$email_template_path"
+sed -i "s/source-accounts/$email/g" "$neomutt_source_path"
+
+kitty neomutt -F "$neomutt_source_path" \
   -e 'set postpone=no sidebar_visible=no assumed_charset=utf-8' \
-  -H "$path"
+  -H "$email_template_path"
 
-rm -rf /tmp/email.muttrc
+rm -rf "$email_template_path"
+rm -rf "$neomutt_source_path"
