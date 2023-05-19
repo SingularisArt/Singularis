@@ -9,7 +9,7 @@ return {
       end
     end,
     dependencies = {
-      { "folke/neoconf.nvim", cmd = "Neoconf",                                config = true },
+      { "folke/neoconf.nvim", cmd = "Neoconf", config = true },
       {
         "folke/neodev.nvim",
         opts = {
@@ -38,13 +38,13 @@ return {
     event = { "BufReadPre", "BufNewFile" },
   },
 
-  {
-    "ray-x/lsp_signature.nvim",
-    config = function()
-      require("plugins.lsp.signature")
-    end,
-    event = { "BufReadPre", "BufNewFile" },
-  },
+  -- {
+  --   "ray-x/lsp_signature.nvim",
+  --   config = function()
+  --     require("plugins.lsp.signature")
+  --   end,
+  --   event = { "BufReadPre", "BufNewFile" },
+  -- },
 
   {
     "Fildo7525/pretty_hover",

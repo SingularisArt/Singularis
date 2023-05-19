@@ -6,6 +6,9 @@ set editor = "nvim"
 # use very high $read_inc to speed up reading hcache'd maildirs
 folder-hook . 'set read_inc=1000'
 
+# Enable notmuch
+set nm_default_url = "notmuch:///home/singularis/.local/share/mail"
+
 # Set preffered view modes
 auto_view text/html text/calendar application/ics # view html automatically
 auto_view text/calendar application/ics

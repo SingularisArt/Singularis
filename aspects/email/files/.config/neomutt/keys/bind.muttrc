@@ -1,8 +1,8 @@
-################################################################################
-#                                                                              #
-#                                    Macros                                    #
-#                                                                              #
-################################################################################
+#######################################################################
+#                                                                     #
+#                               Macros                                #
+#                                                                     #
+#######################################################################
 
 macro browser h '<change-dir><kill-line>..<enter>' "Go to parent folder"                                        # Go to parent folder                                 (h)
 macro browser Mr "<rename-mailbox><enter>" "Rename mailbox"                                                     # Rename mailbox                                      (Mr)
@@ -21,8 +21,6 @@ macro pager U <set-flag>N "mark as unread"                                      
 macro pager I <clear-flag>N "mark as read"                                                                      # Mark as read                                        (I)
 macro pager l "<exit><limit>" "limit"                                                                           # Limit the number of messages in the current folder  (l)
 
-macro index S "<shell-escape>mbsync -a<enter><shell-escape>notmuch new<enter>" "sync email"                     # Sync mail (S)
-macro index \Cf "<shell-escape>printf 'Enter a search term to find with notmuch: '; read x; echo \$x >~/.cache/mutt_terms<enter> \"\`notmuch search \$(cat ~/.cache/mutt_terms) \`\"<enter>" "show only messages matching a notmuch pattern"
 macro index m ";<save-message>?<toggle-mailboxes>" "Move to..."                                                 # Save the message to another folder                  (m)
 macro index \Ca "T~U<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>" "mark all messages as read"        # Mark all messages as read                           (<C-a>)
 macro index *a "<tag-pattern>~A<enter>" "select all"                                                            # Select all messages in the current folder           (*a)
@@ -35,37 +33,45 @@ macro index I "<tag-prefix><clear-flag>N" "mark as read"                        
 macro index <return> "<display-message>\n<skip-headers>\n" "display message"                                    # Display the message                                 (<Return>)
 macro index \# "<edit-label>\n" "Mark as Complete"                                                             # Mark as complete                                    (#)
 macro index x "<limit>all\n" "show all messages (undo limit)"                                                   # Show all messages (undo limit)                      (x)
-macro index \ci "<limit>~F\n" "Limit by flagged"                                                                # Limit by flagged                                    (<C-i>)
+macro index \Ci "<limit>~F\n" "Limit by flagged"                                                                # Limit by flagged                                    (<C-i>)
 macro index O "<shell-escape>mbsync -a -c $HOME/.config/isync/mbsyncrc<enter>" "run mbsync to sync all mail"    # Sync all mail                                       (O)
 
 macro index gi "<change-folder>=INBOX<enter>" "go to inbox"                                                     # Go to inbox                                         (gi)
-macro index gs "<change-folder>=[Gmail]/Sent\ Mail<enter>" "go to sent"                                         # Go to sent                                          (gs)
-macro index gd "<change-folder>=[Gmail]/Drafts<enter>" "go to drafts"                                           # Go to drafts                                        (gd)
-macro index gp "<change-folder>=[Gmail]/Spam<enter>" "go to spam"                                               # Go to spam                                          (gp)
-macro index ga "<change-folder>=[Gmail]/All Mail<enter>" "go to all mail"                                       # Go to all mail                                      (ga)
-macro index Mi ";<save-message>=INBOX<enter><enter>" "move mail to inbox"                                       # Move mail to inbox                                  (Mi)
-macro index Ms ";<save-message>=[Gmail]/Sent\ Mail<enter><enter>" "move mail to sent"                           # Move mail to sent                                   (Ms)
-macro index Md ";<save-message>=[Gmail]/Drafts<enter><enter>" "move mail to drafts"                             # Move mail to drafts                                 (Md)
-macro index Mp ";<save-message>=[Gmail]/Spam<enter><enter>" "move mail to spam"                                 # Move mail to spam                                   (Mp)
-macro index Ma ";<save-message>=[Gmail]/All Mail<enter><enter>" "move mail to all mail"                         # Move mail to all mail                               (Ma)
-macro index Ci ";<copy-message>=INBOX<enter>" "copy mail to inbox"                                              # Copy mail to inbox                                  (Ci)
-macro index Cs ";<copy-message>=[Gmail]/Sent\ Mail<enter>" "copy mail to sent"                                  # Copy mail to sent                                   (Cs)
-macro index Cd ";<copy-message>=[Gmail]/Drafts<enter>" "copy mail to drafts"                                    # Copy mail to drafts                                 (Cd)
-macro index Cp ";<copy-message>=[Gmail]/Spam<enter>" "copy mail to spam"                                        # Copy mail to spam                                   (Cp)
-macro index Ca ";<copy-message>=[Gmail]/All Mail<enter>" "copy mail to all mail"                                # Copy mail to all mail                               (Ca)
+macro index ga "<change-folder>=Archive<enter>" "go to all mail"                                                # Go to all mail                                      (ga)
+macro index gd "<change-folder>=Drafts<enter>" "go to drafts"                                                   # Go to drafts                                        (gd)
+macro index gs "<change-folder>=Sent<enter>" "go to sent"                                                       # Go to sent                                          (gs)
+macro index gS "<change-folder>=Starred<enter>" "go to starred"                                                 # Go to sent                                          (gs)
+macro index gp "<change-folder>=Spam<enter>" "go to spam"                                                       # Go to spam                                          (gp)
+macro index gt "<change-folder>=Trash<enter>" "go to trash"                                                     # Go to spam                                          (gp)
 
-macro index,pager a "<pipe-message>goobook add<return>" "add sender to contacts" # Add sender to contacts                              (a)
-macro index,pager \cl '<pipe-message>urlscan -d -w 80<enter>' "call urlscan to open links"                      # Call urlscan to open links                          (<C-l>)
+macro index Mi ";<save-message>=INBOX<enter>" "move to inbox"                                                   # Go to inbox                                         (gi)
+macro index Ma ";<save-message>=Archive<enter>" "move to all mail"                                              # Go to all mail                                      (ga)
+macro index Md ";<save-message>=Drafts<enter>" "move to drafts"                                                 # Go to drafts                                        (gd)
+macro index Ms ";<save-message>=Sent<enter>" "move to sent"                                                     # Go to sent                                          (gs)
+macro index MS ";<save-message>=Starred<enter>" "move to starred"                                               # Go to sent                                          (gs)
+macro index Mp ";<save-message>=Spam<enter>" "move to spam"                                                     # Go to spam                                          (gp)
+macro index Mt ";<save-message>=Trash<enter>" "move to trash"                                                   # Go to spam                                          (gp)
+
+macro index Ci ";<copy-message>=INBOX<enter>" "copy to inbox"                                                   # Go to inbox                                         (gi)
+macro index Ca ";<copy-message>=Archive<enter>" "copy to all mail"                                              # Go to all mail                                      (ga)
+macro index Cd ";<copy-message>=Drafts<enter>" "copy to drafts"                                                 # Go to drafts                                        (gd)
+macro index Cs ";<copy-message>=Sent<enter>" "copy to sent"                                                     # Go to sent                                          (gs)
+macro index CS ";<copy-message>=Starred<enter>" "copy to starred"                                               # Go to sent                                          (gs)
+macro index Cp ";<copy-message>=Spam<enter>" "copy to spam"                                                     # Go to spam                                          (gp)
+macro index Ct ";<copy-message>=Trash<enter>" "copy to trash"                                                   # Go to spam                                          (gp)
+
+macro index,pager a "<pipe-message>goobook add<return>" "add sender to contacts"                                # Add sender to contacts                              (a)
+macro index,pager \Cl '<pipe-message>urlscan -d -w 80<enter>' "call urlscan to open links"                      # Call urlscan to open links                          (<C-l>)
 
 macro attach s '<save-entry><kill-line>~/Downloads/<enter>a' "Save file to ~/Downloads"                         # Save file to ~/Downloads                            (s)
-macro attach,compose \cl "<pipe-entry> urlscan -d -w 80<Enter>" "call urlscan to extract URLs out of a message" # Call urlscan to extract URLs out of a message       (<C-l>)
+macro attach,compose \Cl "<pipe-entry> urlscan -d -w 80<Enter>" "call urlscan to extract URLs out of a message" # Call urlscan to extract URLs out of a message       (<C-l>)
 
 
-################################################################################
-#                                                                              #
-#                                   Bindings                                   #
-#                                                                              #
-################################################################################
+#######################################################################
+#                                                                     #
+#                              Bindings                               #
+#                                                                     #
+#######################################################################
 
 bind index,pager d delete-message                          # Delete message                (d)
 bind index,pager L edit-label                              # Edit label                    (L)
@@ -94,7 +100,7 @@ bind index t tag-entry                                     # Tag entry          
 bind index T tag-thread                                    # Tag thread                    (T)
 bind index <space> flag-message                            # Flag message                  (<Space>)
 bind index u undelete-message                              # Undelete message              (u)
-# bind index U undelete-thread                               # Undelete thread               (U)
+bind index U undelete-thread                               # Undelete thread               (U)
 bind index <Tab> collapse-thread                           # Collapse thread               (<Tab>)
 bind index + link-threads                                  # Link threads                  (+)
 bind index zz current-middle                               # Go to current middle          (zz)
