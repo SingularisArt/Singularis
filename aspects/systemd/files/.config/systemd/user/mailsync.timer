@@ -2,8 +2,8 @@
 Description=Mail sync
 
 [Timer]
-OnBootSec=15m
-OnUnitActiveSec=15m
+OnBootSec=1m
+OnUnitActiveSec=10m
 Persistent=true
 
 [Install]

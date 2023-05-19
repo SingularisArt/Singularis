@@ -29,6 +29,7 @@ lsp.setup_codelens_refresh = function(client, bufnr)
 end
 
 lsp.attach_mappings = function(_, bufnr)
+  print("hi")
   vim.keymap.set("n", "K", "<CMD>lua vim.lsp.buf.hover()<CR>", { buffer = true, silent = true })
 
   local which_key = require("which-key")
@@ -72,7 +73,6 @@ lsp.attach_mappings = function(_, bufnr)
 end
 
 lsp.on_attach = function(client, bufnr)
-  require("lsp_signature").on_attach(client, bufnr)
   require("lsp-inlayhints").on_attach(client, bufnr)
   require("nvim-navic").attach(client, bufnr)
   lsp.setup_codelens_refresh(client, bufnr)

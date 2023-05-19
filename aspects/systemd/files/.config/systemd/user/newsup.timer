@@ -2,7 +2,7 @@
 Description=Update newsboat
 
 [Timer]
-OnBootSec=15m
+OnBootSec=1m
 OnUnitActiveSec=15m
 Persistent=true
 
