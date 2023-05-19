@@ -1,0 +1,38 @@
+# vim: filetype=muttrc
+
+source ~/.config/neomutt/switch.muttrc
+
+set realname = "Your Name"
+set from = "email@gmail.com"
+set sendmail = "msmtp -a email@gmail.com"
+
+alias me Your Name <email@gmail.com>
+
+set folder = "~/.local/share/mail/email@gmail.com"
+set header_cache = ~/.cache/mutt-wizard/email@gmail.com/headers
+set message_cachedir = ~/.cache/mutt-wizard/email@gmail.com/bodies
+set mbox_type = Maildir
+set hostname = "gmail.com"
+
+set spoolfile = +INBOX
+set postponed = +Drafts
+set trash = +Trash
+set record = +Sent
+
+macro index / \
+        "<enter-command>unset wait_key<enter><change-folder>=Archive<enter><shell-escape>read -p 'Search mail: ' x; echo \$x >~/.cache/mutt_terms<enter><limit>~i \"\`notmuch search --output=messages \$(cat ~/.cache/mutt_terms) | perl -le '@a=<>;s/\^id:// for@a;$,=\"|\";print@a' | perl -le '@a=<>; chomp@a; s/\\+/\\\\+/ for@a;print@a' \`\"<enter>" \
+        "Search mail (using notmuch)"
+
+macro index o "<shell-escape>mbsync email@gmail.com<enter>" "run mbsync to sync email@gmail.com"
+macro index \eg "<enter-command>unset wait_key<enter><shell-escape>gpg --list-secret-keys; printf 'Enter email ID of user to publish: '; read eID; printf 'Enter fingerprint of GPG key to publish: '; read eFGPT; /usr/libexec/gpg-wks-client --create \$eFGPT \$eID | msmtp --read-envelope-from --read-recipients -a email@gmail.com<enter>"  "publish GPG key to WKS provider"
+macro index \eh "<pipe-message>/usr/libexec/gpg-wks-client --receive | msmtp --read-envelope-from --read-recipients -a email@gmail.com<enter>" "confirm GPG publication"
+
+named-mailboxes " Inbox"     "=INBOX"
+named-mailboxes " Archive"   "=Archive"
+named-mailboxes " Drafts"    "=Drafts"
+named-mailboxes " Sent Mail" "=Sent"
+named-mailboxes " Starred"   "=Starred"
+named-mailboxes " Spam"      "=Spam"
+named-mailboxes " Trash"     "=Trash"
+
+source ~/.config/neomutt/tmp/folders/email@gmail.com.muttrc
