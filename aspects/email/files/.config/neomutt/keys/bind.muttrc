@@ -41,10 +41,6 @@ macro index CS ";<copy-message>=Starred<enter>" "copy to starred"               
 macro index Cp ";<copy-message>=Spam<enter>" "copy to spam"                                                           # Go to spam                                          (gp)
 macro index Ct ";<copy-message>=Trash<enter>" "copy to trash"                                                         # Go to spam                                          (gp)
 
-macro pager *a "<exit><tag-pattern>~A<enter>" "select all"                                                            # Select all messages in the current folder           (*a)
-macro pager *n "<exit><untag-pattern>~T<enter>" "deselect all"                                                        # Deselect all messages in the current folder         (*n)
-macro pager *r "<exit><untag-pattern>~T<enter><tag-pattern>~R<enter>" "select read"                                   # Select all read messages in the current folder      (*r)
-macro pager *u "<exit><untag-pattern>~T<enter><tag-pattern>~U<enter>" "select unread"                                 # Select all unread messages in the current folder    (*u)
 macro index *a "<tag-pattern>~A<enter>" "select all"                                                                  # Select all messages in the current folder           (*a)
 macro index *n "<untag-pattern>~T<enter>" "deselect all"                                                              # Deselect all messages in the current folder         (*n)
 macro index *r "<untag-pattern>~T<enter><tag-pattern>~R<enter>" "select read"                                         # Select all read messages in the current folder      (*r)
@@ -52,26 +48,18 @@ macro index *u "<untag-pattern>~T<enter><tag-pattern>~U<enter>" "select unread" 
 
 macro index *R "<tag-pattern>~N<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>" "mark all new as read"        # Mark all messages as read                           (*R)
 macro index *U "<tag-pattern>o<enter><tag-prefix><set-flag>N<untag-pattern>.<enter>" "mark all as unread"             # Mark all messages as unread                         (*U)
-macro pager *R "<exit><tag-pattern>~N<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>" "mark all new as read"  # Mark all messages as read                           (*R)
-macro pager *U "<exit><tag-pattern>o<enter><tag-prefix><set-flag>N<untag-pattern>.<enter>" "mark all as unread"       # Mark all messages as unread                         (*U)
 
-macro pager U <set-flag>N "mark as unread"                                                                            # Mark as unread                                      (U)
-macro pager I <clear-flag>N "mark as read"                                                                            # Mark as read                                        (I)
 macro index U "<tag-prefix><set-flag>N" "mark as unread"                                                              # Mark as unread                                      (U)
 macro index I "<tag-prefix><clear-flag>N" "mark as read"                                                              # Mark as read                                        (I)
 
 macro index t "<tag-message>" "tag thread"                                                                            # Tag the current message                             (t)
-macro pager t "<exit><tag-message>" "tag thread"                                                                      # Tag the current message                             (t)
-macro pager s "<flag-message>" "star/unstar"                                                                          # Star/unstar the message                             (s)
 macro index s "<tag-prefix><flag-message>" "star/unstar"                                                              # Star/unstar the message                             (s)
 
 macro index l "<limit>" "limit"                                                                                       # Limit the number of messages in the current folder  (l)
-macro pager l "<exit><limit>" "limit"                                                                                 # Limit the number of messages in the current folder  (l)
 
 macro index <return> "<display-message>\n<skip-headers>\n" "display message"                                          # Display the message                                 (<Return>)
 
 macro index \Ci "<limit>~F\n" "limit by flagged"                                                                      # Limit by flagged                                    (<C-i>)
-macro pager \Ci "<exit><limit>~F\n" "limit by flagged"                                                                # Limit by flagged                                    (<C-i>)
 macro index O "<shell-escape>mbsync -a -c $HOME/.config/mbsync/mbsyncrc<enter>" "run mbsync to sync all mail"         # Sync all mail                                       (O)
 
 macro index,pager \Cl "<pipe-message>urlscan -d -w 80<enter>" "call urlscan to open links"                            # Call urlscan to open links                          (<C-l>)
