@@ -570,10 +570,11 @@ I typically clone it to `~/.local/share/Singularis`
 > (refer to the [aspects](aspects/) directory). Unless you desire an identical
 > setup to mine, which is improbable, you likely don't need to install
 > everything. Perhaps you're not interested in the entirety of the
-> "[dotfiles](dotfiles/)" and "[nvim](nvim)" aspects either. Prior to
-> installation, please examine the contents of each aspect. Alternatively, you
-> can simply browse the configuration files and adopt any intriguing or useful
-> elements (all content is in the public domain, unless stated otherwise)._
+> "[dotfiles](aspects/dotfiles/)" and "[nvim](aspects/nvim/)" aspects either.
+> Prior to installation, please examine the contents of each aspect.
+> Alternatively, you can simply browse the configuration files and adopt any
+> intriguing or useful elements (all content is in the public domain, unless
+> stated otherwise).
 
 ### Examples
 
