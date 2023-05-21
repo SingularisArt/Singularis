@@ -532,22 +532,22 @@ turned out to be 2000+ lines.
 
 # Aspects
 
-* **APT**     : More info [here](./aspects/apt).
-* **AUR**     : More info [here](./aspects/aur).
-* **Dotfiles**: More info [here](./aspects/dotfiles).
-* **Email**   : More info [here](./aspects/email).
-* **Homebrew**: More info [here](./aspects/homebrew).
-* **Node**    : More info [here](./aspects/node).
-* **NeoVim**  : More info [here](./aspects/nvim).
-* **Pacman**  : More info [here](./aspects/pacman).
-* **Python**  : More info [here](./aspects/python).
-* **Systemd** : More info [here](./aspects/systemd).
-* **Yum**     : More info [here](./aspects/yum).
+* **APT**     : More info [here](./aspects/apt#readme).
+* **AUR**     : More info [here](./aspects/aur#readme).
+* **Dotfiles**: More info [here](./aspects/dotfiles#readme).
+* **Email**   : More info [here](./aspects/email#readme).
+* **Homebrew**: More info [here](./aspects/homebrew#readme)
+* **Node**    : More info [here](./aspects/node#readme)
+* **NeoVim**  : More info [here](./aspects/nvim#readme)
+* **Pacman**  : More info [here](./aspects/pacman#readme)
+* **Python**  : More info [here](./aspects/python#readme)
+* **Systemd** : More info [here](./aspects/systemd#readme)
+* **Yum**     : More info [here](./aspects/yum#readme)
 
 # Dependencies
 
-- `git`: In order to clone the repo.
-- `python >= 3.10`: To run the installation script.
+- `git`: Required to clone the repo.
+- `python >= 3.10`: Required to run the installation script.
 
 ## Platform status
 
@@ -566,15 +566,14 @@ git clone --recursive https://github.com/SingularisArt/Singularis.git
 
 I typically clone it to `~/.local/share/Singularis`
 
-> :warning: WARNING: There are lots of different things that can be installed
-> or configured (see the [aspects](aspects/) directory). Unless you want your
-> machine to be exactly like mine -- which is unlikely -- you probably don't
-> want to install everything. Maybe you don't even want everything in the
-> ["dotfiles"](aspects/dotfiles) and ["nvim"](aspects/nvim) aspects. Please
-> inspect the contents of each aspect before proceeding to install it; you may
-> even be better off just looking at the configuration files and stealing the
-> bits that you find interesting or useful (everything is in the public domain,
-> unless otherwise indicated).
+_> :warning: WARNING: Numerous installations and configurations are available
+> (refer to the [aspects](aspects/) directory). Unless you desire an identical
+> setup to mine, which is improbable, you likely don't need to install
+> everything. Perhaps you're not interested in the entirety of the
+> "[dotfiles](dotfiles/)" and "[nvim](nvim)" aspects either. Prior to
+> installation, please examine the contents of each aspect. Alternatively, you
+> can simply browse the configuration files and adopt any intriguing or useful
+> elements (all content is in the public domain, unless stated otherwise)._
 
 ### Examples
 
@@ -606,12 +605,12 @@ taken from and used as an inspiration). Anyway, here's how I install them.
 ./install --log "0" --all --singularis  # I set the log level to 0 so I can see everything that's happening.
 ```
 
-> :warning: Don't use the `--singularis` option. This installs all my personal
-> config, like my newsboat history, which are encrypted and only I have the key
-> to decrypt them. If you use the `--singularis` option, you're bound to run
-> into issues, mainly because I use `autojump`, which stores sensative files.
-> So, I encrypt them, and when cloning them down, I decrypt them. But if you use
-> the `--singularis` option without decrypting them, you'll keep getting errors.
+> :warning: **Avoid using the `--singularis` option**. It includes my personal
+> configuration, such as encrypted newsboat history that only I can decrypt.
+> Issues may arise if you use the `--singularis` option, especially because I
+> utilize `autojump`, which stores sensitive files. These files are encrypted
+> when stored and decrypted when cloned. However, if you use the `--singularis`
+> option without decrypting them, you will encounter errors.
 
 # License
 
@@ -622,7 +621,7 @@ the [LICENSE](LICENSE.md) for details.
 
 - [Greg Hurrell](https://github.com/wincent)
 - [Luke Smith](https://github.com/LukeSmithxyz)
-- [Chris at Machine](https://github.com/ChristianChiarulli)
+- [Chris@Machine](https://github.com/ChristianChiarulli)
 - [Lcpz](https://github.com/lcpz/awesome-copycats)
 - [Gideon Wolfe](https://github.com/GideonWolfe)
 - [echasnovski](https://github.com/echasnovski)
