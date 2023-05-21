@@ -271,7 +271,7 @@
 <details><summary>📁 Images</summary>
   <p>
       <img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-1/images.png">
-_      <!-- <img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-2/images.png"> -->_
+      <!-- <img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-2/images.png"> -->
       <!-- <img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-3/images.png"> -->
       <!-- <img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-4/images.png"> -->
   </p>
@@ -566,7 +566,7 @@ git clone --recursive https://github.com/SingularisArt/Singularis.git
 
 I typically clone it to `~/.local/share/Singularis`
 
-_> :warning: WARNING: Numerous installations and configurations are available
+> :warning: WARNING: Numerous installations and configurations are available
 > (refer to the [aspects](aspects/) directory). Unless you desire an identical
 > setup to mine, which is improbable, you likely don't need to install
 > everything. Perhaps you're not interested in the entirety of the
