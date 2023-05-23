@@ -7,6 +7,38 @@ return {
         name = "DiagnosticSign" .. name
         vim.fn.sign_define(name, { text = icon, texthl = name, numhl = "" })
       end
+
+      local servers = require("plugins.lsp.servers")
+      local ext_capabilites = vim.lsp.protocol.make_client_capabilities()
+      local capabilities = require("util").capabilities(ext_capabilites)
+
+      local function setup(server)
+        if servers[server] and servers[server].disabled then
+          return
+        end
+        local server_opts = vim.tbl_deep_extend("force", {
+          capabilities = vim.deepcopy(capabilities),
+        }, servers[server] or {})
+        require("lspconfig")[server].setup(server_opts)
+      end
+
+      local available = vim.tbl_keys(require("mason-lspconfig.mappings.server").lspconfig_to_package)
+
+      local ensure_installed = {}
+      for server, server_opts in pairs(servers) do
+        if server_opts then
+          if not vim.tbl_contains(available, server) then
+            setup(server)
+          else
+            if server_opts["install"] then
+              ensure_installed[#ensure_installed + 1] = server
+            end
+          end
+        end
+      end
+
+      require("mason-lspconfig").setup({ ensure_installed = ensure_installed })
+      require("mason-lspconfig").setup_handlers({ setup })
     end,
     dependencies = {
       { "folke/neoconf.nvim", cmd = "Neoconf", config = true },
@@ -28,23 +60,15 @@ return {
     event = { "BufReadPre", "BufNewFile" },
   },
 
-  -- server configuration
   {
-    "ray-x/navigator.lua",
-    after = "nvim-lspconfig",
-    config = function()
-      require("plugins.lsp.navigator")
-    end,
-    event = { "BufReadPre", "BufNewFile" },
+    "ray-x/lsp_signature.nvim",
+    event = { "InsertEnter" },
+    opts = {
+      floating_window = false, -- show hint in a floating window, set to false for virtual text only mode
+      floating_window_above_cur_line = true, -- try to place the floating above the current line when possible Note:
+      hint_scheme = "Comment", -- highlight group for the virtual text
+    },
   },
-
-  -- {
-  --   "ray-x/lsp_signature.nvim",
-  --   config = function()
-  --     require("plugins.lsp.signature")
-  --   end,
-  --   event = { "BufReadPre", "BufNewFile" },
-  -- },
 
   {
     "Fildo7525/pretty_hover",

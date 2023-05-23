@@ -1,0 +1,26 @@
+local servers = {
+  -- emmet_ls = { require("plugins.lsp.settings.emmet_ls"), intall = true },
+  -- jsonls = { require("plugins.lsp.settings.jsonls"), intall = true },
+  -- pyright = { require("plugins.lsp.settings.pyright"), install = true },
+  -- rust_analyzer = { require("plugins.lsp.settings.rust_analyzer"), install = true },
+  -- solang = { require("plugins.lsp.settings.solang"), install = false },
+  -- solc = { require("plugins.lsp.settings.solc"), install = true },
+  -- lua_ls = { require("plugins.lsp.settings.lua_ls"), install = true },
+  -- cssmodules_ls = { filetypes = "css", install = true },
+  -- ltex = { require("plugins.lsp.settings.ltex"), install = false },
+  -- tsserver = { require("plugins.lsp.settings.tsserver"), install = true },
+  -- yamlls = { require("plugins.lsp.settings.yamlls"), install = true },
+  -- sqlls = { require("plugins.lsp.settings.sqlls"), install = false },
+  -- cssls = { install = true },
+  -- html = { require("plugins.lsp.settings.html"), install = true },
+  -- texlab = { require("plugins.lsp.settings.texlab"), install = true },
+  -- bashls = { install = true },
+  -- clangd = { install = true },
+  -- tailwindcss = { install = true },
+  -- golangci_lint_ls = { install = true },
+  -- jdtls = { install = true },
+  -- solidity_ls = { install = true },
+  -- r_language_server = { install = false },
+}
+
+return servers

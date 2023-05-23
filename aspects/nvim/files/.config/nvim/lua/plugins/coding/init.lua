@@ -53,89 +53,32 @@ return {
 
   -- auto pairs
   {
-    "windwp/nvim-autopairs",
-    config = function()
-      local npairs = require("nvim-autopairs")
-      local Rule = require("nvim-autopairs.rule")
-
-      npairs.setup({
-        disable_filetype = { "TelescopePrompt", "guihua", "guihua_rust", "clap_input" },
-        autopairs = { enable = true },
-        ignored_next_char = string.gsub([[ [%w%%%'%[%"%.] ]], "%s+", ""),
-        enable_check_bracket_line = false,
-        html_break_line_filetype = { "html", "vue", "typescriptreact", "svelte", "javascriptreact" },
-        check_ts = true,
-        ts_config = {
-          lua = { "string" },
-          javascript = { "template_string" },
-          java = false,
-        },
-        fast_wrap = {
-          map = "<M-e>",
-          chars = { "{", "[", "(", '"', "'", "`" },
-          pattern = string.gsub([[ [%'%"%`%+%)%>%]%)%}%,%s] ]], "%s+", ""),
-          end_key = "$",
-          keys = "qwertyuiopzxcvbnmasdfghjkl",
-          check_comma = true,
-          hightlight = "Search",
-        },
-      })
-
-      npairs.add_rules({
-        Rule("(", ")"):with_pair(function(opts)
-          return opts.prev_char:match(".%)") ~= nil
-        end):use_key(")"),
-        Rule("{", "}"):with_pair(function(opts)
-          return opts.prev_char:match(".%}") ~= nil
-        end):use_key("}"),
-        Rule("[", "]"):with_pair(function(opts)
-          return opts.prev_char:match(".%]") ~= nil
-        end):use_key("]"),
-      })
+    "echasnovski/mini.pairs",
+    config = function(_, opts)
+      require("mini.pairs").setup(opts)
     end,
-    event = "InsertEnter",
+    event = "VeryLazy",
   },
 
   -- comments
   {
-    "numToStr/Comment.nvim",
-    config = function()
-      local nvim_comment = require("Comment")
-
-      nvim_comment.setup({
-        ignore = "^$",
-        toggler = {
-          line = "<Leader>/",
-          block = "gbc",
-        },
-        pre_hook = function(ctx)
-          local line_start = (ctx.srow or ctx.range.srow) - 1
-          local line_end = ctx.erow or ctx.range.erow
-          require("lsp-inlayhints.core").clear(0, line_start, line_end)
-
-          require("ts_context_commentstring.integrations.comment_nvim").create_pre_hook()
-
-          if vim.bo.filetype == "javascript" or vim.bo.filetype == "typescript" then
-            local U = require("Comment.utils")
-
-            local type = ctx.ctype == U.ctype.linewise and "__default" or "__multiline"
-
-            local location = nil
-            if ctx.ctype == U.ctype.blockwise then
-              location = require("ts_context_commentstring.utils").get_cursor_location()
-            elseif ctx.cmotion == U.cmotion.v or ctx.cmotion == U.cmotion.V then
-              location = require("ts_context_commentstring.utils").get_visual_start_location()
-            end
-
-            return require("ts_context_commentstring.internal").calculate_commentstring({
-              key = type,
-              location = location,
-            })
-          end
-        end,
-      })
+    "echasnovski/mini.comment",
+    config = function(_, opts)
+      require("mini.comment").setup(opts)
     end,
-    keys = { "<Leader>/" },
+    event = "VeryLazy",
+    opts = {
+      mappings = {
+        comment = "<Leader>/",
+        comment_line = "<Leader>/",
+        textobject = "<Leader>/",
+      },
+      hooks = {
+        pre = function()
+          require("ts_context_commentstring.internal").update_commentstring({})
+        end,
+      },
+    },
   },
 
   -- todo comments

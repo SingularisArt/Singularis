@@ -183,62 +183,62 @@ return {
     ft = "qf",
   },
 
-  -- {
-  --   "kevinhwang91/nvim-ufo",
-  --   config = function()
-  --     local capabilities = vim.lsp.protocol.make_client_capabilities()
-  --     capabilities.textDocument.foldingRange = {
-  --       dynamicRegistration = false,
-  --       lineFoldingOnly = true,
-  --     }
-  --     local handler = function(virtText, lnum, endLnum, width, truncate)
-  --       local newVirtText = {}
-  --       local suffix = ("  %d "):format(endLnum - lnum)
-  --       local sufWidth = vim.fn.strdisplaywidth(suffix)
-  --       local targetWidth = width - sufWidth
-  --       local curWidth = 0
-  --       for _, chunk in ipairs(virtText) do
-  --         local chunkText = chunk[1]
-  --         local chunkWidth = vim.fn.strdisplaywidth(chunkText)
-  --         if targetWidth > curWidth + chunkWidth then
-  --           table.insert(newVirtText, chunk)
-  --         else
-  --           chunkText = truncate(chunkText, targetWidth - curWidth)
-  --           local hlGroup = chunk[2]
-  --           table.insert(newVirtText, { chunkText, hlGroup })
-  --           chunkWidth = vim.fn.strdisplaywidth(chunkText)
-  --           if curWidth + chunkWidth < targetWidth then
-  --             suffix = suffix .. (" "):rep(targetWidth - curWidth - chunkWidth)
-  --           end
-  --           break
-  --         end
-  --         curWidth = curWidth + chunkWidth
-  --       end
-  --       table.insert(newVirtText, { suffix, "MoreMsg" })
-  --       return newVirtText
-  --     end
-  --     local whitelist = {
-  --       ["gotmpl"] = "indent",
-  --       ["python"] = "lsp",
-  --       ["html"] = "indent",
-  --     }
-  --     require("ufo").setup({
-  --       provider_selector = function(bufnr, filetype)
-  --         if whitelist[filetype] then
-  --           return whitelist[filetype]
-  --         end
-  --         return ""
-  --       end,
-  --     })
-  --     local bufnr = vim.api.nvim_get_current_buf()
-  --     local ft = vim.o.ft
-  --     if whitelist[ft] then
-  --       require("ufo").setVirtTextHandler(bufnr, handler)
-  --     end
-  --   end,
-  --   dependencies = "kevinhwang91/promise-async",
-  --   lazy = false,
-  -- },
+  {
+    "kevinhwang91/nvim-ufo",
+    config = function()
+      local capabilities = vim.lsp.protocol.make_client_capabilities()
+      capabilities.textDocument.foldingRange = {
+        dynamicRegistration = false,
+        lineFoldingOnly = true,
+      }
+      local handler = function(virtText, lnum, endLnum, width, truncate)
+        local newVirtText = {}
+        local suffix = ("  %d "):format(endLnum - lnum)
+        local sufWidth = vim.fn.strdisplaywidth(suffix)
+        local targetWidth = width - sufWidth
+        local curWidth = 0
+        for _, chunk in ipairs(virtText) do
+          local chunkText = chunk[1]
+          local chunkWidth = vim.fn.strdisplaywidth(chunkText)
+          if targetWidth > curWidth + chunkWidth then
+            table.insert(newVirtText, chunk)
+          else
+            chunkText = truncate(chunkText, targetWidth - curWidth)
+            local hlGroup = chunk[2]
+            table.insert(newVirtText, { chunkText, hlGroup })
+            chunkWidth = vim.fn.strdisplaywidth(chunkText)
+            if curWidth + chunkWidth < targetWidth then
+              suffix = suffix .. (" "):rep(targetWidth - curWidth - chunkWidth)
+            end
+            break
+          end
+          curWidth = curWidth + chunkWidth
+        end
+        table.insert(newVirtText, { suffix, "MoreMsg" })
+        return newVirtText
+      end
+      local whitelist = {
+        ["gotmpl"] = "indent",
+        ["python"] = "lsp",
+        ["html"] = "indent",
+      }
+      require("ufo").setup({
+        provider_selector = function(bufnr, filetype)
+          if whitelist[filetype] then
+            return whitelist[filetype]
+          end
+          return ""
+        end,
+      })
+      local bufnr = vim.api.nvim_get_current_buf()
+      local ft = vim.o.ft
+      if whitelist[ft] then
+        require("ufo").setVirtTextHandler(bufnr, handler)
+      end
+    end,
+    dependencies = "kevinhwang91/promise-async",
+    lazy = false,
+  },
 
   {
     "mbbill/undotree",
@@ -296,35 +296,35 @@ return {
   },
 
   -- Copilot
-  -- {
-  --   "github/copilot.vim",
-  --   config = function()
-  --     vim.g.copilot_no_tab_map = true
-  --     vim.api.nvim_set_keymap("i", "<C-h>", "copilot#Accept('<CR>')", { silent = true, expr = true })
+  {
+    "github/copilot.vim",
+    config = function()
+      vim.g.copilot_no_tab_map = true
+      vim.api.nvim_set_keymap("i", "<C-h>", "copilot#Accept('<CR>')", { silent = true, expr = true })
 
-  --     vim.g.copilot_filetypes = {
-  --       ["*"] = false,
-  --       ["python"] = true,
-  --       ["c++"] = true,
-  --       ["c#"] = true,
-  --       ["c"] = true,
-  --       ["sql"] = true,
-  --       ["html"] = true,
-  --       ["css"] = true,
-  --       ["javascript"] = true,
-  --       ["typescript"] = true,
-  --       ["php"] = true,
-  --       ["ruby"] = true,
-  --       ["perl"] = true,
-  --       ["java"] = true,
-  --       ["rust"] = true,
-  --       ["tex"] = true,
-  --       ["go"] = true,
-  --       ["sh"] = true,
-  --     }
-  --   end,
-  --   event = "InsertEnter",
-  -- },
+      vim.g.copilot_filetypes = {
+        ["*"] = false,
+        ["python"] = true,
+        ["c++"] = true,
+        ["c#"] = true,
+        ["c"] = true,
+        ["sql"] = true,
+        ["html"] = true,
+        ["css"] = true,
+        ["javascript"] = true,
+        ["typescript"] = true,
+        ["php"] = true,
+        ["ruby"] = true,
+        ["perl"] = true,
+        ["java"] = true,
+        ["rust"] = true,
+        ["tex"] = true,
+        ["go"] = true,
+        ["sh"] = true,
+      }
+    end,
+    event = "InsertEnter",
+  },
 
   {
     "ThePrimeagen/harpoon",
@@ -337,6 +337,45 @@ return {
       { "<Leader>Hh", "<CMD>lua require('harpoon.ui').toggle_quick_menu()<CR>" },
       { "<Leader>Hn", "<CMD>lua require('harpoon.ui').nav_next()<CR>" },
       { "<Leader>Hp", "<CMD>lua require('harpoon.ui').nav_prev()<CR>" },
+    },
+  },
+
+  {
+    "luukvbaal/statuscol.nvim",
+    event = "BufReadPost",
+    config = function()
+      local builtin = require("statuscol.builtin")
+      require("statuscol").setup({
+        relculright = false,
+        ft_ignore = { "neo-tree" },
+        segments = {
+          {
+            -- line number
+            text = { " ", builtin.lnumfunc },
+            condition = { true, builtin.not_empty },
+            click = "v:lua.ScLa",
+          },
+          { text = { "%s" }, click = "v:lua.ScSa" }, -- Sign
+          { text = { "%C", " " }, click = "v:lua.ScFa" }, -- Fold
+        },
+      })
+      vim.api.nvim_create_autocmd({ "BufEnter" }, {
+        callback = function()
+          if vim.bo.filetype == "neo-tree" then
+            vim.opt_local.statuscolumn = ""
+          end
+        end,
+      })
+    end,
+  },
+
+  {
+    "rmagatti/alternate-toggler",
+    config = function()
+      require("alternate-toggler").setup()
+    end,
+    keys = {
+      { "<Space>t", "<CMD>lua require('alternate-toggler').toggleAlternate()<CR>" },
     },
   },
 }

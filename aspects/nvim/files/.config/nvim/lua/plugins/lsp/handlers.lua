@@ -29,7 +29,6 @@ lsp.setup_codelens_refresh = function(client, bufnr)
 end
 
 lsp.attach_mappings = function(_, bufnr)
-  print("hi")
   vim.keymap.set("n", "K", "<CMD>lua vim.lsp.buf.hover()<CR>", { buffer = true, silent = true })
 
   local which_key = require("which-key")

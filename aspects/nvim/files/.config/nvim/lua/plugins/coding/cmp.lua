@@ -77,41 +77,42 @@ cmp.setup({
   formatting = {
     fields = { "kind", "abbr", "menu" },
     format = function(entry, vim_item)
-      local max_width = 50
-      if max_width ~= 0 and #vim_item.abbr > max_width then
-        vim_item.abbr = string.sub(vim_item.abbr, 1, max_width - 1) .. icons.ui.Ellipsis
-      end
-
-      vim_item.menu = ({
-        omni = (vim.inspect(vim_item.menu):gsub("%\"", "")),
-        buffer = "[Buffer]",
-      })[entry.source.name]
       vim_item.kind = kind_icons[vim_item.kind]
       vim_item.menu = source_names[entry.source.name]
       vim_item.dup = duplicates[entry.source.name]
 
-      return require("tailwindcss-colorizer-cmp").formatter(entry, vim_item)
+      return vim_item
     end,
   },
   sources = cmp_sources,
-  confirm_opts = {
-    behavior = cmp.ConfirmBehavior.Replace,
-    select = false,
-  },
   completion = {
-    autocomplete = { require("cmp.types").cmp.TriggerEvent.TextChanged },
-    keyword_length = 1,
-  },
-  window = {
-    completion = cmp.config.window.bordered(),
-    documentation = cmp.config.window.bordered(),
-  },
-  view = {
-    entries = { selection_order = "near_cursor" },
+    completeopt = "menu,menuone,noinsert",
   },
   experimental = {
     ghost_text = true,
   },
+  confirm_opts = {
+    behavior = cmp.ConfirmBehavior.Replace,
+    select = false,
+  },
+  -- completion = {
+  --   autocomplete = { require("cmp.types").cmp.TriggerEvent.TextChanged },
+  --   keyword_length = 1,
+  -- },
+  -- window = {
+  --   completion = cmp.config.window.bordered(),
+  --   documentation = cmp.config.window.bordered(),
+  -- },
+})
+
+cmp.setup.cmdline("/", {
+  mapping = cmp.mapping.preset.cmdline(),
+  sources = { { name = "buffer" } },
+})
+
+cmp.setup.cmdline(":", {
+  mapping = cmp.mapping.preset.cmdline(),
+  sources = cmp.config.sources({ { name = "path" } }, { { name = "cmdline" } }),
 })
 
 ------------------------------
@@ -159,4 +160,10 @@ cmp.setup.filetype({ "r", "rmd" }, {
     { name = "cmp_zotcite" },
     { name = "cmp_nvim_r" },
   }, cmp.get_config().sources),
+})
+
+cmp.setup.filetype("java", {
+  completion = {
+    keyword_length = 2,
+  },
 })

@@ -14,26 +14,58 @@ return {
     event = "BufEnter",
   },
 
-  -- -- noicer ui
-  -- {
-  --   "folke/noice.nvim",
-  --   event = "VeryLazy",
-  --   opts = {
-  --     lsp = {
-  --       hover = {
-  --         enabled = false,
-  --       },
-  --       signature = {
-  --         enabled = false,
-  --       },
-  --     },
-  --     presets = {
-  --       bottom_search = true,
-  --       command_palette = true,
-  --       long_message_to_split = true,
-  --     },
-  --   },
-  -- },
+  -- noicer ui
+  {
+    "folke/noice.nvim",
+    config = function()
+      local noice = require("noice")
+      noice.setup({
+        lsp = {
+          -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
+          override = {
+            ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+            ["vim.lsp.util.stylize_markdown"] = true,
+            ["cmp.entry.get_documentation"] = true,
+          },
+          hover = {
+            enabled = false,
+            view = nil, -- when nil, use defaults from documentation
+            opts = {}, -- merged with defaults from documentation
+          },
+          signature = {
+            enabled = false,
+            auto_open = {
+              enabled = true,
+              trigger = true, -- Automatically show signature help when typing a trigger character from the LSP
+              luasnip = true, -- Will open signature help when jumping to Luasnip insert nodes
+              throttle = 50, -- Debounce lsp signature help request by 50ms
+            },
+            view = nil, -- when nil, use defaults from documentation
+            opts = {}, -- merged with defaults from documentation
+          },
+        },
+        -- you can enable a preset for easier configuration
+        presets = {
+          bottom_search = false, -- use a classic bottom cmdline for search
+          command_palette = true, -- position the cmdline and popupmenu together
+          long_message_to_split = true, -- long messages will be sent to a split
+          inc_rename = false, -- enables an input dialog for inc-rename.nvim
+          lsp_doc_border = false, -- add a border to hover docs and signature help
+        },
+        views = {
+          cmdline_popup = {
+            border = {
+              -- style = { "▄", "▄", "▄", "█", "▀", "▀", "▀", "█", "1" }, -- [ top top top - right - bottom bottom bottom - left ]
+              style = "rounded",
+              padding = { 0, 0 },
+            },
+            filter_options = {},
+          },
+        },
+      })
+    end,
+    event = "VeryLazy",
+  },
 
   {
     "rcarriga/nvim-notify",
@@ -159,11 +191,35 @@ return {
     "lukas-reineke/indent-blankline.nvim",
     event = { "BufReadPost", "BufNewFile" },
     opts = {
-      -- char = "▏",
-      char = "│",
-      filetype_exclude = { "help", "alpha", "dashboard", "neo-tree", "Trouble", "lazy" },
-      show_trailing_blankline_indent = false,
-      show_current_context = false,
+      char = "▏",
+      context_char = "▏",
+      show_end_of_line = false,
+      space_char_blankline = " ",
+      show_current_context = true,
+      show_current_context_start = true,
+      filetype_exclude = {
+        "help",
+        "startify",
+        "dashboard",
+        "packer",
+        "neogitstatus",
+        "NvimTree",
+        "Trouble",
+        "alpha",
+        "neo-tree",
+      },
+      buftype_exclude = {
+        "terminal",
+        "nofile",
+      },
+      -- char_highlight_list = {
+      --   "IndentBlanklineIndent1",
+      --   "IndentBlanklineIndent2",
+      --   "IndentBlanklineIndent3",
+      --   "IndentBlanklineIndent4",
+      --   "IndentBlanklineIndent5",
+      --   "IndentBlanklineIndent6",
+      -- },
     },
   },
 
@@ -196,87 +252,17 @@ return {
   -- statusline
   {
     "nvim-lualine/lualine.nvim",
-    event = "VeryLazy",
-    opts = function(plugin)
-      local icons = require("config.global").icons
-
-      local function fg(name)
-        return function()
-          ---@type {foreground?:number}?
-          local hl = vim.api.nvim_get_hl_by_name(name, true)
-          return hl and hl.foreground and { fg = string.format("#%06x", hl.foreground) }
-        end
-      end
-
-      return {
-        options = {
-          theme = "auto",
-          globalstatus = true,
-          disabled_filetypes = { statusline = { "dashboard", "lazy", "alpha" } },
-        },
-        sections = {
-          lualine_a = { "mode" },
-          lualine_b = { "branch" },
-          lualine_c = {
-            {
-              "diagnostics",
-              symbols = {
-                error = icons.diagnostics.Error,
-                warn = icons.diagnostics.Warn,
-                info = icons.diagnostics.Info,
-                hint = icons.diagnostics.Hint,
-              },
-            },
-            {
-              "filetype",
-              icon_only = true,
-              separator = "",
-              padding = {
-                left = 1, right = 0 }
-            },
-            { "filename", path = 1, symbols = { modified = "  ", readonly = "", unnamed = "" } },
-            -- stylua: ignore
-            {
-              function() return require("nvim-navic").get_location() end,
-              cond = function() return package.loaded["nvim-navic"] and require("nvim-navic").is_available() end,
-            },
-          },
-          lualine_x = {
-            -- stylua: ignore
-            {
-              function() return require("noice").api.status.command.get() end,
-              cond = function() return package.loaded["noice"] and require("noice").api.status.command.has() end,
-              color = fg("Statement")
-            },
-            -- stylua: ignore
-            {
-              function() return require("noice").api.status.mode.get() end,
-              cond = function() return package.loaded["noice"] and require("noice").api.status.mode.has() end,
-              color = fg("Constant"),
-            },
-            { require("lazy.status").updates, cond = require("lazy.status").has_updates, color = fg("Special") },
-            {
-              "diff",
-              symbols = {
-                added = icons.git.added,
-                modified = icons.git.modified,
-                removed = icons.git.removed,
-              },
-            },
-          },
-          lualine_y = {
-            { "progress", separator = " ",                  padding = { left = 1, right = 0 } },
-            { "location", padding = { left = 0, right = 1 } },
-          },
-          lualine_z = {
-            function()
-              return " " .. os.date("%R")
-            end,
-          },
-        },
-        extensions = { "neo-tree" },
-      }
+    config = function()
+      local lualine_config = require("plugins.ui.lualine")
+      lualine_config.setup({
+        float = false,
+        separator = "bubble", -- bubble | triangle
+        ---@type any
+        colorful = true,
+      })
+      lualine_config.load()
     end,
+    event = "VeryLazy",
   },
 
   -- lsp symbol navigation for lualine
