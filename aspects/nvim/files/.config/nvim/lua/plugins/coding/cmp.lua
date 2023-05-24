@@ -87,6 +87,8 @@ cmp.setup({
   sources = cmp_sources,
   completion = {
     completeopt = "menu,menuone,noinsert",
+    autocomplete = { require("cmp.types").cmp.TriggerEvent.TextChanged },
+    keyword_length = 1,
   },
   experimental = {
     ghost_text = true,
@@ -95,26 +97,12 @@ cmp.setup({
     behavior = cmp.ConfirmBehavior.Replace,
     select = false,
   },
-  -- completion = {
-  --   autocomplete = { require("cmp.types").cmp.TriggerEvent.TextChanged },
-  --   keyword_length = 1,
-  -- },
-  -- window = {
-  --   completion = cmp.config.window.bordered(),
-  --   documentation = cmp.config.window.bordered(),
-  -- },
+  window = {
+    completion = cmp.config.window.bordered(),
+    documentation = cmp.config.window.bordered(),
+  },
 })
 
-cmp.setup.cmdline("/", {
-  mapping = cmp.mapping.preset.cmdline(),
-  sources = { { name = "buffer" } },
-})
-
--- cmp.setup.cmdline(":", {
---   mapping = cmp.mapping.preset.cmdline(),
---   sources = cmp.config.sources({ { name = "path" } }, { { name = "cmdline" } }),
--- })
---
 ------------------------------
 --  FileType Configuration  --
 ------------------------------

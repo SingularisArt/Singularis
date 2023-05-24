@@ -30,7 +30,7 @@ return {
           hover = {
             enabled = false,
             view = nil, -- when nil, use defaults from documentation
-            opts = {}, -- merged with defaults from documentation
+            opts = {},  -- merged with defaults from documentation
           },
           signature = {
             enabled = false,
@@ -38,19 +38,19 @@ return {
               enabled = true,
               trigger = true, -- Automatically show signature help when typing a trigger character from the LSP
               luasnip = true, -- Will open signature help when jumping to Luasnip insert nodes
-              throttle = 50, -- Debounce lsp signature help request by 50ms
+              throttle = 50,  -- Debounce lsp signature help request by 50ms
             },
-            view = nil, -- when nil, use defaults from documentation
-            opts = {}, -- merged with defaults from documentation
+            view = nil,       -- when nil, use defaults from documentation
+            opts = {},        -- merged with defaults from documentation
           },
         },
         -- you can enable a preset for easier configuration
         presets = {
-          bottom_search = false, -- use a classic bottom cmdline for search
-          command_palette = true, -- position the cmdline and popupmenu together
+          bottom_search = false,        -- use a classic bottom cmdline for search
+          command_palette = true,       -- position the cmdline and popupmenu together
           long_message_to_split = true, -- long messages will be sent to a split
-          inc_rename = false, -- enables an input dialog for inc-rename.nvim
-          lsp_doc_border = false, -- add a border to hover docs and signature help
+          inc_rename = false,           -- enables an input dialog for inc-rename.nvim
+          lsp_doc_border = false,       -- add a border to hover docs and signature help
         },
         views = {
           cmdline_popup = {
@@ -212,57 +212,7 @@ return {
         "terminal",
         "nofile",
       },
-      -- char_highlight_list = {
-      --   "IndentBlanklineIndent1",
-      --   "IndentBlanklineIndent2",
-      --   "IndentBlanklineIndent3",
-      --   "IndentBlanklineIndent4",
-      --   "IndentBlanklineIndent5",
-      --   "IndentBlanklineIndent6",
-      -- },
     },
-  },
-
-  -- bufferline
-  {
-    "akinsho/bufferline.nvim",
-    event = "VeryLazy",
-    opts = {
-      options = {
-        diagnostics = "nvim_lsp",
-        always_show_bufferline = false,
-        diagnostics_indicator = function(_, _, diag)
-          local icons = require("config.global").icons.diagnostics
-          local ret = (diag.error and icons.Error .. diag.error .. " " or "")
-              .. (diag.warning and icons.Warn .. diag.warning or "")
-          return vim.trim(ret)
-        end,
-        offsets = {
-          {
-            filetype = "neo-tree",
-            text = "Neo-tree",
-            highlight = "Directory",
-            text_align = "left",
-          },
-        },
-      },
-    },
-  },
-
-  -- statusline
-  {
-    "nvim-lualine/lualine.nvim",
-    config = function()
-      local lualine_config = require("plugins.ui.lualine")
-      lualine_config.setup({
-        float = false,
-        separator = "bubble", -- bubble | triangle
-        ---@type any
-        colorful = true,
-      })
-      lualine_config.load()
-    end,
-    event = "VeryLazy",
   },
 
   -- lsp symbol navigation for lualine
@@ -386,5 +336,21 @@ return {
       })
     end,
     lazy = false,
+  },
+
+  -- statusline
+  {
+    "nvim-lualine/lualine.nvim",
+    config = function()
+      local lualine_config = require("plugins.ui.lualine")
+      lualine_config.setup({
+        float = false,
+        separator = "bubble", -- bubble | triangle
+        ---@type any
+        colorful = true,
+      })
+      lualine_config.load()
+    end,
+    event = "VeryLazy",
   },
 }

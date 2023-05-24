@@ -51,36 +51,6 @@ return {
     event = "InsertEnter",
   },
 
-  -- auto pairs
-  {
-    "echasnovski/mini.pairs",
-    config = function(_, opts)
-      require("mini.pairs").setup(opts)
-    end,
-    event = "VeryLazy",
-  },
-
-  -- comments
-  {
-    "echasnovski/mini.comment",
-    config = function(_, opts)
-      require("mini.comment").setup(opts)
-    end,
-    event = "VeryLazy",
-    opts = {
-      mappings = {
-        comment = "<Leader>/",
-        comment_line = "<Leader>/",
-        textobject = "<Leader>/",
-      },
-      hooks = {
-        pre = function()
-          require("ts_context_commentstring.internal").update_commentstring({})
-        end,
-      },
-    },
-  },
-
   -- todo comments
   {
     "folke/todo-comments.nvim",
