@@ -3,6 +3,8 @@ return {
   {
     "neovim/nvim-lspconfig",
     config = function()
+      local on_attach = require("plugins.lsp.handlers").on_attach
+
       for name, icon in pairs(require("config.global").icons.diagnostics) do
         name = "DiagnosticSign" .. name
         vim.fn.sign_define(name, { text = icon, texthl = name, numhl = "" })
@@ -16,9 +18,15 @@ return {
         if servers[server] and servers[server].disabled then
           return
         end
+
         local server_opts = vim.tbl_deep_extend("force", {
           capabilities = vim.deepcopy(capabilities),
         }, servers[server] or {})
+
+        if not server_opts["on_attach"] then
+          server_opts["on_attach"] = on_attach
+        end
+
         require("lspconfig")[server].setup(server_opts)
       end
 

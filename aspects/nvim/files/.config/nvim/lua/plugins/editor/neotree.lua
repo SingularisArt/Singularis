@@ -78,19 +78,12 @@ neotree.setup({
     "filesystem",
     "buffers",
     "git_status",
-    "diagnostics",
   },
   source_selector = {
     winbar = true,
     statusline = false, -- toggle to show selector on statusline
     content_layout = "center",
     tabs_layout = "equal",
-    tab_labels = {
-      filesystem = "  ",
-      buffers = "  ",
-      git_status = "  ",
-      diagnostics = " 裂",
-    },
   },
   default_component_configs = {
     container = {
