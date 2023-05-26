@@ -1,7 +1,7 @@
 local servers = {
   emmet_ls = { require("plugins.lsp.settings.emmet_ls"), intall = true },
   jsonls = { require("plugins.lsp.settings.jsonls"), intall = true },
-  pyright = { require("plugins.lsp.settings.pyright"), install = true },
+  -- pyright = { require("plugins.lsp.settings.pyright"), install = true },
   rust_analyzer = { require("plugins.lsp.settings.rust_analyzer"), install = true },
   solang = { require("plugins.lsp.settings.solang"), install = false },
   solc = { require("plugins.lsp.settings.solc"), install = true },

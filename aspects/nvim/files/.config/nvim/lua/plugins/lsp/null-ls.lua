@@ -11,7 +11,7 @@ local sources = {
   formatting.trim_whitespace,
   formatting.rustfmt,
   formatting.google_java_format,
-  -- formatting.sql_formatter,
+  formatting.sql_formatter,
   formatting.stylua,
   formatting.shellharden,
   formatting.clang_format,

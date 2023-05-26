@@ -215,9 +215,6 @@ return {
     },
   },
 
-  -- lsp symbol navigation for lualine
-  "SmiteshP/nvim-navic",
-
   {
     "kevinhwang91/nvim-hlslens",
     config = function()
