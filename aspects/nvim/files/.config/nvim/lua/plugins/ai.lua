@@ -1,5 +1,13 @@
 return {
   {
+    "SingularisArt/codeexplain.nvim",
+    cmd = "CodeExplain",
+    build = function()
+      vim.cmd([[silent UpdateRemotePlugins]])
+    end,
+  },
+
+  {
     "Bryley/neoai.nvim",
     dependencies = {
       "MunifTanjim/nui.nvim",

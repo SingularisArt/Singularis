@@ -185,4 +185,12 @@ return {
       require("mason").setup()
     end,
   },
+
+  {
+    "Bekaboo/dropbar.nvim",
+    config = function()
+      require("dropbar").setup({})
+    end,
+    event = { "BufReadPre", "BufNewFile" },
+  },
 }
