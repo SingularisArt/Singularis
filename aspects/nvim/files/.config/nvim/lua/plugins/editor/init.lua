@@ -2,13 +2,24 @@ return {
   -- file explorer
   {
     "nvim-neo-tree/neo-tree.nvim",
+    cmd = "Neotree",
     config = function()
       require("plugins.editor.neotree")
     end,
-    cmd = "Neotree",
     dependencies = "MunifTanjim/nui.nvim",
     keys = {
       { "<Leader>e", "<CMD>Neotree toggle<CR>" },
+    },
+  },
+
+  {
+    "stevearc/oil.nvim",
+    cmd = "Oil",
+    config = function()
+      require("oil").setup()
+    end,
+    keys = {
+      { "<Leader>o", "<CMD>Oil<CR>" },
     },
   },
 

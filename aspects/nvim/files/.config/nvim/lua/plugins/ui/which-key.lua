@@ -61,7 +61,8 @@ vars.mappings["v"] = { "<CMD>vsplit<CR>", "Vertical Split" }
 vars.mappings["h"] = { "<CMD>split<CR>", "Horizontal Split" }
 vars.mappings[" "] = { "<CMD>normal <C-^><CR>", "Jump to previous buffer" }
 vars.mappings["/"] = { "<CMD>lua require('Comment.api').toggle.linewise()<CR>", "Comment out current line" }
-vars.mappings["e"] = { "<CMD>Neotree toggle<CR>", "Toggle Neotree" }
+vars.mappings["e"] = { "<CMD>Neotree toggle<CR>", "Toggle NeoTree" }
+vars.mappings["o"] = { "<CMD>Oil<CR>", "Toggle Oil" }
 vars.mappings["-"] = { "<CMD>lua require('lir.float').toggle()<CR>", "Toggle Lir" }
 vars.mappings["z"] = { "<CMD>ZenMode<CR>", "Zen Mode" }
 vars.mappings["t"] = { "<CMD>lua require('alternate-toggler').toggleAlternate()<CR>", "Alternate" }
@@ -109,22 +110,6 @@ vars.mappings["s"] = {
       previewer = false,
     })
   end, "Fuzzily search in current buffer" }
-}
-
-vars.mappings["o"] = {
-  name = "Only",
-  o = {
-    name = "Close",
-    o = {
-      "<CMD>wincmd _ | wincmd |<CR>",
-      "Minimize all tabs (you can always bring them back with <Leader>oO)",
-    },
-    O = {
-      "<CMD>only<CR>",
-      "Close all tabs",
-    },
-  },
-  O = { "<CMD>wincmd =<CR>", "Bring back the tabs" },
 }
 
 vars.mappings["T"] = {
