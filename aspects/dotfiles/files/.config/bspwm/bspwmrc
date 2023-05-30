@@ -6,7 +6,7 @@
 
 killall sxhkd; sxhkd &
 killall dunst; dunst &
-# killall mpd; mpd &
+killall mpd; mpd &
 xrdb -load ~/.config/X11/Xresources
 
 #############
@@ -16,9 +16,9 @@ xrdb -load ~/.config/X11/Xresources
 # picom -b --backend glx --blur-method dual_kawase &
 killall bspswallow; pidof ~/.local/bin/bspwm/bspswallow | ~/.local/bin/bspwm/bspswallow &
 killall flameshot; flameshot &
-# killall fcitx; fcitx -d &
+killall fcitx; fcitx -d &
 feh --bg-scale ~/.config/wall.jpg &
-# killall polybar; "$HOME/.config/polybar/launch.sh" &
+killall polybar; "$HOME/.config/polybar/launch.sh" &
 
 # Variable
 source "${HOME}/.cache/wal/colors.sh"
