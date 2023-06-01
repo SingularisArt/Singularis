@@ -16,7 +16,7 @@ alt + {A-Z}
 super + Return
   kitty
 super + shift + n
-  ~/.local/bin/scpad
+  bspc rule -a kitty -o state=floating center=true rectangle=800x600+0+0 && ~/.local/bin/scpad
 super + w
   $BROWSER
 super + m
@@ -56,6 +56,10 @@ super + shift + b
   ~/.local/bin/bookmark-this
 super + ctrl + b
   ~/.local/bin/sxhkd/open_bookmarks
+super + u
+  ~/.local/bin/sxhkd/mounter
+super + shift + u
+  ~/.local/bin/sxhkd/unmounter
 
 ###########
 #  Dunst  #
