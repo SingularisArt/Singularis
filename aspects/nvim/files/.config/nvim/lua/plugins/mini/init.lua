@@ -3,7 +3,6 @@ return {
   {
     "echasnovski/mini.nvim",
     config = function()
-      -- require("plugins.mini.statusline")
       require("plugins.mini.ai")
       require("plugins.mini.map")
       require("plugins.mini.comment")
@@ -26,4 +25,14 @@ return {
     end,
     event = "VeryLazy",
   },
+
+  -- -- mini.statusline
+  -- {
+  --   "echasnovski/mini.statusline",
+  --   config = function()
+  --     require("plugins.mini.statusline")
+  --     vim.cmd("set laststatus=3")
+  --   end,
+  --   lazy = false,
+  -- },
 }

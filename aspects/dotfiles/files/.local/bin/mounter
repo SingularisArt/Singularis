@@ -52,5 +52,5 @@ esac
 getmount
 
 sudo mkdir -p "$mp/$drivename"
-sudo mount "/dev/mapper/$drivename" "$mp/$drivename"
+sudo -A mount "/dev/mapper/$drivename" "$mp/$drivename"
 notify-send "Mounted" "Mounted $chosen to $mp/$drivename"

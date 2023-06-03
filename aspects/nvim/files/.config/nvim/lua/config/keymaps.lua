@@ -35,6 +35,7 @@ keymap("n", "<C-t>", ":tabnew<CR>", opts, "Create new tab.")
 keymap("n", "<C-a>", "ggVG", opts, "Highlight everything.")
 keymap("n", ";", ":nohl<CR>", opts, "Clear search highlight.")
 keymap("n", "<Tab>", "za", opts, "Toggle tab.")
+keymap("n", "<cr>", "ciw", opts, "Detele entire word.")
 -- keymap(
 --   "n",
 --   "<C-f>",
@@ -47,6 +48,7 @@ keymap("n", "<Tab>", "za", opts, "Toggle tab.")
 keymap("i", "<C-l>", "<c-g>u<Esc>[s1z=`]a<c-g>u", opts, "Correct spelling mistake.")
 keymap("i", "<C-j>", "<NOP>", opts, "")
 keymap("i", "<C-k>", "<NOP>", opts, "")
+keymap("i", "<C-BS>", "<Esc>cvb", opts, "Delete entire word.")
 keymap(
   "i",
   "<C-f>",

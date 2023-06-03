@@ -5,9 +5,9 @@ local function draw(groups)
   if groups == nil then
     return
   end
-  for group, value in pairs(groups) do
-    vim.api.nvim_set_hl(0, group, value)
-  end
+  -- for group, value in pairs(groups) do
+  --   vim.api.nvim_set_hl(0, group, value)
+  -- end
 end
 
 local function generate(config, palette)
