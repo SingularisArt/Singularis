@@ -1,60 +1,49 @@
 return {
-  -- {
-  --   "VonHeikemen/lsp-zero.nvim",
-  --   branch = 'v2.x',
-  --   config = function()
-  --     vim.diagnostic.config({
-  --       virtual_text = false,
-  --     })
-  --
-  --     require("lsp-zero.settings").preset({
-  --       float_border = "none",
-  --     })
-  --   end
-  -- },
-  --
   -- -- lspconfig
   -- {
   --   "neovim/nvim-lspconfig",
   --   config = function()
-  --     local lsp = require("lsp-zero")
-  --     local servers = require("plugins.lsp.servers")
-  --     local lspconfig = require("lspconfig")
-  --     local lsp_defaults = lspconfig.util.default_config
+  --     require("neoconf").setup()
+  --     require("neodev").setup()
   --
-  --     local diagnostic_icons = require("config.global").icons.diagnostics
-  --     local on_attach = require("plugins.lsp.handlers").on_attach
+  --     local lsp = require("lspconfig")
+  --     local mason = require("mason-lspconfig")
   --
-  --     lsp.ensure_installed = {}
+  --     local ext_capabilites = vim.lsp.protocol.make_client_capabilities()
+  --     local capabilities = require("util").capabilities(ext_capabilites)
   --
-  --     lsp_defaults.capabilities = vim.tbl_deep_extend(
-  --       "force",
-  --       lsp_defaults.capabilities,
-  --       require("cmp_nvim_lsp").default_capabilities()
-  --     )
-  --
-  --     local function setup(server)
-  --       local server_opts = vim.tbl_deep_extend("force", {
-  --         capabilities = vim.deepcopy(lsp_defaults.capabilities),
-  --       }, servers[server] or {})
-  --
-  --       require("lspconfig")[server].setup(server_opts)
-  --     end
-  --
-  --     lsp.on_attach(function(client, bufnr)
-  --       on_attach(client, bufnr)
-  --     end)
-  --
-  --     lsp.set_sign_icons({
-  --       error = diagnostic_icons.Error,
-  --       warn = diagnostic_icons.Warn,
-  --       hint = diagnostic_icons.Hint,
-  --       info = diagnostic_icons.Info,
-  --     })
-  --
-  --     local ensure_installed = {}
   --     local available = vim.tbl_keys(require("mason-lspconfig.mappings.server").lspconfig_to_package)
   --
+  --     local servers = require("plugins.lsp.servers")
+  --     local on_attach = require("plugins.lsp.handlers").on_attach
+  --     local icons = require("config.global").icons
+  --
+  --     vim.diagnostic.config({
+  --       virtual_text = false,
+  --     })
+  --
+  --     for name, icon in pairs(icons.diagnostics) do
+  --       name = "DiagnosticSign" .. name
+  --       vim.fn.sign_define(name, { text = icon, texthl = name, numhl = "" })
+  --     end
+  --
+  --     local function setup(server)
+  --       if servers[server] and servers[server].disabled then
+  --         return
+  --       end
+  --
+  --       local server_opts = vim.tbl_deep_extend("force", {
+  --         capabilities = vim.deepcopy(capabilities),
+  --       }, servers[server] or {})
+  --
+  --       if not server_opts["on_attach"] then
+  --         server_opts["on_attach"] = on_attach
+  --       end
+  --
+  --       lsp[server].setup(server_opts)
+  --     end
+  --
+  --     local ensure_installed = {}
   --     for server, server_opts in pairs(servers) do
   --       if server_opts then
   --         if not vim.tbl_contains(available, server) then
@@ -67,18 +56,12 @@ return {
   --       end
   --     end
   --
-  --     require("mason-lspconfig").setup({ ensure_installed = ensure_installed })
-  --     require("mason-lspconfig").setup_handlers({ setup })
-  --
-  --     lsp.setup()
+  --     mason.setup({ ensure_installed = ensure_installed })
+  --     mason.setup_handlers({ setup })
   --   end,
   --   dependencies = {
-  --     { "folke/neoconf.nvim", cmd = "Neoconf", config = true },
-  --     {
-  --       "folke/neodev.nvim",
-  --       opts = {
-  --         experimental = { pathStrict = true } }
-  --     },
+  --     { "folke/neoconf.nvim", cmd = "Neoconf" },
+  --     { "folke/neodev.nvim", ft = "lua" },
   --     {
   --       "williamboman/mason-lspconfig.nvim",
   --       after = "mason.nvim",
@@ -92,12 +75,16 @@ return {
   --   event = { "BufReadPre", "BufNewFile" },
   -- },
   --
-  -- { "SmiteshP/nvim-navic", event = "VeryLazy" },
+  -- {
+  --   "SmiteshP/nvim-navic",
+  --   event = "VeryLazy"
+  -- },
   --
   -- {
   --   "Fildo7525/pretty_hover",
   --   after = "nvim-lspconfig",
   --   config = function()
+  --     print(vim.bo.filetype)
   --     require("pretty_hover").setup()
   --   end,
   --   event = { "BufReadPre", "BufNewFile" },
@@ -186,10 +173,18 @@ return {
   --   end,
   -- },
   --
+  -- -- {
+  -- --   "Bekaboo/dropbar.nvim",
+  -- --   config = function()
+  -- --     require("dropbar").setup({})
+  -- --   end,
+  -- --   event = { "BufReadPre", "BufNewFile" },
+  -- -- },
+  --
   -- {
-  --   "Bekaboo/dropbar.nvim",
+  --   "ray-x/lsp_signature.nvim",
   --   config = function()
-  --     require("dropbar").setup({})
+  --     require("plugins.lsp.signature")
   --   end,
   --   event = { "BufReadPre", "BufNewFile" },
   -- },

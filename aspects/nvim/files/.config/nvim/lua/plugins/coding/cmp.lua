@@ -36,6 +36,19 @@ local cmp_sources = {
   { name = "emoji" },
 }
 
+local function border(hl_name)
+  return {
+    { "╭", hl_name },
+    { "─", hl_name },
+    { "╮", hl_name },
+    { "│", hl_name },
+    { "╯", hl_name },
+    { "─", hl_name },
+    { "╰", hl_name },
+    { "│", hl_name },
+  }
+end
+
 ----------------------------
 --  Global Configuration  --
 ----------------------------
@@ -97,10 +110,16 @@ cmp.setup({
     behavior = cmp.ConfirmBehavior.Replace,
     select = false,
   },
-  window = {
-    completion = cmp.config.window.bordered(),
-    documentation = cmp.config.window.bordered(),
-  },
+  -- window = {
+  --   completion = {
+  --     border = border "CmpDocBorder",
+  --     winhighlight = "Normal:CmpDoc",
+  --   },
+  --   documentation = {
+  --     border = border "CmpDocBorder",
+  --     winhighlight = "Normal:CmpDoc",
+  --   },
+  -- },
 })
 
 ------------------------------

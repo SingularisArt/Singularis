@@ -46,7 +46,7 @@ return {
       tokyonight.setup({ style = "night" })
       tokyonight.load()
     end,
-    lazy = false,
+    lazy = true,
   },
 
   {
@@ -207,9 +207,19 @@ return {
     lazy = true,
   },
 
+  {
+    "sainnhe/gruvbox-material",
+    config = function()
+      vim.g.gruvbox_material_better_performance = 1
+      vim.g.gruvbox_material_background = "hard"
+
+      vim.cmd("colorscheme gruvbox-material")
+    end,
+    lazy = false,
+  },
+
   { "ray-x/starry.nvim", lazy = true },
   { "catppuccin/nvim", as = "catppuccin", lazy = true },
-  { "sainnhe/gruvbox-material", lazy = true },
   { "projekt0n/github-nvim-theme", lazy = true },
   { "flazz/vim-colorschemes", lazy = true },
   { "wincent/base16-nvim", lazy = true },

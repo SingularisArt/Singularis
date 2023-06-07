@@ -14,68 +14,68 @@ return {
     event = "BufEnter",
   },
 
-  -- noicer ui
-  {
-    "folke/noice.nvim",
-    config = function()
-      local noice = require("noice")
-      noice.setup({
-        lsp = {
-          -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
-          override = {
-            ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
-            ["vim.lsp.util.stylize_markdown"] = true,
-            ["cmp.entry.get_documentation"] = true,
-          },
-          hover = {
-            enabled = false,
-            view = nil, -- when nil, use defaults from documentation
-            opts = {},  -- merged with defaults from documentation
-          },
-          signature = {
-            enabled = false,
-            auto_open = {
-              enabled = true,
-              trigger = true, -- Automatically show signature help when typing a trigger character from the LSP
-              luasnip = true, -- Will open signature help when jumping to Luasnip insert nodes
-              throttle = 50,  -- Debounce lsp signature help request by 50ms
-            },
-            view = nil,       -- when nil, use defaults from documentation
-            opts = {},        -- merged with defaults from documentation
-          },
-        },
-        -- you can enable a preset for easier configuration
-        presets = {
-          bottom_search = false,        -- use a classic bottom cmdline for search
-          command_palette = true,       -- position the cmdline and popupmenu together
-          long_message_to_split = true, -- long messages will be sent to a split
-          inc_rename = false,           -- enables an input dialog for inc-rename.nvim
-          lsp_doc_border = false,       -- add a border to hover docs and signature help
-        },
-        views = {
-          cmdline_popup = {
-            border = {
-              -- style = { "▄", "▄", "▄", "█", "▀", "▀", "▀", "█", "1" }, -- [ top top top - right - bottom bottom bottom - left ]
-              style = "rounded",
-              padding = { 0, 0 },
-            },
-            filter_options = {},
-          },
-        },
-        routes = {
-          {
-            filter = {
-              event = "msg_show",
-              kind = "",
-              find = "written",
-            },
-            opts = { skip = true },
-          },
-        },
-      })
-    end,
-    event = "VeryLazy",
-  },
+  -- -- noicer ui
+  -- {
+  --   "folke/noice.nvim",
+  --   config = function()
+  --     local noice = require("noice")
+  --     noice.setup({
+  --       lsp = {
+  --         -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
+  --         override = {
+  --           ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+  --           ["vim.lsp.util.stylize_markdown"] = true,
+  --           ["cmp.entry.get_documentation"] = true,
+  --         },
+  --         hover = {
+  --           enabled = false,
+  --           view = nil, -- when nil, use defaults from documentation
+  --           opts = {},  -- merged with defaults from documentation
+  --         },
+  --         signature = {
+  --           enabled = false,
+  --           auto_open = {
+  --             enabled = true,
+  --             trigger = true, -- Automatically show signature help when typing a trigger character from the LSP
+  --             luasnip = true, -- Will open signature help when jumping to Luasnip insert nodes
+  --             throttle = 50,  -- Debounce lsp signature help request by 50ms
+  --           },
+  --           view = nil,       -- when nil, use defaults from documentation
+  --           opts = {},        -- merged with defaults from documentation
+  --         },
+  --       },
+  --       -- you can enable a preset for easier configuration
+  --       presets = {
+  --         bottom_search = false,        -- use a classic bottom cmdline for search
+  --         command_palette = true,       -- position the cmdline and popupmenu together
+  --         long_message_to_split = true, -- long messages will be sent to a split
+  --         inc_rename = false,           -- enables an input dialog for inc-rename.nvim
+  --         lsp_doc_border = false,       -- add a border to hover docs and signature help
+  --       },
+  --       views = {
+  --         cmdline_popup = {
+  --           border = {
+  --             -- style = { "▄", "▄", "▄", "█", "▀", "▀", "▀", "█", "1" }, -- [ top top top - right - bottom bottom bottom - left ]
+  --             style = "rounded",
+  --             padding = { 0, 0 },
+  --           },
+  --           filter_options = {},
+  --         },
+  --       },
+  --       routes = {
+  --         {
+  --           filter = {
+  --             event = "msg_show",
+  --             kind = "",
+  --             find = "written",
+  --           },
+  --           opts = { skip = true },
+  --         },
+  --       },
+  --     })
+  --   end,
+  --   event = "VeryLazy",
+  -- },
 
   {
     "rcarriga/nvim-notify",
@@ -307,27 +307,27 @@ return {
     },
   },
 
-  {
-    "b0o/incline.nvim",
-    event = "BufReadPre",
-    config = function()
-      -- local colors = require("tokyonight.colors").setup()
-      require("incline").setup({
-        highlight = {
-          groups = {
-            InclineNormal = { guibg = "#FC56B1", guifg = "000" },
-            InclineNormalNC = { guifg = "#FC56B1", guibg = "000" },
-          },
-        },
-        window = { margin = { vertical = 0, horizontal = 1 } },
-        render = function(props)
-          local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(props.buf), ":t")
-          local icon, color = require("nvim-web-devicons").get_icon_color(filename)
-          return { { icon, guifg = color }, { " " }, { filename } }
-        end,
-      })
-    end,
-  },
+  -- {
+  --   "b0o/incline.nvim",
+  --   event = "BufReadPre",
+  --   config = function()
+  --     -- local colors = require("tokyonight.colors").setup()
+  --     require("incline").setup({
+  --       highlight = {
+  --         groups = {
+  --           InclineNormal = { guibg = "#FC56B1", guifg = "000" },
+  --           InclineNormalNC = { guifg = "#FC56B1", guibg = "000" },
+  --         },
+  --       },
+  --       window = { margin = { vertical = 0, horizontal = 1 } },
+  --       render = function(props)
+  --         local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(props.buf), ":t")
+  --         local icon, color = require("nvim-web-devicons").get_icon_color(filename)
+  --         return { { icon, guifg = color }, { " " }, { filename } }
+  --       end,
+  --     })
+  --   end,
+  -- },
 
   {
     "NvChad/nvim-colorizer.lua",

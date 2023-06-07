@@ -118,10 +118,50 @@ return {
     },
   },
 
+  -- html/javascript react/typescript react
+  {
+    "Valloric/MatchTagAlways",
+    config = function()
+      vim.cmd[[
+      let g:mta_filetypes = {
+        \ "html" : 1,
+        \ "javascriptreact" : 1,
+        \ "typescriptreact" : 1,
+      \}
+      ]]
+    end,
+    ft = {
+      "html",
+      "javascriptreact",
+      "typescriptreact"
+    }
+  },
+  {
+    "mattn/emmet-vim",
+    ft = {
+      "html",
+      "javascriptreact",
+      "typescriptreact"
+    },
+  },
+  {
+    "windwp/nvim-ts-autotag",
+    config = function()
+      require("nvim-treesitter.configs").setup {
+        autotag = {
+          enable = true,
+        }
+      }
+    end,
+    ft = {
+      "html",
+      "javascriptreact",
+      "typescriptreact"
+    },
+  },
+
   -- html
-  { "Valloric/MatchTagAlways",       ft = "html" },
   { "turbio/bracey.vim",             ft = "html" },
-  { "mattn/emmet-vim",               ft = "html" },
 
   -- json/yaml
   { "b0o/SchemaStore.nvim",          ft = { "json", "yaml" } },
@@ -131,7 +171,7 @@ return {
   { "jalvesaq/R-Vim-runtime",        ft = { "r", "rmd" } },
   { "jalvesaq/colorout",             ft = { "r", "rmd" } },
 
-  -- typescript
+  -- javascript react/typescript react
   { "ianks/vim-tsx",                 ft = "typescriptreact" },
-  { "leafgarland/typescript-vim",    ft = "typescriptreact" },
+  { "mxw/vim-jsx",                   ft = "javascriptreact" },
 }
