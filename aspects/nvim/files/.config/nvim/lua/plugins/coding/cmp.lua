@@ -126,11 +126,11 @@ cmp.setup({
 --  FileType Configuration  --
 ------------------------------
 
-cmp.setup.filetype("tex", {
-  sources = cmp.config.sources({
-    { name = "latex_symbols", option = { strategy = 2 } },
-  }, cmp.get_config().sources),
-})
+-- cmp.setup.filetype("tex", {
+--   sources = cmp.config.sources({
+--     { name = "latex_symbols", option = { strategy = 2 } },
+--   }, cmp.get_config().sources),
+-- })
 
 cmp.setup.filetype({ "markdown", "tex" }, {
   sources = cmp.config.sources({
