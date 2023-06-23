@@ -9,6 +9,10 @@ return {
 
       -- require("mini.indentscope").setup()
       -- require("mini.animate").setup()
+      -- require("mini.jump").setup()
+      -- require("mini.jump2d").setup()
+      -- require("mini.surround").setup({ search_method = "cover_or_next" })
+
       require("mini.pairs").setup()
       require("mini.tabline").setup()
       require("mini.align").setup()
@@ -16,10 +20,7 @@ return {
       require("mini.bufremove").setup()
       require("mini.cursorword").setup()
       require("mini.doc").setup()
-      -- require("mini.jump").setup()
-      -- require("mini.jump2d").setup()
       require("mini.splitjoin").setup()
-      require("mini.surround").setup({ search_method = "cover_or_next" })
       require("mini.trailspace").setup()
       require("mini.move").setup({ options = { reindent_linewise = false } })
     end,
