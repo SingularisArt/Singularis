@@ -43,8 +43,8 @@ syncandnotify() {
   fi
 
   new=$(find \
-    "$XDG_DATA_HOME/mail/$acc/"[Ii][Nn][Bb][Oo][Xx]/new/ \
-    "$XDG_DATA_HOME/mail/$acc/"[Ii][Nn][Bb][Oo][Xx]/cur/ \
+    "$XDG_DATA_HOME/mail/$acc/Archive/new/" \
+    "$XDG_DATA_HOME/mail/$acc/Archive/cur/" \
     -type f -newer "$LASTRUN" 2> /dev/null)
 
   newcount=$(echo "$new" | sed '/^\s*$/d' | wc -l)

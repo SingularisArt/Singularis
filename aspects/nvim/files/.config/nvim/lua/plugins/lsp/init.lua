@@ -104,6 +104,7 @@ return {
 
   {
     "j-hui/fidget.nvim",
+    branch = "legacy",
     opts = {
       sources = {
         ["null-ls"] = { ignore = true },

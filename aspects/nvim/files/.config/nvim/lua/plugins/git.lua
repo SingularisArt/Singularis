@@ -91,11 +91,11 @@ return {
         },
         numhl = false,
         linehl = false,
-        keymaps = {
-          -- Default keymap options
-          noremap = true,
-          buffer = true,
-        },
+        -- keymaps = {
+        --   -- Default keymap options
+        --   noremap = true,
+        --   buffer = true,
+        -- },
         signcolumn = true,
         word_diff = false,
         attach_to_untracked = true,
