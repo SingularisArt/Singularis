@@ -1,9 +1,3 @@
 [submodule "UltiSnips"]
 	path = aspects/nvim/files/.config/nvim/UltiSnips
 	url = https://github.com/SingularisArt/snippets
-[submodule "UltiSnips-Dependencies"]
-	path = aspects/nvim/files/.config/nvim/pythonx
-	url = https://github.com/SingularisArt/snippet-dependencies
-[submodule "chameleon"]
-	path = third-party-tools/chameleon
-	url = https://github.com/SingularisArt/Chameleon
