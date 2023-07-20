@@ -37,3 +37,5 @@ xmenu:
   command: "sudo make clean install"
   name: "XMenu"
   path: "~/.config/xmenu"
+
+starttree:
