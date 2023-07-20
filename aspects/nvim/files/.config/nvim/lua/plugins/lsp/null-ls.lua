@@ -42,24 +42,24 @@ local sources = {
   code_actions.proselint,
   code_actions.refactoring,
 
-  diagnostics.misspell.with({
-    filetypes = { "markdown", "text", "txt" },
-    args = { "$FILENAME" },
-  }),
-  diagnostics.write_good.with({
-    filetypes = { "markdown" },
-    extra_filetypes = { "txt", "text" },
-    args = { "--text=$TEXT", "--parse" },
-    command = "write-good",
-  }),
-  diagnostics.proselint.with({
-    filetypes = { "markdown", },
-    extra_filetypes = { "txt", "text" },
-    command = "proselint",
-    args = { "--json" },
-  }),
+  -- diagnostics.misspell.with({
+  --   filetypes = { "markdown", "text", "txt" },
+  --   args = { "$FILENAME" },
+  -- }),
+  -- diagnostics.write_good.with({
+  --   filetypes = { "markdown" },
+  --   extra_filetypes = { "txt", "text" },
+  --   args = { "--text=$TEXT", "--parse" },
+  --   command = "write-good",
+  -- }),
+  -- diagnostics.proselint.with({
+  --   filetypes = { "markdown", },
+  --   extra_filetypes = { "txt", "text" },
+  --   command = "proselint",
+  --   args = { "--json" },
+  -- }),
 
-  actions.proselint.with({ filetypes = { "markdown" }, command = "proselint", args = { "--json" } }),
+  -- actions.proselint.with({ filetypes = { "markdown" }, command = "proselint", args = { "--json" } }),
 
   hover.dictionary,
   hover.printenv,

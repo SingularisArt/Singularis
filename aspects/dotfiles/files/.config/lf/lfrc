@@ -1,13 +1,16 @@
 # Basic vars
-set shellopts '-eu'
+set shellopts "-eu"
 set ifs "\n"
 set scrolloff 10
 set icons
 set period 1
 set hiddenfiles ".*:*.aux:*.log:*.bbl:*.bcf:*.blg:*.run.xml"
-set cleaner '~/.config/lf/cleaner'
-set previewer '~/.config/lf/scope'
+set cleaner "~/.config/lf/cleaner"
+set previewer "~/.config/lf/scope"
 set autoquit on
+set cursorpreviewfmt "\033[7;90m"
+set hidden
+set info size:time
 
 # cmds/functions
 cmd open ${{
@@ -113,9 +116,11 @@ map <c-e> down
 map <c-y> up
 map V push :!nvim<space>
 
+map t $~/.local/bin/hue/main.py -i $f
+
 map W $setsid -f $TERMINAL >/dev/null 2>&1
 
 map Y $printf "%s" "$fx" | xclip -selection clipboard
 
 # Source Bookmarks
-# source "~/.config/lf/shortcutrc"
+# source "~/.config/lf/bookmarks"

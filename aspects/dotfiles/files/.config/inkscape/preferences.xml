@@ -306,7 +306,7 @@
        id="lpetool"
        mode="drag"
        style="fill:#ff0000;fill-opacity:1;fill-rule:nonzero;stroke:none;"
-       unit="px"
+       unit="mm"
        show_bbox="1" />
     <eventcontext
        id="text"
@@ -585,10 +585,10 @@
     </group>
     <group
        id="save_as"
-       default="org.inkscape.output.png.inkscape"
+       default="org.inkscape.output.pdf.cairorenderer"
        append_extension="1"
        enable_preview="1"
-       path="/home/singularis/Downloads"
+       path="/home/singularis/Documents/school-setup/example-setup/courses/course-01/figures/lec-01"
        use_current_dir="1" />
     <group
        id="save_copy"
@@ -599,7 +599,7 @@
     <group
        id="open"
        enable_preview="1"
-       path="/home/singularis/" />
+       path="/home/singularis/Documents/school-setup/example-setup/courses/course-01/figures/lec-01/" />
     <group
        id="import"
        enable_preview="1"
@@ -963,7 +963,8 @@
      org.inkscape.output.pdf.cairorenderer.area="drawing"
      org.inkscape.input.svg.scale="auto"
      net.texample.tools.svg.export_tikz.effect.crop="0"
-     net.texample.tools.svg.export_tikz.effect.clipboard="1" />
+     net.texample.tools.svg.export_tikz.effect.clipboard="1"
+     org.inkscape.output.pdf.cairorenderer.textToPath="LaTeX" />
   <group
      id="desktop"
      style="fill:none;stroke-width:3.77952756;-inkscape-font-specification:'sans-serif, Normal';font-family:sans-serif;font-size:46.66666667px;stroke:#000000;opacity:0.57131369">
@@ -1091,8 +1092,8 @@
   <group
      id="theme"
      defaultPreferDarkTheme="0"
-     defaultIconTheme="Qogir"
-     defaultGtkTheme="Adwaita-dark"
+     defaultIconTheme="oomox-xresources-reverse-flat"
+     defaultGtkTheme="oomox-xresources-reverse"
      narrowSpinButton="1"
      preferDarkTheme="1"
      darkTheme="1"
