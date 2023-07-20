@@ -7,6 +7,3 @@
 [submodule "chameleon"]
 	path = third-party-tools/chameleon
 	url = https://github.com/SingularisArt/Chameleon
-[submodule "zathura-pywal"]
-	path = third-party-tools/zathura-pywal
-	url = https://github.com/GideonWolfe/Zathura-Pywal
