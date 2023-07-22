@@ -19,111 +19,54 @@
 
 # Gallery
 
-<img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-1/main.png">
-<img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-2/main.png">
-<img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-3/main.png">
-<img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-4/main.png">
+<img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-1.png">
+<img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-2.png">
+<img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-3.png">
+<img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-4.png">
 
 ## System
 
 <details><summary>💤 Zsh</summary>
   <p>
-      <img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-1/zsh.png">
-      <!-- <img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-2/zsh.png"> -->
-      <!-- <img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-3/zsh.png"> -->
-      <!-- <img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-4/zsh.png"> -->
-  </p>
-</details>
-
-<details><summary>🛜 Chrome</summary>
-  <p>
-      <img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-1/chrome.png">
-      <!-- <img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-2/chrome.png"> -->
-      <!-- <img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-3/chrome.png"> -->
-      <!-- <img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-4/chrome.png"> -->
+      <img src="https://github.com/SingularisArt/media/blob/master/Singularis/zsh.png?raw=true">
   </p>
 </details>
 
 <details><summary>🦊 Firefox</summary>
   <p>
-      <img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-1/firefox.png">
-      <!-- <img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-2/firefox.png"> -->
-      <!-- <img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-3/firefox.png"> -->
-      <!-- <img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-4/firefox.png"> -->
+      <img src="https://github.com/SingularisArt/media/blob/master/Singularis/firefox.png?raw=true">
   </p>
 </details>
 
 <details><summary>🔔 Dunst</summary>
   <p>
-      <img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-1/dunst.png">
-      <!-- <img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-2/dunst.png"> -->
-      <!-- <img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-3/dunst.png"> -->
-      <!-- <img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-4/dunst.png"> -->
+      <img src="https://github.com/SingularisArt/media/blob/master/Singularis/dunst.png?raw=true">
   </p>
 </details>
 
 <details><summary>🚀 Rofi</summary>
   <p>
-      <img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-1/rofi.png">
-      <!-- <img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-2/rofi.png"> -->
-      <!-- <img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-3/rofi.png"> -->
-      <!-- <img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-4/rofi.png"> -->
-  </p>
-</details>
-
-<details><summary>❌ Xmenu</summary>
-  <p>
-      <img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-1/xmenu.png">
-      <!-- <img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-2/xmenu.png"> -->
-      <!-- <img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-3/xmenu.png"> -->
-      <!-- <img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-4/xmenu.png"> -->
+      <img src="https://github.com/SingularisArt/media/blob/master/Singularis/rofi.png?raw=true">
   </p>
 </details>
 
 <details><summary>🔮 Polybar</summary>
   <p>
-      <img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-1/polybar.png">
-      <!-- <img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-2/polybar.png"> -->
-      <!-- <img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-3/polybar.png"> -->
-      <!-- <img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-4/polybar.png"> -->
+      <img src="https://github.com/SingularisArt/media/blob/master/Singularis/polybar.png?raw=true">
   </p>
-</details>
-
-<details><summary>❄️ Picom</summary>
-  <p>
-      <img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-1/picom.png">
-      <!-- <img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-2/picom.png"> -->
-      <!-- <img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-3/picom.png"> -->
-      <!-- <img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-4/picom.png"> -->
-    </p>
 </details>
 
 ## Communication
 
 <details><summary>📧 Neomutt</summary>
   <p>
-      <img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-1/neomutt.png">
-      <!-- <img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-2/neomutt.png"> -->
-      <!-- <img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-3/neomutt.png"> -->
-      <!-- <img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-4/neomutt.png"> -->
+      <img src="https://github.com/SingularisArt/media/blob/master/Singularis/neomutt.png?raw=true">
   </p>
 </details>
 
 <details><summary>🌀 Discord</summary>
   <p>
-      <img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-1/discord.png">
-      <!-- <img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-2/discord.png"> -->
-      <!-- <img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-3/discord.png"> -->
-      <!-- <img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-4/discord.png"> -->
-  </p>
-</details>
-
-<details><summary>💬 Weechat</summary>
-  <p>
-      <img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-1/weechat.png">
-      <!-- <img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-2/weechat.png"> -->
-      <!-- <img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-3/weechat.png"> -->
-      <!-- <img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-4/weechat.png"> -->
+      <img src="https://github.com/SingularisArt/media/blob/master/Singularis/discord.png?raw=true">
   </p>
 </details>
 
@@ -131,46 +74,31 @@
 
 <details><summary>🔥 NeoVim</summary>
   <p>
-      <img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-1/neovim.png">
-      <!-- <img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-2/neovim.png"> -->
-      <!-- <img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-3/neovim.png"> -->
-      <!-- <img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-4/neovim.png"> -->
+      <img src="https://github.com/SingularisArt/media/blob/master/Singularis/neovim.png?raw=true">
   </p>
 </details>
 
 <details><summary>💹 GnuPlot</summary>
   <p>
-      <img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-1/gnuplot.png">
-      <!-- <img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-2/gnuplot.png"> -->
-      <!-- <img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-3/gnuplot.png"> -->
-      <!-- <img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-4/gnuplot.png"> -->
+      <img src="https://github.com/SingularisArt/media/blob/master/Singularis/gnuplot.png?raw=true">
   </p>
 </details>
 
 <details><summary>📈 MatPlotLib</summary>
   <p>
-      <img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-1/matplotlib.png">
-      <!-- <img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-2/matplotlib.png"> -->
-      <!-- <img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-3/matplotlib.png"> -->
-      <!-- <img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-4/matplotlib.png"> -->
+      <img src="https://github.com/SingularisArt/media/blob/master/Singularis/matplotlib.png?raw=true">
   </p>
 </details>
 
 <details><summary>📜 LaTeX</summary>
   <p>
-      <img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-1/latex.png">
-      <!-- <img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-2/latex.png"> -->
-      <!-- <img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-3/latex.png"> -->
-      <!-- <img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-4/latex.png"> -->
+      <img src="https://github.com/SingularisArt/media/blob/master/Singularis/latex.png?raw=true">
   </p>
 </details>
 
 <details><summary>📔 Markdown</summary>
   <p>
-      <img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-1/markdown.png">
-      <!-- <img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-2/markdown.png"> -->
-      <!-- <img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-3/markdown.png"> -->
-      <!-- <img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-4/markdown.png"> -->
+      <img src="https://github.com/SingularisArt/media/blob/master/Singularis/markdown.png?raw=true">
   </p>
 </details>
 
@@ -178,55 +106,37 @@
 
 <details><summary>💻 Monitors</summary>
   <p>
-      <img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-1/monitors.png">
-      <!-- <img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-2/monitors.png"> -->
-      <!-- <img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-3/monitors.png"> -->
-      <!-- <img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-4/monitors.png"> -->
+      <img src="https://github.com/SingularisArt/media/blob/master/Singularis/monitors.png?raw=true">
   </p>
 </details>
 
 <details><summary>📰 PDF's</summary>
   <p>
-      <img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-1/pdf.png">
-      <!-- <img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-2/pdf.png"> -->
-      <!-- <img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-3/pdf.png"> -->
-      <!-- <img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-4/pdf.png"> -->
+      <img src="https://github.com/SingularisArt/media/blob/master/Singularis/pdf.png?raw=true">
   </p>
 </details>
 
 <details><summary>🗃️ Files</summary>
   <p>
-      <img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-1/files.png">
-      <!-- <img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-2/files.png"> -->
-      <!-- <img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-3/files.png"> -->
-      <!-- <img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-4/files.png"> -->
+      <img src="https://github.com/SingularisArt/media/blob/master/Singularis/files.png?raw=true">
   </p>
 </details>
 
 <details><summary>🗓️ Calendar</summary>
   <p>
-      <img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-1/calendar.png">
-      <!-- <img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-2/calendar.png"> -->
-      <!-- <img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-3/calendar.png"> -->
-      <!-- <img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-4/calendar.png"> -->
+      <img src="https://github.com/SingularisArt/media/blob/master/Singularis/calendar.png?raw=true">
   </p>
 </details>
 
 <details><summary>📅 Habits</summary>
   <p>
-      <img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-1/habits.png">
-      <!-- <img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-2/habits.png"> -->
-      <!-- <img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-3/habits.png"> -->
-      <!-- <img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-4/habits.png"> -->
+      <img src="https://github.com/SingularisArt/media/blob/master/Singularis/habits.png?raw=true">
   </p>
 </details>
 
 <details><summary>📑 Scratchpad</summary>
   <p>
-      <img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-1/scratchpad.png">
-      <!-- <img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-2/scratchpad.png"> -->
-      <!-- <img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-3/scratchpad.png"> -->
-      <!-- <img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-4/scratchpad.png"> -->
+      <img src="https://github.com/SingularisArt/media/blob/master/Singularis/scratchpad.png?raw=true">
   </p>
 </details>
 
@@ -234,46 +144,25 @@
 
 <details><summary>🔊 Audio</summary>
   <p>
-      <img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-1/audio.png">
-      <!-- <img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-2/audio.png"> -->
-      <!-- <img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-3/audio.png"> -->
-      <!-- <img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-4/audio.png"> -->
-  </p>
-</details>
-
-<details><summary>🎵 Spotify</summary>
-  <p>
-      <img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-1/spotify.png">
-      <!-- <img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-2/spotify.png"> -->
-      <!-- <img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-3/spotify.png"> -->
-      <!-- <img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-4/spotify.png"> -->
+      <img src="https://github.com/SingularisArt/media/blob/master/Singularis/audio.png?raw=true">
   </p>
 </details>
 
 <details><summary>📰 News</summary>
   <p>
-      <img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-1/news.png">
-      <!-- <img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-2/news.png"> -->
-      <!-- <img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-3/news.png"> -->
-      <!-- <img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-4/news.png"> -->
+      <img src="https://github.com/SingularisArt/media/blob/master/Singularis/news.png?raw=true">
   </p>
 </details>
 
 <details><summary>🎁 Misc</summary>
   <p>
-      <img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-1/misc.png">
-      <!-- <img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-2/misc.png"> -->
-      <!-- <img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-3/misc.png"> -->
-      <!-- <img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-4/misc.png"> -->
+      <img src="https://github.com/SingularisArt/media/blob/master/Singularis/misc.png?raw=true">
   </p>
 </details>
 
 <details><summary>📁 Images</summary>
   <p>
-      <img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-1/images.png">
-      <!-- <img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-2/images.png"> -->
-      <!-- <img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-3/images.png"> -->
-      <!-- <img src="https://raw.githubusercontent.com/SingularisArt/media/master/theme-4/images.png"> -->
+      <img src="https://github.com/SingularisArt/media/blob/master/Singularis/images.png?raw=true">
   </p>
 </details>
 
@@ -607,11 +496,8 @@ taken from and used as an inspiration). Anyway, here's how I install them.
 ```
 
 > :warning: **Avoid using the `--singularis` option**. It includes my personal
-> configuration, such as encrypted newsboat history that only I can decrypt.
-> Issues may arise if you use the `--singularis` option, especially because I
-> utilize `autojump`, which stores sensitive files. These files are encrypted
-> when stored and decrypted when cloned. However, if you use the `--singularis`
-> option without decrypting them, you will encounter errors.
+> configuration/data that only I can decrypt. Issues may arise if you use the
+> `--singularis` option.
 
 # License
 

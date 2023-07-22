@@ -47,6 +47,7 @@ lsp.attach_mappings = function(_, bufnr)
       f = { "<CMD>lua vim.lsp.buf.format { async = true }<CR>", "Format" },
       r = { "<CMD>lua vim.lsp.buf.rename()<CR>", "Rename" },
       i = { "<CMD>LspInfo<CR>", "LSP info" },
+      o = { "<CMD>SymbolsOutline<CR>", "Symbols Outline" },
       j = { "<CMD>lua vim.diagnostic.goto_next()<CR>", "Go to next diagnostic" },
       k = { "<CMD>lua vim.diagnostic.goto_prev()<CR>", "Go to previous diagnostic" },
       l = { "<CMD>lua require('lsp_lines').toggle()<CR>", "Toggle LSP Lines" },

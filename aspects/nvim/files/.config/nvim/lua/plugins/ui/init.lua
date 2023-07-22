@@ -288,15 +288,15 @@ return {
   {
     "dstein64/nvim-scrollview",
     config = function()
-      if vim.wo.diff then
-        return
-      end
-      local w = vim.api.nvim_call_function("winwidth", { 0 })
-      if w < 70 then
-        return
-      end
-
-      vim.g.scrollview_column = 1
+      require("scrollview").setup({
+        excluded_filetypes = { "nerdtree" },
+        -- current_only = true,
+        -- winblend = 75,
+        -- base = "buffer",
+        -- column = 80,
+        signs_on_startup = {},
+        diagnostics_severities = {},
+      })
     end,
     event = {
       "CursorMoved",
@@ -304,27 +304,27 @@ return {
     },
   },
 
-  {
-    "b0o/incline.nvim",
-    event = "BufReadPre",
-    config = function()
-      -- local colors = require("tokyonight.colors").setup()
-      require("incline").setup({
-        highlight = {
-          groups = {
-            InclineNormal = { guibg = "#FC56B1", guifg = "000" },
-            InclineNormalNC = { guifg = "#FC56B1", guibg = "000" },
-          },
-        },
-        window = { margin = { vertical = 0, horizontal = 1 } },
-        render = function(props)
-          local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(props.buf), ":t")
-          local icon, color = require("nvim-web-devicons").get_icon_color(filename)
-          return { { icon, guifg = color }, { " " }, { filename } }
-        end,
-      })
-    end,
-  },
+  -- {
+  --   "b0o/incline.nvim",
+  --   event = "BufReadPre",
+  --   config = function()
+  --     -- local colors = require("tokyonight.colors").setup()
+  --     require("incline").setup({
+  --       highlight = {
+  --         groups = {
+  --           InclineNormal = { guibg = "#FC56B1", guifg = "000" },
+  --           InclineNormalNC = { guifg = "#FC56B1", guibg = "000" },
+  --         },
+  --       },
+  --       window = { margin = { vertical = 0, horizontal = 1 } },
+  --       render = function(props)
+  --         local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(props.buf), ":t")
+  --         local icon, color = require("nvim-web-devicons").get_icon_color(filename)
+  --         return { { icon, guifg = color }, { " " }, { filename } }
+  --       end,
+  --     })
+  --   end,
+  -- },
 
   {
     "NvChad/nvim-colorizer.lua",

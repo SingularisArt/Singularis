@@ -14,6 +14,7 @@
       "btop": "public",
       "calcurse": "public",
       "castero": "public",
+      "chameleon": "public",
       "cmus": "public",
       "cointop": "public",
       "dunst": "public",
@@ -23,7 +24,6 @@
       "gtk-2.0": "public",
       "gtk-3.0": "public",
       "gtk-4.0": "public",
-      "hue": "public",
       "inkscape": "public",
       "inkscape-figures": "public",
       "ipython": "public",
@@ -46,7 +46,6 @@
       "tmux": "public",
       "wal": "public",
       "wal-discord": "public",
-      "xmenu": "public",
       "zsh": "public",
       "fehbg": "public"
     },
