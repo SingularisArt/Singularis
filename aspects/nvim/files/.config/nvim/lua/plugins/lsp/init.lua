@@ -5,14 +5,12 @@ return {
     config = function()
       require("neoconf").setup()
       require("neodev").setup()
+      local mason = require("mason-lspconfig")
 
       local lsp = require("lspconfig")
-      local mason = require("mason-lspconfig")
 
       local ext_capabilites = vim.lsp.protocol.make_client_capabilities()
       local capabilities = require("util").capabilities(ext_capabilites)
-
-      local available = vim.tbl_keys(require("mason-lspconfig.mappings.server").lspconfig_to_package)
 
       local servers = require("plugins.lsp.servers")
       local on_attach = require("plugins.lsp.handlers").on_attach
@@ -28,10 +26,6 @@ return {
       end
 
       local function setup(server)
-        if servers[server] and servers[server].disabled then
-          return
-        end
-
         local server_opts = vim.tbl_deep_extend("force", {
           capabilities = vim.deepcopy(capabilities),
         }, servers[server] or {})
@@ -45,19 +39,15 @@ return {
 
       local ensure_installed = {}
       for server, server_opts in pairs(servers) do
-        if server_opts then
-          if not vim.tbl_contains(available, server) then
-            setup(server)
-          else
-            if server_opts["install"] then
-              ensure_installed[#ensure_installed + 1] = server
-            end
-          end
+        if server_opts["install"] == true then
+          local server_name = server_opts["install_server_name"] or server
+          ensure_installed[#ensure_installed + 1] = server_name
         end
+
+        setup(server)
       end
 
-      mason.setup({ ensure_installed = ensure_installed })
-      mason.setup_handlers({ setup })
+      mason.setup({ ensure_installed = ensure_installed, automatic_installation = true })
     end,
     dependencies = {
       { "folke/neoconf.nvim", cmd = "Neoconf" },
@@ -66,9 +56,7 @@ return {
         "williamboman/mason-lspconfig.nvim",
         after = "mason.nvim",
         config = function()
-          require("mason-lspconfig").setup({
-            automatic_installation = true,
-          })
+          require("mason-lspconfig").setup()
         end
       },
     },
@@ -113,34 +101,12 @@ return {
     event = "BufEnter",
   },
 
+  -- inlay hints
   {
-    "lvimuser/lsp-inlayhints.nvim",
+    "simrat39/inlay-hints.nvim",
     after = "nvim-lspconfig",
     config = function()
-      local setup = {
-        inlay_hints = {
-          parameter_hints = {
-            show = true,
-            separator = ", ",
-          },
-          type_hints = {
-            show = true,
-            prefix = "",
-            separator = ", ",
-            remove_colon_end = false,
-            remove_colon_start = false,
-          },
-          labels_separator = "  ",
-          max_len_align = false,
-          max_len_align_padding = 1,
-          right_align = false,
-          right_align_padding = 7,
-          highlight = "Comment",
-        },
-        debug_mode = false,
-      }
-
-      require("lsp-inlayhints").setup(setup)
+      require("inlay-hints").setup()
     end,
     event = { "BufReadPre", "BufNewFile" },
   },
@@ -169,8 +135,24 @@ return {
   -- auto installer
   {
     "williamboman/mason.nvim",
+    after = "nvim-lspconfig",
     config = function()
-      require("mason").setup()
+      local mason = require("mason")
+
+      local settings = {
+        ui = {
+          border = "rounded",
+          icons = {
+            package_installed = "◍",
+            package_pending = "◍",
+            package_uninstalled = "◍",
+          },
+        },
+        log_level = vim.log.levels.INFO,
+        max_concurrent_installers = 4,
+      }
+
+      mason.setup(settings)
     end,
   },
 
@@ -181,6 +163,14 @@ return {
   --   end,
   --   event = { "BufReadPre", "BufNewFile" },
   -- },
+
+  {
+    "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+    config = function()
+      require("lsp_lines").setup()
+    end,
+    event = { "BufReadPre", "BufNewFile" },
+  },
 
   {
     "ray-x/lsp_signature.nvim",

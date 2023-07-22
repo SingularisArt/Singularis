@@ -2,9 +2,9 @@ return {
   {
     "echasnovski/mini.hues",
     config = function()
-      require("mini.hues").setup({ background = "#09182E", foreground = "#dcc9db", saturation = "high", n_hues = 6 })
+      require("mini.hues").setup({ background = "#090610", foreground = "#acc2d2", saturation = "high", n_hues = 6 })
     end,
-    lazy = true,
+    lazy = false,
   },
 
   {
@@ -215,7 +215,7 @@ return {
 
       vim.cmd("colorscheme gruvbox-material")
     end,
-    lazy = false,
+    lazy = true,
   },
 
   { "ray-x/starry.nvim", lazy = true },

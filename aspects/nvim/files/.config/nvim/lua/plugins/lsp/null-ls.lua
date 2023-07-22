@@ -14,7 +14,7 @@ local sources = {
   formatting.sql_formatter,
   formatting.stylua,
   formatting.shellharden,
-  formatting.clang_format,
+  -- formatting.clang_format,
   formatting.format_r,
   formatting.prettier.with({
     extra_filetypes = { "toml", "solidity" },
@@ -33,7 +33,8 @@ local sources = {
     extra_args = { "--fast" },
   }),
 
-  -- diagnostics.yamllint,
+  diagnostics.yamllint,
+  -- diagnostics.cppcheck,
   diagnostics.shellcheck,
   diagnostics.golangci_lint,
   diagnostics.flake8,

@@ -12,4 +12,5 @@ return {
       },
     },
   },
+  install = true,
 }

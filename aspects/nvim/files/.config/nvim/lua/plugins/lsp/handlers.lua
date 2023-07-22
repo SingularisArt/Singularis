@@ -78,7 +78,7 @@ lsp.on_attach = function(client, bufnr)
     "emmet_ls",
   }
 
-  require("lsp-inlayhints").on_attach(client, bufnr)
+  -- require("lsp-inlayhints").on_attach(client, bufnr)
 
   if servers_that_dont_work_with_navic[client.name] ~= nil then
     require("nvim-navic").attach(client, bufnr)

@@ -16,4 +16,6 @@ return {
       hiddenFalsePositives = {},
     },
   },
+  install = true,
+  -- install_server_name = "ltex-ls",
 }

@@ -20,4 +20,5 @@ return {
     "hbs",
     "handlebars",
   },
+  install = true,
 }

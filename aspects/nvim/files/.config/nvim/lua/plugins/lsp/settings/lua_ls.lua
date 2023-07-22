@@ -44,4 +44,5 @@ return {
       },
     },
   },
+  install = true,
 }

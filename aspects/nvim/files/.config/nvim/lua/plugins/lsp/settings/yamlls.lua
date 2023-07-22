@@ -9,5 +9,6 @@ return {
     yamlls = {
       schemas = yaml_schemas,
     },
-  }
+  },
+  install = true,
 }
