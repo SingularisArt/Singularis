@@ -14,7 +14,7 @@ local sources = {
   formatting.sql_formatter,
   formatting.stylua,
   formatting.shellharden,
-  -- formatting.clang_format,
+  formatting.clang_format,
   formatting.format_r,
   formatting.prettier.with({
     extra_filetypes = { "toml", "solidity" },
@@ -34,7 +34,7 @@ local sources = {
   }),
 
   diagnostics.yamllint,
-  -- diagnostics.cppcheck,
+  diagnostics.cppcheck,
   diagnostics.shellcheck,
   diagnostics.golangci_lint,
   diagnostics.flake8,
@@ -43,24 +43,24 @@ local sources = {
   code_actions.proselint,
   code_actions.refactoring,
 
-  -- diagnostics.misspell.with({
-  --   filetypes = { "markdown", "text", "txt" },
-  --   args = { "$FILENAME" },
-  -- }),
-  -- diagnostics.write_good.with({
-  --   filetypes = { "markdown" },
-  --   extra_filetypes = { "txt", "text" },
-  --   args = { "--text=$TEXT", "--parse" },
-  --   command = "write-good",
-  -- }),
-  -- diagnostics.proselint.with({
-  --   filetypes = { "markdown", },
-  --   extra_filetypes = { "txt", "text" },
-  --   command = "proselint",
-  --   args = { "--json" },
-  -- }),
+  diagnostics.misspell.with({
+    filetypes = { "markdown", "text", "txt" },
+    args = { "$FILENAME" },
+  }),
+  diagnostics.write_good.with({
+    filetypes = { "markdown" },
+    extra_filetypes = { "txt", "text" },
+    args = { "--text=$TEXT", "--parse" },
+    command = "write-good",
+  }),
+  diagnostics.proselint.with({
+    filetypes = { "markdown", },
+    extra_filetypes = { "txt", "text" },
+    command = "proselint",
+    args = { "--json" },
+  }),
 
-  -- actions.proselint.with({ filetypes = { "markdown" }, command = "proselint", args = { "--json" } }),
+  actions.proselint.with({ filetypes = { "markdown" }, command = "proselint", args = { "--json" } }),
 
   hover.dictionary,
   hover.printenv,

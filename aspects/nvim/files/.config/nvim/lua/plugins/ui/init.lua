@@ -102,6 +102,66 @@ return {
     cmd = "ZenMode",
   },
 
+  -- noicer ui
+  {
+    "folke/noice.nvim",
+    config = function()
+      local noice = require("noice")
+      noice.setup({
+        lsp = {
+          override = {
+            ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+            ["vim.lsp.util.stylize_markdown"] = true,
+            ["cmp.entry.get_documentation"] = true,
+          },
+          hover = {
+            enabled = false,
+            view = nil,
+            opts = {},
+          },
+          signature = {
+            enabled = false,
+            auto_open = {
+              enabled = true,
+              trigger = true,
+              luasnip = true,
+              throttle = 50,
+            },
+            view = nil,
+            opts = {},
+          },
+        },
+        presets = {
+          bottom_search = false,
+          command_palette = true,
+          long_message_to_split = true,
+          inc_rename = false,
+          lsp_doc_border = false,
+        },
+        views = {
+          cmdline_popup = {
+            border = {
+              style = "rounded",
+              padding = { 0, 0 },
+            },
+            filter_options = {},
+          },
+        },
+        routes = {
+          {
+            filter = {
+              event = "UltiSnips#JumpForwads()",
+              kind = "",
+              find = "written",
+            },
+            opts = { skip = true },
+          },
+        },
+      })
+    end,
+    event = "VeryLazy",
+  },
+
   {
     "folke/twilight.nvim",
     config = function()
@@ -244,27 +304,27 @@ return {
     },
   },
 
-  -- {
-  --   "b0o/incline.nvim",
-  --   event = "BufReadPre",
-  --   config = function()
-  --     -- local colors = require("tokyonight.colors").setup()
-  --     require("incline").setup({
-  --       highlight = {
-  --         groups = {
-  --           InclineNormal = { guibg = "#FC56B1", guifg = "000" },
-  --           InclineNormalNC = { guifg = "#FC56B1", guibg = "000" },
-  --         },
-  --       },
-  --       window = { margin = { vertical = 0, horizontal = 1 } },
-  --       render = function(props)
-  --         local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(props.buf), ":t")
-  --         local icon, color = require("nvim-web-devicons").get_icon_color(filename)
-  --         return { { icon, guifg = color }, { " " }, { filename } }
-  --       end,
-  --     })
-  --   end,
-  -- },
+  {
+    "b0o/incline.nvim",
+    event = "BufReadPre",
+    config = function()
+      -- local colors = require("tokyonight.colors").setup()
+      require("incline").setup({
+        highlight = {
+          groups = {
+            InclineNormal = { guibg = "#FC56B1", guifg = "000" },
+            InclineNormalNC = { guifg = "#FC56B1", guibg = "000" },
+          },
+        },
+        window = { margin = { vertical = 0, horizontal = 1 } },
+        render = function(props)
+          local filename = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(props.buf), ":t")
+          local icon, color = require("nvim-web-devicons").get_icon_color(filename)
+          return { { icon, guifg = color }, { " " }, { filename } }
+        end,
+      })
+    end,
+  },
 
   {
     "NvChad/nvim-colorizer.lua",
