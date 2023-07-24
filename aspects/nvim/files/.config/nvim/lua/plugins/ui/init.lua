@@ -102,65 +102,65 @@ return {
     cmd = "ZenMode",
   },
 
-  -- noicer ui
-  {
-    "folke/noice.nvim",
-    config = function()
-      local noice = require("noice")
-      noice.setup({
-        lsp = {
-          override = {
-            ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
-            ["vim.lsp.util.stylize_markdown"] = true,
-            ["cmp.entry.get_documentation"] = true,
-          },
-          hover = {
-            enabled = false,
-            view = nil,
-            opts = {},
-          },
-          signature = {
-            enabled = false,
-            auto_open = {
-              enabled = true,
-              trigger = true,
-              luasnip = true,
-              throttle = 50,
-            },
-            view = nil,
-            opts = {},
-          },
-        },
-        presets = {
-          bottom_search = false,
-          command_palette = true,
-          long_message_to_split = true,
-          inc_rename = false,
-          lsp_doc_border = false,
-        },
-        views = {
-          cmdline_popup = {
-            border = {
-              style = "rounded",
-              padding = { 0, 0 },
-            },
-            filter_options = {},
-          },
-        },
-        routes = {
-          {
-            filter = {
-              event = "UltiSnips#JumpForwads()",
-              kind = "",
-              find = "written",
-            },
-            opts = { skip = true },
-          },
-        },
-      })
-    end,
-    event = "VeryLazy",
-  },
+  -- -- noicer ui
+  -- {
+  --   "folke/noice.nvim",
+  --   config = function()
+  --     local noice = require("noice")
+  --     noice.setup({
+  --       lsp = {
+  --         override = {
+  --           ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+  --           ["vim.lsp.util.stylize_markdown"] = true,
+  --           ["cmp.entry.get_documentation"] = true,
+  --         },
+  --         hover = {
+  --           enabled = false,
+  --           view = nil,
+  --           opts = {},
+  --         },
+  --         signature = {
+  --           enabled = false,
+  --           auto_open = {
+  --             enabled = true,
+  --             trigger = true,
+  --             luasnip = true,
+  --             throttle = 50,
+  --           },
+  --           view = nil,
+  --           opts = {},
+  --         },
+  --       },
+  --       presets = {
+  --         bottom_search = false,
+  --         command_palette = true,
+  --         long_message_to_split = true,
+  --         inc_rename = false,
+  --         lsp_doc_border = false,
+  --       },
+  --       views = {
+  --         cmdline_popup = {
+  --           border = {
+  --             style = "rounded",
+  --             padding = { 0, 0 },
+  --           },
+  --           filter_options = {},
+  --         },
+  --       },
+  --       routes = {
+  --         {
+  --           filter = {
+  --             event = "UltiSnips#JumpForwads()",
+  --             kind = "",
+  --             find = "written",
+  --           },
+  --           opts = { skip = true },
+  --         },
+  --       },
+  --     })
+  --   end,
+  --   event = "VeryLazy",
+  -- },
 
   {
     "folke/twilight.nvim",
