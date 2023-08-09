@@ -9,7 +9,7 @@ visualizer_output_name = "my_fifo"
 visualizer_in_stereo = "yes"
 visualizer_look = "+|"
 
-execute_on_song_change = `notify-send "Now Playing ♫" "$(mpc current)"`
+execute_on_song_change = `notify-send --icon="/usr/share/icons/oomox-xresources-reverse-flat/actions/scalable/music-library.svg" "Now Playing ♫" "$(mpc current)"`
 
 alternative_header_first_line_format = $b$1$aqqu$/a$9 {%t}|{%f} $1$atqq$/a$9$/b
 alternative_header_second_line_format = {{$4$b%a$/b$9}{ - $7%b$9}{ ($4%y$9)}}|{%D}

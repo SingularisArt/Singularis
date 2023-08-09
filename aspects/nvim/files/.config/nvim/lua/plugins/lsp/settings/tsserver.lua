@@ -1,11 +1,15 @@
 return {
   settings = {
+    tsserver_plugins = {
+      "@styled/typescript-styled-plugin",
+    },
+    publish_diagnostic_on = "change",
     typescript = {
-      inlayHints = {
+      tsserver_file_preferences = {
         includeInlayEnumMemberValueHints = true,
         includeInlayFunctionLikeReturnTypeHints = true,
         includeInlayFunctionParameterTypeHints = true,
-        includeInlayParameterNameHints = "all", -- 'none' | 'literals' | 'all';
+        includeInlayParameterNameHints = "all",
         includeInlayParameterNameHintsWhenArgumentMatchesName = true,
         includeInlayPropertyDeclarationTypeHints = true,
         includeInlayVariableTypeHints = true,

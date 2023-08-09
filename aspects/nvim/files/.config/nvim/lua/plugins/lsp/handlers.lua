@@ -56,11 +56,10 @@ lsp.attach_mappings = function(_, bufnr)
       D = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
       d = {
         name = "Definition",
-        d = { "<CMD>Telescope lsp_definitions<CR>", "Definition" },
-        r = { "<CMD>Telescope lsp_references<CR>", "References" },
-        p = { "<CMD>lua vim.diagnostic.open_float()<CR>", "Peek" },
-        t = { "<CMD>lua lsp_type_definitions<CR>", "Type Definition" },
-        i = { "<CMD>lua Telescope lsp_implementations<CR>", "Implementation" },
+        d = { "<CMD>Glance definitions<CR>", "Definition" },
+        r = { "<CMD>Glance references<CR>", "References" },
+        t = { "<CMD>Glance type_definitions<CR>", "Type Definition" },
+        i = { "<CMD>Glance implementations<CR>", "Implementation" },
       },
       w = {
         name = "Workspace",
@@ -79,14 +78,17 @@ lsp.on_attach = function(client, bufnr)
     "emmet_ls",
   }
 
-  -- require("lsp-inlayhints").on_attach(client, bufnr)
+  require("lsp_lines").toggle()
+  lsp.setup_codelens_refresh(client, bufnr)
+  lsp.attach_mappings(client, bufnr)
+
+  if client.name == "sqls" then
+    require("sqls").on_attach(client, bufnr)
+  end
 
   if servers_that_dont_work_with_navic[client.name] ~= nil then
     require("nvim-navic").attach(client, bufnr)
   end
-
-  lsp.setup_codelens_refresh(client, bufnr)
-  lsp.attach_mappings(client, bufnr)
 end
 
 return lsp

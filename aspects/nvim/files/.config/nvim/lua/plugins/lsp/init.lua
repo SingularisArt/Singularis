@@ -5,8 +5,8 @@ return {
     config = function()
       require("neoconf").setup()
       require("neodev").setup()
-      local mason = require("mason-lspconfig")
 
+      local mason = require("mason-lspconfig")
       local lsp = require("lspconfig")
 
       local ext_capabilites = vim.lsp.protocol.make_client_capabilities()
@@ -44,12 +44,20 @@ return {
           ensure_installed[#ensure_installed + 1] = server_name
         end
 
-        setup(server)
+        if server == "tsserver" then
+          require("plugins.lsp.typescript").typescript_tools(server_opts, on_attach)
+        else
+          setup(server)
+        end
       end
 
       mason.setup({ ensure_installed = ensure_installed, automatic_installation = true })
+
+      require("ufo").setup()
     end,
     dependencies = {
+      "typescript-tools.nvim",
+      "nvim-ufo",
       { "folke/neoconf.nvim", cmd = "Neoconf" },
       { "folke/neodev.nvim", ft = "lua" },
       {
@@ -57,7 +65,7 @@ return {
         after = "mason.nvim",
         config = function()
           require("mason-lspconfig").setup()
-        end
+        end,
       },
     },
     event = { "BufReadPre", "BufNewFile" },
@@ -65,7 +73,7 @@ return {
 
   {
     "SmiteshP/nvim-navic",
-    event = "VeryLazy"
+    event = "VeryLazy",
   },
 
   {
@@ -128,7 +136,7 @@ return {
             automatic_installation = true,
           })
         end,
-      }
+      },
     },
   },
 
@@ -141,7 +149,7 @@ return {
 
       local settings = {
         ui = {
-          border = "rounded",
+          border = "none",
           icons = {
             package_installed = "◍",
             package_pending = "◍",
@@ -178,5 +186,16 @@ return {
       require("plugins.lsp.signature")
     end,
     event = { "BufReadPre", "BufNewFile" },
+  },
+
+  {
+    "kevinhwang91/nvim-ufo",
+    config = function()
+      vim.keymap.set("n", "zR", require("ufo").openAllFolds)
+      vim.keymap.set("n", "zM", require("ufo").closeAllFolds)
+      vim.keymap.set("n", "zr", require("ufo").openFoldsExceptKinds)
+    end,
+    dependencies = "kevinhwang91/promise-async",
+    event = "VeryLazy"
   },
 }
