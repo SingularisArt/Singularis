@@ -332,4 +332,30 @@ return {
       { "<Space>t", "<CMD>lua require('alternate-toggler').toggleAlternate()<CR>" },
     },
   },
+
+  {
+    "epwalsh/obsidian.nvim",
+    event = { "BufReadPre " .. vim.fn.expand "~" .. "/Documents/Obsidian/" },
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+    },
+    opts = {
+      dir = "~/Documents/Obsidian/",
+
+      daily_notes = {
+        folder = "notes/dailies",
+        date_format = "%b %d %Y %a (%H:%M:%S)"
+      },
+
+      completion = {
+        nvim_cmp = true,
+        min_chars = 2,
+        -- Where to put new notes created from completion. Valid options are
+        --  * "current_dir" - put new notes in same directory as the current buffer.
+        --  * "notes_subdir" - put new notes in the default notes subdirectory.
+        new_notes_location = "current_dir",
+        prepend_note_id = true
+      },
+    },
+  },
 }

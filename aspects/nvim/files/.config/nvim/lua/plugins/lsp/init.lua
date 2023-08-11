@@ -53,11 +53,11 @@ return {
 
       mason.setup({ ensure_installed = ensure_installed, automatic_installation = true })
 
-      require("ufo").setup()
+      -- require("ufo").setup()
     end,
     dependencies = {
       "typescript-tools.nvim",
-      "nvim-ufo",
+      -- "nvim-ufo",
       { "folke/neoconf.nvim", cmd = "Neoconf" },
       { "folke/neodev.nvim", ft = "lua" },
       {
@@ -188,14 +188,14 @@ return {
     event = { "BufReadPre", "BufNewFile" },
   },
 
-  {
-    "kevinhwang91/nvim-ufo",
-    config = function()
-      vim.keymap.set("n", "zR", require("ufo").openAllFolds)
-      vim.keymap.set("n", "zM", require("ufo").closeAllFolds)
-      vim.keymap.set("n", "zr", require("ufo").openFoldsExceptKinds)
-    end,
-    dependencies = "kevinhwang91/promise-async",
-    event = "VeryLazy"
-  },
+  -- {
+  --   "kevinhwang91/nvim-ufo",
+  --   config = function()
+  --     vim.keymap.set("n", "zR", require("ufo").openAllFolds)
+  --     vim.keymap.set("n", "zM", require("ufo").closeAllFolds)
+  --     vim.keymap.set("n", "zr", require("ufo").openFoldsExceptKinds)
+  --   end,
+  --   dependencies = "kevinhwang91/promise-async",
+  --   event = "VeryLazy"
+  -- },
 }
