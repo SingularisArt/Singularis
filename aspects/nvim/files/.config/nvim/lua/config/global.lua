@@ -1,7 +1,7 @@
 local icons
 
 vim.g.use_nerd_icons = false
-if vim.fn.has "mac" == 1 or vim.g.use_nerd_icons then
+if vim.fn.has("mac") == 1 or vim.g.use_nerd_icons then
   icons = {
     kind = {
       Text = "",
@@ -235,4 +235,11 @@ return {
     mappings = {},
     vmappings = {},
   },
+  keymap = function(mode, binding, action, opts, description)
+    opts["desc"] = description
+
+    vim.api.nvim_set_keymap(mode, binding, action, opts)
+  end,
+  opts = { noremap = true, silent = true },
+  term_opts = { silent = true },
 }

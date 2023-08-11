@@ -9,6 +9,9 @@ vim.cmd([[
 local which_key = require("which-key")
 local options = require("config.global").which_key_vars.options
 
+local opts = require("config.global").opts
+local keymap = require("config.global").keymap
+
 options = vim.tbl_deep_extend("force", {
   filetype = "tex",
   buffer = vim.api.nvim_get_current_buf(),
@@ -58,3 +61,11 @@ which_key.register({
     },
   },
 }, options)
+
+keymap(
+  "n",
+  "<C-f>",
+  ":silent exec '!inkscape-figures edit \"'.b:vimtex.root.'/figures/\" > /dev/null 2>&1 &'<CR><CR>:redraw!<CR>",
+  opts,
+  "Create new figure."
+)
