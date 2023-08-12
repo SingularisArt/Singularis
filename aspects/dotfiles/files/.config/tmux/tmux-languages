@@ -1,4 +1,16 @@
 python
+django
+flask
+tensorflow
+keras
+pytorch
+opencv
+sklearn
+pandas
+numpy
+scipy
+matplotlib
+seaborn
 c++
 cmake
 c#
@@ -11,8 +23,18 @@ css
 tailwindcss
 javascript
 typescript
+react
+redux
+angular
+svelte
+vue.js
+express.js
+next.js
+webgu
+electron
 php
 ruby
+ruby on rails
 perl
 java
 rust
@@ -20,8 +42,10 @@ swift
 docker
 go
 dart
+flutter
 kotlin
 lua
+love2d
 vimscript
 bash
 solidity
