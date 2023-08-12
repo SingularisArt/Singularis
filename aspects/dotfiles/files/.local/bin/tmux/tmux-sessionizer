@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+
+# Check if the user passed a path by default
+if [[ $# -eq 1 ]]; then
+  if [[ ! -d $1 ]]; then
+    echo "The path passed is not a directory"
+    exit 1
+  fi
+
+  cd "$1" || exit
+  source .tmux
+  exit
+fi
+
+declare -A sessions
+while IFS= read -r line; do
+  formatted_session=$(basename "$line" | sed 's/-/ /g' | awk '{for(i=1;i<=NF;i++) $i=toupper(substr($i,1,1)) tolower(substr($i,2));}1')
+  sessions["$formatted_session"]=$line
+done < <(find ~/Documents -maxdepth 2 -type f -name ".tmux" -exec dirname {} \;)
+
+sessions["System Configuration"]="$HOME/.local/share/Singularis/"
+
+if [[ $# -eq 1 ]]; then
+  selected=$1
+else
+  selected=$(printf "%s\n" "${!sessions[@]}" | rofi -p "Select Session" -dmenu -no-fixed-num-lines)
+
+  if [[ -z $selected ]]; then
+    exit 0
+  fi
+fi
+
+cd "${sessions[$selected]}" || exit
+source .tmux
