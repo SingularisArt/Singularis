@@ -1,6 +1,5 @@
 local which_key = require("which-key")
 local options = require("config.global").which_key_vars.options
-local voptions = require("config.global").which_key_vars.voptions
 
 options = vim.tbl_deep_extend("force", {
   filetype = { "typescript", "typescriptreact" },

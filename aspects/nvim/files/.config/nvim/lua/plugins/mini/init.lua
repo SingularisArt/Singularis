@@ -7,6 +7,7 @@ return {
       require("plugins.mini.map")
       require("plugins.mini.comment")
 
+      -- require("mini.files").setup()
       -- require("mini.indentscope").setup()
       -- require("mini.animate").setup()
       -- require("mini.jump").setup()

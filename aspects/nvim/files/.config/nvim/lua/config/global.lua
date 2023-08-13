@@ -235,11 +235,11 @@ return {
     mappings = {},
     vmappings = {},
   },
+  opts = { noremap = true, silent = true },
+  term_opts = { silent = true },
   keymap = function(mode, binding, action, opts, description)
     opts["desc"] = description
 
     vim.api.nvim_set_keymap(mode, binding, action, opts)
   end,
-  opts = { noremap = true, silent = true },
-  term_opts = { silent = true },
 }

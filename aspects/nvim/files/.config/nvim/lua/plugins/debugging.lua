@@ -31,6 +31,14 @@ return {
   },
 
   {
+    "puremourning/vimspector",
+    cmd = { "VimspectorInstall", "VimspectorUpdate" },
+    config = function()
+      require("config.vimspector").setup()
+    end,
+  },
+
+  {
     "mfussenegger/nvim-dap",
     config = function()
       local icons = require("config.global").icons
@@ -126,7 +134,11 @@ return {
         "jay-babu/mason-nvim-dap.nvim",
         after = "mason.nvim",
         config = function()
+          local config = require("plugins.lsp.config")
+          local ensure_installed = config.dap
+
           require("mason-nvim-dap").setup({
+            ensure_installed = ensure_installed,
             automatic_installation = true,
           })
         end
@@ -156,5 +168,25 @@ return {
       require("dap-python").setup("/usr/bin/python3")
     end,
     ft = "python",
+  },
+
+  {
+    "rcarriga/vim-ultest",
+    dependencies = { "vim-test/vim-test" },
+    cmd = {
+      "TestNearest",
+      "TestFile",
+      "TestSuite",
+      "TestLast",
+      "TestVisit",
+      "Ultest",
+      "UltestNearest",
+      "UltestDebug",
+      "UltestLast",
+      "UltestSummary",
+    },
+    config = function()
+      require("config.test").setup()
+    end,
   },
 }

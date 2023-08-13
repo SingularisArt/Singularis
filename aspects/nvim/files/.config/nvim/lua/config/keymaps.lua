@@ -30,7 +30,7 @@ keymap("n", "<C-t>", ":tabnew<CR>", opts, "Create new tab.")
 keymap("n", "<C-a>", "ggVG", opts, "Highlight everything.")
 keymap("n", ";", ":nohl<CR>", opts, "Clear search highlight.")
 keymap("n", "<Tab>", "za", opts, "Toggle tab.")
-keymap("n", "<cr>", "ciw", opts, "Detele entire word.")
+keymap("n", "<CR>", "ciw", opts, "Detele entire word.")
 keymap("n", "-", ":Oil<CR>", opts, "Toggle Oil.")
 keymap("n", "<Leader>-", "<CMD>lua require('lir.float').toggle()<CR>", opts, "Toggle Lir.")
 

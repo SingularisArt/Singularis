@@ -78,7 +78,15 @@ lsp.on_attach = function(client, bufnr)
     "emmet_ls",
   }
 
-  require("lsp_lines").toggle()
+  if client.name == "jdtls" then
+    require("jdtls").setup_dap({ hotcodereplace = "auto" })
+    require("jdtls.dap").setup_dap_main_class_configs()
+
+    vim.lsp.codelens.refresh()
+  elseif server == "clangd" then
+    require("plugins.lsp.filetypes.cpp").clangd_extensions()
+  end
+
   lsp.setup_codelens_refresh(client, bufnr)
   lsp.attach_mappings(client, bufnr)
 

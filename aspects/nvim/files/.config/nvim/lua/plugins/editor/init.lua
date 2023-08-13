@@ -37,7 +37,7 @@ return {
         show_hidden_files = false,
         devicons = { enable = true },
         mappings = {
-          ["<cr>"] = actions.edit,
+          ["<CR>"] = actions.edit,
           ["l"] = actions.edit,
           ["<C-s>"] = actions.split,
           ["v"] = actions.vsplit,

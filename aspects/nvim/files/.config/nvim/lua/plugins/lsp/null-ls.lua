@@ -39,10 +39,6 @@ local sources = {
   diagnostics.golangci_lint,
   diagnostics.flake8,
 
-  code_actions.gitsigns,
-  code_actions.proselint,
-  code_actions.refactoring,
-
   diagnostics.misspell.with({
     filetypes = { "markdown", "text", "txt" },
     args = { "$FILENAME" },
@@ -60,10 +56,18 @@ local sources = {
     args = { "--json" },
   }),
 
+  code_actions.gitsigns,
+  code_actions.proselint,
+  code_actions.refactoring,
+
   actions.proselint.with({ filetypes = { "markdown" }, command = "proselint", args = { "--json" } }),
 
   hover.dictionary,
   hover.printenv,
+
+  -- code_actions.gotest_codeaction,
+  -- diagnostics.gotest,
+  -- diagnostics.golangci_lint,
 }
 
 table.insert(

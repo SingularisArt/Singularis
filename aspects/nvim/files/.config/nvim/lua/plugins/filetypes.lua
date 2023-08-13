@@ -30,6 +30,7 @@ return {
     end,
     ft = "markdown",
   },
+  { "dhruvasagar/vim-table-mode", ft = "markdown" },
 
   -- latex
   {
@@ -57,21 +58,19 @@ return {
   -- rust
   {
     "simrat39/rust-tools.nvim",
-    config = function()
-      require("rust-tools").setup({
-        server = {
-          on_attach = function(c, b)
-            require("navigator.lspclient.mapping").setup({ client = c, bufnr = b })
-          end,
-        },
-      })
-    end,
     ft = "rust",
   },
   {
     "Saecki/crates.nvim",
     config = function()
-      require("crates").setup()
+      local null_ls = require("null-ls")
+
+      require("crates").setup {
+        null_ls = {
+          enabled = true,
+          name = "crates.nvim",
+        },
+      }
     end,
     ft = "toml",
   },
@@ -85,7 +84,17 @@ return {
   -- go
   {
     "ray-x/go.nvim",
+    dependencies = {
+      "guihua.lua",
+      "nvim-lspconfig",
+      "nvim-treesitter",
+    },
+    config = function()
+      require("go").setup()
+    end,
+    event = { "CmdlineEnter" },
     ft = { "go", "gomod" },
+    build = ":lua require('go.install').update_all_sync()"
   },
 
   -- python
@@ -187,10 +196,10 @@ return {
     end,
     cmd = { "Glance" },
     -- keys = {
-    --   { "gd", "<cmd>Glance definitions<CR>",      desc = "LSP Definition" },
-    --   { "gr", "<cmd>Glance references<CR>",       desc = "LSP References" },
-    --   { "gm", "<cmd>Glance implementations<CR>",  desc = "LSP Implementations" },
-    --   { "gy", "<cmd>Glance type_definitions<CR>", desc = "LSP Type Definitions" },
+    --   { "gd", "<CMD>Glance definitions<CR>",      desc = "LSP Definition" },
+    --   { "gr", "<CMD>Glance references<CR>",       desc = "LSP References" },
+    --   { "gm", "<CMD>Glance implementations<CR>",  desc = "LSP Implementations" },
+    --   { "gy", "<CMD>Glance type_definitions<CR>", desc = "LSP Type Definitions" },
     -- },
   },
 
@@ -225,6 +234,12 @@ return {
   { "jalvesaq/Nvim-R", ft = { "r", "rmd" } },
   { "jalvesaq/R-Vim-runtime", ft = { "r", "rmd" } },
   { "jalvesaq/colorout", ft = { "r", "rmd" } },
+
+ -- dart
+  { "dart-lang/dart-vim-plugin", ft = { "dart" } },
+
+  -- C++/C
+  { "p00f/clangd_extensions.nvim", ft = { "cpp", "c" } },
 
   -- sql
   -- {

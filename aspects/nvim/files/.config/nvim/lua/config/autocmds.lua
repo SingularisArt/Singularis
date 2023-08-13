@@ -32,7 +32,7 @@ vim.api.nvim_create_autocmd("FileType", {
   },
   callback = function(event)
     vim.bo[event.buf].buflisted = false
-    vim.keymap.set("n", "q", "<cmd>close<cr>", { buffer = event.buf, silent = true })
+    vim.keymap.set("n", "q", "<CMD>close<CR>", { buffer = event.buf, silent = true })
   end,
 })
 
@@ -52,5 +52,14 @@ vim.api.nvim_create_autocmd("FileType", {
   pattern = { "tex" },
   callback = function()
     vim.o.foldenable = false
+  end,
+})
+
+-- add cargo to cmp sources
+vim.api.nvim_create_autocmd("BufRead", {
+  group = vim.api.nvim_create_augroup("CmpSourceCargo", { clear = true }),
+  pattern = "Cargo.toml",
+  callback = function()
+    cmp.setup.buffer({ sources = { { name = "crates" } } })
   end,
 })
