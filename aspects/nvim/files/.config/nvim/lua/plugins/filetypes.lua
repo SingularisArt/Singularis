@@ -31,6 +31,12 @@ return {
     ft = "markdown",
   },
   { "dhruvasagar/vim-table-mode", ft = "markdown" },
+  {
+    "ellisonleao/glow.nvim",
+    cmd = "Glow",
+    config = true,
+    ft = "markdown",
+  },
 
   -- latex
   {
@@ -172,35 +178,6 @@ return {
         package_manager = "npm",
       })
     end,
-  },
-  {
-    "dnlhc/glance.nvim",
-    config = function()
-      local filter = require("util").filter
-      local filterReactDTS = require("util").filter_react_dts
-
-      require("glance").setup({
-        hooks = {
-          before_open = function(results, open, jump, method)
-            if #results == 1 then
-              jump(results[1])
-            elseif method == "definitions" then
-              results = filter(results, filterReactDTS)
-              open(results)
-            else
-              open(results)
-            end
-          end,
-        },
-      })
-    end,
-    cmd = { "Glance" },
-    -- keys = {
-    --   { "gd", "<CMD>Glance definitions<CR>",      desc = "LSP Definition" },
-    --   { "gr", "<CMD>Glance references<CR>",       desc = "LSP References" },
-    --   { "gm", "<CMD>Glance implementations<CR>",  desc = "LSP Implementations" },
-    --   { "gy", "<CMD>Glance type_definitions<CR>", desc = "LSP Type Definitions" },
-    -- },
   },
 
   -- javascript react/typescript react

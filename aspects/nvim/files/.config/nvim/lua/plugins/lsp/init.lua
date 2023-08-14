@@ -201,6 +201,30 @@ return {
     event = { "BufReadPre", "BufNewFile" },
   },
 
+  {
+    "dnlhc/glance.nvim",
+    config = function()
+      local filter = require("util").filter
+      local filterReactDTS = require("util").filter_react_dts
+
+      require("glance").setup({
+        hooks = {
+          before_open = function(results, open, jump, method)
+            if #results == 1 then
+              jump(results[1])
+            elseif method == "definitions" then
+              results = filter(results, filterReactDTS)
+              open(results)
+            else
+              open(results)
+            end
+          end,
+        },
+      })
+    end,
+    cmd = { "Glance" },
+  },
+
   -- {
   --   "kevinhwang91/nvim-ufo",
   --   config = function()

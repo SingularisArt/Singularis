@@ -29,6 +29,7 @@ which_key.register({
     a = { "<cmd>VimtexToggleMain<CR>", "Toggle Main" },
     v = { "<cmd>VimtexView<CR>", "View pdf" },
     i = { "<cmd>VimtexInfo<CR>", "Vimtex Info" },
+    t = { "<cmd>VimtexTocToggle<CR>", "Toggle TOC" },
     l = {
       name = "Clean",
       l = { "<cmd>VimtexClean<CR>", "Clean Project" },
@@ -53,11 +54,6 @@ which_key.register({
       name = "Stop",
       p = { "<cmd>VimtexStop<CR>", "Stop" },
       a = { "<cmd>VimtexStopAll<CR>", "Stop All" },
-    },
-    t = {
-      name = "TOC",
-      o = { "<cmd>VimtexTocOpen<CR>", "Open TOC" },
-      t = { "<cmd>VimtexTocToggle<CR>", "Toggle TOC" },
     },
   },
 }, options)

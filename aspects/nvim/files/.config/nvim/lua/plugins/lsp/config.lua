@@ -27,11 +27,11 @@ M.servers = {
   solidity_ls = { install = true, install_server_name = "solidity" },
   r_language_server = { install = false },
   lemminx = { install = true },
+  marksman = { install = true },
 }
 
 M.formatters = {
   "black",
-  "blackd-client",
   "clang-format",
   "golines",
   "google-java-format",
@@ -59,13 +59,13 @@ M.linters = {
   "flake8",
   "golangci-lint",
   "misspell",
+  "write-good",
   "proselint",
   "shellcheck",
   "shellharden",
   "solhint",
   "sqlfluff",
   "standardrb",
-  "write-good",
   "yamllint",
   "ltex-ls",
   "delve",

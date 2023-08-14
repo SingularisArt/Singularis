@@ -29,24 +29,31 @@ return {
       "hrsh7th/cmp-emoji",
       "f3fora/cmp-spell",
       "octaltree/cmp-look",
-      -- "roobert/tailwindcss-colorizer-cmp.nvim",
-      -- {
-      --   "jalvesaq/cmp-nvim-r",
-      --   config = function()
-      --     require("cmp_zotcite").setup({
-      --       filetypes = { "pandoc", "markdown", "rmd", "r", "quarto" }
-      --     })
-      --   end,
-      -- },
-      -- {
-      --   "jalvesaq/cmp-zotcite",
-      --   config = function()
-      --     require("cmp_zotcite").setup({
-      --       filetypes = { "pandoc", "markdown", "rmd", "r", "quarto" }
-      --     })
-      --   end,
-      --   dependencies = "jalvesaq/zotcite",
-      -- },
+      {
+        "roobert/tailwindcss-colorizer-cmp.nvim",
+        opts = function(_, opts)
+          opts.formatting = {
+            format = require("tailwindcss-colorizer-cmp").formatter,
+          }
+        end,
+      },
+      {
+        "jalvesaq/cmp-nvim-r",
+        config = function()
+          require("cmp_zotcite").setup({
+            filetypes = { "pandoc", "markdown", "rmd", "r", "quarto" }
+          })
+        end,
+      },
+      {
+        "jalvesaq/cmp-zotcite",
+        config = function()
+          require("cmp_zotcite").setup({
+            filetypes = { "pandoc", "markdown", "rmd", "r", "quarto" }
+          })
+        end,
+        dependencies = "jalvesaq/zotcite",
+      },
     },
     event = "InsertEnter",
   },

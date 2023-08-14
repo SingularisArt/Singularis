@@ -328,8 +328,9 @@ return {
 
   {
     "NvChad/nvim-colorizer.lua",
-    config = function()
-      require("colorizer").setup({
+    event = "VeryLazy",
+    opts = {
+      user_default_options = {
         RGB = true,
         RRGGBB = true,
         names = true,
@@ -344,8 +345,7 @@ return {
         sass = { enable = true, parsers = { "css" }, },
         virtualtext = "■",
         always_update = true,
-      })
-    end,
-    lazy = false,
+      },
+    },
   },
 }

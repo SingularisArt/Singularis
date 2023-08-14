@@ -10,6 +10,7 @@ options = vim.tbl_deep_extend("force", {
 which_key.register({
   ["L"] = {
     name = "Language",
+    g = { "<cmd>Glow<CR>", "Toggle Glow" },
     p = { "<cmd>MarkdownPreviewToggle<CR>", "Toggle Markdown Preview" },
     t = {
       name = "Table",

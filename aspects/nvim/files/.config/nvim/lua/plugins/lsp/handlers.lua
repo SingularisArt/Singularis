@@ -97,6 +97,8 @@ lsp.on_attach = function(client, bufnr)
   if servers_that_dont_work_with_navic[client.name] ~= nil then
     require("nvim-navic").attach(client, bufnr)
   end
+
+  require("colorizer").attach_to_buffer(bufnr)
 end
 
 return lsp
