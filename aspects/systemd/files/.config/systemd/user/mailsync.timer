@@ -1,5 +1,6 @@
 [Unit]
-Description=Mail sync
+Description=Sync mail via isync for neomutt
+Requires=mailsync.service
 
 [Timer]
 OnBootSec=1m

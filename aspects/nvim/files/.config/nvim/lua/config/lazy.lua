@@ -48,6 +48,11 @@ require("lazy").setup({
   ui = {
     border = "none",
   },
+  dev = {
+    path = "~/Documents/dev-plugins",
+    patterns = { "SingularisArt" },
+    fallback = true,
+  },
   -- checker = { enabled = true },
   performance = {
     rtp = {

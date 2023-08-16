@@ -155,7 +155,7 @@ else
       Ignore = " ",
       Rename = " ",
       Diff = " ",
-      Repo = " ",
+      Repo = " ",
       Octoface = " ",
     },
     ui = {

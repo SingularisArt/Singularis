@@ -1,0 +1,9 @@
+[Unit]
+Description=Desktop alert warning of low remaining battery
+
+[Service]
+ExecStart=/home/singularis/.local/bin/systemd/alert-battery
+Environment="HOME=/home/singularis"
+
+[Install]
+WantedBy=default.target

@@ -1,7 +1,7 @@
 return {
+  filetypes = { "latex", "tex", "bib", "markdown" },
   settings = {
     ltex = {
-      enabled = { "latex", "tex", "bib", "markdown" },
       language = "en",
       checkFrequency = "edit",
       diagnosticSeverity = "information",
@@ -16,6 +16,5 @@ return {
       hiddenFalsePositives = {},
     },
   },
-  install = true,
-  -- install_server_name = "ltex-ls",
+  install = false,
 }

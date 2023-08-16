@@ -18,4 +18,5 @@ return {
   -- libraries used by other plugins
   "nvim-lua/plenary.nvim",
   "ray-x/guihua.lua",
+  "wincent/pinnacle",
 }

@@ -1,5 +1,5 @@
 [Unit]
-Description=Mail sync
+Description=Sync mail via isync for neomutt
 
 [Service]
 ExecStart=/home/singularis/.local/bin/systemd/mailsync

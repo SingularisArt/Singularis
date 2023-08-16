@@ -22,7 +22,7 @@ super + w
 super + m
   bspc rule -a kitty -o state=floating center=true rectangle=800x600+0+0 && kitty "neomutt"
 super + shift + m
-  bspc rule -a kitty -o state=floating center=true rectangle=800x600+0+0 && ~/.local/bin/neomutt/send_mail
+  bspc rule -a kitty -o state=floating center=true rectangle=800x600+0+0 && ~/.local/bin/neomutt/send-mail
 super + n
   bspc rule -a kitty -o state=floating center=true rectangle=800x600+0+0 && kitty "newsboat"
 super + e
@@ -33,8 +33,10 @@ super + c
   bspc rule -a kitty -o state=floating center=true rectangle=800x600+0+0 && kitty "calcurse"
 super + shift + p
   bspc rule -a kitty -o state=floating center=true rectangle=800x600+0+0 && kitty "pulsemixer"
-super + shift
+super + shift + Return
   zathura
+super + y
+  slock
 
 ##########
 #  Rofi  #
@@ -53,7 +55,7 @@ super + b
 super + shift + b
   ~/.local/bin/bookmark-this
 super + ctrl + b
-  ~/.local/bin/sxhkd/open_bookmarks
+  ~/.local/bin/sxhkd/open-bookmarks
 super + u
   ~/.local/bin/sxhkd/mounter
 super + shift + u
@@ -90,10 +92,21 @@ super + alt + comma
   mpc prev
 super + alt + period
   mpc next
-super + alt + u
-  pamixer -i 5 && ~/.local/bin/volume-indicator show
-super + alt + d
-  pamixer -d 5 && ~/.local/bin/volume-indicator show
+{super + alt + u,XF86AudioRaiseVolume}
+  pamixer --increase 5 && ~/.local/bin/sxhkd/volume-indicator
+{super + alt + d,XF86AudioLowerVolume}
+  pamixer --decrease 5 && ~/.local/bin/sxhkd/volume-indicator
+{super + alt + m,XF86AudioMute}
+  pamixer --toggle-mute
+
+################
+#  Brightness  #
+################
+
+{super + alt + shift + u,XF86MonBrightnessUp}
+  brightnessctl s 375+ && ~/.local/bin/sxhkd/brightness-indicator
+{super + alt + shift + d,XF86MonBrightnessDown}
+  brightnessctl s 375- && ~/.local/bin/sxhkd/brightness-indicator
 
 ###########
 #  Other  #
@@ -101,7 +114,6 @@ super + alt + d
 
 Print
   ~/.local/bin/maimpick
-
 
 ###########
 #  BSPWM  #
@@ -180,13 +192,13 @@ super + shift + m
 
 ### Enable/Disable gaps
 super + a
-  ~/.local/bin/sxhkd/enable_disable_gaps
+  ~/.local/bin/sxhkd/enable-disable-gaps
 super + shift + a
   bspc config window_gap 10
 super + z
-  ~/.local/bin/sxhkd/increase_decrease_gasp plus
+  ~/.local/bin/sxhkd/increase-decrease-gasp plus
 super + x
-  ~/.local/bin/sxhkd/increase_decrease_gasp minus
+  ~/.local/bin/sxhkd/increase-decrease-gasp minus
 
 ## Other
 

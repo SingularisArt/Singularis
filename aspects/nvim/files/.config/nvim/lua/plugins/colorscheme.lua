@@ -4,7 +4,7 @@ return {
     config = function()
       require("mini.hues").setup({ background = "#090610", foreground = "#acc2d2", saturation = "high", n_hues = 6 })
     end,
-    lazy = false,
+    lazy = true,
   },
 
   {
@@ -215,7 +215,7 @@ return {
 
       vim.cmd("colorscheme gruvbox-material")
     end,
-    lazy = true,
+    lazy = false,
   },
 
   { "ray-x/starry.nvim", lazy = true },

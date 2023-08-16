@@ -7,15 +7,15 @@ return {
       require("plugins.mini.map")
       require("plugins.mini.comment")
 
-      -- require("mini.files").setup()
       -- require("mini.indentscope").setup()
       -- require("mini.animate").setup()
       -- require("mini.jump").setup()
       -- require("mini.jump2d").setup()
       -- require("mini.surround").setup({ search_method = "cover_or_next" })
+      -- require("mini.tabline").setup()
 
+      require("mini.files").setup()
       require("mini.pairs").setup()
-      require("mini.tabline").setup()
       require("mini.align").setup()
       require("mini.bracketed").setup()
       require("mini.bufremove").setup()
@@ -27,14 +27,4 @@ return {
     end,
     event = "VeryLazy",
   },
-
-  -- -- mini.statusline
-  -- {
-  --   "echasnovski/mini.statusline",
-  --   config = function()
-  --     require("plugins.mini.statusline")
-  --     vim.cmd("set laststatus=3")
-  --   end,
-  --   lazy = false,
-  -- },
 }

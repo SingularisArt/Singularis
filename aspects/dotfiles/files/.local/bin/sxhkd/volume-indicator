@@ -1,0 +1,28 @@
+#!/bin/bash
+
+volume=$(pamixer --get-volume)
+
+icon=""
+icon_path="/usr/share/icons/oomox-xresources-reverse-flat/status/scalable"
+
+if [ "$volume" -ge 60 ]; then
+  icon="$icon_path/audio-volume-high.svg"
+elif [ "$volume" -ge 30 ]; then
+  icon="$icon_path/audio-volume-medium.svg"
+elif [ "$volume" -eq 0 ]; then
+  icon="$icon_path/audio-volume-muted.svg"
+elif [ "$volume" -le 30 ]; then
+  icon="$icon_path/audio-volume-low.svg"
+fi
+
+if [ "$(pamixer --get-mute)" = "true" ]; then
+  icon="$icon_path/audio-volume-muted.svg"
+fi
+
+notify-send \
+  --app-name="changevolume" \
+  --replace-id="9993" \
+  --hint=int:value:"$volume" \
+  --icon "$icon" \
+  --expire-time=2000 \
+  "Volume: ${volume}%"

@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+cd "$HOME"/.local/share/bookmarks || exit
+kitty "$HOME/.local/bin/lfub"
