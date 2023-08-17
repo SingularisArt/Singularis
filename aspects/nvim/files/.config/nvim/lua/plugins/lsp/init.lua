@@ -142,10 +142,32 @@ return {
           local config = require("plugins.lsp.config")
           local formatters = config.formatters
           local linters = config.linters
+          local code_actions = config.code_actions
 
-          local ensure_installed = formatters
+          local ensure_installed = {}
+          for k, v in pairs(formatters) do
+            if type(v) == "table" then
+              table.insert(ensure_installed, k)
+            else
+              table.insert(ensure_installed, v)
+            end
+          end
 
-          for k, v in pairs(linters) do ensure_installed[k] = v end
+          for k, v in pairs(linters) do
+            if type(v) == "table" then
+              table.insert(ensure_installed, k)
+            else
+              table.insert(ensure_installed, v)
+            end
+          end
+
+          for k, v in pairs(code_actions) do
+            if type(v) == "table" then
+              table.insert(ensure_installed, k)
+            else
+              table.insert(ensure_installed, v)
+            end
+          end
 
           require("mason-null-ls").setup({
             ensure_installed = ensure_installed,

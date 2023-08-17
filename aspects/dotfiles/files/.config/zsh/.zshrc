@@ -8,6 +8,9 @@ __SingularisArt[ITALIC_OFF]=$'\e[23m'
 source $ZDOTDIR/functions.zsh
 source $ZDOTDIR/plugins.zsh
 
+opam_file_location="$HOME/.local/share/opam/opam-init/init.zsh"
+[[ ! -r "$opam_file_location" ]] || source "$opam_file_location"  > /dev/null 2> /dev/null
+
 # Plugins
 # For more plugins: https://github.com/unixorn/awesome-zsh-plugins
 # zsh_add_plugin "jeffreytse/zsh-vi-mode"  # Wait until bug fix: https://github.com/jeffreytse/zsh-vi-mode/issues/199

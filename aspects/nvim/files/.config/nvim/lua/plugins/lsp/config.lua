@@ -27,48 +27,228 @@ M.servers = {
   r_language_server = { install = false },
   lemminx = { install = true },
   marksman = { install = true },
+  zls = { install = true },
+  ocamllsp = { require("plugins.lsp.settings.ocaml"), install = true },
 }
 
 M.formatters = {
-  "black",
-  "clang-format",
-  "golines",
-  "google-java-format",
-  "prettier",
-  "rustfmt",
-  "shellharden",
-  "sql-formatter",
-  "standardrb",
-  "stylua",
-  "xmlformatter",
-  "yamlfix",
-  "yamlfmt",
-  "gomodifytags",
+  -- Python
+  black = {
+    options = {
+      extra_args = { "--fast" },
+    },
+  },
+
+  -- Go
+  golines = {
+    options = {
+      extra_args = {
+        "--max-len=180",
+        "--base-formatter=gofumpt",
+      },
+    },
+  },
   "gofumpt",
   "goimports",
-  "impl",
-  "iferr",
-  "gotestsum",
-  "gotests",
+
+  -- JS/TS
+  prettier = {
+    options = {
+      extra_filetypes = { "toml", "solidity" },
+      extra_args = { "--arrow-parens always", "--trailing-comma all" },
+    },
+  },
+
+  -- Ruby
+  standardrb = {
+    options = {
+      extra_filetypes = { "--fix", "--format", "quiet", "--stderr", "--stdin", "$FILENAME" },
+    },
+  },
+
+  -- C++/C
+  ["clang-format"] = {
+    null_ls_source = "clang_format",
+  },
+
+  -- Java
+  ["google-java-format"] = {
+    null_ls_source = "google_java_format",
+  },
+
+  -- SQL
+  ["sql-formatter"] = {
+    null_ls_source = "sql_formatter",
+  },
+
+  -- XML
+  xmlformatter = {
+    null_ls_source = "xmlformat",
+  },
+
+  -- Rust
+  "rustfmt",
+
+  -- Bash
+  "shellharden",
+
+  -- Markdown
+  ["markdown-toc"] = {
+    null_ls_source = "markdown_toc",
+  },
+  "mdformat",
+
+  -- Lua
+  "stylua",
+
+  -- Yaml
+  "yamlfmt",
+
+  -- Ocaml
+  "ocamlformat",
+
+  -- JSON
+  "fixjson",
+
+  -- CMake
+  "gersemi",
+
+  -- HTML
+  "htmlbeautifier",
+
+  -- LaTeX
+  "latexindent",
+
+  -- PhP
+  "phpcbf",
+
+  -- Toml
+  "taplo",
+
+  -- "iferr",
+  -- "gotestsum",
+  -- "gotests",
 }
 
 M.linters = {
+  -- Markdown
+  write_good = {
+    options = {
+      filetypes = { "markdown" },
+      extra_filetypes = { "txt", "text" },
+      args = { "--text=$TEXT", "--parse" },
+      command = "write-good",
+    },
+  },
+  proselint = {
+    options = {
+      filetypes = { "markdown", },
+      extra_filetypes = { "txt", "text" },
+      command = "proselint",
+      args = { "--json" },
+    },
+  },
+  misspell = {
+    options = {
+      filetypes = { "markdown", "text", "txt" },
+      args = { "$FILENAME" },
+    },
+  },
+  "alex",
+  "markdownlint",
+  "markuplint",
+  "textlint",
+
+  -- C++/C
   "cpplint",
+
+  -- All
   "cspell",
+  "gitlint",
+
+  -- Python
   "flake8",
-  "golangci-lint",
-  "misspell",
-  "write-good",
-  "proselint",
-  "shellcheck",
-  "shellharden",
-  "solhint",
-  "sqlfluff",
+  "pydocstyle",
+  "pylama",
+  "pylint",
+  "rstcheck",
+  "vulture",
+
+  -- Go
+  "golangci_lint",
+  "revive",
+  "staticcheck",
+
+  -- Lua
+  "selene",
+  "luacheck",
+
+  -- PhP
+  "phpcs",
+  "phpmd",
+  "phpstan",
+  "psalm",
+
+  -- Ruby
   "standardrb",
+
+  -- LaTeX
+  "chktex",
+
+  -- Yaml
+  "actionlint",
+  "cfn_lint",
   "yamllint",
-  "ltex-ls",
-  "delve",
-  "ruff",
+
+  -- Java
+  "checkstyle",
+
+  -- CMake
+  "cmake_lint",
+
+  -- Django
+  "curlylint",
+  "djlint",
+
+  -- Docker
+  "hadolint",
+
+  -- JSON
+  "jsonlint",
+
+  -- Kotlin
+  "ktlint",
+
+  -- Ruby
+  "rubocop",
+
+  -- Bash
+  "shellcheck",
+
+  -- Solidity
+  "solhint",
+
+  -- SQL
+  "sqlfluff",
+}
+
+M.code_actions = {
+  -- All
+  "cspell",
+  "refactoring",
+  "gitsigns",
+
+  -- Markdown
+  proselint = {
+    options = {
+      filetypes = { "markdown" },
+      command = "proselint",
+      args = { "--json" },
+    },
+  },
+
+  -- Go
+  "gomodifytags",
 }
 
 M.dap = {

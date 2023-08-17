@@ -2,73 +2,42 @@ local null_ls = require("null-ls")
 
 local diagnostics = null_ls.builtins.diagnostics
 local formatting = null_ls.builtins.formatting
-local actions = null_ls.builtins.code_actions
 local code_actions = null_ls.builtins.code_actions
-local hover = null_ls.builtins.hover
 
-local sources = {
-  formatting.trim_newlines,
-  formatting.trim_whitespace,
-  formatting.rustfmt,
-  formatting.google_java_format,
-  formatting.sql_formatter,
-  formatting.stylua,
-  formatting.shellharden,
-  formatting.clang_format,
-  formatting.format_r,
-  formatting.prettier.with({
-    extra_filetypes = { "toml", "solidity" },
-    extra_args = { "--arrow-parens always", "--trailing-comma all" },
-  }),
-  formatting.golines.with({
-    extra_args = {
-      "--max-len=180",
-      "--base-formatter=gofumpt",
-    },
-  }),
-  formatting.standardrb.with({
-    extra_filetypes = { "--fix", "--format", "quiet", "--stderr", "--stdin", "$FILENAME" },
-  }),
-  formatting.black.with({
-    extra_args = { "--fast" },
-  }),
+local pformatters = require("plugins.lsp.config").formatters
+local plinters = require("plugins.lsp.config").linters
+local pcode_actions = require("plugins.lsp.config").code_actions
 
-  diagnostics.yamllint,
-  diagnostics.cppcheck,
-  diagnostics.shellcheck,
-  diagnostics.golangci_lint,
-  diagnostics.flake8,
+local sources = {}
+local cur_formatter
 
-  diagnostics.misspell.with({
-    filetypes = { "markdown", "text", "txt" },
-    args = { "$FILENAME" },
-  }),
-  diagnostics.write_good.with({
-    filetypes = { "markdown" },
-    extra_filetypes = { "txt", "text" },
-    args = { "--text=$TEXT", "--parse" },
-    command = "write-good",
-  }),
-  diagnostics.proselint.with({
-    filetypes = { "markdown", },
-    extra_filetypes = { "txt", "text" },
-    command = "proselint",
-    args = { "--json" },
-  }),
+for k, v in pairs(pformatters) do
+  if v["null_ls_source"] ~= nil then
+    cur_formatter = v["null_ls_source"]
+  else
+    if type(v) == "table" then
+      cur_formatter = k
+    else
+      cur_formatter = v
+    end
+  end
 
-  code_actions.gitsigns,
-  code_actions.proselint,
-  code_actions.refactoring,
+  if v["options"] ~= nil then
+    cur_formatter = formatting[cur_formatter].with(v["options"])
+  else
+    cur_formatter = formatting[cur_formatter]
+  end
 
-  actions.proselint.with({ filetypes = { "markdown" }, command = "proselint", args = { "--json" } }),
+  table.insert(sources, cur_formatter)
+end
 
-  hover.dictionary,
-  hover.printenv,
+for _, linter in ipairs(plinters) do
+  table.insert(sources, diagnostics[linter])
+end
 
-  -- code_actions.gotest_codeaction,
-  -- diagnostics.gotest,
-  -- diagnostics.golangci_lint,
-}
+for _, code_action in ipairs(pcode_actions) do
+  table.insert(sources, code_actions[code_action])
+end
 
 table.insert(
   sources,
