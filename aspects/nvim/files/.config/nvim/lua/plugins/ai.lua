@@ -44,14 +44,6 @@ return {
         inject = {
           cutoff_width = 75,
         },
-        prompts = {
-          context_prompt = function(context)
-            return "Hey, I'd like to provide some context for future "
-              .. "messages. Here is the code/text that I want to refer "
-              .. "to in our upcoming conversations:\n\n"
-              .. context
-          end,
-        },
         open_api_key_env = "OPENAI_API_KEY",
         shortcuts = {
           {

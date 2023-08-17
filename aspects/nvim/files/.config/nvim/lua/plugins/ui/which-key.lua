@@ -128,6 +128,15 @@ vars.mappings["T"] = {
   },
 }
 
+vars.mappings["m"] = {
+  name = "Muren",
+  t = { "<CMD>MurenToggle<CR>", "Toggle Muren" },
+  o = { "<CMD>MurenOpen<CR>", "Open Muren" },
+  c = { "<CMD>MurenClose<CR>", "Close Muren" },
+  f = { "<CMD>MurenFresh<CR>", "Open Muren fresh" },
+  u = { "<CMD>MurenUnique<CR>", "Toggle with all unique matches of the last search" },
+}
+
 vars.mappings["n"] = {
   name = "Neotest",
   a = { "<CMD>lua require('neotest').run.attach()<CR>", "Attach to the nearest test" },
@@ -220,8 +229,6 @@ vars.mappings["b"] = {
     t = { "<CMD>BufferLineSortByTabs<CR>", "Sort by tabs" },
   },
 }
-
-vars.mappings["N"] = {}
 
 vars.mappings["N"] = {
   name = "NeoAI",

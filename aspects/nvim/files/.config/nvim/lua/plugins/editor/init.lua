@@ -350,12 +350,27 @@ return {
       completion = {
         nvim_cmp = true,
         min_chars = 2,
-        -- Where to put new notes created from completion. Valid options are
-        --  * "current_dir" - put new notes in same directory as the current buffer.
-        --  * "notes_subdir" - put new notes in the default notes subdirectory.
         new_notes_location = "current_dir",
         prepend_note_id = true
       },
     },
   },
+
+  {
+    "AckslD/muren.nvim",
+    cmd = {
+      "MurenToggle",
+      "MurenOpen",
+      "MurenClose",
+      "MurenFresh",
+      "MurenUnique",
+    },
+    config = true,
+  },
+
+  {
+    "numToStr/Comment.nvim",
+    opts = { ignore = "^$" },
+    lazy = false,
+  }
 }

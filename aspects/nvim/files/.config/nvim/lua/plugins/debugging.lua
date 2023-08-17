@@ -123,6 +123,7 @@ return {
       "rcarriga/nvim-dap-ui",
       "theHamsta/nvim-dap-virtual-text",
       "nvim-dap-python",
+      "one-small-step-for-vimkind",
       {
         "LiadOz/nvim-dap-repl-highlights",
         after = "nvim-treesitter",
@@ -168,6 +169,25 @@ return {
       require("dap-python").setup("/usr/bin/python3")
     end,
     ft = "python",
+  },
+
+  {
+    "jbyuki/one-small-step-for-vimkind",
+    config = function()
+      local dap = require("dap")
+      dap.configurations.lua = {
+        {
+          type = "nlua",
+          request = "attach",
+          name = "Attach to running Neovim instance",
+        }
+      }
+
+      dap.adapters.nlua = function(callback, config)
+        callback({ type = "server", host = config.host or "127.0.0.1", port = config.port or 8086 })
+      end
+    end,
+    ft = "lua",
   },
 
   {

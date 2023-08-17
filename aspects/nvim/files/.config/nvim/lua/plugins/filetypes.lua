@@ -213,7 +213,7 @@ return {
   { "jalvesaq/colorout", ft = { "r", "rmd" } },
 
  -- dart
-  { "dart-lang/dart-vim-plugin", ft = { "dart" } },
+  { "akinsho/flutter-tools.nvim", ft = { "dart" } },
 
   -- C++/C
   { "p00f/clangd_extensions.nvim", ft = { "cpp", "c" } },
