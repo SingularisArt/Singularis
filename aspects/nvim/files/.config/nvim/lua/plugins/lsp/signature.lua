@@ -27,7 +27,7 @@ local signature_help_setup = {
   hint_scheme = "Comment",
 
   handler_opts = {
-    border = "none",
+    border = "rounded",
   },
 }
 

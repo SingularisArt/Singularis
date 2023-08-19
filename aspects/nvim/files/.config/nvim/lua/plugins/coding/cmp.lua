@@ -110,27 +110,27 @@ cmp.setup({
     behavior = cmp.ConfirmBehavior.Replace,
     select = false,
   },
-  -- window = {
-  --   completion = {
-  --     border = border "CmpDocBorder",
-  --     winhighlight = "Normal:CmpDoc",
-  --   },
-  --   documentation = {
-  --     border = border "CmpDocBorder",
-  --     winhighlight = "Normal:CmpDoc",
-  --   },
-  -- },
+  window = {
+    completion = {
+      border = border "CmpDocBorder",
+      winhighlight = "Normal:CmpDoc",
+    },
+    documentation = {
+      border = border "CmpDocBorder",
+      winhighlight = "Normal:CmpDoc",
+    },
+  },
 })
 
 ------------------------------
 --  FileType Configuration  --
 ------------------------------
 
--- cmp.setup.filetype("tex", {
---   sources = cmp.config.sources({
---     { name = "latex_symbols", option = { strategy = 2 } },
---   }, cmp.get_config().sources),
--- })
+cmp.setup.filetype("tex", {
+  sources = cmp.config.sources({
+    { name = "latex_symbols", option = { strategy = 2 } },
+  }, cmp.get_config().sources),
+})
 
 cmp.setup.filetype({ "markdown", "tex" }, {
   sources = cmp.config.sources({
@@ -166,6 +166,12 @@ cmp.setup.filetype({ "r", "rmd" }, {
   sources = cmp.config.sources({
     { name = "cmp_zotcite" },
     { name = "cmp_nvim_r" },
+  }, cmp.get_config().sources),
+})
+
+cmp.setup.filetype("toml", {
+  sources = cmp.config.sources({
+    { name = "crates" },
   }, cmp.get_config().sources),
 })
 

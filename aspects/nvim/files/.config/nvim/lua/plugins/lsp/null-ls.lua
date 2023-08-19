@@ -70,6 +70,7 @@ local setup = {
     "package.json",
     "tsconfig.json"
   ),
+
   on_init = function(new_client, _)
     if vim.tbl_contains({ "h", "cpp", "c" }, vim.o.ft) then
       new_client.offset_encoding = "utf-16"

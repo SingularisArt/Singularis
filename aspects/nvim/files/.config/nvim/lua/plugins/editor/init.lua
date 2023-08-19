@@ -12,17 +12,6 @@ return {
     },
   },
 
-  {
-    "stevearc/oil.nvim",
-    cmd = "Oil",
-    config = function()
-      require("oil").setup()
-    end,
-    keys = {
-      { "<Leader>o", "<CMD>Oil<CR>" },
-    },
-  },
-
   -- floating file explorer
   {
     "tamago324/lir.nvim",
@@ -147,28 +136,14 @@ return {
     },
   },
 
-  -- references
-  {
-    "RRethy/vim-illuminate",
-    config = function()
-      require("illuminate").configure({ delay = 200 })
-    end,
-    event = "BufRead",
-  },
-
-  -- better diagnostics list and others
-  {
-    "folke/trouble.nvim",
-    config = function()
-      require("trouble").setup()
-    end,
-    cmd = {
-      "Trouble",
-      "TroubleClose",
-      "TroubleToggle",
-      "TroubleRefresh",
-    },
-  },
+  -- -- references
+  -- {
+  --   "RRethy/vim-illuminate",
+  --   config = function()
+  --     require("illuminate").configure({ delay = 200 })
+  --   end,
+  --   event = "BufRead",
+  -- },
 
   {
     "nacro90/numb.nvim",
@@ -336,7 +311,7 @@ return {
 
   {
     "epwalsh/obsidian.nvim",
-    event = { "BufReadPre " .. vim.fn.expand "~" .. "/Documents/Obsidian/" },
+    event = { "BufReadPre " .. vim.fn.expand("~") .. "/Documents/Obsidian/" },
     dependencies = {
       "nvim-lua/plenary.nvim",
     },
@@ -373,5 +348,26 @@ return {
     "numToStr/Comment.nvim",
     opts = { ignore = "^$" },
     lazy = false,
-  }
+  },
+
+  -- Tmux
+  {
+    "christoomey/vim-tmux-navigator",
+    event = "BufEnter",
+  },
+
+  {
+    "windwp/nvim-autopairs",
+    opts = {
+      fast_wrap = {},
+      disable_filetype = { "TelescopePrompt", "vim" },
+    },
+    config = function()
+      require("nvim-autopairs").setup({})
+
+      local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+      require("cmp").event:on("confirm_done", cmp_autopairs.on_confirm_done())
+    end,
+    event = "InsertEnter",
+  },
 }

@@ -425,12 +425,5 @@ return {
     },
   },
 
-  -- {
-  --   "SingularisArt/nvim-statusline",
-  --   config = function()
-  --     local statusline = require("nvim-statusline")
-  --     statusline.setup()
-  --   end,
-  --   event = "BufEnter",
-  -- },
+  { "NvChad/ui" },
 }

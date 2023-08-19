@@ -13,10 +13,17 @@ local term_opts = require("config.global").term_opts
 keymap("n", "<Space>", "", opts, "")
 
 -- Normal --
-keymap("n", "<C-h>", "<C-w>h", opts, "Jump to left split.")
-keymap("n", "<C-j>", "<C-w>j", opts, "Jump to below split.")
-keymap("n", "<C-k>", "<C-w>k", opts, "Jump to above split.")
-keymap("n", "<C-l>", "<C-w>l", opts, "Jump to right split.")
+-- keymap("n", "<C-h>", "<C-w>h", opts, "Jump to left split.")
+-- keymap("n", "<C-j>", "<C-w>j", opts, "Jump to below split.")
+-- keymap("n", "<C-k>", "<C-w>k", opts, "Jump to above split.")
+-- keymap("n", "<C-l>", "<C-w>l", opts, "Jump to right split.")
+-- For tmux --
+keymap("n", "<C-h>", ":TmuxNavigateLeft", opts, "Jump to left split.")
+keymap("n", "<C-j>", ":TmuxNavigateDown", opts, "Jump to below split.")
+keymap("n", "<C-k>", ":TmuxNavigateUp", opts, "Jump to above split.")
+keymap("n", "<C-l>", ":TmuxNavigateRight", opts, "Jump to right split.")
+--------------
+
 keymap("n", "<Leader><Leader>", "<C-^>", opts, "Jump to previous buffer.")
 keymap("n", "n", "nzzzv", opts, "Jump to next search.")
 keymap("n", "N", "Nzzzv", opts, "Jump to previous search.")
@@ -42,7 +49,7 @@ keymap("i", "<C-BS>", "<Esc>cvb", opts, "Delete entire word.")
 keymap(
   "i",
   "<C-f>",
-  "<Esc>: silent exec '.!inkscape-figures create \"'.getline('.').'\" \"'.b:vimtex.root.'/figures/\"'<CR><CR>:w<CR>",
+  "<Esc>:silent exec '.!inkscape-figures create \"'.getline('.').'\" \"'.b:vimtex.root.'/figures/\"'<CR><CR>:w<CR>",
   opts,
   "List all figures."
 )

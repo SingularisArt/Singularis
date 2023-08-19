@@ -29,4 +29,9 @@ tmux new-window -t "$SESSION_NAME"
 tmux rename-window -t "$SESSION_NAME" "Email"
 tmux send-keys -t "$SESSION_NAME" "cd ./aspects/email/files/.config; clear; lanc" Enter
 
+tmux new-window -t "$SESSION_NAME"
+
+tmux rename-window -t "$SESSION_NAME" "Git"
+tmux send-keys -t "$SESSION_NAME" "clear; git status" Enter
+
 eval "$tmuxAttachCommand"

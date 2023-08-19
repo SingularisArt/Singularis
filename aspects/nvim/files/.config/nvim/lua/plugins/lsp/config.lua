@@ -7,7 +7,7 @@ M.servers = {
   rust_analyzer = require("plugins.lsp.settings.rust_analyzer"),
   solang = require("plugins.lsp.settings.solang"),
   solc = require("plugins.lsp.settings.solc"),
-  -- lua_ls = require("plugins.lsp.settings.lua_ls"),
+  lua_ls = require("plugins.lsp.settings.lua_ls"),
   cssmodules_ls = { filetypes = { "css" }, install = true },
   dartls = {},
   solargraph = {},
@@ -33,11 +33,7 @@ M.servers = {
 
 M.formatters = {
   -- Python
-  black = {
-    options = {
-      extra_args = { "--fast" },
-    },
-  },
+  "black",
 
   -- Go
   golines = {
@@ -49,7 +45,9 @@ M.formatters = {
     },
   },
   "gofumpt",
-  "goimports",
+  ["goimports-reviser"] = {
+    null_ls_source = "goimports_reviser",
+  },
 
   -- JS/TS
   prettier = {
@@ -116,18 +114,11 @@ M.formatters = {
   -- HTML
   "htmlbeautifier",
 
-  -- LaTeX
-  "latexindent",
-
   -- PhP
   "phpcbf",
 
   -- Toml
   "taplo",
-
-  -- "iferr",
-  -- "gotestsum",
-  -- "gotests",
 }
 
 M.linters = {
@@ -142,7 +133,7 @@ M.linters = {
   },
   proselint = {
     options = {
-      filetypes = { "markdown", },
+      filetypes = { "markdown" },
       extra_filetypes = { "txt", "text" },
       command = "proselint",
       args = { "--json" },
@@ -163,21 +154,17 @@ M.linters = {
   "cpplint",
 
   -- All
-  "cspell",
-  "gitlint",
+  -- "cspell",
+  -- "gitlint",
 
   -- Python
   "flake8",
+  "ruff",
   "pydocstyle",
-  "pylama",
-  "pylint",
-  "rstcheck",
-  "vulture",
 
   -- Go
   "golangci_lint",
   "revive",
-  "staticcheck",
 
   -- Lua
   "selene",
@@ -186,18 +173,12 @@ M.linters = {
   -- PhP
   "phpcs",
   "phpmd",
-  "phpstan",
-  "psalm",
 
   -- Ruby
   "standardrb",
 
-  -- LaTeX
-  "chktex",
-
   -- Yaml
   "actionlint",
-  "cfn_lint",
   "yamllint",
 
   -- Java
@@ -205,10 +186,6 @@ M.linters = {
 
   -- CMake
   "cmake_lint",
-
-  -- Django
-  "curlylint",
-  "djlint",
 
   -- Docker
   "hadolint",
@@ -234,9 +211,9 @@ M.linters = {
 
 M.code_actions = {
   -- All
-  "cspell",
-  "refactoring",
-  "gitsigns",
+  -- "cspell",
+  -- "refactoring",
+  -- "gitsigns",
 
   -- Markdown
   proselint = {

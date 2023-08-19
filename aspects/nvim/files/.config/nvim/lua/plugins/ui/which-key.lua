@@ -93,8 +93,35 @@ vars.mappings["g"] = {
   },
 }
 
--- vars.mappings["H"] = {
--- }
+vars.mappings["G"] = {
+  name = "ChatGPT",
+  a = { "<CMD>ChatGPTActAs<CR>", "Have ChatGPT act as" },
+  c = { "<CMD>ChatGPTCompleteCode<CR>", "Have ChatGPT complete code" },
+  t = { "<CMD>ChatGPT<CR>", "Toggle ChatGPT" },
+  i = { "<CMD>ChatGPTEditWithInstructions<CR>", "Have ChatGPT edit with instructions" },
+  r = {
+    name = "Run",
+    a = { "<CMD>ChatGPTRun add_test<CR>", "Implement tests for the code" },
+    c = { "<CMD>ChatGPTRun code_readability_analysis<CR>", "Identify any readability issues in the code" },
+    C = { "<CMD>ChatGPTRun complete_code<CR>", "Complete the code" },
+    d = { "<CMD>ChatGPTRun docstring<CR>", "Write docstring for the code" },
+    e = { "<CMD>ChatGPTRun explain_code<CR>", "Explain the code" },
+    f = { "<CMD>ChatGPTRun fix_bugs<CR>", "Fix bugs in the code" },
+    g = { "<CMD>ChatGPTRun grammar_correction<CR>", "Correct grammar" },
+    k = { "<CMD>ChatGPTRun keywords<CR>", "Extract the main keywords from the code" },
+    o = { "<CMD>ChatGPTRun optimize_code<CR>", "Optimize the code" },
+    r = { "<CMD>ChatGPTRun optimize_code<CR>", "Insert a roxygen skeleton to code" },
+    s = { "<CMD>ChatGPTRun summarize<CR>", "Summarize the code" },
+    t = { "<CMD>ChatGPTRun translate<CR>", "Translate code" },
+  },
+}
+
+vars.mappings["H"] = {
+  a = { "<CMD>lua require('harpoon.mark').add_file()<CR>", "Add file to harpoon" },
+  h = { "<CMD>lua require('harpoon.ui').toggle_quick_menu()<CR>", "View harpoon" },
+  n = { "<CMD>lua require('harpoon.ui').nav_next()<CR>", "Navigates to next harpoon mark" },
+  p = { "<CMD>lua require('harpoon.ui').nav_prev()<CR>", "Navigates to previous harpoon mark" },
+}
 
 vars.mappings["s"] = {
   name = "Search",

@@ -185,7 +185,7 @@ return {
     config = function()
       require("mason").setup({
         ui = {
-          border = "none",
+          border = "rounded",
           icons = {
             package_installed = "◍",
             package_pending = "◍",

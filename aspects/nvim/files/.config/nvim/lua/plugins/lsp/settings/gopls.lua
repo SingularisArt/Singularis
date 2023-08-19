@@ -1,6 +1,14 @@
+-- local util = require("lspconfig.util")
+
 return {
+  -- root_dir = util.root_pattern("go.mod", "go.work", ".git"),
+  filtypes = { "go", "gomod", "gowork", "gotmpl" },
   settings = {
     gopls = {
+      staticcheck = true,
+      semanticTokens = true,
+      completeUnimported = true,
+      usePlaceholders = true,
       analyses = {
         unusedparams = true,
       },
@@ -13,8 +21,6 @@ return {
         parameterNames = true,
         rangeVariableTypes = true,
       },
-      staticcheck = true,
-      semanticTokens = true,
     },
   },
 }

@@ -39,10 +39,10 @@ M.clangd_extensions = function()
       },
     },
     memory_usage = {
-      border = "none",
+      border = "rounded",
     },
     symbol_info = {
-      border = "none",
+      border = "rounded",
     },
   })
 

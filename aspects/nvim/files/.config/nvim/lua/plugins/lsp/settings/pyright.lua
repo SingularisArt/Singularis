@@ -1,4 +1,5 @@
 return {
+  filetypes = { "python" },
   settings = {
     pyright = {
       python = {

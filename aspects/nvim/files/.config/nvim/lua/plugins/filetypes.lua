@@ -67,6 +67,13 @@ return {
     ft = "rust",
   },
   {
+    "rust-lang/rust.vim",
+    config = function()
+      vim.g.rustfmt_autosave = 1
+    end,
+    ft = "rust",
+  },
+  {
     "Saecki/crates.nvim",
     config = function()
       local null_ls = require("null-ls")
@@ -98,7 +105,6 @@ return {
     config = function()
       require("go").setup()
     end,
-    event = { "CmdlineEnter" },
     ft = { "go", "gomod" },
     build = ":lua require('go.install').update_all_sync()"
   },
@@ -148,7 +154,6 @@ return {
   },
   {
     "pmizio/typescript-tools.nvim",
-    event = { "BufReadPre", "BufNewFile" },
     ft = { "typescript", "typescriptreact" },
     dependencies = {
       "nvim-lua/plenary.nvim",
@@ -219,44 +224,44 @@ return {
   { "p00f/clangd_extensions.nvim", ft = { "cpp", "c" } },
 
   -- sql
-  -- {
-  --   "hbarral/vim-dadbod",
-  --   config = function()
-  --     local function db_completion()
-  --       require("cmp").setup.buffer({ sources = { { name = "vim-dadbod-completion" } } })
-  --     end
-  --
-  --     vim.g.db_ui_save_location = vim.fn.stdpath("config") .. require("plenary.path").path.sep .. "db_ui"
-  --
-  --     vim.api.nvim_create_autocmd("FileType", {
-  --       pattern = {
-  --         "sql",
-  --       },
-  --       command = [[setlocal omnifunc=vim_dadbod_completion#omni]],
-  --     })
-  --
-  --     vim.api.nvim_create_autocmd("FileType", {
-  --       pattern = {
-  --         "sql",
-  --         "mysql",
-  --         "plsql",
-  --       },
-  --       callback = function()
-  --         vim.schedule(db_completion)
-  --       end,
-  --     })
-  --   end,
-  --   cmd = {
-  --     "DBUIToggle",
-  --     "DBUI",
-  --     "DBUIAddConnection",
-  --     "DBUIFindBuffer",
-  --     "DBUIRenameBuffer",
-  --     "DBUILastQueryInfo",
-  --   },
-  --   dependencies = {
-  --     "kristijanhusak/vim-dadbod-ui",
-  --     "kristijanhusak/vim-dadbod-completion",
-  --   },
-  -- },
+  {
+    "hbarral/vim-dadbod",
+    config = function()
+      local function db_completion()
+        require("cmp").setup.buffer({ sources = { { name = "vim-dadbod-completion" } } })
+      end
+
+      vim.g.db_ui_save_location = vim.fn.stdpath("config") .. require("plenary.path").path.sep .. "db_ui"
+
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = {
+          "sql",
+        },
+        command = [[setlocal omnifunc=vim_dadbod_completion#omni]],
+      })
+
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = {
+          "sql",
+          "mysql",
+          "plsql",
+        },
+        callback = function()
+          vim.schedule(db_completion)
+        end,
+      })
+    end,
+    cmd = {
+      "DBUIToggle",
+      "DBUI",
+      "DBUIAddConnection",
+      "DBUIFindBuffer",
+      "DBUIRenameBuffer",
+      "DBUILastQueryInfo",
+    },
+    dependencies = {
+      "kristijanhusak/vim-dadbod-ui",
+      "kristijanhusak/vim-dadbod-completion",
+    },
+  },
 }

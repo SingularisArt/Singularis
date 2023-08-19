@@ -34,11 +34,13 @@ return {
   },
   server = {
     cmd = { "/usr/bin/rust-analyzer" },
-
     settings = {
       ["rust-analyzer"] = {
         lens = {
           enable = true,
+        },
+        cargo = {
+          allFeatures = true,
         },
         checkOnSave = {
           command = "clippy",
