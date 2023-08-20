@@ -28,31 +28,31 @@
 
 <details><summary>💤 Zsh</summary>
   <p>
-      <img src="https://github.com/SingularisArt/media/blob/master/Singularis/zsh.png?raw=true">
+      <img src="https://github.com/SingularisArt/media/blob/master/Singularis/home/zsh.png?raw=true">
   </p>
 </details>
 
 <details><summary>🦊 Firefox</summary>
   <p>
-      <img src="https://github.com/SingularisArt/media/blob/master/Singularis/firefox.png?raw=true">
+      <img src="https://github.com/SingularisArt/media/blob/master/Singularis/home/firefox.png?raw=true">
   </p>
 </details>
 
 <details><summary>🔔 Dunst</summary>
   <p>
-      <img src="https://github.com/SingularisArt/media/blob/master/Singularis/dunst.png?raw=true">
+      <img src="https://github.com/SingularisArt/media/blob/master/Singularis/home/dunst.png?raw=true">
   </p>
 </details>
 
 <details><summary>🚀 Rofi</summary>
   <p>
-      <img src="https://github.com/SingularisArt/media/blob/master/Singularis/rofi.png?raw=true">
+      <img src="https://github.com/SingularisArt/media/blob/master/Singularis/home/rofi.png?raw=true">
   </p>
 </details>
 
 <details><summary>🔮 Polybar</summary>
   <p>
-      <img src="https://github.com/SingularisArt/media/blob/master/Singularis/polybar.png?raw=true">
+      <img src="https://github.com/SingularisArt/media/blob/master/Singularis/home/polybar.png?raw=true">
   </p>
 </details>
 
@@ -60,13 +60,13 @@
 
 <details><summary>📧 Neomutt</summary>
   <p>
-      <img src="https://github.com/SingularisArt/media/blob/master/Singularis/neomutt.png?raw=true">
+      <img src="https://github.com/SingularisArt/media/blob/master/Singularis/home/neomutt.png?raw=true">
   </p>
 </details>
 
 <details><summary>🌀 Discord</summary>
   <p>
-      <img src="https://github.com/SingularisArt/media/blob/master/Singularis/discord.png?raw=true">
+      <img src="https://github.com/SingularisArt/media/blob/master/Singularis/home/discord.png?raw=true">
   </p>
 </details>
 
@@ -74,31 +74,31 @@
 
 <details><summary>🔥 NeoVim</summary>
   <p>
-      <img src="https://github.com/SingularisArt/media/blob/master/Singularis/neovim.png?raw=true">
+      <img src="https://github.com/SingularisArt/media/blob/master/Singularis/home/neovim.png?raw=true">
   </p>
 </details>
 
 <details><summary>💹 GnuPlot</summary>
   <p>
-      <img src="https://github.com/SingularisArt/media/blob/master/Singularis/gnuplot.png?raw=true">
+      <img src="https://github.com/SingularisArt/media/blob/master/Singularis/home/gnuplot.png?raw=true">
   </p>
 </details>
 
 <details><summary>📈 MatPlotLib</summary>
   <p>
-      <img src="https://github.com/SingularisArt/media/blob/master/Singularis/matplotlib.png?raw=true">
+      <img src="https://github.com/SingularisArt/media/blob/master/Singularis/home/matplotlib.png?raw=true">
   </p>
 </details>
 
 <details><summary>📜 LaTeX</summary>
   <p>
-      <img src="https://github.com/SingularisArt/media/blob/master/Singularis/latex.png?raw=true">
+      <img src="https://github.com/SingularisArt/media/blob/master/Singularis/home/latex.png?raw=true">
   </p>
 </details>
 
 <details><summary>📔 Markdown</summary>
   <p>
-      <img src="https://github.com/SingularisArt/media/blob/master/Singularis/markdown.png?raw=true">
+      <img src="https://github.com/SingularisArt/media/blob/master/Singularis/home/markdown.png?raw=true">
   </p>
 </details>
 
@@ -106,37 +106,37 @@
 
 <details><summary>💻 Monitors</summary>
   <p>
-      <img src="https://github.com/SingularisArt/media/blob/master/Singularis/monitors.png?raw=true">
+      <img src="https://github.com/SingularisArt/media/blob/master/Singularis/home/monitors.png?raw=true">
   </p>
 </details>
 
 <details><summary>📰 PDF's</summary>
   <p>
-      <img src="https://github.com/SingularisArt/media/blob/master/Singularis/pdf.png?raw=true">
+      <img src="https://github.com/SingularisArt/media/blob/master/Singularis/home/pdf.png?raw=true">
   </p>
 </details>
 
 <details><summary>🗃️ Files</summary>
   <p>
-      <img src="https://github.com/SingularisArt/media/blob/master/Singularis/files.png?raw=true">
+      <img src="https://github.com/SingularisArt/media/blob/master/Singularis/home/files.png?raw=true">
   </p>
 </details>
 
 <details><summary>🗓️ Calendar</summary>
   <p>
-      <img src="https://github.com/SingularisArt/media/blob/master/Singularis/calendar.png?raw=true">
+      <img src="https://github.com/SingularisArt/media/blob/master/Singularis/home/calendar.png?raw=true">
   </p>
 </details>
 
 <details><summary>📅 Habits</summary>
   <p>
-      <img src="https://github.com/SingularisArt/media/blob/master/Singularis/habits.png?raw=true">
+      <img src="https://github.com/SingularisArt/media/blob/master/Singularis/home/habits.png?raw=true">
   </p>
 </details>
 
 <details><summary>📑 Scratchpad</summary>
   <p>
-      <img src="https://github.com/SingularisArt/media/blob/master/Singularis/scratchpad.png?raw=true">
+      <img src="https://github.com/SingularisArt/media/blob/master/Singularis/home/scratchpad.png?raw=true">
   </p>
 </details>
 
@@ -144,25 +144,25 @@
 
 <details><summary>🔊 Audio</summary>
   <p>
-      <img src="https://github.com/SingularisArt/media/blob/master/Singularis/audio.png?raw=true">
+      <img src="https://github.com/SingularisArt/media/blob/master/Singularis/home/audio.png?raw=true">
   </p>
 </details>
 
 <details><summary>📰 News</summary>
   <p>
-      <img src="https://github.com/SingularisArt/media/blob/master/Singularis/news.png?raw=true">
+      <img src="https://github.com/SingularisArt/media/blob/master/Singularis/home/news.png?raw=true">
   </p>
 </details>
 
 <details><summary>🎁 Misc</summary>
   <p>
-      <img src="https://github.com/SingularisArt/media/blob/master/Singularis/misc.png?raw=true">
+      <img src="https://github.com/SingularisArt/media/blob/master/Singularis/home/misc.png?raw=true">
   </p>
 </details>
 
 <details><summary>📁 Images</summary>
   <p>
-      <img src="https://github.com/SingularisArt/media/blob/master/Singularis/images.png?raw=true">
+      <img src="https://github.com/SingularisArt/media/blob/master/Singularis/home/images.png?raw=true">
   </p>
 </details>
 
