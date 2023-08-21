@@ -4,9 +4,9 @@ local diagnostics = null_ls.builtins.diagnostics
 local formatting = null_ls.builtins.formatting
 local code_actions = null_ls.builtins.code_actions
 
-local pformatters = require("plugins.lsp.config").formatters
-local plinters = require("plugins.lsp.config").linters
-local pcode_actions = require("plugins.lsp.config").code_actions
+local pformatters = require("modules.lsp.lsp_config").formatters
+local plinters = require("modules.lsp.lsp_config").linters
+local pcode_actions = require("modules.lsp.lsp_config").code_actions
 
 local sources = {}
 local cur_formatter

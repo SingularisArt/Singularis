@@ -146,7 +146,7 @@ return function(use)
         "jay-babu/mason-nvim-dap.nvim",
         after = "mason.nvim",
         config = function()
-          local config = require("plugins.lsp.config")
+          local config = require("modules.lsp.lsp_config")
           local ensure_installed = config.dap
 
           require("mason-nvim-dap").setup({

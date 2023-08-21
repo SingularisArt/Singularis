@@ -17,7 +17,7 @@ return function(use)
   use({
     "folke/which-key.nvim",
     config = function()
-      require("plugins.ui.which-key")
+      require("modules.ui.which-key")
     end,
     event = "BufEnter",
   })

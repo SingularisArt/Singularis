@@ -1,24 +1,24 @@
 local M = {}
 
 M.servers = {
-  emmet_ls = require("plugins.lsp.settings.emmet_ls"),
-  jsonls = require("plugins.lsp.settings.jsonls"),
-  pyright = require("plugins.lsp.settings.pyright"),
-  rust_analyzer = require("plugins.lsp.settings.rust_analyzer"),
-  solang = require("plugins.lsp.settings.solang"),
-  solc = require("plugins.lsp.settings.solc"),
-  lua_ls = require("plugins.lsp.settings.lua_ls"),
+  emmet_ls = require("modules.lsp.settings.emmet_ls"),
+  jsonls = require("modules.lsp.settings.jsonls"),
+  pyright = require("modules.lsp.settings.pyright"),
+  rust_analyzer = require("modules.lsp.settings.rust_analyzer"),
+  solang = require("modules.lsp.settings.solang"),
+  solc = require("modules.lsp.settings.solc"),
+  lua_ls = require("modules.lsp.settings.lua_ls"),
   cssmodules_ls = { filetypes = { "css" }, install = true },
   dartls = { filetypes = { "dart" } },
   solargraph = { filetypes = { "ruby" } },
-  tsserver = require("plugins.lsp.settings.tsserver"),
-  yamlls = require("plugins.lsp.settings.yamlls"),
-  sqlls = require("plugins.lsp.settings.sqlls"),
+  tsserver = require("modules.lsp.settings.tsserver"),
+  yamlls = require("modules.lsp.settings.yamlls"),
+  sqlls = require("modules.lsp.settings.sqlls"),
   cssls = { filetypes = { "css" }, install = true },
-  html = require("plugins.lsp.settings.html"),
-  texlab = require("plugins.lsp.settings.texlab"),
+  html = require("modules.lsp.settings.html"),
+  texlab = require("modules.lsp.settings.texlab"),
   bashls = { filetypes = { "bash" }, install = true },
-  clangd = require("plugins.lsp.settings.clangd"),
+  clangd = require("modules.lsp.settings.clangd"),
   tailwindcss = {
     filetypes = {
       "html",
@@ -31,14 +31,14 @@ M.servers = {
     install = true
   },
   golangci_lint_ls = { filetypes = { "go", "gomod" }, install = true },
-  gopls = require("plugins.lsp.settings.gopls"),
+  gopls = require("modules.lsp.settings.gopls"),
   jdtls = { filetypes = { "java" }, install = true },
   solidity_ls = { filetypes = { "solidity" }, install = true, install_server_name = "solidity" },
   r_language_server = { filetypes = { "r" }, install = false },
   lemminx = { filetypes = { "xml" }, install = true },
   marksman = { filetypes = { "markdown" }, install = true },
   zls = { filetypes = { "zig" }, install = true },
-  ocamllsp = require("plugins.lsp.settings.ocaml"),
+  ocamllsp = require("modules.lsp.settings.ocaml"),
 }
 
 M.formatters = {

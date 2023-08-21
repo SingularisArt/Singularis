@@ -17,7 +17,7 @@ return function(use)
     },
   })
 
-  use({ "TimUntersberger/neogit", cmd = "Neogit" })
+  use({ "NeogitOrg/neogit", cmd = "Neogit" })
 
   use({
     "pwntester/octo.nvim",

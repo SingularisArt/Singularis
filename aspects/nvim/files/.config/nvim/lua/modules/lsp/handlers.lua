@@ -84,7 +84,7 @@ lsp.on_attach = function(client, bufnr)
 
     vim.lsp.codelens.refresh()
   elseif client.name == "clangd" then
-    require("plugins.lsp.filetypes.cpp").clangd_extensions()
+    require("modules.lsp.filetypes.cpp").clangd_extensions()
   end
 
   lsp.setup_codelens_refresh(client, bufnr)
