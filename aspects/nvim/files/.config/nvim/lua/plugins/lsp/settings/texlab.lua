@@ -25,4 +25,5 @@ return {
     },
   },
   install = true,
+  filetypes = { "tex", "bib" },
 }

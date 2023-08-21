@@ -45,4 +45,5 @@ return {
     },
   },
   install = true,
+  filetypes = { "lua" },
 }

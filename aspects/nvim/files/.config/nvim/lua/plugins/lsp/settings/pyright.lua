@@ -1,5 +1,4 @@
 return {
-  filetypes = { "python" },
   settings = {
     pyright = {
       python = {
@@ -15,4 +14,5 @@ return {
     },
   },
   install = true,
+  filetypes = { "python" },
 }

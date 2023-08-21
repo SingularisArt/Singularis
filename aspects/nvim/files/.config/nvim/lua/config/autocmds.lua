@@ -52,3 +52,22 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.o.foldenable = false
   end,
 })
+
+vim.api.nvim_create_autocmd({ "BufWritePre" }, {
+  group = augroup("CommitMSG"),
+  pattern = { "/tmp/*", "COMMIT_EDITMSG", "MERGE_MSG", "*.tmp", "*.bak" },
+  callback = function()
+    vim.opt_local.undofile = false
+  end,
+})
+
+vim.api.nvim_create_autocmd({ "BufWritePost", "FileWritePost" }, {
+  group = augroup("Vim"),
+  pattern = "*.vim",
+  command = [[ if &l:autoread > 0 | source <afile> | echo "source " . bufname("%") | endif]],
+})
+
+vim.api.nvim_create_autocmd("BufReadPre", {
+  group = augroup("Syntax"),
+  command = [[ if getfsize(expand('%')) > 1000000 | ownsyntax off | endif ]],
+})

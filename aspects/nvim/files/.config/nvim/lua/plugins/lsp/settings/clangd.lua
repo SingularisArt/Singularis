@@ -23,4 +23,5 @@ return {
     clangd = {},
   },
   install = true,
+  filetypes = { "cpp", "c" },
 }

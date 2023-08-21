@@ -49,4 +49,5 @@ return {
     },
   },
   install = true,
+  filetypes = { "rust" },
 }

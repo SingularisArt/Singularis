@@ -3,4 +3,5 @@ return {
     client.server_capabilities.documentFormattingProvider = false -- efm
   end,
   install = true,
+  filetypes = { "sql" },
 }

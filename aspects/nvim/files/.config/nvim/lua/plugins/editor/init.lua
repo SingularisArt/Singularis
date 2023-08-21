@@ -136,14 +136,14 @@ return {
     },
   },
 
-  -- -- references
-  -- {
-  --   "RRethy/vim-illuminate",
-  --   config = function()
-  --     require("illuminate").configure({ delay = 200 })
-  --   end,
-  --   event = "BufRead",
-  -- },
+  -- references
+  {
+    "RRethy/vim-illuminate",
+    config = function()
+      require("illuminate").configure({ delay = 200 })
+    end,
+    event = "BufRead",
+  },
 
   {
     "nacro90/numb.nvim",

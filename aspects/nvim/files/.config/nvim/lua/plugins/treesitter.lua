@@ -2,6 +2,21 @@ return {
   {
     "nvim-treesitter/nvim-treesitter",
     config = function()
+      local lines = vim.fn.line('$')
+      if lines > 20000 then
+        vim.cmd([[syntax manual]])
+        return
+      end
+
+      if lines > 10000 then
+        enable = true
+        langtree = false
+        vim.cmd([[syntax on]])
+      else
+        enable = true
+        langtree = true
+      end
+
       require("nvim-treesitter.configs").setup({
         ensure_installed = {
           "lua",

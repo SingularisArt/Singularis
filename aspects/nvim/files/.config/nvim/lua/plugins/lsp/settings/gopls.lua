@@ -23,4 +23,6 @@ return {
       },
     },
   },
+  install = true,
+  filetypes = { "go", "gomod" }
 }

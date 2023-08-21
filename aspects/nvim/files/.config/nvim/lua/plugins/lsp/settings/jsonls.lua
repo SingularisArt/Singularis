@@ -22,4 +22,5 @@ return {
     },
   },
   install = true,
+  filetypes = { "json" },
 }

@@ -11,4 +11,5 @@ return {
     },
   },
   install = true,
+  filetypes = { "yaml" },
 }

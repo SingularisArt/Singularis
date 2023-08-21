@@ -41,4 +41,5 @@ return {
     },
   },
   install = true,
+  filetypes = { "javascript", "typescript", "javascriptreact", "typescriptreact" },
 }
