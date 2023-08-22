@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+email=$(find ~/.local/share/mail/ -maxdepth 1 -name "*@*.*" -exec basename {} \; | rofi -dmenu -i -p "Select a folder")
+
+email_template_path="/tmp/email-template.mail"
+neomutt_source_path="/tmp/email.muttrc"
+
+cp -r "$HOME/.config/neomutt/email-template.mail" "$email_template_path"
+cp -r "$HOME/.config/neomutt/neomuttrc" "$neomutt_source_path"
+
+name=$(goobook query "$email" | sed 's/^[^\t]*\t//; s/\s\+home$//')
+name="${name//[$'\t\r\n']}"
+
+sed -i "s/From:/From: $name <$email>/g" "$email_template_path"
+sed -i "s/source-accounts/$email/g" "$neomutt_source_path"
+
+kitty neomutt -F "$neomutt_source_path" \
+  -e 'set postpone=no sidebar_visible=no assumed_charset=utf-8' \
+  -H "$email_template_path"
+
+rm -rf "$email_template_path"
+rm -rf "$neomutt_source_path"

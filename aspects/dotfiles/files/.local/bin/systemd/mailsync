@@ -50,7 +50,7 @@ syncandnotify() {
   newcount=$(echo "$new" | sed '/^\s*$/d' | wc -l)
   [ "$newcount" -gt 0 ] && new_notify "$acc" "$newcount"
 
-  "$HOME"/.local/bin/neomutt/get_folders "$acc"
+  "$HOME"/.local/bin/neomutt/get-folders "$acc"
 }
 
 if [ "$#" -gt "0" ]; then

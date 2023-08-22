@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+acc="$1"
+acc_path="$XDG_DATA_HOME/mail/$acc"
+acc_folder="$XDG_CONFIG_HOME/neomutt/tmp/folders"
+acc_file="$acc_folder/$acc.muttrc"
+
+mkdir -p "$acc_folder"
+rm -rf "$acc_file"
+touch "$acc_file"
+
+cd "$acc_path" || exit
+
+folders="$(find . -type d | grep -vE "cur|new|tmp|INBOX|Archive|Drafts|Important|Sent|Spam|Starred|Trash" | sed "s,^\./,,")"
+echo "$folders" | while read -r folder; do
+  [ "$folder" != "." ] && echo "mailboxes \"=$folder\"" >> "$acc_file"
+done

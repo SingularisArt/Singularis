@@ -76,7 +76,7 @@ function config.navigator()
       cssls = { filetypes = { "css" } },
       html = require("modules.lsp.settings.html"),
       texlab = require("modules.lsp.settings.texlab"),
-      bashls = { filetypes = { "bash" } },
+      bashls = { filetypes = { "bash", "sh" } },
       clangd = require("modules.lsp.settings.clangd"),
       tailwindcss = {
         filetypes = {
