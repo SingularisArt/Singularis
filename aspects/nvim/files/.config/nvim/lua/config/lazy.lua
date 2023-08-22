@@ -7,7 +7,7 @@ if argc > 0 then
     end
   end
   if vim.fn.isdirectory(arg[1]) == 1 then
-    vim.cmd("NvimtreeToggle")
+    vim.cmd("Neotree")
   end
 end
 local loader = require("util.helper").loader

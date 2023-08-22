@@ -71,8 +71,6 @@ return function(use)
 
   use({ "JoosepAlviste/nvim-ts-context-commentstring" })
 
-  use({ "windwp/nvim-ts-autotag" })
-
   use({
     "mfussenegger/nvim-treehopper",
     config = ts.tshopper,
@@ -174,5 +172,140 @@ return function(use)
     "mechatroner/rainbow_csv",
     ft = { "csv", "tsv", "dat" },
     cmd = { "RainbowDelim", "RainbowMultiDelim", "Select", "CSVLint" },
+  })
+
+  use({
+    "mzlogin/vim-markdown-toc",
+    cmd = {
+      "GenTocGFM",
+      "GenTocRedcarpet",
+      "GenTocGitLab",
+      "GenTocMarked",
+    },
+    ft = "markdown",
+  })
+  use({
+    "iamcco/markdown-preview.nvim",
+    config = conf.markdown_preview,
+    cmd = "MarkdownPreviewToggle",
+    ft = "markdown",
+  })
+  use({
+    "antonk52/markdowny.nvim",
+    config = function()
+      require("markdowny").setup()
+    end,
+    ft = "markdown",
+  })
+  use({ "dhruvasagar/vim-table-mode", ft = "markdown" })
+  use({
+    "ellisonleao/glow.nvim",
+    cmd = "Glow",
+    config = true,
+    ft = "markdown",
+  })
+
+  use({
+    "lervag/vimtex",
+    config = conf.vimtex,
+    ft = "tex",
+  })
+  use({ "KeitaNakamura/tex-conceal.vim", ft = "tex" })
+
+  -- python
+  use({
+    "dccsillag/magma-nvim",
+    config = conf.magma,
+    ft = "python",
+  })
+
+  -- javascript/typescript
+  use({
+    "mattn/emmet-vim",
+    ft = {
+      "html",
+      "javascriptreact",
+      "typescriptreact",
+    },
+  })
+  use({
+    "windwp/nvim-ts-autotag",
+    config = function()
+      require("nvim-treesitter.configs").setup({
+        autotag = {
+          enable = true,
+        },
+      })
+    end,
+    ft = {
+      "html",
+      "javascriptreact",
+      "typescriptreact",
+    },
+  })
+  use({
+    "dmmulroy/tsc.nvim",
+    cmd = { "TSC" },
+    config = true,
+  })
+  use({
+    "pmizio/typescript-tools.nvim",
+    ft = { "typescript", "typescriptreact" },
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "neovim/nvim-lspconfig",
+    },
+  })
+  use({
+    "vuki656/package-info.nvim",
+    event = "BufEnter package.json",
+    config = conf.package_json,
+  })
+
+  -- javascript react/typescript react
+  use({ "ianks/vim-tsx", ft = "typescriptreact" })
+  use({ "mxw/vim-jsx", ft = "javascriptreact" })
+
+  -- html
+  use({ "turbio/bracey.vim", ft = "html" })
+  use({
+    "Valloric/MatchTagAlways",
+    config = function()
+      vim.cmd([[
+      let g:mta_filetypes = {
+      \ "html" : 1,
+      \ "javascriptreact" : 1,
+      \ "typescriptreact" : 1,
+      \}
+      ]])
+    end,
+    ft = {
+      "html",
+      "javascriptreact",
+      "typescriptreact",
+    },
+  })
+
+  -- r
+  use({ "jalvesaq/Nvim-R", ft = { "r", "rmd" } })
+  use({ "jalvesaq/R-Vim-runtime", ft = { "r", "rmd" } })
+  use({ "jalvesaq/colorout", ft = { "r", "rmd" } })
+
+  -- sql
+  use({
+    "hbarral/vim-dadbod",
+    config = conf.dadbod,
+    cmd = {
+      "DBUIToggle",
+      "DBUI",
+      "DBUIAddConnection",
+      "DBUIFindBuffer",
+      "DBUIRenameBuffer",
+      "DBUILastQueryInfo",
+    },
+    dependencies = {
+      "kristijanhusak/vim-dadbod-ui",
+      "kristijanhusak/vim-dadbod-completion",
+    },
   })
 end

@@ -153,4 +153,77 @@ function config.context_vt()
   })
 end
 
+function config.markdown_preview()
+  vim.g.mkdp_markdown_css = os.getenv("HOME") .. "/.config/nvim/misc/static/markdown-preview.css"
+  vim.g.mkdp_highlight_css = os.getenv("HOME") .. "/.cache/wal/colors.css"
+  vim.g.vim_markdown_conceal = 1
+  vim.g.vim_markdown_math = 1
+  vim.g.vim_markdown_conceal_code_blocks = 0
+  vim.g.vim_markdown_strikethrough = 1
+end
+
+function config.vimtex()
+  vim.g.vimtex_view_method = "zathura"
+  vim.g.latex_view_general_viewer = "zathura"
+  vim.g.vimtex_compiler_progname = "nvr"
+  vim.g.vimtex_quickfix_enabled = 0
+end
+
+function config.magma()
+  vim.g.magma_image_provider = "kitty"
+  vim.g.magma_automatically_open_output = true
+  vim.g.magma_wrap_output = false
+  vim.g.magma_output_window_borders = false
+  vim.g.magma_cell_highlight_group = "CursorLine"
+  vim.g.magma_save_path = vim.fn.stdpath("data") .. "/magma"
+end
+
+function config.package_json()
+  local icons = require("config.global").icons
+
+  require("package-info").setup({
+    colors = {
+      up_to_date = "#3C4048",
+      outdated = "#fc514e",
+    },
+    icons = {
+      enable = true,
+      style = {
+        up_to_date = icons.ui.CheckSquare,
+        outdated = icons.git.Remove,
+      },
+    },
+    autostart = true,
+    hide_up_to_date = true,
+    hide_unstable_versions = true,
+    package_manager = "npm",
+  })
+end
+
+function config.dadbod()
+  local function db_completion()
+    require("cmp").setup.buffer({ sources = { { name = "vim-dadbod-completion" } } })
+  end
+
+  vim.g.db_ui_save_location = vim.fn.stdpath("config") .. require("plenary.path").path.sep .. "db_ui"
+
+  vim.api.nvim_create_autocmd("FileType", {
+    pattern = {
+      "sql",
+    },
+    command = [[setlocal omnifunc=vim_dadbod_completion#omni]],
+  })
+
+  vim.api.nvim_create_autocmd("FileType", {
+    pattern = {
+      "sql",
+      "mysql",
+      "plsql",
+    },
+    callback = function()
+      vim.schedule(db_completion)
+    end,
+  })
+end
+
 return config
