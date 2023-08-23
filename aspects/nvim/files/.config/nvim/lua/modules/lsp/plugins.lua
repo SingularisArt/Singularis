@@ -161,8 +161,17 @@ return function(use)
     build = ":lua require('go.install').update_all_sync()"
   })
 
-  use({ "akinsho/flutter-tools.nvim", ft = { "dart" } })
-  use({ "p00f/clangd_extensions.nvim", ft = { "cpp", "c" } })
+  use({
+    "akinsho/flutter-tools.nvim",
+    config = conf.flutter_tools,
+    ft = { "dart" },
+  })
+
+  use({
+    "p00f/clangd_extensions.nvim",
+    config = conf.clangd_extensions,
+    ft = { "cpp", "c" },
+  })
 
   use({
     "hbarral/vim-dadbod",

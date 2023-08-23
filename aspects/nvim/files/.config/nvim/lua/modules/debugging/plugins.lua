@@ -9,6 +9,12 @@ return function(use)
       "nvim-neotest/neotest-plenary",
       "nvim-neotest/neotest-vim-test",
       "haydenmeade/neotest-jest",
+      {
+        "sidlatau/neotest-dart", ft = { "dart" },
+        config = function()
+          require("neotest-dart") { command = "flutter" }
+        end
+      },
     },
   })
 

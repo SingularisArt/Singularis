@@ -92,6 +92,18 @@ lsp.on_attach = function(client, bufnr)
 
   if client.name == "sqls" then
     require("sqls").on_attach(client, bufnr)
+  elseif client.name == "gopls" then
+    if not client.server_capabilities.semanticTokensProvider then
+      local semantic = client.config.capabilities.textDocument.semanticTokens
+      client.server_capabilities.semanticTokensProvider = {
+        full = true,
+        legend = {
+          tokenTypes = semantic.tokenTypes,
+          tokenModifiers = semantic.tokenModifiers,
+        },
+        range = true,
+      }
+    end
   end
 
   if servers_that_dont_work_with_navic[client.name] ~= nil then
@@ -100,19 +112,19 @@ lsp.on_attach = function(client, bufnr)
 
   require("colorizer").attach_to_buffer(bufnr)
 
-  -- if client.resolved_capabilities.code_lens then
-  --   local codelens = vim.api.nvim_create_augroup(
-  --     "LSPCodeLens",
-  --     { clear = true }
-  --   )
-  --   vim.api.nvim_create_autocmd({ "BufEnter", "InsertLeave", "CursorHold" }, {
-  --     group = codelens,
-  --     callback = function()
-  --       vim.lsp.codelens.refresh()
-  --     end,
-  --     buffer = bufnr,
-  --   })
-  -- end
+  if client.resolved_capabilities.code_lens then
+    local codelens = vim.api.nvim_create_augroup(
+      "LSPCodeLens",
+      { clear = true }
+    )
+    vim.api.nvim_create_autocmd({ "BufEnter", "InsertLeave", "CursorHold" }, {
+      group = codelens,
+      callback = function()
+        vim.lsp.codelens.refresh()
+      end,
+      buffer = bufnr,
+    })
+  end
 end
 
 return lsp

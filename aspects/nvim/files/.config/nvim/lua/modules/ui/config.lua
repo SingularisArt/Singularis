@@ -23,7 +23,11 @@ function config.zen_mode()
       twilight = { enabled = false },
     },
     on_open = function()
-      require("lsp-inlayhints").toggle()
+      local status, inlayhints = pcall(require, "lsp-inlayhints")
+      if status then
+        inlayhints.toggle()
+      end
+
       vim.g.cmp_active = false
       vim.cmd("LspStop")
       local status_ok, _ = pcall(vim.api.nvim_set_option_value, "winbar", nil, { scope = "local" })
@@ -35,7 +39,11 @@ function config.zen_mode()
       end
     end,
     on_close = function()
-      require("lsp-inlayhints").toggle()
+      local status, inlayhints = pcall(require, "lsp-inlayhints")
+      if status then
+        inlayhints.toggle()
+      end
+
       vim.g.cmp_active = true
       vim.cmd("LspStart")
     end,
@@ -45,11 +53,11 @@ end
 function config.hlslens()
   require("hlslens").setup()
   vim.cmd([[
-        hi default link HlSearchNear IncSearch
-        hi default link HlSearchLens WildMenu
-        hi default link HlSearchLensNear IncSearch
-        hi default link HlSearchFloat IncSearch
-        ]])
+    hi default link HlSearchNear IncSearch
+    hi default link HlSearchLens WildMenu
+    hi default link HlSearchLensNear IncSearch
+    hi default link HlSearchFloat IncSearch
+  ]])
 
   local kopts = { noremap = true, silent = true }
 

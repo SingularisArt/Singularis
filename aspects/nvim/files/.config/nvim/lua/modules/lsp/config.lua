@@ -70,14 +70,14 @@ function config.navigator()
       cssmodules_ls = { filetypes = { "css" } },
       dartls = { filetypes = { "dart" } },
       solargraph = { filetypes = { "ruby" } },
-      tsserver = require("modules.lsp.settings.tsserver"),
+      -- tsserver = require("modules.lsp.settings.tsserver"),
       yamlls = require("modules.lsp.settings.yamlls"),
       sqlls = require("modules.lsp.settings.sqlls"),
       cssls = { filetypes = { "css" } },
       html = require("modules.lsp.settings.html"),
       texlab = require("modules.lsp.settings.texlab"),
       bashls = { filetypes = { "bash", "sh" } },
-      clangd = require("modules.lsp.settings.clangd"),
+      -- clangd = require("modules.lsp.settings.clangd"),
       tailwindcss = {
         filetypes = {
           "html",
@@ -174,6 +174,77 @@ function config.glance()
           open(results)
         end
       end,
+    },
+  })
+end
+
+function config.clangd_extensions()
+  local setup = {
+    server = {
+      root_dir = function(...)
+        return require("lspconfig.util").root_pattern("compile_commands.json", "compile_flags.txt", "configure.ac", ".git")(...)
+      end,
+      capabilities = {
+        offsetEncoding = { "utf-16" },
+      },
+      cmd = {
+        "clangd",
+        "--background-index",
+        "--clang-tidy",
+        "--header-insertion=iwyu",
+        "--completion-style=detailed",
+        "--function-arg-placeholders",
+        "--fallback-style=llvm",
+      },
+      init_options = {
+        usePlaceholders = true,
+        completeUnimported = true,
+        clangdFileStatus = true,
+      },
+    },
+    extensions = {
+      inlay_hints = {
+        inline = true,
+      },
+    },
+  }
+
+  require("clangd_extensions").setup {
+    server = setup.server,
+    extensions = setup.extensions,
+  }
+end
+
+function config.flutter_tools()
+  local line = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" }
+
+  require("flutter-tools").setup({
+    ui = { border = line },
+    debugger = {
+      enabled = false,
+      run_via_dap = false,
+      exception_breakpoints = {},
+    },
+    outline = { auto_open = false },
+    decorations = {
+      statusline = { device = true, app_version = true },
+    },
+    widget_guides = { enabled = true, debug = false },
+    dev_log = { enabled = true, open_cmd = "tabedit" },
+    lsp = {
+      color = {
+        enabled = false,
+        -- enabled = true,
+        -- background = true,
+        -- virtual_text = false,
+      },
+      settings = {
+        showTodos = true,
+        renameFilesWithClasses = "always",
+        updateImportsOnRename = true,
+        completeFunctionCalls = true,
+        lineLength = 100,
+      },
     },
   })
 end
