@@ -148,6 +148,7 @@ vim.defer_fn(function()
 
 
   loader("windline.nvim")
+  require("modules.ui.eviline")
 
   local gitrepo = vim.fn.isdirectory(".git/index")
   if gitrepo then
