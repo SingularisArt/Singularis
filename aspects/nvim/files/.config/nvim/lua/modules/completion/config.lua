@@ -2,7 +2,7 @@ local config = {}
 
 function config.cmp()
   local cmp = require("cmp")
-  local cmp_ultisnips_mappings = require("cmp_nvim_ultisnips.mappings")
+  -- local cmp_ultisnips_mappings = require("cmp_nvim_ultisnips.mappings")
   local neogen_ok, neogen = pcall(require, "neogen")
 
   local icons = require("config.global").icons
@@ -67,28 +67,28 @@ function config.cmp()
       ["<C-f>"] = cmp.mapping.scroll_docs(4),
       ["<C-e>"] = cmp.mapping.abort(),
       ["<CR>"] = cmp.mapping.confirm({ select = false }),
-      ["<C-j>"] = cmp.mapping({
-        i = function(fallback)
-          cmp_ultisnips_mappings.compose({ "jump_forwards" })(function()
-            if neogen_ok and neogen.jumpable() then
-              neogen.jump_next()
-            else
-              fallback()
-            end
-          end)
-        end,
-      }),
-      ["<C-k>"] = cmp.mapping({
-        i = function(fallback)
-          cmp_ultisnips_mappings.compose({ "jump_backwards" })(function()
-            if neogen_ok and neogen.jumpable(true) then
-              neogen.jump_prev()
-            else
-              fallback()
-            end
-          end)
-        end,
-      }),
+      -- ["<C-j>"] = cmp.mapping({
+      --   i = function(fallback)
+      --     cmp_ultisnips_mappings.compose({ "jump_forwards" })(function()
+      --       if neogen_ok and neogen.jumpable() then
+      --         neogen.jump_next()
+      --       else
+      --         fallback()
+      --       end
+      --     end)
+      --   end,
+      -- }),
+      -- ["<C-k>"] = cmp.mapping({
+      --   i = function(fallback)
+      --     cmp_ultisnips_mappings.compose({ "jump_backwards" })(function()
+      --       if neogen_ok and neogen.jumpable(true) then
+      --         neogen.jump_prev()
+      --       else
+      --         fallback()
+      --       end
+      --     end)
+      --   end,
+      -- }),
     }),
     formatting = {
       fields = { "kind", "abbr", "menu" },

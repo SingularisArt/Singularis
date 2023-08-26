@@ -114,12 +114,6 @@ return function(use)
   })
 
   use({
-    "luukvbaal/statuscol.nvim",
-    event = "BufReadPost",
-    config = conf.statuscol,
-  })
-
-  use({
     "rmagatti/alternate-toggler",
     config = function()
       require("alternate-toggler").setup({})
@@ -179,6 +173,29 @@ return function(use)
     config = conf.lir,
     keys = {
       { "<Leader>-", "<CMD>lua require('lir.float').toggle()<CR>" },
+    },
+  })
+
+  use({
+    "potamides/pantran.nvim",
+    config = conf.translate,
+    cmd = "Pantran",
+  })
+
+  use({
+    "hoschi/yode-nvim",
+    config = function()
+      require("yode-nvim").setup()
+    end,
+    cmd = {
+      "YodeCreateSeditorFloating",
+      "YodeCreateSeditorReplace",
+      "YodeBufferDelete",
+      "YodeGoToAlternateBuffer",
+      "YodeCloneCurrentIntoFloat",
+      "YodeFloatToMainWindow",
+      "YodeFormatWrite",
+      "YodeRunInFile",
     },
   })
 end

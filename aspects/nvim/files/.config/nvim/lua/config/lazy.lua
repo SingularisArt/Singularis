@@ -109,12 +109,12 @@ function Lazyload()
     loader("navigator.lua")
     loader("nvim-treesitter")
     loader("pretty_hover")
-    loader("fidget.nvim")
+    -- loader("fidget.nvim")
     loader("inlay-hints.nvim")
     loader("null-ls.nvim")
     loader("mason.nvim")
     loader("lsp_lines.nvim")
-    loader("lsp_lines.nvim")
+    loader("lspsaga.nvim")
   end
 
   if load_ts_plugins then
@@ -145,7 +145,6 @@ vim.defer_fn(function()
   require("modules.ui.notify").setup()
 
   loader("windline.nvim")
-  require("modules.ui.eviline")
 
   local gitrepo = vim.fn.isdirectory(".git/index")
   if gitrepo then
@@ -157,9 +156,4 @@ vim.defer_fn(function()
     loader("octo.nvim")
     loader("vim-gist")
   end
-
-  loader("statuscol.nvim")
-  -- if vim.fn.executable(vim.g.python3_host_prog) == 0 then
-  --   print("file not find, please update path setup", vim.g.python3_host_prog)
-  -- end
 end, lazy_timer + 10)

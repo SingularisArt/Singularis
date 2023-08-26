@@ -2,6 +2,7 @@ local conf = require("modules.git.config")
 
 return function(use)
   use({ "tpope/vim-fugitive", cmd = "Git" })
+  use({ "rhysd/git-messenger.vim", cmd = "GitMessenger" })
 
   use({
     "AndrewRadev/linediff.vim",

@@ -11,7 +11,6 @@ return function(use)
   use({
     "akinsho/bufferline.nvim",
     config = conf.nvim_bufferline,
-    lazy = true,
   })
 
   use({
@@ -406,7 +405,6 @@ return function(use)
 
   use({
     "rebelot/kanagawa.nvim",
-    lazy = true,
     config = conf.kanagawa,
   })
 
@@ -424,5 +422,38 @@ return function(use)
     "ray-x/starry.nvim",
     init = conf.starry,
     config = conf.starry_conf,
+  })
+
+  use({
+    "b0o/incline.nvim",
+    config = function()
+      require("incline").setup()
+    end,
+    event = "VeryLazy",
+  })
+
+  -- use({
+  --   "SingularisArt/whiskyline.nvim",
+  --   event = "BufEnter",
+  --   config = function()
+  --     require("whiskyline").setup()
+  --   end,
+  --   dependencies = { "nvim-tree/nvim-web-devicons" },
+  -- })
+
+  use({
+    "andymass/vim-matchup",
+    init = function()
+      vim.g.matchup_matchparen_offscreen = { method = "popup" }
+    end,
+  })
+
+  use({
+    "abecodes/tabout.nvim",
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+      "hrsh7th/nvim-cmp",
+    },
+    config = true,
   })
 end

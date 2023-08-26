@@ -31,6 +31,7 @@ end
 
 function config.navigator()
   local on_attach = require("modules.lsp.handlers").on_attach
+  local capabilities = require("modules.lsp.handlers").capabilities
 
   local nav_cfg = {
     debug = false,
@@ -43,6 +44,7 @@ function config.navigator()
     treesitter_analysis = true,
     transparency = 50,
     on_attach = on_attach,
+    capabilities = capabilities,
 
     lsp = {
       enable = true,

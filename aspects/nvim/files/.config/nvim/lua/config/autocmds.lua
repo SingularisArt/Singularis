@@ -2,6 +2,13 @@ local augroup = function(name)
   return vim.api.nvim_create_augroup("lazyvim_" .. name, { clear = true })
 end
 
+-- setup sql completion
+vim.api.nvim_create_autocmd("FileType", {
+  group = augroup("last_loc"),
+  pattern = "*.sql",
+  command = "autocmd FileType sql setlocal omnifunc=vim_dadbod_completion#omni",
+})
+
 -- go to last loc when opening a buffer
 vim.api.nvim_create_autocmd("BufReadPost", {
   group = augroup("last_loc"),

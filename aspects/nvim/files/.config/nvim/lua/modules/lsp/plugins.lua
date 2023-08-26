@@ -115,9 +115,34 @@ return function(use)
       require("neogen").setup({
         enabled = true,
         languages = {
+          lua = {
+            template = {
+              annotation_convention = "ldoc",
+            },
+          },
           python = {
             template = {
               annotation_convention = "google_docstrings",
+            },
+          },
+          rust = {
+            template = {
+              annotation_convention = "rustdoc",
+            },
+          },
+          javascript = {
+            template = {
+              annotation_convention = "jsdoc",
+            },
+          },
+          typescript = {
+            template = {
+              annotation_convention = "tsdoc",
+            },
+          },
+          typescriptreact = {
+            template = {
+              annotation_convention = "tsdoc",
             },
           },
         },
@@ -175,31 +200,6 @@ return function(use)
 
   use({
     "hbarral/vim-dadbod",
-    config = function()
-      local function db_completion()
-        require("cmp").setup.buffer({ sources = { { name = "vim-dadbod-completion" } } })
-      end
-
-      vim.g.db_ui_save_location = vim.fn.stdpath("config") .. require("plenary.path").path.sep .. "db_ui"
-
-      vim.api.nvim_create_autocmd("FileType", {
-        pattern = {
-          "sql",
-        },
-        command = [[setlocal omnifunc=vim_dadbod_completion#omni]],
-      })
-
-      vim.api.nvim_create_autocmd("FileType", {
-        pattern = {
-          "sql",
-          "mysql",
-          "plsql",
-        },
-        callback = function()
-          vim.schedule(db_completion)
-        end,
-      })
-    end,
     cmd = {
       "DBUIToggle",
       "DBUI",
@@ -260,5 +260,30 @@ return function(use)
     config = function()
       require("trouble").setup({})
     end,
+  })
+
+  use({
+    "nvimdev/lspsaga.nvim",
+    config = function()
+      require("lspsaga").setup({
+        symbol_in_winbar = {
+          hide_keyword = true,
+        },
+        diagnostic = {
+          show_code_action = false,
+        },
+      })
+    end,
+  })
+
+  use({
+    "kevinhwang91/nvim-ufo",
+    config = function()
+      require("ufo").setup({})
+
+      vim.keymap.set("n", "zR", require("ufo").openAllFolds)
+      vim.keymap.set("n", "zM", require("ufo").closeAllFolds)
+    end,
+    dependencies = "kevinhwang91/promise-async",
   })
 end

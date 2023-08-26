@@ -48,9 +48,10 @@ local treesitter_obj = function()
   if lines > 4000 then
     enable = false
   end
+
   require("nvim-treesitter.configs").setup({
     indent = { enable = enable },
-    context_commentstring = { enable = enable, enable_autocmd = false },
+    context_commentstring = { enable = enable },
     incremental_selection = {
       enable = false,
       keymaps = {
@@ -61,36 +62,51 @@ local treesitter_obj = function()
       },
     },
     textobjects = {
-      lsp_interop = {
-        enable = false,
-        peek_definition_code = { ["DF"] = "@function.outer", ["CF"] = "@class.outer" },
+      keymaps = {
+        ["."] = "textsubjects-smart",
+        [";"] = "textsubjects-container-outer",
+      },
+      select = {
+        enable = true,
+        lookahead = true,
+        keymaps = {
+          ["af"] = "@function.outer",
+          ["if"] = "@function.inner",
+        }
       },
       move = {
         enable = true,
         set_jumps = true,
         goto_next_start = {
           ["]m"] = "@function.outer",
-          ["]["] = "@class.outer",
-          ["]o"] = "@loop.*",
+          ["]]"] = "@class.outer"
         },
-        goto_next_end = { ["]M"] = "@function.outer", ["]]"] = "@class.outer" },
-        goto_previous_start = { ["[m"] = "@function.outer", ["[["] = "@class.outer" },
-        goto_previous_end = { ["[M"] = "@function.outer", ["[]"] = "@class.outer" },
-      },
-      select = {
-        enable = enable,
-        lookahead = true,
-        keymaps = {
-          ["af"] = { "@function.outer", desc = "select inner class" },
-          ["if"] = { "@function.inner", desc = "select inner function" },
-          ["ac"] = { "@class.outer", desc = "select outer class" },
-          ["ic"] = { "@class.inner", desc = "select inner class" },
+        goto_next_end = {
+          ["]M"] = "@function.outer",
+          ["]["] = "@class.outer"
         },
+        goto_previous_start = {
+          ["[m"] = "@function.outer",
+          ["[["] = "@class.outer"
+        },
+        goto_previous_end = {
+          ["[M"] = "@function.outer",
+          ["[]"] = "@class.outer"
+        }
       },
       swap = {
-        enable = false,
+        enable = true,
+        swap_next = {["[n"] = "@parameter.inner"},
+        swap_previous = {["]p"] = "@parameter.inner"}
       },
-    },
+      lsp_interop = {
+        enable = true,
+        border = "rounded",
+        peek_definition_code = {
+          ["<Leader>ldp"] = "@class.outer"
+        }
+      },
+    }
   })
 end
 

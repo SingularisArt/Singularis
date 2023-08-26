@@ -39,6 +39,7 @@ M.servers = {
   marksman = { filetypes = { "markdown" }, install = true },
   zls = { filetypes = { "zig" }, install = true },
   ocamllsp = require("modules.lsp.settings.ocaml"),
+  omnisharp = {},
 }
 
 M.formatters = {
@@ -222,7 +223,7 @@ M.linters = {
 M.code_actions = {
   -- All
   -- "cspell",
-  -- "refactoring",
+  "refactoring",
   -- "gitsigns",
 
   -- Markdown

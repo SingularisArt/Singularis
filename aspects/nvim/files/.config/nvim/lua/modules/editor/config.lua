@@ -186,6 +186,9 @@ function config.telescope()
       },
     },
     pickers = {
+      dotfiles = {
+        theme = "dropdown",
+      },
       live_grep = {
         theme = "dropdown",
       },
@@ -213,6 +216,8 @@ function config.telescope()
     },
     extensions = {},
   })
+
+  require("telescope").load_extension("dotfiles")
 end
 
 function config.telescope_sessions()
@@ -264,30 +269,6 @@ function config.cybu()
 
   vim.keymap.set("n", "H", "<Plug>(CybuPrev)")
   vim.keymap.set("n", "L", "<Plug>(CybuNext)")
-end
-
-function config.statuscol()
-  local builtin = require("statuscol.builtin")
-  require("statuscol").setup({
-    relculright = false,
-    ft_ignore = { "neo-tree" },
-    segments = {
-      {
-        text = { " ", builtin.lnumfunc },
-        condition = { true, builtin.not_empty },
-        click = "v:lua.ScLa",
-      },
-      { text = { "%s" }, click = "v:lua.ScSa" },
-      { text = { "%C", " " }, click = "v:lua.ScFa" },
-    },
-  })
-  vim.api.nvim_create_autocmd({ "BufEnter" }, {
-    callback = function()
-      if vim.bo.filetype == "neo-tree" then
-        vim.opt_local.statuscolumn = ""
-      end
-    end,
-  })
 end
 
 function config.neo_tree()
@@ -593,6 +574,10 @@ function config.lir()
       name = "LirFolderNode",
     },
   })
+end
+
+function config.translate()
+  require("pantran").setup({})
 end
 
 return config

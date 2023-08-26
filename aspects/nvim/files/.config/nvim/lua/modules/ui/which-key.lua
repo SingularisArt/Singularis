@@ -66,6 +66,7 @@ vars.mappings["o"] = { "<CMD>Oil<CR>", "Toggle Oil" }
 vars.mappings["-"] = { "<CMD>lua require('lir.float').toggle()<CR>", "Toggle Lir" }
 vars.mappings["z"] = { "<CMD>ZenMode<CR>", "Zen Mode" }
 vars.mappings["t"] = { "<CMD>lua require('alternate-toggler').toggleAlternate()<CR>", "Alternate" }
+vars.mappings["p"] = { "<CMD>Pantran<CR>", "Translate" }
 
 vars.mappings["g"] = {
   name = "Git",
@@ -73,6 +74,7 @@ vars.mappings["g"] = {
   k = { "<CMD>lua require('gitsigns').prev_hunk()<CR>", "Prev Hunk" },
   l = { "<CMD>lua require('gitsigns').blame_line()<CR>", "Blame" },
   p = { "<CMD>lua require('gitsigns').preview_hunk()<CR>", "Preview Hunk" },
+  m = { "<CMD>GitMessenger<CR>", "View message" },
   r = { "<CMD>lua require('gitsigns').reset_hunk()<CR>", "Reset Hunk" },
   R = { "<CMD>lua require('gitsigns').reset_buffer()<CR>", "Reset Buffer" },
   s = { "<CMD>lua require('gitsigns').stage_hunk()<CR>", "Stage Hunk" },
@@ -85,7 +87,7 @@ vars.mappings["g"] = {
   c = { "<CMD>Telescope git_commits<CR>", "Checkout commit" },
   C = {
     "<CMD>Telescope git_bcommits<CR>",
-    "Checkout commit(for current file)",
+    "Checkout commit (for current file)",
   },
   d = {
     "<CMD>Gitsigns diffthis HEAD<CR>",
@@ -139,22 +141,6 @@ vars.mappings["s"] = {
   end, "Fuzzily search in current buffer" }
 }
 
-vars.mappings["T"] = {
-  name = "Translator",
-  t = { "<CMD>Translate --engines=google<CR>", "Translate" },
-  h = { "<CMD>TranslateH --engines=google<CR>", "Translate History" },
-  l = { "<CMD>TranslateL --engines=google<CR>", "Translate Log" },
-  r = { "<CMD>TranslateR --engines=google<CR>", "Translate" },
-  w = {
-    "<CMD>TranslateW --engines=google<CR>",
-    "Translate and display in a Popup Window",
-  },
-  x = {
-    "<CMD>TranslateX --engines=google<CR>",
-    "Translate and Display in the cmdline",
-  },
-}
-
 vars.mappings["m"] = {
   name = "Muren",
   t = { "<CMD>MurenToggle<CR>", "Toggle Muren" },
@@ -202,7 +188,7 @@ vars.mappings["S"] = {
   u = { "<CMD>Telescope sessions update<CR>", "Update current session" },
 }
 
-vars.mappings["p"] = {
+vars.mappings["P"] = {
   name = "Pommodoro",
   w = { "<CMD>require('pommodoro-clock').start_work()<CR>", "Start Pommodoro" },
   s = { "<CMD>require('start_short_break').start_work()<CR>", "Short Break" },
@@ -218,45 +204,6 @@ vars.mappings["H"] = {
   p = { "<CMD>lua require('harpoon.ui').nav_prev()<CR>", "Navigates to previous harpoon mark" },
 }
 
-vars.mappings["b"] = {
-  name = "Buffers",
-  ["1"] = { "<CMD>BufferLineGoToBuffer 1<CR>", "Go to the first buffer" },
-  ["2"] = { "<CMD>BufferLineGoToBuffer 2<CR>", "Go to the second buffer" },
-  ["3"] = { "<CMD>BufferLineGoToBuffer 3<CR>", "Go to the third buffer" },
-  ["4"] = { "<CMD>BufferLineGoToBuffer 4<CR>", "Go to the fourth buffer" },
-  ["5"] = { "<CMD>BufferLineGoToBuffer 5<CR>", "Go to the fifth buffer" },
-  ["6"] = { "<CMD>BufferLineGoToBuffer 6<CR>", "Go to the sixth buffer" },
-  ["7"] = { "<CMD>BufferLineGoToBuffer 7<CR>", "Go to the seventh buffer" },
-  ["8"] = { "<CMD>BufferLineGoToBuffer 8<CR>", "Go to the eighth buffer" },
-  ["9"] = { "<CMD>BufferLineGoToBuffer 9<CR>", "Go to the ninth buffer" },
-  ["0"] = { "<CMD>BufferLineGoToBuffer 10<CR>", "Go to the tenth buffer" },
-  n = { "<CMD>BufferLineCycleNext<CR>", "Go to the next buffer" },
-  p = { "<CMD>BufferLineCyclePrev<CR>", "Go to the previous buffer" },
-  k = { "<CMD>BufferKill<CR>", "Kill current buffer" },
-  c = {
-    name = "Close",
-    l = { "<CMD>BufferLineCloseLeft<CR>", "Close all buffers to the left" },
-    r = { "<CMD>BufferLineCloseRight<CR>", "Close all buffers to the right" },
-  },
-  m = {
-    name = "Move",
-    n = { "<CMD>BufferLineMoveNext<CR>", "Move buffer next" },
-    p = { "<CMD>BufferLineMovePrev<CR>", "Move buffer prev" },
-  },
-  P = {
-    name = "Pick",
-    p = { "<CMD>BufferLinePick<CR>", "Pick buffer" },
-    P = { "<CMD>BufferLinePickClose<CR>", "Pick buffer to close" },
-  },
-  s = {
-    name = "Sort",
-    d = { "<CMD>BufferLineSortByDirectory<CR>", "Sort by directory" },
-    e = { "<CMD>BufferLineSortByExtension<CR>", "Sort by extension" },
-    r = { "<CMD>BufferLineSortByRelativeDirectory<CR>", "Sort by relative directory" },
-    t = { "<CMD>BufferLineSortByTabs<CR>", "Sort by tabs" },
-  },
-}
-
 vars.mappings["N"] = {
   name = "NeoAI",
   t = { "<CMD>NeoAIToggle<CR>", "Toggle NeoAI" },
@@ -267,6 +214,44 @@ vars.mappings["N"] = {
     t = { "<CMD>NeoAIInjectContext<CR>", "Inject Context" },
     C = { "<CMD>NeoAIInjectContextCode<CR>", "Inject Code and Context" },
   },
+}
+
+vars.mappings["y"] = {
+  name = "Yode",
+  f = { "<CMD>YodeCreateSeditorFloating<CR>", "Focus on a code part and make it floating" },
+  r = { "<CMD>YodeCreateSeditorReplace<CR>", "Focus on a code part and replace it with the current buffer" },
+  d = { "<CMD>YodeBufferDelete<CR>", "Delete the current buffer" },
+  a = { "<CMD>YodeGoToAlternateBuffer<CR>", "Go to alternate buffer" },
+  c = { "<CMD>YodeCloneCurrentIntoFloat<CR>", "Clone seditor into float" },
+  m = { "<CMD>YodeFloatToMainWindow<CR>", "Go to main window" },
+  w = { "<CMD>YodeFormatWrite<CR>", "Format and write a buffer" },
+  i = { "<CMD>YodeRunInFile<CR>", "Run command in file" },
+}
+
+vars.mappings["r"] = {
+  name = "Refactor",
+  e = { [[ <ESC><CMD>lua require('refactoring').refactor('Extract Function')<CR>]], "Extract Function" },
+  f = {
+    [[ <ESC><CMD>lua require('refactoring').refactor('Extract Function to File')<CR>]],
+    "Extract Function to File",
+  },
+  v = { [[ <ESC><CMD>lua require('refactoring').refactor('Extract Variable')<CR>]], "Extract Variable" },
+  i = { [[ <ESC><CMD>lua require('refactoring').refactor('Inline Variable')<CR>]], "Inline Variable" },
+  r = { [[ <ESC><CMD>lua require('telescope').extensions.refactoring.refactors()<CR>]], "Refactor" },
+  V = { [[ <ESC><CMD>lua require('refactoring').debug.print_var({})<CR>]], "Debug Print Var" },
+}
+
+vars.vmappings["r"] = {
+  name = "Refactor",
+  e = { [[ <ESC><CMD>lua require('refactoring').refactor('Extract Function')<CR>]], "Extract Function" },
+  f = {
+    [[ <ESC><CMD>lua require('refactoring').refactor('Extract Function to File')<CR>]],
+    "Extract Function to File",
+  },
+  v = { [[ <ESC><CMD>lua require('refactoring').refactor('Extract Variable')<CR>]], "Extract Variable" },
+  i = { [[ <ESC><CMD>lua require('refactoring').refactor('Inline Variable')<CR>]], "Inline Variable" },
+  r = { [[ <ESC><CMD>lua require('telescope').extensions.refactoring.refactors()<CR>]], "Refactor" },
+  V = { [[ <ESC><CMD>lua require('refactoring').debug.print_var({})<CR>]], "Debug Print Var" },
 }
 
 local which_key = require("which-key")

@@ -89,7 +89,11 @@ return function(use)
     config = conf.context_vt
 
   })
-  use({ "ThePrimeagen/refactoring.nvim", config = conf.refactor })
+  use({
+    "ThePrimeagen/refactoring.nvim",
+    config = conf.refactor,
+    cmd = "Refactor"
+  })
 
   use({ "yardnsm/vim-import-cost", cmd = "ImportCost" })
 

@@ -112,6 +112,14 @@ lsp.on_attach = function(client, bufnr)
 
   require("colorizer").attach_to_buffer(bufnr)
 
+  client.config.capabilities.textDocument.completion.completionItem.snippetSupport = true
+  client.config.capabilities.textDocument.foldingRange = {
+    dynamicRegistration = false,
+    lineFoldingOnly = true
+  }
+
+  lsp.capabilities = client.config.capabilities
+
   if client.resolved_capabilities.code_lens then
     local codelens = vim.api.nvim_create_augroup(
       "LSPCodeLens",
