@@ -442,18 +442,11 @@ return function(use)
   -- })
 
   use({
-    "andymass/vim-matchup",
-    init = function()
-      vim.g.matchup_matchparen_offscreen = { method = "popup" }
-    end,
-  })
-
-  use({
     "abecodes/tabout.nvim",
+    config = true,
     dependencies = {
       "nvim-treesitter/nvim-treesitter",
       "hrsh7th/nvim-cmp",
     },
-    config = true,
   })
 end

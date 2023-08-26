@@ -109,7 +109,7 @@ function Lazyload()
     loader("navigator.lua")
     loader("nvim-treesitter")
     loader("pretty_hover")
-    -- loader("fidget.nvim")
+    loader("fidget.nvim")
     loader("inlay-hints.nvim")
     loader("null-ls.nvim")
     loader("mason.nvim")
@@ -123,6 +123,8 @@ function Lazyload()
     loader(plugins)
     loader("neogen")
     loader("indent-blankline.nvim")
+    loader("nvim-ufo")
+    loader("tabout.nvim")
   end
   loader("null-ls.nvim")
 
@@ -143,6 +145,7 @@ vim.defer_fn(function()
   loader("telescope.nvim")
   loader("harpoon")
   require("modules.ui.notify").setup()
+
 
   loader("windline.nvim")
 
