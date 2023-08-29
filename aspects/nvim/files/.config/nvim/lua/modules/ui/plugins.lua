@@ -158,7 +158,6 @@ return function(use)
 
   use({
     "NvChad/nvim-colorizer.lua",
-    event = "VeryLazy",
     opts = {
       user_default_options = {
         RGB = true,
@@ -429,7 +428,6 @@ return function(use)
     config = function()
       require("incline").setup()
     end,
-    event = "VeryLazy",
   })
 
   -- use({

@@ -17,7 +17,7 @@ fi
 tmux new-session -d -s "$SESSION_NAME"
 
 tmux rename-window -t "$SESSION_NAME" "Dotfiles"
-tmux send-keys -t "$SESSION_NAME" "cd ./aspects/dotfiles/files/.config/; clear; lanc" Enter
+tmux send-keys -t "$SESSION_NAME" "cd ./aspects/dotfiles/files/; clear; lanc" Enter
 
 tmux new-window -t "$SESSION_NAME"
 

@@ -25,7 +25,7 @@ return function(use)
     },
   })
 
-  use({ "SmiteshP/nvim-navic", event = "VeryLazy" })
+  use({ "SmiteshP/nvim-navic" })
 
   use({
     "Fildo7525/pretty_hover",

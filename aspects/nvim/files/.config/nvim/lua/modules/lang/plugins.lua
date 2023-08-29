@@ -95,7 +95,7 @@ return function(use)
     cmd = "Refactor"
   })
 
-  use({ "yardnsm/vim-import-cost", cmd = "ImportCost" })
+  use({ "yardnsm/vim-import-cost" })
 
   use({
     "rafcamlet/nvim-luapad",

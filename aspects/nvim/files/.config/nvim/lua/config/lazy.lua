@@ -6,9 +6,6 @@ if argc > 0 then
       return
     end
   end
-  if vim.fn.isdirectory(arg[1]) == 1 then
-    vim.cmd("Neotree")
-  end
 end
 local loader = require("util.helper").loader
 local fsize = vim.fn.getfsize(vim.fn.expand("%:p:f"))
@@ -143,11 +140,13 @@ end, lazy_timer)
 
 vim.defer_fn(function()
   loader("telescope.nvim")
-  loader("harpoon")
-  require("modules.ui.notify").setup()
+  loader("nvim-colorizer.lua")
+  loader("incline.nvim")
+  loader("nvim-navic")
 
 
   loader("windline.nvim")
+  require("modules.ui.notify").setup()
   require("modules.ui.eviline")
 
   local gitrepo = vim.fn.isdirectory(".git/index")
