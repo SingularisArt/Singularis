@@ -3,8 +3,10 @@
 local opt = vim.opt
 local g = vim.g
 
-g.mapleader = " "
-g.maplocalleader = " "
+g.mapleader = " "                  -- Set the leader key
+g.maplocalleader = " "             -- Set the local leader key
+g.netrw_banner = 0                 -- Remove the banner above netrw
+g.markdown_recommended_style = 0   -- Fix markdown indentation settings
 
 opt.autowrite = true               -- Enable auto write
 opt.clipboard = "unnamedplus"      -- Sync with system clipboard
@@ -51,14 +53,12 @@ opt.foldenable = true              -- Enable Folds
 opt.foldcolumn = "1"               -- Needed for nvim-ufo.
 opt.foldlevel = 99                 -- Make all folds closed.
 opt.foldlevelstart = 99            -- Make all folds closed.
-g.netrw_banner = 0                 -- Remove the banner above netrw
 
 if vim.fn.has("nvim-0.9.0") == 1 then
   opt.splitkeep = "screen"
   opt.shortmess:append { C = true }
 end
 
--- Fix markdown indentation settings
-vim.g.markdown_recommended_style = 0
-
-vim.cmd("set rtp+=~/Documents/school-notes/current-course")
+-- DO NOT INCLUDE THIS
+opt.rtp:append("~/Documents/school-notes/current-course")
+-- DO NOT INCLUDE THIS
