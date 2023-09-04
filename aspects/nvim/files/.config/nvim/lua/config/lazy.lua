@@ -144,7 +144,6 @@ vim.defer_fn(function()
   loader("incline.nvim")
   loader("nvim-navic")
 
-
   loader("windline.nvim")
   require("modules.ui.notify").setup()
   require("modules.ui.eviline")

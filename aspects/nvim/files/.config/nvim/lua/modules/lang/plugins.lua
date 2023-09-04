@@ -45,7 +45,7 @@ return function(use)
     config = function()
       require("treesitter-context").setup({
         enable = true,
-        max_lines = 2,
+        max_lines = 5,
         trim_scope = "outer",
         mode = "topline",
         patterns = {
@@ -86,13 +86,13 @@ return function(use)
   use({
     "haringsrob/nvim_context_vt",
     event = { "CursorHold", "WinScrolled", "CursorMoved" },
-    config = conf.context_vt
-
+    config = conf.context_vt,
   })
+
   use({
     "ThePrimeagen/refactoring.nvim",
     config = conf.refactor,
-    cmd = "Refactor"
+    cmd = "Refactor",
   })
 
   use({ "yardnsm/vim-import-cost" })
@@ -123,7 +123,10 @@ return function(use)
     end,
   })
 
-  use({ "gennaro-tedesco/nvim-jqx", cmd = { "JqxList", "JqxQuery" } })
+  use({
+    "gennaro-tedesco/nvim-jqx",
+    cmd = { "JqxList", "JqxQuery" }
+  })
 
   use({
     "bfrg/vim-jqplay",

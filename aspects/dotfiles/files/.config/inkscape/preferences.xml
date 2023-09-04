@@ -118,12 +118,13 @@
          id="rect"
          style="fill:blue;"
          usecurrent="1"
-         width="195.738052368164"
-         height="195.496887207031" />
+         width="99.026263379675"
+         height="86.5965667484325" />
       <eventcontext
          id="3dbox"
          style="stroke:none;stroke-linejoin:round;"
-         usecurrent="1">
+         usecurrent="1"
+         persp="perspective1">
         <side
            id="XYfront"
            style="fill:#8686bf;stroke:none;stroke-linejoin:round;"
@@ -155,13 +156,14 @@
          end="0"
          start="0"
          usecurrent="1"
-         rx="4.62369423212967"
-         ry="4.42708293284024" />
+         rx="48.2596594142166"
+         ry="37.5568960595324" />
       <eventcontext
          id="star"
          magnitude="5"
          style="fill:yellow;"
-         usecurrent="1" />
+         usecurrent="1"
+         proportion="0.500000107025861" />
       <eventcontext
          id="spiral"
          style="fill:none;stroke:black"
@@ -600,7 +602,7 @@
     <group
        id="preferences"
        state="1"
-       page="0" />
+       page="9" />
     <group
        id="gradienteditor" />
     <group
@@ -617,7 +619,7 @@
     </group>
     <group
        id="save_as"
-       default="org.inkscape.output.pdf.cairorenderer"
+       default="org.inkscape.output.svg.inkscape"
        append_extension="1"
        enable_preview="1"
        path="/home/singularis/Documents/school-setup/example-setup/courses/course-01/figures/lec-01"
@@ -1004,7 +1006,7 @@
      org.inkscape.output.pdf.cairorenderer.textToPath="LaTeX" />
   <group
      id="desktop"
-     style="fill:none;stroke-width:3.77952756;-inkscape-font-specification:'sans-serif, Normal';font-family:sans-serif;font-size:46.66666667px;stroke:#000000;opacity:0.57131369">
+     style="fill:#000000;stroke-width:3.77952756;-inkscape-font-specification:'sans-serif, Normal';font-family:sans-serif;font-size:46.66666667px;stroke:#ffff00;opacity:0.57131369">
     <group
        width="640"
        height="480"

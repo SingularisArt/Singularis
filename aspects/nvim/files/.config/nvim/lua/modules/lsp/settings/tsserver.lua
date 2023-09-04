@@ -1,43 +1,26 @@
-local mason_registry = require("mason-registry")
-local tsserver_path = mason_registry.get_package("typescript-language-server"):get_install_path()
-
 return {
   settings = {
-    tsserver_path = tsserver_path .. "/node_modules/typescript/lib/tsserver.js",
-    tsserver_plugins = {
-      "@styled/typescript-styled-plugin",
+    javascript = {
+      inlayHints = {
+        includeInlayEnumMemberValueHints = true,
+        includeInlayFunctionLikeReturnTypeHints = true,
+        includeInlayFunctionParameterTypeHints = true,
+        includeInlayParameterNameHints = "all",
+        includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+        includeInlayPropertyDeclarationTypeHints = true,
+        includeInlayVariableTypeHints = true,
+      },
     },
-    publish_diagnostic_on = "change",
-    tsserver_file_preferences = {
-      includeInlayEnumMemberValueHints = true,
-      includeInlayFunctionLikeReturnTypeHints = true,
-      includeInlayFunctionParameterTypeHints = true,
-      includeInlayParameterNameHints = "all",
-      includeInlayParameterNameHintsWhenArgumentMatchesName = true,
-      includeInlayPropertyDeclarationTypeHints = true,
-      includeInlayVariableTypeHints = true,
-    },
-    format = {
-      semicolons = "insert",
-      convertTabsToSpaces = false,
-      insertSpaceAfterCommaDelimiter = true,
-      insertSpaceAfterConstructor = true,
-      insertSpaceAfterFunctionKeywordForAnonymousFunctions = true,
-      insertSpaceAfterKeywordsInControlFlowStatements = true,
-      insertSpaceAfterOpeningAndBeforeClosingEmptyBraces = true,
-      insertSpaceAfterOpeningAndBeforeClosingJsxExpressionBraces = true,
-      insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces = true,
-      insertSpaceAfterOpeningAndBeforeClosingNonemptyBrackets = true,
-      insertSpaceAfterOpeningAndBeforeClosingNonemptyParenthesis = true,
-      insertSpaceAfterOpeningAndBeforeClosingTemplateStringBraces = true,
-      insertSpaceAfterSemicolonInForStatements = true,
-      insertSpaceAfterTypeAssertion = true,
-      insertSpaceBeforeAndAfterBinaryOperators = true,
-      insertSpaceBeforeFunctionParenthesis = true,
-      insertSpaceBeforeTypeAnnotation = true,
-      placeOpenBraceOnNewLineForControlBlocks = true,
-      placeOpenBraceOnNewLineForFunctions = true,
-      trimTrailingWhitespace = true,
+    typescript = {
+      inlayHints = {
+        includeInlayEnumMemberValueHints = true,
+        includeInlayFunctionLikeReturnTypeHints = true,
+        includeInlayFunctionParameterTypeHints = true,
+        includeInlayParameterNameHints = "all",
+        includeInlayParameterNameHintsWhenArgumentMatchesName = true,
+        includeInlayPropertyDeclarationTypeHints = true,
+        includeInlayVariableTypeHints = true,
+      },
     },
   },
   install = true,

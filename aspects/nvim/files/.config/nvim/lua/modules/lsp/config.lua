@@ -58,6 +58,10 @@ function config.navigator()
         update_in_insert = false,
         severity_sort = { reverse = true },
       },
+      disable_lsp = {
+        "denols",
+        "angularls",
+      },
       disable_format_cap = { "stylua" },
       diagnostic_virtual_text = false,
       diagnostic_update_in_insert = false,
@@ -72,7 +76,6 @@ function config.navigator()
       cssmodules_ls = { filetypes = { "css" } },
       dartls = { filetypes = { "dart" } },
       solargraph = { filetypes = { "ruby" } },
-      -- tsserver = require("modules.lsp.settings.tsserver"),
       yamlls = require("modules.lsp.settings.yamlls"),
       sqlls = require("modules.lsp.settings.sqlls"),
       cssls = { filetypes = { "css" } },
@@ -80,6 +83,7 @@ function config.navigator()
       texlab = require("modules.lsp.settings.texlab"),
       bashls = { filetypes = { "bash", "sh" } },
       -- clangd = require("modules.lsp.settings.clangd"),
+      -- tsserver = require("modules.lsp.settings.tsserver"),
       tailwindcss = {
         filetypes = {
           "html",
