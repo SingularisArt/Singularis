@@ -62,11 +62,29 @@ M.formatters = {
 
   -- JS/TS
   prettier = {
-    options = {
-      extra_filetypes = { "toml", "solidity" },
-      extra_args = { "--arrow-parens always", "--trailing-comma all" },
-    },
+options = {
+  filetypes = {
+    "javascript",
+    "typescript",
+    "css",
+    "scss",
+    "html",
+    "json",
+    "yaml",
+    "markdown",
+    "graphql",
+    "md",
+    "txt",
   },
+  only_local = "node_modules/.bin",
+},
+},
+-- prettier = {
+--   options = {
+--     extra_filetypes = { "toml", "solidity" },
+--     extra_args = { "--arrow-parens always", "--trailing-comma all" },
+--   },
+-- },
 
   -- Ruby
   standardrb = {
@@ -172,6 +190,9 @@ M.linters = {
   "flake8",
   "ruff",
   "pydocstyle",
+
+  -- JS/TS
+  "eslint-lsp",
 
   -- Go
   "golangci_lint",

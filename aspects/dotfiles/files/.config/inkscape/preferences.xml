@@ -118,8 +118,8 @@
          id="rect"
          style="fill:blue;"
          usecurrent="1"
-         width="99.026263379675"
-         height="86.5965667484325" />
+         width="77.3536189522335"
+         height="52.1402446116041" />
       <eventcontext
          id="3dbox"
          style="stroke:none;stroke-linejoin:round;"
@@ -156,8 +156,8 @@
          end="0"
          start="0"
          usecurrent="1"
-         rx="48.2596594142166"
-         ry="37.5568960595324" />
+         rx="196.595569520481"
+         ry="149.153375099965" />
       <eventcontext
          id="star"
          magnitude="5"
@@ -1013,7 +1013,7 @@
        x="0"
        y="0"
        maximized="1"
-       fullscreen="1"
+       fullscreen="0"
        id="geometry" />
     <group
        id="XYfront" />

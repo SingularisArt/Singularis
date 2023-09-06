@@ -1,4 +1,9 @@
 return {
+  init_options = {
+    preferences = {
+      disableSuggestions = false,
+    },
+  },
   settings = {
     javascript = {
       inlayHints = {
