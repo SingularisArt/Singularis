@@ -36,3 +36,6 @@ zsh_add_file "icons.zsh"
 zsh_add_file "autojump.zsh"
 zsh_add_file "bindings.zsh"
 # zsh_add_file "tmux.zsh"
+
+# bun completions
+[ -s "/home/singularis/.bun/_bun" ] && source "/home/singularis/.bun/_bun"

@@ -120,7 +120,7 @@ function Lazyload()
     loader(plugins)
     loader("neogen")
     loader("indent-blankline.nvim")
-    loader("nvim-ufo")
+    -- loader("nvim-ufo")
     loader("tabout.nvim")
   end
   loader("null-ls.nvim")

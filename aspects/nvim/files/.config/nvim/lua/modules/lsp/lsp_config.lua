@@ -192,7 +192,7 @@ M.linters = {
   "pydocstyle",
 
   -- JS/TS
-  "eslint-lsp",
+  -- "eslint-lsp",
 
   -- Go
   "golangci_lint",
