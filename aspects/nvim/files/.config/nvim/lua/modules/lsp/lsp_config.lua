@@ -188,8 +188,8 @@ M.linters = {
 
   -- Python
   "flake8",
-  "ruff",
-  "pydocstyle",
+  -- "ruff",
+  -- "pydocstyle",
 
   -- JS/TS
   -- "eslint-lsp",

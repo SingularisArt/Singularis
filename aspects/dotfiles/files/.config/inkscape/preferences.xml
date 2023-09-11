@@ -118,13 +118,13 @@
          id="rect"
          style="fill:blue;"
          usecurrent="1"
-         width="409.939003291098"
-         height="263.789120171009" />
+         width="287.389742633491"
+         height="179.131734052045" />
       <eventcontext
          id="3dbox"
          style="stroke:none;stroke-linejoin:round;"
          usecurrent="1"
-         persp="perspective1">
+         persp="perspective3">
         <side
            id="XYfront"
            style="fill:#8686bf;stroke:none;stroke-linejoin:round;"

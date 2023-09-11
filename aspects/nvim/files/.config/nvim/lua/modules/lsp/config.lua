@@ -145,6 +145,8 @@ function config.navigator()
       disable_lsp = {
         "denols",
         "angularls",
+        "jedi_language_server",
+        "pylsp",
       },
       disable_format_cap = { "stylua" },
       diagnostic_virtual_text = false,
@@ -175,7 +177,7 @@ function config.navigator()
           "javascript",
           "typescript",
           "javascriptreact",
-          "typescriptreact"
+          "typescriptreact",
         },
       },
       golangci_lint_ls = { filetypes = { "go", "gomod" } },
@@ -246,6 +248,39 @@ function config.mason_null_ls()
 end
 
 function config.signature()
+  local icons = require("config.global").icons
+
+  local signature_help_setup = {
+    bind = true,
+    noice = true,
+    doc_lines = 10,
+
+    max_height = 10,
+    max_width = 80,
+
+    wrap = true,
+    fix_pos = false,
+
+    floating_window = true,
+    floating_window_above_cur_line = true,
+    floating_window_off_x = 1,
+    floating_window_off_y = 0,
+
+    hint_enable = true,
+    hi_parameter = "LspSignatureActiveParameter",
+
+    toggle_key = "<C-s>",
+    toggle_key_flip_floatwin_setting = true,
+
+    hint_prefix = icons.misc.Squirrel .. " ",
+    hint_scheme = "Comment",
+
+    handler_opts = {
+      border = "rounded",
+    },
+  }
+
+  require("lsp_signature").setup(signature_help_setup)
 end
 
 function config.glance()
@@ -272,7 +307,12 @@ function config.clangd_extensions()
   local setup = {
     server = {
       root_dir = function(...)
-        return require("lspconfig.util").root_pattern("compile_commands.json", "compile_flags.txt", "configure.ac", ".git")(...)
+        return require("lspconfig.util").root_pattern(
+          "compile_commands.json",
+          "compile_flags.txt",
+          "configure.ac",
+          ".git"
+        )(...)
       end,
       capabilities = {
         offsetEncoding = { "utf-16" },
@@ -299,10 +339,10 @@ function config.clangd_extensions()
     },
   }
 
-  require("clangd_extensions").setup {
+  require("clangd_extensions").setup({
     server = setup.server,
     extensions = setup.extensions,
-  }
+  })
 end
 
 function config.flutter_tools()

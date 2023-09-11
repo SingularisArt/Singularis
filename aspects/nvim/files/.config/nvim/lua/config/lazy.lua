@@ -99,7 +99,7 @@ function Lazyload()
   loader("guihua.lua")
   if load_lsp then
     loader("nvim-lspconfig")
-    loader("lsp_signature.nvim")
+    -- loader("lsp_signature.nvim")
   end
 
   if load_lsp or load_ts_plugins then

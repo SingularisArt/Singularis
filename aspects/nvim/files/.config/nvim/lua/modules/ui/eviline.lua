@@ -92,7 +92,6 @@ local winwidth = function()
   return vim.api.nvim_call_function("winwidth", { 0 })
 end
 
-local signature_length = 0
 local lsp_label1, lsp_label2 = "", ""
 local treesitter_context = require("modules.lang.treesitter").context
 local ts = ""
@@ -138,15 +137,6 @@ local current_function = function(width)
   end
   running = running + 1
   return string.sub(" " .. ts, 1, width)
-end
-
-local current_signature = function(width)
-  local sig = require("lsp_signature").status_line(width)
-  signature_length = #sig.label
-  sig.label = sig.label:gsub("[\n\r]+", " ")
-  sig.hint = sig.hint:gsub("[\n\r]+", " ")
-
-  return sig.label .. "🐼" .. sig.hint, sig
 end
 
 local function split_lines(value)
@@ -399,62 +389,6 @@ basic.folder = {
   end,
 }
 
-basic.funcname = {
-  name = "funcname",
-  hl_colors = {
-    default = hl_list.NormalBg,
-    white = { "white", "black" },
-    green = { "green_b", "NormalBg" },
-    green_light = { "green_light", "NormalBg" },
-  },
-  text = function(_, _, width, _)
-    return { { " ", "default" }, { current_function(width), "green" }, { " ", "default" } }
-  end,
-}
-
-basic.lsp_info = {
-  name = "signature",
-  hl_colors = {
-    default = hl_list.NormalBg,
-    white = { "white", "black" },
-    green_light = { "green_light", "NormalBg" },
-    magenta = { "magenta", "NormalBg" },
-    yellow = { "yellow", "NormalBg" },
-  },
-  text = function(_, _, width, _)
-    local _, sig = current_signature(width)
-    if sig == nil or sig.label == nil or sig.range == nil then
-      local hover = hover_info
-      if hover == nil or hover == "" or signature_length > 0 then
-        lsp_label1 = ""
-        lsp_label2 = ""
-        return {}
-      end
-      lsp_label1 = hover
-      if #hover > width / 3 then
-        lsp_label1 = hover:sub(1, width / 3)
-      end
-      lsp_label2 = ""
-      sig = { hint = "" }
-    else
-      if sig.range.start and sig.range["end"] then
-        lsp_label1 = sig.label:sub(1, sig.range["start"] - 1)
-        lsp_label2 = sig.label:sub(sig.range["end"] + 1, #sig.label)
-      end
-    end
-    lsp_label1 = lsp_label1:gsub("[\n\r]+", " ")
-    lsp_label2 = lsp_label2:gsub("[\n\r]+", " ")
-
-    return {
-      { "", "default" },
-      { "  " .. lsp_label1, "green_light" },
-      { sig.hint, "yellow" },
-      { lsp_label2, "green_light" },
-      { " ", "default" },
-    }
-  end,
-}
-
 basic.file_right = {
   hl_colors = {
     default = hl_list.NormalBg,
@@ -588,8 +522,6 @@ local default = {
     basic.file,
     { "%S", { "green", "NormalBg" } },
     basic.lsp_diagnos,
-    basic.lsp_info,
-    basic.funcname,
     basic.divider,
     { sep.slant_right, { "green_light", "blue_light" } },
     basic.file_right,

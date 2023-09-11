@@ -98,10 +98,10 @@ return function(use)
     config = conf.navigator,
   })
 
-  use({
-    "ray-x/lsp_signature.nvim",
-    config = conf.signature,
-  })
+  -- use({
+  --   "ray-x/lsp_signature.nvim",
+  --   config = conf.signature,
+  -- })
 
   use({
     "dnlhc/glance.nvim",
