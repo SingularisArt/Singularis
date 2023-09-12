@@ -49,10 +49,11 @@ opt.updatetime = 200               -- Save swap file and trigger CursorHold
 opt.wildmode = "longest:full,full" -- Command-line completion mode
 opt.winminwidth = 5                -- Minimum window width
 opt.wrap = false                   -- Disable line wrap
-opt.foldenable = true              -- Enable Folds
-opt.foldcolumn = "1"               -- Needed for nvim-ufo.
-opt.foldlevel = 99                 -- Make all folds closed.
-opt.foldlevelstart = 99            -- Make all folds closed.
+opt.foldenable = false             -- Disable Folds
+-- opt.foldenable = true              -- Enable Folds
+-- opt.foldcolumn = "1"               -- Needed for nvim-ufo.
+-- opt.foldlevel = 99                 -- Make all folds closed.
+-- opt.foldlevelstart = 99            -- Make all folds closed.
 
 if vim.fn.has("nvim-0.9.0") == 1 then
   opt.splitkeep = "screen"
@@ -60,5 +61,5 @@ if vim.fn.has("nvim-0.9.0") == 1 then
 end
 
 -- DO NOT INCLUDE THIS
-opt.rtp:append("~/Documents/school-notes/current-course")
+vim.cmd("set rtp+=~/Documents/school-notes/current-course")
 -- DO NOT INCLUDE THIS
