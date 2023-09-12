@@ -32,6 +32,6 @@ tmux send-keys -t "$SESSION_NAME" "cd ./aspects/email/files/.config; clear; lanc
 tmux new-window -t "$SESSION_NAME"
 
 tmux rename-window -t "$SESSION_NAME" "Git"
-tmux send-keys -t "$SESSION_NAME" "watch git status" Enter
+tmux send-keys -t "$SESSION_NAME" "clear; watch git status" Enter
 
 eval "$tmuxAttachCommand"
