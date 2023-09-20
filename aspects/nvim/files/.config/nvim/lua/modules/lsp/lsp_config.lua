@@ -36,7 +36,7 @@ M.servers = {
   solidity_ls = { filetypes = { "solidity" }, install = true, install_server_name = "solidity" },
   r_language_server = { filetypes = { "r" }, install = false },
   lemminx = { filetypes = { "xml" }, install = true },
-  marksman = { filetypes = { "markdown" }, install = true },
+  -- marksman = { filetypes = { "markdown" }, install = true },
   zls = { filetypes = { "zig" }, install = true },
   ocamllsp = require("modules.lsp.settings.ocaml"),
   omnisharp = {},
@@ -71,7 +71,7 @@ options = {
     "html",
     "json",
     "yaml",
-    "markdown",
+    -- "markdown",
     "graphql",
     "md",
     "txt",
@@ -120,10 +120,10 @@ options = {
   "shellharden",
 
   -- Markdown
-  ["markdown-toc"] = {
-    null_ls_source = "markdown_toc",
-  },
-  "mdformat",
+  -- ["markdown-toc"] = {
+  --   null_ls_source = "markdown_toc",
+  -- },
+  -- "mdformat",
 
   -- Lua
   "stylua",
@@ -141,7 +141,7 @@ options = {
   "gersemi",
 
   -- HTML
-  "htmlbeautifier",
+  -- "htmlbeautifier",
 
   -- PhP
   "phpcbf",
@@ -152,32 +152,32 @@ options = {
 
 M.linters = {
   -- Markdown
-  write_good = {
-    options = {
-      filetypes = { "markdown" },
-      extra_filetypes = { "txt", "text" },
-      args = { "--text=$TEXT", "--parse" },
-      command = "write-good",
-    },
-  },
-  proselint = {
-    options = {
-      filetypes = { "markdown" },
-      extra_filetypes = { "txt", "text" },
-      command = "proselint",
-      args = { "--json" },
-    },
-  },
-  misspell = {
-    options = {
-      filetypes = { "markdown", "text", "txt" },
-      args = { "$FILENAME" },
-    },
-  },
-  "alex",
-  "markdownlint",
-  "markuplint",
-  "textlint",
+  -- write_good = {
+  --   options = {
+  --     filetypes = { "markdown" },
+  --     extra_filetypes = { "txt", "text" },
+  --     args = { "--text=$TEXT", "--parse" },
+  --     command = "write-good",
+  --   },
+  -- },
+  -- proselint = {
+  --   options = {
+  --     filetypes = { "markdown" },
+  --     extra_filetypes = { "txt", "text" },
+  --     command = "proselint",
+  --     args = { "--json" },
+  --   },
+  -- },
+  -- misspell = {
+  --   options = {
+  --     filetypes = { "markdown", "text", "txt" },
+  --     args = { "$FILENAME" },
+  --   },
+  -- },
+  -- "alex",
+  -- "markdownlint",
+  -- "markuplint",
+  -- "textlint",
 
   -- C++/C
   "cpplint",
@@ -248,13 +248,13 @@ M.code_actions = {
   -- "gitsigns",
 
   -- Markdown
-  proselint = {
-    options = {
-      filetypes = { "markdown" },
-      command = "proselint",
-      args = { "--json" },
-    },
-  },
+  -- proselint = {
+  --   options = {
+  --     filetypes = { "markdown" },
+  --     command = "proselint",
+  --     args = { "--json" },
+  --   },
+  -- },
 
   -- Go
   "gomodifytags",

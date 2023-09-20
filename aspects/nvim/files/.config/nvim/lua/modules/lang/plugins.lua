@@ -235,21 +235,21 @@ return function(use)
       "typescriptreact",
     },
   })
-  use({
-    "windwp/nvim-ts-autotag",
-    config = function()
-      require("nvim-treesitter.configs").setup({
-        autotag = {
-          enable = true,
-        },
-      })
-    end,
-    ft = {
-      "html",
-      "javascriptreact",
-      "typescriptreact",
-    },
-  })
+  -- use({
+  --   "windwp/nvim-ts-autotag",
+  --   config = function()
+  --     require("nvim-treesitter.configs").setup({
+  --       autotag = {
+  --         enable = true,
+  --       },
+  --     })
+  --   end,
+  --   ft = {
+  --     "html",
+  --     "javascriptreact",
+  --     "typescriptreact",
+  --   },
+  -- })
   use({
     "dmmulroy/tsc.nvim",
     cmd = { "TSC" },

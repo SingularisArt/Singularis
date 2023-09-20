@@ -23,23 +23,23 @@ return function(use)
           }
         end,
       },
-      {
-        "jalvesaq/cmp-nvim-r",
-        config = function()
-          require("cmp_zotcite").setup({
-            filetypes = { "pandoc", "markdown", "rmd", "r", "quarto" }
-          })
-        end,
-      },
-      {
-        "jalvesaq/cmp-zotcite",
-        config = function()
-          require("cmp_zotcite").setup({
-            filetypes = { "pandoc", "markdown", "rmd", "r", "quarto" }
-          })
-        end,
-        dependencies = "jalvesaq/zotcite",
-      },
+      -- {
+      --   "jalvesaq/cmp-nvim-r",
+      --   config = function()
+      --     require("cmp_zotcite").setup({
+      --       filetypes = { "pandoc", "markdown", "rmd", "r", "quarto" }
+      --     })
+      --   end,
+      -- },
+      -- {
+      --   "jalvesaq/cmp-zotcite",
+      --   config = function()
+      --     require("cmp_zotcite").setup({
+      --       filetypes = { "pandoc", "markdown", "rmd", "r", "quarto" }
+      --     })
+      --   end,
+      --   dependencies = "jalvesaq/zotcite",
+      -- },
     },
     event = "InsertEnter",
   })
