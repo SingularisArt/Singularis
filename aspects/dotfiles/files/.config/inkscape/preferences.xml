@@ -118,8 +118,8 @@
          id="rect"
          style="fill:blue;"
          usecurrent="1"
-         width="287.389742633491"
-         height="179.131734052045" />
+         width="793.700787401575"
+         height="829.813568836121" />
       <eventcontext
          id="3dbox"
          style="stroke:none;stroke-linejoin:round;"
@@ -156,8 +156,8 @@
          end="0"
          start="0"
          usecurrent="1"
-         rx="196.595569520481"
-         ry="149.153375099965" />
+         rx="4.02110557856522"
+         ry="4.70232415387003" />
       <eventcontext
          id="star"
          magnitude="5"
@@ -334,8 +334,8 @@
        live_outline="1"
        live_objects="1"
        show_helperpath="0"
-       x="88.4457902362205"
-       y="94.8679937007875"
+       x="623.548573228347"
+       y="253.308925984252"
        edit_clipping_paths="0"
        edit_masks="0" />
     <eventcontext
@@ -522,7 +522,7 @@
   </group>
   <group
      id="colorselector"
-     page="0"
+     page="RGB"
      switcher="1">
     <group
        id="RGB"
@@ -545,6 +545,8 @@
     <group
        id="CMS"
        visible="1" />
+    <group
+       id="OKHSL" />
   </group>
   <group
      id="embedded">
@@ -637,7 +639,7 @@
     <group
        id="import"
        enable_preview="1"
-       path="/home/singularis/Downloads/"
+       path="/home/singularis/Documents/school-notes/College/Year-1/spring/mth-253/figures/lec-01/"
        ask="1"
        ask_svg="1"
        link="embed"
@@ -686,7 +688,8 @@
     <group
        id="undo-history" />
     <group
-       id="objects" />
+       id="objects"
+       expand_to_layer="1" />
   </group>
   <group
      id="printing">
@@ -699,7 +702,8 @@
   <group
      id="options"
      rotationlock="1"
-     onimport="0">
+     onimport="0"
+     onungroup="0">
     <group
        id="renderingcache"
        size="512" />
@@ -993,20 +997,39 @@
      org.inkscape.effect.func_plot.endpts="1"
      org.inkscape.effect.func_plot.clip="1"
      org.inkscape.effect.func_plot.fponum="0"
-     org.inkscape.effect.func_plot.xend="1000"
-     org.inkscape.effect.func_plot.ytop="8"
+     org.inkscape.effect.func_plot.xend="0.828427124746"
+     org.inkscape.effect.func_plot.ytop="0"
      org.inkscape.effect.func_plot.samples="100"
      org.inkscape.effect.func_plot.tab="sampling"
-     org.inkscape.effect.func_plot.fofx="x+1008"
      org.inkscape.output.pdf.cairorenderer.PDFversion="PDF-1.5"
      org.inkscape.output.pdf.cairorenderer.area="drawing"
      org.inkscape.input.svg.scale="auto"
      net.texample.tools.svg.export_tikz.effect.crop="0"
      net.texample.tools.svg.export_tikz.effect.clipboard="1"
-     org.inkscape.output.pdf.cairorenderer.textToPath="LaTeX" />
+     org.inkscape.output.pdf.cairorenderer.textToPath="LaTeX"
+     org.inkscape.effect.func_plot.fofx="x**2/(1-x)"
+     org.inkscape.effect.func_plot.polar="1"
+     org.inkscape.effect.func_plot.isoscale="1"
+     org.inkscape.effect.func_plot.ybottom="3.2"
+     org.inkscape.effect.func_plot.xstart="-4.82842712475"
+     fernando.slopeField.slopeColor="#B4B4B4FF"
+     fernando.slopeField.__live_effect__="0"
+     fernando.slopeField.tab="Cartesian plot"
+     fernando.slopeField.subtab_axis="Xaxis"
+     fernando.slopeField.yTicks="0"
+     fernando.slopeField.function="x+y"
+     fernando.slopeField.yGrid="1"
+     fernando.slopeField.xTicks="0"
+     fernando.slopeField.xGrid="1"
+     fernando.slopeField.xMin="-3"
+     fernando.slopeField.xMax="0.9"
+     fernando.slopeField.yMin="-3"
+     fernando.slopeField.yMax="3"
+     fernando.slopeField.nSegmentsX="14"
+     fernando.slopeField.nSegmentsY="14" />
   <group
      id="desktop"
-     style="fill:#000000;stroke-width:3.77952756;-inkscape-font-specification:'sans-serif, Normal';font-family:sans-serif;font-size:46.66666667px;stroke:#ffff00;opacity:0.57131369">
+     style="fill:none;stroke-width:0.75590551;-inkscape-font-specification:'monospace, Normal';font-family:monospace;font-size:9.99998667px;stroke:#000000">
     <group
        width="640"
        height="480"
@@ -1152,4 +1175,7 @@
        symbolicWarningColor="4279865599"
        symbolicErrorColor="10086143" />
   </group>
+  <group
+     id="gradient-edit"
+     stoplist="1" />
 </inkscape>
