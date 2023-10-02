@@ -21,6 +21,7 @@ alias distro='source /etc/lsb-release && source /etc/os-release && echo "Main Di
 alias svn="svn --config-dir \"$XDG_CONFIG_HOME\"/subversion"
 alias wo="pomodoro 'work'"
 alias br="pomodoro 'break'"
+alias wgs="nocorrect watch git status"
 
 if [ -f "/etc/arch-release" ] || [ -f "/etc/artix-release" ]; then
   alias update='sudo pacman -Syu'
