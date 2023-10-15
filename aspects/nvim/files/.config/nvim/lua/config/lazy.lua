@@ -87,7 +87,6 @@ function Lazyload()
     vim.cmd([[syntax off]])
   end
 
-  local plugins = "plenary.nvim"
   loader("plenary.nvim")
 
   if vim.bo.filetype == "lua" then
@@ -115,15 +114,15 @@ function Lazyload()
   end
 
   if load_ts_plugins then
-    plugins =
-    "nvim-treesitter-textobjects nvim-treesitter-textsubjects nvim-treesitter-refactor nvim-ts-context-commentstring nvim-treesitter-context"
-    loader(plugins)
+    loader("nvim-treesitter-textobjects")
+    loader("nvim-treesitter-textsubjects")
+    loader("nvim-treesitter-refactor")
+    loader("nvim-ts-context-commentstring")
+    loader("nvim-treesitter-context")
     loader("neogen")
     loader("indent-blankline.nvim")
-    -- loader("nvim-ufo")
-    loader("tabout.nvim")
+    loader("null-ls.nvim")
   end
-  loader("null-ls.nvim")
 
   vim.cmd([[autocmd FileType vista,guihua,guihua_rust setlocal syntax=on]])
   vim.cmd(
@@ -141,11 +140,9 @@ end, lazy_timer)
 vim.defer_fn(function()
   loader("telescope.nvim")
   loader("nvim-colorizer.lua")
-  loader("incline.nvim")
   loader("nvim-navic")
 
   loader("windline.nvim")
-  require("modules.ui.notify").setup()
   require("modules.ui.eviline")
 
   local gitrepo = vim.fn.isdirectory(".git/index")

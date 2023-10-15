@@ -71,178 +71,220 @@ return function(use)
 
   use({ "JoosepAlviste/nvim-ts-context-commentstring" })
 
-  use({
-    "mfussenegger/nvim-treehopper",
-    config = ts.tshopper,
-    module = false
-  })
+  -- use({
+  --   "mfussenegger/nvim-treehopper",
+  --   config = ts.tshopper,
+  --   module = false
+  -- })
 
-  use({
-    "bennypowers/nvim-regexplainer",
-    cmd = { "RegexplainerToggle", "RegexplainerShow" },
-    config = conf.regexplainer,
-  })
+  -- use({
+  --   "bennypowers/nvim-regexplainer",
+  --   cmd = { "RegexplainerToggle", "RegexplainerShow" },
+  --   config = conf.regexplainer,
+  -- })
 
-  use({
-    "haringsrob/nvim_context_vt",
-    event = { "CursorHold", "WinScrolled", "CursorMoved" },
-    config = conf.context_vt,
-  })
+  -- use({
+  --   "haringsrob/nvim_context_vt",
+  --   event = { "CursorHold", "WinScrolled", "CursorMoved" },
+  --   config = conf.context_vt,
+  -- })
 
-  use({
-    "ThePrimeagen/refactoring.nvim",
-    config = conf.refactor,
-    cmd = "Refactor",
-  })
+  -- use({
+  --   "ThePrimeagen/refactoring.nvim",
+  --   config = conf.refactor,
+  --   cmd = "Refactor",
+  -- })
 
-  use({ "yardnsm/vim-import-cost" })
+  -- use({ "yardnsm/vim-import-cost" })
 
-  use({
-    "rafcamlet/nvim-luapad",
-    cmd = { "Lua", "Luapad" },
-    config = conf.luapad,
-  })
+  -- use({
+  --   "rafcamlet/nvim-luapad",
+  --   cmd = { "Lua", "Luapad" },
+  --   config = conf.luapad,
+  -- })
 
-  use({ "mtdl9/vim-log-highlighting", ft = { "text", "txt", "log" } })
+  -- use({ "mtdl9/vim-log-highlighting", ft = { "text", "txt", "log" } })
 
-  local cmd = "bash install.sh"
-  if require("config.global").is_windows then
-    if vim.fn.executable("bash") == 0 then
-      cmd = [[echo "failed to install sniprun, bash is not installed"]]
-    end
-  end
+  -- local cmd = "bash install.sh"
+  -- if require("config.global").is_windows then
+  --   if vim.fn.executable("bash") == 0 then
+  --     cmd = [[echo "failed to install sniprun, bash is not installed"]]
+  --   end
+  -- end
 
-  use({
-    "michaelb/sniprun",
-    build = cmd,
-    cmd = { "SnipRun", "SnipReset" },
-    config = function()
-      require("sniprun").setup({
-        inline_messages = 1,
-      })
-    end,
-  })
+  -- use({
+  --   "michaelb/sniprun",
+  --   build = cmd,
+  --   cmd = { "SnipRun", "SnipReset" },
+  --   config = function()
+  --     require("sniprun").setup({
+  --       inline_messages = 1,
+  --     })
+  --   end,
+  -- })
 
-  use({
-    "gennaro-tedesco/nvim-jqx",
-    cmd = { "JqxList", "JqxQuery" }
-  })
+  -- use({
+  --   "gennaro-tedesco/nvim-jqx",
+  --   cmd = { "JqxList", "JqxQuery" }
+  -- })
 
-  use({
-    "bfrg/vim-jqplay",
-    ft = "jq",
-    cmd = { "Jqplay", "JqplayScratch", "JqplayScratchNoInput" },
-  })
+  -- use({
+  --   "bfrg/vim-jqplay",
+  --   ft = "jq",
+  --   cmd = { "Jqplay", "JqplayScratch", "JqplayScratchNoInput" },
+  -- })
 
-  use({
-    "m-demare/hlargs.nvim",
-    config = function()
-      require("hlargs").setup({
-        disable = function()
-          local excluded_filetype = {
-            "TelescopePrompt",
-            "guihua",
-            "guihua_rust",
-            "clap_input",
-            "lua",
-            "rust",
-            "typescript",
-            "typescriptreact",
-            "javascript",
-            "javascriptreact",
-          }
-          if vim.tbl_contains(excluded_filetype, vim.bo.filetype) then
-            return true
-          end
+  -- use({
+  --   "m-demare/hlargs.nvim",
+  --   config = function()
+  --     require("hlargs").setup({
+  --       disable = function()
+  --         local excluded_filetype = {
+  --           "TelescopePrompt",
+  --           "guihua",
+  --           "guihua_rust",
+  --           "clap_input",
+  --           "lua",
+  --           "rust",
+  --           "typescript",
+  --           "typescriptreact",
+  --           "javascript",
+  --           "javascriptreact",
+  --         }
+  --         if vim.tbl_contains(excluded_filetype, vim.bo.filetype) then
+  --           return true
+  --         end
 
-          local bufnr = vim.api.nvim_get_current_buf()
-          local filetype = vim.fn.getbufvar(bufnr, "&filetype")
-          if filetype == "" then
-            return true
-          end
-          local parsers = require("nvim-treesitter.parsers")
-          local buflang = parsers.ft_to_use(filetype)
-          return vim.tbl_contains(excluded_filetype, buflang)
-        end,
-      })
-    end,
-  })
+  --         local bufnr = vim.api.nvim_get_current_buf()
+  --         local filetype = vim.fn.getbufvar(bufnr, "&filetype")
+  --         if filetype == "" then
+  --           return true
+  --         end
+  --         local parsers = require("nvim-treesitter.parsers")
+  --         local buflang = parsers.ft_to_use(filetype)
+  --         return vim.tbl_contains(excluded_filetype, buflang)
+  --       end,
+  --     })
+  --   end,
+  -- })
 
-  use({ "cshuaimin/ssr.nvim", config = conf.ssr })
+  -- use({ "cshuaimin/ssr.nvim", config = conf.ssr })
 
-  use({
-    "HiPhish/awk-ward.nvim",
-    ft = "awk",
-    cmd = { "AwkWard" },
-  })
-  use({
-    "mechatroner/rainbow_csv",
-    ft = { "csv", "tsv", "dat" },
-    cmd = { "RainbowDelim", "RainbowMultiDelim", "Select", "CSVLint" },
-  })
+  -- use({
+  --   "HiPhish/awk-ward.nvim",
+  --   ft = "awk",
+  --   cmd = { "AwkWard" },
+  -- })
+  -- use({
+  --   "mechatroner/rainbow_csv",
+  --   ft = { "csv", "tsv", "dat" },
+  --   cmd = { "RainbowDelim", "RainbowMultiDelim", "Select", "CSVLint" },
+  -- })
 
-  use({
-    "mzlogin/vim-markdown-toc",
-    cmd = {
-      "GenTocGFM",
-      "GenTocRedcarpet",
-      "GenTocGitLab",
-      "GenTocMarked",
-    },
-    ft = "markdown",
-  })
-  use({
-    "iamcco/markdown-preview.nvim",
-    config = conf.markdown_preview,
-    cmd = "MarkdownPreviewToggle",
-    ft = "markdown",
-  })
-  use({
-    "antonk52/markdowny.nvim",
-    config = function()
-      require("markdowny").setup()
-    end,
-    ft = "markdown",
-  })
-  use({ "dhruvasagar/vim-table-mode", ft = "markdown" })
-  use({
-    "ellisonleao/glow.nvim",
-    cmd = "Glow",
-    config = true,
-    ft = "markdown",
-  })
+  -- use({
+  --   "mzlogin/vim-markdown-toc",
+  --   cmd = {
+  --     "GenTocGFM",
+  --     "GenTocRedcarpet",
+  --     "GenTocGitLab",
+  --     "GenTocMarked",
+  --   },
+  --   ft = "markdown",
+  -- })
+  -- use({
+  --   "iamcco/markdown-preview.nvim",
+  --   config = conf.markdown_preview,
+  --   cmd = "MarkdownPreviewToggle",
+  --   ft = "markdown",
+  -- })
+  -- use({
+  --   "antonk52/markdowny.nvim",
+  --   config = function()
+  --     require("markdowny").setup()
+  --   end,
+  --   ft = "markdown",
+  -- })
+  -- use({ "dhruvasagar/vim-table-mode", ft = "markdown" })
+  -- use({
+  --   "ellisonleao/glow.nvim",
+  --   cmd = "Glow",
+  --   config = true,
+  --   ft = "markdown",
+  -- })
 
   use({
     "lervag/vimtex",
     config = conf.vimtex,
     ft = "tex",
   })
-  use({ "KeitaNakamura/tex-conceal.vim", ft = "tex" })
+  -- use({ "KeitaNakamura/tex-conceal.vim", ft = "tex" })
 
-  -- python
-  use({
-    "dccsillag/magma-nvim",
-    config = conf.magma,
-    ft = "python",
-  })
-
-  -- javascript/typescript
-  use({
-    "mattn/emmet-vim",
-    ft = {
-      "html",
-      "javascriptreact",
-      "typescriptreact",
-    },
-  })
+  -- -- python
   -- use({
-  --   "windwp/nvim-ts-autotag",
+  --   "dccsillag/magma-nvim",
+  --   config = conf.magma,
+  --   ft = "python",
+  -- })
+
+  -- -- javascript/typescript
+  -- use({
+  --   "mattn/emmet-vim",
+  --   ft = {
+  --     "html",
+  --     "javascriptreact",
+  --     "typescriptreact",
+  --   },
+  -- })
+  -- -- use({
+  -- --   "windwp/nvim-ts-autotag",
+  -- --   config = function()
+  -- --     require("nvim-treesitter.configs").setup({
+  -- --       autotag = {
+  -- --         enable = true,
+  -- --       },
+  -- --     })
+  -- --   end,
+  -- --   ft = {
+  -- --     "html",
+  -- --     "javascriptreact",
+  -- --     "typescriptreact",
+  -- --   },
+  -- -- })
+  -- use({
+  --   "dmmulroy/tsc.nvim",
+  --   cmd = { "TSC" },
+  --   config = true,
+  -- })
+  -- use({
+  --   "pmizio/typescript-tools.nvim",
+  --   ft = { "typescript", "typescriptreact" },
+  --   dependencies = {
+  --     "nvim-lua/plenary.nvim",
+  --     "neovim/nvim-lspconfig",
+  --   },
+  -- })
+  -- use({
+  --   "vuki656/package-info.nvim",
+  --   event = "BufEnter package.json",
+  --   config = conf.package_json,
+  -- })
+
+  -- -- javascript react/typescript react
+  -- use({ "ianks/vim-tsx", ft = "typescriptreact" })
+  -- use({ "mxw/vim-jsx", ft = "javascriptreact" })
+
+  -- -- html
+  -- use({ "turbio/bracey.vim", ft = "html" })
+  -- use({
+  --   "Valloric/MatchTagAlways",
   --   config = function()
-  --     require("nvim-treesitter.configs").setup({
-  --       autotag = {
-  --         enable = true,
-  --       },
-  --     })
+  --     vim.cmd([[
+  --     let g:mta_filetypes = {
+  --     \ "html" : 1,
+  --     \ "javascriptreact" : 1,
+  --     \ "typescriptreact" : 1,
+  --     \}
+  --     ]])
   --   end,
   --   ft = {
   --     "html",
@@ -250,69 +292,27 @@ return function(use)
   --     "typescriptreact",
   --   },
   -- })
-  use({
-    "dmmulroy/tsc.nvim",
-    cmd = { "TSC" },
-    config = true,
-  })
-  use({
-    "pmizio/typescript-tools.nvim",
-    ft = { "typescript", "typescriptreact" },
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "neovim/nvim-lspconfig",
-    },
-  })
-  use({
-    "vuki656/package-info.nvim",
-    event = "BufEnter package.json",
-    config = conf.package_json,
-  })
 
-  -- javascript react/typescript react
-  use({ "ianks/vim-tsx", ft = "typescriptreact" })
-  use({ "mxw/vim-jsx", ft = "javascriptreact" })
+  -- -- r
+  -- use({ "jalvesaq/Nvim-R", ft = { "r", "rmd" } })
+  -- use({ "jalvesaq/R-Vim-runtime", ft = { "r", "rmd" } })
+  -- use({ "jalvesaq/colorout", ft = { "r", "rmd" } })
 
-  -- html
-  use({ "turbio/bracey.vim", ft = "html" })
-  use({
-    "Valloric/MatchTagAlways",
-    config = function()
-      vim.cmd([[
-      let g:mta_filetypes = {
-      \ "html" : 1,
-      \ "javascriptreact" : 1,
-      \ "typescriptreact" : 1,
-      \}
-      ]])
-    end,
-    ft = {
-      "html",
-      "javascriptreact",
-      "typescriptreact",
-    },
-  })
-
-  -- r
-  use({ "jalvesaq/Nvim-R", ft = { "r", "rmd" } })
-  use({ "jalvesaq/R-Vim-runtime", ft = { "r", "rmd" } })
-  use({ "jalvesaq/colorout", ft = { "r", "rmd" } })
-
-  -- sql
-  use({
-    "hbarral/vim-dadbod",
-    config = conf.dadbod,
-    cmd = {
-      "DBUIToggle",
-      "DBUI",
-      "DBUIAddConnection",
-      "DBUIFindBuffer",
-      "DBUIRenameBuffer",
-      "DBUILastQueryInfo",
-    },
-    dependencies = {
-      "kristijanhusak/vim-dadbod-ui",
-      "kristijanhusak/vim-dadbod-completion",
-    },
-  })
+  -- -- sql
+  -- use({
+  --   "hbarral/vim-dadbod",
+  --   config = conf.dadbod,
+  --   cmd = {
+  --     "DBUIToggle",
+  --     "DBUI",
+  --     "DBUIAddConnection",
+  --     "DBUIFindBuffer",
+  --     "DBUIRenameBuffer",
+  --     "DBUILastQueryInfo",
+  --   },
+  --   dependencies = {
+  --     "kristijanhusak/vim-dadbod-ui",
+  --     "kristijanhusak/vim-dadbod-completion",
+  --   },
+  -- })
 end

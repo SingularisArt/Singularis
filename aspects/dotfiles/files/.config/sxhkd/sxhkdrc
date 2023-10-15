@@ -43,11 +43,11 @@ super + y
 ##########
 
 super + r
-  rofi -show drun -show-icons
+  rofi -show drun -show-icons -no-fixed-num-lines
 super + shift + r
-  rofi -show window
+  rofi -show window -no-fixed-num-lines
 super + shift + e
-  rofi -mode emoji -show emoji
+  rofi -mode emoji -show emoji -no-fixed-num-lines
 super + p
   ~/.local/bin/rofi-pass
 super + b

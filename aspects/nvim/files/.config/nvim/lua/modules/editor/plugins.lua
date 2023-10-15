@@ -100,20 +100,6 @@ return function(use)
   })
 
   use({
-    "ThePrimeagen/harpoon",
-    config = function()
-      require("harpoon").setup()
-      require("telescope").load_extension("harpoon")
-    end,
-    keys = {
-      { "<Leader>Ha", "<CMD>lua require('harpoon.mark').add_file()<CR>" },
-      { "<Leader>Hh", "<CMD>lua require('harpoon.ui').toggle_quick_menu()<CR>" },
-      { "<Leader>Hn", "<CMD>lua require('harpoon.ui').nav_next()<CR>" },
-      { "<Leader>Hp", "<CMD>lua require('harpoon.ui').nav_prev()<CR>" },
-    },
-  })
-
-  use({
     "rmagatti/alternate-toggler",
     config = function()
       require("alternate-toggler").setup({})
@@ -121,41 +107,6 @@ return function(use)
     keys = {
       { "<Space>t", "<CMD>lua require('alternate-toggler').toggleAlternate()<CR>" },
     },
-  })
-
-  use({
-    "epwalsh/obsidian.nvim",
-    event = { "BufReadPre " .. vim.fn.expand("~") .. "/Documents/Obsidian/" },
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-    },
-    opts = {
-      dir = "~/Documents/Obsidian/",
-
-      daily_notes = {
-        folder = "notes/dailies",
-        date_format = "%b %d %Y %a (%H:%M:%S)"
-      },
-
-      completion = {
-        nvim_cmp = true,
-        min_chars = 2,
-        new_notes_location = "current_dir",
-        prepend_note_id = true
-      },
-    },
-  })
-
-  use({
-    "AckslD/muren.nvim",
-    cmd = {
-      "MurenToggle",
-      "MurenOpen",
-      "MurenClose",
-      "MurenFresh",
-      "MurenUnique",
-    },
-    config = true,
   })
 
   use({
@@ -173,29 +124,6 @@ return function(use)
     config = conf.lir,
     keys = {
       { "<Leader>-", "<CMD>lua require('lir.float').toggle()<CR>" },
-    },
-  })
-
-  use({
-    "potamides/pantran.nvim",
-    config = conf.translate,
-    cmd = "Pantran",
-  })
-
-  use({
-    "hoschi/yode-nvim",
-    config = function()
-      require("yode-nvim").setup()
-    end,
-    cmd = {
-      "YodeCreateSeditorFloating",
-      "YodeCreateSeditorReplace",
-      "YodeBufferDelete",
-      "YodeGoToAlternateBuffer",
-      "YodeCloneCurrentIntoFloat",
-      "YodeFloatToMainWindow",
-      "YodeFormatWrite",
-      "YodeRunInFile",
     },
   })
 end

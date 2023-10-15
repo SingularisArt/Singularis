@@ -118,8 +118,8 @@
          id="rect"
          style="fill:blue;"
          usecurrent="1"
-         width="793.700787401575"
-         height="829.813568836121" />
+         width="708.407531738281"
+         height="130.238952636719" />
       <eventcontext
          id="3dbox"
          style="stroke:none;stroke-linejoin:round;"
@@ -308,7 +308,7 @@
        id="lpetool"
        mode="drag"
        style="fill:#ff0000;fill-opacity:1;fill-rule:nonzero;stroke:none;"
-       unit="mm"
+       unit="px"
        show_bbox="1" />
     <eventcontext
        id="text"
@@ -621,7 +621,7 @@
     </group>
     <group
        id="save_as"
-       default="org.inkscape.output.svg.inkscape"
+       default="org.inkscape.output.png.inkscape"
        append_extension="1"
        enable_preview="1"
        path="/home/singularis/Documents/school-setup/example-setup/courses/course-01/figures/lec-01"
@@ -635,7 +635,7 @@
     <group
        id="open"
        enable_preview="1"
-       path="/home/singularis/Documents/school-setup/example-setup/courses/course-01/figures/lec-01/" />
+       path="/home/singularis/Downloads/" />
     <group
        id="import"
        enable_preview="1"
@@ -1029,7 +1029,7 @@
      fernando.slopeField.nSegmentsY="14" />
   <group
      id="desktop"
-     style="fill:none;stroke-width:0.75590551;-inkscape-font-specification:'monospace, Normal';font-family:monospace;font-size:9.99998667px;stroke:#000000">
+     style="fill:#000000;stroke-width:0.75590551;-inkscape-font-specification:'monospace, Normal';font-family:monospace;font-size:9.99998667px;stroke:#465d7b">
     <group
        width="640"
        height="480"
