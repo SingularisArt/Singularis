@@ -62,7 +62,6 @@ vars.mappings["h"] = { "<CMD>split<CR>", "Horizontal Split" }
 vars.mappings[" "] = { "<CMD>normal <C-^><CR>", "Jump to previous buffer" }
 vars.mappings["/"] = { "<CMD>lua require('Comment.api').toggle.linewise()<CR>", "Comment out current line" }
 vars.mappings["e"] = { "<CMD>Neotree toggle<CR>", "Toggle NeoTree" }
-vars.mappings["o"] = { "<CMD>Oil<CR>", "Toggle Oil" }
 vars.mappings["-"] = { "<CMD>lua require('lir.float').toggle()<CR>", "Toggle Lir" }
 vars.mappings["z"] = { "<CMD>ZenMode<CR>", "Zen Mode" }
 vars.mappings["t"] = { "<CMD>lua require('alternate-toggler').toggleAlternate()<CR>", "Alternate" }
@@ -179,53 +178,6 @@ vars.mappings["d"] = {
   s = { "<CMD>lua require('dap').continue()<CR>", "Start" },
   q = { "<CMD>lua require('dap').close()<CR>", "Quit" },
   U = { "<CMD>lua require('dapui').toggle()<CR>", "Enable/Disable UI" },
-}
-
-vars.mappings["S"] = {
-  name = "Sessions",
-  l = { "<CMD>Telescope sessions list<CR>", "List sessions" },
-  n = { "<CMD>Telescope sessions new<CR>", "New session" },
-  u = { "<CMD>Telescope sessions update<CR>", "Update current session" },
-}
-
-vars.mappings["P"] = {
-  name = "Pommodoro",
-  w = { "<CMD>require('pommodoro-clock').start_work()<CR>", "Start Pommodoro" },
-  s = { "<CMD>require('start_short_break').start_work()<CR>", "Short Break" },
-  l = { "<CMD>require('start_long_break').start_work()<CR>", "Long Break" },
-  c = { "<CMD>require('toggle_pause').start_work()<CR>", "Toggle Pause" },
-  C = { "<CMD>require('close').start_work()<CR>", "Close" },
-}
-
-vars.mappings["H"] = {
-  a = { "<CMD>lua require('harpoon.mark').add_file()<CR>", "Add file to harpoon" },
-  h = { "<CMD>lua require('harpoon.ui').toggle_quick_menu()<CR>", "View harpoon" },
-  n = { "<CMD>lua require('harpoon.ui').nav_next()<CR>", "Navigates to next harpoon mark" },
-  p = { "<CMD>lua require('harpoon.ui').nav_prev()<CR>", "Navigates to previous harpoon mark" },
-}
-
-vars.mappings["N"] = {
-  name = "NeoAI",
-  t = { "<CMD>NeoAIToggle<CR>", "Toggle NeoAI" },
-  c = { "<CMD>NeoAIContext<CR>", "NeoAI Context" },
-  i = {
-    name = "Inject",
-    c = { "<CMD>NeoAIInjectCode<CR>", "Inject Code" },
-    t = { "<CMD>NeoAIInjectContext<CR>", "Inject Context" },
-    C = { "<CMD>NeoAIInjectContextCode<CR>", "Inject Code and Context" },
-  },
-}
-
-vars.mappings["y"] = {
-  name = "Yode",
-  f = { "<CMD>YodeCreateSeditorFloating<CR>", "Focus on a code part and make it floating" },
-  r = { "<CMD>YodeCreateSeditorReplace<CR>", "Focus on a code part and replace it with the current buffer" },
-  d = { "<CMD>YodeBufferDelete<CR>", "Delete the current buffer" },
-  a = { "<CMD>YodeGoToAlternateBuffer<CR>", "Go to alternate buffer" },
-  c = { "<CMD>YodeCloneCurrentIntoFloat<CR>", "Clone seditor into float" },
-  m = { "<CMD>YodeFloatToMainWindow<CR>", "Go to main window" },
-  w = { "<CMD>YodeFormatWrite<CR>", "Format and write a buffer" },
-  i = { "<CMD>YodeRunInFile<CR>", "Run command in file" },
 }
 
 vars.mappings["r"] = {

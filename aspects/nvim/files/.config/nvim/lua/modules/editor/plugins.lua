@@ -24,17 +24,6 @@ return function(use)
     "nvim-telescope/telescope.nvim",
     config = conf.telescope,
     cmd = "Telescope",
-    dependencies = {
-      {
-        "SingularisArt/telescope-sessions.nvim",
-        config = conf.telescope_sessions,
-        keys = {
-          { "<Leader>Sl", "<CMD>Telescope sessions list<CR>" },
-          { "<Leader>Sn", "<CMD>Telescope sessions new<CR>" },
-          { "<Leader>Su", "<CMD>Telescope sessions update<CR>" },
-        },
-      },
-    },
   })
 
   use({
