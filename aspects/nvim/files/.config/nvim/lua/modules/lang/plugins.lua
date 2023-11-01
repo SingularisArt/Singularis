@@ -154,6 +154,10 @@ return function(use)
     config = conf.vimtex,
     ft = "tex",
   })
+  use({
+    "anufrievroman/vim-tex-kawaii",
+    ft = "tex",
+  })
 
   -- javascript/typescript
   use({
