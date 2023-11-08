@@ -1,6 +1,8 @@
 set guioptions v
 set recolor "true"
 set recolor-keephue "true"
+set synctex true
+set open-uri true
 
 set completion-bg "{background}"
 set completion-fg "{foreground}"

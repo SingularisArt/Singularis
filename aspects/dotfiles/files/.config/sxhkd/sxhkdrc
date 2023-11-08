@@ -33,7 +33,7 @@ super + c
   bspc rule -a kitty -o state=floating center=true rectangle=800x600+0+0 && kitty "calcure" # "calcurse"
 super + shift + p
   bspc rule -a kitty -o state=floating center=true rectangle=800x600+0+0 && kitty "pulsemixer"
-super + shift + Return
+super + z
   zathura
 super + y
   slock

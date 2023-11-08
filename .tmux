@@ -17,17 +17,17 @@ fi
 tmux new-session -d -s "$SESSION_NAME"
 
 tmux rename-window -t "$SESSION_NAME" "Dotfiles"
-tmux send-keys -t "$SESSION_NAME" "cd ./aspects/dotfiles/files/; clear; lanc" Enter
+tmux send-keys -t "$SESSION_NAME" "cd ./aspects/dotfiles/files/; clear" Enter
 
 tmux new-window -t "$SESSION_NAME"
 
 tmux rename-window -t "$SESSION_NAME" "NeoVim"
-tmux send-keys -t "$SESSION_NAME" "cd ./aspects/nvim/files/.config/nvim/; clear; lanc" Enter
+tmux send-keys -t "$SESSION_NAME" "cd ./aspects/nvim/files/.config/nvim/; clear" Enter
 
 tmux new-window -t "$SESSION_NAME"
 
 tmux rename-window -t "$SESSION_NAME" "Email"
-tmux send-keys -t "$SESSION_NAME" "cd ./aspects/email/files/.config; clear; lanc" Enter
+tmux send-keys -t "$SESSION_NAME" "cd ./aspects/email/files/.config; clear" Enter
 
 tmux new-window -t "$SESSION_NAME"
 
