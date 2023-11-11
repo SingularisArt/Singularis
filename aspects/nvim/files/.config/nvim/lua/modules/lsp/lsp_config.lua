@@ -16,7 +16,7 @@ M.servers = {
   sqlls = require("modules.lsp.settings.sqlls"),
   cssls = { filetypes = { "css" }, install = true },
   html = require("modules.lsp.settings.html"),
-  texlab = require("modules.lsp.settings.texlab"),
+  -- texlab = require("modules.lsp.settings.texlab"),
   bashls = { filetypes = { "bash" }, install = true },
   clangd = require("modules.lsp.settings.clangd"),
   tailwindcss = {
@@ -26,9 +26,9 @@ M.servers = {
       "javascript",
       "typescript",
       "javascriptreact",
-      "typescriptreact"
+      "typescriptreact",
     },
-    install = true
+    install = true,
   },
   golangci_lint_ls = { filetypes = { "go", "gomod" }, install = true },
   gopls = require("modules.lsp.settings.gopls"),
@@ -62,29 +62,29 @@ M.formatters = {
 
   -- JS/TS
   prettier = {
-options = {
-  filetypes = {
-    "javascript",
-    "typescript",
-    "css",
-    "scss",
-    "html",
-    "json",
-    "yaml",
-    -- "markdown",
-    "graphql",
-    "md",
-    "txt",
+    options = {
+      filetypes = {
+        "javascript",
+        "typescript",
+        "css",
+        "scss",
+        "html",
+        "json",
+        "yaml",
+        -- "markdown",
+        "graphql",
+        "md",
+        "txt",
+      },
+      only_local = "node_modules/.bin",
+    },
   },
-  only_local = "node_modules/.bin",
-},
-},
--- prettier = {
---   options = {
---     extra_filetypes = { "toml", "solidity" },
---     extra_args = { "--arrow-parens always", "--trailing-comma all" },
---   },
--- },
+  -- prettier = {
+  --   options = {
+  --     extra_filetypes = { "toml", "solidity" },
+  --     extra_args = { "--arrow-parens always", "--trailing-comma all" },
+  --   },
+  -- },
 
   -- Ruby
   standardrb = {
