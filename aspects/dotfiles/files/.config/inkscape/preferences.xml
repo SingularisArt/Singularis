@@ -118,13 +118,13 @@
          id="rect"
          style="fill:blue;"
          usecurrent="1"
-         width="907.086614173229"
-         height="453.54330708662" />
+         width="40.2524176169567"
+         height="34.3811047171049" />
       <eventcontext
          id="3dbox"
          style="stroke:none;stroke-linejoin:round;"
          usecurrent="1"
-         persp="perspective3">
+         persp="perspective1">
         <side
            id="XYfront"
            style="fill:#8686bf;stroke:none;stroke-linejoin:round;"
@@ -156,14 +156,14 @@
          end="0"
          start="0"
          usecurrent="1"
-         rx="95.9380598894238"
-         ry="100.98525400237" />
+         rx="117.591362900622"
+         ry="119.183904692884" />
       <eventcontext
          id="star"
          magnitude="5"
          style="fill:yellow;"
          usecurrent="1"
-         proportion="0.500000107025861" />
+         proportion="0.500000128393957" />
       <eventcontext
          id="spiral"
          style="fill:none;stroke:black"
@@ -1036,7 +1036,7 @@
        x="0"
        y="0"
        maximized="1"
-       fullscreen="0"
+       fullscreen="1"
        id="geometry" />
     <group
        id="XYfront" />
