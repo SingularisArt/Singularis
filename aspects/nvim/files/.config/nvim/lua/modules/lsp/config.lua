@@ -123,7 +123,12 @@ function config.navigator()
     height = 0.3,
     preview_height = 0.35,
     border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
-    ts_fold = false,
+    ts_fold = {
+      enable = false,
+      -- comment_fold = true,
+      -- max_lines_scan_comments = 20,
+      -- disable_filetypes = { "help", "guihua", "text" },
+    },
     default_mapping = false,
     treesitter_analysis = true,
     transparency = 50,

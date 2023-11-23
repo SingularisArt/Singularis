@@ -49,7 +49,9 @@ local treesitter_obj = function()
     enable = false
   end
 
-  require("nvim-treesitter.configs").setup({
+  vim.g.skip_ts_context_commentstring_module = true
+
+  require("ts_context_commentstring").setup({
     indent = { enable = enable },
     context_commentstring = { enable = enable },
     incremental_selection = {
@@ -72,41 +74,41 @@ local treesitter_obj = function()
         keymaps = {
           ["af"] = "@function.outer",
           ["if"] = "@function.inner",
-        }
+        },
       },
       move = {
         enable = true,
         set_jumps = true,
         goto_next_start = {
           ["]m"] = "@function.outer",
-          ["]]"] = "@class.outer"
+          ["]]"] = "@class.outer",
         },
         goto_next_end = {
           ["]M"] = "@function.outer",
-          ["]["] = "@class.outer"
+          ["]["] = "@class.outer",
         },
         goto_previous_start = {
           ["[m"] = "@function.outer",
-          ["[["] = "@class.outer"
+          ["[["] = "@class.outer",
         },
         goto_previous_end = {
           ["[M"] = "@function.outer",
-          ["[]"] = "@class.outer"
-        }
+          ["[]"] = "@class.outer",
+        },
       },
       swap = {
         enable = true,
-        swap_next = {["[n"] = "@parameter.inner"},
-        swap_previous = {["]p"] = "@parameter.inner"}
+        swap_next = { ["[n"] = "@parameter.inner" },
+        swap_previous = { ["]p"] = "@parameter.inner" },
       },
       lsp_interop = {
         enable = true,
         border = "rounded",
         peek_definition_code = {
-          ["<Leader>ldp"] = "@class.outer"
-        }
+          ["<Leader>ldp"] = "@class.outer",
+        },
       },
-    }
+    },
   })
 end
 

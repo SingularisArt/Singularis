@@ -14,6 +14,7 @@ return function(use)
         config = function()
           require("neodev").setup()
         end,
+        ft = "lua",
       },
       {
         "williamboman/mason-lspconfig.nvim",
