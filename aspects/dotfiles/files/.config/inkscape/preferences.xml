@@ -308,7 +308,7 @@
        id="lpetool"
        mode="drag"
        style="fill:#ff0000;fill-opacity:1;fill-rule:nonzero;stroke:none;"
-       unit="mm"
+       unit="px"
        show_bbox="1" />
     <eventcontext
        id="text"
@@ -635,11 +635,11 @@
     <group
        id="open"
        enable_preview="1"
-       path="/home/singularis/Documents/school-notes/College/Year-1/spring/mth-253/figures/lec-01/" />
+       path="/home/singularis/" />
     <group
        id="import"
        enable_preview="1"
-       path="/home/singularis/Documents/school-notes/College/Year-1/spring/mth-253/figures/lec-01/"
+       path="/home/singularis/"
        ask="1"
        ask_svg="1"
        link="embed"
@@ -1036,7 +1036,7 @@
        x="0"
        y="0"
        maximized="1"
-       fullscreen="1"
+       fullscreen="0"
        id="geometry" />
     <group
        id="XYfront" />
