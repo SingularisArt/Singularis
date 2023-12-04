@@ -115,11 +115,11 @@ function config.cmp()
     },
     window = {
       completion = {
-        border = border "CmpDocBorder",
+        border = border("CmpDocBorder"),
         winhighlight = "Normal:CmpDoc",
       },
       documentation = {
-        border = border "CmpDocBorder",
+        border = border("CmpDocBorder"),
         winhighlight = "Normal:CmpDoc",
       },
     },
@@ -189,7 +189,8 @@ function config.ultisnips()
   vim.g.UltiSnipsRemoveSelectModeMappings = 0
   vim.g.UltiSnipsEditSplit = "tabdo"
   vim.g.UltiSnipsSnippetDirectories = {
-    "~/.config/nvim/UltiSnips", "UltiSnips"
+    "~/.config/nvim/UltiSnips",
+    "UltiSnips",
   }
 end
 
