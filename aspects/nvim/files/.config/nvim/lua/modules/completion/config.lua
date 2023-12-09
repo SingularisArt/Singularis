@@ -14,6 +14,7 @@ function config.cmp()
   }
 
   local source_names = {
+    copilot = "(Copilot)",
     nvim_lsp = "(LSP)",
     nvim_lua = "(Lua)",
     ultisnips = "(Snippets)",
@@ -31,6 +32,7 @@ function config.cmp()
   }
 
   local cmp_sources = {
+    { name = "copilot" },
     { name = "nvim_lsp" },
     { name = "ultisnips" },
     { name = "calc" },

@@ -16,6 +16,12 @@ return function(use)
       "f3fora/cmp-spell",
       "octaltree/cmp-look",
       {
+        "zbirenbaum/copilot-cmp",
+        config = function ()
+          require("copilot_cmp").setup()
+        end,
+      },
+      {
         "roobert/tailwindcss-colorizer-cmp.nvim",
         opts = function(_, opts)
           opts.formatting = {

@@ -66,6 +66,7 @@ function global:load_variables()
   if vim.fn.has("mac") == 1 or vim.g.use_nerd_icons then
     self.icons = {
       kind = {
+        Copilot = "",
         Text = "",
         Method = "m",
         Function = "",
@@ -170,6 +171,7 @@ function global:load_variables()
   else
     self.icons = {
       kind = {
+        Copilot = "",
         Text = " ",
         Method = " ",
         Function = " ",
