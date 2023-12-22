@@ -20,13 +20,27 @@ return function(use)
     },
   })
 
+  -- For CMP
+  -- use({
+  --   "zbirenbaum/copilot.lua",
+  --   config = function()
+  --     require("copilot").setup({
+  --       suggestion = { enabled = false },
+  --       panel = { enabled = false },
+  --     })
+  --   end,
+  --   event = "InsertEnter",
+  -- })
+
   use({
-    "zbirenbaum/copilot.lua",
+    "github/copilot.vim",
     config = function()
-      require("copilot").setup({
-        suggestion = { enabled = false },
-        panel = { enabled = false },
-      })
+      vim.g.copilot_no_tab_map = true
+      vim.api.nvim_set_keymap("i", "<C-h>", "copilot#Accept('<CR>')", { silent = true, expr = true })
+
+      vim.g.copilot_filetypes = {
+        ["*"] = true,
+      }
     end,
     event = "InsertEnter",
   })

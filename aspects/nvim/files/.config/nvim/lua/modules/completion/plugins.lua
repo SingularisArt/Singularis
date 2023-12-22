@@ -15,12 +15,12 @@ return function(use)
       "hrsh7th/cmp-emoji",
       "f3fora/cmp-spell",
       "octaltree/cmp-look",
-      {
-        "zbirenbaum/copilot-cmp",
-        config = function ()
-          require("copilot_cmp").setup()
-        end,
-      },
+      -- {
+      --   "zbirenbaum/copilot-cmp",
+      --   config = function ()
+      --     require("copilot_cmp").setup()
+      --   end,
+      -- },
       {
         "roobert/tailwindcss-colorizer-cmp.nvim",
         opts = function(_, opts)

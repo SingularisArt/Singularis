@@ -87,7 +87,7 @@ lsp.on_attach = function(client, bufnr)
     require("modules.lsp.filetypes.cpp").clangd_extensions()
   end
 
-  require("inlay-hints").on_attach(client, bufnr)
+  -- require("inlay-hints").on_attach(client, bufnr)
   lsp.setup_codelens_refresh(client, bufnr)
   lsp.attach_mappings(client, bufnr)
 
