@@ -193,19 +193,6 @@ vars.mappings["r"] = {
   V = { [[ <ESC><CMD>lua require('refactoring').debug.print_var({})<CR>]], "Debug Print Var" },
 }
 
-vars.vmappings["r"] = {
-  name = "Refactor",
-  e = { [[ <ESC><CMD>lua require('refactoring').refactor('Extract Function')<CR>]], "Extract Function" },
-  f = {
-    [[ <ESC><CMD>lua require('refactoring').refactor('Extract Function to File')<CR>]],
-    "Extract Function to File",
-  },
-  v = { [[ <ESC><CMD>lua require('refactoring').refactor('Extract Variable')<CR>]], "Extract Variable" },
-  i = { [[ <ESC><CMD>lua require('refactoring').refactor('Inline Variable')<CR>]], "Inline Variable" },
-  r = { [[ <ESC><CMD>lua require('telescope').extensions.refactoring.refactors()<CR>]], "Refactor" },
-  V = { [[ <ESC><CMD>lua require('refactoring').debug.print_var({})<CR>]], "Debug Print Var" },
-}
-
 local which_key = require("which-key")
 
 which_key.setup(setup)

@@ -13,14 +13,6 @@ if fsize == nil or fsize < 0 then
   fsize = 1
 end
 
-local load_ts_plugins = true
-local load_lsp = true
-
-if fsize > 1024 * 1024 then
-  load_ts_plugins = false
-  load_lsp = false
-end
-
 local createdir = function()
   local cache_dir = require("config.global").cache_dir
   local data_dir = {
@@ -41,14 +33,10 @@ local createdir = function()
 end
 
 if vim.wo.diff then
-  if load_ts_plugins then
-    vim.cmd([[packadd nvim-treesitter]])
-    require("nvim-treesitter.configs").setup({
-      highlight = { enable = true, use_languagetree = false },
-    })
-  else
-    vim.cmd([[syntax on]])
-  end
+  vim.cmd([[packadd nvim-treesitter]])
+  require("nvim-treesitter.configs").setup({
+    highlight = { enable = true, use_languagetree = false },
+  })
   return
 end
 
@@ -80,13 +68,6 @@ function Lazyload()
     loader("go.nvim")
   end
 
-  if fsize > 2 * 1024 * 1024 then
-    print("syntax off, enable it by :setlocal syntax=on")
-    load_lsp = false
-    load_ts_plugins = false
-    vim.cmd([[syntax off]])
-  end
-
   loader("plenary.nvim")
 
   if vim.bo.filetype == "lua" then
@@ -95,34 +76,28 @@ function Lazyload()
 
   vim.g.vimsyn_embed = "lPr"
 
+  loader("nvim-treesitter")
+  loader("nvim-treesitter-textobjects")
+  loader("nvim-treesitter-textsubjects")
+  loader("nvim-treesitter-refactor")
+  loader("nvim-ts-context-commentstring")
+  loader("nvim-treesitter-context")
+
   loader("guihua.lua")
-  if load_lsp then
-    loader("nvim-lspconfig")
-    -- loader("lsp_signature.nvim")
-  end
+  loader("nvim-lspconfig")
+  -- loader("lsp_signature.nvim")
 
-  if load_lsp or load_ts_plugins then
-    loader("navigator.lua")
-    loader("nvim-treesitter")
-    loader("pretty_hover")
-    loader("fidget.nvim")
-    -- loader("inlay-hints.nvim")
-    loader("null-ls.nvim")
-    loader("mason.nvim")
-    loader("lsp_lines.nvim")
-    loader("lspsaga.nvim")
-  end
-
-  if load_ts_plugins then
-    loader("nvim-treesitter-textobjects")
-    loader("nvim-treesitter-textsubjects")
-    loader("nvim-treesitter-refactor")
-    loader("nvim-ts-context-commentstring")
-    loader("nvim-treesitter-context")
-    loader("neogen")
-    loader("indent-blankline.nvim")
-    loader("null-ls.nvim")
-  end
+  loader("navigator.lua")
+  loader("pretty_hover")
+  loader("fidget.nvim")
+  -- loader("inlay-hints.nvim")
+  loader("null-ls.nvim")
+  loader("mason.nvim")
+  loader("lsp_lines.nvim")
+  loader("lspsaga.nvim")
+  loader("neogen")
+  loader("indent-blankline.nvim")
+  loader("null-ls.nvim")
 
   vim.cmd([[autocmd FileType vista,guihua,guihua_rust setlocal syntax=on]])
   vim.cmd(

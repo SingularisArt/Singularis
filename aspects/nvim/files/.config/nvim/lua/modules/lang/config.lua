@@ -169,15 +169,6 @@ function config.vimtex()
   vim.g.vimtex_quickfix_enabled = 0
 end
 
-function config.magma()
-  vim.g.magma_image_provider = "kitty"
-  vim.g.magma_automatically_open_output = true
-  vim.g.magma_wrap_output = false
-  vim.g.magma_output_window_borders = false
-  vim.g.magma_cell_highlight_group = "CursorLine"
-  vim.g.magma_save_path = vim.fn.stdpath("data") .. "/magma"
-end
-
 function config.package_json()
   local icons = require("config.global").icons
 

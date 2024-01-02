@@ -115,4 +115,15 @@ return function(use)
       { "<Leader>-", "<CMD>lua require('lir.float').toggle()<CR>" },
     },
   })
+
+  use({
+    "AckslD/muren.nvim",
+    cmd = {
+      "MurenToggle",
+      "MurenOpen",
+      "MurenClose",
+      "MurenFresh",
+      "MurenUnique",
+    },
+  })
 end

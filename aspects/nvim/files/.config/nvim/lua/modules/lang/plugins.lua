@@ -2,7 +2,22 @@ local conf = require("modules.lang.config")
 local ts = require("modules.lang.treesitter")
 
 return function(use)
-  use({ "nvim-treesitter/nvim-treesitter", config = ts.treesitter, module = false })
+  use({
+    "nvim-treesitter/nvim-treesitter",
+    config = ts.treesitter,
+  })
+
+  use({
+    "windwp/nvim-ts-autotag",
+    after = "nvim-treesitter",
+    ft = {
+      "html",
+      "javascript",
+      "typescript",
+      "javascriptreact",
+      "typescriptreact",
+    },
+  })
 
   use({
     "nvim-treesitter/nvim-treesitter-refactor",
@@ -12,18 +27,15 @@ return function(use)
   use({
     "nvim-treesitter/nvim-treesitter-textobjects",
     config = ts.treesitter_obj,
-    module = false,
   })
 
   use({
     "RRethy/nvim-treesitter-textsubjects",
     config = ts.textsubjects,
-    module = false,
   })
 
   use({
     "nvim-treesitter/nvim-treesitter-context",
-    module = false,
     config = function()
       require("treesitter-context").setup({
         enable = true,
@@ -53,23 +65,30 @@ return function(use)
 
   use({ "JoosepAlviste/nvim-ts-context-commentstring" })
 
-  -- use({
-  --   "mfussenegger/nvim-treehopper",
-  --   config = ts.tshopper,
-  --   module = false
-  -- })
+  use({
+    "yardnsm/vim-import-cost",
+    ft = {
+      "javascript",
+    },
+    cmd = "ImportCost",
+  })
 
-  -- use({
-  --   "bennypowers/nvim-regexplainer",
-  --   cmd = { "RegexplainerToggle", "RegexplainerShow" },
-  --   config = conf.regexplainer,
-  -- })
+  use({
+    "mfussenegger/nvim-treehopper",
+    config = ts.tshopper,
+  })
 
-  -- use({
-  --   "haringsrob/nvim_context_vt",
-  --   event = { "CursorHold", "WinScrolled", "CursorMoved" },
-  --   config = conf.context_vt,
-  -- })
+  use({
+    "bennypowers/nvim-regexplainer",
+    cmd = { "RegexplainerToggle", "RegexplainerShow" },
+    config = conf.regexplainer,
+  })
+
+  use({
+    "haringsrob/nvim_context_vt",
+    event = { "CursorHold", "WinScrolled", "CursorMoved" },
+    config = conf.context_vt,
+  })
 
   use({
     "ThePrimeagen/refactoring.nvim",
@@ -81,7 +100,7 @@ return function(use)
 
   use({
     "gennaro-tedesco/nvim-jqx",
-    cmd = { "JqxList", "JqxQuery" }
+    cmd = { "JqxList", "JqxQuery" },
   })
 
   use({
