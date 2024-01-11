@@ -1,6 +1,5 @@
 local which_key = require("which-key")
 local options = require("config.global").which_key_vars.options
-local voptions = require("config.global").which_key_vars.voptions
 
 vim.opt.wrap = true
 vim.opt.tw = 0
