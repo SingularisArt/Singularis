@@ -1,4 +1,19 @@
 local conf = require("modules.lang.config")
+
+if vim.g.isInkscape then
+  return function(use)
+    use({
+      "lervag/vimtex",
+      config = conf.vimtex,
+      ft = "tex",
+    })
+    use({
+      "anufrievroman/vim-tex-kawaii",
+      ft = "tex",
+    })
+  end
+end
+
 local ts = require("modules.lang.treesitter")
 
 return function(use)

@@ -65,4 +65,4 @@ bspc config window_gap 10
 
 # Rules
 bspc rule -r "*"
-bspc rule -a scratchpad sticky=on state=floating center=true rectangle=800x600+0+0
+bspc config external_rules_command "$HOME/.config/bspwm/external_rules"

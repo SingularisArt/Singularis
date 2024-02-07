@@ -1,5 +1,9 @@
 source ~/.config/zsh/exports.zsh
 
+read -r screen_width screen_height <<< "$(xdotool getdisplaygeometry | awk '{print $1, $2}')"
+window_width=$((screen_width / 6))
+window_height=$((screen_height / 2))
+
 ############
 #  School  #
 ############
@@ -16,23 +20,23 @@ alt + {A-Z}
 super + Return
   kitty
 super + shift + n
-  bspc rule -a kitty -o state=floating center=true rectangle=800x600+0+0 && ~/.local/bin/scpad
+  ~/.local/bin/scpad
 super + w
   $BROWSER
 super + m
-  bspc rule -a kitty -o state=floating center=true rectangle=800x600+0+0 && kitty "neomutt"
+  kitty --name "float-center" -- "neomutt"
 super + shift + m
-  bspc rule -a kitty -o state=floating center=true rectangle=800x600+0+0 && ~/.local/bin/neomutt/send-mail
+  ~/.local/bin/neomutt/send-mail
 super + n
-  bspc rule -a kitty -o state=floating center=true rectangle=800x600+0+0 && kitty "newsboat"
+  kitty --name "float-center" -- "newsboat"
 super + e
-  bspc rule -a kitty -o state=floating center=true rectangle=800x600+0+0 && kitty "ncmpcpp"
+  kitty --name "float-center" -- "ncmpcpp"
 super + shift + c
-  bspc rule -a kitty -o state=floating center=true rectangle=800x600+0+0 && kitty "castero"
+  kitty --name "float-center" -- "castero"
 super + c
-  bspc rule -a kitty -o state=floating center=true rectangle=800x600+0+0 && kitty "calcure" # "calcurse"
+  kitty --name "float-center" -- "calcure"
 super + shift + p
-  bspc rule -a kitty -o state=floating center=true rectangle=800x600+0+0 && kitty "pulsemixer"
+  kitty --name "float-center" -- "pulsemixer"
 super + z
   zathura
 super + y

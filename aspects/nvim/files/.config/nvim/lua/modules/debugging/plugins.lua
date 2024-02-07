@@ -1,3 +1,7 @@
+if vim.g.isInkscape then
+  return function(_use) end
+end
+
 local conf = require("modules.debugging.config")
 
 return function(use)

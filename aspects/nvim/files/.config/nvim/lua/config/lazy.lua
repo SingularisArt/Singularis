@@ -1,3 +1,7 @@
+if vim.g.isInkscape then
+  return
+end
+
 local argc = vim.fn.argc() or 0
 if argc > 0 then
   local arg = vim.fn.argv()

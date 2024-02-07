@@ -2,7 +2,7 @@
 
 winclass="$(xdotool search --class scratchpad)";
 if [ -z "$winclass" ]; then
-  kitty --class scratchpad
+  kitty --name "float-center" --class scratchpad
 else
   if [ ! -f /tmp/scratchpad ]; then
     touch /tmp/scratchpad && xdo hide "$winclass"

@@ -1,3 +1,15 @@
+if vim.g.isInkscape then
+  return function(use)
+    use({
+      "echasnovski/mini.hues",
+      config = function()
+        require("mini.hues").setup({ background = "#090610", foreground = "#acc2d2", saturation = "high", n_hues = 6 })
+      end,
+      lazy = false,
+    })
+  end
+end
+
 local conf = require("modules.ui.config")
 
 return function(use)

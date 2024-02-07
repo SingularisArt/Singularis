@@ -131,6 +131,10 @@ function config.cmp()
   --  FileType Configuration  --
   ------------------------------
 
+  if vim.g.isInkscape then
+    cmp.setup.filetype("tex", {})
+  end
+
   cmp.setup.filetype("tex", {
     sources = cmp.config.sources({
       { name = "latex_symbols", option = { strategy = 2 } },

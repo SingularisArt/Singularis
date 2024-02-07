@@ -1,3 +1,7 @@
+if vim.g.isInkscape then
+  return function(_use) end
+end
+
 vim.cmd([[
   setlocal fillchars=fold:\
   setlocal foldlevel=0

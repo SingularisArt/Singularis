@@ -26,7 +26,7 @@
        state="1" />
     <group
        id="rulers"
-       state="0" />
+       state="1" />
     <group
        id="scrollbars"
        state="1" />
@@ -118,8 +118,8 @@
          id="rect"
          style="fill:blue;"
          usecurrent="1"
-         width="500"
-         height="374" />
+         width="195.654046967273"
+         height="237.505108690633" />
       <eventcontext
          id="3dbox"
          style="stroke:none;stroke-linejoin:round;"
@@ -153,11 +153,12 @@
       <eventcontext
          id="arc"
          style="fill:red;"
-         end="0"
-         start="0"
+         end="270.316846784582"
+         start="270.352811345382"
          usecurrent="1"
-         rx="117.591362900622"
-         ry="119.183904692884" />
+         rx="225.383757343442"
+         ry="218.261920598548"
+         arc_type="1" />
       <eventcontext
          id="star"
          magnitude="5"
@@ -186,7 +187,8 @@
          mode="drag"
          selcue="1"
          style="stroke-width:1px;"
-         usecurrent="1" />
+         usecurrent="1"
+         freehand-mode="2" />
     </group>
     <eventcontext
        id="calligraphic"
@@ -334,8 +336,8 @@
        live_outline="1"
        live_objects="1"
        show_helperpath="0"
-       x="507.107584251969"
-       y="208.925782677165"
+       x="262.644160010985"
+       y="286.962679348044"
        edit_clipping_paths="0"
        edit_masks="0" />
     <eventcontext
@@ -621,7 +623,7 @@
     </group>
     <group
        id="save_as"
-       default="org.inkscape.output.png.inkscape"
+       default="org.inkscape.output.svg.inkscape"
        append_extension="1"
        enable_preview="1"
        path="/home/singularis"
@@ -981,7 +983,7 @@
        id="rendering" />
     <group
        id="snapping"
-       snap-global-toggle="1" />
+       snap-global-toggle="0" />
     <group
        id="threading" />
     <group
@@ -1029,7 +1031,7 @@
      fernando.slopeField.nSegmentsY="14" />
   <group
      id="desktop"
-     style="fill:none;stroke-width:1.88976378;-inkscape-font-specification:'monospace, Normal';font-family:monospace;font-size:9.99998667px;stroke:#000000">
+     style="stroke-width:0.5308;-inkscape-font-specification:'monospace, Normal';font-family:monospace;font-size:9.99998667px;fill-border:#3DC6F3;fill:none;stroke:#000000">
     <group
        width="640"
        height="480"
@@ -1064,7 +1066,7 @@
        icononly="1"
        small="0"
        iconsize="16"
-       width="28">
+       width="56">
       <group
          id="buttons" />
     </group>
@@ -1178,4 +1180,7 @@
   <group
      id="gradient-edit"
      stoplist="1" />
+  <group
+     id="pattern-edit"
+     currentSet="0" />
 </inkscape>
