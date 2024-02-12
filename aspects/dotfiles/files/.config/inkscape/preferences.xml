@@ -983,7 +983,7 @@
        id="rendering" />
     <group
        id="snapping"
-       snap-global-toggle="0" />
+       snap-global-toggle="1" />
     <group
        id="threading" />
     <group
@@ -1031,7 +1031,7 @@
      fernando.slopeField.nSegmentsY="14" />
   <group
      id="desktop"
-     style="stroke-width:0.5308;-inkscape-font-specification:'monospace, Normal';font-family:monospace;font-size:9.99998667px;fill-border:#3DC6F3;fill:none;stroke:#000000">
+     style="stroke-width:0.5308;-inkscape-font-specification:'monospace, Normal';font-family:monospace;font-size:9.99998667px;fill-border:#3DC6F3;fill:none;stroke:black">
     <group
        width="640"
        height="480"
