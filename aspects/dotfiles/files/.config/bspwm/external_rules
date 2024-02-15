@@ -36,3 +36,8 @@ fi
 if [ "$instance" = "float-center" ]; then
   echo "state=floating center=true rectangle=${window_width}x${window_height}+0+0"
 fi
+
+if [ "$instance" = "Inkscape" ]; then
+  echo "desktop=^6"
+  bspc desktop -f ^6
+fi

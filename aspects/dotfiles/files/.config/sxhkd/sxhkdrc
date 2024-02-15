@@ -41,6 +41,8 @@ super + z
   zathura
 super + y
   slock
+super + i
+  inkscape
 
 ##########
 #  Rofi  #
