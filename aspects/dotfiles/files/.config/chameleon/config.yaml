@@ -1,5 +1,3 @@
-debug: false
-
 oomoxicons:
   command:
     - "oomox-archdroid-icons-cli /opt/oomox/scripted_colors/xresources/xresources-reverse"
