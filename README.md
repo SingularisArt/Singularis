@@ -198,7 +198,10 @@
   * [Platform status](#platform-status)
   * [Installation](#installation)
     * [Examples](#examples)
+    * [Options](#options)
     * [Install](#install)
+      * [Logging](#logging)
+      * [Package Installation](#package-installation)
 * [License](#license)
 * [Credit](#credit)
 
@@ -475,14 +478,31 @@ I typically clone it to `~/.local/share/Singularis`
 ./install --aspect "dotfiles(awesome)"        # Just install "awesome" from my "dotfiles" aspect.
 ./install --aspect "dotfiles(awesome,zsh)"    # Just install "awesome" and "zsh" from my "dotfiles" aspect.
 ./install --aspect "dotfiles(^awesome)"       # Install everything except "awesome" from my "dotfiles" aspect.
-./install --step --aspect "dotfiles"          # Prompt for confirmation at each step.
-./install --check --aspect "dotfiles"         # Do a dry-run, showing what would be changed.
+./install --confirm --aspect "dotfiles"       # Prompt for confirmation at each step.
+./install --dry-run --aspect "dotfiles"       # Do a dry-run, showing what would be changed.
 ./install --list-aspects                      # List all available aspects to install.
-./install --list-sub-aspects                  # List all available sub-aspects to install within each aspect.
 ./install --list-aspects "dotfiles"           # List all available sub-aspects to install within my "dotfiles" aspect.
 ./install --help                              # Lists all possible commands/options.
 ./install                                     # Lists all possible commands/options.
 ```
+
+### Options
+
+- `-a, --all`: Install everything. Use with caution, as it installs all aspects,
+  required packages, and libraries.
+- `-c, --aspect [aspect_name]`: Install specific aspects. You can include or
+  exclude aspects, configurations, and sub-configurations.
+- `-p, --no-packages`: Disable the installation of required packages.
+- `-y, --no-python`: Disable the installation of required Python libraries.
+- `-n, --no-node`: Disable the installation of required Node.js libraries.
+- `-l, --log [log_level]`: Change the log level. Options include `Trace`,
+  `Debug`, `Info` (default), `Notice`, `Warn`, `Error`, `Fatal`, and `Success`.
+- `-t, --package-type [package_type]`: Change the package type. Available
+  options: `aur` (default), `pacman`, `apt`, `apt-get`, `yum`.
+- `-A, --list-aspects`: List all available aspects.
+- `-s, --singularis`: Run only if using `singularis` command.
+- `-C, --confirm`: Prompt for confirmation at each step.
+- `-d, --dry-run`: Display actions without installing anything.
 
 ### Install
 
@@ -498,6 +518,23 @@ taken from and used as an inspiration). Anyway, here's how I install them.
 > :warning: **Avoid using the `--singularis` option**. It includes my personal
 > configuration/data that only I can decrypt. Issues may arise if you use the
 > `--singularis` option.
+
+#### Logging
+
+Control the log level using the `-l, --log` option. Log levels include `Trace`,
+`Debug`, `Info` (default), `Notice`, `Warn`, `Error`, `Fatal`, and `Success`.
+
+```bash
+./install -l Debug
+```
+
+#### Package Installation
+
+Control package installation using options `-p, --no-packages`, `-y, --no-python`, and `-n, --no-node`.
+
+```bash
+./install -p -y -n
+```
 
 # License
 
