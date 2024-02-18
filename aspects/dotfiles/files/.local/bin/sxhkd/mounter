@@ -31,10 +31,10 @@ test -n "$alldrives"
 chosen="$(echo "$alldrives" | rofi -dmenu -p "Mount which drive?" -i)"
 
 getmount(){
-  mp="$(echo -e "/mnt\n/media\n/mount\n/home" | rofi -dmenu -i -p "Mount this drive where?")"
+  mp="$(echo -e "/run/media/$USER\n/mnt\n/media\n/mount\n/home" | rofi -dmenu -i -p "Mount this drive where?")"
   test -n "$mp"
   if [ ! -d "$mp" ]; then
-    mkdiryn=$(printf "No\\nYes" | dmenu -i -p "$mp does not exist. Create it?")
+    mkdiryn=$(printf "No\\nYes" | rofi -dmenu -i -p "$mp does not exist. Create it?")
     [ "$mkdiryn" = "Yes" ] && (mkdir -p "$mp" || sudo -A mkdir -p "$mp")
   fi
 }
