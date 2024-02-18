@@ -1,6 +1,0 @@
-{
-  "description": "All required node libraries",
-  "libraries": {
-    "node": {}
-  }
-}

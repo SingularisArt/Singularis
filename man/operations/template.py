@@ -1,19 +1,12 @@
-#!/usr/bin/env python3
+import os
+from string import Template
 
 import yaml
-from string import Template
-import os
 
-from man.variables import (
-    aspects_dir,
-    types,
-    home_dir,
-    config_dir,
-    local_dir,
-    man_dir,
-)
-from man.log import Log as Log
 import man.helpers as helpers
+from man.log import Log as Log
+from man.variables import (aspects_dir, config_dir, home_dir, local_dir,
+                           man_dir, types)
 
 
 class NewStrTemp(Template):
@@ -166,7 +159,9 @@ class Template:
 
 
 class Templates(dict):
-    def __init__(self, aspect, specific_items_to_install, specific_items_to_ignore, args):
+    def __init__(
+        self, aspect, specific_items_to_install, specific_items_to_ignore, args
+    ):
         self.aspect = aspect
         self.root_folder = helpers.join(aspects_dir, aspect, "files")
         self.specific_items_to_install = specific_items_to_install
@@ -185,7 +180,9 @@ class Templates(dict):
         self.aspect_json_template_location = helpers.join(
             aspects_dir, aspect, "aspect.json"
         )
-        self.data = helpers.load_data(self.aspect_json_template_location, self.aspect, log)
+        self.data = helpers.load_data(
+            self.aspect_json_template_location, self.aspect, log
+        )
 
         log.log_trace("Installing all templates for {}".format(aspect.title()))
 

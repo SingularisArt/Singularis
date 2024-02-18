@@ -45,6 +45,7 @@ M.servers = {
 M.formatters = {
   -- Python
   "black",
+  "isort",
 
   -- Go
   golines = {

@@ -1,5 +1,9 @@
 #!/bin/bash
 
+rofi() {
+  /usr/bin/rofi -markup-rows -kb-row-down Down -kb-custom-1 Ctrl+n -no-fixed-num-lines "$@"
+}
+
 IFS='
 '
 

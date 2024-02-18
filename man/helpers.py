@@ -61,10 +61,24 @@ def install_package(package, confirm=False, package_type="aur"):
         cmd = ["sudo", "pacman", "-S", package, noconfirm, "--needed"]
     elif package_type == "apt":
         noconfirm = "-y" if not confirm else ""
-        cmd = ["sudo", "apt", "install", package, noconfirm, "--no-install-recommends"]
+        cmd = [
+            "sudo",
+            "apt",
+            "install",
+            package,
+            noconfirm,
+            "--no-install-recommends",
+        ]
     elif package_type == "apt-get":
         noconfirm = "-y" if not confirm else ""
-        cmd = ["sudo", "apt-get", "install", package, noconfirm, "--no-install-recommends"]
+        cmd = [
+            "sudo",
+            "apt-get",
+            "install",
+            package,
+            noconfirm,
+            "--no-install-recommends",
+        ]
     elif package_type == "yum":
         noconfirm = "-y" if not confirm else ""
         cmd = ["sudo", "yum", "install", package, noconfirm]

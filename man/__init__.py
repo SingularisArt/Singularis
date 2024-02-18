@@ -1,5 +1,3 @@
-#!/usr/bin/python3.10
-
 import man.variables as variables
 
 

@@ -1,10 +1,9 @@
-from pathlib import Path
 import os
+from pathlib import Path
 
-from man import InitClass as InitClass
-
-from man.log import Log as Log
 import man.helpers as helpers
+from man import InitClass as InitClass
+from man.log import Log as Log
 
 log = Log()
 
@@ -40,9 +39,9 @@ class Aspect(InitClass):
         )
         if not os.path.exists(file_path):
             log.log_error(
-                f"Couldn't find any aspect with the name of {self.aspect_name}."
-                + " Please run the command `./install --list-aspects` to view all"
-                + " possible options.",
+                "Couldn't find any aspect with the name of "
+                + f"{self.aspect_name}. Please run the command "
+                + "`./install --list-aspects` to view all possible options.",
             )
             return
 
@@ -103,7 +102,13 @@ class Aspects(InitClass, dict):
         self.aspects_to_install = [
             Aspect(x, self.args) for x in self.aspects_to_install
         ]
-        self.aspects_to_ignore = [Aspect(x, self.args) for x in self.aspects_to_ignore]
+        self.aspects_to_ignore = [
+            Aspect(
+                x,
+                self.args,
+            )
+            for x in self.aspects_to_ignore
+        ]
 
         self.aspects_in_dictionary = {
             "all_aspects": self.all_aspects,

@@ -1,17 +1,8 @@
-#!/usr/bin/python3.10
-
 import os
 
-from man.variables import (
-    aspects_dir,
-    types,
-    home_dir,
-    config_dir,
-    local_dir,
-)
-from man.log import Log as Log
 import man.helpers as helpers
-
+from man.log import Log as Log
+from man.variables import aspects_dir, config_dir, home_dir, local_dir, types
 
 log = Log()
 
@@ -75,7 +66,6 @@ class File:
         is_aspect_private = self.private["install_private_aspect"]
         is_private_command_running = self.private["running_private_command"]
 
-        # displayed to the user.
         if is_aspect_private and not is_private_command_running:
             name = helpers.pretty_log(log, log.warn, self.name)
             cmd = helpers.pretty_log(log, log.warn, "--singularis")
@@ -88,20 +78,17 @@ class File:
 
         log.log_trace(f"Checking the hash for {self.file_location}.")
 
-        # If the sum isn't correct.
         if not self.check_sum() and not self.args.no_security:
             name = helpers.pretty_log(log, log.error, self.name)
             cmd = helpers.pretty_log(log, log.error, "--no-security")
             log.log_fatal(
                 f"Sum of {name} isn't matching up. Qutting for security "
-                + f"purpises. If you want to install it, use the {cmd} option."
+                + f"purposes. If you want to install it, use the {cmd} option."
             )
             return
 
         name = os.path.basename(self.file_location)
-        pretty_name = helpers.pretty_log(
-            log, log.info, name
-        )
+        pretty_name = helpers.pretty_log(log, log.info, name)
         if name in self.specific_items_to_ignore:
             log.log_warn(f"Skipping the installation of {name}.")
             return
@@ -109,6 +96,7 @@ class File:
         if self.args.dry_run:
             log.log_info(f"Install {name}.")
             return
+
         if self.args.confirm:
             if not helpers.confirm(f"Would you like to install {pretty_name}"):
                 return
