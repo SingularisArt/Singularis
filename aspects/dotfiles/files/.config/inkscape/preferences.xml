@@ -626,7 +626,7 @@
        default="org.inkscape.output.svg.inkscape"
        append_extension="1"
        enable_preview="1"
-       path="/home/singularis"
+       path="/home/hashem"
        use_current_dir="1" />
     <group
        id="save_copy"
@@ -637,11 +637,11 @@
     <group
        id="open"
        enable_preview="1"
-       path="/home/singularis/Downloads/" />
+       path="/home/hashem/Downloads/" />
     <group
        id="import"
        enable_preview="1"
-       path="/home/singularis/"
+       path="/home/hashem/"
        ask="1"
        ask_svg="1"
        link="embed"

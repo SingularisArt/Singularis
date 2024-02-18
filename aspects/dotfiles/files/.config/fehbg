@@ -1,2 +1,3 @@
 #!/bin/sh
-feh --no-fehbg --bg-scale '/home/singularis/.config/wall.jpg' 
+
+feh --no-fehbg --bg-scale '/home/hashem/.config/wall.jpg'
