@@ -2,8 +2,8 @@
 Description=Sync mail via isync for neomutt
 
 [Service]
-ExecStart=/home/singularis/.local/bin/systemd/mailsync
-Environment="HOME=/home/singularis"
+ExecStart=/home/hashem/.local/bin/systemd/mailsync
+Environment="HOME=/home/hashem"
 
 [Install]
 WantedBy=default.target

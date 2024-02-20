@@ -2,8 +2,8 @@
 Description=Update newsboat
 
 [Service]
-ExecStart=/home/singularis/.local/bin/systemd/newsup
-Environment="HOME=/home/singularis"
+ExecStart=/home/hashem/.local/bin/systemd/newsup
+Environment="HOME=/home/hashem"
 
 [Install]
 WantedBy=default.target

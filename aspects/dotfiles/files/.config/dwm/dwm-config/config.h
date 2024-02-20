@@ -31,7 +31,7 @@ static const char *fonts[]          = { "monospace:size=8",
                                         "JoyPixels:pixelsize=8" };
 static const char dmenufont[]			  = "monospace:size=12";
 
-#include "/home/singularis/.cache/wal/colors-wal-dwm.h"
+#include "/home/hashem/.cache/wal/colors-wal-dwm.h"
 
 typedef struct {
 	const char *name;
