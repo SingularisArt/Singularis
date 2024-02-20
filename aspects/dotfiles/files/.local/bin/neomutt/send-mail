@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+rofi() {
+  /usr/bin/rofi -markup-rows -kb-row-down Down -kb-custom-1 Ctrl+n -no-fixed-num-lines "$@"
+}
+
 email=$(find ~/.local/share/mail/ -maxdepth 1 -name "*@*.*" -exec basename {} \; | rofi -dmenu -i -p "Select a folder")
 
 email_template_path="/tmp/email-template.mail"
@@ -14,7 +18,7 @@ name="${name//[$'\t\r\n']}"
 sed -i "s/From:/From: $name <$email>/g" "$email_template_path"
 sed -i "s/source-accounts/$email/g" "$neomutt_source_path"
 
-kitty --name "float-center" --
+kitty --name "float-center" -- \
   neomutt -F "$neomutt_source_path" \
   -e 'set postpone=no sidebar_visible=no assumed_charset=utf-8' \
   -H "$email_template_path"
