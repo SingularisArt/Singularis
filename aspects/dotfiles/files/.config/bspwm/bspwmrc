@@ -21,7 +21,7 @@ feh --bg-scale ~/.config/wall.jpg &
 killall polybar; "$HOME/.config/polybar/launch.sh" &
 
 # Variable
-source "${HOME}/.cache/wal/colors.sh"
+source "$HOME/.cache/wal/colors.sh"
 
 # Workspaces
 bspc monitor -d         
