@@ -26,7 +26,7 @@
        state="1" />
     <group
        id="rulers"
-       state="0" />
+       state="1" />
     <group
        id="scrollbars"
        state="1" />
@@ -118,9 +118,9 @@
          id="rect"
          style="fill:blue;"
          usecurrent="1"
-         width="213.839808186209"
-         height="185.142812653789"
-         ry="0" />
+         width="222.950891396668"
+         height="281.076266368475"
+         ry="58.5614070009681" />
       <eventcontext
          id="3dbox"
          style="stroke:none;stroke-linejoin:round;"
@@ -157,8 +157,8 @@
          end="270.316846784582"
          start="270.352811345382"
          usecurrent="1"
-         rx="1.96741261820155"
-         ry="2.60731441768131"
+         rx="4.78612329077532"
+         ry="4.95040683295775"
          arc_type="1" />
       <eventcontext
          id="star"
@@ -189,7 +189,7 @@
          selcue="1"
          style="stroke-width:1px;"
          usecurrent="1"
-         freehand-mode="2" />
+         freehand-mode="0" />
     </group>
     <eventcontext
        id="calligraphic"
@@ -337,8 +337,8 @@
        live_outline="1"
        live_objects="1"
        show_helperpath="0"
-       x="280.882155309406"
-       y="633.142926889053"
+       x="429.15614258388"
+       y="368.271625311028"
        edit_clipping_paths="0"
        edit_masks="0" />
     <eventcontext
@@ -578,7 +578,7 @@
        id="toolbox" />
     <group
        id="fillstroke"
-       page="2" />
+       page="1" />
     <group
        id="filtereffects" />
     <group
@@ -627,7 +627,7 @@
        default="org.inkscape.output.svg.inkscape"
        append_extension="1"
        enable_preview="1"
-       path="/home/hashem"
+       path="/home/hashem/Documents/school-notes/College/Year-2/winter/mth-254/figures/lec-13"
        use_current_dir="1" />
     <group
        id="save_copy"
@@ -638,7 +638,7 @@
     <group
        id="open"
        enable_preview="1"
-       path="/home/hashem/Documents/school-notes/College/Year-2/winter/mth-254/figures/lec-05/" />
+       path="/home/hashem/Documents/school-notes/College/Year-2/winter/mth-254/figures/lec-06/" />
     <group
        id="import"
        enable_preview="1"
@@ -1032,7 +1032,7 @@
      fernando.slopeField.nSegmentsY="14" />
   <group
      id="desktop"
-     style="stroke-width:1.5924;-inkscape-font-specification:'monospace, Normal';font-family:monospace;font-size:9.99998667px;fill-border:#3DC6F3;fill:#ffffff;stroke:#000000;stroke-linejoin:round">
+     style="stroke-width:1.5924;-inkscape-font-specification:'monospace, Normal';font-family:monospace;font-size:9.99998667px;fill-border:#3DC6F3;fill:#ffffff;stroke:#000000;-inkscape-stroke:none;stop-color:#000000">
     <group
        width="640"
        height="480"
