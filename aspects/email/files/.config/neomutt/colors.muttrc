@@ -4,18 +4,18 @@
 #  Formatting  #
 ################
 
-set date_format = "%a %d %h %H:%M"
-set index_format="  %zc %zs %zt  | %-35.35L   %@attachment_info@  %?M10?~(%1M) ?%-30.100s %> %?Y?%Y ? %(!%a %d %h %H:%M)  "
-set compose_format="-- NeoMutt: Compose  [Approx. msg size: %l   Atts: %a]%>-"
-set pager_format   = "[%n] [%T %s]%* [ %{!%d %b %Y · %H:%M}] [%?X? %X?%P]"
-set status_format  = " [%D] %?u?[ %u] ?%?R?[ %R] ?%?d?[ %d] ?%?t?[ %t] ?%?F?[ %F] ?%?p?[ %p]? \n  \n"
-set vfolder_format = "[%N %?n?%3n&   ?  %8m  · %f]"
-set attach_format = "%u%D  %T%-75.75d %?T?%&   ? %5s · %m/%M"
-set sidebar_format = '%D%?Z? [%Z]?%* %?S?%S?'
-# index-format-hook attachment_info "=B text/calendar ~X 1" " "
-# index-format-hook attachment_info "=B text/calendar" "  "
-# index-format-hook attachment_info "~X 1" "  "
-# index-format-hook attachment_info "~A" "   "
+set date_format     = "%a %d %h %H:%M"
+set index_format    ="  %zc %zs %zt  | %-35.35L   %@attachment_info@  %?M10?~(%1M) ?%-30.100s %> %?Y?%Y ? %(!%a %d %h %H:%M)  "
+set compose_format  ="-- NeoMutt: Compose  [Approx. msg size: %l   Atts: %a]%>-"
+set pager_format    = "[%n] [%T %s]%* [ %{!%d %b %Y · %H:%M}] [%?X? %X?%P]"
+set status_format   = " [%D] %?u?[ %u] ?%?R?[ %R] ?%?d?[ %d] ?%?t?[ %t] ?%?F?[ %F] ?%?p?[ %p]? \n  \n"
+set vfolder_format  = "[%N %?n?%3n&   ?  %8m  · %f]"
+set attach_format   = "%u%D  %T%-75.75d %?T?%&   ? %5s · %m/%M"
+set sidebar_format  = '%D%?Z? [%Z]?%* %?S?%S?'
+index-format-hook attachment_info "=B text/calendar ~X 1" " "
+index-format-hook attachment_info "=B text/calendar" "  "
+index-format-hook attachment_info "~X 1" "  "
+index-format-hook attachment_info "~A" "   "
 
 ####################
 #  General Colors  #

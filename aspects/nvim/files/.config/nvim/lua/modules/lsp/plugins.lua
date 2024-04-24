@@ -62,13 +62,13 @@ return function(use)
     },
   })
 
-  -- use({
-  --   "simrat39/inlay-hints.nvim",
-  --   after = "nvim-lspconfig",
-  --   config = function()
-  --     require("inlay-hints").setup()
-  --   end,
-  -- })
+  use({
+    "simrat39/inlay-hints.nvim",
+    after = "nvim-lspconfig",
+    config = function()
+      require("inlay-hints").setup()
+    end,
+  })
 
   use({
     "jose-elias-alvarez/null-ls.nvim",

@@ -10,6 +10,8 @@ if vim.g.isInkscape then
   end
 end
 
+local user_command = vim.api.nvim_create_user_command
+
 local conf = require("modules.ui.config")
 
 return function(use)
@@ -57,14 +59,7 @@ return function(use)
   use({
     "stevearc/dressing.nvim",
     init = function()
-      vim.ui.select = function(...)
-        require("lazy").load({ plugins = { "dressing.nvim" } })
-        return vim.ui.select(...)
-      end
-      vim.ui.input = function(...)
-        require("lazy").load({ plugins = { "dressing.nvim" } })
-        return vim.ui.input(...)
-      end
+      conf.dressing_init()
     end,
   })
 
@@ -113,14 +108,7 @@ return function(use)
   use({
     "karb94/neoscroll.nvim",
     config = function()
-      require("neoscroll").setup({
-        mappings = { "<C-u>", "<C-d>", "<C-y>", "<C-e>", "zt", "zz", "zb", "n", "N" },
-        hide_cursor = true,
-        stop_eof = true,
-        use_local_scrolloff = false,
-        respect_scrolloff = true,
-        cursor_scrolls_alone = false,
-      })
+      conf.neoscroll()
     end,
     keys = {
       "<C-u>",
@@ -138,8 +126,6 @@ return function(use)
     config = function()
       require("scrollview").setup({
         excluded_filetypes = { "nerdtree" },
-        signs_on_startup = {},
-        diagnostics_severities = {},
       })
     end,
     event = {
@@ -176,5 +162,71 @@ return function(use)
       require("mini.hues").setup({ background = "#090610", foreground = "#acc2d2", saturation = "high", n_hues = 6 })
     end,
     lazy = false,
+  })
+
+  use({
+    "kevinhwang91/nvim-ufo",
+    event = "VeryLazy",
+    dependencies = "kevinhwang91/promise-async",
+    init = function()
+      conf.ufo_init()
+    end,
+    opts = {
+      close_fold_kinds_for_ft = {
+        default = { "imports" },
+      },
+    },
+    config = function(_, opts)
+      conf.ufo(opts)
+    end,
+  })
+
+  use({
+    "luukvbaal/statuscol.nvim",
+    branch = "0.10",
+    lazy = false,
+
+    opts = function()
+      local builtin = require "statuscol.builtin"
+
+      return {
+        bt_ignore = { "nofile", "terminal" },
+        ft_ignore = { "NeogitStatus" },
+        segments = {
+          {
+            text = {
+              function(args)
+                args.fold.close = ""
+                args.fold.open = ""
+                args.fold.sep = "▕"
+                return builtin.foldfunc(args)
+              end,
+            },
+            condition = {
+              function()
+                return vim.o.foldcolumn ~= "0"
+              end,
+            },
+            click = "v:lua.ScFa",
+          },
+          {
+            sign = {
+              name = { ".*" },
+              text = { ".*" },
+            },
+            click = "v:lua.ScSa",
+          },
+          {
+            sign = { namespace = { "gitsigns" }, colwidth = 1, wrap = true },
+            click = "v:lua.ScSa",
+          },
+          {
+            text = { builtin.lnumfunc, " " },
+            condition = { builtin.not_empty },
+            click = "v:lua.ScLa",
+          },
+        },
+      }
+    end,
   })
 end

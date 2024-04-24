@@ -118,8 +118,8 @@
          id="rect"
          style="fill:blue;"
          usecurrent="1"
-         width="84.6093966266302"
-         height="71.5353057140439"
+         width="50.8442001342773"
+         height="40.9504814147949"
          ry="0" />
       <eventcontext
          id="3dbox"
@@ -311,7 +311,7 @@
        id="lpetool"
        mode="drag"
        style="fill:#ff0000;fill-opacity:1;fill-rule:nonzero;stroke:none;"
-       unit="mm"
+       unit="px"
        show_bbox="1" />
     <eventcontext
        id="text"
@@ -624,7 +624,7 @@
     </group>
     <group
        id="save_as"
-       default="org.inkscape.output.svg.inkscape"
+       default="org.inkscape.output.png.inkscape"
        append_extension="1"
        enable_preview="1"
        path="/home/hashem/Documents/school-notes/College/Year-2/winter/mth-254/figures/lec-13"
@@ -638,7 +638,7 @@
     <group
        id="open"
        enable_preview="1"
-       path="/home/hashem/Documents/school-notes/College/Year-2/winter/mth-254/figures/lec-17/" />
+       path="/home/hashem/Documents/school-notes/College/Year-2/spring/mth-256/figures/lec-05/" />
     <group
        id="import"
        enable_preview="1"
@@ -1032,7 +1032,7 @@
      fernando.slopeField.nSegmentsY="14" />
   <group
      id="desktop"
-     style="stroke-width:0.5308;-inkscape-font-specification:'monospace, Normal';font-family:monospace;font-size:9.99998667px;fill-border:#3DC6F3;fill:none;stroke:#000000;-inkscape-stroke:none;stop-color:#000000">
+     style="stroke-width:0.5308;-inkscape-font-specification:'monospace, Normal';font-family:monospace;font-size:9.99998667px;fill-border:#3DC6F3;fill:#ffffff;stroke:#ffffff;-inkscape-stroke:none;stop-color:#000000">
     <group
        width="640"
        height="480"
