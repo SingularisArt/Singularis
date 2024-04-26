@@ -110,7 +110,7 @@ function config.null_ls()
     end,
   }
 
-  -- null_ls.setup(setup)
+  null_ls.setup(setup)
 end
 
 function config.navigator()

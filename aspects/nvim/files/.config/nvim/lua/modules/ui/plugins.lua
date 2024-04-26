@@ -167,18 +167,29 @@ return function(use)
   use({
     "kevinhwang91/nvim-ufo",
     event = "VeryLazy",
-    dependencies = "kevinhwang91/promise-async",
+    dependencies = {
+      "kevinhwang91/promise-async",
+      "anuvyklack/fold-preview.nvim",
+    },
     init = function()
       conf.ufo_init()
+    end,
+    config = function(_, opts)
+      conf.ufo(opts)
     end,
     opts = {
       close_fold_kinds_for_ft = {
         default = { "imports" },
       },
     },
-    config = function(_, opts)
-      conf.ufo(opts)
+  })
+
+  use({
+    "anuvyklack/fold-preview.nvim",
+    config = function()
+      require("fold-preview").setup()
     end,
+    dependencies = "anuvyklack/keymap-amend.nvim",
   })
 
   use({
@@ -187,7 +198,7 @@ return function(use)
     lazy = false,
 
     opts = function()
-      local builtin = require "statuscol.builtin"
+      local builtin = require("statuscol.builtin")
 
       return {
         bt_ignore = { "nofile", "terminal" },
