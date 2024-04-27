@@ -34,6 +34,7 @@ return function(use)
       "ravenxrz/DAPInstall.nvim",
       "rcarriga/nvim-dap-ui",
       "theHamsta/nvim-dap-virtual-text",
+      "nvim-neotest/nvim-nio",
       {
         "mfussenegger/nvim-dap-python",
         config = function()

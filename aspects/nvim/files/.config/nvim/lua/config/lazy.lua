@@ -93,19 +93,18 @@ function Lazyload()
 
   loader("guihua.lua")
   loader("nvim-lspconfig")
-  -- loader("lsp_signature.nvim")
+  loader("lsp_signature.nvim")
 
   loader("navigator.lua")
   loader("pretty_hover")
   loader("fidget.nvim")
-  -- loader("inlay-hints.nvim")
+  loader("inlay-hints.nvim")
   loader("null-ls.nvim")
   loader("mason.nvim")
   loader("lsp_lines.nvim")
   loader("lspsaga.nvim")
   loader("neogen")
   loader("indent-blankline.nvim")
-  loader("null-ls.nvim")
 
   vim.cmd([[autocmd FileType vista,guihua,guihua_rust setlocal syntax=on]])
   vim.cmd(

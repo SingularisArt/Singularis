@@ -82,7 +82,7 @@ local treesitter_obj = function()
         enable = true,
         border = "rounded",
         peek_definition_code = {
-          ["<Leader>ldp"] = "@class.outer",
+          ["J"] = "@class.outer",
         },
       },
     },

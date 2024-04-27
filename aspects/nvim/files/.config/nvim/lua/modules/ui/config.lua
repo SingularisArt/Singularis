@@ -53,7 +53,7 @@ function config.ufo_init()
 end
 
 function config.ufo()
-  local ufo = require "ufo"
+  local ufo = require("ufo")
   ufo.setup(opts)
 
   vim.api.nvim_create_autocmd("LspAttach", {

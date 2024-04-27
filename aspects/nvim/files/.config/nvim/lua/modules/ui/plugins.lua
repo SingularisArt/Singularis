@@ -10,8 +10,6 @@ if vim.g.isInkscape then
   end
 end
 
-local user_command = vim.api.nvim_create_user_command
-
 local conf = require("modules.ui.config")
 
 return function(use)
@@ -167,10 +165,7 @@ return function(use)
   use({
     "kevinhwang91/nvim-ufo",
     event = "VeryLazy",
-    dependencies = {
-      "kevinhwang91/promise-async",
-      "anuvyklack/fold-preview.nvim",
-    },
+    dependencies = "kevinhwang91/promise-async",
     init = function()
       conf.ufo_init()
     end,
@@ -182,14 +177,6 @@ return function(use)
         default = { "imports" },
       },
     },
-  })
-
-  use({
-    "anuvyklack/fold-preview.nvim",
-    config = function()
-      require("fold-preview").setup()
-    end,
-    dependencies = "anuvyklack/keymap-amend.nvim",
   })
 
   use({
