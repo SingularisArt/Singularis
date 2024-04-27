@@ -120,20 +120,21 @@ class Template:
             helpers.join(self.aspect_dir, "vars/public.yaml"),
         )
 
-        private_vars = yaml.load(private_info, Loader=yaml.FullLoader)
-        public_vars = yaml.load(public_info, Loader=yaml.FullLoader)
         opened_template = NewStrTemp(opened_template)
-
         replace_dict = {}
-        if not self.private:
-            for var in public_vars:
-                replace_dict[var] = public_vars[var]
-        else:
+
+        if self.private:
+            private_vars = yaml.load(private_info, Loader=yaml.FullLoader)
             for var in private_vars:
                 try:
                     replace_dict[var] = private_vars[var]
                 except KeyError:
                     replace_dict[var] = public_vars[var]
+        else:
+            public_vars = yaml.load(public_info, Loader=yaml.FullLoader)
+
+            for var in public_vars:
+                replace_dict[var] = public_vars[var]
 
         completed_template = opened_template.safe_substitute(replace_dict)
 
