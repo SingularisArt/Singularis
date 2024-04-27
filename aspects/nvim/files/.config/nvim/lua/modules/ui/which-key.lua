@@ -52,6 +52,11 @@ local setup = {
 
 local vars = require("config.global").which_key_vars
 
+local function search_config_files()
+  local builtin = require("telescope.builtin")
+  builtin.find_files({ cwd = vim.fn.stdpath("config") })
+end
+
 vars.vmappings["/"] = {
   "<ESC><CMD>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>",
   "Comment",
@@ -132,12 +137,16 @@ vars.mappings["s"] = {
   l = { "<CMD>Telescope live_grep<CR>", "Fuzzy find words" },
   s = { "<CMD>Telescope symbols<CR>", "Fuzzy find symbols" },
   d = { "<CMD>Telescope diagnostics<CR>", "Fuzzy find diagnostics" },
-  c = { function()
-    require("telescope.builtin").current_buffer_fuzzy_find(require("telescope.themes").get_dropdown {
-      winblend = 10,
-      previewer = false,
-    })
-  end, "Fuzzily search in current buffer" }
+  n = { search_config_files, "Fuzzy find config files" },
+  c = {
+    function()
+      require("telescope.builtin").current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
+        winblend = 10,
+        previewer = false,
+      }))
+    end,
+    "Fuzzily search in current buffer",
+  },
 }
 
 vars.mappings["m"] = {
@@ -154,7 +163,10 @@ vars.mappings["n"] = {
   a = { "<CMD>lua require('neotest').run.attach()<CR>", "Attach to the nearest test" },
   c = { "<CMD>lua require('neotest').run.run(vim.fn.expand('%'))<CR>", "Run the current file" },
   d = { "<CMD>lua require('neotest').run.run({strategy = 'dap'})<CR>", "Debug the nearest test" },
-  e = { "<CMD>lua require('neotest').output.open({ enter = true, auto_close = true })<CR>", "Open the output of a test result" },
+  e = {
+    "<CMD>lua require('neotest').output.open({ enter = true, auto_close = true })<CR>",
+    "Open the output of a test result",
+  },
   j = { "<CMD>lua require('neotest').jump.prev({ status = 'failed' })<CR>", "Jump to next error" },
   k = { "<CMD>lua require('neotest').jump.next({ status = 'failed' })<CR>", "Jump to previous error" },
   n = { "<CMD>lua require('neotest').run.run()<CR>", "Run the nearest test" },

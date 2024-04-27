@@ -57,6 +57,12 @@ lsp.attach_mappings = function(_, bufnr)
       d = {
         name = "Definition",
         d = { "<CMD>Glance definitions<CR>", "Definition" },
+        p = {
+          function()
+            require("nvim-treesitter.textobjects.lsp_interop").peek_definition_code("@function.outer", nil, "textDocument/typeDefinition")
+          end,
+          "Preview Definition"
+        },
         r = { "<CMD>Glance references<CR>", "References" },
         t = { "<CMD>Glance type_definitions<CR>", "Type Definition" },
         i = { "<CMD>Glance implementations<CR>", "Implementation" },

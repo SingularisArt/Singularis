@@ -57,7 +57,28 @@ function config.telescope()
   local telescope = require("telescope")
 
   local actions = require("telescope.actions")
+  local action_state = require("telescope.actions.state")
   local icons = require("config.global").icons
+
+  -- Insert filename into the current buffer and keeping the insert mode.
+  actions.insert_name_i = function(prompt_bufnr)
+    local symbol = action_state.get_selected_entry().ordinal
+    actions.close(prompt_bufnr)
+    vim.schedule(function()
+      vim.cmd([[startinsert]])
+      vim.api.nvim_put({ symbol }, "", true, true)
+    end)
+  end
+
+  -- Insert file path and name into the current buffer and keeping the insert mode.
+  actions.insert_name_and_path_i = function(prompt_bufnr)
+    local symbol = action_state.get_selected_entry().value
+    actions.close(prompt_bufnr)
+    vim.schedule(function()
+      vim.cmd([[startinsert]])
+      vim.api.nvim_put({ symbol }, "", true, true)
+    end)
+  end
 
   telescope.setup({
     defaults = {
@@ -142,7 +163,7 @@ function config.telescope()
           ["<M-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
           ["<C-l>"] = actions.complete_tag,
           ["<C-h>"] = actions.which_key,
-          ["<esc>"] = actions.close,
+          -- ["<esc>"] = actions.close,
         },
 
         n = {
@@ -452,7 +473,7 @@ function config.neo_tree()
         {
           "container",
           content = {
-            { "name",      zindex = 10 },
+            { "name", zindex = 10 },
             {
               "symlink_target",
               zindex = 10,
@@ -482,17 +503,17 @@ function config.neo_tree()
           "container",
           content = {
             { "name", zindex = 10 },
-            { "clipboard",   zindex = 10 },
-            { "bufnr",       zindex = 10 },
-            { "modified",    zindex = 20, align = "right" },
+            { "clipboard", zindex = 10 },
+            { "bufnr", zindex = 10 },
+            { "modified", zindex = 20, align = "right" },
             { "diagnostics", zindex = 20, align = "right" },
-            { "git_status",  zindex = 15, align = "right" },
+            { "git_status", zindex = 15, align = "right" },
           },
         },
       },
       message = {
         { "indent", with_markers = false },
-        { "name",   highlight = "NeoTreeMessage" },
+        { "name", highlight = "NeoTreeMessage" },
       },
       terminal = {
         { "indent" },

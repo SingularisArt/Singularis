@@ -34,14 +34,14 @@ local disable_distribution_plugins = function()
   vim.g.loaded_2html_plugin = 1
   vim.g.loaded_logiPat = 1
   vim.g.loaded_rrhelper = 1
-  -- vim.g.loaded_netrw = 1
-  -- vim.g.loaded_netrwPlugin = 1
-  -- vim.g.loaded_netrwSettings = 1
-  -- vim.g.loaded_netrwFileHandlers = 1
+  vim.g.loaded_netrw = 1
+  vim.g.loaded_netrwPlugin = 1
+  vim.g.loaded_netrwSettings = 1
+  vim.g.loaded_netrwFileHandlers = 1
 end
 
 local load_core = function()
-  -- require("config.helper").init()
+  require("config.helper").init()
 
   createdir()
   disable_distribution_plugins()
@@ -54,12 +54,12 @@ local load_core = function()
   vim.api.nvim_set_hl(0, "SignColumn", { bg = "None" })
   vim.api.nvim_set_hl(0, "FoldColumn", { bg = "None" })
 
-  require("config.options")
+  require("config.options").general()
+  require("config.autocmds")
   require("config.keymaps")
   require("config.lazy_nvim"):boot_strap()
 
   vim.defer_fn(function()
-    -- require("config.colorscheme").load_colorscheme()
     require("config.lazy")
   end, 5)
 end

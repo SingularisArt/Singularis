@@ -78,13 +78,6 @@ local treesitter_obj = function()
         swap_next = { ["[n"] = "@parameter.inner" },
         swap_previous = { ["]p"] = "@parameter.inner" },
       },
-      lsp_interop = {
-        enable = true,
-        border = "rounded",
-        peek_definition_code = {
-          ["J"] = "@class.outer",
-        },
-      },
     },
   })
 end
@@ -205,6 +198,7 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
     end
   end,
 })
+
 return {
   treesitter = treesitter,
   treesitter_obj = treesitter_obj,

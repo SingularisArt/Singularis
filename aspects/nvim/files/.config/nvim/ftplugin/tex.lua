@@ -2,13 +2,7 @@ if vim.g.isInkscape then
   return function(_use) end
 end
 
-vim.cmd([[
-  setlocal fillchars=fold:\
-  setlocal foldlevel=0
-  setlocal foldmethod=expr
-  setlocal foldexpr=vimtex#fold#level(v:lnum)
-  setlocal foldtext=vimtex#fold#text()
-]])
+require("config.options").tex()
 
 local which_key = require("which-key")
 local options = require("config.global").which_key_vars.options
