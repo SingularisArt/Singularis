@@ -1,6 +1,11 @@
 return {
   settings = {
     Lua = {
+      diagnostics = {
+        globals = {
+          "vim",
+        },
+      },
       completion = {
         callSnippet = "Replace"
       },
@@ -26,11 +31,6 @@ return {
         version = "LuaJIT",
         special = {
           reload = "require",
-        },
-      },
-      diagnostics = {
-        globals = {
-          "vim",
         },
       },
       workspace = {

@@ -201,7 +201,7 @@ M.linters = {
 
   -- Lua
   "selene",
-  "luacheck",
+  -- "luacheck",
 
   -- PhP
   "phpcs",
