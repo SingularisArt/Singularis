@@ -1,6 +1,7 @@
 #!/usr/bin/sh
 
-if [[ $(ps aux | grep 'polybar' | wc -l) > 1 ]]; then
+if [[ $(ps aux | grep 'polybar main --reload' | wc -l) > 1 ]]; then
+  echo "hi"
   killall polybar
   bspc config top_padding 0
 else
