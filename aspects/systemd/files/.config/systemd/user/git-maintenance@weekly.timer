@@ -1,0 +1,13 @@
+# This file was created and is maintained by Git.
+# Any edits made in this file might be replaced in the future
+# by a Git command.
+
+[Unit]
+Description=Optimize Git repositories data
+
+[Timer]
+OnCalendar=Mon 0:08:00
+Persistent=true
+
+[Install]
+WantedBy=timers.target

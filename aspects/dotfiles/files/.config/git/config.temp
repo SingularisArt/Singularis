@@ -29,8 +29,10 @@
   count = !git --no-pager log --oneline | wc -l
   cp = cherry-pick
   delta = "!f() { git diff \"$@\" | delta; }; f"
+  ls = list-files
   p = push
   patch = add -p
+  get-root = rev-parse --show-toplevel
   update-submodules = submodule update --remote
 
   # http://stackoverflow.com/questions/224687/git-find-duplicate-blobs-files-in-this-tree/8408640#8408640
@@ -60,7 +62,6 @@
 
   # %C(auto) requires Git 1.8.3 or later
   one = !git --paginate log --pretty=format:'%C(auto)%h%Creset %s%C(auto)%d%Creset %C(magenta bold)(%cr)%Creset %C(cyan)%Creset'
-  oneline = !git --paginate log --pretty=format:'%C(auto)%h%Creset %s%C(auto)%d%Creset %C(magenta bold)(%cr)%Creset %C(cyan)%Creset'
 
   # Recover previous COMMIT_EDITMSG, if there is one.
   recover = !cat "$(git rev-parse --git-dir 2> /dev/null)/COMMIT_EDITMSG"
@@ -162,6 +163,9 @@
 [log]
   decorate = short
 
+[maintenance]
+  repo = /home/hashem/.local/share/Singularis
+
 [protocol]
   # Added in Git 2.18.0.
   version = 2
@@ -177,7 +181,7 @@
   autosquash = true
 
 [rerere]
-  enabled = true
+	enabled = true
 
 [status]
   submodulesummary = true
