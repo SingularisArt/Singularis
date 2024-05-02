@@ -7,9 +7,7 @@
   },
   "packages": {
     "nvim": [
-      "neovim-git"
-    ],
-    "servers": [
+      "neovim-git",
       "rust-analyzer",
       "solang-bin",
       "solidity",
@@ -31,9 +29,8 @@
   "libraries": {
     "python": {
       "nvim": [
-        "neovim"
-      ],
-      "servers": [
+        "neovim",
+        "latex2sympy2",
         "pyright",
         "python-language-server[all]",
         "black",
