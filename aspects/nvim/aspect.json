@@ -34,7 +34,8 @@
         "pyright",
         "python-language-server[all]",
         "black",
-        "jedi"
+        "jedi",
+        "yamllint"
       ]
     }
   }
