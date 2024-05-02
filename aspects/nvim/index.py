@@ -1,11 +1,11 @@
-#!/usr/bin/python3.10
+#!/usr/bin/env python3
 
 from man.log import Log as Log
 from man.operations.file import Files as Files
-from man.operations.node import Node as Node
 from man.operations.packages import Packages as Packages
-from man.operations.python import Python as Python
 from man.operations.template import Templates as Templates
+from man.operations.library import Python as Python
+from man.operations.library import Node as Node
 
 log = Log()
 

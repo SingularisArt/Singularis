@@ -83,7 +83,12 @@ def install_package(package, confirm=False, package_type="aur"):
         noconfirm = "-y" if not confirm else ""
         cmd = ["sudo", "yum", "install", package, noconfirm]
 
-    subprocess.run(cmd)
+    subprocess.run(
+        cmd,
+        stdout=subprocess.PIPE,
+        stderr=subprocess.PIPE,
+        check=True,
+    )
 
 
 def get_specific_items_to_install_and_ignore(name):
