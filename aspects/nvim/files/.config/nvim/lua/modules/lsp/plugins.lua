@@ -73,7 +73,7 @@ return function(use)
   use({
     "jose-elias-alvarez/null-ls.nvim",
     after = "nvim-lspconfig",
-    config = conf.null_ls,
+    -- config = conf.null_ls,
     dependencies = {
       {
         "jay-babu/mason-null-ls.nvim",

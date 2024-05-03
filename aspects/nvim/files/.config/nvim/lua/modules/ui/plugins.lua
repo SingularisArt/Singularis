@@ -119,18 +119,18 @@ return function(use)
     },
   })
 
-  use({
-    "dstein64/nvim-scrollview",
-    config = function()
-      require("scrollview").setup({
-        excluded_filetypes = { "nerdtree" },
-      })
-    end,
-    event = {
-      "CursorMoved",
-      "CursorMovedI",
-    },
-  })
+  -- use({
+  --   "dstein64/nvim-scrollview",
+  --   config = function()
+  --     require("scrollview").setup({
+  --       excluded_filetypes = { "nerdtree" },
+  --     })
+  --   end,
+  --   event = {
+  --     "CursorMoved",
+  --     "CursorMovedI",
+  --   },
+  -- })
 
   use({
     "NvChad/nvim-colorizer.lua",
