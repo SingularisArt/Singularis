@@ -17,6 +17,17 @@ end
 local ts = require("modules.lang.treesitter")
 
 return function(use)
+  -- latex
+  use({
+    "lervag/vimtex",
+    config = conf.vimtex,
+    ft = "tex",
+  })
+  use({
+    "anufrievroman/vim-tex-kawaii",
+    ft = "tex",
+  })
+
   use({
     "nvim-treesitter/nvim-treesitter",
     config = ts.treesitter,
@@ -37,6 +48,14 @@ return function(use)
   use({
     "nvim-treesitter/nvim-treesitter-refactor",
     config = ts.treesitter_ref,
+    dependencies = {
+      {
+        "andymass/vim-matchup",
+        setup = function()
+          vim.g.matchup_matchparen_offscreen = { method = "popup" }
+        end,
+      },
+    },
   })
 
   use({
@@ -183,16 +202,6 @@ return function(use)
     ft = "markdown",
   })
 
-  use({
-    "lervag/vimtex",
-    config = conf.vimtex,
-    ft = "tex",
-  })
-  use({
-    "anufrievroman/vim-tex-kawaii",
-    ft = "tex",
-  })
-
   -- javascript/typescript
   use({
     "mattn/emmet-vim",
@@ -229,15 +238,6 @@ return function(use)
   use({ "turbio/bracey.vim", ft = "html" })
   use({
     "Valloric/MatchTagAlways",
-    config = function()
-      vim.cmd([[
-      let g:mta_filetypes = {
-      \ "html" : 1,
-      \ "javascriptreact" : 1,
-      \ "typescriptreact" : 1,
-      \}
-      ]])
-    end,
     ft = {
       "html",
       "javascriptreact",

@@ -69,8 +69,6 @@ return function(use)
       if has("persistent_undo")
         let target_path = expand("~/.config/nvim/misc/undo")
 
-        " create the directory and any parent directories
-        " if the location does not exist.
         if !isdirectory(target_path)
           call mkdir(target_path, "p", 0700)
         endif
@@ -84,21 +82,12 @@ return function(use)
   })
 
   use({
-    "ghillb/cybu.nvim",
-    config = conf.cybu,
-    keys = {
-      "H",
-      "L",
-    },
-  })
-
-  use({
     "rmagatti/alternate-toggler",
     config = function()
       require("alternate-toggler").setup({})
     end,
     keys = {
-      { "<Space>t", "<CMD>lua require('alternate-toggler').toggleAlternate()<CR>" },
+      { "<Leader>t", "<CMD>lua require('alternate-toggler').toggleAlternate()<CR>" },
     },
   })
 
@@ -117,17 +106,6 @@ return function(use)
     config = conf.lir,
     keys = {
       { "<Leader>-", "<CMD>lua require('lir.float').toggle()<CR>" },
-    },
-  })
-
-  use({
-    "AckslD/muren.nvim",
-    cmd = {
-      "MurenToggle",
-      "MurenOpen",
-      "MurenClose",
-      "MurenFresh",
-      "MurenUnique",
     },
   })
 end

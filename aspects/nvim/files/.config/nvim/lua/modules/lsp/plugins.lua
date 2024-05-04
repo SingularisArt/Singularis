@@ -3,6 +3,7 @@ if vim.g.isInkscape then
 end
 
 local conf = require("modules.lsp.config")
+local icons = require("config.global").icons
 
 return function(use)
   use({
@@ -33,26 +34,6 @@ return function(use)
   use({ "SmiteshP/nvim-navic" })
 
   use({
-    "Fildo7525/pretty_hover",
-    after = "nvim-lspconfig",
-    config = function()
-      require("pretty_hover").setup({})
-    end,
-  })
-
-  use({
-    "simrat39/symbols-outline.nvim",
-    after = "nvim-lspconfig",
-    config = function()
-      require("symbols-outline").setup()
-    end,
-    cmd = {
-      "SymbolsOutline",
-      "SymbolsOutlineOpen",
-    },
-  })
-
-  use({
     "j-hui/fidget.nvim",
     branch = "legacy",
     opts = {
@@ -73,7 +54,7 @@ return function(use)
   use({
     "jose-elias-alvarez/null-ls.nvim",
     after = "nvim-lspconfig",
-    -- config = conf.null_ls,
+    config = conf.null_ls,
     dependencies = {
       {
         "jay-babu/mason-null-ls.nvim",
@@ -86,7 +67,18 @@ return function(use)
   use({
     "williamboman/mason.nvim",
     after = "nvim-lspconfig",
-    config = conf.mason,
+    opts = {
+      ui = {
+        border = "rounded",
+        icons = {
+          package_installed = "◍",
+          package_pending = "◍",
+          package_uninstalled = "◍",
+        },
+      },
+      log_level = vim.log.levels.INFO,
+      max_concurrent_installers = 4,
+    }
   })
 
   use({
@@ -105,7 +97,35 @@ return function(use)
 
   use({
     "ray-x/lsp_signature.nvim",
-    config = conf.signature,
+    opts = {
+      bind = true,
+      noice = true,
+      doc_lines = 10,
+
+      max_height = 10,
+      max_width = 80,
+
+      wrap = true,
+      fix_pos = false,
+
+      floating_window = true,
+      floating_window_above_cur_line = true,
+      floating_window_off_x = 1,
+      floating_window_off_y = 0,
+
+      hint_enable = true,
+      hi_parameter = "LspSignatureActiveParameter",
+
+      toggle_key = "<C-s>",
+      toggle_key_flip_floatwin_setting = true,
+
+      hint_prefix = icons.misc.Squirrel .. " ",
+      hint_scheme = "Comment",
+
+      handler_opts = {
+        border = "rounded",
+      },
+    }
   })
 
   use({
@@ -116,43 +136,41 @@ return function(use)
 
   use({
     "danymat/neogen",
-    config = function()
-      require("neogen").setup({
-        enabled = true,
-        languages = {
-          lua = {
-            template = {
-              annotation_convention = "ldoc",
-            },
-          },
-          python = {
-            template = {
-              annotation_convention = "google_docstrings",
-            },
-          },
-          rust = {
-            template = {
-              annotation_convention = "rustdoc",
-            },
-          },
-          javascript = {
-            template = {
-              annotation_convention = "jsdoc",
-            },
-          },
-          typescript = {
-            template = {
-              annotation_convention = "tsdoc",
-            },
-          },
-          typescriptreact = {
-            template = {
-              annotation_convention = "tsdoc",
-            },
+    opts = {
+      enabled = true,
+      languages = {
+        lua = {
+          template = {
+            annotation_convention = "ldoc",
           },
         },
-      })
-    end,
+        python = {
+          template = {
+            annotation_convention = "google_docstrings",
+          },
+        },
+        rust = {
+          template = {
+            annotation_convention = "rustdoc",
+          },
+        },
+        javascript = {
+          template = {
+            annotation_convention = "jsdoc",
+          },
+        },
+        typescript = {
+          template = {
+            annotation_convention = "tsdoc",
+          },
+        },
+        typescriptreact = {
+          template = {
+            annotation_convention = "tsdoc",
+          },
+        },
+      },
+    },
     cmd = "Neogen",
   })
 
@@ -237,26 +255,23 @@ return function(use)
   use({
     "vuki656/package-info.nvim",
     event = "BufEnter package.json",
-    config = function()
-      local icons = require("config.global").icons
-      require("package-info").setup({
-        colors = {
-          up_to_date = "#3C4048",
-          outdated = "#fc514e",
+    opts = {
+      colors = {
+        up_to_date = "#3C4048",
+        outdated = "#fc514e",
+      },
+      icons = {
+        enable = true,
+        style = {
+          up_to_date = icons.ui.CheckSquare,
+          outdated = icons.git.Remove,
         },
-        icons = {
-          enable = true,
-          style = {
-            up_to_date = icons.ui.CheckSquare,
-            outdated = icons.git.Remove,
-          },
-        },
-        autostart = true,
-        hide_up_to_date = true,
-        hide_unstable_versions = true,
-        package_manager = "npm",
-      })
-    end,
+      },
+      autostart = true,
+      hide_up_to_date = true,
+      hide_unstable_versions = true,
+      package_manager = "npm",
+    },
   })
 
   use({
@@ -279,5 +294,11 @@ return function(use)
         },
       })
     end,
+  })
+
+  use({
+    "hedyhli/outline.nvim",
+    opts = {},
+    cmd = { "Outline", "OutlineOpen" },
   })
 end

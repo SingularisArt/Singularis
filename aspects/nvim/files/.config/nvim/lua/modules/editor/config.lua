@@ -241,57 +241,6 @@ function config.telescope()
   require("telescope").load_extension("dotfiles")
 end
 
-function config.telescope_sessions()
-  local setup = {
-    extensions = {
-      sessions = {
-        sessions = {
-          sessions_path = os.getenv("HOME") .. "/.config/nvim/misc/sessions/",
-          sessions_variable = "session",
-        },
-        dressing = true,
-        autoload = false,
-        autosave = true,
-        autoswitch = {
-          enable = false,
-          exclude_ft = { "fugitive", "alpha", "NvimTree", "fzf", "qf" },
-        },
-        post_hook = nil,
-      },
-    },
-  }
-
-  require("telescope").setup(setup)
-  require("telescope").load_extension("sessions")
-end
-
-function config.cybu()
-  local cybu = require("cybu")
-
-  cybu.setup({
-    position = {
-      relative_to = "win",
-      anchor = "topright",
-    },
-    display_time = 1750,
-    style = {
-      path = "relative",
-      border = "rounded",
-      separator = " ",
-      prefix = "…",
-      padding = 1,
-      hide_buffer_id = true,
-      devicons = {
-        enabled = true,
-        colored = true,
-      },
-    },
-  })
-
-  vim.keymap.set("n", "H", "<Plug>(CybuPrev)")
-  vim.keymap.set("n", "L", "<Plug>(CybuNext)")
-end
-
 function config.neo_tree()
   local neotree = require("neo-tree")
   local icons = require("config.global").icons
@@ -595,10 +544,6 @@ function config.lir()
       name = "LirFolderNode",
     },
   })
-end
-
-function config.translate()
-  require("pantran").setup({})
 end
 
 return config

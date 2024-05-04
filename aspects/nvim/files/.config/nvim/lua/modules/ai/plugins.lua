@@ -12,7 +12,7 @@ return function(use)
     },
     config = function()
       require("chatgpt").setup({
-        api_key_cmd = "pass show api/tokens/chatgpt.nvim"
+        api_key_cmd = "~/.local/bin/get-password api/tokens/chatgpt.nvim"
       })
     end,
     cmd = {
@@ -23,18 +23,6 @@ return function(use)
       "ChatGPTRun",
     },
   })
-
-  -- For CMP
-  -- use({
-  --   "zbirenbaum/copilot.lua",
-  --   config = function()
-  --     require("copilot").setup({
-  --       suggestion = { enabled = false },
-  --       panel = { enabled = false },
-  --     })
-  --   end,
-  --   event = "InsertEnter",
-  -- })
 
   use({
     "github/copilot.vim",

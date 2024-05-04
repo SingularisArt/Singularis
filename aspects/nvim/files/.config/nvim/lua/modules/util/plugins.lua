@@ -11,14 +11,4 @@ return function(use)
   use({ "nvim-lua/plenary.nvim" })
   use({ "ray-x/guihua.lua" })
   use({ "wincent/pinnacle" })
-
-  use({
-    "Aityz/usage.nvim",
-    config = function()
-      require("usage").setup({
-        mode = "float",
-      })
-    end,
-    event = "VeryLazy",
-  })
 end

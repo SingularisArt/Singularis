@@ -171,13 +171,6 @@ function config.cmp()
     }, cmp.get_config().sources),
   })
 
-  -- cmp.setup.filetype({ "r", "rmd" }, {
-  --   sources = cmp.config.sources({
-  --     { name = "cmp_zotcite" },
-  --     { name = "cmp_nvim_r" },
-  --   }, cmp.get_config().sources),
-  -- })
-
   cmp.setup.filetype("toml", {
     sources = cmp.config.sources({
       { name = "crates" },

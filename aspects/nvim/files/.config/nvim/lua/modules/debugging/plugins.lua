@@ -14,10 +14,11 @@ return function(use)
       "nvim-neotest/neotest-vim-test",
       "haydenmeade/neotest-jest",
       {
-        "sidlatau/neotest-dart", ft = { "dart" },
+        "sidlatau/neotest-dart",
+        ft = { "dart" },
         config = function()
-          require("neotest-dart") { command = "flutter" }
-        end
+          require("neotest-dart")({ command = "flutter" })
+        end,
       },
     },
   })
@@ -38,7 +39,7 @@ return function(use)
       {
         "mfussenegger/nvim-dap-python",
         config = function()
-          require("dap-python").setup("/usr/bin/python3")
+          require("dap-python").setup("/usr/bin/python")
         end,
       },
       {
@@ -50,7 +51,7 @@ return function(use)
               type = "nlua",
               request = "attach",
               name = "Attach to running Neovim instance",
-            }
+            },
           }
 
           dap.adapters.nlua = function(callback, config)
@@ -69,24 +70,24 @@ return function(use)
             ensure_installed = ensure_installed,
             automatic_installation = true,
           })
-        end
-      }
+        end,
+      },
     },
     keys = {
-      "<Leader>dt",
-      "<Leader>db",
-      "<Leader>dc",
-      "<Leader>dC",
-      "<Leader>dd",
-      "<Leader>dg",
-      "<Leader>di",
-      "<Leader>do",
-      "<Leader>du",
-      "<Leader>dp",
-      "<Leader>dr",
-      "<Leader>ds",
-      "<Leader>dq",
-      "<Leader>dU",
+      { "<Leader>dt", function() require("dap").toggle_breakpoint() end, desc = "Toggle Breakpoint" },
+      { "<Leader>db", function() require("dap").step_back() end, desc = "Step Back" },
+      { "<Leader>dc", function() require("dap").continue() end, desc = "Continue" },
+      { "<Leader>dC", function() require("dap").run_to_cursor() end, desc = "Run To Cursor" },
+      { "<Leader>dd", function() require("dap").disconnect() end, desc = "Disconnect" },
+      { "<Leader>dg", function() require("dap").session() end, desc = "Get Session" },
+      { "<Leader>di", function() require("dap").step_into() end, desc = "Step Into" },
+      { "<Leader>do", function() require("dap").step_over() end, desc = "Step Over" },
+      { "<Leader>du", function() require("dap").step_out() end, desc = "Step Out" },
+      { "<Leader>dp", function() require("dap").pause() end, desc = "Pause" },
+      { "<Leader>dr", function() require("dap").repl.toggle() end, desc = "Toggle Repl" },
+      { "<Leader>ds", function() require("dap").continue() end, desc = "Start" },
+      { "<Leader>dq", function() require("dap").close() end, desc = "Quit" },
+      { "<Leader>dU", function() require("dapui").toggle() end, desc = "Enable/Disable UI" },
     },
   })
 

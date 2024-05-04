@@ -8,12 +8,30 @@ local treesitter = function()
   require("nvim-treesitter.configs").setup({
     highlight = {
       enable = true,
-      additional_vim_regex_highlighting = { "org" },
-      disable = { "elm" },
+      additional_vim_regex_highlighting = { "latex" },
       use_languagetree = false,
-      custom_captures = { todo = "Todo" },
+      ensure_installed = {
+        "python",
+        "cpp",
+        "c",
+        "cs",
+        "sql",
+        "html",
+        "css",
+        "javascript",
+        "typescript",
+        "php",
+        "ruby",
+        "perl",
+        "java",
+        "rust",
+        "solidity",
+        "docker",
+        "kotlin",
+        "ocaml",
+        "zig",
+      },
       auto_install = true,
-      ensure_installed = {},
       ignore_install = { "latex", "markdown" },
     },
   })
@@ -25,34 +43,59 @@ local treesitter_obj = function()
     print("skip treesitter obj")
     return
   end
+end
 
-  vim.g.skip_ts_context_commentstring_module = true
-
-  require("ts_context_commentstring").setup({
-    indent = { enable = true },
-    context_commentstring = { enable = true },
-    incremental_selection = {
-      enable = false,
-      keymaps = {
-        init_selection = "gnn",
-        scope_incremental = "gnn",
-        node_incremental = "<TAB>",
-        node_decremental = "<S-TAB>",
-      },
+local treesitter_ref = function()
+  require("nvim-treesitter.configs").setup({
+    refactor = {
+      highlight_definitions = { enable = true },
+      highlight_current_scope = { enable = false },
+      smart_rename = { enable = false },
+      navigation = { enable = false },
     },
+    matchup = {
+      enable = true,
+      disable_virtual_text = true,
+    },
+    autopairs = { enable = true },
+    autotag = { enable = true },
+  })
+
+  vim.g.matchup_matchparen_enabled = 0
+end
+
+local function textsubjects()
+  require("nvim-treesitter.configs").setup({
     textobjects = {
-      keymaps = {
-        ["."] = "textsubjects-smart",
-        [";"] = "textsubjects-container-outer",
-      },
       select = {
         enable = true,
         lookahead = true,
         keymaps = {
           ["af"] = "@function.outer",
           ["if"] = "@function.inner",
+
+          ["ac"] = "@class.outer",
+          ["ic"] = "@class.inner",
+
+          ["as"] = { query = "@scope", query_group = "locals" },
         },
+
+        selection_modes = {
+          ["@parameter.outer"] = "v",
+          ["@function.outer"] = "V",
+          ["@function.inner"] = "v",
+          ["@class.outer"] = "<c-v>",
+        },
+
+        include_surrounding_whitespace = true,
       },
+
+      swap = {
+        enable = true,
+        swap_next = { ["[n"] = "@parameter.inner" },
+        swap_previous = { ["]n"] = "@parameter.inner" },
+      },
+
       move = {
         enable = true,
         set_jumps = true,
@@ -73,62 +116,6 @@ local treesitter_obj = function()
           ["[]"] = "@class.outer",
         },
       },
-      swap = {
-        enable = true,
-        swap_next = { ["[n"] = "@parameter.inner" },
-        swap_previous = { ["]p"] = "@parameter.inner" },
-      },
-    },
-  })
-end
-
-local treesitter_ref = function()
-  require("nvim-treesitter.configs").setup({
-    refactor = {
-      highlight_definitions = { enable = true },
-      highlight_current_scope = { enable = false },
-      smart_rename = {
-        enable = false,
-      },
-      navigation = {
-        enable = true,
-      },
-    },
-    matchup = {
-      enable = true,
-      disable = { "ruby" },
-    },
-    autopairs = { enable = true },
-    autotag = { enable = true },
-  })
-  local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
-  parser_config.norg = {
-    install_info = {
-      url = "https://github.com/nvim-neorg/tree-sitter-norg",
-      files = { "src/parser.c", "src/scanner.cc" },
-      branch = "main",
-    },
-  }
-  parser_config.sql = {
-    install_info = {
-      url = "https://github.com/m-novikov/tree-sitter-sql",
-      files = { "src/parser.c" },
-      branch = "main",
-    },
-    filetype = { "sql", "psql" },
-  }
-end
-
-local function textsubjects()
-  require("nvim-treesitter.configs").setup({
-    textsubjects = {
-      enable = true,
-      prev_selection = ",",
-      keymaps = {
-        ["."] = "textsubjects-smart",
-        [";"] = "textsubjects-container-outer",
-        ["i;"] = "textsubjects-container-inner",
-      },
     },
   })
 end
@@ -141,20 +128,6 @@ local treesitter_context = function(width)
     return " "
   end
   local en_context = true
-
-  local disable_ft = {
-    "NvimTree",
-    "neo-tree",
-    "guihua",
-    "packer",
-    "guihua_rust",
-    "clap_input",
-    "clap_spinner",
-    "TelescopePrompt",
-    "csv",
-    "txt",
-    "defx",
-  }
 
   local type_patterns = {
     "class",

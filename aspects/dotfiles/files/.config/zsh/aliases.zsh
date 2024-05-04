@@ -55,7 +55,7 @@ if command -v &> /dev/null; then
 fi
 if command -v mariadb &> /dev/null; then
   alias msr='mariadb -u root -p'
-  alias mss='mariadb -u singularis -p'
+  alias mss="mariadb -u=$(get-password 'programming/mariadb/account-1' 'account') -p=\"$(get-password 'programming/mariadb/account-1')\""
 fi
 if command -v ncmpcpp &> /dev/null; then
   alias n='ncmpcpp'

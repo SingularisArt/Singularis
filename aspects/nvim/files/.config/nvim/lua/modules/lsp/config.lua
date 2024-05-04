@@ -113,6 +113,43 @@ function config.null_ls()
   null_ls.setup(setup)
 end
 
+function config.mason_null_ls()
+  local conf = require("modules.lsp.lsp_config")
+  local formatters = conf.formatters
+  local linters = conf.linters
+  local code_actions = conf.code_actions
+
+  local ensure_installed = {}
+  for k, v in pairs(formatters) do
+    if type(v) == "table" then
+      table.insert(ensure_installed, k)
+    else
+      table.insert(ensure_installed, v)
+    end
+  end
+
+  for k, v in pairs(linters) do
+    if type(v) == "table" then
+      table.insert(ensure_installed, k)
+    else
+      table.insert(ensure_installed, v)
+    end
+  end
+
+  for k, v in pairs(code_actions) do
+    if type(v) == "table" then
+      table.insert(ensure_installed, k)
+    else
+      table.insert(ensure_installed, v)
+    end
+  end
+
+  require("mason-null-ls").setup({
+    ensure_installed = ensure_installed,
+    automatic_installation = true,
+  })
+end
+
 function config.navigator()
   local on_attach = require("modules.lsp.handlers").on_attach
   local capabilities = require("modules.lsp.handlers").capabilities
@@ -201,94 +238,6 @@ function config.navigator()
   require("navigator").setup(nav_cfg)
 end
 
-function config.mason()
-  require("mason").setup({
-    ui = {
-      border = "rounded",
-      icons = {
-        package_installed = "◍",
-        package_pending = "◍",
-        package_uninstalled = "◍",
-      },
-    },
-    log_level = vim.log.levels.INFO,
-    max_concurrent_installers = 4,
-  })
-end
-
-function config.mason_null_ls()
-  local conf = require("modules.lsp.lsp_config")
-  local formatters = conf.formatters
-  local linters = conf.linters
-  local code_actions = conf.code_actions
-
-  local ensure_installed = {}
-  for k, v in pairs(formatters) do
-    if type(v) == "table" then
-      table.insert(ensure_installed, k)
-    else
-      table.insert(ensure_installed, v)
-    end
-  end
-
-  for k, v in pairs(linters) do
-    if type(v) == "table" then
-      table.insert(ensure_installed, k)
-    else
-      table.insert(ensure_installed, v)
-    end
-  end
-
-  for k, v in pairs(code_actions) do
-    if type(v) == "table" then
-      table.insert(ensure_installed, k)
-    else
-      table.insert(ensure_installed, v)
-    end
-  end
-
-  require("mason-null-ls").setup({
-    ensure_installed = ensure_installed,
-    automatic_installation = true,
-  })
-end
-
-function config.signature()
-  local icons = require("config.global").icons
-
-  local signature_help_setup = {
-    bind = true,
-    noice = true,
-    doc_lines = 10,
-
-    max_height = 10,
-    max_width = 80,
-
-    wrap = true,
-    fix_pos = false,
-
-    floating_window = true,
-    floating_window_above_cur_line = true,
-    floating_window_off_x = 1,
-    floating_window_off_y = 0,
-
-    hint_enable = true,
-    hi_parameter = "LspSignatureActiveParameter",
-
-    toggle_key = "<C-s>",
-    toggle_key_flip_floatwin_setting = true,
-
-    hint_prefix = icons.misc.Squirrel .. " ",
-    hint_scheme = "Comment",
-
-    handler_opts = {
-      border = "rounded",
-    },
-  }
-
-  require("lsp_signature").setup(signature_help_setup)
-end
-
 function config.glance()
   local filter = require("util").filter
   local filterReactDTS = require("util").filter_react_dts
@@ -305,6 +254,40 @@ function config.glance()
           open(results)
         end
       end,
+    },
+  })
+end
+
+function config.flutter_tools()
+  local line = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" }
+
+  require("flutter-tools").setup({
+    ui = { border = line },
+    debugger = {
+      enabled = false,
+      run_via_dap = false,
+      exception_breakpoints = {},
+    },
+    outline = { auto_open = false },
+    decorations = {
+      statusline = { device = true, app_version = true },
+    },
+    widget_guides = { enabled = true, debug = false },
+    dev_log = { enabled = true, open_cmd = "tabedit" },
+    lsp = {
+      color = {
+        enabled = false,
+        -- enabled = true,
+        -- background = true,
+        -- virtual_text = false,
+      },
+      settings = {
+        showTodos = true,
+        renameFilesWithClasses = "always",
+        updateImportsOnRename = true,
+        completeFunctionCalls = true,
+        lineLength = 100,
+      },
     },
   })
 end
@@ -348,40 +331,6 @@ function config.clangd_extensions()
   require("clangd_extensions").setup({
     server = setup.server,
     extensions = setup.extensions,
-  })
-end
-
-function config.flutter_tools()
-  local line = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" }
-
-  require("flutter-tools").setup({
-    ui = { border = line },
-    debugger = {
-      enabled = false,
-      run_via_dap = false,
-      exception_breakpoints = {},
-    },
-    outline = { auto_open = false },
-    decorations = {
-      statusline = { device = true, app_version = true },
-    },
-    widget_guides = { enabled = true, debug = false },
-    dev_log = { enabled = true, open_cmd = "tabedit" },
-    lsp = {
-      color = {
-        enabled = false,
-        -- enabled = true,
-        -- background = true,
-        -- virtual_text = false,
-      },
-      settings = {
-        showTodos = true,
-        renameFilesWithClasses = "always",
-        updateImportsOnRename = true,
-        completeFunctionCalls = true,
-        lineLength = 100,
-      },
-    },
   })
 end
 

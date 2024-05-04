@@ -1,48 +1,33 @@
 local config = {}
 
-function config.refactor()
-  local refactor = require("refactoring")
-  refactor.setup({})
-
-  _G.ts_refactors = function()
-    local function _refactor(prompt_bufnr)
-      local content = require("telescope.actions.state").get_selected_entry(prompt_bufnr)
-      require("telescope.actions").close(prompt_bufnr)
-      require("refactoring").refactor(content.value)
-    end
-
-    local opts = require("telescope.themes").get_cursor()
-    require("telescope.pickers")
-      .new(opts, {
-        prompt_title = "refactors",
-        finder = require("telescope.finders").new_table({
-          results = require("refactoring").get_refactors(),
-        }),
-        sorter = require("telescope.config").values.generic_sorter(opts),
-        attach_mappings = function(_, map)
-          map("i", "<CR>", _refactor)
-          map("n", "<CR>", _refactor)
-          return true
-        end,
-      })
-      :find()
-  end
+function config.vimtex()
+  vim.g.vimtex_view_method = "zathura"
+  vim.g.latex_view_general_viewer = "zathura"
+  vim.g.vimtex_compiler_progname = "nvr"
+  vim.g.vimtex_quickfix_enabled = 0
 end
 
-function config.outline()
-  require("symbols-outline").setup({})
-end
-
-function config.syntax_folding()
-  local fname = vim.fn.expand("%:p:f")
-  local fsize = vim.fn.getfsize(fname)
-  if fsize > 1024 * 1024 then
-    print("disable syntax_folding")
-    vim.api.nvim_command("setlocal foldmethod=indent")
-    return
-  end
-  vim.api.nvim_command("setlocal foldmethod=expr")
-  vim.api.nvim_command("setlocal foldexpr=nvim_treesitter#foldexpr()")
+function config.playground()
+  require("nvim-treesitter.configs").setup({
+    playground = {
+      enable = true,
+      disable = {},
+      updatetime = 25,
+      persist_queries = false,
+      keybindings = {
+        toggle_query_editor = "o",
+        toggle_hl_groups = "i",
+        toggle_injected_languages = "t",
+        toggle_anonymous_nodes = "a",
+        toggle_language_display = "I",
+        focus_language = "f",
+        unfocus_language = "F",
+        update = "R",
+        goto_node = "<cr>",
+        show_help = "?",
+      },
+    },
+  })
 end
 
 function config.regexplainer()
@@ -76,65 +61,6 @@ function config.regexplainer()
   })
 end
 
-local path = vim.split(package.path, ";")
-
-table.insert(path, "lua/?.lua")
-table.insert(path, "lua/?/init.lua")
-
-function config.playground()
-  require("nvim-treesitter.configs").setup({
-    playground = {
-      enable = true,
-      disable = {},
-      updatetime = 25,
-      persist_queries = false,
-      keybindings = {
-        toggle_query_editor = "o",
-        toggle_hl_groups = "i",
-        toggle_injected_languages = "t",
-        toggle_anonymous_nodes = "a",
-        toggle_language_display = "I",
-        focus_language = "f",
-        unfocus_language = "F",
-        update = "R",
-        goto_node = "<cr>",
-        show_help = "?",
-      },
-    },
-  })
-end
-
-function config.luapad()
-  require("luapad").setup({
-    count_limit = 150000,
-    error_indicator = true,
-    eval_on_move = true,
-    error_highlight = "WarningMsg",
-    split_orientation = "horizontal",
-    on_init = function()
-      print("Luapad created!")
-    end,
-    context = {
-      the_answer = 42,
-      shout = function(str)
-        return (string.upper(str) .. "!")
-      end,
-    },
-  })
-end
-function config.ssr()
-  require("ssr").setup({
-    min_width = 50,
-    min_height = 5,
-    keymaps = {
-      close = "q",
-      next_match = "n",
-      prev_match = "N",
-      replace_all = "<leader><cr>",
-    },
-  })
-end
-
 function config.context_vt()
   require("nvim_context_vt").setup({
     enabled = true,
@@ -153,6 +79,35 @@ function config.context_vt()
   })
 end
 
+function config.refactor()
+  local refactor = require("refactoring")
+  refactor.setup({})
+
+  _G.ts_refactors = function()
+    local function _refactor(prompt_bufnr)
+      local content = require("telescope.actions.state").get_selected_entry(prompt_bufnr)
+      require("telescope.actions").close(prompt_bufnr)
+      require("refactoring").refactor(content.value)
+    end
+
+    local opts = require("telescope.themes").get_cursor()
+    require("telescope.pickers")
+      .new(opts, {
+        prompt_title = "refactors",
+        finder = require("telescope.finders").new_table({
+          results = require("refactoring").get_refactors(),
+        }),
+        sorter = require("telescope.config").values.generic_sorter(opts),
+        attach_mappings = function(_, map)
+          map("i", "<CR>", _refactor)
+          map("n", "<CR>", _refactor)
+          return true
+        end,
+      })
+      :find()
+  end
+end
+
 function config.markdown_preview()
   vim.g.mkdp_markdown_css = os.getenv("HOME") .. "/.config/nvim/misc/static/markdown-preview.css"
   vim.g.mkdp_highlight_css = os.getenv("HOME") .. "/.cache/wal/colors.css"
@@ -160,13 +115,6 @@ function config.markdown_preview()
   vim.g.vim_markdown_math = 1
   vim.g.vim_markdown_conceal_code_blocks = 0
   vim.g.vim_markdown_strikethrough = 1
-end
-
-function config.vimtex()
-  vim.g.vimtex_view_method = "zathura"
-  vim.g.latex_view_general_viewer = "zathura"
-  vim.g.vimtex_compiler_progname = "nvr"
-  vim.g.vimtex_quickfix_enabled = 0
 end
 
 function config.package_json()

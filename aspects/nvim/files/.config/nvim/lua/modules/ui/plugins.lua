@@ -181,7 +181,6 @@ return function(use)
 
   use({
     "luukvbaal/statuscol.nvim",
-    branch = "0.10",
     lazy = false,
 
     opts = function()
