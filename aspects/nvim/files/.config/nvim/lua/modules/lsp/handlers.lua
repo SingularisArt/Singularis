@@ -47,12 +47,11 @@ lsp.attach_mappings = function(_, bufnr)
       f = { "<CMD>lua vim.lsp.buf.format { async = true }<CR>", "Format" },
       r = { "<CMD>lua vim.lsp.buf.rename()<CR>", "Rename" },
       i = { "<CMD>LspInfo<CR>", "LSP info" },
-      o = { "<CMD>SymbolsOutline<CR>", "Symbols Outline" },
+      o = { "<CMD>OutlineOpen<CR>", "Symbols Outline" },
       j = { "<CMD>lua vim.diagnostic.goto_next()<CR>", "Go to next diagnostic" },
       k = { "<CMD>lua vim.diagnostic.goto_prev()<CR>", "Go to previous diagnostic" },
       l = { "<CMD>lua require('lsp_lines').toggle()<CR>", "Toggle LSP Lines" },
       s = { "<CMD>lua vim.lsp.buf.signature_help()<CR>", "Signature" },
-      S = { "<CMD>LspSymbols<CR>", "Toggle symbols outline" },
       D = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
       d = {
         name = "Definition",
@@ -127,19 +126,19 @@ lsp.on_attach = function(client, bufnr)
 
   lsp.capabilities = client.config.capabilities
 
-  -- if client.resolved_capabilities.code_lens then
-  --   local codelens = vim.api.nvim_create_augroup(
-  --     "LSPCodeLens",
-  --     { clear = true }
-  --   )
-  --   vim.api.nvim_create_autocmd({ "BufEnter", "InsertLeave", "CursorHold" }, {
-  --     group = codelens,
-  --     callback = function()
-  --       vim.lsp.codelens.refresh()
-  --     end,
-  --     buffer = bufnr,
-  --   })
-  -- end
+  if client.resolved_capabilities.code_lens then
+    local codelens = vim.api.nvim_create_augroup(
+      "LSPCodeLens",
+      { clear = true }
+    )
+    vim.api.nvim_create_autocmd({ "BufEnter", "InsertLeave", "CursorHold" }, {
+      group = codelens,
+      callback = function()
+        vim.lsp.codelens.refresh()
+      end,
+      buffer = bufnr,
+    })
+  end
 end
 
 return lsp

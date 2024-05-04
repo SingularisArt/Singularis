@@ -96,7 +96,6 @@ function Lazyload()
   loader("lsp_signature.nvim")
 
   loader("navigator.lua")
-  loader("pretty_hover")
   loader("fidget.nvim")
   loader("inlay-hints.nvim")
   loader("null-ls.nvim")

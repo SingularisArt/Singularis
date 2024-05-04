@@ -82,12 +82,33 @@ return function(use)
   })
 
   use({
+    "ThePrimeagen/harpoon",
+    opts = {},
+    keys = {
+      { "L", function() require("harpoon.ui").nav_next() end },
+      { "H", function() require("harpoon.ui").nav_prev() end },
+      { "<Leader>pt", "<CMD>Telescope harpoon marks<CR>" },
+      { "<Leader>pa", function() require("harpoon.mark").add_file() end },
+      { "<Leader>pu", function() require("harpoon.ui").toggle_quick_menu() end },
+      { "<Leader>p1", function() require("harpoon.ui").nav_file(1) end },
+      { "<Leader>p2", function() require("harpoon.ui").nav_file(2) end },
+      { "<Leader>p3", function() require("harpoon.ui").nav_file(3) end },
+      { "<Leader>p4", function() require("harpoon.ui").nav_file(4) end },
+      { "<Leader>p5", function() require("harpoon.ui").nav_file(5) end },
+      { "<Leader>p6", function() require("harpoon.ui").nav_file(6) end },
+      { "<Leader>p7", function() require("harpoon.ui").nav_file(7) end },
+      { "<Leader>p8", function() require("harpoon.ui").nav_file(8) end },
+      { "<Leader>p9", function() require("harpoon.ui").nav_file(9) end },
+    },
+  })
+
+  use({
     "rmagatti/alternate-toggler",
     config = function()
       require("alternate-toggler").setup({})
     end,
     keys = {
-      { "<Leader>t", "<CMD>lua require('alternate-toggler').toggleAlternate()<CR>" },
+      { "<Leader>t", function() require("alternate-toggler").toggleAlternate() end },
     },
   })
 
