@@ -118,8 +118,8 @@
          id="rect"
          style="fill:blue;"
          usecurrent="1"
-         width="50.8442001342773"
-         height="40.9504814147949"
+         width="2420.79077148438"
+         height="1462.84936523438"
          ry="0" />
       <eventcontext
          id="3dbox"
@@ -392,7 +392,7 @@
        id="select"
        selcue="1"
        gradientdrag="0"
-       touch_box="0" />
+       touch_box="1" />
     <eventcontext
        id="connector"
        style="fill:none;fill-rule:evenodd;stroke:black;stroke-opacity:1;stroke-linejoin:miter;stroke-width:1px;stroke-linecap:butt;"
@@ -638,7 +638,7 @@
     <group
        id="open"
        enable_preview="1"
-       path="/home/hashem/Documents/school-notes/College/Year-2/spring/mth-256/figures/lec-05/" />
+       path="/home/hashem/Documents/school-notes/College/Year-2/spring/mth-256/assignments/my-assignments/image-files/problem-set-03/" />
     <group
        id="import"
        enable_preview="1"
@@ -984,7 +984,7 @@
        id="rendering" />
     <group
        id="snapping"
-       snap-global-toggle="0" />
+       snap-global-toggle="1" />
     <group
        id="threading" />
     <group
@@ -1032,7 +1032,7 @@
      fernando.slopeField.nSegmentsY="14" />
   <group
      id="desktop"
-     style="stroke-width:0.5308;-inkscape-font-specification:'monospace, Normal';font-family:monospace;font-size:9.99998667px;fill-border:#3DC6F3;fill:#ffffff;stroke:#ffffff;-inkscape-stroke:none;stop-color:#000000">
+     style="stroke-width:0.5308;-inkscape-font-specification:'monospace, Normal';font-family:monospace;font-size:9.99998667px;fill-border:#3DC6F3;fill:none;-inkscape-stroke:none;stop-color:#000000;opacity:0">
     <group
        width="640"
        height="480"
