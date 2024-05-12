@@ -72,7 +72,7 @@ class Library(InitClass, list):
             cmd_lib.append(library)
 
             log.log_trace(f"Installing {library} for {self.aspect_name.title()}.")
-            log_level = int(self.args.log_level)
+            log_level = int(self.args.log_level) if self.args.log_level else -1
             try:
                 log.log_trace(f"Installing {self.library_type} library '{library}' for {self.aspect_name.title()}.")
                 stdout = subprocess.PIPE if log_level > 2 or log_level == -1 else None
