@@ -72,16 +72,22 @@ class Library(InitClass, list):
             cmd_lib.append(library)
 
             log.log_trace(f"Installing {library} for {self.aspect_name.title()}.")
+            log_level = int(self.args.log_level)
             try:
+                log.log_trace(f"Installing {self.library_type} library '{library}' for {self.aspect_name.title()}.")
+                stdout = subprocess.PIPE if log_level > 2 or log_level == -1 else None
+                stderr = subprocess.PIPE if log_level > 2 or log_level == -1 else None
                 subprocess.run(
                     cmd_lib,
-                    stdout=subprocess.PIPE,
-                    stderr=subprocess.PIPE,
+                    stdout=stdout,
+                    stderr=stderr,
                     check=True,
                 )
                 log.log_info(f"Installed {self.library_type} library '{library}' for {self.aspect_name.title()}.")
-            except subprocess.CalledProcessError:
+            except subprocess.CalledProcessError as e:
                 log.log_error(f"Error installing {self.library_type} library {library} for {self.aspect_name.title()}.")
+                if log_level <= 2 and log_level != -1:
+                    log.log_debug(e.stderr.decode("utf-8"))
 
 
 

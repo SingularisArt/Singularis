@@ -23,8 +23,8 @@ def join(*args, seperator="/"):
 
 
 def symlink(location, destination):
-    os.system("rm -rf {}".format(destination))
-    os.makedirs(os.path.dirname(destination), exist_ok=True)
+    os.removedirs(destination)
+    os.makedirs(destination, exist_ok=True)
     os.symlink(location, destination)
 
 
