@@ -71,8 +71,10 @@ class Packages(InitClass, list):
     def install_package(self, package_name):
         try:
             log.log_trace(f"Installing package '{package_name}'.")
+            log_level = int(self.args.log_level)
             install_package(
                 package_name,
+                log_level,
                 confirm=self.args.confirm,
                 package_type=self.package_type,
             )

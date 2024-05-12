@@ -23,8 +23,10 @@ def join(*args, seperator="/"):
 
 
 def symlink(location, destination):
-    os.removedirs(destination)
-    os.makedirs(destination, exist_ok=True)
+    if os.path.exists(destination):
+        os.system(f"rm -rf {destination}")
+
+    # os.makedirs(destination, exist_ok=True)
     os.symlink(location, destination)
 
 
@@ -49,7 +51,7 @@ def confirm(prompt):
             print('Please enter "yes", "y" or "no", "n"')
 
 
-def install_package(package, confirm=False, package_type="aur"):
+def install_package(package, log_level, confirm=False, package_type="aur"):
     noconfirm = ""
     cmd = []
 
@@ -83,10 +85,12 @@ def install_package(package, confirm=False, package_type="aur"):
         noconfirm = "-y" if not confirm else ""
         cmd = ["sudo", "yum", "install", package, noconfirm]
 
+    stdout = subprocess.PIPE if log_level > 2 or log_level == -1 else None
+    stderr = subprocess.PIPE if log_level > 2 or log_level == -1 else None
     subprocess.run(
         cmd,
-        stdout=subprocess.PIPE,
-        stderr=subprocess.PIPE,
+        stdout=stdout,
+        stderr=stderr,
         check=True,
     )
 
