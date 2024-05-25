@@ -236,6 +236,7 @@ function config.navigator()
   }
 
   require("navigator").setup(nav_cfg)
+  -- require("navigator").setup()
 end
 
 function config.glance()

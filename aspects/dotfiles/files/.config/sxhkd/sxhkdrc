@@ -43,6 +43,8 @@ super + y
   slock
 super + i
   inkscape
+super + s
+  flameshot gui
 
 ##########
 #  Rofi  #

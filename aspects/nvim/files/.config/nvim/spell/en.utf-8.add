@@ -140,3 +140,8 @@ Timeplots
 nullclines
 nullcline
 rho/!
+underdamped
+overdamped
+input/!
+complexified
+Wronskian

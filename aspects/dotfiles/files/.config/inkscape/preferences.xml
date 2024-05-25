@@ -118,8 +118,8 @@
          id="rect"
          style="fill:blue;"
          usecurrent="1"
-         width="2420.79077148438"
-         height="1462.84936523438"
+         width="32.9410285949707"
+         height="33.6364479064941"
          ry="0" />
       <eventcontext
          id="3dbox"
@@ -638,7 +638,7 @@
     <group
        id="open"
        enable_preview="1"
-       path="/home/hashem/Documents/school-notes/College/Year-2/spring/mth-256/assignments/my-assignments/image-files/problem-set-03/" />
+       path="/home/hashem/" />
     <group
        id="import"
        enable_preview="1"
@@ -1032,7 +1032,7 @@
      fernando.slopeField.nSegmentsY="14" />
   <group
      id="desktop"
-     style="stroke-width:0.5308;-inkscape-font-specification:'monospace, Normal';font-family:monospace;font-size:9.99998667px;fill-border:#3DC6F3;fill:none;-inkscape-stroke:none;stop-color:#000000;opacity:0">
+     style="stroke-width:0.531;-inkscape-font-specification:'monospace, Normal';font-family:monospace;font-size:9.99998667px;fill-border:#3DC6F3;fill:#ffffff;stop-color:#000000;stroke:#ffffff">
     <group
        width="640"
        height="480"

@@ -63,10 +63,10 @@ vars.vmappings["/"] = {
 }
 
 vars.mappings[" "] = { "<CMD>normal <C-^><CR>", "Jump to previous buffer" }
-vars.mappings["-"] = { require("lir.float").toggle, "Toggle Lir" }
+-- vars.mappings["-"] = { require("lir.float").toggle, "Toggle Lir" }
 vars.mappings["/"] = { require("Comment.api").toggle.linewise, "Comment out current line" }
 vars.mappings["a"] = { require("harpoon.mark").add_file, "Add file to harpoon" }
-vars.mappings["e"] = { "<CMD>Neotree toggle<CR>", "Toggle NeoTree" }
+-- vars.mappings["e"] = { "<CMD>Neotree toggle<CR>", "Toggle NeoTree" }
 vars.mappings["h"] = { vim.cmd.split, "Horizontal Split" }
 vars.mappings["t"] = { require("alternate-toggler").toggleAlternate, "Alternate" }
 vars.mappings["v"] = { vim.cmd.vsplit, "Vertical Split" }
