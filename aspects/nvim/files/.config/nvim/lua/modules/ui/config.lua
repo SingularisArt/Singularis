@@ -13,7 +13,7 @@ end
 
 function config.neoscroll()
   require("neoscroll").setup({
-    mappings = { "<C-u>", "<C-d>", "<C-y>", "<C-e>", "zt", "zz", "zb", "n", "N" },
+    mappings = { "<C-u>", "<C-d>", "<C-y>", "<C-e>", "zt", "zz", "zb" },
     hide_cursor = true,
     stop_eof = true,
     use_local_scrolloff = false,

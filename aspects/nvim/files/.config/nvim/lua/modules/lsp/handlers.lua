@@ -126,19 +126,19 @@ lsp.on_attach = function(client, bufnr)
 
   lsp.capabilities = client.config.capabilities
 
-  if client.resolved_capabilities.code_lens then
-    local codelens = vim.api.nvim_create_augroup(
-      "LSPCodeLens",
-      { clear = true }
-    )
-    vim.api.nvim_create_autocmd({ "BufEnter", "InsertLeave", "CursorHold" }, {
-      group = codelens,
-      callback = function()
-        vim.lsp.codelens.refresh()
-      end,
-      buffer = bufnr,
-    })
-  end
+  -- if client.resolved_capabilities.code_lens then
+  --   local codelens = vim.api.nvim_create_augroup(
+  --     "LSPCodeLens",
+  --     { clear = true }
+  --   )
+  --   vim.api.nvim_create_autocmd({ "BufEnter", "InsertLeave", "CursorHold" }, {
+  --     group = codelens,
+  --     callback = function()
+  --       vim.lsp.codelens.refresh()
+  --     end,
+  --     buffer = bufnr,
+  --   })
+  -- end
 end
 
 return lsp
