@@ -311,7 +311,7 @@
        id="lpetool"
        mode="drag"
        style="fill:#ff0000;fill-opacity:1;fill-rule:nonzero;stroke:none;"
-       unit="px"
+       unit="mm"
        show_bbox="1" />
     <eventcontext
        id="text"
