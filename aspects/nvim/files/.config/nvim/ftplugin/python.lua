@@ -7,27 +7,20 @@ options = vim.tbl_deep_extend("force", {
   buffer = vim.api.nvim_get_current_buf(),
 }, options)
 
-which_key.register({
-  ["L"] = {
-    name = "Language",
-    j = {
-      name = "Jupyter",
-      l = { "<Cmd>MoltenLoad<CR>", "Load Molten" },
-      i = { "<Cmd>MoltenInit<CR>", "Init Molten" },
-      I = { "<Cmd>MoltenInfo<CR>", "Info Molten" },
-      e = { "<Cmd>MoltenEvaluateLine<CR>", "Evaluate Line Molten" },
-      r = { "<Cmd>MoltenReevaluateCell<CR>", "Reevaluate Cell Molten" },
-    },
-    p = { "<Cmd>PyrightOrganizeImports<CR>", "Organize Imports" },
-  },
+which_key.add({
+  { "<Leader>L", group = "Language" },
+  { "<Leader>Lp", "<Cmd>PyrightOrganizeImports<CR>", desc = "Organize Imports" },
+
+  { "<Leader>Lj", group = "Jupyter" },
+  { "<Leader>Ljl", "<Cmd>MoltenLoad<CR>", desc = "Load Molten" },
+  { "<Leader>Lji", "<Cmd>MoltenInit<CR>", desc = "Init Molten" },
+  { "<Leader>LjI", "<Cmd>MoltenInfo<CR>", desc = "Info Molten" },
+  { "<Leader>Lje", "<Cmd>MoltenEvaluateLine<CR>", desc = "Evaluate Line Molten" },
+  { "<Leader>Ljr", "<Cmd>MoltenReevaluateCell<CR>", desc = "Reevaluate Cell Molten" },
 }, options)
 
-which_key.register({
-  ["L"] = {
-    name = "Language",
-    j = {
-      name = "Jupyter",
-      e = { "<Esc><Cmd>MoltenEvaluateVisual<cr>", "Evaluate Highlighted Line" },
-    },
-  },
+which_key.add({
+  { "<Leader>L", group = "Language" },
+  { "<Leader>Lj", group = "Jupyter" },
+  { "<Leader>Lje", "<Esc><Cmd>MoltenEvaluateVisual<cr>", desc = "Evaluate Highlighted Line" },
 }, voptions)

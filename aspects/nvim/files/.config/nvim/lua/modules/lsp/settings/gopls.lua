@@ -1,5 +1,6 @@
 return {
   filtypes = { "go", "gomod", "gowork", "gotmpl" },
+  cmd = {'gopls', '--remote=auto'},
   settings = {
     gopls = {
       analyses = {

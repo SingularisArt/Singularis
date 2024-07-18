@@ -223,7 +223,6 @@ function config.navigator()
           "typescriptreact",
         },
       },
-      golangci_lint_ls = { filetypes = { "go", "gomod" } },
       gopls = require("modules.lsp.settings.gopls"),
       jdtls = { filetypes = { "java" } },
       solidity_ls = { filetypes = { "solidity" }, install_server_name = "solidity" },
@@ -234,6 +233,14 @@ function config.navigator()
       ocamllsp = require("modules.lsp.settings.ocaml"),
     },
   }
+
+  -- nav_cfg.lsp.gopls = function()
+  --   if vim.tbl_contains({ "go", "gomod" }, vim.bo.filetype) then
+  --     if pcall(require, "go") then
+  --       return require("go.lsp").config()
+  --     end
+  --   end
+  -- end
 
   require("navigator").setup(nav_cfg)
   -- require("navigator").setup()
@@ -257,6 +264,53 @@ function config.glance()
       end,
     },
   })
+end
+
+function config.go()
+  local setup = {
+    fillstruct = "gopls",
+    log_path = "/tmp/gonvim.log",
+    lsp_codelens = false, -- use navigator
+    lsp_gofumpt = true,
+    dap_debug = true,
+    gofmt = "gopls",
+    goimports = "gopls",
+    dap_debug_vt = true,
+    dap_debug_gui = true,
+    diagnostic = false,
+    test_runner = "go",
+    run_in_floaterm = true,
+    lsp_document_formatting = true,
+    preludes = {
+      default = function()
+        return { "AWS_PROFILE=test" }
+      end,
+      GoRun = function()
+        local pwd = vim.fn.getcwd()
+        local cmdl = { "watchexec", "--restart", "-v", "-e", "go" }
+        -- if current folder contains sub folder with name pattern .\w+-env
+        -- list all subfolders see if match .\w+-env
+        local hasenv = false
+        for _, v in ipairs(vim.fn.readdir(pwd)) do
+          if string.match(v, "%p%a+%p*env") then
+            hasenv = true
+            break
+          end
+        end
+
+        if hasenv then
+          local cwdl = vim.split(pwd, "/")
+          local cwd = cwdl[#cwdl]
+          local cwdp = vim.split(cwd, "-")
+          local cwdps = cwdp[#cwdp]
+          return vim.list_extend(cmdl, { "awsenv", cwdps })
+        end
+        return {}
+      end,
+    },
+  }
+
+  require("go").setup(setup)
 end
 
 function config.flutter_tools()

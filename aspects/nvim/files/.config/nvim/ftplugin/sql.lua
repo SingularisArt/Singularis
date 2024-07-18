@@ -11,12 +11,10 @@ voptions = vim.tbl_deep_extend("force", {
   buffer = vim.api.nvim_get_current_buf(),
 }, voptions)
 
-which_key.register({
-  ["L"] = {
-    name = "Language",
-    u = { "<Cmd>DBUIToggle<Cr>", "Toggle UI" },
-    f = { "<Cmd>DBUIFindBuffer<Cr>", "Find buffer" },
-    r = { "<Cmd>DBUIRenameBuffer<Cr>", "Rename buffer" },
-    q = { "<Cmd>DBUILastQueryInfo<Cr>", "Last query info" },
-  },
+which_key.add({
+  { "<Leader>L", group = "Language" },
+  { "<Leader>Lu", "<Cmd>DBUIToggle<Cr>", desc = "Toggle UI" },
+  { "<Leader>Lf", "<Cmd>DBUIFindBuffer<Cr>", desc = "Find buffer" },
+  { "<Leader>Lr", "<Cmd>DBUIRenameBuffer<Cr>", desc = "Rename buffer" },
+  { "<Leader>Lq", "<Cmd>DBUILastQueryInfo<Cr>", desc = "Last query info" },
 }, options)

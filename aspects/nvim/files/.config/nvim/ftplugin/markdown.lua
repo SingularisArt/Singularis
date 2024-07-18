@@ -7,31 +7,25 @@ options = vim.tbl_deep_extend("force", {
   buffer = buffer,
 }, options)
 
-which_key.register({
-  ["L"] = {
-    name = "Language",
-    g = { "<cmd>Glow<CR>", "Toggle Glow" },
-    p = { "<cmd>MarkdownPreviewToggle<CR>", "Toggle Markdown Preview" },
-    t = {
-      name = "Table",
-      t = { "<cmd>TableModeToggle<CR>", "Enable/Disable Table Mode" },
-      n = { "<Leader>ti", "Get cell info" },
-      f = {
-        name = "Formula",
-        a = { "<cmd>TableAddFormula<CR>", "Add formula" },
-        e = { "<Leader>tfe", "Evaluate formula on current row" },
-      },
-      d = {
-        name = "Delete",
-        r = { "<Leader>tdr", "Delete row" },
-        c = { "<Leader>tdc", "Delete column" },
-      },
-      i = {
-        name = "Insert",
-        c = { "<Leader>tic", "Insert column" },
-      },
-    },
-  },
+which_key.add({
+  { "<Leader>L", group = "Language" },
+  { "<Leader>Lg", "<CMD>Glow<CR>", desc = "Toggle Glow" },
+  { "<Leader>Lp", "<CMD>MarkdownPreviewToggle<CR>", desc = "Toggle Markdown Preview" },
+
+  { "<Leader>Lt", group = "Table" },
+  { "<Leader>Ltt", "<CMD>TableModeToggle<CR>", desc = "Enable/Disable Table Mode" },
+  { "<Leader>Ltn", "<Leader>ti", desc = "Get cell info" },
+
+  { "<Leader>Lf", group = "Formula" },
+  { "<Leader>Lfa", "<CMD>TableAddFormula<CR>", desc = "Add formula" },
+  { "<Leader>Lfe", "<Leader>tfe", desc = "Evaluate formula on current row" },
+
+  { "<Leader>Ld", group = "Delete" },
+  { "<Leader>Ldr", "<Leader>tdr", desc = "Delete row" },
+  { "<Leader>Ldc", "<Leader>tdc", desc = "Delete column" },
+
+  { "<Leader>Li", group = "Insert" },
+  { "<Leader>Lic", "<Leader>tic", desc = "Insert column" },
 }, options)
 
 vim.keymap.set(

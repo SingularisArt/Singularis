@@ -6,20 +6,17 @@ options = vim.tbl_deep_extend("force", {
   buffer = vim.api.nvim_get_current_buf(),
 }, options)
 
-which_key.register({
-  ["L"] = {
-    name = "Language",
-    d = { "<cmd>TSToolsGoToSourceDefinition<cr>", "Go to Source Definition" },
-    f = { "<cmd>TSToolsFixAll<cr>", "Fix all fixable errors" },
-    i = {
-      name = "Imports",
-      a = { "<cmd>TSToolsAddMissingImports<cr>", "Add missing imports" },
-      o = { "<cmd>TSToolsOrganizeImports<cr>", "Organize imports" },
-      r = { "<cmd>TSToolsRemoveUnusedImports<cr>", "Remove Unused Imports" },
-      s = { "<cmd>TSToolsSortImports<cr>", "Sort Imports" },
-    },
-    r = { "<cmd>TSToolsRemoveUnused<cr>", "Removed Unused Statements" },
-  },
+which_key.add({
+  { "<Leader>L", group = "Language" },
+  { "<Leader>Ld", "<cmd>TSToolsGoToSourceDefinition<cr>", desc = "Go to Source Definition" },
+  { "<Leader>Lf", "<cmd>TSToolsFixAll<cr>", desc = "Fix all fixable errors" },
+  { "<Leader>Lr", "<cmd>TSToolsRemoveUnused<cr>", desc = "Removed Unused Statements" },
+
+  { "<Leader>Li", group = "Imports" },
+  { "<Leader>Lia", "<cmd>TSToolsAddMissingImports<cr>", desc = "Add missing imports" },
+  { "<Leader>Lio", "<cmd>TSToolsOrganizeImports<cr>", desc = "Organize imports" },
+  { "<Leader>Lir", "<cmd>TSToolsRemoveUnusedImports<cr>", desc = "Remove Unused Imports" },
+  { "<Leader>Lis", "<cmd>TSToolsSortImports<cr>", desc = "Sort Imports" },
 }, options)
 
 local dap = require("dap")

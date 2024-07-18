@@ -17,14 +17,12 @@ options = vim.tbl_deep_extend("force", {
   buffer = vim.api.nvim_get_current_buf(),
 }, options)
 
-which_key.register({
-  ["L"] = {
-    name = "Language",
-    f = { "1G0f:C: ", "From" },
-    t = { "2G0f:C: ", "To" },
-    c = { "3G0f:C: ", "CC" },
-    b = { "4G0f:C: ", "BCC" },
-    s = { "5G0f:C: ", "Subject" },
-    r = { "6G0f:C: ", "Reply To" },
-  },
+which_key.add({
+  { "<Leader>L", group = "Language" },
+  { "<Leader>Lf", "1G0f:C: ", desc = "From" },
+  { "<Leader>Lt", "2G0f:C: ", desc = "To" },
+  { "<Leader>Lc", "3G0f:C: ", desc = "CC" },
+  { "<Leader>Lb", "4G0f:C: ", desc = "BCC" },
+  { "<Leader>Ls", "5G0f:C: ", desc = "Subject" },
+  { "<Leader>Lr", "6G0f:C: ", desc = "Reply To" },
 }, options)

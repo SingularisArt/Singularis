@@ -6,15 +6,13 @@ options = vim.tbl_deep_extend("force", {
   buffer = vim.api.nvim_get_current_buf(),
 }, options)
 
-which_key.register({
-  ["L"] = {
-    name = "Language",
-    a = { "<CMD>ClangdAST<CR>", "Toggle AST" },
-    i = { "<CMD>ClangdToggleInlayHints<CR>", "Toggle Inlay Hints" },
-    s = { "<CMD>ClangdSwitchSourceHeader<CR>", "Switch Source Header" },
-    K = { "<CMD>ClangdSymbolInfo<CR>", "Symbol Info" },
-    h = { "<CMD>ClangdTypeHierarchy<CR>", "Type Hierarchy" },
-  },
+which_key.add({
+  { "<Leader>L", group = "Language" },
+  { "<Leader>La", "<CMD>ClangdAST<CR>", desc = "Toggle AST" },
+  { "<Leader>Li", "<CMD>ClangdToggleInlayHints<CR>", desc = "Toggle Inlay Hints" },
+  { "<Leader>Ls", "<CMD>ClangdSwitchSourceHeader<CR>", desc = "Switch Source Header" },
+  { "<Leader>LK", "<CMD>ClangdSymbolInfo<CR>", desc = "Symbol Info" },
+  { "<Leader>Lh", "<CMD>ClangdTypeHierarchy<CR>", desc = "Type Hierarchy" },
 }, options)
 
 local dap = require("dap")

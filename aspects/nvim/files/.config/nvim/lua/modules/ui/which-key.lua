@@ -1,9 +1,11 @@
+local which_key = require("which-key")
+
 local setup = {
   plugins = {
-    marks = true,
-    registers = true,
+    marks = false,
+    registers = false,
     spelling = {
-      enabled = true,
+      enabled = false,
       suggestions = 20,
     },
     presets = {
@@ -16,24 +18,14 @@ local setup = {
       g = true,
     },
   },
-  key_labels = {
-    ["<leader>"] = "SPC",
-  },
   icons = {
     breadcrumb = "»",
     separator = "➜",
     group = "+",
+    mappings = false,
   },
-  popup_mappings = {
-    scroll_down = "<c-d>",
-    scroll_up = "<c-u>",
-  },
-  window = {
+  win = {
     border = "rounded",
-    position = "bottom",
-    margin = { 1, 0, 1, 0 },
-    padding = { 2, 2, 2, 2 },
-    winblend = 0,
   },
   layout = {
     height = { min = 4, max = 25 },
@@ -41,14 +33,10 @@ local setup = {
     spacing = 3,
     align = "center",
   },
-  ignore_missing = true,
-  hidden = { "<silent>", "<CMD>", "<CMD>", "<CR>", "call", "lua", "^:", "^ " },
   show_help = false,
-  triggers_blacklist = {
-    i = { "j", "k" },
-    v = { "j", "k" },
-  },
 }
+
+which_key.setup(setup)
 
 local vars = require("config.global").which_key_vars
 
@@ -57,151 +45,163 @@ local function search_config_files()
   builtin.find_files({ cwd = vim.fn.stdpath("config") })
 end
 
-vars.vmappings["/"] = {
-  "<ESC><CMD>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>",
-  "Comment",
+vars.mappings[1] = {
+  { "<Leader>d", group = "Debugging" },
+
+  { "<Leader>dt", require("dap").toggle_breakpoint, desc = "Toggle Breakpoint" },
+  { "<Leader>db", require("dap").step_back, desc = "Step Back" },
+  { "<Leader>dc", require("dap").continue, desc = "Continue" },
+  { "<Leader>dC", require("dap").run_to_cursor, desc = "Run To Cursor" },
+  { "<Leader>dd", require("dap").disconnect, desc = "Disconnect" },
+  { "<Leader>dg", require("dap").session, desc = "Get Session" },
+  { "<Leader>di", require("dap").step_into, desc = "Step Into" },
+  { "<Leader>do", require("dap").step_over, desc = "Step Over" },
+  { "<Leader>du", require("dap").step_out, desc = "Step Out" },
+  { "<Leader>dp", require("dap").pause, desc = "Pause" },
+  { "<Leader>dr", require("dap").repl.toggle, desc = "Toggle Repl" },
+  { "<Leader>ds", require("dap").continue, desc = "Start" },
+  { "<Leader>dq", require("dap").close, desc = "Quit" },
+  { "<Leader>dU", require("dapui").toggle, desc = "Enable/Disable UI" },
 }
 
-vars.mappings[" "] = { "<CMD>normal <C-^><CR>", "Jump to previous buffer" }
--- vars.mappings["-"] = { require("lir.float").toggle, "Toggle Lir" }
-vars.mappings["/"] = { require("Comment.api").toggle.linewise, "Comment out current line" }
-vars.mappings["a"] = { require("harpoon.mark").add_file, "Add file to harpoon" }
--- vars.mappings["e"] = { "<CMD>Neotree toggle<CR>", "Toggle NeoTree" }
-vars.mappings["h"] = { vim.cmd.split, "Horizontal Split" }
-vars.mappings["t"] = { require("alternate-toggler").toggleAlternate, "Alternate" }
-vars.mappings["v"] = { vim.cmd.vsplit, "Vertical Split" }
-vars.mappings["z"] = { vim.cmd.ZenMode, "Zen Mode" }
+vars.mappings[2] = {
+  { "<Leader>g", group = "Git" },
 
-vars.mappings["d"] = {
-  name = "Debug",
-  t = { require("dap").toggle_breakpoint, "Toggle Breakpoint" },
-  b = { require("dap").step_back, "Step Back" },
-  c = { require("dap").continue, "Continue" },
-  C = { require("dap").run_to_cursor, "Run To Cursor" },
-  d = { require("dap").disconnect, "Disconnect" },
-  g = { require("dap").session, "Get Session" },
-  i = { require("dap").step_into, "Step Into" },
-  o = { require("dap").step_over, "Step Over" },
-  u = { require("dap").step_out, "Step Out" },
-  p = { require("dap").pause, "Pause" },
-  r = { require("dap").repl.toggle, "Toggle Repl" },
-  s = { require("dap").continue, "Start" },
-  q = { require("dap").close, "Quit" },
-  U = { require("dapui").toggle, "Enable/Disable UI" },
+  { "<Leader>gj", require("gitsigns").next_hunk, desc = "Next Hunk" },
+  { "<Leader>gk", require("gitsigns").prev_hunk, desc = "Prev Hunk" },
+  { "<Leader>gl", require("gitsigns").blame_line, desc = "Blame" },
+  { "<Leader>gp", require("gitsigns").preview_hunk, desc = "Preview Hunk" },
+  { "<Leader>gm", vim.cmd.GitMessenger, desc = "View message" },
+  { "<Leader>gr", require("gitsigns").reset_hunk, desc = "Reset Hunk" },
+  { "<Leader>gR", require("gitsigns").reset_buffer, desc = "Reset Buffer" },
+  { "<Leader>gs", require("gitsigns").stage_hunk, desc = "Stage Hunk" },
+  { "<Leader>gu", require("gitsigns").undo_stage_hunk, desc = "Undo Stage Hunk" },
+  { "<Leader>go", "<CMD>Telescope git_status<CR>", desc = "Open changed file" },
+  { "<Leader>gb", "<CMD>Telescope git_branches<CR>", desc = "Checkout branch" },
+  { "<Leader>gc", "<CMD>Telescope git_commits<CR>", desc = "Checkout commit" },
+  { "<Leader>gC", "<CMD>Telescope git_bcommits<CR>", desc = "Checkout commit" },
+  { "<Leader>gd", "<CMD>Gitsigns diffthis HEAD<CR>", desc = "Git Diff" },
 }
 
-vars.mappings["g"] = {
-  name = "Git",
-  j = { require("gitsigns").next_hunk, "Next Hunk" },
-  k = { require("gitsigns").prev_hunk, "Prev Hunk" },
-  l = { require("gitsigns").blame_line, "Blame" },
-  p = { require("gitsigns").preview_hunk, "Preview Hunk" },
-  m = { vim.cmd.GitMessenger, "View message" },
-  r = { require("gitsigns").reset_hunk, "Reset Hunk" },
-  R = { require("gitsigns").reset_buffer, "Reset Buffer" },
-  s = { require("gitsigns").stage_hunk, "Stage Hunk" },
-  u = { require("gitsigns").undo_stage_hunk, "Undo Stage Hunk" },
-  o = { "<CMD>Telescope git_status<CR>", "Open changed file" },
-  b = { "<CMD>Telescope git_branches<CR>", "Checkout branch" },
-  c = { "<CMD>Telescope git_commits<CR>", "Checkout commit" },
-  C = { "<CMD>Telescope git_bcommits<CR>", "Checkout commit" },
-  d = { "<CMD>Gitsigns diffthis HEAD<CR>", "Git Diff" },
-}
+vars.mappings[3] = {
+  { "<Leader>G", group = "ChatGPT" },
 
-vars.mappings["G"] = {
-  name = "ChatGPT",
-  a = { vim.cmd.ChatGPTActAs, "Have ChatGPT act as" },
-  c = { vim.cmd.ChatGPTCompleteCode, "Have ChatGPT complete code" },
-  t = { vim.cmd.ChatGPT, "Toggle ChatGPT" },
-  i = { vim.cmd.ChatGPTEditWithInstructions, "Have ChatGPT edit with instructions" },
-  r = {
-    name = "Run",
-    a = { "<CMD>ChatGPTRun add_test<CR>", "Implement tests for the code" },
-    c = { "<CMD>ChatGPTRun code_readability_analysis<CR>", "Identify any readability issues in the code" },
-    C = { "<CMD>ChatGPTRun complete_code<CR>", "Complete the code" },
-    d = { "<CMD>ChatGPTRun docstring<CR>", "Write docstring for the code" },
-    e = { "<CMD>ChatGPTRun explain_code<CR>", "Explain the code" },
-    f = { "<CMD>ChatGPTRun fix_bugs<CR>", "Fix bugs in the code" },
-    g = { "<CMD>ChatGPTRun grammar_correction<CR>", "Correct grammar" },
-    k = { "<CMD>ChatGPTRun keywords<CR>", "Extract the main keywords from the code" },
-    o = { "<CMD>ChatGPTRun optimize_code<CR>", "Optimize the code" },
-    r = { "<CMD>ChatGPTRun optimize_code<CR>", "Insert a roxygen skeleton to code" },
-    s = { "<CMD>ChatGPTRun summarize<CR>", "Summarize the code" },
-    t = { "<CMD>ChatGPTRun translate<CR>", "Translate code" },
+  { "<Leader>Ga", vim.cmd.ChatGPTActAs, desc = "Have ChatGPT act as" },
+  { "<Leader>Gc", vim.cmd.ChatGPTCompleteCode, desc = "Have ChatGPT complete code" },
+  { "<Leader>Gt", vim.cmd.ChatGPT, desc = "Toggle ChatGPT" },
+  { "<Leader>Gi", vim.cmd.ChatGPTEditWithInstructions, desc = "Have ChatGPT edit with instructions" },
+  { "<Leader>Gr", group = "Run" },
+  { "<Leader>Gra", "<CMD>ChatGPTRun add_test<CR>", desc = "Implement tests for the code" },
+  {
+    "<Leader>Grc",
+    "<CMD>ChatGPTRun code_readability_analysis<CR>",
+    desc = "Identify any readability issues in the code",
   },
+  { "<Leader>GrC", "<CMD>ChatGPTRun complete_code<CR>", desc = "Complete the code" },
+  { "<Leader>Grd", "<CMD>ChatGPTRun docstring<CR>", desc = "Write docstring for the code" },
+  { "<Leader>Gre", "<CMD>ChatGPTRun explain_code<CR>", desc = "Explain the code" },
+  { "<Leader>Grf", "<CMD>ChatGPTRun fix_bugs<CR>", desc = "Fix bugs in the code" },
+  { "<Leader>Grg", "<CMD>ChatGPTRun grammar_correction<CR>", desc = "Correct grammar" },
+  { "<Leader>Grk", "<CMD>ChatGPTRun keywords<CR>", desc = "Extract the main keywords from the code" },
+  { "<Leader>Gro", "<CMD>ChatGPTRun optimize_code<CR>", desc = "Optimize the code" },
+  { "<Leader>Grr", "<CMD>ChatGPTRun optimize_code<CR>", desc = "Insert a roxygen skeleton to code" },
+  { "<Leader>Grs", "<CMD>ChatGPTRun summarize<CR>", desc = "Summarize the code" },
+  { "<Leader>Grt", "<CMD>ChatGPTRun translate<CR>", desc = "Translate code" },
 }
 
-vars.mappings["n"] = {
-  name = "Neotest",
-  a = { require("neotest").run.attach, "Attach to the nearest test" },
-  c = {
+vars.mappings[4] = {
+  { "<Leader>n", group = "NeoTest" },
+
+  { "<Leader>na", require("neotest").run.attach, desc = "Attach to the nearest test" },
+  {
+    "<Leader>nc",
     function()
       require("neotest").run.run(vim.fn.expand("%"))
     end,
-    "Run the current file",
+    desc = "Run the current file",
   },
-  d = {
+  {
+    "<Leader>nd",
     function()
       require("neotest").run.run({ strategy = "dap" })
     end,
-    "Debug the nearest test",
+    desc = "Debug the nearest test",
   },
-  e = {
+  {
+    "<Leader>ne",
     function()
       require("neotest").output.open({ enter = true, auto_close = true })
     end,
-    "Open the output of a test result",
+    desc = "Open the output of a test result",
   },
-  j = {
+  {
+    "<Leader>nj",
     function()
       require("neotest").jump.prev({ status = "failed" })
     end,
-    "Jump to next error",
+    desc = "Jump to next error",
   },
-  k = {
+  {
+    "<Leader>nk",
     function()
       require("neotest").jump.next({ status = "failed" })
     end,
-    "Jump to previous error",
+    desc = "Jump to previous error",
   },
-  n = { require("neotest").run.run, "Run the nearest test" },
-  s = { require("neotest").run.stop, "Stop the nearest test" },
-  S = { require("neotest").summary.toggle, "Toggle the summary window" },
+  { "<Leader>nn", require("neotest").run.run, desc = "Run the nearest test" },
+  { "<Leader>ns", require("neotest").run.stop, desc = "Stop the nearest test" },
+  { "<Leader>nS", require("neotest").summary.toggle, desc = "Toggle the summary window" },
 }
 
-vars.mappings["r"] = {
-  name = "Refactor",
-  e = { "<CMD>lua require('refactoring').refactor('Extract Function')<CR>", "Extract Function" },
-  f = { "<CMD>lua require('refactoring').refactor('Extract Function to File')<CR>", "Extract Function to File" },
-  v = { "<CMD>lua require('refactoring').refactor('Extract Variable')<CR>", "Extract Variable" },
-  i = { "<CMD>lua require('refactoring').refactor('Inline Variable')<CR>", "Inline Variable" },
-  r = { "<CMD>lua require('telescope').extensions.refactoring.refactors()<CR>", "Refactor" },
-  V = { "<CMD>lua require('refactoring').debug.print_var({})<CR>", "Debug Print Var" },
+vars.mappings[5] = {
+  { "<Leader>r", group = "Refactor" },
+
+  { "<Leader>re", "<CMD>lua require('refactoring').refactor('Extract Function')<CR>", desc = "Extract Function" },
+  {
+    "<Leader>rf",
+    "<CMD>lua require('refactoring').refactor('Extract Function to File')<CR>",
+    desc = "Extract Function to File",
+  },
+  { "<Leader>rv", "<CMD>lua require('refactoring').refactor('Extract Variable')<CR>", desc = "Extract Variable" },
+  { "<Leader>ri", "<CMD>lua require('refactoring').refactor('Inline Variable')<CR>", desc = "Inline Variable" },
+  { "<Leader>rr", "<CMD>lua require('telescope').extensions.refactoring.refactors()<CR>", desc = "Refactor" },
+  { "<Leader>rV", "<CMD>lua require('refactoring').debug.print_var({})<CR>", desc = "Debug Print Var" },
 }
 
-vars.mappings["s"] = {
-  name = "Search",
-  f = { "<CMD>Telescope find_files<CR>", "Fuzzy find files" },
-  g = { "<CMD>Telescope grep_string<CR>", "Fuzzy find string" },
-  b = { "<CMD>Telescope buffers<CR>", "Fuzzy find buffers" },
-  l = { "<CMD>Telescope live_grep<CR>", "Fuzzy find words" },
-  s = { "<CMD>Telescope symbols<CR>", "Fuzzy find symbols" },
-  h = { "<CMD>Telescope harpoon marks<CR>", "View harpoon" },
-  d = { "<CMD>Telescope diagnostics<CR>", "Fuzzy find diagnostics" },
-  n = { search_config_files, "Fuzzy find config files" },
-  c = {
+vars.mappings[6] = {
+  { "<Leader>s", group = "Search" },
+
+  { "<Leader>sf", "<CMD>Telescope find_files<CR>", desc = "Fuzzy find files" },
+  { "<Leader>sg", "<CMD>Telescope grep_string<CR>", desc = "Fuzzy find string" },
+  { "<Leader>sb", "<CMD>Telescope buffers<CR>", desc = "Fuzzy find buffers" },
+  { "<Leader>sl", "<CMD>Telescope live_grep<CR>", desc = "Fuzzy find words" },
+  { "<Leader>ss", "<CMD>Telescope symbols<CR>", desc = "Fuzzy find symbols" },
+  { "<Leader>sh", "<CMD>Telescope harpoon marks<CR>", desc = "View harpoon" },
+  { "<Leader>sd", "<CMD>Telescope diagnostics<CR>", desc = "Fuzzy find diagnostics" },
+  { "<Leader>sn", search_config_files, desc = "Fuzzy find config files" },
+  {
+    "<Leader>sc",
     function()
       require("telescope.builtin").current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
         winblend = 10,
         previewer = false,
       }))
     end,
-    "Fuzzily search in current buffer",
+    desc = "Fuzzily search in current buffer",
   },
 }
 
-local which_key = require("which-key")
+which_key.add(vars.mappings)
+which_key.add({
+  { "<Leader> ", "<CMD>normal <C-^><CR>", desc = "Jump to previous buffer" },
+  { "<Leader>/", "<CMD>lua require('Comment.api').toggle.linewise()<CR>", desc = "Comment out current line" },
+  { "<Leader>a", require("harpoon.mark").add_file, desc = "Add file to harpoon" },
+  { "<Leader>h", vim.cmd.split, desc = "Horizontal Split" },
+  { "<Leader>t", require("alternate-toggler").toggleAlternate, desc = "Toggle Alternate" },
+  { "<Leader>v", vim.cmd.vsplit, desc = "Vertical Split" },
+  { "<Leader>z", vim.cmd.ZenMode, desc = "Zen Mode" },
+})
 
-which_key.setup(setup)
-which_key.register(vars.mappings, vars.options)
-which_key.register(vars.vmappings, vars.voptions)
+which_key.add({
+    { "<Leader>/", "<ESC><CMD>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>", desc = "Comment", mode = "v" },
+})

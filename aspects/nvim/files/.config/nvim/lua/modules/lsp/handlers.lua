@@ -38,43 +38,50 @@ lsp.attach_mappings = function(_, bufnr)
     buffer = bufnr,
   }, options)
 
-  which_key.register({
-    l = {
-      name = "LSP",
-      c = { "<CMD>lua vim.lsp.buf.code_action()<CR>", "Show code actions" },
-      e = { "<CMD>lua vim.diagnostic.open_float()<CR>", "Show line diagnostics" },
-      E = { "<CMD>Telescope diagnostics<CR>", "Show all diagnostics" },
-      f = { "<CMD>lua vim.lsp.buf.format { async = true }<CR>", "Format" },
-      r = { "<CMD>lua vim.lsp.buf.rename()<CR>", "Rename" },
-      i = { "<CMD>LspInfo<CR>", "LSP info" },
-      o = { "<CMD>OutlineOpen<CR>", "Symbols Outline" },
-      j = { "<CMD>lua vim.diagnostic.goto_next()<CR>", "Go to next diagnostic" },
-      k = { "<CMD>lua vim.diagnostic.goto_prev()<CR>", "Go to previous diagnostic" },
-      l = { "<CMD>lua require('lsp_lines').toggle()<CR>", "Toggle LSP Lines" },
-      s = { "<CMD>lua vim.lsp.buf.signature_help()<CR>", "Signature" },
-      D = { "<cmd>Telescope lsp_document_symbols<cr>", "Document Symbols" },
-      d = {
-        name = "Definition",
-        d = { "<CMD>Glance definitions<CR>", "Definition" },
-        p = {
-          function()
-            require("nvim-treesitter.textobjects.lsp_interop").peek_definition_code("@function.outer", nil, "textDocument/typeDefinition")
-          end,
-          "Preview Definition"
-        },
-        r = { "<CMD>Glance references<CR>", "References" },
-        t = { "<CMD>Glance type_definitions<CR>", "Type Definition" },
-        i = { "<CMD>Glance implementations<CR>", "Implementation" },
-      },
-      w = {
-        name = "Workspace",
-        s = { "<CMD>Telescope lsp_workspace_symbols<CR>", "Symbols" },
-        a = { "<CMD>lua vim.lsp.buf.add_workspace_folder()<CR>", "Add workspace folder" },
-        r = { "<CMD>lua vim.lsp.buf.remove_workspace_folder()<CR>", "Remove workspace folder" },
-        l = { "<CMD>lua vim.lsp.buf.list_workspace_folders()<CR>", "List workspace folders" },
-      },
+  which_key.add({
+    { "<Leader>l", group = "LSP" },
+    { "<Leader>lc", vim.lsp.buf.code_action, desc = "Show code actions" },
+    { "<Leader>le", vim.diagnostic.open_float, desc = "Show line diagnostics" },
+    { "<Leader>lE", "<CMD>Telescope diagnostics<CR>", desc = "Show all diagnostics" },
+    {
+      "<Leader>lf",
+      function()
+        vim.lsp.buf.format({ async = true })
+      end,
+      desc = "Format",
     },
-  }, options)
+    { "<Leader>lr", vim.lsp.buf.rename, desc = "Rename" },
+    { "<Leader>li", vim.cmd.LspInfo, desc = "LSP info" },
+    { "<Leader>lo", vim.cmd.OutlineOpen, desc = "Symbols Outline" },
+    { "<Leader>lj", vim.diagnostic.goto_next, desc = "Go to next diagnostic" },
+    { "<Leader>lk", vim.diagnostic.goto_prev, desc = "Go to previous diagnostic" },
+    { "<Leader>ll", require("lsp_lines").toggle, desc = "Toggle LSP Lines" },
+    { "<Leader>ls", vim.lsp.buf.signature_help, desc = "Signature" },
+    { "<Leader>lD", "<cmd>Telescope lsp_document_symbols<cr>", desc = "Document Symbols" },
+
+    { "<Leader>ld", group = "Definition" },
+    { "<Leader>ldd", "<CMD>Glance definitions<CR>", desc = "Definition" },
+    {
+      "<Leader>ldp",
+      function()
+        require("nvim-treesitter.textobjects.lsp_interop").peek_definition_code(
+          "@function.outer",
+          nil,
+          "textDocument/typeDefinition"
+        )
+      end,
+      desc = "Preview Definition",
+    },
+    { "<Leader>ldr", "<CMD>Glance references<CR>", desc = "References" },
+    { "<Leader>ldt", "<CMD>Glance type_definitions<CR>", desc = "Type Definition" },
+    { "<Leader>ldi", "<CMD>Glance implementations<CR>", desc = "Implementation" },
+
+    { "<Leader>lw", group = "Workspace" },
+    { "<Leader>lws", vim.diagnostic.LspSymbols, desc = "Symbols" },
+    { "<Leader>lwa", vim.lsp.buf.add_workspace_folder, desc = "Add workspace folder" },
+    { "<Leader>lwr", vim.lsp.buf.remove_workspace_folder, desc = "Remove workspace folder" },
+    { "<Leader>lwl", vim.lsp.buf.list_workspace_folders, desc = "List workspace folders" },
+  })
 end
 
 lsp.on_attach = function(client, bufnr)
@@ -92,7 +99,7 @@ lsp.on_attach = function(client, bufnr)
     require("modules.lsp.filetypes.cpp").clangd_extensions()
   end
 
-  -- require("inlay-hints").on_attach(client, bufnr)
+  require("inlay-hints").on_attach(client, bufnr)
   lsp.setup_codelens_refresh(client, bufnr)
   lsp.attach_mappings(client, bufnr)
 
@@ -121,24 +128,10 @@ lsp.on_attach = function(client, bufnr)
   client.config.capabilities.textDocument.completion.completionItem.snippetSupport = true
   client.config.capabilities.textDocument.foldingRange = {
     dynamicRegistration = false,
-    lineFoldingOnly = true
+    lineFoldingOnly = true,
   }
 
   lsp.capabilities = client.config.capabilities
-
-  -- if client.resolved_capabilities.code_lens then
-  --   local codelens = vim.api.nvim_create_augroup(
-  --     "LSPCodeLens",
-  --     { clear = true }
-  --   )
-  --   vim.api.nvim_create_autocmd({ "BufEnter", "InsertLeave", "CursorHold" }, {
-  --     group = codelens,
-  --     callback = function()
-  --       vim.lsp.codelens.refresh()
-  --     end,
-  --     buffer = bufnr,
-  --   })
-  -- end
 end
 
 return lsp

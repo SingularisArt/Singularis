@@ -2,8 +2,7 @@ local config = {}
 
 function config.gitsigns()
   local gitsigns = require("gitsigns")
-
-  gitsigns.setup({
+  local setup = {
     signs = {
       add = { text = "▎" },
       change = { text = "▎" },
@@ -32,8 +31,9 @@ function config.gitsigns()
     sign_priority = 6,
     update_debounce = 200,
     status_formatter = nil,
-    yadm = { enable = false },
-  })
+  }
+
+  gitsigns.setup(setup)
 end
 
 return config

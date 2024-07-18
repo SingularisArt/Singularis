@@ -67,10 +67,10 @@ function Lazyload()
     vim.cmd([[syntax manual]])
   end
 
-  local load_go = vim.tbl_contains({ "go", "gomod" }, vim.bo.filetype)
-  if load_go then
-    loader("go.nvim")
-  end
+  -- local load_go = vim.tbl_contains({ "go", "gomod" }, vim.bo.filetype)
+  -- if load_go then
+  --   loader("go.nvim")
+  -- end
 
   loader("plenary.nvim")
 

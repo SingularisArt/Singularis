@@ -15,45 +15,36 @@ options = vim.tbl_deep_extend("force", {
   buffer = vim.api.nvim_get_current_buf(),
 }, options)
 
-which_key.register({
-  ["L"] = {
-    name = "Language",
-    m = { "<cmd>VimtexContextMenu<CR>", "Open Context Menu" },
-    u = { "<cmd>VimtexCountLetters<CR>", "Count Letters" },
-    w = { "<cmd>VimtexCountWords<CR>", "Count Words" },
-    d = { "<cmd>VimtexDocPackage<CR>", "Open Doc for package" },
-    e = { "<cmd>VimtexErrors<CR>", "Look at the errors" },
-    s = { "<cmd>VimtexStatus<CR>", "Look at the status" },
-    a = { "<cmd>VimtexToggleMain<CR>", "Toggle Main" },
-    v = { "<cmd>VimtexView<CR>", "View pdf" },
-    i = { "<cmd>VimtexInfo<CR>", "Vimtex Info" },
-    t = { "<cmd>VimtexTocToggle<CR>", "Toggle TOC" },
-    l = {
-      name = "Clean",
-      l = { "<cmd>VimtexClean<CR>", "Clean Project" },
-      c = { "<cmd>VimtexClean<CR>", "Clean Cache" },
-    },
-    c = {
-      name = "Compile",
-      c = { "<cmd>VimtexCompile<CR>", "Compile Project" },
-      o = {
-        "<cmd>VimtexCompileOutput<CR>",
-        "Compile Project and Show Output",
-      },
-      s = { "<cmd>VimtexCompileSS<CR>", "Compile project super fast" },
-      e = { "<cmd>VimtexCompileSelected<CR>", "Compile Selected" },
-    },
-    r = {
-      name = "Reload",
-      r = { "<cmd>VimtexReload<CR>", "Reload" },
-      s = { "<cmd>VimtexReloadState<CR>", "Reload State" },
-    },
-    o = {
-      name = "Stop",
-      p = { "<cmd>VimtexStop<CR>", "Stop" },
-      a = { "<cmd>VimtexStopAll<CR>", "Stop All" },
-    },
-  },
+which_key.add({
+  { "<Leader>L", group = "Language" },
+  { "<Leader>Lm", "<CMD>VimtexContextMenu<CR>", desc = "Open Context Menu" },
+  { "<Leader>Lu", "<CMD>VimtexCountLetters<CR>", desc = "Count Letters" },
+  { "<Leader>Lw", "<CMD>VimtexCountWords<CR>", desc = "Count Words" },
+  { "<Leader>Ld", "<CMD>VimtexDocPackage<CR>", desc = "Open Doc for package" },
+  { "<Leader>Le", "<CMD>VimtexErrors<CR>", desc = "Look at the errors" },
+  { "<Leader>Ls", "<CMD>VimtexStatus<CR>", desc = "Look at the status" },
+  { "<Leader>La", "<CMD>VimtexToggleMain<CR>", desc = "Toggle Main" },
+  { "<Leader>Lv", "<CMD>VimtexView<CR>", desc = "View pdf" },
+  { "<Leader>Li", "<CMD>VimtexInfo<CR>", desc = "Vimtex Info" },
+  { "<Leader>Lt", "<CMD>VimtexTocToggle<CR>", desc = "Toggle TOC" },
+
+  { "<Leader>Ll", group = "Clean" },
+  { "<Leader>Lll", "<CMD>VimtexClean<CR>", desc = "Clean Project" },
+  { "<Leader>Llc", "<CMD>VimtexClean<CR>", desc = "Clean Cache" },
+
+  { "<Leader>Lc", group = "Compile" },
+  { "<Leader>Lcc", "<CMD>VimtexCompile<CR>", desc = "Compile Project" },
+  { "<Leader>Lco", "<CMD>VimtexCompileOutput<CR>", desc = "Compile Project and Show Output", },
+  { "<Leader>Lcs", "<CMD>VimtexCompileSS<CR>", desc = "Compile project super fast" },
+  { "<Leader>Lce", "<CMD>VimtexCompileSelected<CR>", desc = "Compile Selected" },
+
+  { "<Leader>Lr", group = "Reload" },
+  { "<Leader>Lrr", "<CMD>VimtexReload<CR>", desc = "Reload" },
+  { "<Leader>Lrs", "<CMD>VimtexReloadState<CR>", desc = "Reload State" },
+
+  { "<Leader>Lo", group = "Stop" },
+  { "<Leader>Lop", "<CMD>VimtexStop<CR>", desc = "Stop" },
+  { "<Leader>Loa", "<CMD>VimtexStopAll<CR>", desc = "Stop All" },
 }, options)
 
 keymap(

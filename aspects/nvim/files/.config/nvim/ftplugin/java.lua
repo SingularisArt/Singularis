@@ -161,29 +161,25 @@ voptions = vim.tbl_deep_extend("force", {
   buffer = vim.api.nvim_get_current_buf(),
 }, voptions)
 
-which_key.register({
-  ["L"] = {
-    name = "Lanage",
-    o = { "<cmd>lua require('jdtls').organize_imports()<cr>", "Organize Imports" },
-    v = { "<cmd>lua require('jdtls').extract_variable()<cr>", "Extract Variable" },
-    c = { "<cmd>lua require('jdtls').extract_constant()<cr>", "Extract Constant" },
-    m = { "<cmd>lua require('jdtls').extract_method()<cr>", "Extract Method" },
-    t = { "<cmd>lua require('jdtls').test_class()<cr>", "Test Class" },
-    n = { "<cmd>lua require('jdtls').test_nearest_method()<cr>", "Test Nearest Method" },
-    u = { "<CMD>JdtUpdateConfig<CR>", "Update Config" },
-    d = { "<CMD>JdtRefreshDebugConfigs<CR>", "Refresh debug config" },
-    e = { "<CMD>Jaq<CR>", "Execute Java" },
-    r = { "<CMD>JdtWipeDataAndRestart<CR>", "Wipe project data and Restart server" },
-    x = { "<CMD>JdtRestart<CR>", "Restart server" },
-    s = { "<CMD>JdtSetRuntime<CR>", "Set runtime" },
-  },
+which_key.add({
+  { "<Leader>L", group = "Language" },
+  { "<Leader>Lo", "<cmd>lua require('jdtls').organize_imports()<cr>", desc = "Organize Imports" },
+  { "<Leader>Lv", "<cmd>lua require('jdtls').extract_variable()<cr>", desc = "Extract Variable" },
+  { "<Leader>Lc", "<cmd>lua require('jdtls').extract_constant()<cr>", desc = "Extract Constant" },
+  { "<Leader>Lm", "<cmd>lua require('jdtls').extract_method()<cr>", desc = "Extract Method" },
+  { "<Leader>Lt", "<cmd>lua require('jdtls').test_class()<cr>", desc = "Test Class" },
+  { "<Leader>Ln", "<cmd>lua require('jdtls').test_nearest_method()<cr>", desc = "Test Nearest Method" },
+  { "<Leader>Lu", "<CMD>JdtUpdateConfig<CR>", desc = "Update Config" },
+  { "<Leader>Ld", "<CMD>JdtRefreshDebugConfigs<CR>", desc = "Refresh debug config" },
+  { "<Leader>Le", "<CMD>Jaq<CR>", desc = "Execute Java" },
+  { "<Leader>Lr", "<CMD>JdtWipeDataAndRestart<CR>", desc = "Wipe project data and Restart server" },
+  { "<Leader>Lx", "<CMD>JdtRestart<CR>", desc = "Restart server" },
+  { "<Leader>Ls", "<CMD>JdtSetRuntime<CR>", desc = "Set runtime" },
 }, options)
 
-which_key.register({
-  ["L"] = {
-    name = "Language",
-    v = { "<cmd>lua require('jdtls').extract_variable(true)<cr>", "Extract Variable" },
-    c = { "<cmd>lua require('jdtls').extract_constant(true)<cr>", "Extract Constant" },
-    m = { "<cmd>lua require('jdtls').extract_method(true)<cr>", "Extract Method" },
-  },
+which_key.add({
+  { "<Leader>L", group = "Language" },
+  { "<Leader>Lv", "<cmd>lua require('jdtls').extract_variable(true)<cr>", desc = "Extract Variable" },
+  { "<Leader>Lc", "<cmd>lua require('jdtls').extract_constant(true)<cr>", desc = "Extract Constant" },
+  { "<Leader>Lm", "<cmd>lua require('jdtls').extract_method(true)<cr>", desc = "Extract Method" },
 }, voptions)

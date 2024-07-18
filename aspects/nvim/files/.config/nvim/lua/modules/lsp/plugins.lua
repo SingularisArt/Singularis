@@ -202,9 +202,7 @@ return function(use)
       "nvim-lspconfig",
       "nvim-treesitter",
     },
-    config = function()
-      require("go").setup()
-    end,
+    config = conf.go,
     ft = { "go", "gomod" },
     build = ":lua require('go.install').update_all_sync()",
   })

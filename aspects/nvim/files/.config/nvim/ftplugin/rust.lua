@@ -1,8 +1,6 @@
 local which_key = require("which-key")
 local options = require("config.global").which_key_vars.options
 
-local keymap = require("config.global").keymap
-local opts = require("config.global").opts
 local bufnr = vim.api.nvim_get_current_buf()
 
 options = vim.tbl_deep_extend("force", {
@@ -10,27 +8,24 @@ options = vim.tbl_deep_extend("force", {
   buffer = bufnr,
 }, options)
 
-which_key.register({
-  ["L"] = {
-    name = "Language",
-    H = {
-      name = "Hints",
-      e = { "<cmd>RustEnableInlayHints<CR>", "Enable Inlay Hints" },
-      d = { "<cmd>RustDisableInlayHints<CR>", "Disable Inlay Hints" },
-    },
-    d = { "<cmd>RustOpenExternalDocs<CR>", "Open Docs" },
-    s = { "<cmd>RustSSR<CR>", "Structural Search Replace" },
-    r = { "<cmd>RustRunnables<CR>", "Run Runnables" },
-    R = { "<cmd>RustHoverRange<CR>", "Show Type in hover" },
-    h = { "<cmd>RustHoverActions<CR>", "Hover Actions" },
-    o = { "<cmd>RustOpenCargo<CR>", "Open Cargo" },
-    p = { "<cmd>RustParentModule<CR>", "Parent Module" },
-    j = { "<cmd>RustJoinLines<CR>", "Join Lines" },
-    e = { "<cmd>RustExpandMacro<CR>", "Expand Macro" },
-    U = { "<cmd>RustMoveItemUp<CR>", "Move Item Up" },
-    D = { "<cmd>RustMoveItemDown<CR>", "Move Item Down" },
-    v = { "<cmd>RustViewCrateGraph<CR>", "View Crate Graph" },
-  },
+which_key.add({
+  { "<Leader>L", group = "Language" },
+  { "<Leader>Ld", "<cmd>RustOpenExternalDocs<CR>", desc = "Open Docs" },
+  { "<Leader>Ls", "<cmd>RustSSR<CR>", desc = "Structural Search Replace" },
+  { "<Leader>Lr", "<cmd>RustRunnables<CR>", desc = "Run Runnables" },
+  { "<Leader>LR", "<cmd>RustHoverRange<CR>", desc = "Show Type in hover" },
+  { "<Leader>Lh", "<cmd>RustHoverActions<CR>", desc = "Hover Actions" },
+  { "<Leader>Lo", "<cmd>RustOpenCargo<CR>", desc = "Open Cargo" },
+  { "<Leader>Lp", "<cmd>RustParentModule<CR>", desc = "Parent Module" },
+  { "<Leader>Lj", "<cmd>RustJoinLines<CR>", desc = "Join Lines" },
+  { "<Leader>Le", "<cmd>RustExpandMacro<CR>", desc = "Expand Macro" },
+  { "<Leader>LU", "<cmd>RustMoveItemUp<CR>", desc = "Move Item Up" },
+  { "<Leader>LD", "<cmd>RustMoveItemDown<CR>", desc = "Move Item Down" },
+  { "<Leader>Lv", "<cmd>RustViewCrateGraph<CR>", desc = "View Crate Graph" },
+
+  { "<Leader>LH", group = "Hints" },
+  { "<Leader>LHe", "<cmd>RustEnableInlayHints<CR>", desc = "Enable Inlay Hints" },
+  { "<Leader>LHd", "<cmd>RustDisableInlayHints<CR>", desc = "Disable Inlay Hints" },
 }, options)
 
 local dap = require("dap")

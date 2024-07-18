@@ -6,22 +6,20 @@ options = vim.tbl_deep_extend("force", {
   buffer = vim.api.nvim_get_current_buf(),
 }, options)
 
-which_key.register({
-  ["L"] = {
-    name = "Language",
-    p = { "<CMD>FlutterRun<CR>", "Run project" },
-    d = { "<CMD>FlutterDevices<CR>", "List connected devices" },
-    e = { "<CMD>FlutterEmulators<CR>", "List of emulators" },
-    q = { "<CMD>FlutterQuit<CR>", "End running session" },
-    D = { "<CMD>FlutterDetach<CR>", "End running session locally" },
-    o = { "<CMD>FlutterOutlineToggle<CR>", "Toggle outline window" },
-    t = { "<CMD>FlutterDevTools<CR>", "Start Dart Dev Tools server" },
-    a = { "<CMD>FlutterDevToolsActivate<CR>", "Start Dart Dev Tools server" },
-    P = { "<CMD>FlutterCopyProfilerUrl<CR>", "Copy profiler url to system clipboard" },
-    l = { "<CMD>FlutterLspRestart<CR>", "Restart LSP" },
-    s = { "<CMD>FlutterSuper<CR>", "Go to super class" },
-    r = { "<CMD>FlutterRename<CR>", "Rename and updates imports" },
-  },
+which_key.add({
+  { "<Leader>L", group = "Language" },
+  { "<Leader>Lp", "<CMD>FlutterRun<CR>", desc = "Run project" },
+  { "<Leader>Ld", "<CMD>FlutterDevices<CR>", desc = "List connected devices" },
+  { "<Leader>Le", "<CMD>FlutterEmulators<CR>", desc = "List of emulators" },
+  { "<Leader>Lq", "<CMD>FlutterQuit<CR>", desc = "End running session" },
+  { "<Leader>LD", "<CMD>FlutterDetach<CR>", desc = "End running session locally" },
+  { "<Leader>Lo", "<CMD>FlutterOutlineToggle<CR>", desc = "Toggle outline window" },
+  { "<Leader>Lt", "<CMD>FlutterDevTools<CR>", desc = "Start Dart Dev Tools server" },
+  { "<Leader>La", "<CMD>FlutterDevToolsActivate<CR>", desc = "Start Dart Dev Tools server" },
+  { "<Leader>LP", "<CMD>FlutterCopyProfilerUrl<CR>", desc = "Copy profiler url to system clipboard" },
+  { "<Leader>Ll", "<CMD>FlutterLspRestart<CR>", desc = "Restart LSP" },
+  { "<Leader>Ls", "<CMD>FlutterSuper<CR>", desc = "Go to super class" },
+  { "<Leader>Lr", "<CMD>FlutterRename<CR>", desc = "Rename and updates imports" },
 }, options)
 
 local dap = require("dap")
