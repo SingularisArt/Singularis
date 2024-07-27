@@ -101,7 +101,7 @@ function Lazyload()
   loader("null-ls.nvim")
   loader("mason.nvim")
   loader("lsp_lines.nvim")
-  loader("lspsaga.nvim")
+  -- loader("lspsaga.nvim")
   loader("neogen")
   loader("indent-blankline.nvim")
 

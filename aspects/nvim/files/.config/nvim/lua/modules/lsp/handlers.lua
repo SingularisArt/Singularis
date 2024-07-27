@@ -100,7 +100,10 @@ lsp.on_attach = function(client, bufnr)
   end
 
   require("inlay-hints").on_attach(client, bufnr)
-  lsp.setup_codelens_refresh(client, bufnr)
+  -- Check if the filetype is TelescopePrompt. If it isn't, then load the codelens
+  if vim.bo.filetype ~= "TelescopePrompt" then
+    lsp.setup_codelens_refresh(client, bufnr)
+  end
   lsp.attach_mappings(client, bufnr)
 
   if client.name == "sqls" then
