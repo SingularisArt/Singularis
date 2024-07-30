@@ -12,7 +12,7 @@ return function(use)
     },
     config = function()
       require("chatgpt").setup({
-        api_key_cmd = "~/.local/bin/get-password api/tokens/chatgpt.nvim"
+        api_key_cmd = "~/.local/bin/get-password api/tokens/chatgpt.nvim",
       })
     end,
     cmd = {
