@@ -70,6 +70,9 @@
   },
   "packages": {
     "aur": {
+      "autojump": [
+        "autojump"
+      ],
       "awesome": [
         "awesome"
       ],
@@ -103,6 +106,9 @@
       "easytag": [
         "easytag"
       ],
+      "exa": [
+        "exa"
+      ],
       "GeoGebra": [
         "GeoGebra"
       ],
@@ -118,6 +124,26 @@
       "lf": [
         "lf",
         "ueberzug"
+      ],
+      "libraries": [
+        "npm",
+        "python-pip"
+      ],
+      "fcitx": [
+        "fcitx"
+      ],
+      "fonts": [
+        "all-repository-fonts"
+      ],
+      "xdotool": [
+        "xdotool"
+      ],
+      "chrome": [
+        "google-chrome-stable"
+      ],
+      "lightdm": [
+        "lightdm",
+        "lightdm-gtk-greeter"
       ],
       "lynx": [
         "lynx"
@@ -140,8 +166,22 @@
       "newsboat": [
         "newsboat"
       ],
+      "pamixer": [
+        "pamixer"
+      ],
+      "pcmanfm": [
+        "pcmanfm"
+      ],
       "picom": [
         "picom"
+      ],
+      "theme": [
+        "sxiv",
+        "feh",
+        "pywal",
+        "flameshot",
+        "lxappearance",
+        "themix-full"
       ],
       "polybar": [
         "polybar"
@@ -162,7 +202,11 @@
         "sxhdk"
       ],
       "tmux": [
-        "tmux"
+        "tmux",
+        "urlview"
+      ],
+      "zathura": [
+        "zathura"
       ],
       "zsh": [
         "zsh"
@@ -172,5 +216,12 @@
     "apt": {},
     "apt-get": {},
     "yum": {}
+  },
+  "libraries": {
+    "python": {
+      "dotfiles": [
+        "pyperclip"
+      ]
+    }
   }
 }

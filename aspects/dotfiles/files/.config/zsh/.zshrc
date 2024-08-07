@@ -23,6 +23,8 @@ zsh_add_plugin "zsh-users/zsh-history-substring-search"
 # zsh_add_plugin "SingularisArt/docker-completion"
 # zsh_add_plugin "hlissner/zsh-autopair"
 
+[[ ! -r "/home/singularisart/.local/share/opam/opam-init/init.zsh" ]] || source "/home/singularisart/.local/share/opam/opam-init/init.zsh" > /dev/null 2> /dev/null
+
 #################
 #  Completions  #
 #################

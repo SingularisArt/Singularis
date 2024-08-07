@@ -189,3 +189,6 @@
 [submodule]
   # Added in Git 2.9.0.
   fetchJobs = 4
+
+[http]
+  postBuffer = 524288000

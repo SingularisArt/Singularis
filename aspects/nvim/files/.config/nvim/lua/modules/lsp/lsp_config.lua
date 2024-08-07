@@ -88,11 +88,11 @@ M.formatters = {
   -- },
 
   -- Ruby
-  standardrb = {
-    options = {
-      extra_filetypes = { "--fix", "--format", "quiet", "--stderr", "--stdin", "$FILENAME" },
-    },
-  },
+  -- standardrb = {
+  --   options = {
+  --     extra_filetypes = { "--fix", "--format", "quiet", "--stderr", "--stdin", "$FILENAME" },
+  --   },
+  -- },
 
   -- C++/C
   ["clang-format"] = {
@@ -132,8 +132,8 @@ M.formatters = {
   -- Yaml
   "yamlfmt",
 
-  -- Ocaml
-  "ocamlformat",
+  -- -- Ocaml
+  -- "ocamlformat",
 
   -- JSON
   "fixjson",
@@ -207,9 +207,6 @@ M.linters = {
   "phpcs",
   "phpmd",
 
-  -- Ruby
-  "standardrb",
-
   -- Yaml
   "actionlint",
   "yamllint",
@@ -230,7 +227,7 @@ M.linters = {
   "ktlint",
 
   -- Ruby
-  "rubocop",
+  -- "rubocop",
 
   -- Bash
   "shellcheck",

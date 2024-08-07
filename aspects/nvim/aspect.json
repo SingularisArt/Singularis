@@ -8,6 +8,9 @@
   "packages": {
     "nvim": [
       "neovim-git",
+      "gem",
+      "opam",
+      "cargo",
       "rust-analyzer",
       "solang-bin",
       "solidity",
