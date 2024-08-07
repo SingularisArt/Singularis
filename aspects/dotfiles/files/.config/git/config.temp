@@ -164,7 +164,7 @@
   decorate = short
 
 [maintenance]
-  repo = /home/hashem/.local/share/Singularis
+  repo = /home/singularisart/.local/share/Singularis
 
 [protocol]
   # Added in Git 2.18.0.

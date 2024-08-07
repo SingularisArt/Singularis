@@ -627,7 +627,7 @@
        default="org.inkscape.output.png.inkscape"
        append_extension="1"
        enable_preview="1"
-       path="/home/hashem/Documents/school-notes/College/Year-2/winter/mth-254/figures/lec-13"
+       path="/home/singularisart/Documents/school-notes/College/Year-2/winter/mth-254/figures/lec-13"
        use_current_dir="1" />
     <group
        id="save_copy"
@@ -638,11 +638,11 @@
     <group
        id="open"
        enable_preview="1"
-       path="/home/hashem/" />
+       path="/home/singularisart/" />
     <group
        id="import"
        enable_preview="1"
-       path="/home/hashem/"
+       path="/home/singularisart/"
        ask="1"
        ask_svg="1"
        link="embed"

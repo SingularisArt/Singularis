@@ -5,7 +5,7 @@ if [ "$num" -gt 0 ]; then
   echo "mbsync is already running."; exit ;
 fi
 
-export HOME=/home/hashem
+export HOME=/home/singularisart
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 export GNUPGHOME="$XDG_DATA_HOME/gnupg"
