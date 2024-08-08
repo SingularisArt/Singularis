@@ -120,6 +120,11 @@ lsp.on_attach = function(client, bufnr)
         range = true,
       }
     end
+  elseif client.name == "yamlls" then
+    client.server_capabilities.textDocument.foldingRange = {
+      dynamicRegistration = false,
+      lineFoldingOnly = false,
+    }
   end
 
   if servers_that_dont_work_with_navic[client.name] ~= nil then

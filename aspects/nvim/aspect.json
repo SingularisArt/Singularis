@@ -8,6 +8,7 @@
   "packages": {
     "nvim": [
       "neovim-git",
+      "xclip",
       "gem",
       "opam",
       "cargo",
