@@ -139,7 +139,7 @@
         "xdotool"
       ],
       "chrome": [
-        "google-chrome-stable"
+        "google-chrome"
       ],
       "lightdm": [
         "lightdm",
