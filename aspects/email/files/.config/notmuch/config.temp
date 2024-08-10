@@ -1,7 +1,7 @@
 [database]
 path=/home/^{user}/.local/share/mail
 [user]
-name=singularisartt
+name=^{user}
 primary_email=^{primary_email}
 [new]
 tags=unread;inbox;

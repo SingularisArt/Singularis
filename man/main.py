@@ -10,6 +10,13 @@ init = InitClass()
 
 def core(args):
     aspects = Aspects(args)
+
+    # Move the packages aspect to the front of the list.
+    for x, aspect in enumerate(aspects["aspects_to_install"]):
+        if "packages" == aspect.__repr__():
+            aspects["aspects_to_install"].pop(x)
+            aspects["aspects_to_install"].insert(0, aspect)
+
     [aspect.install_aspect() for aspect in aspects["aspects_to_install"]]
 
 

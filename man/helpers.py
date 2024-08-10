@@ -2,6 +2,10 @@ import json
 import os
 import re
 import subprocess
+import sys
+import termios
+import tty
+from shutil import get_terminal_size
 
 
 def load_data(file, aspect_name, log):
@@ -40,15 +44,35 @@ def pretty_log(log, log_level, string):
     )
 
 
+def get_keypress():
+    fd = sys.stdin.fileno()
+    old_settings = termios.tcgetattr(fd)
+    try:
+        tty.setraw(sys.stdin.fileno())
+        ch = sys.stdin.read(1)
+    finally:
+        termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
+    return ch
+
+
 def confirm(prompt):
+    status = False
+    print(f"{prompt} (Default: no) ", end="", flush=True)
+
     while True:
-        choice = input(f"{prompt} (Default: no) ").lower()
-        if choice in ["yes", "y"]:
-            return True
-        elif choice in ["no", "n", ""]:
-            return False
+        key = get_keypress().lower()
+        if key in ["y"]:
+            status = True
+            break
+        elif key in ["n", "\r", "\n"]:
+            status = False
+            break
         else:
-            print('Please enter "yes", "y" or "no", "n"')
+            print("\nPlease enter 'y' or 'n'", end="", flush=True)
+
+    cols = get_terminal_size((80, 20)).columns
+    print("\r" + " " * cols, end="\r")
+    return status
 
 
 def install_package(package, log_level, confirm=False, package_type="aur"):

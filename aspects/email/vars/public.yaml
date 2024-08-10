@@ -19,6 +19,10 @@ email_5: your@email-5.com
 email_5_password: pass your@email-5.com
 email_5_server: imap.gmail.com
 
+email_6: your@email-6.com
+email_6_password: pass your@email-6.com
+email_6_server: imap.gmail.com
+
 # msmtp/config
 email_1_host: smtp.gmail.com
 email_1_port: 587
@@ -34,6 +38,9 @@ email_4_port: 587
 
 email_5_host: smtp.gmail.com
 email_5_port: 587
+
+email_6_host: smtp.gmail.com
+email_6_port: 587
 
 # notmuch/config
 user: user

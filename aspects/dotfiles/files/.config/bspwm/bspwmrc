@@ -13,7 +13,7 @@ xrdb -load ~/.config/X11/Xresources
 # Autostart #
 #############
 
-picom -b --backend glx --blur-method dual_kawase &
+# picom -b --backend glx --blur-method dual_kawase &
 killall bspswallow; pidof ~/.local/bin/bspwm/bspswallow | ~/.local/bin/bspwm/bspswallow &
 killall flameshot; flameshot &
 killall fcitx; fcitx -d &

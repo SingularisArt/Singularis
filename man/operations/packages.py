@@ -1,9 +1,11 @@
+import subprocess
+
 import man.helpers as helpers
 from man import InitClass as InitClass
 from man.helpers import install_package
+from man.loading_animation import Loader
 from man.log import Log as Log
 from man.variables import aspects_dir
-import subprocess
 
 log = Log()
 
@@ -69,15 +71,24 @@ class Packages(InitClass, list):
             pass
 
     def install_package(self, package_name):
-        try:
-            log.log_trace(f"Installing package '{package_name}'.")
-            log_level = int(self.args.log_level) if self.args.log_level else -1
-            install_package(
-                package_name,
-                log_level,
-                confirm=self.args.confirm,
-                package_type=self.package_type,
-            )
-            log.log_info(f"Installed package '{package_name}'.")
-        except subprocess.CalledProcessError:
-            log.log_error(f"Error installing package '{package_name}'.")
+        pretty_name = helpers.pretty_log(log, log.info, package_name)
+        if self.args.dry_run:
+            log.log_info(f"Would install package '{pretty_name}'.")
+            return
+
+        if self.args.confirm and helpers.confirm(
+            f"Would you like to install the package '{pretty_name}'"
+        ):
+            loader = Loader(log.log_info, log.log_error)
+            try:
+                loader.start(f"Installing package '{pretty_name}'")
+                log_level = int(self.args.log_level) if self.args.log_level else -1
+                install_package(
+                    package_name,
+                    log_level,
+                    confirm=self.args.confirm,
+                    package_type=self.package_type,
+                )
+                loader.success(f"Installed package '{pretty_name}'.")
+            except subprocess.CalledProcessError:
+                loader.failure(f"Failed to install package '{pretty_name}'.")

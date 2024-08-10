@@ -106,7 +106,7 @@ class Log(Colors, InitClass):
                     spacing,
                     self.style["reset"],
                     text,
-                )
+                ),
             )
 
     def log_trace(self, text):

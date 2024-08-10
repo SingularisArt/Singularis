@@ -94,20 +94,20 @@ class File:
             return
 
         if self.args.dry_run:
-            log.log_info(f"Install {name}.")
+            log.log_info(f"Would have installed '{pretty_name}'.")
             return
 
         if self.args.confirm:
-            if not helpers.confirm(f"Would you like to install {pretty_name}"):
+            if not helpers.confirm(f"Would you like to install the config files for '{pretty_name}'"):
                 return
 
         if self.type != ".local":
-            log.log_trace(f"Installing {name}.")
+            log.log_trace(f"Installing {pretty_name}.")
             helpers.symlink(self.file_location, self.file_destination)
             log.log_trace(
                 f"Symlinking: {self.file_location} -> {self.file_destination}."
             )
-            log.log_info(f"Installed {name}.")
+            log.log_info(f"Installed {pretty_name}.")
 
             return
 
@@ -118,7 +118,7 @@ class File:
             helpers.symlink(file_location, file_destination)
             log.log_trace(f"Symlinking: {file_location} -> {file_destination}.")
 
-        log.log_info(f"Installed {name}.")
+        log.log_info(f"Installed {pretty_name}.")
 
     def check_sum(self):
         return True

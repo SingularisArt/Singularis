@@ -31,7 +31,17 @@ tmux send-keys -t "$SESSION_NAME" "cd ./aspects/email/files/.config; clear" Ente
 
 tmux new-window -t "$SESSION_NAME"
 
+tmux rename-window -t "$SESSION_NAME" "Man"
+tmux send-keys -t "$SESSION_NAME" "cd ./man; clear" Enter
+
+tmux new-window -t "$SESSION_NAME"
+
 tmux rename-window -t "$SESSION_NAME" "Git"
 tmux send-keys -t "$SESSION_NAME" "clear; wgs" Enter
+
+tmux split-window -v
+
+tmux send-keys -t "$SESSION_NAME" "clear" Enter
+tmux send-keys -t "$SESSION_NAME" "g aa; g ce; g p; c"
 
 eval "$tmuxAttachCommand"

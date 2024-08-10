@@ -185,11 +185,11 @@ class Templates(dict):
             self.aspect_json_template_location, self.aspect, log
         )
 
-        log.log_trace("Installing all templates for {}".format(aspect.title()))
+        log.log_trace(f"Installing all templates for {aspect.title()}")
 
         dict.__init__(self, self.get_templates())
 
-        log.log_trace("Installed all templates for {}".format(aspect.title()))
+        log.log_trace(f"Installed all templates for {aspect.title()}")
 
     def get_templates(self):
         templates = {

@@ -67,12 +67,12 @@ class Aspects(InitClass, dict):
         self.all_aspects = [
             Aspect(a, self.args)
             for a in os.listdir(self.aspects_dir)
-            if os.path.exists("{}/{}/index.py".format(self.aspects_dir, a))
+            if os.path.exists(f"{self.aspects_dir}/{a}/index.py")
         ]
         self.all_aspect_names = [
             a
             for a in os.listdir(self.aspects_dir)
-            if os.path.exists("{}/{}/index.py".format(self.aspects_dir, a))
+            if os.path.exists(f"{self.aspects_dir}/{a}/index.py")
         ]
 
         s = self.args.aspect

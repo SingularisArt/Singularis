@@ -1,3 +1,8 @@
+auth on
+tls on
+tls_trust_file /etc/ssl/certs/ca-certificates.crt
+logfile ~/.config/msmtp/msmtp.log
+
 ################################################################################
 account ^{email_1}
 host ^{email_1_host}
@@ -5,10 +10,6 @@ port ^{email_1_port}
 from ^{email_1}
 user ^{email_1}
 passwordeval "^{email_1_password}"
-auth on
-tls on
-tls_trust_file /etc/ssl/certs/ca-certificates.crt
-logfile ~/.config/msmtp/msmtp.log
 ################################################################################
 
 ################################################################################
@@ -18,10 +19,6 @@ port ^{email_2_port}
 from ^{email_2}
 user ^{email_2}
 passwordeval "^{email_2_password}"
-auth on
-tls on
-tls_trust_file /etc/ssl/certs/ca-certificates.crt
-logfile ~/.config/msmtp/msmtp.log
 ################################################################################
 
 ################################################################################
@@ -31,10 +28,6 @@ port ^{email_3_port}
 from ^{email_3}
 user ^{email_3}
 passwordeval "^{email_3_password}"
-auth on
-tls on
-tls_trust_file /etc/ssl/certs/ca-certificates.crt
-logfile ~/.config/msmtp/msmtp.log
 ################################################################################
 
 ################################################################################
@@ -44,10 +37,6 @@ port ^{email_4_port}
 from ^{email_4}
 user ^{email_4}
 passwordeval "^{email_4_password}"
-auth on
-tls on
-tls_trust_file /etc/ssl/certs/ca-certificates.crt
-logfile ~/.config/msmtp/msmtp.log
 ################################################################################
 
 ################################################################################
@@ -57,8 +46,13 @@ port ^{email_5_port}
 from ^{email_5}
 user ^{email_5}
 passwordeval "^{email_5_password}"
-auth on
-tls on
-tls_trust_file /etc/ssl/certs/ca-certificates.crt
-logfile ~/.config/msmtp/msmtp.log
+################################################################################
+
+################################################################################
+account ^{email_6}
+host ^{email_6_host}
+port ^{email_6_port}
+from ^{email_6}
+user ^{email_6}
+passwordeval "^{email_6_password}"
 ################################################################################

@@ -125,34 +125,11 @@
         "lf",
         "ueberzug"
       ],
-      "libraries": [
-        "npm",
-        "python-pip"
-      ],
-      "fcitx": [
-        "fcitx"
-      ],
-      "fonts": [
-        "all-repository-fonts"
-      ],
-      "xdotool": [
-        "xdotool"
-      ],
-      "chrome": [
-        "google-chrome"
-      ],
-      "lightdm": [
-        "lightdm",
-        "lightdm-gtk-greeter"
-      ],
-      "lynx": [
-        "lynx"
-      ],
-      "manuskript": [
-        "manuskript"
-      ],
       "mpd": [
         "mpd"
+      ],
+      "mpc": [
+        "mpc"
       ],
       "mpv": [
         "mpv"
@@ -169,25 +146,11 @@
       "pamixer": [
         "pamixer"
       ],
-      "pcmanfm": [
-        "pcmanfm"
-      ],
       "picom": [
         "picom"
       ],
-      "theme": [
-        "sxiv",
-        "feh",
-        "pywal",
-        "flameshot",
-        "lxappearance",
-        "themix-full"
-      ],
       "polybar": [
         "polybar"
-      ],
-      "python": [
-        "ipython"
       ],
       "ranger": [
         "ranger"
