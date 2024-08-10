@@ -1,6 +1,7 @@
 {
   "description": "My email setup",
   "files": {
+    ".home": {},
     ".config": {
       "abook": "public",
       "gcalcli": "public",
@@ -11,9 +12,11 @@
       "khard": "public",
       "neomutt": "public",
       "vdirsyncer": "public"
-    }
+    },
+    ".local": {}
   },
   "templates": {
+    ".home": {},
     ".config": {
       "mbsync/mbsyncrc": [
         "email_1",
@@ -58,44 +61,55 @@
         "user",
         "primary_email"
       ]
-    }
+    },
+    ".local": {}
   },
   "packages": {
-    "abook": [
-      "abook"
-    ],
-    "gcalcli": [
-      "gcalcli"
-    ],
-    "glow": [
-      "glow"
-    ],
-    "goobook": [
-      "goobook"
-    ],
-    "imapfilter": [
-      "imapfilter"
-    ],
-    "khal": [
-      "khal"
-    ],
-    "khard": [
-      "khard"
-    ],
-    "neomutt": [
-      "neomutt"
-    ],
-    "vdirsyncer": [
-      "vdirsyncer"
-    ],
-    "mbsync": [
-      "isync"
-    ],
-    "msmtp": [
-      "msmtp"
-    ],
-    "notmuch": [
-      "notmuch"
-    ]
+    "aur": {
+      "abook": [
+        "abook"
+      ],
+      "gcalcli": [
+        "gcalcli"
+      ],
+      "glow": [
+        "glow"
+      ],
+      "goobook": [
+        "goobook"
+      ],
+      "imapfilter": [
+        "imapfilter"
+      ],
+      "khal": [
+        "khal"
+      ],
+      "khard": [
+        "khard"
+      ],
+      "neomutt": [
+        "neomutt"
+      ],
+      "vdirsyncer": [
+        "vdirsyncer"
+      ],
+      "mbsync": [
+        "mbsync"
+      ],
+      "msmtp": [
+        "msmtp"
+      ],
+      "notmuch": [
+        "notmuch"
+      ]
+    },
+    "pacman": {},
+    "apt": {},
+    "apt-get": {},
+    "yum": {}
+  },
+  "libraries": {
+    "python": {},
+    "npm": {}
   }
 }

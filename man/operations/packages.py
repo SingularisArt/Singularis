@@ -76,19 +76,21 @@ class Packages(InitClass, list):
             log.log_info(f"Would install package '{pretty_name}'.")
             return
 
-        if self.args.confirm and helpers.confirm(
+        if self.args.confirm and not helpers.confirm(
             f"Would you like to install the package '{pretty_name}'"
         ):
-            loader = Loader(log.log_info, log.log_error)
-            try:
-                loader.start(f"Installing package '{pretty_name}'")
-                log_level = int(self.args.log_level) if self.args.log_level else -1
-                install_package(
-                    package_name,
-                    log_level,
-                    confirm=self.args.confirm,
-                    package_type=self.package_type,
-                )
-                loader.success(f"Installed package '{pretty_name}'.")
-            except subprocess.CalledProcessError:
-                loader.failure(f"Failed to install package '{pretty_name}'.")
+            return
+
+        loader = Loader(log.log_info, log.log_error)
+        try:
+            loader.start(f"Installing package '{pretty_name}'")
+            log_level = int(self.args.log_level) if self.args.log_level else -1
+            install_package(
+                package_name,
+                log_level,
+                confirm=self.args.confirm,
+                package_type=self.package_type,
+            )
+            loader.success(f"Installed package '{pretty_name}'.")
+        except subprocess.CalledProcessError:
+            loader.failure(f"Failed to install package '{pretty_name}'.")
