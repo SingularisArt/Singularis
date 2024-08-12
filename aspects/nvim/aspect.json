@@ -6,29 +6,30 @@
     }
   },
   "packages": {
-    "nvim": [
-      "neovim-git",
-      "xclip",
-      "gem",
-      "opam",
-      "cargo",
-      "rust-analyzer",
-      "solang-bin",
-      "solidity",
-      "lua-language-server",
-      "texlab",
-      "typescript-language-server",
-      "yaml-language-server",
-      "vscode-css-languageserver",
-      "vscode-json-languageserver",
-      "bash-language-server",
-      "clangd",
-      "cssmodules-language-server",
-      "tailwind-css",
-      "golangci-lint",
-      "jdtls",
-      "r-languageserver"
-    ]
+    "aur": {
+      "nvim": [
+        "neovim-git",
+        "xclip",
+        "gem",
+        "opam",
+        "cargo",
+        "rust-analyzer",
+        "solang-bin",
+        "lua-language-server",
+        "texlab",
+        "typescript-language-server",
+        "yaml-language-server",
+        "vscode-css-languageserver",
+        "vscode-json-languageserver",
+        "bash-language-server",
+        "clangd",
+        "cssmodules-language-server",
+        "tailwind-css",
+        "golangci-lint",
+        "jdtls",
+        "r-languageserver"
+      ]
+    }
   },
   "libraries": {
     "python": {

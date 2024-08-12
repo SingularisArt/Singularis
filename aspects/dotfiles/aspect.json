@@ -162,14 +162,19 @@
         "sioyek"
       ],
       "sxhdk": [
-        "sxhdk"
+        "sxhkd"
       ],
       "tmux": [
         "tmux",
         "urlview"
       ],
       "zathura": [
-        "zathura"
+        "zathura",
+        "zathura-cb",
+        "zathura-djvu",
+        "zathura-pdf-mupdf",
+        "zathura-ps",
+        "zathura-ypb"
       ],
       "zsh": [
         "zsh"

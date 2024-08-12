@@ -17,6 +17,8 @@ alt + {A-Z}
 #  Applications  #
 ##################
 
+shift + ctrl + Escape
+  kitty --name "float-center" -- "bashtop"
 super + Return
   kitty
 super + shift + n

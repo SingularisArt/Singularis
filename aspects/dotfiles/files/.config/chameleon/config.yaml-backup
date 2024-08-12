@@ -1,3 +1,9 @@
+# You can add as many things here as you want.
+# As long as you provide the needed path, and command, it should work.
+# Also, every program requires `name`.
+# If the `command` is a collection of multiple commands, then you must break it
+# up into multiple commands, like shown in the `wal-discord` program .
+
 debug: false
 
 oomoxicons:
