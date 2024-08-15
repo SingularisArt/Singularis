@@ -145,7 +145,7 @@ end
 
 local on_hover = function()
   local params = vim.lsp.util.make_position_params()
-  local clients = vim.lsp.buf_get_clients()
+  local clients = vim.lsp.get_clients()
   local hoverProvider = false
   for _, client in ipairs(clients) do
     if client.server_capabilities.hoverProvider == true and client.name ~= "null-ls" then
