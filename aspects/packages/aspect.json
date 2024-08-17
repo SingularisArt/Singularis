@@ -32,6 +32,11 @@
         "lightdm",
         "lightdm-gtk-greeter"
       ],
+      "bluetooth": [
+        "bluez",
+        "bluez-utils",
+        "blueman"
+      ],
       "slock": [
         "slock"
       ],
