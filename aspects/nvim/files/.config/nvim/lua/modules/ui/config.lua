@@ -121,6 +121,22 @@ function config.zen_mode()
   })
 end
 
+function config.goyo_init()
+  vim.cmd([[
+    function! s:goyo_enter()
+      setlocal relativenumber number
+      setlocal nofoldenable
+      setlocal go-=r
+    endfunction
+    function! s:goyo_leave()
+      setlocal go+=r
+    endfunction
+
+    autocmd! User GoyoEnter nested call <SID>goyo_enter()
+    autocmd! User GoyoLeave nested call <SID>goyo_leave()
+  ]])
+end
+
 function config.hlslens()
   require("hlslens").setup()
   vim.cmd([[

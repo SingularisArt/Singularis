@@ -48,6 +48,12 @@ return function(use)
   })
 
   use({
+    "junegunn/goyo.vim",
+    init = conf.goyo_init,
+    cmd = "Goyo",
+  })
+
+  use({
     "folke/twilight.nvim",
     config = function()
       require("twilight").setup()

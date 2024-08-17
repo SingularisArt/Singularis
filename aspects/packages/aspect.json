@@ -51,6 +51,7 @@
       ],
       "latex": [
         "texlive",
+        "biber",
         "texlive-basic",
         "texlive-latex",
         "texlive-latexrecommended",
