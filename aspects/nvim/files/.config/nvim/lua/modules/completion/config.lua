@@ -137,6 +137,10 @@ function config.cmp()
 
   cmp.setup.filetype("tex", {
     sources = cmp.config.sources({
+      { name = "nvim_lsp" },
+      { name = "ultisnips" },
+      { name = "calc" },
+      { name = "path" },
       { name = "latex_symbols", option = { strategy = 2 } },
     }, {}),
   })
