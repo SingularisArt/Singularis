@@ -232,4 +232,14 @@ return function(use)
       }
     end,
   })
+
+  use({
+    "nvim-pack/nvim-spectre",
+    config = function()
+      require("spectre").setup()
+    end,
+    dependencies = {
+      "grapp-dev/nui-components.nvim",
+    },
+  })
 end
