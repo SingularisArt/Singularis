@@ -21,4 +21,8 @@ files/.config/mpd/mpdstate
 files/.config/git/config
 files/.config/git/credentials
 
+files/.config/onedrive/*
+!files/.config/onedrive/account-6/config.temp
+!files/.config/onedrive/account-7/config.temp
+
 aspects/dotfiles/files/.config/gh/hosts.yml

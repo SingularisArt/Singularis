@@ -24,17 +24,7 @@ killall polybar; "$HOME/.config/polybar/launch.sh" &
 source "$HOME/.cache/wal/colors.sh"
 
 # Workspaces
-bspc monitor -d         
-
-# : HOME
-# : BROWSER
-# : SCHOOL
-# : FILE BROWSER
-# : CODING
-# : PROJECTS
-# : MUSIC
-# : MEDIA/RELAXING
-# : CHATTING
+bspc monitor -d 1 2 3 4 5
 
 # Config
 bspc config automatic_scheme alternate

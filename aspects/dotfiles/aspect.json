@@ -65,6 +65,12 @@
       "gh/hosts.yml": [
         "username",
         "oauth_token"
+      ],
+      "onedrive-config/account-6/config": [
+        "location_6"
+      ],
+      "onedrive-config/account-7/config": [
+        "location_7"
       ]
     }
   },

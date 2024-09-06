@@ -212,7 +212,7 @@ function config.navigator()
       -- texlab = require("modules.lsp.settings.texlab"),
       bashls = { filetypes = { "bash", "sh" } },
       -- clangd = require("modules.lsp.settings.clangd"),
-      -- tsserver = require("modules.lsp.settings.tsserver"),
+      -- ts_ls = require("modules.lsp.settings.tsserver"),
       tailwindcss = {
         filetypes = {
           "html",

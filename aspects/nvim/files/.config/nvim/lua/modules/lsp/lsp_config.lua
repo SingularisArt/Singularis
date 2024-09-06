@@ -11,7 +11,7 @@ M.servers = {
   cssmodules_ls = { filetypes = { "css" }, install = true },
   dartls = { filetypes = { "dart" } },
   solargraph = { filetypes = { "ruby" } },
-  tsserver = require("modules.lsp.settings.tsserver"),
+  ts_ls = require("modules.lsp.settings.tsserver"),
   yamlls = require("modules.lsp.settings.yamlls"),
   sqlls = require("modules.lsp.settings.sqlls"),
   cssls = { filetypes = { "css" }, install = true },

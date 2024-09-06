@@ -94,7 +94,8 @@
         "vdirsyncer"
       ],
       "mbsync": [
-        "mbsync"
+        "mbsync",
+        "cyrus-sasl-xoauth2"
       ],
       "msmtp": [
         "msmtp"
