@@ -52,7 +52,7 @@ return function(use)
   })
 
   use({
-    "jose-elias-alvarez/null-ls.nvim",
+    "nvimtools/none-ls.nvim",
     after = "nvim-lspconfig",
     config = conf.null_ls,
     dependencies = {
