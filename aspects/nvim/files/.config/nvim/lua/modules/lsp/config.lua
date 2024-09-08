@@ -190,13 +190,14 @@ function config.navigator()
         "jedi_language_server",
         "pylsp",
         "texlab",
+        "tsserver",
       },
       disable_format_cap = { "stylua" },
       diagnostic_virtual_text = false,
       diagnostic_update_in_insert = false,
       disply_diagnostic_qf = true,
       emmet_ls = require("modules.lsp.settings.emmet_ls"),
-      jsonls = require("modules.lsp.settings.jsonls"),
+      -- jsonls = require("modules.lsp.settings.jsonls"),
       pyright = require("modules.lsp.settings.pyright"),
       rust_analyzer = require("modules.lsp.settings.rust_analyzer"),
       solang = require("modules.lsp.settings.solang"),
@@ -212,7 +213,7 @@ function config.navigator()
       -- texlab = require("modules.lsp.settings.texlab"),
       bashls = { filetypes = { "bash", "sh" } },
       -- clangd = require("modules.lsp.settings.clangd"),
-      -- ts_ls = require("modules.lsp.settings.tsserver"),
+      ts_ls = require("modules.lsp.settings.tsserver"),
       tailwindcss = {
         filetypes = {
           "html",
@@ -243,7 +244,6 @@ function config.navigator()
   -- end
 
   require("navigator").setup(nav_cfg)
-  -- require("navigator").setup()
 end
 
 function config.glance()

@@ -36,12 +36,15 @@ return function(use)
   use({
     "windwp/nvim-ts-autotag",
     after = "nvim-treesitter",
+    config = function()
+      require("nvim-ts-autotag").setup()
+    end,
     ft = {
       "html",
       "javascript",
       "typescript",
-      "javascriptreact",
-      "typescriptreact",
+      "javascript.jsx",
+      "typescript.tsx",
     },
   })
 
@@ -207,8 +210,8 @@ return function(use)
     "mattn/emmet-vim",
     ft = {
       "html",
-      "javascriptreact",
-      "typescriptreact",
+      "javascript.jsx",
+      "typescript.tsx",
     },
   })
   use({

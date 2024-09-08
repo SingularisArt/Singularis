@@ -90,7 +90,8 @@ return function(use)
   })
 
   use({
-    "ray-x/navigator.lua",
+    -- "ray-x/navigator.lua",
+    "SingularisArt/navigator.lua",
     after = "nvim-lspconfig",
     config = conf.navigator,
   })

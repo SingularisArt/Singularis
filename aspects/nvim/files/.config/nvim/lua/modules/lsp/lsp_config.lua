@@ -2,7 +2,7 @@ local M = {}
 
 M.servers = {
   emmet_ls = require("modules.lsp.settings.emmet_ls"),
-  jsonls = require("modules.lsp.settings.jsonls"),
+  -- jsonls = require("modules.lsp.settings.jsonls"),
   pyright = require("modules.lsp.settings.pyright"),
   rust_analyzer = require("modules.lsp.settings.rust_analyzer"),
   solang = require("modules.lsp.settings.solang"),
@@ -11,7 +11,7 @@ M.servers = {
   cssmodules_ls = { filetypes = { "css" }, install = true },
   dartls = { filetypes = { "dart" } },
   solargraph = { filetypes = { "ruby" } },
-  ts_ls = require("modules.lsp.settings.tsserver"),
+  -- ts_ls = require("modules.lsp.settings.tsserver"),
   yamlls = require("modules.lsp.settings.yamlls"),
   sqlls = require("modules.lsp.settings.sqlls"),
   cssls = { filetypes = { "css" }, install = true },
@@ -110,12 +110,12 @@ M.formatters = {
   },
 
   -- XML
-  xmlformatter = {
-    null_ls_source = "xmlformat",
-  },
+  -- xmlformatter = {
+  --   null_ls_source = "xmlformat",
+  -- },
 
   -- Rust
-  "rustfmt",
+  -- "rustfmt",
 
   -- Bash
   "shellharden",
@@ -136,7 +136,7 @@ M.formatters = {
   -- "ocamlformat",
 
   -- JSON
-  "fixjson",
+  -- "fixjson",
 
   -- CMake
   "gersemi",
@@ -148,7 +148,7 @@ M.formatters = {
   "phpcbf",
 
   -- Toml
-  "taplo",
+  -- "taplo",
 }
 
 M.linters = {
@@ -181,14 +181,14 @@ M.linters = {
   -- "textlint",
 
   -- C++/C
-  "cpplint",
+  -- "cpplint",
 
   -- All
   -- "cspell",
   -- "gitlint",
 
   -- Python
-  "flake8",
+  -- "flake8",
   -- "ruff",
   -- "pydocstyle",
 
@@ -221,7 +221,7 @@ M.linters = {
   "hadolint",
 
   -- JSON
-  "jsonlint",
+  -- "jsonlint",
 
   -- Kotlin
   "ktlint",
@@ -230,7 +230,7 @@ M.linters = {
   -- "rubocop",
 
   -- Bash
-  "shellcheck",
+  -- "shellcheck",
 
   -- Solidity
   "solhint",

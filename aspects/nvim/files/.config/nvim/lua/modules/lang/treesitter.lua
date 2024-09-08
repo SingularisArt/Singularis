@@ -58,7 +58,7 @@ local treesitter_ref = function()
       disable_virtual_text = true,
     },
     autopairs = { enable = true },
-    autotag = { enable = true },
+    autotag = { enable = false },
   })
 
   vim.g.matchup_matchparen_enabled = 0
