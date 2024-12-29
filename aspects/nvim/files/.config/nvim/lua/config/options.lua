@@ -1,4 +1,3 @@
--- This file is automatically loaded by plugins.config
 local M = {}
 
 local opt = vim.opt
@@ -51,22 +50,21 @@ M.general = function()
   opt.winminwidth = 5 -- Minimum window width
   opt.wrap = false -- Disable line wrap
   opt.foldenable = false -- Disable Folds
-  opt.foldmethod = "manual" -- "manual" for manual folds; "expr"
+  opt.foldmethod = "expr" -- "expr" for expressional folds; "manual"
   opt.foldexpr = "nvim_treesitter#foldexpr()" -- use treesitter to generate folds
   opt.foldcolumn = "1"
   opt.foldlevel = 2 -- Fold levels opened at file opens
   opt.foldlevelstart = 99
   opt.foldnestmax = 3 -- Max level of fold
   opt.signcolumn = "yes" -- Always show the signcolumn, otherwise it would shift the text each time
+  -- g.vimtex_mappings_enabled = false -- Disable vimtex default mappings
 
   if vim.fn.has("nvim-0.9.0") == 1 then
     opt.splitkeep = "screen"
     opt.shortmess:append({ C = true })
   end
 
-  -- DO NOT INCLUDE THIS
   vim.cmd("set rtp+=~/Documents/school-notes/current-course")
-  -- DO NOT INCLUDE THIS
 end
 
 -- Function for setting tex options

@@ -7,10 +7,10 @@ if vim.g.isInkscape then
       config = conf.vimtex,
       ft = "tex",
     })
-    use({
-      "anufrievroman/vim-tex-kawaii",
-      ft = "tex",
-    })
+    -- use({
+    --   "anufrievroman/vim-tex-kawaii",
+    --   ft = "tex",
+    -- })
   end
 end
 
@@ -21,10 +21,10 @@ return function(use)
   use({
     "lervag/vimtex",
     config = conf.vimtex,
-    ft = "tex",
-  })
-  use({
-    "anufrievroman/vim-tex-kawaii",
+    dependencies = {
+      "junegunn/fzf",
+      "junegunn/fzf.vim",
+    },
     ft = "tex",
   })
 

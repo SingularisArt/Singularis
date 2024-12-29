@@ -12,7 +12,7 @@ M.servers = {
   dartls = { filetypes = { "dart" } },
   solargraph = { filetypes = { "ruby" } },
   -- ts_ls = require("modules.lsp.settings.tsserver"),
-  yamlls = require("modules.lsp.settings.yamlls"),
+  -- yamlls = require("modules.lsp.settings.yamlls"),
   sqlls = require("modules.lsp.settings.sqlls"),
   cssls = { filetypes = { "css" }, install = true },
   html = require("modules.lsp.settings.html"),

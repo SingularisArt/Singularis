@@ -86,7 +86,7 @@ function Lazyload()
   loader("nvim-treesitter-refactor")
   loader("nvim-ts-context-commentstring")
   loader("nvim-treesitter-context")
-  loader("nvim-ufo")
+  -- loader("nvim-ufo")
 
   vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
   vim.opt.foldtext = "v:lua.vim.treesitter.foldtext()"

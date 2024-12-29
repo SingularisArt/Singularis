@@ -10,6 +10,23 @@ local options = require("config.global").which_key_vars.options
 local opts = require("config.global").opts
 local keymap = require("config.global").keymap
 
+vim.api.nvim_set_keymap("n", "<Leader>lk", "<NOP>", { noremap = true, silent = true })
+
+vim.cmd([[
+  function! OpenSync() abort
+    let l:bind = printf(
+      \ "--bind 'focus:execute-silent(zathura --synctex-forward {1}:1:\"%s\" \"%s\")'",
+      \ b:vimtex.tex,
+      \ b:vimtex.compiler.get_file('pdf')
+    \)
+    call vimtex#fzf#run('ctli', {
+      \ 'up': '90%',
+      \ 'sink':  function('vimtex#fzf#open_selection'),
+      \ 'options': '-d "#####" --with-nth=3.. --ansi ' . l:bind
+    \})
+  endfunction
+]])
+
 options = vim.tbl_deep_extend("force", {
   filetype = "tex",
   buffer = vim.api.nvim_get_current_buf(),
@@ -17,6 +34,7 @@ options = vim.tbl_deep_extend("force", {
 
 which_key.add({
   { "<Leader>L", group = "Language" },
+  { "<Leader>Lh", "<CMD>call OpenSync()<CR>", desc = "Search Headers" },
   { "<Leader>Lm", "<CMD>VimtexContextMenu<CR>", desc = "Open Context Menu" },
   { "<Leader>Lu", "<CMD>VimtexCountLetters<CR>", desc = "Count Letters" },
   { "<Leader>Lw", "<CMD>VimtexCountWords<CR>", desc = "Count Words" },
