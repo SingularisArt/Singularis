@@ -16,7 +16,7 @@ M.servers = {
   sqlls = require("modules.lsp.settings.sqlls"),
   cssls = { filetypes = { "css" }, install = true },
   html = require("modules.lsp.settings.html"),
-  texlab = require("modules.lsp.settings.texlab"),
+  -- texlab = require("modules.lsp.settings.texlab"),
   bashls = { filetypes = { "bash" }, install = true },
   clangd = require("modules.lsp.settings.clangd"),
   tailwindcss = {

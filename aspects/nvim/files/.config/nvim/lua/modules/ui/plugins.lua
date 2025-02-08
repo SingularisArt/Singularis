@@ -168,22 +168,22 @@ return function(use)
     lazy = false,
   })
 
-  use({
-    "kevinhwang91/nvim-ufo",
-    event = "VeryLazy",
-    dependencies = "kevinhwang91/promise-async",
-    init = function()
-      conf.ufo_init()
-    end,
-    config = function(_, opts)
-      conf.ufo(opts)
-    end,
-    opts = {
-      close_fold_kinds_for_ft = {
-        default = { "imports" },
-      },
-    },
-  })
+  -- use({
+  --   "kevinhwang91/nvim-ufo",
+  --   event = "VeryLazy",
+  --   dependencies = "kevinhwang91/promise-async",
+  --   init = function()
+  --     conf.ufo_init()
+  --   end,
+  --   config = function(_, opts)
+  --     conf.ufo(opts)
+  --   end,
+  --   opts = {
+  --     close_fold_kinds_for_ft = {
+  --       default = { "imports" },
+  --     },
+  --   },
+  -- })
 
   use({
     "luukvbaal/statuscol.nvim",

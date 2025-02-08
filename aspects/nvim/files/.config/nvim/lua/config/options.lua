@@ -50,14 +50,13 @@ M.general = function()
   opt.winminwidth = 5 -- Minimum window width
   opt.wrap = false -- Disable line wrap
   opt.foldenable = false -- Disable Folds
-  opt.foldmethod = "expr" -- "expr" for expressional folds; "manual"
-  opt.foldexpr = "nvim_treesitter#foldexpr()" -- use treesitter to generate folds
-  opt.foldcolumn = "1"
-  opt.foldlevel = 2 -- Fold levels opened at file opens
-  opt.foldlevelstart = 99
-  opt.foldnestmax = 3 -- Max level of fold
+  -- opt.foldmethod = "expr" -- "expr" for expressional folds; "manual"
+  -- opt.foldexpr = "nvim_treesitter#foldexpr()" -- use treesitter to generate folds
+  -- opt.foldcolumn = "1"
+  -- opt.foldlevel = 2 -- Fold levels opened at file opens
+  -- opt.foldlevelstart = 99
+  -- opt.foldnestmax = 3 -- Max level of fold
   opt.signcolumn = "yes" -- Always show the signcolumn, otherwise it would shift the text each time
-  -- g.vimtex_mappings_enabled = false -- Disable vimtex default mappings
 
   if vim.fn.has("nvim-0.9.0") == 1 then
     opt.splitkeep = "screen"
@@ -72,10 +71,8 @@ M.tex = function()
   opt.spell = true
   opt.tw = 80
   opt.fillchars = { fold = " ", vert = "│" }
-  opt.foldlevel = 0
-  opt.foldmethod = "expr"
-  opt.foldexpr = "vimtex#fold#level(v:lnum)"
-  opt.foldtext = "vimtex#fold#text()"
+  opt.foldlevel = 99
+  opt.foldmethod = "manual"
 end
 
 return M
