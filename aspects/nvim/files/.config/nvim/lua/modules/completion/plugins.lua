@@ -2,12 +2,12 @@ local conf = require("modules.completion.config")
 
 if vim.g.isInkscape then
   return function(use)
-    use({
-      "SirVer/ultisnips",
-      after = "nvim-cmp",
-      config = conf.ultisnips(),
-      event = "InsertEnter",
-    })
+    -- use({
+    --   "SirVer/ultisnips",
+    --   after = "nvim-cmp",
+    --   config = conf.ultisnips(),
+    --   event = "InsertEnter",
+    -- })
   end
 end
 

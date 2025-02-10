@@ -1,9 +1,6 @@
 local config = {}
 
 function config.nvim_lsp()
-  require("neoconf").setup()
-  require("neodev").setup()
-
   local mason = require("mason-lspconfig")
   local conf = require("modules.lsp.lsp_config")
   local servers = conf.servers

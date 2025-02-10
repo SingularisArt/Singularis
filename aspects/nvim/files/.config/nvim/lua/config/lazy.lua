@@ -75,7 +75,7 @@ function Lazyload()
   loader("plenary.nvim")
 
   if vim.bo.filetype == "lua" then
-    loader("neodev.nvim")
+    loader("lazydev.nvim")
   end
 
   vim.g.vimsyn_embed = "lPr"
@@ -121,7 +121,6 @@ end, lazy_timer)
 vim.defer_fn(function()
   loader("telescope.nvim")
   loader("nvim-colorizer.lua")
-  loader("nvim-navic")
 
   loader("windline.nvim")
   require("modules.ui.eviline")

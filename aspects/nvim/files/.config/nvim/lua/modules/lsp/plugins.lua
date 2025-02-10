@@ -6,64 +6,35 @@ local conf = require("modules.lsp.config")
 local icons = require("config.global").icons
 
 return function(use)
+  ------------------------------
+  --  General LSP Management  --
+  ------------------------------
+
+  -- lsp config
   use({
     "neovim/nvim-lspconfig",
     config = conf.nvim_lsp,
     dependencies = {
-      "pmizio/typescript-tools.nvim",
-      "simrat39/rust-tools.nvim",
-      "clangd_extensions.nvim",
-      { "folke/neoconf.nvim", cmd = "Neoconf" },
       {
-        "folke/neodev.nvim",
+        "folke/neoconf.nvim",
+        cmd = "Neoconf",
         config = function()
-          require("neodev").setup()
+          require("neoconf").setup()
         end,
+      },
+      {
+        "folke/lazydev.nvim",
         ft = "lua",
-      },
-      {
-        "williamboman/mason-lspconfig.nvim",
-        after = "mason.nvim",
-        config = function()
-          require("mason-lspconfig").setup()
-        end,
+        opts = {
+          library = {
+            { path = "${3rd}/luv/library", words = { "vim%.uv" } },
+          },
+        },
       },
     },
   })
 
-  use({ "SmiteshP/nvim-navic" })
-
-  use({
-    "j-hui/fidget.nvim",
-    branch = "legacy",
-    opts = {
-      sources = {
-        ["null-ls"] = { ignore = true },
-      },
-    },
-  })
-
-  use({
-    "simrat39/inlay-hints.nvim",
-    after = "nvim-lspconfig",
-    config = function()
-      require("inlay-hints").setup()
-    end,
-  })
-
-  use({
-    "nvimtools/none-ls.nvim",
-    after = "nvim-lspconfig",
-    config = conf.null_ls,
-    dependencies = {
-      {
-        "jay-babu/mason-null-ls.nvim",
-        after = "mason.nvim",
-        config = conf.mason_null_ls,
-      },
-    },
-  })
-
+  -- mason
   use({
     "williamboman/mason.nvim",
     after = "nvim-lspconfig",
@@ -78,9 +49,51 @@ return function(use)
       },
       log_level = vim.log.levels.INFO,
       max_concurrent_installers = 4,
-    }
+    },
+  })
+  use({
+    "williamboman/mason-lspconfig.nvim",
+    after = "mason.nvim",
+    config = function()
+      require("mason-lspconfig").setup()
+    end,
   })
 
+  -- formatter
+  use({
+    "nvimtools/none-ls.nvim",
+    after = "nvim-lspconfig",
+    config = conf.null_ls,
+    dependencies = {
+      {
+        "jay-babu/mason-null-ls.nvim",
+        after = "mason.nvim",
+        config = conf.mason_null_ls,
+      },
+    },
+  })
+
+  -- lsp notifier
+  use({
+    "j-hui/fidget.nvim",
+    branch = "legacy",
+    opts = {
+      sources = {
+        ["null-ls"] = { ignore = true },
+      },
+    },
+  })
+
+  -- inlay hints
+  use({
+    "simrat39/inlay-hints.nvim",
+    after = "nvim-lspconfig",
+    config = function()
+      require("inlay-hints").setup()
+    end,
+  })
+
+  -- lsp lines
   use({
     "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
     config = function()
@@ -89,13 +102,14 @@ return function(use)
     end,
   })
 
+  -- lsp manager
   use({
-    -- "ray-x/navigator.lua",
-    "SingularisArt/navigator.lua",
+    "ray-x/navigator.lua",
     after = "nvim-lspconfig",
     config = conf.navigator,
   })
 
+  -- signature help
   use({
     "ray-x/lsp_signature.nvim",
     opts = {
@@ -126,15 +140,17 @@ return function(use)
       handler_opts = {
         border = "rounded",
       },
-    }
+    },
   })
 
+  -- go to definition
   use({
     "dnlhc/glance.nvim",
     config = conf.glance,
     cmd = { "Glance" },
   })
 
+  -- documentation
   use({
     "danymat/neogen",
     opts = {
@@ -175,73 +191,23 @@ return function(use)
     cmd = "Neogen",
   })
 
-  use({ "b0o/SchemaStore.nvim", ft = { "json", "yaml" } })
-
-  use({ "simrat39/rust-tools.nvim", ft = "rust" })
+  -- symbols outline
   use({
-    "Saecki/crates.nvim",
-    config = function()
-      require("crates").setup({
-        null_ls = {
-          enabled = true,
-          name = "crates.nvim",
-        },
-      })
-    end,
-    ft = "toml",
+    "hedyhli/outline.nvim",
+    opts = {},
+    cmd = { "Outline", "OutlineOpen" },
   })
 
-  use({
-    "mfussenegger/nvim-jdtls",
-    ft = "java",
-  })
+  -------------------------------------
+  --  Language Specific LSP Plugins  --
+  -------------------------------------
 
-  use({
-    "ray-x/go.nvim",
-    dependencies = {
-      "guihua.lua",
-      "nvim-lspconfig",
-      "nvim-treesitter",
-    },
-    config = conf.go,
-    ft = { "go", "gomod" },
-    build = ":lua require('go.install').update_all_sync()",
-  })
-
-  use({
-    "akinsho/flutter-tools.nvim",
-    config = conf.flutter_tools,
-    ft = { "dart" },
-  })
-
-  use({
-    "p00f/clangd_extensions.nvim",
-    config = conf.clangd_extensions,
-    ft = { "cpp", "c" },
-  })
-
-  use({
-    "hbarral/vim-dadbod",
-    cmd = {
-      "DBUIToggle",
-      "DBUI",
-      "DBUIAddConnection",
-      "DBUIFindBuffer",
-      "DBUIRenameBuffer",
-      "DBUILastQueryInfo",
-    },
-    dependencies = {
-      "kristijanhusak/vim-dadbod-ui",
-      "kristijanhusak/vim-dadbod-completion",
-    },
-  })
-
+  -- typescript/javascript
   use({
     "dmmulroy/tsc.nvim",
     cmd = { "TSC" },
     config = true,
   })
-
   use({
     "pmizio/typescript-tools.nvim",
     ft = { "typescript", "typescriptreact" },
@@ -250,7 +216,11 @@ return function(use)
       "neovim/nvim-lspconfig",
     },
   })
-
+  use({
+    "vuki656/package-info.nvim",
+    event = "BufEnter package.json",
+    config = conf.package_json,
+  })
   use({
     "vuki656/package-info.nvim",
     event = "BufEnter package.json",
@@ -273,31 +243,71 @@ return function(use)
     },
   })
 
-  use({
-    "folke/trouble.nvim",
-    cmd = { "Trouble", "TroubleToggle" },
-    config = function()
-      require("trouble").setup({})
-    end,
-  })
+  -- javascript react/typescript react
+  use({ "ianks/vim-tsx", ft = "typescriptreact" })
+  use({ "mxw/vim-jsx", ft = "javascriptreact" })
 
+  -- rust
+  use({ "simrat39/rust-tools.nvim", ft = "rust" })
   use({
-    "nvimdev/lspsaga.nvim",
+    "Saecki/crates.nvim",
     config = function()
-      require("lspsaga").setup({
-        symbol_in_winbar = {
-          hide_keyword = true,
-        },
-        diagnostic = {
-          show_code_action = false,
+      require("crates").setup({
+        null_ls = {
+          enabled = true,
+          name = "crates.nvim",
         },
       })
     end,
+    ft = "toml",
+  })
+
+  -- java
+  use({
+    "mfussenegger/nvim-jdtls",
+    ft = "java",
+  })
+
+  -- go
+  use({
+    "ray-x/go.nvim",
+    dependencies = {
+      "guihua.lua",
+      "nvim-lspconfig",
+      "nvim-treesitter",
+    },
+    config = conf.go,
+    ft = { "go", "gomod" },
+    build = ":lua require('go.install').update_all_sync()",
+  })
+
+  -- dart
+  use({
+    "akinsho/flutter-tools.nvim",
+    config = conf.flutter_tools,
+    ft = { "dart" },
+  })
+
+  -- cpp/c
+  use({
+    "p00f/clangd_extensions.nvim",
+    config = conf.clangd_extensions,
+    ft = { "cpp", "c" },
   })
 
   use({
-    "hedyhli/outline.nvim",
-    opts = {},
-    cmd = { "Outline", "OutlineOpen" },
+    "hbarral/vim-dadbod",
+    cmd = {
+      "DBUIToggle",
+      "DBUI",
+      "DBUIAddConnection",
+      "DBUIFindBuffer",
+      "DBUIRenameBuffer",
+      "DBUILastQueryInfo",
+    },
+    dependencies = {
+      "kristijanhusak/vim-dadbod-ui",
+      "kristijanhusak/vim-dadbod-completion",
+    },
   })
 end

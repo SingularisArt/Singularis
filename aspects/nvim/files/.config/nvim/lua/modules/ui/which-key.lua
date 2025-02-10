@@ -176,7 +176,7 @@ vars.mappings[6] = {
   { "<Leader>sb", "<CMD>Telescope buffers<CR>", desc = "Fuzzy find buffers" },
   { "<Leader>sl", "<CMD>Telescope live_grep<CR>", desc = "Fuzzy find words" },
   { "<Leader>ss", "<CMD>Telescope symbols<CR>", desc = "Fuzzy find symbols" },
-  { "<Leader>sh", "<CMD>Telescope harpoon marks<CR>", desc = "View harpoon" },
+  -- { "<Leader>sh", "<CMD>Telescope harpoon marks<CR>", desc = "View harpoon" },
   { "<Leader>sd", "<CMD>Telescope diagnostics<CR>", desc = "Fuzzy find diagnostics" },
   { "<Leader>sn", search_config_files, desc = "Fuzzy find config files" },
   {
@@ -195,10 +195,10 @@ which_key.add(vars.mappings)
 which_key.add({
   { "<Leader> ", "<CMD>normal <C-^><CR>", desc = "Jump to previous buffer" },
   { "<Leader>/", "<CMD>lua require('Comment.api').toggle.linewise()<CR>", desc = "Comment out current line" },
-  { "<Leader>a", require("harpoon.mark").add_file, desc = "Add file to harpoon" },
+  -- { "<Leader>a", require("harpoon.mark").add_file, desc = "Add file to harpoon" },
   { "<Leader>o", "<CMD>Goyo<CR>", desc = "Enable Goyo" },
   { "<Leader>h", vim.cmd.split, desc = "Horizontal Split" },
-  { "<Leader>t", require("alternate-toggler").toggleAlternate, desc = "Toggle Alternate" },
+  -- { "<Leader>t", require("alternate-toggler").toggleAlternate, desc = "Toggle Alternate" },
   { "<Leader>v", vim.cmd.vsplit, desc = "Vertical Split" },
   { "<Leader>z", vim.cmd.ZenMode, desc = "Zen Mode" },
 })

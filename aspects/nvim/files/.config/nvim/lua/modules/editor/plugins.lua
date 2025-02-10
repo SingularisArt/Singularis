@@ -4,13 +4,13 @@ end
 
 local default_coloumns = function(detailed)
   return detailed
-  and {
-    { "permissions", highlight = "String" },
-    { "mtime", highlight = "Comment" },
-    { "size", highlight = "Type" },
-    "icon",
-  }
-  or { "icon" }
+      and {
+        { "permissions", highlight = "String" },
+        { "mtime", highlight = "Comment" },
+        { "size", highlight = "Type" },
+        "icon",
+      }
+    or { "icon" }
 end
 
 local conf = require("modules.editor.config")
@@ -21,14 +21,6 @@ return function(use)
     opts = { ignore = "^$" },
     lazy = false,
   })
-
-  use({
-    "folke/todo-comments.nvim",
-    config = conf.todo_comments,
-    event = "BufRead",
-  })
-
-  use({ "wakatime/vim-wakatime", event = "BufEnter" })
 
   use({
     "christoomey/vim-tmux-navigator",
@@ -42,9 +34,21 @@ return function(use)
   })
 
   use({
-    "RRethy/vim-illuminate",
+    -- "RRethy/vim-illuminate",
+    "linrongbin16/vim-illuminate",
     config = function()
-      require("illuminate").configure({ delay = 200 })
+      require("illuminate").configure({
+        delay = 200,
+        filetypes_denylist = {
+          "dirbuf",
+          "dirvish",
+          "fugitive",
+          "TelescopePrompt",
+          "toggleterm",
+          "tex",
+          "markdown",
+        },
+      })
     end,
     event = "BufRead",
   })
@@ -92,39 +96,7 @@ return function(use)
     cmd = "UndotreeToggle",
   })
 
-  use({
-    "ThePrimeagen/harpoon",
-    opts = {},
-    keys = {
-      { "L", function() require("harpoon.ui").nav_next() end },
-      { "H", function() require("harpoon.ui").nav_prev() end },
-      { "<Leader>pt", "<CMD>Telescope harpoon marks<CR>" },
-      { "<Leader>pa", function() require("harpoon.mark").add_file() end },
-      { "<Leader>pu", function() require("harpoon.ui").toggle_quick_menu() end },
-      { "<Leader>p1", function() require("harpoon.ui").nav_file(1) end },
-      { "<Leader>p2", function() require("harpoon.ui").nav_file(2) end },
-      { "<Leader>p3", function() require("harpoon.ui").nav_file(3) end },
-      { "<Leader>p4", function() require("harpoon.ui").nav_file(4) end },
-      { "<Leader>p5", function() require("harpoon.ui").nav_file(5) end },
-      { "<Leader>p6", function() require("harpoon.ui").nav_file(6) end },
-      { "<Leader>p7", function() require("harpoon.ui").nav_file(7) end },
-      { "<Leader>p8", function() require("harpoon.ui").nav_file(8) end },
-      { "<Leader>p9", function() require("harpoon.ui").nav_file(9) end },
-    },
-  })
-
-  use({
-    "rmagatti/alternate-toggler",
-    config = function()
-      require("alternate-toggler").setup({})
-    end,
-    keys = {
-      { "<Leader>t", function() require("alternate-toggler").toggleAlternate() end },
-    },
-  })
-
   -- Credit: https://github.com/elbkind/nvim/blob/main/lua/plugins/oil.lua
-  ---
   use({
     "stevearc/oil.nvim",
     keys = {
@@ -224,7 +196,7 @@ return function(use)
         },
       }
       o.use_default_keymaps = false
-      o.silence_scp_warning = true -- disable scp warn to use oil-ssh since I'm using a remap
+      o.silence_scp_warning = true
       o.view_options = {
         show_hidden = false,
         is_hidden_file = function(name, _)
@@ -238,9 +210,7 @@ return function(use)
           return file_to_exclude[name]
         end,
       }
-      -- Configuration for the floating window in oil.open_float
       o.float = {
-        -- Padding around the floating window
         padding = 0,
         max_width = 0,
         max_height = 16,
@@ -259,44 +229,35 @@ return function(use)
           winblend = 6,
         },
       }
-      -- This are defaults for now, no need to override
-      -- adapters = {
-        --   ["oil://"] = "files",
-        --   ["oil-ssh://"] = "ssh",
-        -- },
-        -- When opening the parent of a file, substitute these url schemes
-        -- HACK:
-        -- https://github.com/stevearc/oil.nvim/blob/931453fc09085c09537295c991c66637869e97e1/lua/oil/config.lua#L102~110
-        -- Using this to remap url-scheme from args with oil-ssh schemes
-        o.adapter_aliases = {
-          ["ssh://"] = "oil-ssh://",
-          ["scp://"] = "oil-ssh://",
-          ["sftp://"] = "oil-ssh://",
-        }
-      end,
-      init = function(p)
-        if vim.fn.argc() == 1 then
-          local argv = tostring(vim.fn.argv(0))
-          local stat = vim.loop.fs_stat(argv)
+      o.adapter_aliases = {
+        ["ssh://"] = "oil-ssh://",
+        ["scp://"] = "oil-ssh://",
+        ["sftp://"] = "oil-ssh://",
+      }
+    end,
+    init = function(p)
+      if vim.fn.argc() == 1 then
+        local argv = tostring(vim.fn.argv(0))
+        local stat = vim.loop.fs_stat(argv)
 
-          local remote_dir_args = vim.startswith(argv, "ssh") or vim.startswith(argv, "sftp") or vim.startswith(argv, "scp")
+        local remote_dir_args = vim.startswith(argv, "ssh")
+          or vim.startswith(argv, "sftp")
+          or vim.startswith(argv, "scp")
 
-          if stat and stat.type == "directory" or remote_dir_args then
-            require("lazy").load({ plugins = { p.name } })
-          end
+        if stat and stat.type == "directory" or remote_dir_args then
+          require("lazy").load({ plugins = { p.name } })
         end
-        if not require("lazy.core.config").plugins[p.name]._.loaded then
-          vim.api.nvim_create_autocmd("BufNew", {
-            callback = function()
-              if vim.fn.isdirectory(vim.fn.expand("<afile>")) == 1 then
-                require("lazy").load({ plugins = { "oil.nvim" } })
-                -- Once oil is loaded, we can delete this autocmd
-                return true
-              end
-            end,
-          })
-        end
-      end,
-    })
-    ---
+      end
+      if not require("lazy.core.config").plugins[p.name]._.loaded then
+        vim.api.nvim_create_autocmd("BufNew", {
+          callback = function()
+            if vim.fn.isdirectory(vim.fn.expand("<afile>")) == 1 then
+              require("lazy").load({ plugins = { "oil.nvim" } })
+              return true
+            end
+          end,
+        })
+      end
+    end,
+  })
 end

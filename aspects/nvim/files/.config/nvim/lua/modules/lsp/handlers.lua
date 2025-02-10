@@ -85,11 +85,6 @@ lsp.attach_mappings = function(_, bufnr)
 end
 
 lsp.on_attach = function(client, bufnr)
-  local servers_that_dont_work_with_navic = {
-    "tailwindcss",
-    "emmet_ls",
-  }
-
   if client.name == "jdtls" then
     require("jdtls").setup_dap({ hotcodereplace = "auto" })
     require("jdtls.dap").setup_dap_main_class_configs()
@@ -125,10 +120,6 @@ lsp.on_attach = function(client, bufnr)
       dynamicRegistration = false,
       lineFoldingOnly = false,
     }
-  end
-
-  if servers_that_dont_work_with_navic[client.name] ~= nil then
-    require("nvim-navic").attach(client, bufnr)
   end
 
   require("colorizer").attach_to_buffer(bufnr)

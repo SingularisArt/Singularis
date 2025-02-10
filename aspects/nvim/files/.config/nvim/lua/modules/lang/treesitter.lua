@@ -31,8 +31,8 @@ local treesitter = function()
         "ocaml",
         "zig",
       },
-      auto_install = true,
       ignore_install = { "latex", "markdown" },
+      auto_install = true,
     },
   })
 end
