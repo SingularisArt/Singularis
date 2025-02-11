@@ -67,35 +67,35 @@ which_key.add({
   { "<Leader>Lup", "<CMD><CR>", desc = "Run tests for package" },
 }, options)
 
-local dap = require("dap")
-dap.adapters.delve = {
-  type = "server",
-  port = "${port}",
-  executable = {
-    command = vim.fn.glob(os.getenv("HOME") .. "/.local/share/nvim/mason/packages/delve/dlv");
-    args = { "dap", "-l", "127.0.0.1:${port}" },
-  }
-}
+-- local dap = require("dap")
+-- dap.adapters.delve = {
+--   type = "server",
+--   port = "${port}",
+--   executable = {
+--     command = vim.fn.glob(os.getenv("HOME") .. "/.local/share/nvim/mason/packages/delve/dlv");
+--     args = { "dap", "-l", "127.0.0.1:${port}" },
+--   }
+-- }
 
-dap.configurations.go = {
-  {
-    type = "delve",
-    name = "Debug",
-    request = "launch",
-    program = "${file}"
-  },
-  {
-    type = "delve",
-    name = "Debug test",
-    request = "launch",
-    mode = "test",
-    program = "${file}"
-  },
-  {
-    type = "delve",
-    name = "Debug test (go.mod)",
-    request = "launch",
-    mode = "test",
-    program = "./${relativeFileDirname}"
-  }
-}
+-- dap.configurations.go = {
+--   {
+--     type = "delve",
+--     name = "Debug",
+--     request = "launch",
+--     program = "${file}"
+--   },
+--   {
+--     type = "delve",
+--     name = "Debug test",
+--     request = "launch",
+--     mode = "test",
+--     program = "${file}"
+--   },
+--   {
+--     type = "delve",
+--     name = "Debug test (go.mod)",
+--     request = "launch",
+--     mode = "test",
+--     program = "./${relativeFileDirname}"
+--   }
+-- }

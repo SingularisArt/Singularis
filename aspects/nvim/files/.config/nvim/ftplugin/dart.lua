@@ -22,23 +22,23 @@ which_key.add({
   { "<Leader>Lr", "<CMD>FlutterRename<CR>", desc = "Rename and updates imports" },
 }, options)
 
-local dap = require("dap")
-local mason_path = vim.fn.glob(vim.fn.stdpath("data")) .. "/mason/"
-local dart_debug_adapter_exec_path = mason_path .. "packages/dart-debug-adapter"
+-- local dap = require("dap")
+-- local mason_path = vim.fn.glob(vim.fn.stdpath("data")) .. "/mason/"
+-- local dart_debug_adapter_exec_path = mason_path .. "packages/dart-debug-adapter"
 
-dap.adapters.dart = {
-  type = "executable",
-  command = "node",
-  args = {dart_debug_adapter_exec_path .. "/extension/out/dist/debug.js", "flutter"}
-}
-dap.configurations.dart = {
-  {
-    type = "dart",
-    request = "launch",
-    name = "Launch flutter",
-    dartSdkPath = os.getenv("HOME") .. "/.config/flutter/bin/cache/dart-sdk/",
-    flutterSdkPath = os.getenv("HOME") .. "/.config/flutter",
-    program = "${workspaceFolder}/lib/main.dart",
-    cwd = "${workspaceFolder}",
-  }
-}
+-- dap.adapters.dart = {
+--   type = "executable",
+--   command = "node",
+--   args = {dart_debug_adapter_exec_path .. "/extension/out/dist/debug.js", "flutter"}
+-- }
+-- dap.configurations.dart = {
+--   {
+--     type = "dart",
+--     request = "launch",
+--     name = "Launch flutter",
+--     dartSdkPath = os.getenv("HOME") .. "/.config/flutter/bin/cache/dart-sdk/",
+--     flutterSdkPath = os.getenv("HOME") .. "/.config/flutter",
+--     program = "${workspaceFolder}/lib/main.dart",
+--     cwd = "${workspaceFolder}",
+--   }
+-- }

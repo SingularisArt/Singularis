@@ -1,14 +1,27 @@
-local theme = {
-  "echasnovski/mini.hues",
-  config = function()
-    require("mini.hues").setup({ background = "#090610", foreground = "#acc2d2", saturation = "high", n_hues = 6 })
-  end,
-  lazy = false,
+if vim.g.isInkscape then
+  return function(_use) end
+end
+
+local latexPlugins = {
+  {
+    "echasnovski/mini.hues",
+    config = function()
+      require("mini.hues").setup({ background = "#090610", foreground = "#acc2d2", saturation = "high", n_hues = 6 })
+    end,
+    lazy = false,
+  },
+  {
+    "folke/which-key.nvim",
+    config = function()
+      require("modules.ui.which-key")
+    end,
+    event = "BufEnter",
+  },
 }
 
-if vim.g.isInkscape then
+if vim.g.isLATEX then
   return function(use)
-    use(theme)
+    use(latexPlugins)
   end
 end
 
@@ -16,20 +29,12 @@ local conf = require("modules.ui.config")
 
 return function(use)
   use(theme)
+  use(latexPlugins)
   use({ "nvim-tree/nvim-web-devicons" })
 
-  use({ "windwp/windline.nvim" })
   use({ "MunifTanjim/nui.nvim" })
 
   use({ "lambdalisue/glyph-palette.vim" })
-
-  use({
-    "folke/which-key.nvim",
-    config = function()
-      require("modules.ui.which-key")
-    end,
-    event = "BufEnter",
-  })
 
   use({
     "stevearc/dressing.nvim",
@@ -67,6 +72,7 @@ return function(use)
     },
   })
 
+  use({ "windwp/windline.nvim" })
   use({
     "kevinhwang91/nvim-hlslens",
     config = conf.hlslens,

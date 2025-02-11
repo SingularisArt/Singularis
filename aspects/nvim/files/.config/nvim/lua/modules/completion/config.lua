@@ -21,7 +21,6 @@ function config.cmp()
     calc = "(Calc)",
     path = "(Path)",
     buffer = "(Buffer)",
-    emoji = "(Emoji)",
     ["vim-dadbod-completion"] = "(SQL)",
     spell = "(Spell)",
     latex_symbols = "(LaTeX)",
@@ -38,7 +37,6 @@ function config.cmp()
     { name = "calc" },
     { name = "path" },
     { name = "buffer" },
-    { name = "emoji" },
   }
 
   local function border(hl_name)
@@ -131,7 +129,7 @@ function config.cmp()
   --  FileType Configuration  --
   ------------------------------
 
-  if vim.g.isInkscape then
+  if vim.g.isLATEX then
     cmp.setup.filetype("tex", {})
   end
 
@@ -191,20 +189,22 @@ function config.cmp()
   })
 end
 
-function config.ultisnips()
-  vim.g.UltiSnipsRemoveSelectModeMappings = 0
-  vim.g.UltiSnipsEditSplit = "tabdo"
-  vim.g.UltiSnipsSnippetDirectories = {
-    "~/.config/nvim/UltiSnips",
-    "UltiSnips",
-  }
-end
-
 function config.autopairs()
   require("nvim-autopairs").setup({})
 
   local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+  local rule = require("nvim-autopairs.rule")
+  local cond = require("nvim-autopairs.conds")
+  local autopairs = require("nvim-autopairs")
+
   require("cmp").event:on("confirm_done", cmp_autopairs.on_confirm_done())
+
+  autopairs.add_rules({
+    rule("$", "$", {"tex", "latex"}):with_cr(cond.none())
+  })
+
+  autopairs.get_rules("`")[1].not_filetypes = {"tex", "latex"}
+  autopairs.get_rules("'")[1].not_filetypes = {"tex", "latex", "rust"}
 end
 
 return config

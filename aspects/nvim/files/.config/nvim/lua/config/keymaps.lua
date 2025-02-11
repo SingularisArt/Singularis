@@ -36,7 +36,7 @@ keymap("n", "<C-w>", ":bdelete<CR>", opts, "Delete buffer.")
 keymap("n", "<C-t>", ":tabnew<CR>", opts, "Create new tab.")
 keymap("n", "<C-a>", "ggVG", opts, "Highlight everything.")
 keymap("n", ";", ":nohl<CR>", opts, "Clear search highlight.")
--- keymap("n", "<Tab>", "za", opts, "Toggle tab.")
+keymap("n", "<Tab>", "za", opts, "Toggle tab.")
 keymap("n", "<CR>", "ciw", opts, "Detele entire word.")
 
 -- Insert Mode

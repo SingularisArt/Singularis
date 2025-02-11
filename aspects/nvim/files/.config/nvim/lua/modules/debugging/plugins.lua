@@ -1,4 +1,4 @@
-if vim.g.isInkscape then
+if vim.g.isLATEX or vim.g.isInkscape then
   return function(_use) end
 end
 

@@ -4,36 +4,55 @@ end
 
 return function(use)
   use({
-    "jackMort/ChatGPT.nvim",
-    dependencies = {
-      "MunifTanjim/nui.nvim",
-      "nvim-lua/plenary.nvim",
-      "nvim-telescope/telescope.nvim",
-    },
+    "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    event = "InsertEnter",
     config = function()
-      require("chatgpt").setup({
-        api_key_cmd = "~/.local/bin/get-password api/tokens/chatgpt.nvim",
+      require("copilot").setup({
+        panel = {
+          enabled = true,
+          auto_refresh = true,
+          keymap = {
+            jump_prev = "[[",
+            jump_next = "]]",
+            accept = "<CR>",
+            refresh = "gr",
+            open = "<leader>ch",
+          },
+          layout = {
+            position = "bottom",
+            ratio = 0.4,
+          },
+        },
+        suggestion = {
+          enabled = true,
+          auto_trigger = true,
+          debounce = 75,
+          keymap = {
+            accept = "<C-h>",
+            accept_word = false,
+            accept_line = "<C-i>",
+            next = false,
+            prev = false,
+            dismiss = "<C-]>",
+          },
+        },
+        filetypes = {
+          oil = false,
+          help = false,
+          gitrebase = false,
+          hgcommit = false,
+          svn = false,
+          cvs = false,
+          VimspectorPrompt = false,
+          TelescopePrompt = false,
+          AvanteInput = false,
+          Avante = false,
+          ["."] = false,
+        },
+        copilot_node_command = "node",
+        server_opts_overrides = {},
       })
     end,
-    cmd = {
-      "ChatGPT",
-      "ChatGPTActAs",
-      "ChatGPTCompleteCode",
-      "ChatGPTEditWithInstructions",
-      "ChatGPTRun",
-    },
-  })
-
-  use({
-    "github/copilot.vim",
-    config = function()
-      vim.g.copilot_no_tab_map = true
-      vim.api.nvim_set_keymap("i", "<C-h>", "copilot#Accept('<CR>')", { silent = true, expr = true })
-
-      vim.g.copilot_filetypes = {
-        ["*"] = true,
-      }
-    end,
-    event = "InsertEnter",
   })
 end

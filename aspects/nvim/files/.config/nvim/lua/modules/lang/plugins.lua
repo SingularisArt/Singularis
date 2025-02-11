@@ -1,29 +1,24 @@
-local conf = require("modules.lang.config")
-
 if vim.g.isInkscape then
+  return function(_use) end
+end
+
+if vim.g.isLATEX then
   return function(use)
     use({
       "lervag/vimtex",
-      config = conf.vimtex,
+      config = function()
+        vim.g.vimtex_view_method = "zathura"
+        vim.g.vimtex_quickfix_enabled = 0
+      end,
       ft = "tex",
     })
   end
 end
 
+local conf = require("modules.lang.config")
 local ts = require("modules.lang.treesitter")
 
 return function(use)
-  -- latex
-  use({
-    "lervag/vimtex",
-    config = conf.vimtex,
-    dependencies = {
-      "junegunn/fzf",
-      "junegunn/fzf.vim",
-    },
-    ft = "tex",
-  })
-
   -- treesitter
   use({
     "nvim-treesitter/nvim-treesitter",
@@ -89,12 +84,6 @@ return function(use)
         },
       })
     end,
-  })
-
-  use({
-    "nvim-treesitter/playground",
-    cmd = "TSPlaygroundToggle",
-    config = conf.playground,
   })
 
   use({ "JoosepAlviste/nvim-ts-context-commentstring" })

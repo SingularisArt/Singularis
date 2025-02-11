@@ -1,15 +1,24 @@
-local conf = require("modules.completion.config")
+local latexPlugins = {
+  "SirVer/ultisnips",
+  after = "nvim-cmp",
+  config = function()
+    vim.g.UltiSnipsRemoveSelectModeMappings = 0
+    vim.g.UltiSnipsEditSplit = "tabdo"
+    vim.g.UltiSnipsSnippetDirectories = {
+      "~/.config/nvim/UltiSnips",
+      "UltiSnips",
+    }
+  end,
+  event = "InsertEnter",
+}
 
 if vim.g.isInkscape then
   return function(use)
-    -- use({
-    --   "SirVer/ultisnips",
-    --   after = "nvim-cmp",
-    --   config = conf.ultisnips(),
-    --   event = "InsertEnter",
-    -- })
+    use(latexPlugins)
   end
 end
+
+local conf = require("modules.completion.config")
 
 return function(use)
   use({
@@ -23,27 +32,13 @@ return function(use)
       "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-calc",
       "hrsh7th/cmp-path",
-      "hrsh7th/cmp-emoji",
       "f3fora/cmp-spell",
       "octaltree/cmp-look",
-      {
-        "roobert/tailwindcss-colorizer-cmp.nvim",
-        opts = function(_, opts)
-          opts.formatting = {
-            format = require("tailwindcss-colorizer-cmp").formatter,
-          }
-        end,
-      },
     },
     event = "InsertEnter",
   })
 
-  use({
-    "SirVer/ultisnips",
-    after = "nvim-cmp",
-    config = conf.ultisnips(),
-    event = "InsertEnter",
-  })
+  use(latexPlugins)
 
   use({
     "windwp/nvim-autopairs",

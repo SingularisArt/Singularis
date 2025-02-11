@@ -55,7 +55,6 @@ lsp.attach_mappings = function(_, bufnr)
     { "<Leader>lo", vim.cmd.OutlineOpen, desc = "Symbols Outline" },
     { "<Leader>lj", vim.diagnostic.goto_next, desc = "Go to next diagnostic" },
     { "<Leader>lk", vim.diagnostic.goto_prev, desc = "Go to previous diagnostic" },
-    { "<Leader>ll", require("lsp_lines").toggle, desc = "Toggle LSP Lines" },
     { "<Leader>ls", vim.lsp.buf.signature_help, desc = "Signature" },
     { "<Leader>lD", "<cmd>Telescope lsp_document_symbols<cr>", desc = "Document Symbols" },
 
@@ -122,7 +121,7 @@ lsp.on_attach = function(client, bufnr)
     }
   end
 
-  require("colorizer").attach_to_buffer(bufnr)
+  -- require("colorizer").attach_to_buffer(bufnr)
 
   client.config.capabilities.textDocument.completion.completionItem.snippetSupport = true
   client.config.capabilities.textDocument.foldingRange = {

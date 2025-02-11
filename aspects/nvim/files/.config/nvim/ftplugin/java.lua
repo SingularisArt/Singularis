@@ -136,17 +136,17 @@ jdtls.start_or_attach(config)
 
 require("jdtls.setup").add_commands()
 
-local dap = require("dap")
-dap.configurations.java = {
-  {
-    type = "java";
-    request = "attach";
-    repl_lang = "java",
-    name = "Debug (Attach) - Remote";
-    hostName = "127.0.0.1";
-    port = 5005;
-  },
-}
+-- local dap = require("dap")
+-- dap.configurations.java = {
+--   {
+--     type = "java";
+--     request = "attach";
+--     repl_lang = "java",
+--     name = "Debug (Attach) - Remote";
+--     hostName = "127.0.0.1";
+--     port = 5005;
+--   },
+-- }
 
 local which_key = require("which-key")
 local options = require("config.global").which_key_vars.options

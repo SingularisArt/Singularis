@@ -20,8 +20,10 @@ M.general = function()
   opt.grepformat = "%f:%l:%c:%m" -- Format
   opt.grepprg = "rg --vimgrep" -- For searching
   opt.ignorecase = true -- Ignore case
-  opt.inccommand = "nosplit" -- Preview incremental substitute
+  -- opt.inccommand = "nosplit" -- Preview incremental substitute
   opt.laststatus = 3 -- Make statusbar cover entire area
+  opt.breakindent = true -- Break indentation for long lines
+  opt.showbreak = "↳" -- Character for line break
   opt.list = true -- Show some invisible characters (tabs...
   opt.mouse = "a" -- Enable mouse mode
   opt.number = true -- Print line number
@@ -29,7 +31,7 @@ M.general = function()
   opt.pumheight = 10 -- Maximum number of entries in a popup
   opt.relativenumber = true -- Relative line numbers
   opt.scrolloff = 4 -- Lines of context
-  opt.sessionoptions = { "buffers", "curdir", "tabpages", "winsize" }
+  opt.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions"
   opt.shiftround = true -- Round indent
   opt.shiftwidth = 2 -- Size of an indent
   opt.shortmess:append({ W = true, I = true, c = true })
@@ -47,15 +49,20 @@ M.general = function()
   opt.undolevels = 10000 -- Level of undo times
   opt.updatetime = 200 -- Save swap file and trigger CursorHold
   opt.wildmode = "longest:full,full" -- Command-line completion mode
+  opt.wildignore:append({".javac", "node_modules", "*.pyc"})
+  opt.wildignore:append({".aux", ".out", ".toc"}) -- LaTeX
+  opt.wildignore:append({
+    ".o", ".obj", ".dll", ".exe", ".so", ".a", ".lib", ".pyc", ".pyo", ".pyd",
+    ".swp", ".swo", ".class", ".DS_Store", ".git", ".hg", ".orig"
+  })
   opt.winminwidth = 5 -- Minimum window width
   opt.wrap = false -- Disable line wrap
-  opt.foldenable = false -- Disable Folds
-  -- opt.foldmethod = "expr" -- "expr" for expressional folds; "manual"
-  -- opt.foldexpr = "nvim_treesitter#foldexpr()" -- use treesitter to generate folds
-  -- opt.foldcolumn = "1"
-  -- opt.foldlevel = 2 -- Fold levels opened at file opens
-  -- opt.foldlevelstart = 99
-  -- opt.foldnestmax = 3 -- Max level of fold
+  opt.inccommand = "split" -- "for incsearch while sub
+  -- Folds
+  -- opt.foldmethod = "expr" -- treesiter time
+  -- opt.foldexpr = "nvim_treesitter#foldexpr()" -- treesiter
+  -- opt.foldtext = ""
+
   opt.signcolumn = "yes" -- Always show the signcolumn, otherwise it would shift the text each time
 
   if vim.fn.has("nvim-0.9.0") == 1 then

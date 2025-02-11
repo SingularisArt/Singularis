@@ -28,30 +28,30 @@ which_key.add({
   { "<Leader>LHd", "<cmd>RustDisableInlayHints<CR>", desc = "Disable Inlay Hints" },
 }, options)
 
-local dap = require("dap")
-local mason_path = vim.fn.glob(vim.fn.stdpath("data")) .. "/mason/"
-local codelldb_exec_path = mason_path .. "packages/codelldb/codelldb"
+-- local dap = require("dap")
+-- local mason_path = vim.fn.glob(vim.fn.stdpath("data")) .. "/mason/"
+-- local codelldb_exec_path = mason_path .. "packages/codelldb/codelldb"
 
-dap.adapters.codelldb = {
-  type = "server",
-  port = "${port}",
-  executable = {
-    command = codelldb_exec_path,
-    args = { "--port", "${port}" },
-  },
-}
+-- dap.adapters.codelldb = {
+--   type = "server",
+--   port = "${port}",
+--   executable = {
+--     command = codelldb_exec_path,
+--     args = { "--port", "${port}" },
+--   },
+-- }
 
-dap.configurations.rust = {
-  {
-    name = "Launch",
-    type = "codelldb",
-    request = "launch",
-    repl_lang = "rust",
-    program = function()
-      return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
-    end,
-    cwd = "${workspaceFolder}",
-    stopOnEntry = false,
-    args = {},
-  },
-}
+-- dap.configurations.rust = {
+--   {
+--     name = "Launch",
+--     type = "codelldb",
+--     request = "launch",
+--     repl_lang = "rust",
+--     program = function()
+--       return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
+--     end,
+--     cwd = "${workspaceFolder}",
+--     stopOnEntry = false,
+--     args = {},
+--   },
+-- }

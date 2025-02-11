@@ -45,24 +45,24 @@ local function search_config_files()
   builtin.find_files({ cwd = vim.fn.stdpath("config") })
 end
 
-vars.mappings[1] = {
-  { "<Leader>d", group = "Debugging" },
+-- vars.mappings[1] = {
+--   { "<Leader>d", group = "Debugging" },
 
-  { "<Leader>dt", require("dap").toggle_breakpoint, desc = "Toggle Breakpoint" },
-  { "<Leader>db", require("dap").step_back, desc = "Step Back" },
-  { "<Leader>dc", require("dap").continue, desc = "Continue" },
-  { "<Leader>dC", require("dap").run_to_cursor, desc = "Run To Cursor" },
-  { "<Leader>dd", require("dap").disconnect, desc = "Disconnect" },
-  { "<Leader>dg", require("dap").session, desc = "Get Session" },
-  { "<Leader>di", require("dap").step_into, desc = "Step Into" },
-  { "<Leader>do", require("dap").step_over, desc = "Step Over" },
-  { "<Leader>du", require("dap").step_out, desc = "Step Out" },
-  { "<Leader>dp", require("dap").pause, desc = "Pause" },
-  { "<Leader>dr", require("dap").repl.toggle, desc = "Toggle Repl" },
-  { "<Leader>ds", require("dap").continue, desc = "Start" },
-  { "<Leader>dq", require("dap").close, desc = "Quit" },
-  { "<Leader>dU", require("dapui").toggle, desc = "Enable/Disable UI" },
-}
+--   { "<Leader>dt", require("dap").toggle_breakpoint, desc = "Toggle Breakpoint" },
+--   { "<Leader>db", require("dap").step_back, desc = "Step Back" },
+--   { "<Leader>dc", require("dap").continue, desc = "Continue" },
+--   { "<Leader>dC", require("dap").run_to_cursor, desc = "Run To Cursor" },
+--   { "<Leader>dd", require("dap").disconnect, desc = "Disconnect" },
+--   { "<Leader>dg", require("dap").session, desc = "Get Session" },
+--   { "<Leader>di", require("dap").step_into, desc = "Step Into" },
+--   { "<Leader>do", require("dap").step_over, desc = "Step Over" },
+--   { "<Leader>du", require("dap").step_out, desc = "Step Out" },
+--   { "<Leader>dp", require("dap").pause, desc = "Pause" },
+--   { "<Leader>dr", require("dap").repl.toggle, desc = "Toggle Repl" },
+--   { "<Leader>ds", require("dap").continue, desc = "Start" },
+--   { "<Leader>dq", require("dap").close, desc = "Quit" },
+--   { "<Leader>dU", require("dapui").toggle, desc = "Enable/Disable UI" },
+-- }
 
 vars.mappings[2] = {
   { "<Leader>g", group = "Git" },
@@ -109,49 +109,49 @@ vars.mappings[3] = {
   { "<Leader>Grt", "<CMD>ChatGPTRun translate<CR>", desc = "Translate code" },
 }
 
-vars.mappings[4] = {
-  { "<Leader>n", group = "NeoTest" },
+-- vars.mappings[4] = {
+--   { "<Leader>n", group = "NeoTest" },
 
-  { "<Leader>na", require("neotest").run.attach, desc = "Attach to the nearest test" },
-  {
-    "<Leader>nc",
-    function()
-      require("neotest").run.run(vim.fn.expand("%"))
-    end,
-    desc = "Run the current file",
-  },
-  {
-    "<Leader>nd",
-    function()
-      require("neotest").run.run({ strategy = "dap" })
-    end,
-    desc = "Debug the nearest test",
-  },
-  {
-    "<Leader>ne",
-    function()
-      require("neotest").output.open({ enter = true, auto_close = true })
-    end,
-    desc = "Open the output of a test result",
-  },
-  {
-    "<Leader>nj",
-    function()
-      require("neotest").jump.prev({ status = "failed" })
-    end,
-    desc = "Jump to next error",
-  },
-  {
-    "<Leader>nk",
-    function()
-      require("neotest").jump.next({ status = "failed" })
-    end,
-    desc = "Jump to previous error",
-  },
-  { "<Leader>nn", require("neotest").run.run, desc = "Run the nearest test" },
-  { "<Leader>ns", require("neotest").run.stop, desc = "Stop the nearest test" },
-  { "<Leader>nS", require("neotest").summary.toggle, desc = "Toggle the summary window" },
-}
+--   { "<Leader>na", require("neotest").run.attach, desc = "Attach to the nearest test" },
+--   {
+--     "<Leader>nc",
+--     function()
+--       require("neotest").run.run(vim.fn.expand("%"))
+--     end,
+--     desc = "Run the current file",
+--   },
+--   {
+--     "<Leader>nd",
+--     function()
+--       require("neotest").run.run({ strategy = "dap" })
+--     end,
+--     desc = "Debug the nearest test",
+--   },
+--   {
+--     "<Leader>ne",
+--     function()
+--       require("neotest").output.open({ enter = true, auto_close = true })
+--     end,
+--     desc = "Open the output of a test result",
+--   },
+--   {
+--     "<Leader>nj",
+--     function()
+--       require("neotest").jump.prev({ status = "failed" })
+--     end,
+--     desc = "Jump to next error",
+--   },
+--   {
+--     "<Leader>nk",
+--     function()
+--       require("neotest").jump.next({ status = "failed" })
+--     end,
+--     desc = "Jump to previous error",
+--   },
+--   { "<Leader>nn", require("neotest").run.run, desc = "Run the nearest test" },
+--   { "<Leader>ns", require("neotest").run.stop, desc = "Stop the nearest test" },
+--   { "<Leader>nS", require("neotest").summary.toggle, desc = "Toggle the summary window" },
+-- }
 
 vars.mappings[5] = {
   { "<Leader>r", group = "Refactor" },

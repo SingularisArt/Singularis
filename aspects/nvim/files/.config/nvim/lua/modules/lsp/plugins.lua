@@ -1,4 +1,4 @@
-if vim.g.isInkscape then
+if vim.g.isLATEX or vim.g.isInkscape then
   return function(_use) end
 end
 
@@ -14,24 +14,6 @@ return function(use)
   use({
     "neovim/nvim-lspconfig",
     config = conf.nvim_lsp,
-    dependencies = {
-      {
-        "folke/neoconf.nvim",
-        cmd = "Neoconf",
-        config = function()
-          require("neoconf").setup()
-        end,
-      },
-      {
-        "folke/lazydev.nvim",
-        ft = "lua",
-        opts = {
-          library = {
-            { path = "${3rd}/luv/library", words = { "vim%.uv" } },
-          },
-        },
-      },
-    },
   })
 
   -- mason
@@ -90,15 +72,6 @@ return function(use)
     after = "nvim-lspconfig",
     config = function()
       require("inlay-hints").setup()
-    end,
-  })
-
-  -- lsp lines
-  use({
-    "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
-    config = function()
-      require("lsp_lines").setup()
-      require("lsp_lines").toggle()
     end,
   })
 
@@ -295,6 +268,7 @@ return function(use)
     ft = { "cpp", "c" },
   })
 
+  -- SQL/Databases
   use({
     "hbarral/vim-dadbod",
     cmd = {
