@@ -398,74 +398,58 @@ Channel ^{email_5}-get-folders
 #                                                                              #
 ################################################################################
 IMAPAccount ^{email_6}
-Host ^{email_6_server}
-User ^{email_6}
-PassCmd "^{email_6_password}"
+Host outlook.office365.com
+User singularisart@outlook.com
+PassCmd "get-password emails/account-6 neomutt"
+TLSType IMAPS
+AuthMechs XOAUTH2
+
+IMAPStore singularisart@outlook.com-remote
+Account singularisart@outlook.com
+
+MaildirStore singularisart@outlook.com-local
+Path ~/.local/share/mail/singularisart@outlook.com/
+Inbox ~/.local/share/mail/singularisart@outlook.com/INBOX
+SubFolders Verbatim
+
+Channel singularisart@outlook.com
+Far :singularisart@outlook.com-remote:
+Near :singularisart@outlook.com-local:
+Patterns Archive Drafts SentItems DeletedItems JunkEmail INBOX
+Expunge both
+CopyArrivalDate yes
+Sync All
+Create Near
+SyncState *
+################################################################################
+
+################################################################################
+#                                                                              #
+#                                  Account 7                                   #
+#                                                                              #
+################################################################################
+IMAPAccount ^{email_7}
+Host ^{email_7_server}
+User ^{email_7}
+PassCmd "^{email_7_password}"
 SSLType IMAPS
 AuthMechs LOGIN
 
-IMAPStore ^{email_6}-remote
-Account ^{email_6}
+IMAPStore ^{email_7}-remote
+Account ^{email_7}
 
-MaildirStore ^{email_6}-local
-Path ~/.local/share/mail/^{email_6}/
-Inbox ~/.local/share/mail/^{email_6}/INBOX
+MaildirStore ^{email_7}-local
+Path ~/.local/share/mail/^{email_7}/
+Inbox ~/.local/share/mail/^{email_7}/INBOX
 SubFolders Verbatim
 
-Channel ^{email_6}-inbox
-Far :^{email_6}-remote:INBOX
-Near :^{email_6}-local:INBOX
-
-# Channel ^{email_6}-archive
-# Far :^{email_6}-remote:"[Gmail]/All Mail"
-# Near :^{email_6}-local:Archive
-
-# Channel ^{email_6}-drafts
-# Far :^{email_6}-remote:"[Gmail]/Drafts"
-# Near :^{email_6}-local:Drafts
-
-# Channel ^{email_6}-important
-# Far :^{email_6}-remote:"[Gmail]/Important"
-# Near :^{email_6}-local:Important
-
-# Channel ^{email_6}-sent
-# Far :^{email_6}-remote:"[Gmail]/Sent Mail"
-# Near :^{email_6}-local:Sent
-
-# Channel ^{email_6}-spam
-# Far :^{email_6}-remote:"[Gmail]/Spam"
-# Near :^{email_6}-local:Spam
-
-# Channel ^{email_6}-starred
-# Far :^{email_6}-remote:"[Gmail]/Starred"
-# Near :^{email_6}-local:Starred
-
-# Channel ^{email_6}-trash
-# Far :^{email_6}-remote:"[Gmail]/Trash"
-# Near :^{email_6}-local:Trash
-
-# Channel ^{email_6}-get-folders
-# Far :^{email_6}-remote:
-# Near :^{email_6}-local:
-# Patterns *
-# Patterns !INBOX
-# Patterns !Search
-# Patterns !Sent
-# Patterns !Spam
-# Patterns !Trash
-# Patterns ![Gmail]*
-# Patterns !Archive
-# Patterns !Drafts
-# Patterns !Starred
-
-# Group ^{email_6}
-# Channel ^{email_6}-inbox
-# Channel ^{email_6}-archive
-# Channel ^{email_6}-drafts
-# Channel ^{email_6}-important
-# Channel ^{email_6}-sent
-# Channel ^{email_6}-spam
-# Channel ^{email_6}-starred
-# Channel ^{email_6}-trash
-# Channel ^{email_6}-get-folders
+Channel ^{email_7}
+Far :^{email_7}-remote:INBOX
+Near :^{email_7}-local:INBOX
+Patterns Archive Drafts SentItems DeletedItems JunkEmail INBOX
+Expunge both
+CopyArrivalDate yes
+Sync All
+Create Near
+SyncState *
 ################################################################################

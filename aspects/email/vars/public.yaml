@@ -23,6 +23,10 @@ email_6: your@email-6.com
 email_6_password: pass your@email-6.com
 email_6_server: imap.gmail.com
 
+email_7: your@email-7.com
+email_7_password: pass your@email-7.com
+email_7_server: imap.gmail.com
+
 # msmtp/config
 email_1_host: smtp.gmail.com
 email_1_port: 587
