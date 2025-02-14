@@ -12,8 +12,11 @@ end
 
 require("config")
 
-if vim.g.isInkscape then
+if vim.g.isLATEX or vim.g.isInkscape then
   vim.cmd("set rtp+=~/Documents/school-notes/current-course")
+end
+
+if vim.g.isInkscape then
   vim.cmd([[
     inoremap wq <Esc>:wq<CR>
     nnoremap wq :wq<CR>

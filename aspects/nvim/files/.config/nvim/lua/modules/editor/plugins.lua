@@ -87,7 +87,16 @@ return function(use)
     cmd = "UndotreeToggle",
   })
 
-  use({ "mhinz/vim-grepper" })
+  use({
+    "mhinz/vim-grepper",
+    cmd = {
+      "Grepper",
+      "GrepperAg",
+      "GrepperGit",
+      "GrepperGrep",
+      "GrepperRg",
+    },
+  })
 
   use({
     "gelguy/wilder.nvim",
