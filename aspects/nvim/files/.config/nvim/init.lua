@@ -1,4 +1,4 @@
-vim.g.isLATEX = true
+vim.g.isLATEX = false
 vim.g.isInkscape = false
 
 if vim.loader then

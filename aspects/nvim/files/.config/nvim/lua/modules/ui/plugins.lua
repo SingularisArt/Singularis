@@ -28,8 +28,8 @@ end
 local conf = require("modules.ui.config")
 
 return function(use)
-  use(theme)
   use(latexPlugins)
+
   use({ "nvim-tree/nvim-web-devicons" })
 
   use({ "MunifTanjim/nui.nvim" })
