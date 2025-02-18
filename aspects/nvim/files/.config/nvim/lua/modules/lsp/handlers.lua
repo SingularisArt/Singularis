@@ -59,7 +59,6 @@ lsp.attach_mappings = function(_, bufnr)
     { "<Leader>lD", "<cmd>Telescope lsp_document_symbols<cr>", desc = "Document Symbols" },
 
     { "<Leader>ld", group = "Definition" },
-    { "<Leader>ldd", "<CMD>Glance definitions<CR>", desc = "Definition" },
     {
       "<Leader>ldp",
       function()
@@ -71,9 +70,6 @@ lsp.attach_mappings = function(_, bufnr)
       end,
       desc = "Preview Definition",
     },
-    { "<Leader>ldr", "<CMD>Glance references<CR>", desc = "References" },
-    { "<Leader>ldt", "<CMD>Glance type_definitions<CR>", desc = "Type Definition" },
-    { "<Leader>ldi", "<CMD>Glance implementations<CR>", desc = "Implementation" },
 
     { "<Leader>lw", group = "Workspace" },
     { "<Leader>lws", vim.diagnostic.LspSymbols, desc = "Symbols" },
