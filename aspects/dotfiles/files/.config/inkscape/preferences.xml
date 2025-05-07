@@ -415,6 +415,8 @@
     <group
        id="geometric"
        mode="drag" />
+    <group
+       id="picker" />
   </group>
   <group
      id="palette">

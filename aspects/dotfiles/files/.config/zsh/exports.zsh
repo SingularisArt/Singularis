@@ -10,7 +10,8 @@ export BROWSER=/usr/bin/google-chrome-stable
 export FILE_BROWSER="pcmanfm"
 export BG="~/.config/wall.jpg"
 export PASSWORD="password"
-export NVIM_LISTEN_ADDRESS=/tmp/nvimsocket
+export NVIM_LISTEN_ADDRESS=1
+# export NVIM_LISTEN_ADDRESS=/tmp/nvimsocket
 
 export SHLVL=0
 export GPG_TTY=$(tty)

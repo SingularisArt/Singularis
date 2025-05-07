@@ -129,9 +129,9 @@ function config.cmp()
   --  FileType Configuration  --
   ------------------------------
 
-  if vim.g.isLATEX then
-    cmp.setup.filetype("tex", {})
-  end
+  -- if vim.g.isLATEX then
+  --   cmp.setup.filetype("tex", {})
+  -- end
 
   cmp.setup.filetype("tex", {
     sources = cmp.config.sources({
