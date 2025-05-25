@@ -56,3 +56,4 @@ bspc config window_gap 10
 # Rules
 bspc rule -r "*"
 bspc config external_rules_command "$HOME/.config/bspwm/external_rules"
+wm-restack = bspwm
