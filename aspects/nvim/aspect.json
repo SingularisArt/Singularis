@@ -9,6 +9,8 @@
     "aur": {
       "nvim": [
         "neovim-git",
+        "luarocks",
+        "ruby",
         "xclip",
         "gem",
         "opam",
@@ -27,7 +29,17 @@
         "tailwind-css",
         "golangci-lint",
         "jdtls",
-        "r-languageserver"
+        "r-languageserver",
+        "gotest",
+        "mockgen",
+        "composer",
+        "php",
+        "julia",
+        "cmake-lint",
+        "mermaid-cli",
+        "lazygit-git",
+        "perl",
+        "gem"
       ]
     }
   },
@@ -41,6 +53,21 @@
         "black",
         "jedi",
         "yamllint"
+      ]
+    },
+    "go": {
+      "nvim": [
+        "gopls",
+        "goimports",
+        "gofumpt",
+        "golangci-lint",
+        "gotestsum",
+        "iferr"
+      ]
+    },
+    "npm": {
+      "nvim": [
+        "neovim"
       ]
     }
   }

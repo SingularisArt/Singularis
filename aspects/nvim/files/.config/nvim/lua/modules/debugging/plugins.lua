@@ -2,6 +2,7 @@ if vim.g.isLATEX or vim.g.isInkscape then
   return function(_use) end
 end
 
+local opts = require("config.global").opts
 local conf = require("modules.debugging.config")
 
 return function(use)
@@ -20,6 +21,17 @@ return function(use)
           require("neotest-dart")({ command = "flutter" })
         end,
       },
+    },
+    keys = {
+      { "<Leader>na", function() require('neotest').run.attach() end, desc = "Attach to the neartest test (Neotest)." },
+      { "<Leader>nc", function() require('neotest').run.run(vim.fn.expand('%')) end, opts, "Run the current file (Neotest)." },
+      { "<Leader>nd", function() require('neotest').run.run({ strategy = 'dap' }) end, opts, "Debug the nearest test (Neotest)." },
+      { "<Leader>ne", function() require('neotest').output.open({ enter = true, auto_close = true }) end, opts, "Open the output of a test result (Neotest)." },
+      { "<Leader>nj", function() require('neotest').jump.prev({ status = 'failed' }) end, opts, "Jump to next error (Neotest)." },
+      { "<Leader>nk", function() require('neotest').jump.next({ status = 'failed' }) end, opts, "Jump to previous error (Neotest)." },
+      { "<Leader>nn", function() require('neotest').run.run() end, opts, "Run the nearest test (Neotest)." },
+      { "<Leader>ns", function() require('neotest').run.stop() end, opts, "Stop the nearest test (Neotest)." },
+      { "<Leader>nS", function() require('neotest').summary.toggle() end, opts, "Toggle the summary window (Neotest)." },
     },
   })
 
@@ -74,21 +86,16 @@ return function(use)
       },
     },
     keys = {
-      { "<Leader>dt", function() require("dap").toggle_breakpoint() end, desc = "Toggle Breakpoint" },
-      { "<Leader>db", function() require("dap").step_back() end, desc = "Step Back" },
-      { "<Leader>dc", function() require("dap").continue() end, desc = "Continue" },
-      { "<Leader>dC", function() require("dap").run_to_cursor() end, desc = "Run To Cursor" },
-      { "<Leader>dd", function() require("dap").disconnect() end, desc = "Disconnect" },
-      { "<Leader>dg", function() require("dap").session() end, desc = "Get Session" },
-      { "<Leader>di", function() require("dap").step_into() end, desc = "Step Into" },
-      { "<Leader>do", function() require("dap").step_over() end, desc = "Step Over" },
-      { "<Leader>du", function() require("dap").step_out() end, desc = "Step Out" },
-      { "<Leader>dp", function() require("dap").pause() end, desc = "Pause" },
-      { "<Leader>dr", function() require("dap").repl.toggle() end, desc = "Toggle Repl" },
-      { "<Leader>ds", function() require("dap").continue() end, desc = "Start" },
-      { "<Leader>dq", function() require("dap").close() end, desc = "Quit" },
-      { "<Leader>dU", function() require("dapui").toggle() end, desc = "Enable/Disable UI" },
-    },
+      { "<Leader>na", function() require("neotest").run.attach() end, desc = "Attach to the neartest test (Neotest)." },
+      { "<Leader>nc", function() require("neotest").run.run(vim.fn.expand("%")) end, opts, "Run the current file (Neotest)." },
+      { "<Leader>nd", function() require("neotest").run.run({ strategy = "dap" }) end, opts, "Debug the nearest test (Neotest)." },
+      { "<Leader>ne", function() require("neotest").output.open({ enter = true, auto_close = true }) end, opts, "Open the output of a test result (Neotest)." },
+      { "<Leader>nj", function() require("neotest").jump.prev({ status = "failed" }) end, opts, "Jump to next error (Neotest)." },
+      { "<Leader>nk", function() require("neotest").jump.next({ status = "failed" }) end, opts, "Jump to previous error (Neotest)." },
+      { "<Leader>nn", function() require("neotest").run.run() end, opts, "Run the nearest test (Neotest)." },
+      { "<Leader>ns", function() require("neotest").run.stop() end, opts, "Stop the nearest test (Neotest)." },
+      { "<Leader>nS", function() require("neotest").summary.toggle() end, opts, "Toggle the summary window (Neotest)." },
+    }
   })
 
   use({

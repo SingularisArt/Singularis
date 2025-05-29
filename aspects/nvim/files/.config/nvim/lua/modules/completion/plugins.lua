@@ -40,13 +40,13 @@ return function(use)
 
   use(latexPlugins)
 
-  use({
-    "windwp/nvim-autopairs",
-    opts = {
-      fast_wrap = {},
-      disable_filetype = { "TelescopePrompt", "vim" },
-    },
-    config = conf.autopairs,
-    event = "InsertEnter",
-  })
+  -- use({
+  --   "windwp/nvim-autopairs",
+  --   opts = {
+  --     fast_wrap = {},
+  --     disable_filetype = { "TelescopePrompt", "vim" },
+  --   },
+  --   config = conf.autopairs,
+  --   event = "InsertEnter",
+  -- })
 end

@@ -6,6 +6,7 @@ export TERMINAL="kitty"
 export PDF_VIEWER="zathura"
 export EDITOR="nvim"
 export VISUAL="nvim"
+export PYTHONPATH="${PYTHONPATH}:${HOME}/Documents/school-setup/"
 export BROWSER=/usr/bin/google-chrome-stable
 export FILE_BROWSER="pcmanfm"
 export BG="~/.config/wall.jpg"

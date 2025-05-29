@@ -20,6 +20,36 @@ return function(use)
     "nvim-telescope/telescope.nvim",
     config = conf.telescope,
     cmd = "Telescope",
+    keys = {
+      { "<Leader>sk", "<CMD>Telescope keymaps<CR>", desc = "Fuzzy find keymaps (TELESCOPE)." },
+      { "<Leader>so", "<CMD>Telescope git_status<CR>", desc = "Open changed file (TELESCOPE)." },
+      { "<Leader>sb", "<CMD>Telescope git_branches<CR>", desc = "Checkout branch (TELESCOPE)." },
+      { "<Leader>sc", "<CMD>Telescope git_commits<CR>", desc = "Checkout commit (TELESCOPE)." },
+      { "<Leader>sC", "<CMD>Telescope git_bcommits<CR>", desc = "Checkout commit (TELESCOPE)." },
+      { "<Leader>sf", "<CMD>Telescope find_files<CR>", desc = "Fuzzy find files (TELESCOPE)." },
+      { "<Leader>sg", "<CMD>Telescope grep_string<CR>", desc = "Fuzzy find string (TELESCOPE)." },
+      { "<Leader>sb", "<CMD>Telescope buffers<CR>", desc = "Fuzzy find buffers (TELESCOPE)." },
+      { "<Leader>sl", "<CMD>Telescope live_grep<CR>", desc = "Fuzzy find words (TELESCOPE)." },
+      { "<Leader>ss", "<CMD>Telescope symbols<CR>", desc = "Fuzzy find symbols (TELESCOPE)." },
+      { "<Leader>sh", "<CMD>Telescope help_tags<CR>", desc = "View help tags (TELESCOPE)." },
+      { "<Leader>sd", "<CMD>Telescope diagnostics<CR>", desc = "Fuzzy find diagnostics (TELESCOPE)." },
+      {
+        "<Leader>sw",
+        function()
+          local word = vim.fn.expand("<cword>")
+          local builtin = require('telescope.builtin')
+          builtin.grep_string({ search = word })
+        end, desc = "Fuzzy find word under cursor (TELESCOPE).",
+      },
+      {
+        "<Leader>sW",
+        function()
+          local word = vim.fn.expand("<cWORD>")
+          local builtin = require('telescope.builtin')
+          builtin.grep_string({ search = word })
+        end, desc = "Fuzzy find WORD under cursor (TELESCOPE).",
+      },
+    },
   })
 
   if not vim.g.isLATEX then
@@ -112,5 +142,26 @@ return function(use)
       )
     end,
     event = "CmdlineEnter",
+  })
+
+  use({
+    "wincent/ferret",
+    cmd = {
+      "Ack",
+      -- "Ack!",
+      -- "Lack",
+      -- "Lack!",
+      -- "Back",
+      -- "Back!",
+      -- "Black",
+      -- "Black!",
+      -- "Quack",
+      -- "Quack!",
+      -- "Acks",
+      -- "Lacks",
+      -- "FerretCancelAsync",
+      -- "FerretPullAsync",
+      -- "Qargs",
+    }
   })
 end

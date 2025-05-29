@@ -1,7 +1,7 @@
 local config = {}
 
 function config.nvim_lsp()
-  local mason = require("mason-lspconfig")
+  -- local mason = require("mason-lspconfig")
   local conf = require("modules.lsp.lsp_config")
   local servers = conf.servers
   local icons = require("config.global").icons
@@ -23,7 +23,7 @@ function config.nvim_lsp()
     end
   end
 
-  mason.setup({ ensure_installed = ensure_installed })
+  -- mason.setup({ ensure_installed = ensure_installed })
 end
 
 function config.null_ls()
@@ -151,22 +151,30 @@ function config.navigator()
   local on_attach = require("modules.lsp.handlers").on_attach
   local capabilities = require("modules.lsp.handlers").capabilities
 
+  -- Create LspAttach autocmd
+  vim.api.nvim_create_autocmd('LspAttach', {
+    group = vim.api.nvim_create_augroup('LspAttach', {}),
+    callback = function(ev)
+      local buf = ev.buf
+      on_attach(ev.client, buf)
+    end,
+  })
+
   local nav_cfg = {
-    debug = false,
+    debug = true,
     width = 0.75,
     height = 0.3,
     preview_height = 0.35,
     border = { "╭", "─", "╮", "│", "╯", "─", "╰", "│" },
-    ts_fold = {
-      enable = false,
-      -- comment_fold = true,
-      -- max_lines_scan_comments = 20,
-      -- disable_filetypes = { "help", "guihua", "text" },
-    },
+    -- ts_fold = {
+    --   -- enable = false,
+    --   comment_fold = true,
+    --   max_lines_scan_comments = 20,
+    --   disable_filetypes = { "help", "guihua", "text" },
+    -- },
     default_mapping = false,
     treesitter_analysis = true,
     transparency = 50,
-    on_attach = on_attach,
     capabilities = capabilities,
 
     lsp = {
@@ -190,6 +198,8 @@ function config.navigator()
         "tsserver",
         "ruff_lsp",
         "texlab",
+        "volar",
+        "vue_ls",
       },
       disable_format_cap = { "stylua" },
       diagnostic_virtual_text = false,
@@ -212,7 +222,7 @@ function config.navigator()
       html = require("modules.lsp.settings.html"),
       -- texlab = require("modules.lsp.settings.texlab"),
       bashls = { filetypes = { "bash", "sh" } },
-      -- clangd = require("modules.lsp.settings.clangd"),
+      clangd = require("modules.lsp.settings.clangd"),
       ts_ls = require("modules.lsp.settings.tsserver"),
       tailwindcss = {
         filetypes = {
@@ -224,7 +234,7 @@ function config.navigator()
           "typescriptreact",
         },
       },
-      gopls = require("modules.lsp.settings.gopls"),
+      -- gopls = require("modules.lsp.settings.gopls"),
       jdtls = { filetypes = { "java" } },
       solidity_ls = { filetypes = { "solidity" }, install_server_name = "solidity" },
       r_language_server = { filetypes = { "r" } },
@@ -235,59 +245,96 @@ function config.navigator()
     },
   }
 
-  -- nav_cfg.lsp.gopls = function()
-  --   if vim.tbl_contains({ "go", "gomod" }, vim.bo.filetype) then
-  --     if pcall(require, "go") then
-  --       return require("go.lsp").config()
-  --     end
-  --   end
-  -- end
+  nav_cfg.lsp.gopls = function()
+    if vim.tbl_contains({ "go", "gomod" }, vim.bo.filetype) then
+      if pcall(require, "go") then
+        return require("go.lsp").config()
+      end
+    end
+  end
 
   require("navigator").setup(nav_cfg)
 end
 
+function config.lsp_singature()
+  local icons = require("config.global").icons
+
+  local signature_help_setup = {
+    bind = true,
+    noice = true,
+    doc_lines = 10,
+
+    max_height = 10,
+    max_width = 80,
+
+    wrap = true,
+    fix_pos = false,
+
+    floating_window = true,
+    floating_window_above_cur_line = true,
+    floating_window_off_x = 1,
+    floating_window_off_y = 0,
+
+    hint_enable = true,
+    hi_parameter = "LspSignatureActiveParameter",
+
+    toggle_key = "<C-s>",
+    toggle_key_flip_floatwin_setting = true,
+    -- select_signature_key = "<C-S>",
+
+    hint_prefix = icons.misc.Squirrel .. " ",
+    hint_scheme = "Comment",
+
+    handler_opts = {
+      border = "rounded",
+    },
+  }
+
+  require("lsp_signature").setup(signature_help_setup)
+end
+
 function config.go()
   local setup = {
-    fillstruct = "gopls",
-    log_path = "/tmp/gonvim.log",
-    lsp_codelens = false, -- use navigator
-    lsp_gofumpt = true,
-    dap_debug = true,
-    gofmt = "gopls",
-    goimports = "gopls",
-    dap_debug_vt = true,
-    dap_debug_gui = true,
-    diagnostic = false,
-    test_runner = "go",
-    run_in_floaterm = true,
-    lsp_document_formatting = true,
-    preludes = {
-      default = function()
-        return { "AWS_PROFILE=test" }
-      end,
-      GoRun = function()
-        local pwd = vim.fn.getcwd()
-        local cmdl = { "watchexec", "--restart", "-v", "-e", "go" }
-        -- if current folder contains sub folder with name pattern .\w+-env
-        -- list all subfolders see if match .\w+-env
-        local hasenv = false
-        for _, v in ipairs(vim.fn.readdir(pwd)) do
-          if string.match(v, "%p%a+%p*env") then
-            hasenv = true
-            break
-          end
-        end
+    -- fillstruct = "gopls",
+    -- log_path = "/tmp/gonvim.log",
+    -- lsp_codelens = false, -- use navigator
+    -- lsp_gofumpt = true,
+    -- dap_debug = true,
+    -- gofmt = "gopls",
+    -- goimports = "gopls",
+    -- dap_debug_vt = true,
+    -- dap_debug_gui = true,
+    -- diagnostic = false,
+    -- test_runner = "go",
+    -- run_in_floaterm = true,
+    -- lsp_document_formatting = true,
+    -- preludes = {
+    --   default = function()
+    --     return { "AWS_PROFILE=test" }
+    --   end,
+    --   GoRun = function()
+    --     local pwd = vim.fn.getcwd()
+    --     local cmdl = { "watchexec", "--restart", "-v", "-e", "go" }
+    --     -- if current folder contains sub folder with name pattern .\w+-env
+    --     -- list all subfolders see if match .\w+-env
+    --     local hasenv = false
+    --     for _, v in ipairs(vim.fn.readdir(pwd)) do
+    --       if string.match(v, "%p%a+%p*env") then
+    --         hasenv = true
+    --         break
+    --       end
+    --     end
 
-        if hasenv then
-          local cwdl = vim.split(pwd, "/")
-          local cwd = cwdl[#cwdl]
-          local cwdp = vim.split(cwd, "-")
-          local cwdps = cwdp[#cwdp]
-          return vim.list_extend(cmdl, { "awsenv", cwdps })
-        end
-        return {}
-      end,
-    },
+    --     if hasenv then
+    --       local cwdl = vim.split(pwd, "/")
+    --       local cwd = cwdl[#cwdl]
+    --       local cwdp = vim.split(cwd, "-")
+    --       local cwdps = cwdp[#cwdp]
+    --       return vim.list_extend(cmdl, { "awsenv", cwdps })
+    --     end
+    --     return {}
+    --   end,
+    -- },
   }
 
   require("go").setup(setup)

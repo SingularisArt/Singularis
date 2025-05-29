@@ -60,7 +60,8 @@ function global:load_variables()
   self.keymap = function(mode, binding, action, opts, description)
     opts["desc"] = description
 
-    vim.api.nvim_set_keymap(mode, binding, action, opts)
+    vim.keymap.set(mode, binding, action, opts)
+    -- vim.api.nvim_set_keymap(mode, binding, action, opts)
   end
 
   if vim.fn.has("mac") == 1 or vim.g.use_nerd_icons then

@@ -162,7 +162,7 @@ function config.telescope()
           ["<C-q>"] = actions.send_to_qflist + actions.open_qflist,
           ["<M-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
           ["<C-l>"] = actions.complete_tag,
-          ["<C-h>"] = actions.which_key,
+          -- ["<C-h>"] = actions.which_key,
           -- ["<esc>"] = actions.close,
         },
 
@@ -202,7 +202,7 @@ function config.telescope()
           ["<PageUp>"] = actions.results_scrolling_up,
           ["<PageDown>"] = actions.results_scrolling_down,
 
-          ["?"] = actions.which_key,
+          -- ["?"] = actions.which_key,
         },
       },
     },

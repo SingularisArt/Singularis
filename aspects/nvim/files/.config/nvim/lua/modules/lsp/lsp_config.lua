@@ -31,7 +31,7 @@ M.servers = {
     install = true,
   },
   golangci_lint_ls = { filetypes = { "go", "gomod" }, install = true },
-  gopls = require("modules.lsp.settings.gopls"),
+  -- gopls = require("modules.lsp.settings.gopls"),
   jdtls = { filetypes = { "java" }, install = true },
   solidity_ls = { filetypes = { "solidity" }, install = true, install_server_name = "solidity" },
   r_language_server = { filetypes = { "r" }, install = false },

@@ -30,8 +30,10 @@ keymap("n", "N", "Nzzzv", opts, "Jump to previous search.")
 keymap("n", "J", "mzJ`z", opts, "Concat lines.")
 keymap("n", "<Leader>j", ":m . +1<CR>==", opts, "Move line down.")
 keymap("n", "<Leader>k", ":m . -2<CR>==", opts, "Move line up.")
+keymap("n", "<Leader>o", ":only<CR>", opts, "Close all other splits.")
 keymap("n", "<Leader>v", ":vsplit<CR>", opts, "Create vertical split.")
 keymap("n", "<Leader>h", ":split<CR>", opts, "Create horizontal split.")
+keymap("n", "<Leader>/", "<CMD>lua require('Comment.api').toggle.linewise()<CR>", opts, "")
 keymap("n", "<C-w>", ":bdelete<CR>", opts, "Delete buffer.")
 keymap("n", "<C-t>", ":tabnew<CR>", opts, "Create new tab.")
 keymap("n", "<C-a>", "ggVG", opts, "Highlight everything.")
@@ -44,13 +46,6 @@ keymap("i", "<C-l>", "<c-g>u<Esc>[s1z=`]a<c-g>u", opts, "Correct spelling mistak
 keymap("i", "<C-j>", "<NOP>", opts, "")
 keymap("i", "<C-k>", "<NOP>", opts, "")
 keymap("i", "<C-BS>", "<Esc>cvb", opts, "Delete entire word.")
-keymap(
-  "i",
-  "<C-f>",
-  "<Esc>:silent exec '.!inkscape-figures create \"'.getline('.').'\" \"'.b:vimtex.root.'/figures/\"'<CR><CR>:w<CR>",
-  opts,
-  "List all figures."
-)
 
 -- Terminal Mode
 keymap("t", "<C-h>", "<C-\\><C-N><C-w>h", term_opts, "Jump to left split.")
@@ -65,6 +60,7 @@ keymap("v", "J", ":m '>+1<CR>gv=gv", opts, "")
 keymap("v", "K", ":m '<-2<CR>gv=gv", opts, "")
 keymap("v", "K", ":move '<-2<CR>gv-gv", opts, "")
 keymap("v", "J", ":move '>+1<CR>gv-gv", opts, "")
+keymap("v", "<Leader>/", "<ESC><CMD>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>", opts, "")
 
 -- Visual Block Mode
 keymap("x", "<A-j>", ":m '>+1<CR>gv-gv", opts, "")

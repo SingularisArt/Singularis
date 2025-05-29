@@ -67,26 +67,22 @@ function Lazyload()
     vim.cmd([[syntax manual]])
   end
 
-  local load_go = vim.tbl_contains({ "go", "gomod" }, vim.bo.filetype)
-  if load_go and (not vim.g.isLATEX or not vim.g.isInkscape) then
-    loader("go.nvim")
-  end
+  -- local load_go = vim.tbl_contains({ "go", "gomod" }, vim.bo.filetype)
+  -- if load_go and (not vim.g.isLATEX or not vim.g.isInkscape) then
+  --   loader("go.nvim")
+  -- end
 
   vim.g.vimsyn_embed = "lPr"
 
   if not vim.g.isLATEX or vim.g.isInkscape then
     loader("nvim-treesitter")
-    loader("nvim-treesitter-textobjects")
-    loader("nvim-treesitter-textsubjects")
-    loader("nvim-ts-context-commentstring")
+    -- loader("nvim-treesitter-textobjects")
+    -- loader("nvim-treesitter-textsubjects")
+    -- loader("nvim-ts-context-commentstring")
     loader("nvim-treesitter-context")
 
-    -- vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
-    -- vim.opt.foldtext = "v:lua.vim.treesitter.foldtext()"
-
     loader("guihua.lua")
-    loader("nvim-lspconfig")
-    loader("lsp_signature.nvim")
+    -- loader("nvim-lspconfig")
 
     loader("navigator.lua")
     loader("fidget.nvim")
@@ -94,7 +90,7 @@ function Lazyload()
     loader("none-ls.nvim")
     loader("mason.nvim")
     loader("neogen")
-    loader("indent-blankline.nvim")
+    -- loader("indent-blankline.nvim")
   end
 
   vim.cmd([[autocmd FileType vista,guihua,guihua_rust setlocal syntax=on]])
@@ -113,10 +109,8 @@ end, lazy_timer)
 vim.defer_fn(function()
   loader("telescope.nvim")
 
-  if not vim.g.isLATEX then
-    loader("windline.nvim")
-  end
-  require("modules.ui.eviline")
+  loader("windline.nvim")
+  -- require("modules.ui.eviline")
 
   local gitrepo = vim.fn.isdirectory(".git/index")
   if gitrepo then
