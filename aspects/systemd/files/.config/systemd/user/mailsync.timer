@@ -4,7 +4,7 @@ Requires=mailsync.service
 
 [Timer]
 OnBootSec=1m
-OnUnitActiveSec=10m
+OnUnitActiveSec=1m
 Persistent=true
 
 [Install]

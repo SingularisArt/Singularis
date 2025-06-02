@@ -2,8 +2,8 @@
 Description=Desktop alert warning of low remaining battery
 
 [Service]
-ExecStart=/home/hashem/.local/bin/systemd/alert-battery
-Environment="HOME=/home/hashem"
+ExecStart=/home/singularisart/.local/bin/systemd/alert-battery
+Environment="HOME=/home/singularisart"
 
 [Install]
 WantedBy=default.target

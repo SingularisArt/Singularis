@@ -2,6 +2,12 @@ if vim.g.isInkscape then
   return function(_use) end
 end
 
+if vim.g.isLATEX then
+  return function(use)
+    use({ "windwp/windline.nvim" })
+  end
+end
+
 local latexPlugins = {
   "echasnovski/mini.hues",
   config = function()

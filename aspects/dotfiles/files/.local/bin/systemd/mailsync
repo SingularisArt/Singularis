@@ -53,6 +53,11 @@ syncandnotify() {
   "$HOME"/.local/bin/neomutt/get-folders "$acc"
 }
 
+notify-send \
+  --icon="/usr/share/icons/oomox-xresources-reverse-flat/status/scalable/mail-unread-symbolic.svg" \
+  --app-name="neomutt" \
+  "Syncing Mail" "Syncing mail accounts..."
+
 if [ "$#" -gt "0" ]; then
   for arg in "$@"; do
     first_char="${arg%"${arg#?}"}"
