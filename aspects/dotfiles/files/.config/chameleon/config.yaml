@@ -1,0 +1,41 @@
+# You can add as many things here as you want.
+# As long as you provide the needed path, and command, it should work.
+# Also, every program requires `name`.
+# If the `command` is a collection of multiple commands, then you must break it
+# up into multiple commands, like shown in the `wal-discord` program .
+
+debug: false
+
+oomoxicons:
+  command:
+    - "oomox-archdroid-icons-cli /opt/oomox/scripted_colors/xresources/xresources-reverse"
+    - "sudo rm -rf /usr/share/icons/oomox-xresources-reverse-flat"
+    - "sudo mv .icons/oomox-xresources-reverse-flat /usr/share/icons"
+    - "rm -rf .icons"
+  name: "Oomix Icons"
+  path: "~/"
+
+oomoxgtk:
+  command:
+    - "oomox-cli /opt/oomox/scripted_colors/xresources/xresources-reverse"
+    - "sudo rm -rf /usr/share/themes/oomox-xresources-reverse"
+    - "sudo mv .themes/oomox-xresources-reverse /usr/share/themes"
+    - "rm -rf .themes"
+  name: "Oomox GTK Theme"
+  path: "~/"
+
+pywalfox:
+  command: "pywalfox update"
+  name: "Firefox"
+
+wal-discord:
+  command:
+    - "wal-discord"
+    - "beautifuldiscord --css ~/.cache/wal-discord/style.css"
+  name: "Discord"
+  path: "~/.local/bin"
+
+starttree:
+  command: "./generate.py"
+  name: "Start Tree"
+  path: "~/Documents/start-tree"

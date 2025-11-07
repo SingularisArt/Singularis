@@ -1,0 +1,16 @@
+# vim: filetype=neomuttrc
+
+unmailboxes *
+unalternates *
+unset signature
+unset realname
+unset from
+unset sendmail
+unset folder
+unset header_cache
+unset message_cachedir
+unset hostname
+unset spoolfile
+unset postponed
+unset trash
+unset record

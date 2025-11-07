@@ -1,0 +1,74 @@
+{
+  "description": "My NeoVim configuration",
+  "files": {
+    ".config": {
+      "nvim": "public"
+    }
+  },
+  "packages": {
+    "aur": {
+      "nvim": [
+        "neovim-git",
+        "luarocks",
+        "ruby",
+        "xclip",
+        "gem",
+        "opam",
+        "cargo",
+        "rust-analyzer",
+        "solang-bin",
+        "lua-language-server",
+        "texlab",
+        "typescript-language-server",
+        "yaml-language-server",
+        "vscode-css-languageserver",
+        "vscode-json-languageserver",
+        "bash-language-server",
+        "clangd",
+        "cssmodules-language-server",
+        "tailwind-css",
+        "golangci-lint",
+        "jdtls",
+        "r-languageserver",
+        "gotest",
+        "mockgen",
+        "composer",
+        "php",
+        "julia",
+        "cmake-lint",
+        "mermaid-cli",
+        "lazygit-git",
+        "perl",
+        "gem"
+      ]
+    }
+  },
+  "libraries": {
+    "python": {
+      "nvim": [
+        "neovim",
+        "latex2sympy2",
+        "pyright",
+        "python-language-server[all]",
+        "black",
+        "jedi",
+        "yamllint"
+      ]
+    },
+    "go": {
+      "nvim": [
+        "gopls",
+        "goimports",
+        "gofumpt",
+        "golangci-lint",
+        "gotestsum",
+        "iferr"
+      ]
+    },
+    "npm": {
+      "nvim": [
+        "neovim"
+      ]
+    }
+  }
+}

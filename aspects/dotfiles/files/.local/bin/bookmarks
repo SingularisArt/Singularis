@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+#
+# Bookmarks: This script goes through all the files located in
+# ~/.local/share/bookmarks/. It copies all the bookmarks in each file, and
+# output's it to tmp file, while adding separators between the bookmark files.
+# Then, it'll display them to you via rofi. If you select the separator, it
+# won't copy anything. Else, it'll copy your selection.
+
+bookmark_directory="$XDG_DATA_HOME/bookmarks/"
+bookmarks=$(find "$bookmark_directory" -type f)
+tmp_file="/tmp/bookmarks"
+sep="--------------------------------------------------------------"
+
+touch "$tmp_file" 2>&1 /dev/null
+echo "$sep" >> "$tmp_file"
+
+for bookmark_file in $bookmarks; do
+  if [ "$(wc -l "$bookmark_file")" != "0 $bookmark_file" ]; then
+    current_bookmarks=$(cat "$bookmark_file")
+    echo "$current_bookmarks" >> "$tmp_file"
+    echo "$sep" >> "$tmp_file"
+  fi
+done
+
+output=$(rofi -markup -matching fuzzy -dmenu -p "Select Bookmark" -format s -i \
+  -lines 5 -markup-rows -kb-row-down Down -kb-custom-1 Ctrl+n < "$tmp_file")
+
+if [ "$output" != "$sep" ]; then
+  echo "$output" | tr -d '\n' | xclip -selection clipboard
+fi
+
+rm -rf "$tmp_file"

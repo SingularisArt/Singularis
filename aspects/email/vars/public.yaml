@@ -1,0 +1,51 @@
+# mbsync/mbsyncrc
+email_1: your@email-1.com
+email_1_password: pass your@email-1.com
+email_1_server: imap.gmail.com
+
+email_2: your@email-2.com
+email_2_password: pass your@email-2.com
+email_2_server: imap.gmail.com
+
+email_3: your@email-3.com
+email_3_password: pass your@email-3.com
+email_3_server: imap.gmail.com
+
+email_4: your@email-4.com
+email_4_password: pass your@email-4.com
+email_4_server: imap.gmail.com
+
+email_5: your@email-5.com
+email_5_password: pass your@email-5.com
+email_5_server: imap.gmail.com
+
+email_6: your@email-6.com
+email_6_password: pass your@email-6.com
+email_6_server: imap.gmail.com
+
+email_7: your@email-7.com
+email_7_password: pass your@email-7.com
+email_7_server: imap.gmail.com
+
+# msmtp/config
+email_1_host: smtp.gmail.com
+email_1_port: 587
+
+email_2_host: smtp.gmail.com
+email_2_port: 587
+
+email_3_host: smtp.gmail.com
+email_3_port: 587
+
+email_4_host: smtp.gmail.com
+email_4_port: 587
+
+email_5_host: smtp.gmail.com
+email_5_port: 587
+
+email_6_host: smtp.gmail.com
+email_6_port: 587
+
+# notmuch/config
+user: user
+primary_email: your-primary@gmail.com

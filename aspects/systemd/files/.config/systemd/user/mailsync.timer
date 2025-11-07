@@ -1,0 +1,11 @@
+[Unit]
+Description=Sync mail via isync for neomutt
+Requires=mailsync.service
+
+[Timer]
+OnBootSec=1m
+OnUnitActiveSec=10m
+Persistent=true
+
+[Install]
+WantedBy=timers.target

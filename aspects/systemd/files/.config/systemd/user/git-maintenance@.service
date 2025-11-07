@@ -1,0 +1,19 @@
+# This file was created and is maintained by Git.
+# Any edits made in this file might be replaced in the future
+# by a Git command.
+
+[Unit]
+Description=Optimize Git repositories data
+
+[Service]
+Type=oneshot
+ExecStart="/usr/lib/git-core/git" --exec-path="/usr/lib/git-core" for-each-repo --config=maintenance.repo maintenance run --schedule=%i
+LockPersonality=yes
+MemoryDenyWriteExecute=yes
+NoNewPrivileges=yes
+RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6 AF_VSOCK
+RestrictNamespaces=yes
+RestrictRealtime=yes
+RestrictSUIDSGID=yes
+SystemCallArchitectures=native
+SystemCallFilter=@system-service

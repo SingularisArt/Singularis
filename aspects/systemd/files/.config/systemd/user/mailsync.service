@@ -1,0 +1,9 @@
+[Unit]
+Description=Sync mail via isync for neomutt
+
+[Service]
+ExecStart=/home/singularisart/.local/bin/systemd/mailsync
+; Environment="HOME=/home/singularisart"
+
+[Install]
+WantedBy=default.target

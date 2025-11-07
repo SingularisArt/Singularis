@@ -1,0 +1,8 @@
+# vim: filetype=neomuttrc
+
+source ~/.config/neomutt/keys/unbind.muttrc
+source ~/.config/neomutt/keys/bind.muttrc
+source ~/.config/neomutt/settings.muttrc
+source ~/.config/neomutt/colors.muttrc
+
+source ~/.config/neomutt/accounts/source-accounts.muttrc

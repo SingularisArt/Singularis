@@ -1,0 +1,90 @@
+# vim: filetype=muttrc
+
+# set editor to neovim
+set editor = "nvim"
+
+# use very high $read_inc to speed up reading hcache'd maildirs
+folder-hook . 'set read_inc=1000'
+
+# Enable notmuch
+set nm_default_url = "notmuch:///home/singularis/.local/share/mail"
+
+# Set preffered view modes
+auto_view text/html text/calendar application/ics # view html automatically
+auto_view text/calendar application/ics
+
+# main options
+set envelope_from
+set edit_headers                      # show headers when composing
+set fast_reply                        # skip to compose when replying
+set askcc                             # ask for CC:
+set fcc_attach                        # save attachments with the body
+set forward_format = "Fwd: %s"        # format of subject when forwarding
+set forward_decode                    # decode when forwarding
+set attribution = "On %d, %n wrote:"  # format of quoting header
+set reply_to                          # reply to Reply to: field
+set reverse_name                      # reply as whomever it was to
+set include                           # include message in replies
+set forward_quote                     # include message in forwards
+set text_flowed
+set mime_type_query_command = "file --mime-type -b %s"
+set sleep_time = 0                    # Pause 0 seconds for informational messages
+set wait_key = no                     # Mutt won't ask "press key to continue"
+
+set smtp_authenticators = "gssapi:login"
+unset sig_dashes                      # no dashes before sig
+unset mime_forward                    # forward attachments as part of body
+unset help                            # No help bar at the top of index
+# set status_on_top = yes               # Status bar on top of index
+set tmpdir = /tmp                     # where to keep temp files
+
+#############
+#  Sidebar  #
+#############
+
+set sidebar_visible = yes
+set sidebar_width = 30
+set sidebar_short_path = yes
+set sidebar_next_new_wrap = yes
+set mail_check_stats
+set sidebar_short_path                # Shorten mailbox names
+set sidebar_delim_chars="/"           # Delete everything up to the last / character
+set sidebar_folder_indent             # Indent folders whose names we've shortened
+set sidebar_indent_string="  "        # Indent with two spaces
+
+unset confirmappend      # don't ask, just do!
+set quit                 # don't ask, just do!!
+unset mark_old           # read/new is good enough for me
+set beep_new             # bell on new mails
+set pipe_decode          # strip headers and eval mimes when piping
+set thorough_search      # strip headers and eval mimes before searching
+set timeout = 0
+
+# status bar, date format, finding stuff etc.
+set status_chars = " *%A"
+set status_format = "[ Folder: %f ] [%r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ]%>─%?p?( %p postponed )?"
+set date_format = "+%b %d %Y %a (%H:%M:%S)"
+set index_format="%2C %Z %?X?A& ? %D %-15.15F %s (%-4.4c)"
+set sort = threads
+set sort_aux = reverse-last-date-received
+set uncollapse_jump
+set sort_re
+set reply_regexp = "^(([Rr][Ee]?(\[[0-9]+\])?: *)?(\[[^]]+\] *)?)*"
+set quote_regexp = "^( {0,4}[>|:#%]| {0,4}[a-z0-9]+[>|]+)+"
+set send_charset = "utf-8:iso-8859-1:us-ascii"
+set charset = "utf-8"
+set arrow_cursor = "no" # Change `color indicator` depending
+
+# Pager View Options
+set pager_index_lines = 10  # Shows 10 lines of index when pager is active
+set pager_context = 3
+set pager_stop
+set menu_scroll
+set tilde
+unset markers
+
+set mailcap_path = ~/.config/neomutt/mailcap
+set header_cache = "~/.cache/mutt"
+set message_cachedir = "~/.cache/mutt"
+
+set query_command="goobook -c ~/.config/goobook/goobookrc query %s"

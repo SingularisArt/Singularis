@@ -1,0 +1,15 @@
+#!/bin/sh
+
+account1=$(~/.local/bin/get-password emails/account-1 email)
+account2=$(~/.local/bin/get-password emails/account-3 email)
+# account6=$(~/.local/bin/get-password emails/account-6 email)
+account7=$(~/.local/bin/get-password emails/account-7 email)
+
+unreadAccount1="$(find "${XDG_DATA_HOME}/mail/$account1/Archive/new" -type f | wc -l 2>/dev/null)"
+unreadAccount2="$(find "${XDG_DATA_HOME}/mail/$account2/Archive/new" -type f | wc -l 2>/dev/null)"
+# unreadAccount6="$(find "${XDG_DATA_HOME}/mail/$account6/Archive/new" -type f | wc -l 2>/dev/null)"
+unreadAccount7="$(find "${XDG_DATA_HOME}/mail/$account7/Archive/new" -type f | wc -l 2>/dev/null)"
+# unread=$((unreadAccount1 + unreadAccount2 + unreadAccount6 + unreadAccount7))
+unread=$((unreadAccount1 + unreadAccount2 + unreadAccount7))
+
+[ "$unread" = "0" ] && [ "$icon" = "" ] || echo "$unread"

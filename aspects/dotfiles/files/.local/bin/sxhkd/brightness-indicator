@@ -1,0 +1,24 @@
+#!/bin/bash
+
+brightness=$(brightnessctl get)
+brightness_percentage=$(echo "scale=2; $brightness/7500*100" | bc -l | xargs printf "%.0f")
+
+icon=""
+icon_path="/usr/share/icons/oomox-xresources-reverse-flat/status/scalable"
+
+if [ "$brightness_percentage" -ge 60 ]; then
+  icon="$icon_path/display-brightness-high-symbolic.svg"
+elif [ "$brightness_percentage" -ge 30 ]; then
+  icon="$icon_path/display-brightness-medium-symbolic.svg"
+else
+  icon="$icon_path/display-brightness-low-symbolic.svg"
+fi
+
+
+notify-send \
+  --app-name="changebrightness" \
+  --replace-id="9992" \
+  --hint=int:value:"$brightness_percentage" \
+  --icon="$icon" \
+  --expire-time=2000 \
+  "Brightness: ${brightness_percentage}%"

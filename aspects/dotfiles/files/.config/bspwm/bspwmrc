@@ -1,0 +1,59 @@
+#!/bin/sh
+
+############
+# Autokill #
+############
+
+killall sxhkd; sxhkd &
+killall dunst; dunst &
+killall mpd; mpd &
+xrdb -load ~/.config/X11/Xresources
+
+#############
+# Autostart #
+#############
+
+# picom -b --backend glx --blur-method dual_kawase &
+killall bspswallow; pidof ~/.local/bin/bspwm/bspswallow | ~/.local/bin/bspwm/bspswallow &
+killall flameshot; flameshot &
+killall fcitx; fcitx -d &
+feh --bg-scale ~/.config/wall.jpg &
+killall polybar; "$HOME/.config/polybar/launch.sh" &
+
+# Variable
+source "$HOME/.cache/wal/colors.sh"
+
+# Workspaces
+bspc monitor -d 1 2 3 4 5
+
+# Config
+bspc config automatic_scheme alternate
+bspc config initial_polarity second_child
+bspc config pointer_modifier lock
+bspc config pointer_action1 move
+bspc config pointer_action2 resize_side
+bspc config pointer_action3 resize_corner
+bspc config click_to_focus none
+
+bspc config focus_follows_pointer true
+bspc config remove_disabled_monitors true
+bspc config remove_unplugged_monitors true
+bspc config merge_overlapping_monitors true
+
+bspc config normal_border_color "$color0"
+bspc config active_border_color "$color2"
+bspc config focused_border_color "$color1"
+bspc config presel_border_color "$color1"
+
+# Monitor And Desktop Settings
+bspc config top_padding 0
+bspc config bottom_padding 0
+bspc config left_padding 0
+bspc config right_padding 0
+bspc config border_width 2
+bspc config window_gap 10
+
+# Rules
+bspc rule -r "*"
+bspc config external_rules_command "$HOME/.config/bspwm/external_rules"
+wm-restack = bspwm

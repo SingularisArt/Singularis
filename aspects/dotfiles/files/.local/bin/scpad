@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+winclass="$(xdotool search --class scratchpad)";
+if [ -z "$winclass" ]; then
+  kitty --name "float-center" --class scratchpad
+else
+  if [ ! -f /tmp/scratchpad ]; then
+    touch /tmp/scratchpad && xdo hide "$winclass"
+  elif [ -f /tmp/scratchpad ]; then
+    rm /tmp/scratchpad && xdo show "$winclass"
+  fi
+fi

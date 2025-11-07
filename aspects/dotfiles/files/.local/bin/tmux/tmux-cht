@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+selected=$(cat ~/.config/tmux/tmux-languages ~/.config/tmux/tmux-commands | fzf)
+if [[ -z $selected ]]; then
+  exit 0
+fi
+
+read -p "Enter Query: " query
+clear
+
+if grep -qs "$selected" ~/.config/tmux/tmux-languages; then
+  query=$(echo "$query" | tr ' ' '+')
+  clear; curl "cht.sh/$selected/$query" &
+else
+  curl -s "cht.sh/$selected~$query" &
+fi
+
+while true; do
+  read -rsn1 input
+
+  if [[ $input == "q" ]]; then
+    break
+  fi
+done
+
+kill %%

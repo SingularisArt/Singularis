@@ -1,0 +1,137 @@
+#!/usr/bin/env bash
+#
+# If you're editing this file with neovim, you must need to run the following
+# command:
+# 	set noexpandtab
+
+XMENU_ITEMS_DIR="$XDG_DATA_HOME/xmenu/"
+XMENU_ITEMS=$(find "$XMENU_ITEMS_DIR" -type f | grep -v "$0")
+OUTPUT=""
+
+for XMENU_ITEM in $XMENU_ITEMS; do
+  CURRENT_XMENU_ITEM_OUTPUT=$(bash "$XMENU_ITEM")
+  LAST_XMENU_ITEM=${#XMENU_ITEMS[@]}
+
+  if [ "$OUTPUT" != "" ]; then
+    [ "$LAST_XMENU_ITEM" = "$CURRENT_XMENU_ITEM_OUTPUT" ] && \
+      OUTPUT="$OUTPUT\n\n${CURRENT_XMENU_ITEM_OUTPUT}" || \
+      OUTPUT="$OUTPUT${CURRENT_XMENU_ITEM_OUTPUT}"
+  else
+    OUTPUT="$(bash "$XMENU_ITEM")"
+  fi
+done
+
+# FINAL_OUTPUT=$(cat <<EOF
+FINAL_OUTPUT=$(cat <<-EOF
+ Applications
+	 Firefox												firefox
+	 Chrome												google-chrome-stable
+	 Terminal											$TERMINAL
+	 Files													pcmanfm
+
+	 Comms
+		Discord (GUI)								discord
+		Discord (TUI)								$TERMINAL -e "cordless"
+		 Email (TUI)								$TERMINAL -e "neomutt"
+		 Telegram (GUI)						telegram-desktop
+		 Telegram (TUI)						nctelegram
+
+		 IRC												$TERMINAL -e "weechat"
+		 SMS												kdeconnect-sms --style gtk2
+		 Signal										signal-desktop
+	 Utilities
+		 Calculator (TUI)					$TERMINAL -e "qalc"
+		 Calculator (GUI)					qalculate-gtk
+		 Calendar (TUI)						$TERMINAL -e "khal interactive"
+		 Calendar (GUI)						google-calendar-nativefier
+		 Color Picker							gpick
+		 Writing Books							manuskript
+		Habit Tracker								$TERMINAL -e "dijo"
+
+		 System
+			 Kill Window							xkill
+			 Smartphone							kdeconnect-app --style gtk2
+			 Screen Recording				obs
+			 Screenshot
+				All Displays						flameshot screen -d 5000 -n 3 -p $HOME/Documents/Screenshots
+				Middle Display					flameshot screen -d 5000 -n 0 -p $HOME/Documents/Screenshots
+				Right Display						flameshot screen -d 5000 -n 1 -p $HOME/Documents/Screenshots
+				Left Display						flameshot screen -d 5000 -n 2 -p $HOME/Documents/Screenshots
+		 Theming
+			lxappearance							lxappearance
+			GTK												oomox-gui
+			Qt												qt5ct --style gtk2
+			WPGTK											wpg
+		 Monitors
+			System
+				Baobab (TUI)						$TERMINAL -e "baobab"
+				Diskonaut (TUI)					$TERMINAL -e "diskonaut"
+
+			Network
+
+			Finance
+				 Crypto (TUI)					$TERMINAL -e "cointop"
+				 Stocks (TUI)					$TERMINAL -e "mop"
+
+			Misc
+		 Media
+			 EasyTag									easytag
+	 Entertainment
+		 Media
+			 Podcasts (castero)			$TERMINAL -e "castero"
+			 RSS (newsboat)					$TERMINAL -e "newsboat"
+			 Reddit (tuir)						$TERMINAL -e "tuir"
+			 Twitter (rainbowstream)	$TERMINAL -e "rainbowstream"
+			 Music (ncmpcpp)					$TERMINAL -e "ncmpcpp"
+			Soulseek (Nicotine+)			nicotine
+		 Games
+			 Steam										steam
+			Itch											itch
+			Lutris										$TERMINAL -e "lutris"
+			Tetris										$TERMINAL -e "tetris"
+			Solitaire									$TERMINAL -e "ttysolitaire"
+			 Battleship							$TERMINAL -e "bs"
+			 Minecraft								minecraft-launcher
+			Dopewars									$TERMINAL -e "dopewars"
+	 Science
+		Anki												anki
+
+		 Astronomy
+			Celestia									celestia
+		 Biology
+			Pymol											pymol
+		 Chemistry
+			chemtool									chemtool
+		 Math
+			Geogebra									geogebra
+	 Development
+		 IDEs
+			Neovim										$TERMINAL -e "nvim"
+			VSCode										code
+	 LibreOffice
+		LibreOffice									libreoffice
+		Writer											libreoffice --writer
+		Calc												libreoffice --calc
+		Draw												libreoffice --draw
+		Web 												libreoffice --web
+		Base 												libreoffice --base
+		Presentation 								 libreoffice --impress
+		Math												 libreoffice --math
+
+ Configs
+	 System
+		 Bspwm											 $TERMINAL -e "nvim $CONFIGDIR/bspwm/bspwmrc"
+		 Start Menu								 $TERMINAL -e "nvim $HOME/Singularis/local/xmenu-script"
+		 Notifications							 $TERMINAL -e "nvim $CONFIGDIR/dunst/dunstrc"
+		 Smartphone								 kdeconnect-settings --style gtk2
+		 Sound											 pavucontrol
+		 .Xresources								 $TERMINAL -e "nvim $HOME/.Xresources"
+
+ System
+	 Logout			logout
+	 Shutdown		poweroff
+	 Reboot			reboot
+EOF
+)
+
+echo -e "$FINAL_OUTPUT" | xmenu -i | bash &

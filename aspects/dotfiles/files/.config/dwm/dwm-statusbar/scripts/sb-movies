@@ -1,0 +1,10 @@
+#!/usr/bin/bash
+
+echo "🎥"
+
+case $BLOCK_BUTTON in
+	1) $HOME/Singularis/local/scripts/netflix ;;
+	3) notify-send "🎥 Movie Module" "- Left Click to search for a movie" ;;
+	6) "$TERMINAL" -e "$EDITOR $0" ;;
+esac
+

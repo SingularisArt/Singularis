@@ -1,0 +1,30 @@
+#!/bin/sh
+
+rofi() {
+  /usr/bin/rofi -markup-rows -kb-row-down Down -kb-custom-1 Ctrl+n -no-fixed-num-lines "$@"
+}
+
+set -e
+
+mounteddroids="$(grep simple-mtpfs /etc/mtab | awk '{print "📱" $2}')"
+lsblkoutput="$(lsblk -nrpo "name,type,size,mountpoint")"
+mounteddrives="$(echo "$lsblkoutput" | awk '($2=="part"||$2="crypt")&&$4!~/\/boot|\/home$|SWAP/&&length($4)>1{printf "💾%s (%s)\n",$4,$3}')"
+
+allunmountable="$(echo "$mounteddroids
+$mounteddrives" | sed "/^$/d;s/ *$//")"
+test -n "$allunmountable"
+
+chosen="$(echo "$allunmountable" | rofi -dmenu -i -p "Unmount which drive?")"
+chosen="${chosen%% *}"
+test -n "$chosen"
+
+sudo -A umount -l "/${chosen#*/}"
+notify-send "Device unmounted." "$chosen has been unmounted."
+
+cryptid="$(echo "$lsblkoutput" | grep "/${chosen#*/}$")"
+cryptid="${cryptid%% *}"
+
+test -b /dev/mapper/"${cryptid##*/}"
+sudo -A cryptsetup close "$cryptid"
+
+notify-send "🔒Device dencryption closed." "Drive is now securely locked again."

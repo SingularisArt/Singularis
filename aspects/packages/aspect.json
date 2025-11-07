@@ -1,0 +1,80 @@
+{
+  "description": "All of my used packages.",
+  "files": {
+    ".home": {},
+    ".config": {},
+    ".local": {}
+  },
+  "templates": {
+    ".home": {},
+    ".config": {},
+    ".local": {}
+  },
+  "packages": {
+    "aur": {
+      "libraries": [
+        "npm",
+        "python-pip"
+      ],
+      "fcitx": [
+        "fcitx"
+      ],
+      "fonts": [
+        "all-repository-fonts"
+      ],
+      "xdotool": [
+        "xdotool"
+      ],
+      "chrome": [
+        "google-chrome"
+      ],
+      "lightdm": [
+        "lightdm",
+        "lightdm-gtk-greeter"
+      ],
+      "bluetooth": [
+        "bluez",
+        "bluez-utils",
+        "blueman"
+      ],
+      "slock": [
+        "slock"
+      ],
+      "pcmanfm": [
+        "pcmanfm"
+      ],
+      "theme": [
+        "sxiv",
+        "feh",
+        "pywal",
+        "flameshot",
+        "lxappearance",
+        "themix-full"
+      ],
+      "python": [
+        "ipython"
+      ],
+      "latex": [
+        "texlive",
+        "biber",
+        "texlive-basic",
+        "texlive-latex",
+        "texlive-latexrecommended",
+        "texlive-latexextra",
+        "texlive-fontsrecommended",
+        "texlive-fontsextra",
+        "texlive-bibtexextra",
+        "texlive-mathscience",
+        "texlive-lang"
+      ]
+    },
+    "pacman": {},
+    "apt": {},
+    "apt-get": {},
+    "yum": {}
+  },
+  "libraries": {
+    "python": {},
+    "npm": {}
+  }
+}

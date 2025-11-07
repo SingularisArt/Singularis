@@ -1,0 +1,43 @@
+#!/bin/sh
+
+wid=$1
+class=$2
+instance=$3
+
+read W H <<< "$(xdotool getdisplaygeometry)"
+eval "$(xdotool getwindowgeometry --shell '$wid' )"
+
+window_width=$(awk "BEGIN {print int($W / 1.5)}")
+window_height=$(awk "BEGIN {print int($H / 1.5)}")
+
+if [ "$instance" = "latex-terminal-ink" ]; then
+  echo "state=floating"
+  read W H <<< "$(xdotool getdisplaygeometry)"
+  eval "$(xdotool getwindowgeometry --shell '$wid' )"
+
+  window_width=$(awk "BEGIN {print int($W / 1.5)}")
+  window_height=$(awk "BEGIN {print int($H / 5)}")
+
+  xdotool windowsize "$wid" "$window_width" "$window_height"
+
+  # Calculate x-coordinate to center the window
+  x=$(( (W - window_width) / 2 ))
+
+  # Set y-coordinate towards the bottom
+  y=$(( H - window_height - 50 ))  # Adjust the margin as needed
+
+  xdotool windowmove "$wid" "$x" "$y"
+fi
+
+if [ "$instance" = "scratchpad" ]; then
+  echo "sticky=on state=floating center=true rectangle=${window_width}x${window_height}+0+0"
+fi
+
+if [ "$instance" = "float-center" ]; then
+  echo "state=floating center=true rectangle=${window_width}x${window_height}+0+0"
+fi
+
+if [ "$instance" = "Inkscape" ]; then
+  echo "desktop=^6"
+  bspc desktop -f ^6
+fi

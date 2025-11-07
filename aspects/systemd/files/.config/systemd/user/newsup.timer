@@ -1,0 +1,11 @@
+[Unit]
+Description=Update newsboat
+Requires=newsup.service
+
+[Timer]
+OnBootSec=1m
+OnUnitActiveSec=10m
+Persistent=true
+
+[Install]
+WantedBy=timers.target

@@ -1,0 +1,201 @@
+{
+  "description": "All my dotfiles",
+  "files": {
+    ".home": {
+      ".xprofile": "public",
+      ".zshenv": "public"
+    },
+    ".config": {
+      "GeoGebra": "public",
+      "awesome": "public",
+      "bashtop": "public",
+      "bottom": "public",
+      "bspwm": "public",
+      "btop": "public",
+      "calcurse": "public",
+      "castero": "public",
+      "chameleon": "public",
+      "cmus": "public",
+      "cointop": "public",
+      "dunst": "public",
+      "dwm": "public",
+      "easytag": "public",
+      "git": "public",
+      "gtk-2.0": "public",
+      "gtk-3.0": "public",
+      "gtk-4.0": "public",
+      "inkscape": "public",
+      "inkscape-figures": "public",
+      "ipython": "public",
+      "kitty": "public",
+      "lf": "public",
+      "lynx": "public",
+      "manuskript": "public",
+      "mpd": "public",
+      "mpv": "public",
+      "ncmpcpp": "public",
+      "neofetch": "public",
+      "newsboat": "public",
+      "picom": "public",
+      "polybar": "public",
+      "python": "public",
+      "ranger": "public",
+      "rofi": "public",
+      "sioyek": "public",
+      "sxhkd": "public",
+      "tmux": "public",
+      "wal": "public",
+      "wal-discord": "public",
+      "zsh": "public",
+      "fehbg": "public"
+    },
+    ".local": {
+      "bin": "public",
+      "share": "private"
+    }
+  },
+  "templates": {
+    ".config": {
+      "git/config": [
+        "email",
+        "name",
+        "signkey",
+        "username"
+      ],
+      "gh/hosts.yml": [
+        "username",
+        "oauth_token"
+      ],
+      "onedrive-config/account-6/config": [
+        "location_6"
+      ],
+      "onedrive-config/account-7/config": [
+        "location_7"
+      ]
+    }
+  },
+  "packages": {
+    "aur": {
+      "autojump": [
+        "autojump"
+      ],
+      "awesome": [
+        "awesome"
+      ],
+      "bashtop": [
+        "bashtop"
+      ],
+      "bottom": [
+        "bottom"
+      ],
+      "bspwm": [
+        "bspwm"
+      ],
+      "btop": [
+        "btop"
+      ],
+      "calcurse": [
+        "calcurse"
+      ],
+      "castero": [
+        "castero"
+      ],
+      "cmus": [
+        "cmus"
+      ],
+      "cointop": [
+        "cointop"
+      ],
+      "dunst": [
+        "dunst"
+      ],
+      "easytag": [
+        "easytag"
+      ],
+      "exa": [
+        "exa"
+      ],
+      "GeoGebra": [
+        "GeoGebra"
+      ],
+      "gh": [
+        "github-cli"
+      ],
+      "inkscape": [
+        "inkscape"
+      ],
+      "kitty": [
+        "kitty"
+      ],
+      "lf": [
+        "lf",
+        "ueberzug"
+      ],
+      "mpd": [
+        "mpd"
+      ],
+      "mpc": [
+        "mpc"
+      ],
+      "mpv": [
+        "mpv"
+      ],
+      "ncmpcpp": [
+        "ncmpcpp"
+      ],
+      "neofetch": [
+        "neofetch"
+      ],
+      "newsboat": [
+        "newsboat"
+      ],
+      "pamixer": [
+        "pamixer"
+      ],
+      "picom": [
+        "picom"
+      ],
+      "polybar": [
+        "polybar"
+      ],
+      "ranger": [
+        "ranger"
+      ],
+      "rofi": [
+        "rofi"
+      ],
+      "sioyek": [
+        "sioyek"
+      ],
+      "sxhdk": [
+        "sxhkd"
+      ],
+      "tmux": [
+        "tmux",
+        "urlview"
+      ],
+      "zathura": [
+        "zathura",
+        "zathura-cb",
+        "zathura-djvu",
+        "zathura-pdf-mupdf",
+        "zathura-ps",
+        "zathura-ypb"
+      ],
+      "zsh": [
+        "zsh"
+      ]
+    },
+    "pacman": {},
+    "apt": {},
+    "apt-get": {},
+    "yum": {}
+  },
+  "libraries": {
+    "python": {
+      "dotfiles": [
+        "pyperclip"
+      ]
+    }
+  }
+}

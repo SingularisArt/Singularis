@@ -1,0 +1,220 @@
+source ~/.config/zsh/exports.zsh
+
+read -r screen_width screen_height <<< "$(xdotool getdisplaygeometry | awk '{print $1, $2}')"
+window_width=$((screen_width / 6))
+window_height=$((screen_height / 2))
+
+############
+#  School  #
+############
+
+alt + {a-z}
+  bash ~/Documents/school-setup/shortcut-manager.sh {a-z}
+alt + {A-Z}
+  bash ~/Documents/school-setup/shortcut-manager.sh {A-Z}
+
+##################
+#  Applications  #
+##################
+
+shift + ctrl + Escape
+  kitty --name "float-center" -- "bashtop"
+super + Return
+  kitty
+super + shift + n
+  ~/.local/bin/scpad
+super + w
+  $BROWSER
+super + m
+  kitty --name "float-center" -- "neomutt"
+super + shift + m
+  ~/.local/bin/neomutt/send-mail
+super + n
+  kitty --name "float-center" -- "newsboat"
+super + e
+  kitty --name "float-center" -- "ncmpcpp"
+super + shift + c
+  kitty --name "float-center" -- "castero"
+super + c
+  kitty --name "float-center" -- "calcure"
+super + shift + p
+  kitty --name "float-center" -- "pulsemixer"
+super + z
+  zathura
+super + y
+  slock
+super + i
+  inkscape
+super + s
+  flameshot gui
+
+##########
+#  Rofi  #
+##########
+
+super + r
+  rofi -show drun -show-icons -no-fixed-num-lines
+super + shift + r
+  rofi -show window -no-fixed-num-lines
+super + shift + e
+  rofi -mode emoji -show emoji -no-fixed-num-lines
+super + p
+  ~/.local/bin/rofi-pass
+super + b
+  ~/.local/bin/bookmarks
+super + shift + b
+  ~/.local/bin/bookmark-this
+super + ctrl + b
+  ~/.local/bin/sxhkd/open-bookmarks
+super + u
+  ~/.local/bin/sxhkd/mounter
+super + shift + u
+  ~/.local/bin/sxhkd/unmounter
+
+###########
+#  Dunst  #
+###########
+
+alt + space
+  dunstctl close
+alt + shift + space
+  dunstctl close-all
+alt + grave
+  dunstctl history-pop
+
+###########
+#  Audio  #
+###########
+
+super + alt + t
+  mpc toggle
+super + alt + r
+  mpc seek 0
+super + alt + shift + bracketleft
+  mpc seek +60
+super + alt + shift + bracketright
+  mpc seek -60
+super + alt  + bracketleft
+  mpc seek +10
+super + alt  + bracketright
+  mpc seek -10
+super + alt + comma
+  mpc prev
+super + alt + period
+  mpc next
+{super + alt + u,XF86AudioRaiseVolume}
+  pamixer --increase 5 && ~/.local/bin/sxhkd/volume-indicator
+{super + alt + d,XF86AudioLowerVolume}
+  pamixer --decrease 5 && ~/.local/bin/sxhkd/volume-indicator
+{super + alt + m,XF86AudioMute}
+  pamixer --toggle-mute
+
+################
+#  Brightness  #
+################
+
+{super + alt + shift + u,XF86MonBrightnessUp}
+  brightnessctl s 375+ && ~/.local/bin/sxhkd/brightness-indicator
+{super + alt + shift + d,XF86MonBrightnessDown}
+  brightnessctl s 375- && ~/.local/bin/sxhkd/brightness-indicator
+
+###########
+#  Other  #
+###########
+
+Print
+  ~/.local/bin/maimpick
+
+###########
+#  BSPWM  #
+###########
+
+## Desktop/Workspace
+
+### Send to workspace
+super + shift + {1-9}
+  bspc node -d '^{1-9}'
+### Send to workspace
+super + {1-9}
+  bspc desktop -f ^{1-9}
+### Latest workspace
+super + Tab
+  bspc desktop last -f
+
+## Windows
+
+### Kill window
+super + {_,shift + }q
+  bspc node -{c,k}
+### Split h(o)rizontal, (v)ertical or (c)ancel
+super + {o,v,c}
+  bspc node -p {east,south,cancel}
+### Full screen or Monocle
+super + f
+  bspc node -t "~"fullscreen
+### Toggle between floating & tiled
+super + space
+  bspc node -t "~"{floating,tiled}
+### Pseudo Tiled & tiled mode
+super + ctrl + {p,t}
+  bspc node -t "~"{pseudo_tiled,tiled}
+### Set the node flags
+super + ctrl + {m,l,s,z}
+  bspc node -g {marked,locked,sticky,private}
+
+## Move/resize
+
+### expand a window by moving one of its side outward
+super + alt + {h,j,k,l}
+  bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
+### contract a window by moving one of its side inward
+super + alt + shift + {h,j,k,l}
+  bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
+### move a floating window
+super + {Left,Down,Up,Right}
+  bspc node -v {-20 0,0 20,0 -20,20 0}
+
+## Focus and Swap
+
+### Focus the node in the given direction
+super + {_,shift + }{h,j,k,l}
+  bspc node -{f,s} {west,south,north,east}
+
+## Selecting areas
+
+### Preselect the direction
+super + ctrl + alt + {h,l,k,j}
+  bspc node -p {west,east,north,south}
+### Preselect the ratio
+super + ctrl + {1-9}
+  bspc node -o 0.{1-9}
+### Cancel the preselection for the focused node
+super + ctrl + space
+  bspc node -p cancel
+### Cancel the preselection for the focused desktop
+super + ctrl + shift + space
+  bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
+### Move current window to a pre-selected space
+super + shift + m
+  bspc node -n last.!automatic
+
+## Gaps
+
+### Enable/Disable gaps
+super + a
+  ~/.local/bin/sxhkd/enable-disable-gaps
+super + shift + a
+  bspc config window_gap 10
+super + z
+  ~/.local/bin/sxhkd/increase-decrease-gasp plus
+super + x
+  ~/.local/bin/sxhkd/increase-decrease-gasp minus
+
+## Other
+
+### Reload Keybindings
+super + Escape
+  killall sxhkd; sxhkd &
+### Quit/Restart bspwm
+super + shift + ctrl + {q,r}
+  bspc {quit,wm -r}

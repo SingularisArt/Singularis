@@ -1,0 +1,194 @@
+[user]
+  email = ^{email}
+  name = ^{name}
+  signingkey = ^{sign_key}
+
+[github]
+  username = ^{username}
+
+[credential]
+  helper = store
+
+[commit]
+  gpgSign = true
+  template = ~/.config/git/gitmessage.txt
+
+[alias]
+  a = add
+  aa = add .
+  abbrev = !bash -c 'git rev-parse --short ${1-`echo HEAD`}' -
+  ack = grep --break --heading
+  amend = commit --amend -v
+  both = diff --ignore-submodules=dirty HEAD
+  br = branch
+  ci = commit -v
+  c = commit
+  ce = commit --allow-empty-message -m ""
+  cm = commit -m
+  co = checkout
+  count = !git --no-pager log --oneline | wc -l
+  cp = cherry-pick
+  delta = "!f() { git diff \"$@\" | delta; }; f"
+  ls = list-files
+  p = push
+  patch = add -p
+  get-root = rev-parse --show-toplevel
+  update-submodules = submodule update --remote
+
+  # http://stackoverflow.com/questions/224687/git-find-duplicate-blobs-files-in-this-tree/8408640#8408640
+  dupes = !"git ls-tree -r HEAD | cut -c 13- | sort | uniq -D -w 40"
+
+  ff = merge --ff-only --autostash
+  find = "!f() { git ls-files | grep \"$@\"; }; f"
+  fixup = !bash -c 'git commit --fixup=$1 ${@:2}' -
+  fresh = remote update --prune
+  full = show --format=fuller
+
+  # Shortcut for updating all remotes and fast-forwarding to a specific one:
+  # eg. `git get upstream/main`
+  get = "!f() { git fresh && git ff \"$@\"; }; f"
+
+  # equivalent to: graph --all
+  gr = !git --paginate log --graph --all --pretty=format:'%C(auto)%h%Creset%C(auto)%d%Creset %s %C(magenta bold)(%cr)%Creset %C(cyan)%Creset'
+
+  # requires Git 1.6.3 or later; %C(auto) requires Git 1.8.3 or later
+  graph = !git --paginate log --graph --pretty=format:'%C(auto)%h%Creset%C(auto)%d%Creset %s %C(magenta bold)(%cr)%Creset %C(cyan)%Creset'
+
+  # Show just the HEAD commit message (no indent) and nothing else
+  message = !git --paginate log -1 --pretty=format:%B
+  msg = message
+
+  no-edit = commit --amend --no-edit
+
+  # %C(auto) requires Git 1.8.3 or later
+  one = !git --paginate log --pretty=format:'%C(auto)%h%Creset %s%C(auto)%d%Creset %C(magenta bold)(%cr)%Creset %C(cyan)%Creset'
+
+  # Recover previous COMMIT_EDITMSG, if there is one.
+  recover = !cat "$(git rev-parse --git-dir 2> /dev/null)/COMMIT_EDITMSG"
+
+  # requires Git 1.7.11.3 or later
+  reword = commit --amend --only -v --
+
+  # requires Git 1.6.2 or later
+  rollback = !bash -c 'git reset --merge HEAD~${1-1}' -
+
+  # "smartlog", although it's not that smart.
+  # Equivalent to `git graph --all --simplify-by-decoration.
+  sl = !git --paginate log --graph --pretty=format:'%C(auto)%h%Creset%C(auto)%d%Creset %s %C(magenta bold)(%cr)%Creset %C(cyan)%Creset' --all --simplify-by-decoration
+
+  st = status
+  staged = diff --cached --ignore-submodules=dirty
+
+  # %C(auto) requires Git 1.8.3 or later
+  ten = !git --paginate log -10 --pretty=format:'%C(auto)%h%Creset%C(auto)%d%Creset %s %C(magenta bold)(%cr)%Creset %C(cyan)%Creset'
+
+  # compensate for brain damage caused by using Mercurial
+  up = checkout
+
+  wc = whatchanged
+
+  # similar to whatchanged, but gives a dir-level overview:
+  # usage: git wd [diff-against=HEAD] [max-depth=4]
+  wd = "!f() { git --paginate diff --dirstat=cumulative,files,0 ${1:-HEAD} | awk '{print $2}' | cut -d / -f1-${2:-4} | sort | uniq; }; f"
+
+  # same as wd ("what directories?") but for files ("what files?")
+  # usage: git wd [diff-against=HEAD]
+  wf = "!f() { git --paginate diff --stat=10000 ${1:-HEAD} | awk '{print $1}' | sed '$d' | sort; }; f"
+
+[branch]
+  autosetupmerge = always
+  autosetuprebase = local
+
+[color]
+  ui = auto
+
+[color "diff-highlight"]
+  newhighlight = reverse
+  newreset = noreverse
+  oldhighlight = reverse
+  oldreset = noreverse
+
+[color "interactive"]
+  prompt = blue reverse
+
+[color "status"]
+  untracked = blue
+
+[core]
+  attributesfile = ~/.gitattributes
+  excludesfile = ~/.gitignore
+
+  # S = chop long lines (rather than wrap them onto next line)
+  #
+  # This in addition to the "iFMRX" that we get via LESS environment variable.
+  # (In the absence LESS, Git would use "FRX".)
+  pager = less -S
+
+[delta]
+  max-line-length = 0
+  line-numbers = true
+
+# ignored by Git older than 1.8.2
+[diff]
+  algorithm = histogram
+
+  # Added in Git 2.9.0 (experimental): more readable diffs.
+  compactionHeuristic = true
+
+[difftool]
+  prompt = false
+
+[filter "lfs"]
+  process = git-lfs filter-process
+  required = true
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+
+[grep]
+  lineNumber = true
+
+  # Requires PCRE support; ie: `brew install git --with-pcre` (on macOS).
+  patternType = perl
+
+[help]
+  autocorrect = 2
+
+[init]
+  # requires Git 2.28 or later
+  defaultBranch = main
+
+[interactive]
+  diffFilter = diff-highlight
+
+[log]
+  decorate = short
+
+[maintenance]
+  repo = /home/singularisart/.local/share/Singularis
+
+[protocol]
+  # Added in Git 2.18.0.
+  version = 2
+
+[pull]
+  ff = only
+
+[push]
+  # Added in Git 1.7.11, default in 2.0, but still required (to avoid warning).
+  default = simple
+
+[rebase]
+  autosquash = true
+
+[rerere]
+	enabled = true
+
+[status]
+  submodulesummary = true
+
+[submodule]
+  # Added in Git 2.9.0.
+  fetchJobs = 4
+
+[http]
+  postBuffer = 524288000

@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+#
+# Bookmark-this: This script bookmarks the selected text. If it is already
+# bookmarked (I check to see if it's bookmarked by grepping the entire
+# directory), then this script will notify you that it's already bookmarked. If
+# not, it'll paste the selected text in the file
+# ~/.local/share/bookmarks/current and it's up to you to go and clean that file
+# out by moving the bookmarks within that file to their respective files within
+# the bookmark directory, which is ~/.local/share/bookmarks. Once completed,
+# you'll get a notification via dunst saying the link was bookmarked.
+
+bookmark_directory="$XDG_DATA_HOME/bookmarks"
+bookmark_file="$bookmark_directory/current"
+bookmark="$(xclip -out -selection primary)"
+
+if grep -r -q "^$bookmark$" "$bookmark_directory"; then
+  notify-send "Oops." "Already bookmarked $bookmark."
+else
+  echo "$bookmark" >> "$bookmark_file"
+  notify-send "Bookmark Successful." "Bookmarked $bookmark."
+fi

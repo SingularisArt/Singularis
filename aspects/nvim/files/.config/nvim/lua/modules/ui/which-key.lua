@@ -1,0 +1,14 @@
+-- vars.mappings[5] = {
+--   { "<Leader>r", group = "Refactor" },
+
+--   { "<Leader>re", "<CMD>lua require('refactoring').refactor('Extract Function')<CR>", desc = "Extract Function" },
+--   {
+--     "<Leader>rf",
+--     "<CMD>lua require('refactoring').refactor('Extract Function to File')<CR>",
+--     desc = "Extract Function to File",
+--   },
+--   { "<Leader>rv", "<CMD>lua require('refactoring').refactor('Extract Variable')<CR>", desc = "Extract Variable" },
+--   { "<Leader>ri", "<CMD>lua require('refactoring').refactor('Inline Variable')<CR>", desc = "Inline Variable" },
+--   { "<Leader>rr", "<CMD>lua require('telescope').extensions.refactoring.refactors()<CR>", desc = "Refactor" },
+--   { "<Leader>rV", "<CMD>lua require('refactoring').debug.print_var({})<CR>", desc = "Debug Print Var" },
+-- }

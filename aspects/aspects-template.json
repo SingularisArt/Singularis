@@ -1,0 +1,24 @@
+{
+  "description": "",
+  "files": {
+    ".home": {},
+    ".config": {},
+    ".local": {}
+  },
+  "templates": {
+    ".home": {},
+    ".config": {},
+    ".local": {}
+  },
+  "packages": {
+    "aur": {},
+    "pacman": {},
+    "apt": {},
+    "apt-get": {},
+    "yum": {}
+  },
+  "libraries": {
+    "python": {},
+    "npm": {}
+  }
+}

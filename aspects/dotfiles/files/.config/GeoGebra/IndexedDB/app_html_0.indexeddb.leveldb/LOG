@@ -1,0 +1,15 @@
+2024/02/03-00:29:48.485 3495bb Reusing MANIFEST /home/singularisart/.config/GeoGebra/IndexedDB/app_html_0.indexeddb.leveldb/MANIFEST-000001
+2024/02/03-00:29:48.496 3495d2 Level-0 table #12: started
+2024/02/03-00:29:48.506 3495d2 Level-0 table #12: 188 bytes OK
+2024/02/03-00:29:48.514 3495d2 Delete type=0 #10
+2024/02/03-00:29:48.515 3495d2 Manual compaction at level-0 from '\x00\x04\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x05\x00\x00\x00' @ 0 : 0; will stop at (end)
+2024/02/03-00:29:48.528 3495d2 Level-0 table #14: started
+2024/02/03-00:29:48.535 3495d2 Level-0 table #14: 635 bytes OK
+2024/02/03-00:29:48.544 3495d2 Delete type=0 #11
+2024/02/03-00:29:48.545 3495ba Manual compaction at level-0 from '\x00\x05\x00\x00\x00' @ 72057594037927935 : 1 .. '\x00\x06\x00\x00\x00' @ 0 : 0; will stop at '\x00\x00\x00\x00\x02' @ 168 : 1
+2024/02/03-00:29:48.546 3495ba Compacting 2@0 + 1@1 files
+2024/02/03-00:29:48.553 3495ba Generated table #15@0: 75 keys, 1481 bytes
+2024/02/03-00:29:48.554 3495ba Compacted 2@0 + 1@1 files => 1481 bytes
+2024/02/03-00:29:48.568 3495ba compacted to: files[ 0 1 1 0 0 0 0 ]
+2024/02/03-00:29:48.570 3495ba Delete type=2 #14
+2024/02/03-00:29:48.572 3495d2 Manual compaction at level-0 from '\x00\x00\x00\x00\x02' @ 168 : 1 .. '\x00\x06\x00\x00\x00' @ 0 : 0; will stop at (end)

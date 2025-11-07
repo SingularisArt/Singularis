@@ -1,0 +1,455 @@
+Create Both
+Expunge Both
+SyncState *
+
+################################################################################
+#                                                                              #
+#                                  Account 1                                   #
+#                                                                              #
+################################################################################
+IMAPAccount ^{email_1}
+Host ^{email_1_server}
+User ^{email_1}
+PassCmd "^{email_1_password}"
+SSLType IMAPS
+AuthMechs LOGIN
+
+IMAPStore ^{email_1}-remote
+Account ^{email_1}
+
+MaildirStore ^{email_1}-local
+Path ~/.local/share/mail/^{email_1}/
+Inbox ~/.local/share/mail/^{email_1}/INBOX
+SubFolders Verbatim
+
+Channel ^{email_1}-inbox
+Far :^{email_1}-remote:INBOX
+Near :^{email_1}-local:INBOX
+
+Channel ^{email_1}-archive
+Far :^{email_1}-remote:"[Gmail]/All Mail"
+Near :^{email_1}-local:Archive
+
+Channel ^{email_1}-drafts
+Far :^{email_1}-remote:"[Gmail]/Drafts"
+Near :^{email_1}-local:Drafts
+
+Channel ^{email_1}-important
+Far :^{email_1}-remote:"[Gmail]/Important"
+Near :^{email_1}-local:Important
+
+Channel ^{email_1}-sent
+Far :^{email_1}-remote:"[Gmail]/Sent Mail"
+Near :^{email_1}-local:Sent
+
+Channel ^{email_1}-spam
+Far :^{email_1}-remote:"[Gmail]/Spam"
+Near :^{email_1}-local:Spam
+
+Channel ^{email_1}-starred
+Far :^{email_1}-remote:"[Gmail]/Starred"
+Near :^{email_1}-local:Starred
+
+Channel ^{email_1}-trash
+Far :^{email_1}-remote:"[Gmail]/Trash"
+Near :^{email_1}-local:Trash
+
+Channel ^{email_1}-get-folders
+Far :^{email_1}-remote:
+Near :^{email_1}-local:
+Patterns *
+Patterns !INBOX
+Patterns !Search
+Patterns !Sent
+Patterns !Spam
+Patterns !Trash
+Patterns ![Gmail]*
+Patterns !Archive
+Patterns !Drafts
+Patterns !Starred
+
+Group ^{email_1}
+Channel ^{email_1}-inbox
+Channel ^{email_1}-archive
+Channel ^{email_1}-drafts
+Channel ^{email_1}-important
+Channel ^{email_1}-sent
+Channel ^{email_1}-spam
+Channel ^{email_1}-starred
+Channel ^{email_1}-trash
+Channel ^{email_1}-get-folders
+################################################################################
+
+################################################################################
+#                                                                              #
+#                                  Account 2                                   #
+#                                                                              #
+################################################################################
+IMAPAccount ^{email_2}
+Host ^{email_2_server}
+User ^{email_2}
+PassCmd "^{email_2_password}"
+SSLType IMAPS
+AuthMechs LOGIN
+
+IMAPStore ^{email_2}-remote
+Account ^{email_2}
+
+MaildirStore ^{email_2}-local
+Path ~/.local/share/mail/^{email_2}/
+Inbox ~/.local/share/mail/^{email_2}/INBOX
+SubFolders Verbatim
+
+Channel ^{email_2}-inbox
+Far :^{email_2}-remote:INBOX
+Near :^{email_2}-local:INBOX
+
+Channel ^{email_2}-archive
+Far :^{email_2}-remote:"[Gmail]/All Mail"
+Near :^{email_2}-local:Archive
+
+Channel ^{email_2}-drafts
+Far :^{email_2}-remote:"[Gmail]/Drafts"
+Near :^{email_2}-local:Drafts
+
+Channel ^{email_2}-important
+Far :^{email_2}-remote:"[Gmail]/Important"
+Near :^{email_2}-local:Important
+
+Channel ^{email_2}-sent
+Far :^{email_2}-remote:"[Gmail]/Sent Mail"
+Near :^{email_2}-local:Sent
+
+Channel ^{email_2}-spam
+Far :^{email_2}-remote:"[Gmail]/Spam"
+Near :^{email_2}-local:Spam
+
+Channel ^{email_2}-starred
+Far :^{email_2}-remote:"[Gmail]/Starred"
+Near :^{email_2}-local:Starred
+
+Channel ^{email_2}-trash
+Far :^{email_2}-remote:"[Gmail]/Trash"
+Near :^{email_2}-local:Trash
+
+Channel ^{email_2}-get-folders
+Far :^{email_2}-remote:
+Near :^{email_2}-local:
+Patterns *
+Patterns !INBOX
+Patterns !Search
+Patterns !Sent
+Patterns !Spam
+Patterns !Trash
+Patterns ![Gmail]*
+Patterns !Archive
+Patterns !Drafts
+Patterns !Starred
+
+Group ^{email_2}
+Channel ^{email_2}-inbox
+Channel ^{email_2}-archive
+Channel ^{email_2}-drafts
+Channel ^{email_2}-important
+Channel ^{email_2}-sent
+Channel ^{email_2}-spam
+Channel ^{email_2}-starred
+Channel ^{email_2}-trash
+Channel ^{email_2}-get-folders
+################################################################################
+
+################################################################################
+#                                                                              #
+#                                  Account 3                                   #
+#                                                                              #
+################################################################################
+IMAPAccount ^{email_3}
+Host ^{email_3_server}
+User ^{email_3}
+PassCmd "^{email_3_password}"
+SSLType IMAPS
+AuthMechs LOGIN
+
+IMAPStore ^{email_3}-remote
+Account ^{email_3}
+
+MaildirStore ^{email_3}-local
+Path ~/.local/share/mail/^{email_3}/
+Inbox ~/.local/share/mail/^{email_3}/INBOX
+SubFolders Verbatim
+
+Channel ^{email_3}-inbox
+Far :^{email_3}-remote:INBOX
+Near :^{email_3}-local:INBOX
+
+Channel ^{email_3}-archive
+Far :^{email_3}-remote:"[Gmail]/All Mail"
+Near :^{email_3}-local:Archive
+
+Channel ^{email_3}-drafts
+Far :^{email_3}-remote:"[Gmail]/Drafts"
+Near :^{email_3}-local:Drafts
+
+Channel ^{email_3}-important
+Far :^{email_3}-remote:"[Gmail]/Important"
+Near :^{email_3}-local:Important
+
+Channel ^{email_3}-sent
+Far :^{email_3}-remote:"[Gmail]/Sent Mail"
+Near :^{email_3}-local:Sent
+
+Channel ^{email_3}-spam
+Far :^{email_3}-remote:"[Gmail]/Spam"
+Near :^{email_3}-local:Spam
+
+Channel ^{email_3}-starred
+Far :^{email_3}-remote:"[Gmail]/Starred"
+Near :^{email_3}-local:Starred
+
+Channel ^{email_3}-trash
+Far :^{email_3}-remote:"[Gmail]/Trash"
+Near :^{email_3}-local:Trash
+
+Channel ^{email_3}-get-folders
+Far :^{email_3}-remote:
+Near :^{email_3}-local:
+Patterns *
+Patterns !INBOX
+Patterns !Search
+Patterns !Sent
+Patterns !Spam
+Patterns !Trash
+Patterns ![Gmail]*
+Patterns !Archive
+Patterns !Drafts
+Patterns !Starred
+
+Group ^{email_3}
+Channel ^{email_3}-inbox
+Channel ^{email_3}-archive
+Channel ^{email_3}-drafts
+Channel ^{email_3}-important
+Channel ^{email_3}-sent
+Channel ^{email_3}-spam
+Channel ^{email_3}-starred
+Channel ^{email_3}-trash
+Channel ^{email_3}-get-folders
+################################################################################
+
+################################################################################
+#                                                                              #
+#                                  Account 4                                   #
+#                                                                              #
+################################################################################
+IMAPAccount ^{email_4}
+Host ^{email_4_server}
+User ^{email_4}
+PassCmd "^{email_4_password}"
+SSLType IMAPS
+AuthMechs LOGIN
+
+IMAPStore ^{email_4}-remote
+Account ^{email_4}
+
+MaildirStore ^{email_4}-local
+Path ~/.local/share/mail/^{email_4}/
+Inbox ~/.local/share/mail/^{email_4}/INBOX
+SubFolders Verbatim
+
+Channel ^{email_4}-inbox
+Far :^{email_4}-remote:INBOX
+Near :^{email_4}-local:INBOX
+
+Channel ^{email_4}-archive
+Far :^{email_4}-remote:"[Gmail]/All Mail"
+Near :^{email_4}-local:Archive
+
+Channel ^{email_4}-drafts
+Far :^{email_4}-remote:"[Gmail]/Drafts"
+Near :^{email_4}-local:Drafts
+
+Channel ^{email_4}-important
+Far :^{email_4}-remote:"[Gmail]/Important"
+Near :^{email_4}-local:Important
+
+Channel ^{email_4}-sent
+Far :^{email_4}-remote:"[Gmail]/Sent Mail"
+Near :^{email_4}-local:Sent
+
+Channel ^{email_4}-spam
+Far :^{email_4}-remote:"[Gmail]/Spam"
+Near :^{email_4}-local:Spam
+
+Channel ^{email_4}-starred
+Far :^{email_4}-remote:"[Gmail]/Starred"
+Near :^{email_4}-local:Starred
+
+Channel ^{email_4}-trash
+Far :^{email_4}-remote:"[Gmail]/Trash"
+Near :^{email_4}-local:Trash
+
+Channel ^{email_4}-get-folders
+Far :^{email_4}-remote:
+Near :^{email_4}-local:
+Patterns *
+Patterns !INBOX
+Patterns !Search
+Patterns !Sent
+Patterns !Spam
+Patterns !Trash
+Patterns ![Gmail]*
+Patterns !Archive
+Patterns !Drafts
+Patterns !Starred
+
+Group ^{email_4}
+Channel ^{email_4}-inbox
+Channel ^{email_4}-archive
+Channel ^{email_4}-drafts
+Channel ^{email_4}-important
+Channel ^{email_4}-sent
+Channel ^{email_4}-spam
+Channel ^{email_4}-starred
+Channel ^{email_4}-trash
+Channel ^{email_4}-get-folders
+################################################################################
+
+################################################################################
+#                                                                              #
+#                                  Account 5                                   #
+#                                                                              #
+################################################################################
+IMAPAccount ^{email_5}
+Host ^{email_5_server}
+User ^{email_5}
+PassCmd "^{email_5_password}"
+SSLType IMAPS
+AuthMechs LOGIN
+
+IMAPStore ^{email_5}-remote
+Account ^{email_5}
+
+MaildirStore ^{email_5}-local
+Path ~/.local/share/mail/^{email_5}/
+Inbox ~/.local/share/mail/^{email_5}/INBOX
+SubFolders Verbatim
+
+Channel ^{email_5}-inbox
+Far :^{email_5}-remote:INBOX
+Near :^{email_5}-local:INBOX
+
+Channel ^{email_5}-archive
+Far :^{email_5}-remote:"[Gmail]/All Mail"
+Near :^{email_5}-local:Archive
+
+Channel ^{email_5}-drafts
+Far :^{email_5}-remote:"[Gmail]/Drafts"
+Near :^{email_5}-local:Drafts
+
+Channel ^{email_5}-important
+Far :^{email_5}-remote:"[Gmail]/Important"
+Near :^{email_5}-local:Important
+
+Channel ^{email_5}-sent
+Far :^{email_5}-remote:"[Gmail]/Sent Mail"
+Near :^{email_5}-local:Sent
+
+Channel ^{email_5}-spam
+Far :^{email_5}-remote:"[Gmail]/Spam"
+Near :^{email_5}-local:Spam
+
+Channel ^{email_5}-starred
+Far :^{email_5}-remote:"[Gmail]/Starred"
+Near :^{email_5}-local:Starred
+
+Channel ^{email_5}-trash
+Far :^{email_5}-remote:"[Gmail]/Trash"
+Near :^{email_5}-local:Trash
+
+Channel ^{email_5}-get-folders
+Far :^{email_5}-remote:
+Near :^{email_5}-local:
+Patterns *
+Patterns !INBOX
+Patterns !Search
+Patterns !Sent
+Patterns !Spam
+Patterns !Trash
+Patterns ![Gmail]*
+Patterns !Archive
+Patterns !Drafts
+Patterns !Starred
+
+Group ^{email_5}
+Channel ^{email_5}-inbox
+Channel ^{email_5}-archive
+Channel ^{email_5}-drafts
+Channel ^{email_5}-important
+Channel ^{email_5}-sent
+Channel ^{email_5}-spam
+Channel ^{email_5}-starred
+Channel ^{email_5}-trash
+Channel ^{email_5}-get-folders
+################################################################################
+
+################################################################################
+#                                                                              #
+#                                  Account 6                                   #
+#                                                                              #
+################################################################################
+IMAPAccount ^{email_6}
+Host outlook.office365.com
+User singularisart@outlook.com
+PassCmd "get-password emails/account-6 neomutt"
+TLSType IMAPS
+AuthMechs XOAUTH2
+
+IMAPStore singularisart@outlook.com-remote
+Account singularisart@outlook.com
+
+MaildirStore singularisart@outlook.com-local
+Path ~/.local/share/mail/singularisart@outlook.com/
+Inbox ~/.local/share/mail/singularisart@outlook.com/INBOX
+SubFolders Verbatim
+
+Channel singularisart@outlook.com
+Far :singularisart@outlook.com-remote:
+Near :singularisart@outlook.com-local:
+Patterns Archive Drafts SentItems DeletedItems JunkEmail INBOX
+Expunge both
+CopyArrivalDate yes
+Sync All
+Create Near
+SyncState *
+################################################################################
+
+################################################################################
+#                                                                              #
+#                                  Account 7                                   #
+#                                                                              #
+################################################################################
+IMAPAccount ^{email_7}
+Host ^{email_7_server}
+User ^{email_7}
+PassCmd "^{email_7_password}"
+SSLType IMAPS
+AuthMechs LOGIN
+
+IMAPStore ^{email_7}-remote
+Account ^{email_7}
+
+MaildirStore ^{email_7}-local
+Path ~/.local/share/mail/^{email_7}/
+Inbox ~/.local/share/mail/^{email_7}/INBOX
+SubFolders Verbatim
+
+Channel ^{email_7}
+Far :^{email_7}-remote:INBOX
+Near :^{email_7}-local:INBOX
+Patterns Archive Drafts SentItems DeletedItems JunkEmail INBOX
+Expunge both
+CopyArrivalDate yes
+Sync All
+Create Near
+SyncState *
+################################################################################

@@ -1,0 +1,11 @@
+#!/usr/bin/bash
+
+echo "👨"
+
+case $BLOCK_BUTTON in
+	1) $HOME/Singularis/local/scripts/netflix ;;
+	3) notify-send "👨 Anime Module" "- Left Click to search for an anime" ;;
+	6) "$TERMINAL" -e "$EDITOR $0" ;;
+esac
+
+

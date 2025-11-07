@@ -1,0 +1,160 @@
+#######################################################################
+#                                                                     #
+#                               Macros                                #
+#                                                                     #
+#######################################################################
+
+macro browser gl "<exit><change-folder>?<toggle-mailboxes>" "go to 'Label'"                                           # Go to label                                         (gl)
+macro index,pager gl "<change-folder>?<toggle-mailboxes>" "go to 'Label'"                                             # Go to label                                         (gl)
+
+macro browser h "<change-dir><kill-line>..<enter>" "go to parent folder"                                              # Go to parent folder                                 (h)
+macro browser l "<change-dir><kill-line>..<enter>" "go to parent folder"                                              # Go to parent folder                                 (h)
+
+macro index m ";<save-message>?<toggle-mailboxes>" "move to..."                                                       # Save the message to another folder                  (m)
+macro pager m "<save-message>?<toggle-mailboxes>" "move to..."                                                        # Save the message to another folder                  (m)
+
+macro browser Mr "<rename-mailbox><enter>" "rename mailbox"                                                           # Rename mailbox                                      (Mr)
+macro browser Mc "<create-mailbox><enter>" "create mailbox"                                                           # Create mailbox                                      (Mc)
+macro browser Md "<delete-mailbox><enter>" "delete mailbox"                                                           # Delete mailbox                                      (Md)
+
+macro index gi "<change-folder>=INBOX<enter>" "go to inbox"                                                           # Go to inbox                                         (gi)
+macro index ga "<change-folder>=Archive<enter>" "go to all mail"                                                      # Go to all mail                                      (ga)
+macro index gd "<change-folder>=Drafts<enter>" "go to drafts"                                                         # Go to drafts                                        (gd)
+macro index gs "<change-folder>=Sent<enter>" "go to sent"                                                             # Go to sent                                          (gs)
+macro index gS "<change-folder>=Starred<enter>" "go to starred"                                                       # Go to sent                                          (gs)
+macro index gp "<change-folder>=Spam<enter>" "go to spam"                                                             # Go to spam                                          (gp)
+macro index gt "<change-folder>=Trash<enter>" "go to trash"                                                           # Go to spam                                          (gp)
+
+macro index Mi ";<save-message>=INBOX<enter>" "move to inbox"                                                         # Go to inbox                                         (gi)
+macro index Ma ";<save-message>=Archive<enter>" "move to all mail"                                                    # Go to all mail                                      (ga)
+macro index Md ";<save-message>=Drafts<enter>" "move to drafts"                                                       # Go to drafts                                        (gd)
+macro index Ms ";<save-message>=Sent<enter>" "move to sent"                                                           # Go to sent                                          (gs)
+macro index MS ";<save-message>=Starred<enter>" "move to starred"                                                     # Go to sent                                          (gs)
+macro index Mp ";<save-message>=Spam<enter>" "move to spam"                                                           # Go to spam                                          (gp)
+macro index Mt ";<save-message>=Trash<enter>" "move to trash"                                                         # Go to spam                                          (gp)
+
+macro index Ci ";<copy-message>=INBOX<enter>" "copy to inbox"                                                         # Go to inbox                                         (gi)
+macro index Ca ";<copy-message>=Archive<enter>" "copy to all mail"                                                    # Go to all mail                                      (ga)
+macro index Cd ";<copy-message>=Drafts<enter>" "copy to drafts"                                                       # Go to drafts                                        (gd)
+macro index Cs ";<copy-message>=Sent<enter>" "copy to sent"                                                           # Go to sent                                          (gs)
+macro index CS ";<copy-message>=Starred<enter>" "copy to starred"                                                     # Go to sent                                          (gs)
+macro index Cp ";<copy-message>=Spam<enter>" "copy to spam"                                                           # Go to spam                                          (gp)
+macro index Ct ";<copy-message>=Trash<enter>" "copy to trash"                                                         # Go to spam                                          (gp)
+
+macro index *a "<tag-pattern>~A<enter>" "select all"                                                                  # Select all messages in the current folder           (*a)
+macro index *n "<untag-pattern>~T<enter>" "deselect all"                                                              # Deselect all messages in the current folder         (*n)
+macro index *r "<untag-pattern>~T<enter><tag-pattern>~R<enter>" "select read"                                         # Select all read messages in the current folder      (*r)
+macro index *u "<untag-pattern>~T<enter><tag-pattern>~U<enter>" "select unread"                                       # Select all unread messages in the current folder    (*u)
+
+macro index *R "<tag-pattern>~N<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>" "mark all new as read"        # Mark all messages as read                           (*R)
+macro index *U "<tag-pattern>o<enter><tag-prefix><set-flag>N<untag-pattern>.<enter>" "mark all as unread"             # Mark all messages as unread                         (*U)
+
+macro index U "<tag-prefix><set-flag>N" "mark as unread"                                                              # Mark as unread                                      (U)
+macro index I "<tag-prefix><clear-flag>N" "mark as read"                                                              # Mark as read                                        (I)
+
+macro index t "<tag-message>" "tag thread"                                                                            # Tag the current message                             (t)
+macro index s "<tag-prefix><flag-message>" "star/unstar"                                                              # Star/unstar the message                             (s)
+
+macro index l "<limit>" "limit"                                                                                       # Limit the number of messages in the current folder  (l)
+
+macro index <return> "<display-message>\n<skip-headers>\n" "display message"                                          # Display the message                                 (<Return>)
+
+macro index \Ci "<limit>~F\n" "limit by flagged"                                                                      # Limit by flagged                                    (<C-i>)
+macro index O "<shell-escape>mbsync -a -c $HOME/.config/mbsync/mbsyncrc<enter>" "run mbsync to sync all mail"         # Sync all mail                                       (O)
+
+macro index,pager \Cl "<pipe-message>urlscan -d -w 80<enter>" "call urlscan to open links"                            # Call urlscan to open links                          (<C-l>)
+macro attach,compose \Cl "<pipe-entry> urlscan -d -w 80<Enter>" "call urlscan to extract URLs out of a message"       # Call urlscan to extract URLs out of a message       (<C-l>)
+
+macro index,pager a "<pipe-message>goobook add<return>" "add sender to contacts"                                      # Add sender to contacts                              (a)
+macro attach s "<save-entry><kill-line>~/Downloads/<enter>a" "save file to ~/Downloads"                               # Save file to ~/Downloads                            (s)
+
+
+#######################################################################
+#                                                                     #
+#                              Bindings                               #
+#                                                                     #
+#######################################################################
+
+bind pager j next-line                                     # Go to the next line           (j)
+bind pager k previous-line                                 # Go to the previous line       (k)
+bind index,attach,browser,query j next-entry               # Go to the next entry          (<j>)
+bind index,attach,browser,query k previous-entry           # Go to the previous entry      (<k>)
+
+bind pager <Down> next-line                                # Go to the next line           (<Down>)
+bind pager <Up> previous-line                              # Go to the previous line       (<Up>)
+bind index,attach,browser,query <Down> next-entry          # Go to the next entry          (<Down>)
+bind index,attach,browser,query <Up> previous-entry        # Go to the previous entry      (<Up>)
+
+bind pager G bottom                                        # Go to the bottom              (G)
+bind pager gg top                                          # Go to the top                 (gg)
+bind browser gg top-page                                   # Go to the top page            (gg)
+bind browser G bottom-page                                 # Go to the bottom page         (G)
+bind index,attach,browser,query G last-entry               # Go to the last entry          (<G>)
+bind index,attach,browser,query gg first-entry             # Go to the first entry         (<gg>)
+
+bind index zz current-middle                               # Go to current middle          (zz)
+bind index zt current-top                                  # Go to current top             (zt)
+bind index zb current-bottom                               # Go to current bottom          (zb)
+
+bind index,pager \Cu half-up                               # Go half-up                    (<C-u>)
+bind index,pager \Cd half-down                             # Go half-down                  (<C-d>)
+bind index,pager \Cp previous-unread                       # Go to previous unread message (<C-p>)
+
+bind index,pager d delete-message                          # Delete message                (d)
+bind index,pager D undelete-message                        # Undelete message              (D)
+
+bind index,pager L edit-label                              # Edit label                    (L)
+bind index,pager \Cr recall-message                        # Recall message                (<C-r>)
+bind index,pager $ sync-mailbox                            # Sync mailbox                  ($)
+bind index,pager,attach,editor,compose <F5> refresh        # Refresh                       (<F5>)
+
+bind index,pager r reply                                   # Reply to message              (r)
+bind index,pager R group-reply                             # Reply to all                  (R)
+bind index,pager F forward-message                         # Forward message               (F)
+
+bind index,pager n search-next                             # Search next                   (n)
+bind index,pager N search-opposite                         # Search opposite               (N)
+
+bind index,pager H view-raw-message                        # View raw message              (H)
+bind index,pager v view-attachments                        # View attachments              (v)
+bind index,pager | pipe-message                            # Pipe message                  (|)
+
+bind index,pager B sidebar-toggle-visible                  # Toggle sidebar                (B)
+bind index,pager \Cj sidebar-next                          # Go to next sidebar item       (<C-j>)
+bind index,pager \Ck sidebar-prev                          # Go to previous sidebar item   (<C-k>)
+bind index,pager \Co sidebar-open                          # Open sidebar                  (<C-o>)
+bind index,pager \Cn next-unread                           # Go to next unread message     (<C-n>)
+bind browser CC create-mailbox                             # Create a mailbox              (C)
+
+bind index t tag-entry                                     # Tag entry                     (t)
+bind index T tag-thread                                    # Tag thread                    (T)
+
+bind index <Tab> collapse-thread                           # Collapse thread               (<Tab>)
+bind index + link-threads                                  # Link threads                  (+)
+
+bind attach <return> view-mailcap                          # View mailcap                  (<Return>)
+bind attach,compose | pipe-entry                           # Pipe entry                    (|)
+
+bind index,pager c mail                                    # Compose message               (c)
+bind compose y send-message                                # Send message                  (y)
+bind compose a attach-file                                 # Attach file                   (a)
+bind compose p postpone-message                            # Postpone message              (p)
+bind compose e edit-message                                # Edit message                  (e)
+bind compose t edit-to                                     # Edit to                       (t)
+bind compose f edit-from                                   # Edit from                     (f)
+bind compose s edit-subject                                # Edit subject                  (s)
+bind compose c edit-cc                                     # Edit cc                       (c)
+bind compose b edit-bcc                                    # Edit bcc                      (b)
+bind compose r rename-file                                 # Rename file                   (r)
+bind compose F filter-entry                                # Filter entry                  (F)
+bind compose \Ct edit-type                                 # Edit type                     (<C-t>)
+bind compose \Ck move-up                                   # Move up                       (<C-k>)
+bind compose \Cj move-down                                 # Move down                     (<C-j>)
+
+bind editor <Tab> complete-query                           # Complete query                (<Tab>)
+
+bind browser,query <return> select-entry                   # Select entry                  (<Return>)
+
+bind index,attach,pager,browser,query,alias,compose q exit # Quit                          (q)
+
+set abort_key = "<Esc>"                                    # Set the abort key             (<Esc>)

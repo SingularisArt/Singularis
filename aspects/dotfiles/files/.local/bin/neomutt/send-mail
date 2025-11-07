@@ -1,0 +1,103 @@
+#!/usr/bin/env bash
+
+rofi() {
+  /usr/bin/rofi -markup-rows -kb-row-down Down -kb-custom-1 Ctrl+n -no-fixed-num-lines "$@"
+}
+
+queue_dir="$HOME/.config/msmtp/msmtp.queue"
+email=$(find ~/.local/share/mail/ -maxdepth 1 -name "*@*.*" -exec basename {} \; | rofi -dmenu -i -p "Select a folder")
+now_or_later=$(echo -e "Now\nLater" | rofi -dmenu -i -p "Send email now or later")
+
+if [ "$now_or_later" == "Later" ]; then
+  date=$(rofi -dmenu -i -p "Enter date and time" -mesg "Format: YYYY-MM-DD HH:MM, n days, n weeks, HH:MM, +HH:MM, HH:MM tomorrow, +HH:MM tomorrow, HH:MM n days, +HH:MM n days, HH:MM n weeks, +HH:MM n weeks")
+
+  # If the input is YYYY-MM-DD format
+  if echo "$date" | grep -E '^[0-9]{4}-[0-9]{2}-[0-9]{2}$' >/dev/null; then
+    date=$(date -d "$date" +"%Y-%m-%d-$(date +"%H.%M.00")")
+
+  # If the input is YYYY-MM-DD HH:MM format
+  elif echo "$date" | grep -E '^[0-9]{4}-[0-9]{2}-[0-9]{2}[[:space:]][0-2][0-9]:[0-5][0-9]$' >/dev/null; then
+    date=$(date -d "$date" +"%Y-%m-%d-%H.%M.00")
+
+  # If the input is tomorrow
+  elif echo "$date" | grep -E '^tomorrow$' >/dev/null; then
+    date=$(date -d "tomorrow" +"%Y-%m-%d-$(date +"%H.%M.00")")
+
+  # If the input is HH:MM tomorrow
+  elif echo "$date" | grep -E '^[0-2][0-9]:[0-5][0-9] tomorrow$' >/dev/null; then
+    time=$(echo "$date" | sed 's/ tomorrow$//')
+    date=$(date -d "tomorrow $time" +"%Y-%m-%d-%H.%M.00")
+
+  # If the input is n days
+  elif echo "$date" | grep -E '^[0-9]+ days$' >/dev/null; then
+    days=$(echo "$date" | sed 's/ days$//')
+    date=$(date -d "+$days days" +"%Y-%m-%d-%H.%M.00")
+
+  # If the input is n weeks
+  elif echo "$date" | grep -E '^[0-9]+ weeks$' >/dev/null; then
+    weeks=$(echo "$date" | sed 's/ weeks$//')
+    date=$(date -d "+$weeks weeks" +"%Y-%m-%d-%H.%M.00")
+
+  # If the input is in HH:MM format
+  elif echo "$date" | grep -E '^[0-2][0-9]:[0-5][0-9]$' >/dev/null; then
+    # Add the current date to the input time
+    date=$(date -d "$(date +"%Y-%m-%d") $date" +"%Y-%m-%d-%H.%M.00")
+
+  # If the input is in HH:MM n days format
+  elif echo "$date" | grep -E '^[0-2][0-9]:[0-5][0-9][[:space:]][0-9]+ days$' >/dev/null; then
+    time=$(echo "$date" | awk '{print $1}')
+    days=$(echo "$date" | awk '{print $2}' | sed 's/ days$//')
+    date=$(date -d "+$days days $time" +"%Y-%m-%d-%H.%M.00")
+
+  # If the input is in HH:MM n weeks format
+  elif echo "$date" | grep -E '^[0-2][0-9]:[0-5][0-9][[:space:]][0-9]+ weeks$' >/dev/null; then
+    time=$(echo "$date" | awk '{print $1}')
+    weeks=$(echo "$date" | awk '{print $2}' | sed 's/ weeks$//')
+    date=$(date -d "+$weeks weeks $time" +"%Y-%m-%d-%H.%M.00")
+  else
+    echo "Invalid date format. Please enter a valid date and time format."
+    exit 1
+  fi
+fi
+
+email_template_path="/tmp/email-template.mail"
+neomutt_source_path="/tmp/email.muttrc"
+
+cp -r "$HOME/.config/neomutt/email-template.mail" "$email_template_path"
+cp -r "$HOME/.config/neomutt/neomuttrc" "$neomutt_source_path"
+
+name=$(goobook query "$email" | sed 's/^[^\t]*\t//; s/\s\+home$//')
+name="${name//[$'\t\r\n']}"
+
+sed -i "s/From:/From: $name <$email>/g" "$email_template_path"
+sed -i "s/source-accounts/$email/g" "$neomutt_source_path"
+
+if [ "$now_or_later" == "Later" ]; then
+  echo "set sendmail = \"~/.local/bin/msmtp/enqueue.sh -a $email\"" >> "$neomutt_source_path"
+fi
+
+queue_files=$(ls -1 "$queue_dir")
+
+kitty --name "float-center" -- \
+  neomutt -F "$neomutt_source_path" \
+  -e 'set postpone=no sidebar_visible=no assumed_charset=utf-8' \
+  -H "$email_template_path"
+
+rm -rf "$email_template_path"
+rm -rf "$neomutt_source_path"
+
+if [ "$now_or_later" == "Later" ]; then
+  new_queue_files=$(ls -1 "$queue_dir")
+  new_file=$(comm -13 <(echo "$queue_files") <(echo "$new_queue_files"))
+
+  for file in $new_file; do
+    mv "$queue_dir/$file" "$queue_dir/$date.${file##*.}"
+  done
+
+  minute=$(echo "$date" | cut -d'-' -f4 | cut -d'.' -f1 | sed 's/^0*//')
+  hour=$(echo "$date" | cut -d'-' -f3 | cut -d'.' -f1 | sed 's/^0*//')
+  day=$(echo "$date" | cut -d'-' -f2 | sed 's/^0*//')
+  month=$(echo "$date" | cut -d'-' -f2 | cut -d'.' -f1 | sed 's/^0*//')
+
+  echo "$minute $hour $day $month * /bin/bash ~/.local/bin/msmtp/runqueue.sh \"$date\"" | crontab -
+fi

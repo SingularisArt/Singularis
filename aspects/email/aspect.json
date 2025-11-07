@@ -1,0 +1,116 @@
+{
+  "description": "My email setup",
+  "files": {
+    ".home": {},
+    ".config": {
+      "abook": "public",
+      "gcalcli": "public",
+      "glow": "public",
+      "goobook": "public",
+      "imapfilter": "public",
+      "khal": "public",
+      "khard": "public",
+      "neomutt": "public",
+      "vdirsyncer": "public"
+    },
+    ".local": {}
+  },
+  "templates": {
+    ".home": {},
+    ".config": {
+      "mbsync/mbsyncrc": [
+        "email_1",
+        "email_password_1",
+        "email_nickname_1",
+        "email_2",
+        "email_password_2",
+        "email_nickname_2",
+        "email_3",
+        "email_password_3",
+        "email_nickname_3",
+        "email_4",
+        "email_password_4",
+        "email_nickname_4",
+        "email_5",
+        "email_password_5",
+        "email_nickname_5"
+      ],
+      "msmtp/config": [
+        "email_1",
+        "email_1_host",
+        "email_1_port",
+        "email_1_password",
+        "email_2",
+        "email_2_host",
+        "email_2_port",
+        "email_2_password",
+        "email_3",
+        "email_3_host",
+        "email_3_port",
+        "email_3_password",
+        "email_4",
+        "email_4_host",
+        "email_4_port",
+        "email_4_password",
+        "email_5",
+        "email_5_host",
+        "email_5_port",
+        "email_5_password"
+      ],
+      "notmuch/config": [
+        "user",
+        "primary_email"
+      ]
+    },
+    ".local": {}
+  },
+  "packages": {
+    "aur": {
+      "abook": [
+        "abook"
+      ],
+      "gcalcli": [
+        "gcalcli"
+      ],
+      "glow": [
+        "glow"
+      ],
+      "goobook": [
+        "goobook"
+      ],
+      "imapfilter": [
+        "imapfilter"
+      ],
+      "khal": [
+        "khal"
+      ],
+      "khard": [
+        "khard"
+      ],
+      "neomutt": [
+        "neomutt"
+      ],
+      "vdirsyncer": [
+        "vdirsyncer"
+      ],
+      "mbsync": [
+        "mbsync",
+        "cyrus-sasl-xoauth2"
+      ],
+      "msmtp": [
+        "msmtp"
+      ],
+      "notmuch": [
+        "notmuch"
+      ]
+    },
+    "pacman": {},
+    "apt": {},
+    "apt-get": {},
+    "yum": {}
+  },
+  "libraries": {
+    "python": {},
+    "npm": {}
+  }
+}

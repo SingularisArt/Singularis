@@ -1,0 +1,14 @@
+[database]
+path=/home/^{user}/.local/share/mail
+[user]
+name=^{user}
+primary_email=^{primary_email}
+[new]
+tags=unread;inbox;
+ignore=.mbsyncstate;.uidvalidity
+[search]
+exclude_tags=deleted;spam;
+[maildir]
+synchronize_flags=true
+[crypto]
+gpg_path=gpg

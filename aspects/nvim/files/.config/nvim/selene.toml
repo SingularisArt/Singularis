@@ -1,0 +1,4 @@
+std="lua51+vim"
+
+[rules]
+mixed_table = "allow"

@@ -1,0 +1,18 @@
+#!/bin/sh
+
+threshold=30
+file_location=/tmp/batter-fully-checked
+
+acpi -b | awk -F'[,:%]' '{print $2, $3}' | {
+  read -r status capacity
+
+  if [ "$status" = Full ] && [ ! -f /tmp/batter-fully-checked ]; then
+    /usr/bin/notify-send --icon "/usr/share/icons/oomox-xresources-reverse-flat/status/scalable/battery-100-charging.svg" \
+      "Battery full!"
+    touch "$file_location"
+  elif [ "$status" = Discharging ] && [ "$capacity" -lt "$threshold" ]; then
+    /usr/bin/notify-send --icon "/usr/share/icons/oomox-xresources-reverse-flat/status/scalable/battery-030.svg" \
+      "Charge your battery!"
+    rm -rf "$file_location"
+  fi
+}

@@ -1,0 +1,7 @@
+#!/bin/sh
+
+# iterate over all files in the directory ~/Documents/OneDrive/
+for file in ~/Documents/OneDrive/*; do
+  echo $file
+  onedrive --confdir="$file/config"
+done

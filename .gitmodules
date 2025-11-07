@@ -1,0 +1,6 @@
+[submodule "pythonx"]
+	path = aspects/nvim/files/.config/nvim/pythonx
+	url = https://github.com/SingularisArt/snippet-dependencies
+[submodule "UltiSnips"]
+	path = aspects/nvim/files/.config/nvim/UltiSnips
+	url = https://github.com/SingularisArt/snippets

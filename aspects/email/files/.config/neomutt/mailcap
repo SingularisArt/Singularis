@@ -1,0 +1,78 @@
+# open html emails in browser
+text/html; /usr/bin/google-chrome-stable %s ; nametemplate=%s.html
+# text/html; ~/.local/bin/neomutt/beautiful-html-renderer %s; nametemplate=%s.html; copiousoutput;
+
+# show calendar invites
+# text/calendar; ~/.local/bin/neomutt/render-calendar-attachment %s; copiousoutput;
+# application/ics; ~/.local/bin/neomutt/mutt-viewical; copiousoutput;
+text/calendar; mutt-ics; copiousoutput
+application/ics; mutt-ics; copiousoutput
+
+# open images externally
+image/*; sxiv %s ;
+
+# open videos in mpv
+video/*; mpv --autofit-larger=90\%x90\% %s; needsterminal;
+# video/*; setsid mpv --quiet %s &; copiousoutput
+
+# open pdf in zathura
+application/pdf; zathura %s;
+
+# open plaintext emails in neovim
+text/plain; ~/.local/bin/neomutt/view-mail %s %{charset}; needsterminal
+
+# MS Excel
+application/x-msexcel; libreoffice --calc %s
+application/ms-exc; libreoffice --calc %s
+application/excel; libreoffice --calc %s
+application/msexcel; libreoffice --calc %s
+application/vnd.ms-exc; libreoffice --calc %s
+application/vnd.ms-excel; libreoffice --calc %s
+
+# MS Word
+application/msword; libreoffice --writer %s
+
+# Star/Open Office Writer
+application/vnd.sun.xml.writer; libreoffice --writer %s
+application/vnd.sun.xml.writer.global; libreoffice --writer %s
+application/vnd.stardivision.writer; libreoffice --writer %s
+application/vnd.stardivision.writer-global; libreoffice --writer %s
+application/x-starwriter; libreoffice --writer %s
+application/vnd.sun.xml.writer.template; libreoffice --writer %s
+
+# Star/Open Office Calc
+application/vnd.sun.xml.calc; libreoffice --calc %s
+application/vnd.stardivision.calc; libreoffice --calc %s
+application/x-starcalc; libreoffice --calc %s
+application/vnd.sun.xml.calc.template; libreoffice --calc %s
+
+# Star/Open Office Draw
+application/vnd.sun.xml.draw; libreoffice --draw %s
+application/vnd.stardivision.draw; libreoffice --draw %s
+application/x-stardraw; libreoffice --draw %s
+application/vnd.sun.xml.draw.template; libreoffice --draw %s
+
+# Star/Open Office Math
+application/vnd.sun.xml.math; libreoffice --math %s
+application/vnd.stardivision.math; libreoffice --math %s
+application/x-starmath; libreoffice --math %s
+
+# Office Impress
+application/x-starimpress; libreoffice --impress %s
+application/vnd.sun.xml.impress.template; libreoffice --impress %s
+application/vnd.sun.xml.impress; libreoffice --impress %s
+application/vnd.stardivision.impress; libreoffice --impress %s
+application/vnd.stardivision.impress-packed; libreoffice --impress %s
+
+# DOCX and things
+application/vnd.sun.xml.writer; libreoffice --writer %s
+application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; libreoffice --writer %s
+application/vnd.openxmlformats-officedocument.spreadsheetml.template; libreoffice --writer %s
+application/vnd.openxmlformats-officedocument.presentationml.template; libreoffice --writer %s
+application/vnd.openxmlformats-officedocument.presentationml.slideshow; libreoffice --writer %s
+application/vnd.openxmlformats-officedocument.presentationml.presentation; libreoffice --writer %s
+application/vnd.openxmlformats-officedocument.presentationml.slide; libreoffice --writer %s
+application/vnd.openxmlformats-officedocument.wordprocessingml.document; libreoffice --writer %s
+application/vnd.openxmlformats-officedocument.wordprocessingml.template; libreoffice --writer %s
+application/vnd.ms-excel.addin.macroEnabled.12; libreoffice --writer %s
+application/vnd.ms-excel.sheet.binary.macroEnabled.12; libreoffice --writer %s

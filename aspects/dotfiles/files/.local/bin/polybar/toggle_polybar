@@ -1,0 +1,10 @@
+#!/usr/bin/sh
+
+if [[ $(ps aux | grep 'polybar main --reload' | wc -l) > 1 ]]; then
+  echo "hi"
+  killall polybar
+  bspc config top_padding 0
+else
+  ~/.config/polybar/launch.sh
+  bspc config top_padding 32
+fi

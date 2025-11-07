@@ -1,0 +1,8 @@
+files/.config/neomutt/accounts/
+files/.config/neomutt/tmp/
+
+files/.config/msmtp/msmtp.queue/
+files/.config/msmtp/log/
+
+!files/.config/neomutt/accounts/account-template.muttrc
+!files/.config/neomutt/accounts/source-accounts-template.muttrc

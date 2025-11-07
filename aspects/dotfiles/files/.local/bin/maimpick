@@ -1,0 +1,29 @@
+#!/bin/sh
+
+# Get the options
+options="${options}Full Screen"
+options="${options}\nSelected Area"
+options="${options}\nCurrent Window"
+options="${options}\nFull Screen (Hide Cursor)"
+options="${options}\nSelected Area (Hide Cursor)"
+options="${options}\nCurrent Window (Hide Cursor)"
+
+pic_full="${HOME}/Documents/Screenshots/pic-full/$(date +%F)"
+pic_selected="${HOME}/Documents/Screenshots/pic-selected/$(date +%F)"
+pic_window="${HOME}/Documents/Screenshots/pic-window/$(date +%F)"
+
+# Create the folders
+mkdir -p "$pic_full"
+mkdir -p "$pic_selected"
+mkdir -p "$pic_window"
+
+file="$(date +%H:%M:%S).png"
+
+case "$(printf "$options" | rofi -i -dmenu)" in
+  "Full Screen")                  maim "${pic_full}/${file}" ;;
+  "Selected Area")                maim -s "${pic_selected}/${file}" ;;
+  "Current Window")               maim -i "$(xdotool getactivewindow)" "${pic_window}/${file}" ;;
+  "Full Screen (Hide Cursor)")    maim -u "${pic_full}/${file}" ;;
+  "Selected Area (Hide Cursor)")  maim -u -s "${pic_selected}/${file}" ;;
+  "Current Window (Hide Cursor)") maim -u -i "$(xdotool getactivewindow)" "${pic_window}/${file}" ;;
+esac

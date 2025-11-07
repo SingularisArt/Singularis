@@ -1,0 +1,60 @@
+#!/bin/bash
+
+rofi() {
+  /usr/bin/rofi -markup-rows -kb-row-down Down -kb-custom-1 Ctrl+n -no-fixed-num-lines "$@"
+}
+
+IFS='
+'
+
+lsblkoutput="$(lsblk -rpo "uuid,name,type,size,label,mountpoint,fstype")"
+allluks="$(echo "$lsblkoutput" | grep crypto_LUKS)"
+decrypted="$(find /dev/disk/by-id/* | sed "s|.*LUKS2-||;s|-.*||")"
+filter() { sed "s/ /:/g" | awk -F':' '$7==""{printf "%s%s (%s) %s\n",$1,$3,$5,$6}' ; }
+
+unopenedluks="$(for drive in $allluks; do
+uuid="${drive%% *}"
+uuid="${uuid//-}"
+for open in $decrypted; do
+  [ "$uuid" = "$open" ] && break 1
+done && continue 1
+echo "🔒 $drive"
+done | filter)"
+
+normalparts="$(echo "$lsblkoutput"| grep -v crypto_LUKS | grep 'part\|rom\|crypt' | sed "s/^/💾 /" | filter )"
+alldrives="$(echo "$unopenedluks
+$normalparts" | sed "/^$/d;s/ *$//")"
+
+set -e
+test -n "$alldrives"
+
+chosen="$(echo "$alldrives" | rofi -dmenu -p "Mount which drive?" -i)"
+
+getmount(){
+  mp="$(echo -e "/run/media/$USER\n/mnt\n/media\n/mount\n/home" | rofi -dmenu -i -p "Mount this drive where?")"
+  test -n "$mp"
+  if [ ! -d "$mp" ]; then
+    mkdiryn=$(printf "No\\nYes" | rofi -dmenu -i -p "$mp does not exist. Create it?")
+    [ "$mkdiryn" = "Yes" ] && (mkdir -p "$mp" || sudo -A mkdir -p "$mp")
+  fi
+}
+
+drivename=$(rofi -dmenu -no-fixed-num-lines -i -p "Name of mounted drive")
+
+chosen_tmp="$chosen"
+chosen="${chosen%% *}"
+chosen="${chosen:1}"
+
+case "$chosen_tmp" in
+  🔒*)
+    password='101!)!Hashem personal usb with sensative files Hashem!)!101'
+    password=$(rofi -dmenu -password -no-fixed-num-lines -p "Hard drive password")
+    echo "$password" | sudo cryptsetup luksOpen "$chosen" "$drivename"
+    ;;
+esac
+
+getmount
+
+sudo mkdir -p "$mp/$drivename"
+sudo -A mount "/dev/mapper/$drivename" "$mp/$drivename"
+notify-send "Mounted" "Mounted $chosen to $mp/$drivename"

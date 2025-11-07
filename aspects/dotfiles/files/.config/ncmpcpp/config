@@ -1,0 +1,65 @@
+ncmpcpp_directory = "~/.config/ncmpcpp"
+lyrics_directory = "~/.local/share/lyrics"
+mpd_music_dir = "~/Documents/Quran"
+
+message_delay_time = "1"
+
+visualizer_type = "spectrum"
+visualizer_output_name = "my_fifo"
+visualizer_in_stereo = "yes"
+visualizer_look = "+|"
+
+execute_on_song_change = `notify-send --icon="/usr/share/icons/oomox-xresources-reverse-flat/actions/scalable/music-library.svg" "Now Playing ♫" "$(mpc current)"`
+
+alternative_header_first_line_format = $b$1$aqqu$/a$9 {%t}|{%f} $1$atqq$/a$9$/b
+alternative_header_second_line_format = {{$4$b%a$/b$9}{ - $7%b$9}{ ($4%y$9)}}|{%D}
+
+current_item_inactive_column_prefix = $(green)$r
+current_item_inactive_column_suffix = $/r$(end)
+
+browser_display_mode = "columns"
+startup_screen = "media_library"
+display_volume_level = no
+use_console_editor = no
+external_editor = nvim
+display_bitrate = "yes"
+mouse_support = "yes"
+
+media_library_primary_tag = "album_artist"
+media_library_albums_split_by_date = "no"
+
+ignore_leading_the = "yes"
+user_interface = "alternative" (classic/alternative)
+
+playlist_disable_highlight_delay = "0"
+playlist_display_mode = columns
+browser_playlist_prefix = "$7playlist$9 "
+
+song_list_format = "{$8(%l)$9 }{%a - }{%t}|{$8%f$9}"
+song_columns_list_format = "(22)[blue]{a} (30)[red]{t} (29)[cyan]{b} (5)[blue]{y} (7)[green]{l} (1)[black]{C}"
+song_status_format = $b{{$8"%t"}} $3by {$4%a{ $3in $7%b{ (%y)}} $3}|{$8%f}
+song_library_format = "{%t}|{%f}"
+
+selected_item_prefix = "$8"
+selected_item_suffix = "$9"
+
+colors_enabled = "yes"
+empty_tag_color = "green"
+header_window_color = "white"
+volume_color = "white"
+state_line_color = "blue"
+state_flags_color = "blue"
+main_window_color = "blue"
+
+current_item_prefix = $(cyan)$r$b
+current_item_suffix = $/r$(end)$/b
+
+progressbar_color = black:b
+progressbar_elapsed_color = blue:b
+progressbar_look = ->
+
+statusbar_color = red
+statusbar_time_color = cyan:b
+
+window_border_color = "white"
+active_window_border = "magenta"

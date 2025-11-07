@@ -1,0 +1,8 @@
+{
+  "description": "My systemd setup",
+  "files": {
+    ".config": {
+      "systemd": "public"
+    }
+  }
+}

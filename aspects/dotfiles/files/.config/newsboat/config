@@ -1,0 +1,88 @@
+auto-reload yes
+cleanup-on-quit yes
+download-path "~/Videos/YouTube"
+feed-sort-order title-dec
+notify-always yes
+notify-format "newsbeuter: %n unread articles within %f unread feeds"
+notify-program notify-send
+notify-xterm yes
+notify-screen yes
+player mpv
+refresh-on-startup yes
+reload-time 20
+reload-threads 2
+show-read-articles yes
+show-read-feeds no
+external-url-viewer "urlscan -dc -r 'linkhandler {}'"
+
+
+# binds ----------------------------------------------------------------
+
+bind-key j down
+bind-key k up
+bind-key j next articlelist
+bind-key k prev articlelist
+bind-key J next-feed articlelist
+bind-key K prev-feed articlelist
+bind-key G end
+bind-key g home
+bind-key d pagedown
+bind-key u pageup
+bind-key l open
+bind-key h quit
+bind-key a toggle-article-read
+bind-key n next-unread
+bind-key N prev-unread
+bind-key D pb-download
+bind-key U show-urls
+bind-key x pb-delete
+
+# macros --------------------------------------------------------------
+
+browser linkhandler
+macro , open-in-browser
+macro t set browser "qndl" ; open-in-browser ; set browser linkhandler
+macro a set browser "tsp yt-dlp --embed-metadata -xic -f bestaudio/best" ; open-in-browser ; set browser linkhandler
+macro v set browser "setsid -f mpv" ; open-in-browser ; set browser linkhandler
+macro w set browser "lynx" ; open-in-browser ; set browser linkhandler
+macro d set browser "dmenuhandler" ; open-in-browser ; set browser linkhandler
+macro c set browser "echo %u | xclip -r -sel c" ; open-in-browser ; set browser linkhandler
+macro C set browser "youtube-viewer --comments=%u" ; open-in-browser ; set browser linkhandler
+macro p set browser "peertubetorrent %u 480" ; open-in-browser ; set browser linkhandler
+macro P set browser "peertubetorrent %u 1080" ; open-in-browser ; set browser linkhandler
+
+
+# hide articles matching: ---------------------------------------------
+
+ignore-article "*" "title =~ \"Sponsor\""
+ignore-article "*" "title =~ \"Advertisement\""
+ignore-mode "display"
+
+
+# formatting and colorization ------------------------------------------
+
+articlelist-format "%4i %f %D  %?T?|%-17T| ?%t"
+
+highlight feedlist    "^  *[0-9]+  *N  "                    magenta  default
+highlight articlelist "^  *[0-9]+  *N  "                    magenta  default
+
+highlight article     "(^Feed:.*|^Title:.*|^Author:.*)"     red      default
+highlight article     "(^Link:.*|^Date:.*)"                 white    default
+highlight article     "^Podcast Download URL:.*"            cyan     default
+highlight article     "^Links:"                             magenta  black    underline
+highlight article     "https?://[^ ]+"                      green    default
+highlight article     "^(Title):.*$"                        blue     default
+highlight article     "\\[[0-9][0-9]*\\]"                   magenta  default  bold
+highlight article     "\\[image\\ [0-9]+\\]"                green    default  bold
+highlight article     "\\[embedded flash: [0-9][0-9]*\\]"   green    default  bold
+highlight article     ":.*\\(link\\)$"                      cyan     default
+highlight article     ":.*\\(image\\)$"                     blue     default
+highlight article     ":.*\\(embedded flash\\)$"            magenta  default
+
+color background                                            default   default
+color listnormal                                            default   default
+color listfocus                                             magenta   default
+color info                                                  blue      black
+color article                                               default   default
+color listnormal_unread                                     white     default
+color listfocus_unread                                      color255  cyan
