@@ -1,1 +1,2 @@
 aspects/*/vars/private.yaml filter=git-crypt diff=git-crypt
+aspects/dotfiles/files/.config/git/credentials filter=git-crypt diff=git-crypt

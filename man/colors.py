@@ -1,4 +1,5 @@
 class Colors:
+
     def __init__(self):
         ########################
         # Background variables #
