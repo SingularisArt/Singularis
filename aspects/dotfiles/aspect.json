@@ -49,10 +49,7 @@
       "zsh": "public",
       "fehbg": "public"
     },
-    ".local": {
-      "bin": "public",
-      "share": "private"
-    }
+    ".local": {}
   },
   "templates": {
     ".config": {
